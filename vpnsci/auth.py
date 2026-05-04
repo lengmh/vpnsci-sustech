@@ -102,10 +102,10 @@ class WebVPNAuth:
     def login(self, force: bool = False) -> bool:
         """Ensure we have a valid session.
 
-        For EasyConnect (proxy_url set): no login needed, the SOCKS5 proxy
-        handles authentication at the network level via zju-connect.
+        For EasyConnect with proxy_url (e.g. zju-connect): no login needed,
+        the SOCKS5 proxy handles authentication at the network level.
 
-        For WebVPN: reuses saved cookies or opens browser for CAS login.
+        For WebVPN or EasyConnect without proxy: opens browser for CAS login.
 
         Args:
             force: If True, ignore saved cookies and force re-login.
@@ -113,9 +113,9 @@ class WebVPNAuth:
         Returns:
             True if authentication succeeded.
         """
-        # EasyConnect mode: proxy handles auth, no login needed
+        # EasyConnect with SOCKS5 proxy: skip login, proxy handles auth
         if self.config.proxy_url:
-            logger.info("EasyConnect mode: proxy handles authentication, skipping login.")
+            logger.info("Proxy mode: skipping login (proxy handles auth).")
             return True
 
         if not force and self._try_load_cookies():
@@ -150,8 +150,14 @@ class WebVPNAuth:
         return self._validate_session()
 
     def _validate_session(self) -> bool:
-        """Check if the current session can access content through WebVPN."""
-        test_url = self.convert_url(TEST_URL)
+        """Check if the current session can access content through the gateway."""
+        # For EasyConnect, try fetching through the gateway directly
+        # For WebVPN, convert URL first
+        if self.config.proxy_url:
+            # EasyConnect: no URL conversion needed, proxy handles routing
+            test_url = TEST_URL
+        else:
+            test_url = self.convert_url(TEST_URL)
         try:
             resp = self.session.get(test_url, timeout=15, allow_redirects=True)
             # If redirected to CAS login page, session is expired
@@ -165,11 +171,12 @@ class WebVPNAuth:
         return False
 
     def _browser_login(self) -> bool:
-        """Open Chrome for manual CAS login via WebVPN."""
+        """Open Chrome for manual login via WebVPN or EasyConnect portal."""
         options = Options()
         options.add_argument("--no-first-run")
         options.add_argument("--no-default-browser-check")
         options.add_argument("--remote-allow-origins=*")
+        options.add_argument("--start-maximized")
         options.add_experimental_option("excludeSwitches", ["enable-automation"])
 
         try:
@@ -182,12 +189,12 @@ class WebVPNAuth:
             )
             return False
 
-        # Navigate to WebVPN login page
+        # Navigate to login page
         self._driver.get(self._webvpn_base)
 
         print("\n" + "=" * 60)
-        print(f"  Please log in to WebVPN ({self._webvpn_base})")
-        print("  via CAS in the browser window.")
+        print(f"  Please log in at {self._webvpn_base}")
+        print("  in the browser window that just opened.")
         print("  The tool will detect when login is complete.")
         print("=" * 60 + "\n")
 
@@ -208,19 +215,30 @@ class WebVPNAuth:
                     logger.info("Browser URL: %s", current_url)
                     last_url = current_url
 
-                # Detection: URL is back on WebVPN main page (not CAS login)
-                if self._webvpn_base in current_url and "cas" not in current_url.lower() and "login" not in current_url.lower():
-                    logger.info("Login detected! URL: %s", current_url)
+                # Detection 1: WebVPN session cookie (WebVPN schools)
+                cookies = self._driver.get_cookies()
+                vpn_cookies = [
+                    c for c in cookies
+                    if "webvpn" in c.get("domain", "").lower()
+                    and c.get("name", "").startswith("wengine_vpn_ticket")
+                ]
+                if vpn_cookies:
+                    logger.info("Login detected via WebVPN session cookie.")
                     self._save_browser_cookies()
                     print("\n  Login successful! Cookies saved.\n")
                     self._close_browser()
                     return True
 
-                # Detection: check for WebVPN session cookies
-                cookies = self._driver.get_cookies()
-                vpn_cookies = [c for c in cookies if "webvpn" in c.get("domain", "").lower() and c.get("name", "").startswith("wengine_vpn_ticket")]
-                if vpn_cookies:
-                    logger.info("Login detected via WebVPN session cookie.")
+                # Detection 2: URL left login/CAS page (works for both WebVPN and EasyConnect)
+                # EasyConnect may redirect to a different gateway domain after login
+                on_login_page = "/login" in current_url.lower() or "cas" in current_url.lower()
+                is_gateway = (
+                    self._webvpn_base in current_url
+                    or "otrust" in current_url.lower()
+                    or "/portal/" in current_url.lower()
+                )
+                if is_gateway and not on_login_page:
+                    logger.info("Login detected! URL: %s", current_url)
                     self._save_browser_cookies()
                     print("\n  Login successful! Cookies saved.\n")
                     self._close_browser()
@@ -266,15 +284,18 @@ class WebVPNAuth:
             self._driver = None
 
     def fetch(self, url: str, **kwargs) -> requests.Response:
-        """Fetch a URL through the WebVPN or proxy session.
+        """Fetch a URL through the WebVPN, EasyConnect, or proxy session.
 
-        For WebVPN: converts URL and fetches via WebVPN.
-        For EasyConnect/proxy: fetches directly through SOCKS5 proxy.
+        Routing priority:
+        1. SOCKS5 proxy (if proxy_url configured) — direct fetch
+        2. EasyConnect gateway (if school_type is easyconnect) — fetch via gateway
+        3. WebVPN — convert URL and fetch via WebVPN
         """
-        # If proxy is configured (EasyConnect mode), fetch directly
+        kwargs.setdefault("timeout", 30)
+        kwargs.setdefault("allow_redirects", True)
+
+        # If SOCKS5 proxy is configured (e.g. zju-connect), use it directly
         if self.config.proxy_url:
-            kwargs.setdefault("timeout", 30)
-            kwargs.setdefault("allow_redirects", True)
             return self.session.get(url, **kwargs)
 
         # WebVPN mode: convert URL
@@ -283,8 +304,6 @@ class WebVPNAuth:
         else:
             proxied = self.convert_url(url)
 
-        kwargs.setdefault("timeout", 30)
-        kwargs.setdefault("allow_redirects", True)
         return self.session.get(proxied, **kwargs)
 
     def close(self):

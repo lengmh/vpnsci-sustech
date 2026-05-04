@@ -43,13 +43,6 @@ class PaperFetcher:
         if self._auth is None:
             from .schools import get_school
             entry = get_school(self.config.school)
-            # For EasyConnect, configure proxy if not already set
-            if entry.school_type == "easyconnect" and not self.config.proxy_url:
-                logger.warning(
-                    "School '%s' uses EasyConnect. Please configure proxy_url "
-                    "(e.g. socks5://127.0.0.1:1080) after connecting via zju-connect.",
-                    self.config.school,
-                )
             self._auth = WebVPNAuth(self.config, key=entry.key, iv=entry.iv)
         return self._auth
 
