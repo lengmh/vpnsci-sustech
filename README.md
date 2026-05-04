@@ -1,6 +1,6 @@
 # vpnsci
 
-多校 WebVPN 学术论文全文获取工具，支持 100+ 中国高校。可作为 [Claude Code](https://docs.anthropic.com/en/docs/claude-code) MCP Server 使用。
+多校 WebVPN 学术论文全文获取工具，支持 100+ 中国高校。提供标准 [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) Server，可与任何支持 MCP 的 AI Agent 集成使用（如 Claude Code、OpenCode、Cursor、Windsurf 等）。
 
 ## 工作原理
 
@@ -92,13 +92,31 @@ vpnsci search "silver nanowire" --fetch  # 搜索并获取全文
 vpnsci config-cmd --school 大连理工大学
 ```
 
-## Claude Code MCP 集成
+## MCP 集成
+
+vpnsci 提供标准 MCP Server（命令：`vpnsci-mcp`），可接入任何支持 MCP 协议的 AI Agent。
+
+### Claude Code
 
 ```bash
 claude mcp add vpnsci -- vpnsci-mcp
 ```
 
-注册后重启 Claude Code，即可用自然语言：
+### OpenCode / Cursor / Windsurf 等
+
+在对应工具的 MCP 配置文件中添加：
+
+```json
+{
+  "mcpServers": {
+    "vpnsci": {
+      "command": "vpnsci-mcp"
+    }
+  }
+}
+```
+
+注册后重启 Agent，即可用自然语言：
 
 > "帮我搜几篇关于钙钛矿太阳能电池的最新论文"
 > "把这篇 DOI 10.1038/xxx 的全文拉下来"
