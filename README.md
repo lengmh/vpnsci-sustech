@@ -28,7 +28,7 @@ vpnsci 通过 [MCP](https://modelcontextprotocol.io/) 协议接入 AI Agent，�
 
 ```bash
 # 安装
-pip install git+<repo-url>
+pip install git+https://github.com/Rimagination/vpnsci
 
 # 配置学校
 vpnsci config-cmd --school 你的学校
