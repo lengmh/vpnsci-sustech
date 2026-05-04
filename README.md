@@ -8,21 +8,11 @@
 
 vpnsci 通过 [MCP](https://modelcontextprotocol.io/) 协议接入 AI Agent，直接用自然语言交互即可。
 
-**配置方法**（以 Claude Code 为例）：
+**安装**：
 
-```bash
-claude mcp add vpnsci -- vpnsci-mcp
-```
+对你的 AI Agent 说：
 
-其他 MCP 工具（Cursor、Windsurf、OpenCode 等）在配置文件中添加：
-
-```json
-{
-  "mcpServers": {
-    "vpnsci": { "command": "vpnsci-mcp" }
-  }
-}
-```
+> 帮我安装这个 MCP 包：`pip install git+<repo-url>`，然后添加为 MCP server，名称 vpnsci，命令 vpnsci-mcp
 
 **使用示例**：
 
@@ -66,6 +56,7 @@ vpnsci schools
 
 - Python >= 3.10
 - Chrome 浏览器（首次校园网登录需要）
+- Docker（仅部分学校需要，Agent 会自动提示）
 
 ## 免责声明
 
