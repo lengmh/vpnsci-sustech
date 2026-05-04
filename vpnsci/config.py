@@ -16,6 +16,7 @@ class Config:
 
     school: str = ""  # School name (use 'vpnsci schools' to list, or configure via MCP)
     webvpn_base_url: str = ""  # Auto-resolved from school if empty
+    ezproxy_base_url: str = ""  # EZproxy URL prefix (e.g. http://eproxy.lib.hku.hk/login?url=)
     proxy_url: str = ""  # SOCKS5 proxy for EasyConnect (e.g. socks5://127.0.0.1:1080)
     email: str = ""  # Set via 'vpnsci config-cmd --email your@email.com'
     elsevier_api_key: str = ""  # Elsevier Developer Portal API key
@@ -43,14 +44,17 @@ class Config:
             self.chrome_profile_dir = str(base / "chrome-profile")
         if not self.carsi_cookie_dir:
             self.carsi_cookie_dir = str(base / "carsi_cookies")
-        # Auto-resolve webvpn_base_url from school if not set
-        if not self.webvpn_base_url and self.school:
+        # Auto-resolve webvpn_base_url / ezproxy_base_url from school if not set
+        if self.school and not self.webvpn_base_url and not self.ezproxy_base_url:
             try:
                 from .schools import get_school
                 entry = get_school(self.school)
-                self.webvpn_base_url = entry.host
+                if entry.school_type == "ezproxy":
+                    self.ezproxy_base_url = entry.host
+                else:
+                    self.webvpn_base_url = entry.host
             except ValueError:
-                pass  # School not found; user must set webvpn_base_url manually
+                pass  # School not found; user must set manually
 
     def ensure_dirs(self):
         """Create all necessary directories."""

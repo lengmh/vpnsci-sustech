@@ -2,6 +2,8 @@
 
 学术论文全文获取工具，支持 100+ 中国高校。通过 MCP 协议接入 AI Agent，用自然语言搜索和获取论文。
 
+**获取原理**：优先从免费来源（Unpaywall、arXiv）获取全文；找不到时通过学校 WebVPN、EZproxy 或 VPN 代理访问机构订阅资源；最后回退到 Semantic Scholar 获取元数据。
+
 ## 使用方式
 
 ### 通过 AI Agent（推荐）
@@ -50,7 +52,7 @@ vpnsci schools
 
 内置 100+ 高校配置，包括清华、北大、复旦、浙大、上海交大等。大部分学校可直接使用。
 
-少数学校需要额外配置 VPN 代理，首次使用时 Agent 会自动提示。
+少数学校需要额外配置 VPN 代理，首次使用时 Agent 会自动提示。支持 WebVPN、EZproxy、EasyConnect、aTrust 四种接入方式。
 
 ## 环境要求
 

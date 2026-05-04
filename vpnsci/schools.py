@@ -21,7 +21,7 @@ class SchoolEntry:
     host: str           # e.g. "https://webvpn.tsinghua.edu.cn"
     key: bytes          # AES encryption key (WebVPN only)
     iv: bytes           # AES encryption IV (WebVPN only)
-    school_type: str = "webvpn"  # "webvpn", "easyconnect", or "atrust"
+    school_type: str = "webvpn"  # "webvpn", "easyconnect", "atrust", or "ezproxy"
     gateway: str = ""   # EasyConnect/aTrust gateway domain (e.g. "otrust.ouc.edu.cn")
 
 

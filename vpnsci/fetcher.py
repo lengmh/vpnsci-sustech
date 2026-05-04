@@ -11,7 +11,7 @@ from urllib.parse import urlparse
 
 import requests
 
-from .auth import WebVPNAuth
+from .auth import EZProxyAuth, WebVPNAuth
 from .http_utils import request_with_retry
 from .carsi import CARSIClient, detect_publisher
 from .config import Config
@@ -34,16 +34,19 @@ class PaperFetcher:
     def __init__(self, config: Config | None = None):
         self.config = config or Config.load()
         self.config.ensure_dirs()
-        self._auth: WebVPNAuth | None = None
+        self._auth: WebVPNAuth | EZProxyAuth | None = None
         self._carsi: CARSIClient | None = None
         self._last_request_time = 0.0
 
     @property
-    def auth(self) -> WebVPNAuth:
+    def auth(self) -> WebVPNAuth | EZProxyAuth:
         if self._auth is None:
             from .schools import get_school
             entry = get_school(self.config.school)
-            self._auth = WebVPNAuth(self.config, key=entry.key, iv=entry.iv)
+            if entry.school_type == "ezproxy":
+                self._auth = EZProxyAuth(self.config, proxy_base=entry.host)
+            else:
+                self._auth = WebVPNAuth(self.config, key=entry.key, iv=entry.iv)
         return self._auth
 
     @property

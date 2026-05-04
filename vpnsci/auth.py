@@ -314,49 +314,177 @@ class WebVPNAuth:
             self._session = None
 
 
-# ──────────────────────────────────────────────────────────────
-# Reference: EZProxyAuth (for HKU-style EZproxy systems)
-# Not used by vpnsci directly, kept for reference.
-# ──────────────────────────────────────────────────────────────
-#
-# class EZProxyAuth:
-#     """Manages EZproxy authentication via Selenium and cookie persistence."""
-#
-#     EZPROXY_DOMAIN = "eproxy.lib.hku.hk"
-#
-#     def __init__(self, config: Config | None = None):
-#         self.config = config or Config()
-#         self.config.ensure_dirs()
-#         self._session: requests.Session | None = None
-#         self._driver: webdriver.Chrome | None = None
-#
-#     @property
-#     def session(self) -> requests.Session:
-#         if self._session is None:
-#             self._session = requests.Session()
-#             self._session.headers.update({
-#                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) ..."
-#             })
-#         return self._session
-#
-#     def login(self, force: bool = False) -> bool:
-#         if not force and self._try_load_cookies():
-#             return True
-#         return self._browser_login()
-#
-#     def get_proxied_url(self, url: str) -> str:
-#         if self.EZPROXY_DOMAIN in url:
-#             return url
-#         return self.config.proxy_base + url
-#
-#     def fetch(self, url: str, **kwargs) -> requests.Response:
-#         proxied = self.get_proxied_url(url)
-#         kwargs.setdefault("timeout", 30)
-#         kwargs.setdefault("allow_redirects", True)
-#         return self.session.get(proxied, **kwargs)
-#
-#     def close(self):
-#         self._close_browser()
-#         if self._session:
-#             self._session.close()
-#             self._session = None
+class EZProxyAuth:
+    """Manages EZproxy authentication and URL proxying.
+
+    EZproxy works by prepending a proxy URL prefix to the target URL.
+    Example: http://eproxy.lib.hku.hk/login?url=https://www.nature.com/...
+    """
+
+    def __init__(
+        self,
+        config: Config | None = None,
+        proxy_base: str = "",
+    ):
+        self.config = config or Config()
+        self.config.ensure_dirs()
+        self._proxy_base = proxy_base or self.config.ezproxy_base_url
+        self._session: requests.Session | None = None
+        self._driver: webdriver.Chrome | None = None
+
+    @property
+    def session(self) -> requests.Session:
+        if self._session is None:
+            self._session = requests.Session()
+            self._session.headers.update({
+                "User-Agent": (
+                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) "
+                    "Chrome/120.0.0.0 Safari/537.36"
+                )
+            })
+        return self._session
+
+    def login(self, force: bool = False) -> bool:
+        """Ensure we have a valid EZproxy session."""
+        if not force and self._try_load_cookies():
+            logger.info("Loaded saved EZproxy cookies.")
+            return True
+
+        logger.info("No valid EZproxy session. Opening browser for login...")
+        return self._browser_login()
+
+    def _try_load_cookies(self) -> bool:
+        """Try to load cookies from file and validate them."""
+        cookie_path = Path(self.config.cookie_path)
+        if not cookie_path.exists():
+            return False
+
+        try:
+            cookies = json.loads(cookie_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError) as e:
+            logger.warning("Failed to read cookies: %s", e)
+            return False
+
+        for cookie in cookies:
+            self.session.cookies.set(
+                cookie["name"],
+                cookie["value"],
+                domain=cookie.get("domain", ""),
+                path=cookie.get("path", "/"),
+            )
+
+        return self._validate_session()
+
+    def _validate_session(self) -> bool:
+        """Check if the current EZproxy session is still valid."""
+        try:
+            resp = self.session.get(self._proxy_base + TEST_URL, timeout=15, allow_redirects=True)
+            if "login" in resp.url.lower() or "cas" in resp.url.lower():
+                return False
+            return resp.status_code == 200
+        except requests.RequestException:
+            return False
+
+    def _browser_login(self) -> bool:
+        """Open Chrome for manual EZproxy login."""
+        options = Options()
+        options.add_argument("--no-first-run")
+        options.add_argument("--no-default-browser-check")
+        options.add_argument("--remote-allow-origins=*")
+        options.add_argument("--start-maximized")
+        options.add_experimental_option("excludeSwitches", ["enable-automation"])
+
+        try:
+            self._driver = webdriver.Chrome(options=options)
+        except Exception as e:
+            logger.error("Failed to start Chrome: %s", e)
+            return False
+
+        self._driver.get(self._proxy_base + TEST_URL)
+
+        print("\n" + "=" * 60)
+        print(f"  Please log in at the EZproxy page.")
+        print("  The tool will detect when login is complete.")
+        print("=" * 60 + "\n")
+
+        max_wait = 600
+        poll_interval = 3
+        elapsed = 0
+        last_url = ""
+
+        while elapsed < max_wait:
+            time.sleep(poll_interval)
+            elapsed += poll_interval
+
+            try:
+                current_url = self._driver.current_url
+
+                if current_url != last_url:
+                    logger.info("Browser URL: %s", current_url)
+                    last_url = current_url
+
+                # Detection: left login page and on a publisher page
+                on_login = "login" in current_url.lower() or "cas" in current_url.lower()
+                if not on_login and self._proxy_base not in current_url:
+                    logger.info("EZproxy login detected! URL: %s", current_url)
+                    self._save_browser_cookies()
+                    print("\n  Login successful! Cookies saved.\n")
+                    self._close_browser()
+                    return True
+
+            except Exception:
+                logger.warning("Browser connection lost.")
+                self._driver = None
+                return False
+
+        print("\n  Login timed out after 10 minutes.\n")
+        self._close_browser()
+        return False
+
+    def _save_browser_cookies(self):
+        """Save cookies from Selenium browser to file."""
+        if not self._driver:
+            return
+        cookies = self._driver.get_cookies()
+        cookie_path = Path(self.config.cookie_path)
+        cookie_path.write_text(
+            json.dumps(cookies, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+        logger.info("Saved %d cookies to %s", len(cookies), cookie_path)
+
+        for cookie in cookies:
+            self.session.cookies.set(
+                cookie["name"],
+                cookie["value"],
+                domain=cookie.get("domain", ""),
+                path=cookie.get("path", "/"),
+            )
+
+    def _close_browser(self):
+        if self._driver:
+            try:
+                self._driver.quit()
+            except Exception:
+                pass
+            self._driver = None
+
+    def get_proxied_url(self, url: str) -> str:
+        """Wrap a URL with the EZproxy prefix."""
+        # Don't double-proxy
+        if self._proxy_base and self._proxy_base.rstrip("/").split("//")[-1].split("/")[0] in url:
+            return url
+        return self._proxy_base + url
+
+    def fetch(self, url: str, **kwargs) -> requests.Response:
+        """Fetch a URL through the EZproxy."""
+        kwargs.setdefault("timeout", 30)
+        kwargs.setdefault("allow_redirects", True)
+        proxied = self.get_proxied_url(url)
+        return self.session.get(proxied, **kwargs)
+
+    def close(self):
+        self._close_browser()
+        if self._session:
+            self._session.close()
+            self._session = None

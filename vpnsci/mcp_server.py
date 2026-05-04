@@ -74,7 +74,12 @@ async def configure_school(school_name: str) -> str:
 
     config = Config.load()
     config.school = entry.name
-    config.webvpn_base_url = entry.host
+    if entry.school_type == "ezproxy":
+        config.ezproxy_base_url = entry.host
+        config.webvpn_base_url = ""
+    else:
+        config.webvpn_base_url = entry.host
+        config.ezproxy_base_url = ""
     config.save()
 
     # Reset fetcher so it picks up the new config
@@ -110,11 +115,18 @@ async def configure_school(school_name: str) -> str:
             "4. 登录成功后设置代理：`vpnsci config-cmd --proxy-url socks5://127.0.0.1:1080`\n\n"
             "注意：aTrust 不支持 zju-connect，必须使用 docker-easyconnect。"
         )
+    elif entry.school_type == "ezproxy":
+        type_guidance = (
+            "\n\n📚 **该校使用 EZproxy 图书馆代理**。首次获取论文时会弹出浏览器，"
+            "完成学校图书馆登录即可。"
+        )
+
+    type_label = {"webvpn": "WebVPN", "easyconnect": "EasyConnect", "atrust": "aTrust", "ezproxy": "EZproxy"}.get(entry.school_type, entry.school_type)
 
     return (
         f"✅ 已配置为 **{entry.name}**（{entry.province}）\n"
-        f"VPN 地址: {entry.host}\n"
-        f"类型: {entry.school_type}{type_guidance}\n\n"
+        f"代理地址: {entry.host}\n"
+        f"类型: {type_label}{type_guidance}\n\n"
         f"现在可以开始搜索和获取论文了。"
     )
 
