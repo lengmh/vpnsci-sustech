@@ -2,7 +2,7 @@
   "sciencedirect": {
     "name": "ScienceDirect (Elsevier)",
     "domains": ["sciencedirect.com", "elsevier.com"],
-    "login_url": "https://www.sciencedirect.com/institutional-login",
+    "login_url": "https://www.sciencedirect.com/user/institution/login?targetURL=%2F",
     "search_selector": "input#institution-search, input[placeholder*='institution'], input[placeholder*='机构']",
     "result_selector": ".institution-list a, .search-results a, [data-testid='institution-result']",
     "success_url_pattern": "sciencedirect.com",
@@ -11,7 +11,7 @@
   "springer": {
     "name": "Springer Nature",
     "domains": ["link.springer.com", "springer.com", "nature.com"],
-    "login_url": "https://link.springer.com/institutional-login",
+    "login_url": "https://wayf.springernature.com/?redirect_uri=https%3A%2F%2Flink.springer.com%2F",
     "search_selector": "input#institution, input[name='institution'], input[placeholder*='institution']",
     "result_selector": ".institution-list a, .search-result a, ul.institution-results a",
     "success_url_pattern": "springer.com",
@@ -47,7 +47,7 @@
   "nature": {
     "name": "Nature",
     "domains": ["nature.com"],
-    "login_url": "https://www.nature.com/institutional-login",
+    "login_url": "https://wayf.springernature.com/?redirect_uri=https%3A%2F%2Fwww.nature.com%2Farticles%2Fnphys1509",
     "search_selector": "input#institution, input[name='institution']",
     "result_selector": ".institution-list a, .search-results a",
     "success_url_pattern": "nature.com",

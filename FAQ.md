@@ -6,41 +6,60 @@
 
 ## 2. 支持哪些学校？
 
-内置 100+ 中国高校配置，包括清华、北大、复旦、浙大、上海交大、大连理工、东北大学、吉林大学等。运行 `vpnsci schools` 查看完整列表。大部分学校使用默认加密密钥，少数学校（如大连理工、东北大学）使用自定义密钥，已内置支持。
+内置 100+ 中国高校配置，包括清华、北大、复旦、浙大、上海交大、大连理工、东北大学、吉林大学等。运行 `vpnsci-sustech schools` 查看完整列表。大部分学校使用默认加密密钥，少数学校（如大连理工、东北大学）使用自定义密钥，已内置支持。
 
 ## 3. 如何切换学校？
 
 ```bash
-vpnsci config-cmd --school 大连理工大学
+vpnsci-sustech config-cmd --school 大连理工大学
 ```
 
-会自动设置 WebVPN 地址和加密密钥。用 `vpnsci schools` 查看可选学校。
+会自动设置 WebVPN 地址和加密密钥。用 `vpnsci-sustech schools` 查看可选学校。
 
 ## 4. Elsevier 网站经常提示人机验证，能顺利跳过吗？
 
 Elsevier 的反爬比较严格，通过 WebVPN 获取 Elsevier 论文可能会遇到 403。建议优先尝试 Unpaywall 的 OA 版本（程序会自动尝试）。如果 OA 没有，可以手动在浏览器中通过 WebVPN 下载 PDF。
+
+对于 SUSTech 当前验证结论更保守：
+
+- ScienceDirect 检索可以做
+- 自动下载当前不保证成功
+- 当前产品策略：**search only, no automatic download**
+
+也就是：能帮你找到论文，但不承诺自动把 ScienceDirect PDF 拉下来。
 
 ## 5. WebVPN session 会过期吗？
 
 会过期，通常几小时到一天（取决于学校设置）。过期后需要重新登录：
 
 ```bash
-vpnsci login --force
+vpnsci-sustech login --force
 ```
 
-可以在出门前运行 `vpnsci login` 预先登录保存 cookies。如果 session 过期，Open Access 和 arXiv 的论文仍然可以正常获取。
+可以在出门前运行 `vpnsci-sustech login` 预先登录保存 cookies。如果 session 过期，Open Access 和 arXiv 的论文仍然可以正常获取。
 
 ## 6. 浙大为什么不在列表里？
 
-浙大的 WebVPN 使用动态密钥方案（登录后从 `/user/info` API 获取密钥），与其他学校的静态密钥不同。目前 vpnsci 只支持静态密钥的学校，动态密钥支持计划在未来版本中添加。
+浙大的 WebVPN 使用动态密钥方案（登录后从 `/user/info` API 获取密钥），与其他学校的静态密钥不同。目前 vpnsci-sustech 只支持静态密钥的学校，动态密钥支持计划在未来版本中添加。
 
 ## 7. 加密密钥是怎么来的？
 
-大部分学校使用默认密钥 `wrdvpnisthebest!`。部分学校使用自定义密钥，这些数据来自开源项目 `lcandy2/webvpn-converter`。如果你的学校不在列表中但你知道它的密钥，可以手动编辑 `~/.vpnsci/config.json` 设置 `webvpn_base_url`。
+大部分学校使用默认密钥 `wrdvpnisthebest!`。部分学校使用自定义密钥，这些数据来自开源项目 `lcandy2/webvpn-converter`。如果你的学校不在列表中但你知道它的密钥，可以手动编辑 `~/.vpnsci-sustech/config.json` 设置 `webvpn_base_url`。
 
 ## 8. 需要安装什么环境？
 
 - Python >= 3.10
 - Chrome 浏览器（WebVPN CAS 登录需要）
 - 安装命令：`pip install -e .`
-- 注册到 Claude Code：`claude mcp add vpnsci -- vpnsci-mcp`
+- 注册到 Claude Code：`claude mcp add vpnsci-sustech -- vpnsci-sustech-mcp`
+
+## 9. 这个 fork 和上游 `vpnsci` 有什么区别？
+
+当前仓库是独立 fork，发布名和包名已区分：
+
+- 项目名：`vpnsci-sustech`
+- Python 包名：`vpnsci_sustech`
+- CLI 命令：`vpnsci-sustech`
+- MCP 命令：`vpnsci-sustech-mcp`
+
+它主要用于保留 fork 内的站点适配和 SUSTech / CARSI 相关行为，不影响上游 `vpnsci` 的命名空间。

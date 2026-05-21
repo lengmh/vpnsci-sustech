@@ -1,4 +1,4 @@
-"""CLI interface for vpnsci."""
+"""CLI interface for vpnsci-sustech."""
 
 import logging
 import os
@@ -24,7 +24,7 @@ from .schools import get_school, list_schools, search_schools
 from .sources import semantic_scholar
 
 app = typer.Typer(
-    name="vpnsci",
+    name="vpnsci-sustech",
     help="Fetch academic papers via WebVPN, Open Access, or arXiv.",
     no_args_is_help=True,
 )
@@ -293,7 +293,7 @@ def config_cmd(
     set_email: str = typer.Option("", "--email", help="Set email for Unpaywall API."),
     set_output: str = typer.Option("", "--output-dir", help="Set default output directory."),
     set_webvpn_url: str = typer.Option("", "--webvpn-url", help="Set WebVPN base URL."),
-    set_school: str = typer.Option("", "--school", help="Set school (use 'vpnsci schools' to list)."),
+    set_school: str = typer.Option("", "--school", help="Set school (use 'vpnsci-sustech schools' to list)."),
     set_proxy_url: str = typer.Option("", "--proxy-url", help="Set SOCKS5 proxy URL for EasyConnect."),
     set_elsevier_key: str = typer.Option("", "--elsevier-api-key", help="Set Elsevier API key."),
     set_elsevier_token: str = typer.Option("", "--elsevier-inst-token", help="Set Elsevier institutional token."),
@@ -332,7 +332,7 @@ def config_cmd(
             if entry.school_type == "easyconnect":
                 console.print("[yellow]This school uses EasyConnect. Please:[/yellow]")
                 console.print("  1. Connect via zju-connect: [cyan]zju-connect -server {0}[/cyan]".format(entry.host))
-                console.print("  2. Set proxy: [cyan]vpnsci config-cmd --proxy-url socks5://127.0.0.1:1080[/cyan]")
+                console.print("  2. Set proxy: [cyan]vpnsci-sustech config-cmd --proxy-url socks5://127.0.0.1:1080[/cyan]")
         except ValueError as e:
             console.print(f"[red]{e}[/red]")
             raise typer.Exit(1)
@@ -414,11 +414,11 @@ def carsi_login(
     config = Config.load()
 
     if not config.carsi_enabled:
-        console.print("[red]CARSI is not enabled. Run: vpnsci config-cmd --carsi-enable --carsi-school \"你的学校名\"[/red]")
+        console.print("[red]CARSI is not enabled. Run: vpnsci-sustech config-cmd --carsi-enable --carsi-school \"你的学校名\"[/red]")
         raise typer.Exit(1)
 
     if not config.carsi_idp_name:
-        console.print("[red]CARSI school not set. Run: vpnsci config-cmd --carsi-school \"你的学校名\"[/red]")
+        console.print("[red]CARSI school not set. Run: vpnsci-sustech config-cmd --carsi-school \"你的学校名\"[/red]")
         raise typer.Exit(1)
 
     if not publisher and url:

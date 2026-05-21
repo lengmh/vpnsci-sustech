@@ -1,4 +1,4 @@
-"""MCP server exposing vpnsci tools for AI agents supporting MCP protocol."""
+"""MCP server exposing vpnsci-sustech tools for AI agents supporting MCP protocol."""
 
 import asyncio
 import logging
@@ -20,17 +20,25 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-mcp = FastMCP("vpnsci")
+mcp = FastMCP("vpnsci-sustech")
 
 # Lazy-initialized shared fetcher instance
 _fetcher: PaperFetcher | None = None
 
+_SEARCH_ONLY_PUBLISHERS = {"sciencedirect"}
+
 
 def _get_fetcher() -> PaperFetcher | None:
-    """Get or create the fetcher singleton. Returns None if school not configured."""
+    """Get or create the fetcher singleton.
+
+    Allows CARSI-only usage even when `school` is empty, which is the main
+    SUSTech path for this fork.
+    """
     global _fetcher
     config = Config.load()
-    if not config.school:
+    has_school = bool(config.school)
+    has_carsi_only = bool(config.carsi_enabled and config.carsi_idp_name)
+    if not has_school and not has_carsi_only:
         return None
     if _fetcher is None:
         _fetcher = PaperFetcher(config)
@@ -46,9 +54,10 @@ def _reset_fetcher():
 
 
 _SCHOOL_NOT_CONFIGURED = (
-    "⚠️ 尚未配置学校。请先告诉我你的学校名称（如「兰州大学」），"
-    "我会帮你配置好再进行操作。\n\n"
-    "你也可以手动运行: vpnsci config-cmd --school 你的学校名称"
+    "⚠️ 尚未配置可用访问方式。\n\n"
+    "你可以二选一：\n"
+    "1. 配置内置学校：vpnsci-sustech config-cmd --school 学校名称\n"
+    "2. 走 CARSI-only：vpnsci-sustech config-cmd --carsi-enable --carsi-school \"Southern University of Science and Technology\""
 )
 
 
@@ -69,7 +78,7 @@ async def configure_school(school_name: str) -> str:
     except ValueError:
         return (
             f"未找到学校「{school_name}」。"
-            f"请确认学校名称，或使用 vpnsci schools 搜索支持的学校列表。"
+            f"请确认学校名称，或使用 vpnsci-sustech schools 搜索支持的学校列表。"
         )
 
     config = Config.load()
@@ -97,7 +106,7 @@ async def configure_school(school_name: str) -> str:
             "     -e EC_VER=7.6.3 -e VPN_ADDR=<VPN地址> hagb/docker-easyconnect\n"
             "   ```\n"
             "2. 浏览器打开 `http://127.0.0.1:8888` 完成登录\n"
-            "3. 登录成功后设置代理：`vpnsci config-cmd --proxy-url socks5://127.0.0.1:1080`\n\n"
+            "3. 登录成功后设置代理：`vpnsci-sustech config-cmd --proxy-url socks5://127.0.0.1:1080`\n\n"
             "部分学校也可尝试 [zju-connect](https://github.com/THU-wzj/zju-connect)（更轻量但兼容性有限）。"
         )
     elif entry.school_type == "atrust":
@@ -112,7 +121,7 @@ async def configure_school(school_name: str) -> str:
             f"     -e EC_VER=7.6.3 -e VPN_ADDR={gateway} hagb/docker-easyconnect\n"
             "   ```\n"
             "3. 浏览器打开 `http://127.0.0.1:8888` 完成登录\n"
-            "4. 登录成功后设置代理：`vpnsci config-cmd --proxy-url socks5://127.0.0.1:1080`\n\n"
+            "4. 登录成功后设置代理：`vpnsci-sustech config-cmd --proxy-url socks5://127.0.0.1:1080`\n\n"
             "注意：aTrust 不支持 zju-connect，必须使用 docker-easyconnect。"
         )
     elif entry.school_type == "ezproxy":
@@ -132,6 +141,24 @@ async def configure_school(school_name: str) -> str:
 
 
 @mcp.tool()
+async def configure_carsi_school(carsi_school_name: str) -> str:
+    """Configure CARSI/Shibboleth school name directly.
+
+    This is the recommended SUSTech path for this fork, even if the school is
+    not in the upstream built-in school list.
+    """
+    config = Config.load()
+    config.carsi_enabled = True
+    config.carsi_idp_name = carsi_school_name
+    config.save()
+    _reset_fetcher()
+    return (
+        f"✅ 已启用 CARSI，并设置学校为：{carsi_school_name}\n\n"
+        "对于南方科技大学，推荐保持 school 为空，优先走 CARSI 路径。"
+    )
+
+
+@mcp.tool()
 async def fetch_paper(identifier: str, format: str = "markdown") -> str:
     """Fetch an academic paper's full text by DOI or URL.
 
@@ -145,6 +172,13 @@ async def fetch_paper(identifier: str, format: str = "markdown") -> str:
     fetcher = _get_fetcher()
     if fetcher is None:
         return _SCHOOL_NOT_CONFIGURED
+
+    lowered = identifier.lower()
+    if any(pub in lowered for pub in _SEARCH_ONLY_PUBLISHERS):
+        return (
+            "⚠️ 当前版本对 ScienceDirect 暂时标记为：只搜索，不下载。\n\n"
+            "原因：SUSTech 权限存在、人工浏览器可访问，但自动抓取仍会被 Elsevier 人机验证/403 拦截。"
+        )
 
     paper = await asyncio.to_thread(fetcher.fetch, identifier)
 

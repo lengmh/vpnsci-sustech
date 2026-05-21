@@ -1,4 +1,4 @@
-"""VpnSci - Academic paper fetcher with multi-university WebVPN support."""
+"""vpnsci-sustech - SUSTech-oriented academic paper fetcher and MCP toolset."""
 
 from .config import Config
 from .fetcher import PaperFetcher

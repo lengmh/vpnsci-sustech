@@ -1,4 +1,4 @@
-"""Configuration management for vpnsci."""
+"""Configuration management for vpnsci-sustech."""
 
 import json
 import logging
@@ -7,18 +7,18 @@ from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_BASE_DIR = Path.home() / ".vpnsci"
+DEFAULT_BASE_DIR = Path.home() / ".vpnsci-sustech"
 
 
 @dataclass
 class Config:
     """VpnSci configuration."""
 
-    school: str = ""  # School name (use 'vpnsci schools' to list, or configure via MCP)
+    school: str = ""  # School name (use 'vpnsci-sustech schools' to list, or configure via MCP)
     webvpn_base_url: str = ""  # Auto-resolved from school if empty
     ezproxy_base_url: str = ""  # EZproxy URL prefix (e.g. http://eproxy.lib.hku.hk/login?url=)
     proxy_url: str = ""  # SOCKS5 proxy for EasyConnect (e.g. socks5://127.0.0.1:1080)
-    email: str = ""  # Set via 'vpnsci config-cmd --email your@email.com'
+    email: str = ""  # Set via 'vpnsci-sustech config-cmd --email your@email.com'
     elsevier_api_key: str = ""  # Elsevier Developer Portal API key
     elsevier_inst_token: str = ""  # Optional Elsevier institutional token
     flaresolverr_url: str = "http://127.0.0.1:8191/v1"  # FlareSolverr service URL

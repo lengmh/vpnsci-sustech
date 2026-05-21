@@ -119,5 +119,5 @@ def get_school(name: str) -> SchoolEntry:
 
     raise ValueError(
         f"School not found: '{name}'. "
-        f"Use 'vpnsci schools' to list available schools."
+        f"Use 'vpnsci-sustech schools' to list available schools."
     )

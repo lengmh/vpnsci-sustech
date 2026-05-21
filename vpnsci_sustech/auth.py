@@ -172,6 +172,10 @@ class WebVPNAuth:
 
     def _browser_login(self) -> bool:
         """Open Chrome for manual login via WebVPN or EasyConnect portal."""
+        if not self._webvpn_base:
+            logger.error("WebVPN base URL is not configured.")
+            return False
+
         options = Options()
         options.add_argument("--no-first-run")
         options.add_argument("--no-default-browser-check")

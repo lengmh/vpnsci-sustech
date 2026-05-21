@@ -35,7 +35,7 @@ desktop.ini
 .env.local
 .env.*.local
 
-# Runtime data (created in ~/.vpnsci/)
+# Runtime data (created in ~/.vpnsci-sustech/)
 cookies.json
 config.json
 chrome-profile/

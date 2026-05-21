@@ -6,6 +6,7 @@ import logging
 import random
 import re
 import time
+import base64
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -95,9 +96,28 @@ class PaperFetcher:
             url = self._resolve_doi(doi)
             paper.url = url or ""
 
+        # If DOI resolves to arXiv, prefer direct arXiv fetching before any proxy path.
+        if url and "arxiv.org" in url.lower():
+            arxiv_id = arxiv.extract_arxiv_id(url)
+            if arxiv_id:
+                return self._fetch_arxiv(arxiv_id, paper)
+
         if not url:
             logger.error("Could not determine URL for: %s", identifier)
             return paper
+
+        publisher = detect_publisher(url)
+
+        # Some publisher article pages are directly readable without a
+        # federated-login hop even when the PDF is not openly linked.
+        if publisher == "nature":
+            direct_paper = self._try_direct_html(url, paper)
+            if direct_paper and len(direct_paper.full_text or "") >= MIN_FULLTEXT_LEN:
+                if direct_paper.doi:
+                    self._save_cache(direct_paper)
+                return direct_paper
+            if direct_paper and (direct_paper.title or direct_paper.abstract or direct_paper.authors):
+                paper = direct_paper
 
         # Step 3: Try CARSI-authenticated publisher access (before WebVPN)
         if self.config.carsi_enabled and doi:
@@ -110,6 +130,12 @@ class PaperFetcher:
                 if carsi_paper and len(carsi_paper.full_text or "") >= MIN_FULLTEXT_LEN:
                     self._save_cache(carsi_paper)
                     return carsi_paper
+        elif self.config.carsi_enabled and publisher:
+            carsi_paper = self._try_carsi_html(url, paper)
+            if carsi_paper:
+                if carsi_paper.doi and len(carsi_paper.full_text or "") >= MIN_FULLTEXT_LEN:
+                    self._save_cache(carsi_paper)
+                return carsi_paper
 
         # Step 4: Try direct publisher PDF URL construction (before WebVPN HTML)
         if doi and not paper.pdf_path:
@@ -353,6 +379,8 @@ class PaperFetcher:
 
     def _try_carsi_html(self, url: str, paper: Paper) -> Paper | None:
         """Try to fetch and extract content via CARSI-authenticated session."""
+        from bs4 import BeautifulSoup
+
         logger.info("Trying CARSI HTML: %s", url)
         self._rate_limit()
         try:
@@ -380,10 +408,267 @@ class PaperFetcher:
             self._apply_extracted(paper_copy, extracted)
             paper_copy.source = "carsi"
 
+            # Also inspect the HTML for explicit PDF links/metadata before giving up.
+            discovered_pdf_url = self._find_pdf_link(resp.text, url)
+            if discovered_pdf_url:
+                logger.info("Following discovered CARSI PDF URL: %s", discovered_pdf_url)
+                viewer_resp = self.carsi.fetch(discovered_pdf_url)
+                viewer_resp.raise_for_status()
+                viewer_ct = viewer_resp.headers.get("content-type", "").lower()
+                # IEEE may bounce requests back to the article/login page unless the
+                # PDF is opened inside a real browser context.
+                if viewer_resp.url.rstrip("/") == url.rstrip("/") or "login.jsp" in viewer_resp.url.lower():
+                    browser_pdf = self._download_pdf_via_browser(url, discovered_pdf_url)
+                    if browser_pdf:
+                        pdf_bytes, final_pdf_url = browser_pdf
+                        paper_copy.url = final_pdf_url or discovered_pdf_url
+                        paper_copy.full_text = pdf_extractor.extract_from_bytes(pdf_bytes)
+                        pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=paper_copy.url, title=paper_copy.title), pdf_bytes)
+                        paper_copy.pdf_path = str(pdf_path) if pdf_path else ""
+                        return paper_copy
+                if "pdf" in viewer_ct:
+                    paper_copy.url = discovered_pdf_url
+                    paper_copy.full_text = pdf_extractor.extract_from_bytes(viewer_resp.content)
+                    pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=paper_copy.url, title=paper_copy.title), viewer_resp.content)
+                    paper_copy.pdf_path = str(pdf_path) if pdf_path else ""
+                    return paper_copy
+
+                viewer_soup = BeautifulSoup(viewer_resp.text, "lxml")
+                iframe = viewer_soup.select_one("iframe[src*='stampPDF/getPDF.jsp'], iframe[src*='.pdf'], embed[src*='.pdf'], object[data*='.pdf']")
+                if iframe:
+                    pdf_url = iframe.get("src") or iframe.get("data")
+                    if pdf_url:
+                        pdf_url = self._resolve_url(pdf_url, f"{urlparse(url).scheme}://{urlparse(url).netloc}")
+                        logger.info("Following discovered nested CARSI PDF URL: %s", pdf_url)
+                        pdf_resp = self.carsi.fetch(pdf_url)
+                        pdf_resp.raise_for_status()
+                        if "pdf" in pdf_resp.headers.get("content-type", "").lower():
+                            paper_copy.url = pdf_url
+                            paper_copy.full_text = pdf_extractor.extract_from_bytes(pdf_resp.content)
+                            pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=paper_copy.url, title=paper_copy.title), pdf_resp.content)
+                            paper_copy.pdf_path = str(pdf_path) if pdf_path else ""
+                            return paper_copy
+                        browser_pdf = self._download_pdf_via_browser(url, pdf_url)
+                        if browser_pdf:
+                            pdf_bytes, final_pdf_url = browser_pdf
+                            paper_copy.url = final_pdf_url or pdf_url
+                            paper_copy.full_text = pdf_extractor.extract_from_bytes(pdf_bytes)
+                            pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=paper_copy.url, title=paper_copy.title), pdf_bytes)
+                            paper_copy.pdf_path = str(pdf_path) if pdf_path else ""
+                            return paper_copy
+
+            # IEEE-style viewer indirection: article page -> stamp.jsp -> iframe PDF URL
+            soup = BeautifulSoup(resp.text, "lxml")
+            pdf_viewer_url = None
+            for selector in [
+                "iframe[src*='stampPDF/getPDF.jsp']",
+                "iframe[src*='.pdf']",
+                "embed[src*='.pdf']",
+                "object[data*='.pdf']",
+                "a[href*='stamp/stamp.jsp']",
+            ]:
+                node = soup.select_one(selector)
+                if node:
+                    pdf_viewer_url = node.get("src") or node.get("data") or node.get("href")
+                    if pdf_viewer_url:
+                        pdf_viewer_url = self._resolve_url(pdf_viewer_url, f"{urlparse(url).scheme}://{urlparse(url).netloc}")
+                        break
+
+            if pdf_viewer_url:
+                logger.info("Following CARSI PDF viewer/link: %s", pdf_viewer_url)
+                viewer_resp = self.carsi.fetch(pdf_viewer_url)
+                viewer_resp.raise_for_status()
+                viewer_ct = viewer_resp.headers.get("content-type", "").lower()
+                if "pdf" in viewer_ct:
+                    paper_copy.url = pdf_viewer_url
+                    paper_copy.full_text = pdf_extractor.extract_from_bytes(viewer_resp.content)
+                    pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=paper_copy.url, title=paper_copy.title), viewer_resp.content)
+                    paper_copy.pdf_path = str(pdf_path) if pdf_path else ""
+                    paper_copy.source = "carsi"
+                    return paper_copy
+
+                viewer_soup = BeautifulSoup(viewer_resp.text, "lxml")
+                iframe = viewer_soup.select_one("iframe[src*='stampPDF/getPDF.jsp'], iframe[src*='.pdf'], embed[src*='.pdf'], object[data*='.pdf']")
+                if iframe:
+                    pdf_url = iframe.get("src") or iframe.get("data")
+                    if pdf_url:
+                        pdf_url = self._resolve_url(pdf_url, f"{urlparse(url).scheme}://{urlparse(url).netloc}")
+                        logger.info("Following CARSI nested PDF URL: %s", pdf_url)
+                        pdf_resp = self.carsi.fetch(pdf_url)
+                        pdf_resp.raise_for_status()
+                        if "pdf" in pdf_resp.headers.get("content-type", "").lower():
+                            paper_copy.url = pdf_url
+                            paper_copy.full_text = pdf_extractor.extract_from_bytes(pdf_resp.content)
+                            pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=paper_copy.url, title=paper_copy.title), pdf_resp.content)
+                            paper_copy.pdf_path = str(pdf_path) if pdf_path else ""
+                            paper_copy.source = "carsi"
+                            return paper_copy
+
+                        browser_pdf = self._download_pdf_via_browser(url, pdf_url)
+                        if browser_pdf:
+                            pdf_bytes, final_pdf_url = browser_pdf
+                            paper_copy.url = final_pdf_url or pdf_url
+                            paper_copy.full_text = pdf_extractor.extract_from_bytes(pdf_bytes)
+                            pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=paper_copy.url, title=paper_copy.title), pdf_bytes)
+                            paper_copy.pdf_path = str(pdf_path) if pdf_path else ""
+                            paper_copy.source = "carsi"
+                            return paper_copy
+
             if len(paper_copy.full_text or "") >= MIN_FULLTEXT_LEN:
+                return paper_copy
+            if paper_copy.title or paper_copy.abstract or paper_copy.authors:
                 return paper_copy
         except requests.RequestException as e:
             logger.warning("CARSI HTML failed: %s", e)
+        return None
+
+    def _try_direct_html(self, url: str, paper: Paper) -> Paper | None:
+        """Try direct publisher access before authenticated fallbacks."""
+        logger.info("Trying direct HTML: %s", url)
+        self._rate_limit()
+        try:
+            resp = request_with_retry("GET", url, timeout=30)
+            resp.raise_for_status()
+        except requests.RequestException as e:
+            logger.info("Direct HTML failed: %s", e)
+            return None
+
+        content_type = resp.headers.get("content-type", "").lower()
+        result = Paper(
+            doi=paper.doi,
+            title=paper.title,
+            authors=paper.authors,
+            journal=paper.journal,
+            year=paper.year,
+            abstract=paper.abstract,
+            url=resp.url or url,
+            source="direct",
+        )
+
+        if "pdf" in content_type:
+            result.full_text = pdf_extractor.extract_from_bytes(resp.content)
+            pdf_path = self._save_pdf(self._pdf_stem(doi=result.doi, url=result.url, title=result.title), resp.content)
+            result.pdf_path = str(pdf_path) if pdf_path else ""
+            return result
+
+        extracted = html_extractor.extract(resp.text, resp.url)
+        self._apply_extracted(result, extracted)
+        return result if (result.title or result.abstract or result.full_text or result.authors) else None
+
+    def _download_pdf_via_browser(self, article_url: str, pdf_url: str) -> tuple[bytes, str] | None:
+        """Fallback: use a real Chrome session to download/capture a browser-bound PDF."""
+        from selenium import webdriver
+        from selenium.webdriver.chrome.options import Options
+        from selenium.webdriver.common.by import By
+        from pathlib import Path
+
+        download_dir = Path(self.config.cache_dir) / "browser_pdf_download"
+        download_dir.mkdir(parents=True, exist_ok=True)
+        for p in download_dir.iterdir():
+            if p.is_file():
+                try:
+                    p.unlink()
+                except OSError:
+                    pass
+
+        opts = Options()
+        opts.add_argument("--no-first-run")
+        opts.add_argument("--no-default-browser-check")
+        opts.add_argument("--remote-allow-origins=*")
+        opts.add_argument("--start-maximized")
+        opts.add_experimental_option("excludeSwitches", ["enable-automation"])
+        opts.set_capability("goog:loggingPrefs", {"performance": "ALL"})
+        opts.add_experimental_option("prefs", {
+            "download.default_directory": str(download_dir),
+            "download.prompt_for_download": False,
+            "download.directory_upgrade": True,
+            "safebrowsing.enabled": True,
+            "plugins.always_open_pdf_externally": True,
+        })
+
+        driver = None
+        try:
+            driver = webdriver.Chrome(options=opts)
+            driver.execute_cdp_cmd("Network.enable", {})
+            # Warm up IEEE institutional access in a real browser session first.
+            if "ieeexplore.ieee.org" in article_url.lower():
+                driver.get("https://ieeexplore.ieee.org/servlet/wayf.jsp")
+                time.sleep(6)
+
+            driver.get(article_url)
+            time.sleep(5)
+            driver.get(pdf_url)
+            time.sleep(8)
+
+            logs = driver.get_log("performance")
+            pdf_request_id = None
+            final_pdf_url = pdf_url
+            for entry in logs:
+                try:
+                    msg = json.loads(entry["message"])["message"]
+                    if msg.get("method") != "Network.responseReceived":
+                        continue
+                    params = msg.get("params", {})
+                    resp = params.get("response", {})
+                    url = resp.get("url", "")
+                    mime = (resp.get("mimeType") or "").lower()
+                    if "application/pdf" in mime and "ieeexplore.ieee.org" in url:
+                        pdf_request_id = params.get("requestId")
+                        final_pdf_url = url
+                        break
+                except Exception:
+                    continue
+
+            if not pdf_request_id:
+                return None
+
+            try:
+                body = driver.execute_cdp_cmd("Network.getResponseBody", {"requestId": pdf_request_id})
+                data = body.get("body", "")
+                if body.get("base64Encoded"):
+                    pdf_bytes = base64.b64decode(data)
+                else:
+                    pdf_bytes = data.encode("utf-8", errors="ignore")
+                if pdf_bytes.startswith(b"%PDF"):
+                    return pdf_bytes, final_pdf_url
+            except Exception as e:
+                logger.debug("CDP PDF body capture failed, falling back to browser download: %s", e)
+
+            # IEEE often serves a viewer page with an iframe pointing to the real PDF.
+            pdf_download_url = pdf_url
+            for el in driver.find_elements(By.CSS_SELECTOR, "iframe, embed, object"):
+                src = el.get_attribute("src") or el.get_attribute("data")
+                if src and ("stampPDF/getPDF.jsp" in src or src.lower().endswith(".pdf")):
+                    pdf_download_url = self._resolve_url(src, f"{urlparse(article_url).scheme}://{urlparse(article_url).netloc}")
+                    break
+
+            # If CDP body is not a real PDF, try Chrome's own download flow.
+            driver.get(pdf_download_url)
+            downloaded = self._wait_for_browser_download(download_dir, timeout=45)
+            if downloaded:
+                pdf_bytes, file_path = downloaded
+                return pdf_bytes, pdf_download_url
+        except Exception as e:
+            logger.warning("Browser PDF fallback failed: %s", e)
+        finally:
+            if driver:
+                try:
+                    driver.quit()
+                except Exception:
+                    pass
+        return None
+
+    def _wait_for_browser_download(self, download_dir: Path, timeout: int = 45) -> tuple[bytes, Path] | None:
+        """Wait for Chrome to finish downloading a PDF into download_dir."""
+        deadline = time.time() + timeout
+        while time.time() < deadline:
+            files = [p for p in download_dir.iterdir() if p.is_file()]
+            partial = [p for p in files if p.name.endswith(".crdownload") or p.name.endswith(".tmp")]
+            complete = [p for p in files if p.suffix.lower() == ".pdf" and p.stat().st_size > 1000]
+            if complete and not partial:
+                file_path = max(complete, key=lambda p: p.stat().st_mtime)
+                return file_path.read_bytes(), file_path
+            time.sleep(1)
         return None
 
     def _fetch_via_webvpn(self, url: str, paper: Paper) -> Paper:
@@ -550,6 +835,19 @@ class PaperFetcher:
             logger.info("Found PDF URL in <meta citation_pdf_url>: %s", pdf_url)
             return self._resolve_url(pdf_url, base)
 
+        # Strategy 1b: JSON/inline metadata often used by IEEE
+        text_blob = soup.get_text(" ", strip=True)
+        ieee_pdf_match = re.search(r'"pdfUrl":"([^"]+)"', html)
+        if ieee_pdf_match:
+            pdf_url = ieee_pdf_match.group(1).replace("&amp;", "&")
+            logger.info("Found PDF URL in inline metadata: %s", pdf_url)
+            return self._resolve_url(pdf_url, base)
+        ieee_pdf_path_match = re.search(r'"pdfPath":"([^"]+)"', html)
+        if ieee_pdf_path_match:
+            pdf_url = ieee_pdf_path_match.group(1).replace("&amp;", "&")
+            logger.info("Found PDF path in inline metadata: %s", pdf_url)
+            return self._resolve_url(pdf_url, base)
+
         # Strategy 2: Common <a> tag patterns
         for a in soup.find_all("a", href=True):
             href = a["href"]
@@ -673,7 +971,7 @@ class PaperFetcher:
 
     def _save_pdf(self, doi: str, pdf_bytes: bytes) -> Path | None:
         """Save PDF to output directory."""
-        safe_name = re.sub(r"[^\w\-.]", "_", doi)
+        safe_name = self._pdf_stem(doi=doi)
         pdf_path = Path(self.config.output_dir) / f"{safe_name}.pdf"
         try:
             pdf_path.parent.mkdir(parents=True, exist_ok=True)
@@ -683,6 +981,29 @@ class PaperFetcher:
         except OSError as e:
             logger.error("Failed to save PDF: %s", e)
             return None
+
+    def _pdf_stem(self, doi: str = "", url: str = "", title: str = "") -> str:
+        """Build a stable PDF filename stem."""
+        if doi:
+            return re.sub(r"[^\w\-.]", "_", doi)
+
+        if url:
+            ieee_match = re.search(r"/document/(\d+)", url)
+            if ieee_match:
+                return f"ieee_{ieee_match.group(1)}"
+            pii_match = re.search(r"/pii/([A-Z0-9]+)", url, flags=re.I)
+            if pii_match:
+                return f"pii_{pii_match.group(1)}"
+            springer_match = re.search(r"/article/(10\.\d{4,9}/[^\s/?#]+)", url, flags=re.I)
+            if springer_match:
+                return re.sub(r"[^\w\-.]", "_", springer_match.group(1))
+
+        if title:
+            slug = re.sub(r"[^\w\-.]+", "_", title.strip()).strip("_")
+            if slug:
+                return slug[:120]
+
+        return "unknown"
 
     def _cache_key(self, doi: str) -> Path:
         """Get cache file path for a DOI."""
