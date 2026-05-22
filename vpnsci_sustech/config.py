@@ -21,6 +21,7 @@ class Config:
     email: str = ""  # Set via 'vpnsci-sustech config-cmd --email your@email.com'
     elsevier_api_key: str = ""  # Elsevier Developer Portal API key
     elsevier_inst_token: str = ""  # Optional Elsevier institutional token
+    semantic_scholar_api_key: str = ""  # Semantic Scholar Graph API key
     flaresolverr_url: str = "http://127.0.0.1:8191/v1"  # FlareSolverr service URL
     output_dir: str = ""
     cache_dir: str = ""

@@ -205,9 +205,28 @@ async def search_papers(query: str, limit: int = 10, year_range: str = "") -> st
         limit: Maximum number of results (1-100, default 10).
         year_range: Optional year filter (e.g. "2020-2024" or "2020-").
     """
-    results = await asyncio.to_thread(
-        semantic_scholar.search, query, limit=limit, year_range=year_range or None
-    )
+    config = Config.load()
+    try:
+        results = await asyncio.to_thread(
+            semantic_scholar.search,
+            query,
+            limit=limit,
+            year_range=year_range or None,
+            api_key=config.semantic_scholar_api_key,
+        )
+    except semantic_scholar.SemanticScholarRateLimitError:
+        return (
+            "⚠️ Semantic Scholar 搜索当前被限流。\n\n"
+            "这不是“没有结果”，而是搜索接口返回了 HTTP 429。\n"
+            "如果你已经配置 API key，请确认 key 可用且未超过 1 request/second 限额；\n"
+            "否则请稍后重试，或直接提供 DOI / URL 给我继续 fetch。"
+        )
+    except semantic_scholar.SemanticScholarRequestError as e:
+        return (
+            "⚠️ Semantic Scholar 搜索请求失败。\n\n"
+            f"错误信息：{e}\n"
+            "你可以稍后重试，或直接提供 DOI / URL 给我继续 fetch。"
+        )
 
     if not results:
         return "No results found."
@@ -246,7 +265,12 @@ async def get_paper_metadata(doi: str) -> str:
     Args:
         doi: The DOI of the paper (e.g. "10.1038/nphys1509").
     """
-    result = await asyncio.to_thread(semantic_scholar.get_paper, f"DOI:{doi}")
+    config = Config.load()
+    result = await asyncio.to_thread(
+        semantic_scholar.get_paper,
+        f"DOI:{doi}",
+        api_key=config.semantic_scholar_api_key,
+    )
     if result is None:
         return f"Paper not found for DOI: {doi}"
 

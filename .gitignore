@@ -42,6 +42,7 @@ chrome-profile/
 .chrome-sciencedirect/
 downloads/
 .tmp/
+tests/
 
 # Testing / Coverage
 .coverage

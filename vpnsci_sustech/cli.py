@@ -190,7 +190,21 @@ def search(
     _setup_logging(verbose)
 
     console.print(f"[bold]Searching:[/bold] {query}")
-    results = semantic_scholar.search(query, limit=limit, year_range=year or None)
+    config = Config.load()
+    try:
+        results = semantic_scholar.search(
+            query,
+            limit=limit,
+            year_range=year or None,
+            api_key=config.semantic_scholar_api_key,
+        )
+    except semantic_scholar.SemanticScholarRateLimitError:
+        console.print("[yellow]Semantic Scholar search is rate-limited (HTTP 429).[/yellow]")
+        console.print("[yellow]This is not 'no results'. Please retry later or configure an API key.[/yellow]")
+        raise typer.Exit(1)
+    except semantic_scholar.SemanticScholarRequestError as e:
+        console.print(f"[red]Semantic Scholar request failed: {e}[/red]")
+        raise typer.Exit(1)
 
     if not results:
         console.print("[yellow]No results found.[/yellow]")
@@ -297,6 +311,7 @@ def config_cmd(
     set_proxy_url: str = typer.Option("", "--proxy-url", help="Set SOCKS5 proxy URL for EasyConnect."),
     set_elsevier_key: str = typer.Option("", "--elsevier-api-key", help="Set Elsevier API key."),
     set_elsevier_token: str = typer.Option("", "--elsevier-inst-token", help="Set Elsevier institutional token."),
+    set_s2_key: str = typer.Option("", "--semantic-scholar-api-key", help="Set Semantic Scholar API key."),
     set_flaresolverr: str = typer.Option("", "--flaresolverr-url", help="Set FlareSolverr URL."),
     set_carsi_enable: bool = typer.Option(False, "--carsi-enable", help="Enable CARSI/Shibboleth federated auth."),
     set_carsi_disable: bool = typer.Option(False, "--carsi-disable", help="Disable CARSI auth."),
@@ -352,6 +367,11 @@ def config_cmd(
         changed = True
         console.print("[green]Elsevier institutional token saved.[/green]")
 
+    if set_s2_key:
+        cfg.semantic_scholar_api_key = set_s2_key
+        changed = True
+        console.print("[green]Semantic Scholar API key saved.[/green]")
+
     if set_flaresolverr:
         cfg.flaresolverr_url = set_flaresolverr.rstrip("/")
         changed = True
@@ -376,7 +396,7 @@ def config_cmd(
         cfg.save()
 
     has_setter = any([set_email, set_output, set_webvpn_url, set_school, set_proxy_url,
-                      set_elsevier_key, set_elsevier_token, set_flaresolverr,
+                      set_elsevier_key, set_elsevier_token, set_s2_key, set_flaresolverr,
                       set_carsi_enable, set_carsi_disable, set_carsi_school])
     if show and not has_setter:
         # Determine school type
@@ -394,6 +414,7 @@ def config_cmd(
         console.print(f"  Email:             {cfg.email}")
         console.print(f"  Elsevier API key:  {'****' if cfg.elsevier_api_key else '(not set)'}")
         console.print(f"  Elsevier inst tok: {'****' if cfg.elsevier_inst_token else '(not set)'}")
+        console.print(f"  Semantic Scholar:  {'****' if cfg.semantic_scholar_api_key else '(not set)'}")
         console.print(f"  FlareSolverr URL:  {cfg.flaresolverr_url}")
         console.print(f"  CARSI enabled:     {'Yes' if cfg.carsi_enabled else 'No'}")
         console.print(f"  CARSI school:      {cfg.carsi_idp_name or '(not set)'}")
