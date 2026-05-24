@@ -13,16 +13,21 @@ from urllib.parse import urlparse
 import requests
 
 from .auth import EZProxyAuth, WebVPNAuth
+from .browser_cdp import should_capture_pdf_response, supports_browser_pdf_capture
+from .browser_session import ChromeDebugSessionManager
+from .http_clients import SiteRateLimiter
 from .http_utils import request_with_retry
 from .carsi import CARSIClient, detect_publisher
 from .config import Config
 from .extractors import html_extractor, pdf_extractor
 from .models import Paper
 from .sources import arxiv, unpaywall
+from .site_policy import PHASE2_MIN_INTERVAL_SECONDS
 
 logger = logging.getLogger(__name__)
 
 DOI_PATTERN = re.compile(r"^10\.\d{4,9}/[^\s]+$")
+_PHASE2_BROWSER_LIMITER = SiteRateLimiter(min_interval_seconds=PHASE2_MIN_INTERVAL_SECONDS)
 
 # Minimum full_text length to consider a fetch "successful"
 MIN_FULLTEXT_LEN = 1000
@@ -110,7 +115,7 @@ class PaperFetcher:
 
         # Some publisher article pages are directly readable without a
         # federated-login hop even when the PDF is not openly linked.
-        if publisher == "nature":
+        if publisher in {"nature", "springer"}:
             direct_paper = self._try_direct_html(url, paper)
             if direct_paper and len(direct_paper.full_text or "") >= MIN_FULLTEXT_LEN:
                 if direct_paper.doi:
@@ -118,6 +123,14 @@ class PaperFetcher:
                 return direct_paper
             if direct_paper and (direct_paper.title or direct_paper.abstract or direct_paper.authors):
                 paper = direct_paper
+
+        # Phase 2 browser-first direct PDF path for the hardest blocked/partial sites.
+        if publisher in {"sciencedirect", "wiley"}:
+            browser_paper = self._try_browser_pdf_direct(doi or "", url, paper)
+            if browser_paper:
+                if browser_paper.doi and len(browser_paper.full_text or "") >= MIN_FULLTEXT_LEN:
+                    self._save_cache(browser_paper)
+                return browser_paper
 
         # Step 3: Try CARSI-authenticated publisher access (before WebVPN)
         if self.config.carsi_enabled and doi:
@@ -349,6 +362,32 @@ class PaperFetcher:
 
         return None
 
+    def _try_browser_pdf_direct(self, doi: str, resolved_url: str, paper: Paper) -> Paper | None:
+        """Try direct browser-bound PDF retrieval before CARSI for blocked/partial sites."""
+        pdf_url = self._build_publisher_pdf_url(doi, resolved_url)
+        if not pdf_url:
+            return None
+        if not self._should_try_browser_capture(resolved_url):
+            return None
+        browser_pdf = self._download_pdf_via_browser(resolved_url, pdf_url)
+        if browser_pdf:
+            pdf_bytes, final_pdf_url = browser_pdf
+            result = Paper(
+                doi=paper.doi,
+                title=paper.title,
+                authors=paper.authors,
+                journal=paper.journal,
+                year=paper.year,
+                abstract=paper.abstract,
+                url=final_pdf_url or pdf_url,
+                source="browser",
+            )
+            result.full_text = pdf_extractor.extract_from_bytes(pdf_bytes)
+            pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=result.url, title=result.title), pdf_bytes)
+            result.pdf_path = str(pdf_path) if pdf_path else ""
+            return result
+        return self._try_browser_article_html(resolved_url, paper)
+
     def _try_carsi_pdf(self, doi: str, resolved_url: str, paper: Paper) -> Paper | None:
         """Try to download publisher PDF via CARSI-authenticated session."""
         pdf_url = self._build_publisher_pdf_url(doi, resolved_url)
@@ -373,9 +412,26 @@ class PaperFetcher:
                 paper_copy.source = "carsi"
                 logger.info("CARSI PDF downloaded (%d bytes)", len(resp.content))
                 return paper_copy
-        except requests.RequestException as e:
+        except Exception as e:
             logger.warning("CARSI PDF failed: %s", e)
+            if self._should_try_browser_capture(resolved_url):
+                browser_pdf = self._download_pdf_via_browser(resolved_url, pdf_url)
+                if browser_pdf:
+                    pdf_bytes, final_pdf_url = browser_pdf
+                    paper_copy = Paper(
+                        doi=paper.doi, title=paper.title, authors=paper.authors,
+                        journal=paper.journal, year=paper.year, abstract=paper.abstract,
+                        url=final_pdf_url or pdf_url,
+                        source="carsi+browser",
+                    )
+                    paper_copy.full_text = pdf_extractor.extract_from_bytes(pdf_bytes)
+                    pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=paper_copy.url, title=paper_copy.title), pdf_bytes)
+                    paper_copy.pdf_path = str(pdf_path) if pdf_path else ""
+                    return paper_copy
         return None
+
+    def _should_try_browser_capture(self, url: str) -> bool:
+        return supports_browser_pdf_capture(url)
 
     def _try_carsi_html(self, url: str, paper: Paper) -> Paper | None:
         """Try to fetch and extract content via CARSI-authenticated session."""
@@ -553,14 +609,27 @@ class PaperFetcher:
 
         extracted = html_extractor.extract(resp.text, resp.url)
         self._apply_extracted(result, extracted)
+        pdf_url = self._find_pdf_link(resp.text, resp.url)
+        if pdf_url:
+            self._rate_limit()
+            try:
+                pdf_resp = request_with_retry("GET", pdf_url, timeout=60)
+                pdf_resp.raise_for_status()
+                if "pdf" in pdf_resp.headers.get("content-type", "").lower():
+                    result.full_text = pdf_extractor.extract_from_bytes(pdf_resp.content)
+                    pdf_path = self._save_pdf(self._pdf_stem(doi=result.doi, url=pdf_url, title=result.title), pdf_resp.content)
+                    result.pdf_path = str(pdf_path) if pdf_path else ""
+            except requests.RequestException as e:
+                logger.info("Direct HTML PDF follow-up failed: %s", e)
         return result if (result.title or result.abstract or result.full_text or result.authors) else None
 
     def _download_pdf_via_browser(self, article_url: str, pdf_url: str) -> tuple[bytes, str] | None:
         """Fallback: use a real Chrome session to download/capture a browser-bound PDF."""
-        from selenium import webdriver
-        from selenium.webdriver.chrome.options import Options
         from selenium.webdriver.common.by import By
-        from pathlib import Path
+
+        publisher = detect_publisher(article_url) or detect_publisher(pdf_url)
+        if publisher:
+            self._phase2_site_wait(publisher)
 
         download_dir = Path(self.config.cache_dir) / "browser_pdf_download"
         download_dir.mkdir(parents=True, exist_ok=True)
@@ -571,24 +640,28 @@ class PaperFetcher:
                 except OSError:
                     pass
 
-        opts = Options()
-        opts.add_argument("--no-first-run")
-        opts.add_argument("--no-default-browser-check")
-        opts.add_argument("--remote-allow-origins=*")
-        opts.add_argument("--start-maximized")
-        opts.add_experimental_option("excludeSwitches", ["enable-automation"])
-        opts.set_capability("goog:loggingPrefs", {"performance": "ALL"})
-        opts.add_experimental_option("prefs", {
+        profile_root_name = Path(self.config.chrome_profile_dir).name if getattr(self.config, "chrome_profile_dir", "") else "chrome-profile"
+        session_mgr = ChromeDebugSessionManager(
+            base_dir=Path(self.config.cache_dir),
+            profile_root_name=profile_root_name,
+        )
+        browser_prefs = {
             "download.default_directory": str(download_dir),
             "download.prompt_for_download": False,
             "download.directory_upgrade": True,
             "safebrowsing.enabled": True,
             "plugins.always_open_pdf_externally": True,
-        })
+        }
+        browser_caps = {"goog:loggingPrefs": {"performance": "ALL"}}
 
         driver = None
         try:
-            driver = webdriver.Chrome(options=opts)
+            driver = session_mgr.launch_browser(
+                enable_debug=False,
+                extra_args=["--remote-allow-origins=*", "--start-maximized"],
+                prefs=browser_prefs,
+                capabilities=browser_caps,
+            )
             driver.execute_cdp_cmd("Network.enable", {})
             # Warm up IEEE institutional access in a real browser session first.
             if "ieeexplore.ieee.org" in article_url.lower():
@@ -597,12 +670,15 @@ class PaperFetcher:
 
             driver.get(article_url)
             time.sleep(5)
-            driver.get(pdf_url)
+            pdf_target_url = self._discover_browser_pdf_url(driver, article_url, pdf_url) or pdf_url
+            if publisher:
+                self._phase2_site_wait(publisher)
+            driver.get(pdf_target_url)
             time.sleep(8)
 
             logs = driver.get_log("performance")
             pdf_request_id = None
-            final_pdf_url = pdf_url
+            final_pdf_url = pdf_target_url
             for entry in logs:
                 try:
                     msg = json.loads(entry["message"])["message"]
@@ -612,7 +688,7 @@ class PaperFetcher:
                     resp = params.get("response", {})
                     url = resp.get("url", "")
                     mime = (resp.get("mimeType") or "").lower()
-                    if "application/pdf" in mime and "ieeexplore.ieee.org" in url:
+                    if self._is_browser_pdf_response(url, mime):
                         pdf_request_id = params.get("requestId")
                         final_pdf_url = url
                         break
@@ -635,7 +711,7 @@ class PaperFetcher:
                 logger.debug("CDP PDF body capture failed, falling back to browser download: %s", e)
 
             # IEEE often serves a viewer page with an iframe pointing to the real PDF.
-            pdf_download_url = pdf_url
+            pdf_download_url = pdf_target_url
             for el in driver.find_elements(By.CSS_SELECTOR, "iframe, embed, object"):
                 src = el.get_attribute("src") or el.get_attribute("data")
                 if src and ("stampPDF/getPDF.jsp" in src or src.lower().endswith(".pdf")):
@@ -643,6 +719,8 @@ class PaperFetcher:
                     break
 
             # If CDP body is not a real PDF, try Chrome's own download flow.
+            if publisher:
+                self._phase2_site_wait(publisher)
             driver.get(pdf_download_url)
             downloaded = self._wait_for_browser_download(download_dir, timeout=45)
             if downloaded:
@@ -650,6 +728,100 @@ class PaperFetcher:
                 return pdf_bytes, pdf_download_url
         except Exception as e:
             logger.warning("Browser PDF fallback failed: %s", e)
+        finally:
+            if driver:
+                try:
+                    driver.quit()
+                except Exception:
+                    pass
+        return None
+
+    def _is_browser_pdf_response(self, url: str, mime_type: str) -> bool:
+        return should_capture_pdf_response(url, mime_type)
+
+    def _phase2_site_wait(self, site: str):
+        _PHASE2_BROWSER_LIMITER.wait(site)
+
+    def _discover_browser_pdf_url(self, driver, article_url: str, fallback_pdf_url: str) -> str | None:
+        """Discover a better in-page PDF target before forcing a hard-coded URL."""
+        from selenium.webdriver.common.by import By
+
+        best_url = None
+        for el in driver.find_elements(By.CSS_SELECTOR, "a[href], iframe[src], embed[src], object[data]"):
+            href = el.get_attribute("href") or el.get_attribute("src") or el.get_attribute("data")
+            if not href:
+                continue
+            resolved = self._resolve_url(href, f"{urlparse(article_url).scheme}://{urlparse(article_url).netloc}")
+            lowered = resolved.lower()
+            if "/doi/pdf/" in lowered and "wiley.com" in lowered:
+                return resolved
+            if "/doi/epdf/" in lowered and "wiley.com" in lowered and not best_url:
+                best_url = resolved
+            if lowered.endswith(".pdf") and not best_url:
+                best_url = resolved
+        return best_url or fallback_pdf_url
+
+    def _try_browser_article_html(self, article_url: str, paper: Paper) -> Paper | None:
+        """Fallback: read article HTML from a real browser session when PDF path is blocked."""
+        session_mgr = ChromeDebugSessionManager(
+            base_dir=Path(self.config.cache_dir),
+            profile_root_name=Path(self.config.chrome_profile_dir).name if getattr(self.config, "chrome_profile_dir", "") else "chrome-profile",
+        )
+        publisher = detect_publisher(article_url)
+        if publisher:
+            self._phase2_site_wait(publisher)
+
+        driver = None
+        try:
+            driver = session_mgr.launch_browser(enable_debug=False, extra_args=["--remote-allow-origins=*", "--start-maximized"])
+            driver.get(article_url)
+            time.sleep(5)
+            extracted = html_extractor.extract(driver.page_source, driver.current_url or article_url)
+            result = Paper(
+                doi=paper.doi,
+                title=paper.title,
+                authors=paper.authors,
+                journal=paper.journal,
+                year=paper.year,
+                abstract=paper.abstract,
+                url=driver.current_url or article_url,
+                source="browser",
+            )
+            self._apply_extracted(result, extracted)
+            challenge_like_html = any(
+                signal in ((result.full_text or "") + " " + (result.abstract or "") + " " + (driver.title or "")).lower()
+                for signal in [
+                    "are you a robot",
+                    "captcha challenge",
+                    "verify you are a human",
+                    "cpe00001",
+                ]
+            )
+            if publisher == "sciencedirect" and not challenge_like_html:
+                try:
+                    printed = driver.execute_cdp_cmd("Page.printToPDF", {"printBackground": True})
+                    pdf_data = printed.get("data", "")
+                    if pdf_data:
+                        pdf_bytes = base64.b64decode(pdf_data)
+                        pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=result.url, title=result.title), pdf_bytes)
+                        result.pdf_path = str(pdf_path) if pdf_path else ""
+                        if result.pdf_path:
+                            result.source = "browser+printed_pdf"
+                except Exception as e:
+                    logger.info("Browser article PDF print fallback failed: %s", e)
+                    if len(result.full_text or "") >= MIN_FULLTEXT_LEN:
+                        try:
+                            generated_pdf = self._create_generated_text_pdf(result)
+                            pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=result.url, title=result.title), generated_pdf)
+                            result.pdf_path = str(pdf_path) if pdf_path else ""
+                            if result.pdf_path:
+                                result.source = "browser+generated_pdf"
+                        except Exception as gen_e:
+                            logger.info("Generated text PDF fallback failed: %s", gen_e)
+            if result.title or result.abstract or result.full_text or result.authors:
+                return result
+        except Exception as e:
+            logger.info("Browser article HTML fallback failed: %s", e)
         finally:
             if driver:
                 try:
@@ -670,6 +842,40 @@ class PaperFetcher:
                 return file_path.read_bytes(), file_path
             time.sleep(1)
         return None
+
+    def _create_generated_text_pdf(self, paper: Paper) -> bytes:
+        """Create a simple local PDF from extracted text as an explicit fallback artifact."""
+        import pymupdf
+
+        doc = pymupdf.open()
+        page = doc.new_page()
+        y = 36
+        lines = []
+        if paper.title:
+            lines.append(f"Title: {paper.title}")
+        if paper.doi:
+            lines.append(f"DOI: {paper.doi}")
+        if paper.url:
+            lines.append(f"URL: {paper.url}")
+        lines.append("Note: This PDF was generated locally from extracted HTML text; it is not the publisher-original PDF.")
+        lines.append("")
+        if paper.abstract:
+            lines.append("Abstract:")
+            lines.extend(paper.abstract.splitlines())
+            lines.append("")
+        if paper.full_text:
+            lines.append("Full Text:")
+            lines.extend(paper.full_text.splitlines())
+
+        for raw in lines:
+            text = raw or " "
+            if y > 780:
+                page = doc.new_page()
+                y = 36
+            page.insert_text((36, y), text[:110], fontsize=10)
+            y += 14
+
+        return doc.tobytes()
 
     def _fetch_via_webvpn(self, url: str, paper: Paper) -> Paper:
         """Fetch paper through WebVPN authenticated session."""
@@ -953,11 +1159,21 @@ class PaperFetcher:
             resp.close()
             # Many publishers return 403/401 for non-browser GETs, but we still get the resolved URL
             if resp.url and resp.url != f"https://doi.org/{doi}":
-                logger.info("Resolved DOI %s → %s (status=%d)", doi, resp.url, resp.status_code)
-                return resp.url
+                resolved_url = self._canonicalize_resolved_url(resp.url)
+                logger.info("Resolved DOI %s → %s (status=%d)", doi, resolved_url, resp.status_code)
+                return resolved_url
         except requests.RequestException as e:
             logger.warning("Failed to resolve DOI %s: %s", doi, e)
         return None
+
+    def _canonicalize_resolved_url(self, url: str) -> str:
+        """Normalize resolved publisher URLs to the most useful fetch entrypoint."""
+        lowered = (url or "").lower()
+        if "linkinghub.elsevier.com/retrieve/pii/" in lowered:
+            pii_match = re.search(r"/retrieve/pii/([A-Z0-9]+)", url, flags=re.I)
+            if pii_match:
+                return f"https://www.sciencedirect.com/science/article/pii/{pii_match.group(1)}"
+        return url
 
     def _rate_limit(self):
         """Apply rate limiting between requests."""

@@ -9,7 +9,7 @@ from mcp.server.fastmcp import FastMCP
 
 from .config import Config
 from .fetcher import PaperFetcher
-from .sources import semantic_scholar
+from .sources import publisher_search, semantic_scholar
 
 # Logging must go to stderr (stdout is used by MCP stdio transport)
 logging.basicConfig(
@@ -24,9 +24,6 @@ mcp = FastMCP("vpnsci-sustech")
 
 # Lazy-initialized shared fetcher instance
 _fetcher: PaperFetcher | None = None
-
-_SEARCH_ONLY_PUBLISHERS = {"sciencedirect"}
-
 
 def _get_fetcher() -> PaperFetcher | None:
     """Get or create the fetcher singleton.
@@ -173,13 +170,6 @@ async def fetch_paper(identifier: str, format: str = "markdown") -> str:
     if fetcher is None:
         return _SCHOOL_NOT_CONFIGURED
 
-    lowered = identifier.lower()
-    if any(pub in lowered for pub in _SEARCH_ONLY_PUBLISHERS):
-        return (
-            "⚠️ 当前版本对 ScienceDirect 暂时标记为：只搜索，不下载。\n\n"
-            "原因：SUSTech 权限存在、人工浏览器可访问，但自动抓取仍会被 Elsevier 人机验证/403 拦截。"
-        )
-
     paper = await asyncio.to_thread(fetcher.fetch, identifier)
 
     if not paper.full_text and not paper.abstract:
@@ -194,7 +184,7 @@ async def fetch_paper(identifier: str, format: str = "markdown") -> str:
 
 
 @mcp.tool()
-async def search_papers(query: str, limit: int = 10, year_range: str = "") -> str:
+async def search_papers(query: str, limit: int = 10, year_range: str = "", backend: str = "") -> str:
     """Search for academic papers via Semantic Scholar.
 
     Returns a list of papers with titles, authors, DOIs, and citation counts.
@@ -206,27 +196,42 @@ async def search_papers(query: str, limit: int = 10, year_range: str = "") -> st
         year_range: Optional year filter (e.g. "2020-2024" or "2020-").
     """
     config = Config.load()
-    try:
-        results = await asyncio.to_thread(
-            semantic_scholar.search,
-            query,
-            limit=limit,
-            year_range=year_range or None,
-            api_key=config.semantic_scholar_api_key,
-        )
-    except semantic_scholar.SemanticScholarRateLimitError:
-        return (
-            "⚠️ Semantic Scholar 搜索当前被限流。\n\n"
-            "这不是“没有结果”，而是搜索接口返回了 HTTP 429。\n"
-            "如果你已经配置 API key，请确认 key 可用且未超过 1 request/second 限额；\n"
-            "否则请稍后重试，或直接提供 DOI / URL 给我继续 fetch。"
-        )
-    except semantic_scholar.SemanticScholarRequestError as e:
-        return (
-            "⚠️ Semantic Scholar 搜索请求失败。\n\n"
-            f"错误信息：{e}\n"
-            "你可以稍后重试，或直接提供 DOI / URL 给我继续 fetch。"
-        )
+    if backend:
+        try:
+            results = await asyncio.to_thread(
+                publisher_search.search,
+                query,
+                backend=backend,
+                limit=limit,
+            )
+        except publisher_search.PublisherSearchBlockedError as e:
+            return (
+                f"⚠️ publisher-native search blocked for `{backend}`.\n\n"
+                f"原因：{e}\n"
+                "当前返回更像 challenge / anti-bot / access-control，而不是正常无结果。"
+            )
+    else:
+        try:
+            results = await asyncio.to_thread(
+                semantic_scholar.search,
+                query,
+                limit=limit,
+                year_range=year_range or None,
+                api_key=config.semantic_scholar_api_key,
+            )
+        except semantic_scholar.SemanticScholarRateLimitError:
+            return (
+                "⚠️ Semantic Scholar 搜索当前被限流。\n\n"
+                "这不是“没有结果”，而是搜索接口返回了 HTTP 429。\n"
+                "如果你已经配置 API key，请确认 key 可用且未超过 1 request/second 限额；\n"
+                "否则请稍后重试，或直接提供 DOI / URL 给我继续 fetch。"
+            )
+        except semantic_scholar.SemanticScholarRequestError as e:
+            return (
+                "⚠️ Semantic Scholar 搜索请求失败。\n\n"
+                f"错误信息：{e}\n"
+                "你可以稍后重试，或直接提供 DOI / URL 给我继续 fetch。"
+            )
 
     if not results:
         return "No results found."
@@ -248,6 +253,8 @@ async def search_papers(query: str, limit: int = 10, year_range: str = "") -> st
         elif r.arxiv_id:
             lines.append(f"- **arXiv:** {r.arxiv_id}")
         lines.append(f"- **Citations:** {r.citation_count}")
+        if getattr(r, "pdf_url", ""):
+            lines.append(f"- **PDF URL:** {r.pdf_url}")
         if r.abstract:
             lines.append(f"- **Abstract:** {r.abstract[:200]}...")
         lines.append("")

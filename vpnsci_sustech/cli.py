@@ -21,7 +21,7 @@ from rich.table import Table
 from .config import Config
 from .fetcher import PaperFetcher
 from .schools import get_school, list_schools, search_schools
-from .sources import semantic_scholar
+from .sources import publisher_search, semantic_scholar
 
 app = typer.Typer(
     name="vpnsci-sustech",
@@ -183,6 +183,7 @@ def search(
     query: str = typer.Argument(help="Search query."),
     limit: int = typer.Option(10, "--limit", "-n", help="Maximum results."),
     year: str = typer.Option("", "--year", "-y", help="Year range, e.g., '2020-2024' or '2020-'."),
+    backend: str = typer.Option("", "--backend", help="Optional publisher-native backend: sciencedirect, springerlink, wiley."),
     do_fetch: bool = typer.Option(False, "--fetch", help="Also fetch full text for results with DOIs."),
     verbose: bool = typer.Option(False, "--verbose", "-v", help="Verbose logging."),
 ):
@@ -191,20 +192,23 @@ def search(
 
     console.print(f"[bold]Searching:[/bold] {query}")
     config = Config.load()
-    try:
-        results = semantic_scholar.search(
-            query,
-            limit=limit,
-            year_range=year or None,
-            api_key=config.semantic_scholar_api_key,
-        )
-    except semantic_scholar.SemanticScholarRateLimitError:
-        console.print("[yellow]Semantic Scholar search is rate-limited (HTTP 429).[/yellow]")
-        console.print("[yellow]This is not 'no results'. Please retry later or configure an API key.[/yellow]")
-        raise typer.Exit(1)
-    except semantic_scholar.SemanticScholarRequestError as e:
-        console.print(f"[red]Semantic Scholar request failed: {e}[/red]")
-        raise typer.Exit(1)
+    if backend:
+        results = publisher_search.search(query, backend=backend, limit=limit)
+    else:
+        try:
+            results = semantic_scholar.search(
+                query,
+                limit=limit,
+                year_range=year or None,
+                api_key=config.semantic_scholar_api_key,
+            )
+        except semantic_scholar.SemanticScholarRateLimitError:
+            console.print("[yellow]Semantic Scholar search is rate-limited (HTTP 429).[/yellow]")
+            console.print("[yellow]This is not 'no results'. Please retry later or configure an API key.[/yellow]")
+            raise typer.Exit(1)
+        except semantic_scholar.SemanticScholarRequestError as e:
+            console.print(f"[red]Semantic Scholar request failed: {e}[/red]")
+            raise typer.Exit(1)
 
     if not results:
         console.print("[yellow]No results found.[/yellow]")
@@ -228,8 +232,8 @@ def search(
             str(r.year or ""),
             r.title[:60],
             authors_str[:30],
-            r.doi[:25] if r.doi else r.arxiv_id[:25] if r.arxiv_id else "",
-            str(r.citation_count),
+            r.doi[:25] if r.doi else r.arxiv_id[:25] if getattr(r, "arxiv_id", "") else "",
+            str(getattr(r, "citation_count", 0)),
         )
 
     console.print(table)

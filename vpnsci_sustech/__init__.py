@@ -3,6 +3,7 @@
 from .config import Config
 from .fetcher import PaperFetcher
 from .models import Paper
+from . import http_clients
 
-__all__ = ["PaperFetcher", "Paper", "Config"]
+__all__ = ["PaperFetcher", "Paper", "Config", "http_clients"]
 __version__ = "0.1.0"
