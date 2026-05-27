@@ -194,6 +194,7 @@ async def search_papers(query: str, limit: int = 10, year_range: str = "", backe
         query: Search query (e.g. "organic photovoltaics silver nanowire").
         limit: Maximum number of results (1-100, default 10).
         year_range: Optional year filter (e.g. "2020-2024" or "2020-").
+        backend: Optional publisher-native backend: sciencedirect, springerlink, wiley, ieee.
     """
     config = Config.load()
     if backend:

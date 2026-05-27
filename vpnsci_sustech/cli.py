@@ -183,7 +183,7 @@ def search(
     query: str = typer.Argument(help="Search query."),
     limit: int = typer.Option(10, "--limit", "-n", help="Maximum results."),
     year: str = typer.Option("", "--year", "-y", help="Year range, e.g., '2020-2024' or '2020-'."),
-    backend: str = typer.Option("", "--backend", help="Optional publisher-native backend: sciencedirect, springerlink, wiley."),
+    backend: str = typer.Option("", "--backend", help="Optional publisher-native backend: sciencedirect, springerlink, wiley, ieee."),
     do_fetch: bool = typer.Option(False, "--fetch", help="Also fetch full text for results with DOIs."),
     verbose: bool = typer.Option(False, "--verbose", "-v", help="Verbose logging."),
 ):

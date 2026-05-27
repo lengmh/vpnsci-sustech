@@ -79,6 +79,8 @@ def looks_like_access_challenge(html: str) -> bool:
             "publication[]",
             "view pdf",
             "results-content",
+            "ieee xplore search results",
+            "xplmaincontent",
         ]
     )
     return not has_normal_result_signal
@@ -93,6 +95,9 @@ def resolve_backend(site: str) -> str:
         "springerlink": "springerlink",
         "nature": "springerlink",
         "wiley": "wiley",
+        "ieee": "ieee",
+        "ieeexplore": "ieee",
+        "ieee xplore": "ieee",
     }
     return aliases[key]
 
@@ -105,6 +110,8 @@ def search(query: str, *, backend: str, limit: int = 10) -> list[SearchHit]:
         return search_springer(query, limit=limit)
     if resolved == "wiley":
         return search_wiley(query, limit=limit)
+    if resolved == "ieee":
+        return search_ieee(query, limit=limit)
     return []
 
 
@@ -352,6 +359,117 @@ def _search_wiley_via_crossref(query: str, limit: int = 10) -> list[SearchHit]:
         if len(hits) >= limit:
             break
     return hits
+
+
+def search_ieee(query: str, limit: int = 10) -> list[SearchHit]:
+    client = create_http_client(prefer_impersonation=True)
+    rows = max(1, min(limit, 100))
+    search_base_url = "https://ieeexplore.ieee.org/search/searchresult.jsp"
+    search_params = {"queryText": query}
+    search_url = f"{search_base_url}?{urlencode(search_params)}"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36",
+        "Accept": "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+        "Origin": "https://ieeexplore.ieee.org",
+        "Referer": search_url,
+    }
+
+    _SITE_LIMITER.wait("ieee")
+    page = client.get(search_base_url, params=search_params, timeout=30, headers=headers)
+    if looks_like_access_challenge(getattr(page, "text", "")):
+        raise PublisherSearchBlockedError("IEEE Xplore search page returned challenge")
+    if getattr(page, "status_code", 0) != 200:
+        return []
+
+    payload = {
+        "queryText": query,
+        "highlight": True,
+        "returnFacets": ["ALL"],
+        "returnType": "SEARCH",
+        "matchPubs": True,
+        "pageNumber": 1,
+        "rowsPerPage": rows,
+    }
+
+    _SITE_LIMITER.wait("ieee")
+    resp = client.post(
+        "https://ieeexplore.ieee.org/rest/search",
+        json=payload,
+        timeout=30,
+        headers=headers,
+    )
+    if looks_like_access_challenge(getattr(resp, "text", "")):
+        raise PublisherSearchBlockedError("IEEE Xplore search API returned challenge")
+    if getattr(resp, "status_code", 0) != 200:
+        return []
+
+    try:
+        return parse_ieee_search_api(resp.json())[:limit]
+    except ValueError as e:
+        raise PublisherSearchError(f"IEEE Xplore search API returned invalid JSON: {e}") from e
+
+
+def parse_ieee_search_api(payload: dict) -> list[SearchHit]:
+    hits: list[SearchHit] = []
+    for item in payload.get("records", []) or []:
+        hit = _ieee_record_to_hit(item)
+        if hit.title or hit.doi or hit.url:
+            hits.append(hit)
+    return hits
+
+
+def _ieee_record_to_hit(item: dict) -> SearchHit:
+    article_number = str(item.get("articleNumber") or item.get("arnumber") or "").strip()
+    document_link = item.get("documentLink") or item.get("htmlLink") or ""
+    if document_link:
+        url = urljoin("https://ieeexplore.ieee.org", document_link)
+    elif article_number:
+        url = f"https://ieeexplore.ieee.org/document/{article_number}/"
+    else:
+        url = ""
+
+    pdf_link = item.get("pdfLink") or item.get("pdfPath") or ""
+    pdf_url = urljoin("https://ieeexplore.ieee.org", pdf_link) if pdf_link else ""
+
+    year = item.get("publicationYear") or item.get("PublicationYear")
+    try:
+        parsed_year = int(year) if year else None
+    except (TypeError, ValueError):
+        parsed_year = None
+
+    authors = []
+    for author in item.get("authors", []) or []:
+        if isinstance(author, dict):
+            name = (author.get("preferredName") or author.get("name") or author.get("normalizedName") or "").strip()
+        else:
+            name = str(author).strip()
+        if name:
+            authors.append(_clean_ieee_text(name))
+
+    try:
+        citation_count = int(item.get("citationCount") or 0)
+    except (TypeError, ValueError):
+        citation_count = 0
+
+    return SearchHit(
+        title=_clean_ieee_text(item.get("articleTitle") or item.get("title") or ""),
+        doi=(item.get("doi") or item.get("articleDoi") or "").strip(),
+        url=url,
+        pdf_url=pdf_url,
+        journal=_clean_ieee_text(item.get("publicationTitle") or item.get("displayPublicationTitle") or ""),
+        year=parsed_year,
+        authors=authors,
+        citation_count=citation_count,
+        abstract=_clean_ieee_text(item.get("abstract") or ""),
+    )
+
+
+def _clean_ieee_text(text: str) -> str:
+    text = str(text or "")
+    text = re.sub(r"\[::(.*?)::\]", r"\1", text)
+    text = BeautifulSoup(text, "lxml").get_text(" ", strip=True)
+    return re.sub(r"\s+", " ", text).strip()
 
 
 def _build_browser_session_manager() -> ChromeDebugSessionManager:

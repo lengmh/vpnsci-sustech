@@ -49,6 +49,16 @@ _SITE_POLICIES = {
         browser_cdp_candidate=True,
         browser_cdp_preferred=False,
     ),
+    "ieee": SitePolicy(
+        site="ieee",
+        status="working",
+        keep_existing_download_path=True,
+        needs_validation_first=False,
+        publisher_native_search=True,
+        curl_cffi_candidate=True,
+        browser_cdp_candidate=True,
+        browser_cdp_preferred=False,
+    ),
 }
 
 

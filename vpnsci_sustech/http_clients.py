@@ -36,6 +36,9 @@ class RequestsHttpClient:
     def get(self, url: str, **kwargs):
         return self.session.get(url, **kwargs)
 
+    def post(self, url: str, **kwargs):
+        return self.session.post(url, **kwargs)
+
 
 class CurlCffiHttpClient:
     def __init__(self, session):
@@ -44,6 +47,9 @@ class CurlCffiHttpClient:
 
     def get(self, url: str, **kwargs):
         return self.session.get(url, **kwargs)
+
+    def post(self, url: str, **kwargs):
+        return self.session.post(url, **kwargs)
 
 
 def create_http_client(prefer_impersonation: bool = False) -> HttpClientInfo:

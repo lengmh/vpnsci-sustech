@@ -61,17 +61,19 @@ python -m vpnsci_sustech.mcp_server
 
 ### 安装后最小验证
 
-建议至少验证以下三组检索：
+建议至少验证以下四组检索：
 
 - Springer: `support-vector networks`
 - Wiley: `synergetic spin crossover fluorescence one-dimensional hybrid complexes`
 - ScienceDirect: `filtering antenna with radiation and filtering functions for wireless applications`
+- IEEE Xplore: `Network Anomaly Detection Using a Graph Neural Network`
 
 如果宿主支持为 MCP 工具传参，建议分别指定：
 
 - `backend="springerlink"`
 - `backend="wiley"`
 - `backend="sciencedirect"`
+- `backend="ieee"`
 
 这样可以直接验证当前 Phase 2 的 publisher-native search 路线，而不是只测默认 Semantic Scholar 路线。
 
@@ -105,7 +107,7 @@ vpnsci-sustech schools
 
 ## 当前站点支持说明
 
-- IEEE Xplore：可获取全文，支持 PDF 下载
+- IEEE Xplore：可站内检索，可获取全文，支持 PDF 下载；下载仍沿用现有 IEEE article/PDF 路径
 - Springer：可获取全文，搜索和 PDF 下载已验证可用
 - Nature：可获取全文
 - Wiley Online Library：当前已可做检索并获取全文；搜索在站内执行受限时会回退到元数据搜索
