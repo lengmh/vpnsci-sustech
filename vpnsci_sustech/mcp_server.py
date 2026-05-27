@@ -7,9 +7,10 @@ from pathlib import Path
 
 from mcp.server.fastmcp import FastMCP
 
+from . import report_bridge
 from .config import Config
 from .fetcher import PaperFetcher
-from .sources import publisher_search, semantic_scholar
+from .sources import publisher_search, search_mode, semantic_scholar, standard_search
 
 # Logging must go to stderr (stdout is used by MCP stdio transport)
 logging.basicConfig(
@@ -56,6 +57,63 @@ _SCHOOL_NOT_CONFIGURED = (
     "1. 配置内置学校：vpnsci-sustech config-cmd --school 学校名称\n"
     "2. 走 CARSI-only：vpnsci-sustech config-cmd --carsi-enable --carsi-school \"Southern University of Science and Technology\""
 )
+
+UPGRADE_SUGGESTION_TEXT = (
+    "如果你想要更全面覆盖、去重整合和 HTML 综合报告，"
+    "我可以基于这次检索继续进入“专业调研”模式。"
+)
+
+
+def _render_search_results(results, *, session=None) -> str:
+    """Render unified search hits for MCP responses."""
+
+    if not results:
+        if session is not None and getattr(session, "errors", None):
+            lines = ["No results returned from available search sources.\n"]
+            lines.append(f"Search Session: `{session.session_id}`")
+            lines.append("Source Errors:")
+            for err in session.errors:
+                lines.append(f"- **{err.source} / {err.code}:** {err.message}")
+            return "\n".join(lines)
+        return "No results found."
+
+    lines = [f"Found {len(results)} results:\n"]
+    if session is not None:
+        lines.append(f"Search Session: `{session.session_id}`")
+        if session.source_summary:
+            summary = ", ".join(f"{k}={v}" for k, v in session.source_summary.items())
+            lines.append(f"Source Summary: {summary}")
+        lines.append("")
+
+    for i, r in enumerate(results, 1):
+        authors_str = ", ".join(r.authors[:3])
+        if len(r.authors) > 3:
+            authors_str += " et al."
+
+        lines.append(f"### {i}. {r.title}")
+        lines.append(f"- **Authors:** {authors_str}")
+        if r.year:
+            lines.append(f"- **Year:** {r.year}")
+        if r.journal:
+            lines.append(f"- **Journal:** {r.journal}")
+        if r.doi:
+            lines.append(f"- **DOI:** {r.doi}")
+        elif r.arxiv_id:
+            lines.append(f"- **arXiv:** {r.arxiv_id}")
+        lines.append(f"- **Citations:** {getattr(r, 'citation_count', 0)}")
+        if getattr(r, "url", ""):
+            lines.append(f"- **URL:** {r.url}")
+        if getattr(r, "pdf_url", ""):
+            lines.append(f"- **PDF URL:** {r.pdf_url}")
+        if getattr(r, "sources", None):
+            lines.append(f"- **Sources:** {', '.join(r.sources)}")
+        if r.abstract:
+            lines.append(f"- **Abstract:** {r.abstract[:200]}...")
+        lines.append("")
+
+    if session is not None and session.upgrade_suggested:
+        lines.append(UPGRADE_SUGGESTION_TEXT)
+    return "\n".join(lines)
 
 
 @mcp.tool()
@@ -185,7 +243,7 @@ async def fetch_paper(identifier: str, format: str = "markdown") -> str:
 
 @mcp.tool()
 async def search_papers(query: str, limit: int = 10, year_range: str = "", backend: str = "") -> str:
-    """Search for academic papers via Semantic Scholar.
+    """Search for academic papers.
 
     Returns a list of papers with titles, authors, DOIs, and citation counts.
     Use the DOIs from results with fetch_paper to get full text.
@@ -211,56 +269,93 @@ async def search_papers(query: str, limit: int = 10, year_range: str = "", backe
                 f"原因：{e}\n"
                 "当前返回更像 challenge / anti-bot / access-control，而不是正常无结果。"
             )
+        return _render_search_results(results)
     else:
+        mode_decision = search_mode.classify_search_mode(query, {})
+        session = await asyncio.to_thread(
+            standard_search.search,
+            query,
+            limit=limit,
+            year_range=year_range or None,
+            config=config,
+        )
+        if mode_decision.mode != "pro":
+            return _render_search_results(session.hits, session=session)
+
         try:
-            results = await asyncio.to_thread(
-                semantic_scholar.search,
-                query,
-                limit=limit,
-                year_range=year_range or None,
-                api_key=config.semantic_scholar_api_key,
+            report = await asyncio.to_thread(
+                report_bridge.generate_report_from_session,
+                session.session_id,
+                config=config,
+                mode="standard",
             )
-        except semantic_scholar.SemanticScholarRateLimitError:
+        except report_bridge.ReportBridgeConfigError as e:
             return (
-                "⚠️ Semantic Scholar 搜索当前被限流。\n\n"
-                "这不是“没有结果”，而是搜索接口返回了 HTTP 429。\n"
-                "如果你已经配置 API key，请确认 key 可用且未超过 1 request/second 限额；\n"
-                "否则请稍后重试，或直接提供 DOI / URL 给我继续 fetch。"
+                "已识别为“专业调研”请求，但报告桥接尚未配置。\n\n"
+                f"- Search Session: `{session.session_id}`\n"
+                f"- 原因：{e}\n\n"
+                "已先完成标准检索并保存为种子会话：\n\n"
+                f"{_render_search_results(session.hits, session=session)}"
             )
-        except semantic_scholar.SemanticScholarRequestError as e:
+        except report_bridge.ReportBridgeError as e:
             return (
-                "⚠️ Semantic Scholar 搜索请求失败。\n\n"
-                f"错误信息：{e}\n"
-                "你可以稍后重试，或直接提供 DOI / URL 给我继续 fetch。"
+                "已识别为“专业调研”请求，但报告生成失败。\n\n"
+                f"- Search Session: `{session.session_id}`\n"
+                f"- 原因：{e}\n\n"
+                "标准检索结果仍可用于继续全文获取：\n\n"
+                f"{_render_search_results(session.hits, session=session)}"
             )
 
-    if not results:
-        return "No results found."
+        return (
+            "✅ 已按“专业调研”请求生成报告。\n\n"
+            f"- Search Session: `{report.seed_session_id}`\n"
+            f"- Report: `{report.report_path}`\n"
+            f"- Deduped Papers: {report.deduped_paper_count}\n"
+            f"- Expanded Sources: {', '.join(report.expanded_sources) if report.expanded_sources else '(none)'}\n"
+            f"- Summary: {report.summary or '(none)'}"
+        )
 
-    lines = [f"Found {len(results)} results:\n"]
-    for i, r in enumerate(results, 1):
-        authors_str = ", ".join(r.authors[:3])
-        if len(r.authors) > 3:
-            authors_str += " et al."
 
-        lines.append(f"### {i}. {r.title}")
-        lines.append(f"- **Authors:** {authors_str}")
-        if r.year:
-            lines.append(f"- **Year:** {r.year}")
-        if r.journal:
-            lines.append(f"- **Journal:** {r.journal}")
-        if r.doi:
-            lines.append(f"- **DOI:** {r.doi}")
-        elif r.arxiv_id:
-            lines.append(f"- **arXiv:** {r.arxiv_id}")
-        lines.append(f"- **Citations:** {r.citation_count}")
-        if getattr(r, "pdf_url", ""):
-            lines.append(f"- **PDF URL:** {r.pdf_url}")
-        if r.abstract:
-            lines.append(f"- **Abstract:** {r.abstract[:200]}...")
-        lines.append("")
+@mcp.tool()
+async def generate_search_report(search_session_id: str, mode: str = "standard") -> str:
+    """Generate an HTML research report from a saved search session.
 
-    return "\n".join(lines)
+    This is the explicit professional-research upgrade path. It uses the saved
+    standard-search session as seed input for the configured paper-search-pro
+    bridge. It is not called by normal search automatically.
+
+    Args:
+        search_session_id: Search session id returned by search_papers.
+        mode: Report mode passed to the bridge. Default: standard.
+    """
+    try:
+        result = await asyncio.to_thread(
+            report_bridge.generate_report_from_session,
+            search_session_id,
+            config=Config.load(),
+            mode=mode,
+        )
+    except report_bridge.ReportBridgeConfigError as e:
+        return (
+            "⚠️ 报告桥接尚未配置。\n\n"
+            f"原因：{e}\n"
+            "标准检索结果不受影响。请先配置 paper_search_pro_root 和 paper_search_pro_command。"
+        )
+    except report_bridge.ReportBridgeError as e:
+        return (
+            "⚠️ 报告生成失败。\n\n"
+            f"原因：{e}\n"
+            "标准检索结果不受影响，可以稍后重试或检查 paper-search-pro 配置。"
+        )
+
+    return (
+        "✅ 专业调研报告已生成。\n\n"
+        f"- Search Session: `{result.seed_session_id}`\n"
+        f"- Report: `{result.report_path}`\n"
+        f"- Deduped Papers: {result.deduped_paper_count}\n"
+        f"- Expanded Sources: {', '.join(result.expanded_sources) if result.expanded_sources else '(none)'}\n"
+        f"- Summary: {result.summary or '(none)'}"
+    )
 
 
 @mcp.tool()

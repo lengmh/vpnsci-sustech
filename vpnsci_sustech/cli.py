@@ -18,10 +18,11 @@ import typer
 from rich.console import Console
 from rich.table import Table
 
+from . import report_bridge
 from .config import Config
 from .fetcher import PaperFetcher
 from .schools import get_school, list_schools, search_schools
-from .sources import publisher_search, semantic_scholar
+from .sources import publisher_search, search_mode, semantic_scholar, standard_search
 
 app = typer.Typer(
     name="vpnsci-sustech",
@@ -187,7 +188,7 @@ def search(
     do_fetch: bool = typer.Option(False, "--fetch", help="Also fetch full text for results with DOIs."),
     verbose: bool = typer.Option(False, "--verbose", "-v", help="Verbose logging."),
 ):
-    """Search for papers via Semantic Scholar."""
+    """Search for papers."""
     _setup_logging(verbose)
 
     console.print(f"[bold]Searching:[/bold] {query}")
@@ -195,20 +196,34 @@ def search(
     if backend:
         results = publisher_search.search(query, backend=backend, limit=limit)
     else:
-        try:
-            results = semantic_scholar.search(
-                query,
-                limit=limit,
-                year_range=year or None,
-                api_key=config.semantic_scholar_api_key,
-            )
-        except semantic_scholar.SemanticScholarRateLimitError:
-            console.print("[yellow]Semantic Scholar search is rate-limited (HTTP 429).[/yellow]")
-            console.print("[yellow]This is not 'no results'. Please retry later or configure an API key.[/yellow]")
-            raise typer.Exit(1)
-        except semantic_scholar.SemanticScholarRequestError as e:
-            console.print(f"[red]Semantic Scholar request failed: {e}[/red]")
-            raise typer.Exit(1)
+        mode_decision = search_mode.classify_search_mode(query, {})
+        session = standard_search.search(
+            query,
+            limit=limit,
+            year_range=year or None,
+            config=config,
+        )
+        results = session.hits
+        console.print(f"[dim]Search Session: {session.session_id}[/dim]")
+        if session.source_summary:
+            console.print(f"[dim]Source Summary: {session.source_summary}[/dim]")
+        if session.errors:
+            for err in session.errors:
+                console.print(f"[yellow]{err.source} {err.code}: {err.message}[/yellow]")
+        if mode_decision.mode == "pro":
+            console.print("[cyan]检测到专业调研强触发，标准检索会话已作为报告种子保存。[/cyan]")
+            try:
+                report_result = report_bridge.generate_report_from_session(session.session_id, config=config)
+            except report_bridge.ReportBridgeConfigError as e:
+                console.print(f"[yellow]报告桥接尚未配置：{e}[/yellow]")
+                console.print("[yellow]将继续显示标准检索结果。[/yellow]")
+            except report_bridge.ReportBridgeError as e:
+                console.print(f"[red]报告生成失败：{e}[/red]")
+                console.print("[yellow]将继续显示标准检索结果。[/yellow]")
+            else:
+                console.print("[green]专业调研报告已生成。[/green]")
+                console.print(f"Report: {report_result.report_path}")
+                return
 
     if not results:
         console.print("[yellow]No results found.[/yellow]")
@@ -238,6 +253,12 @@ def search(
 
     console.print(table)
 
+    if not backend and "session" in locals() and session.upgrade_suggested:
+        console.print(
+            "[cyan]如果你想要更全面覆盖、去重整合和 HTML 综合报告，"
+            "我可以基于这次检索继续进入“专业调研”模式。[/cyan]"
+        )
+
     # Optionally fetch full texts
     if do_fetch:
         fetchable = [r for r in results if r.doi or r.arxiv_id]
@@ -257,6 +278,28 @@ def search(
                         console.print(f"    [red]Error: {e}[/red]")
             finally:
                 fetcher.close()
+
+
+@app.command()
+def report(
+    search_session_id: str = typer.Argument(help="Search session id returned by search."),
+    mode: str = typer.Option("standard", "--mode", help="Report mode passed to paper-search-pro bridge."),
+):
+    """Generate an HTML report from a saved search session."""
+    cfg = Config.load()
+    try:
+        result = report_bridge.generate_report_from_session(search_session_id, config=cfg, mode=mode)
+    except report_bridge.ReportBridgeConfigError as e:
+        console.print(f"[yellow]报告桥接尚未配置：{e}[/yellow]")
+        raise typer.Exit(1)
+    except report_bridge.ReportBridgeError as e:
+        console.print(f"[red]报告生成失败：{e}[/red]")
+        raise typer.Exit(1)
+
+    console.print("[green]专业调研报告已生成。[/green]")
+    console.print(f"Report: {result.report_path}")
+    console.print(f"Seed Session: {result.seed_session_id}")
+    console.print(f"Deduped Papers: {result.deduped_paper_count}")
 
 
 @app.command()
@@ -316,6 +359,10 @@ def config_cmd(
     set_elsevier_key: str = typer.Option("", "--elsevier-api-key", help="Set Elsevier API key."),
     set_elsevier_token: str = typer.Option("", "--elsevier-inst-token", help="Set Elsevier institutional token."),
     set_s2_key: str = typer.Option("", "--semantic-scholar-api-key", help="Set Semantic Scholar API key."),
+    set_openalex_key: str = typer.Option("", "--openalex-api-key", help="Set OpenAlex API key."),
+    set_paper_search_pro_root: str = typer.Option("", "--paper-search-pro-root", help="Set paper-search-pro root path."),
+    set_paper_search_pro_command: str = typer.Option("", "--paper-search-pro-command", help="Set paper-search-pro command template."),
+    set_paper_search_pro_output_dir: str = typer.Option("", "--paper-search-pro-output-dir", help="Set report output directory."),
     set_flaresolverr: str = typer.Option("", "--flaresolverr-url", help="Set FlareSolverr URL."),
     set_carsi_enable: bool = typer.Option(False, "--carsi-enable", help="Enable CARSI/Shibboleth federated auth."),
     set_carsi_disable: bool = typer.Option(False, "--carsi-disable", help="Disable CARSI auth."),
@@ -376,6 +423,26 @@ def config_cmd(
         changed = True
         console.print("[green]Semantic Scholar API key saved.[/green]")
 
+    if set_openalex_key:
+        cfg.openalex_api_key = set_openalex_key
+        changed = True
+        console.print("[green]OpenAlex API key saved.[/green]")
+
+    if set_paper_search_pro_root:
+        cfg.paper_search_pro_root = set_paper_search_pro_root
+        changed = True
+        console.print(f"[green]paper-search-pro root set to: {set_paper_search_pro_root}[/green]")
+
+    if set_paper_search_pro_command:
+        cfg.paper_search_pro_command = set_paper_search_pro_command
+        changed = True
+        console.print("[green]paper-search-pro command saved.[/green]")
+
+    if set_paper_search_pro_output_dir:
+        cfg.paper_search_pro_output_dir = set_paper_search_pro_output_dir
+        changed = True
+        console.print(f"[green]paper-search-pro output dir set to: {set_paper_search_pro_output_dir}[/green]")
+
     if set_flaresolverr:
         cfg.flaresolverr_url = set_flaresolverr.rstrip("/")
         changed = True
@@ -401,6 +468,8 @@ def config_cmd(
 
     has_setter = any([set_email, set_output, set_webvpn_url, set_school, set_proxy_url,
                       set_elsevier_key, set_elsevier_token, set_s2_key, set_flaresolverr,
+                      set_openalex_key, set_paper_search_pro_root, set_paper_search_pro_command,
+                      set_paper_search_pro_output_dir,
                       set_carsi_enable, set_carsi_disable, set_carsi_school])
     if show and not has_setter:
         # Determine school type
@@ -419,6 +488,10 @@ def config_cmd(
         console.print(f"  Elsevier API key:  {'****' if cfg.elsevier_api_key else '(not set)'}")
         console.print(f"  Elsevier inst tok: {'****' if cfg.elsevier_inst_token else '(not set)'}")
         console.print(f"  Semantic Scholar:  {'****' if cfg.semantic_scholar_api_key else '(not set)'}")
+        console.print(f"  OpenAlex API key:  {'****' if cfg.openalex_api_key else '(not set)'}")
+        console.print(f"  paper-search-pro:  {cfg.paper_search_pro_root or '(not set)'}")
+        console.print(f"  report command:    {'(set)' if cfg.paper_search_pro_command else '(not set)'}")
+        console.print(f"  report output dir: {cfg.paper_search_pro_output_dir or '(not set)'}")
         console.print(f"  FlareSolverr URL:  {cfg.flaresolverr_url}")
         console.print(f"  CARSI enabled:     {'Yes' if cfg.carsi_enabled else 'No'}")
         console.print(f"  CARSI school:      {cfg.carsi_idp_name or '(not set)'}")

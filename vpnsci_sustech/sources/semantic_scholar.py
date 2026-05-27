@@ -7,6 +7,8 @@ from dataclasses import dataclass, field
 
 import requests
 
+from .search_models import SearchHit
+
 logger = logging.getLogger(__name__)
 
 S2_API = "https://api.semanticscholar.org/graph/v1"
@@ -130,6 +132,34 @@ def _parse_results(data: dict) -> list[SearchResult]:
         )
         results.append(result)
     return results
+
+
+def to_search_hit(
+    result: SearchResult,
+    *,
+    query_variant: str = "",
+    query_variant_type: str = "",
+) -> SearchHit:
+    """Convert a Semantic Scholar result into the unified search model."""
+
+    return SearchHit(
+        title=result.title,
+        authors=list(result.authors),
+        year=result.year,
+        abstract=result.abstract,
+        doi=result.doi,
+        arxiv_id=result.arxiv_id,
+        journal=result.journal,
+        citation_count=result.citation_count,
+        url=result.s2_url,
+        s2_paper_id=result.paper_id,
+        source="semantic_scholar",
+        backend="semantic_scholar",
+        query_variant=query_variant,
+        query_variant_type=query_variant_type,
+        sources=["semantic_scholar"],
+        query_variants=[f"{query_variant_type}:{query_variant}"] if query_variant else [],
+    )
 
 
 def search(

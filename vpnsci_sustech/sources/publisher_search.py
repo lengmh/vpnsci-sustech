@@ -1,6 +1,5 @@
 """Publisher-native search helpers for Phase 2."""
 
-from dataclasses import dataclass, field
 from pathlib import Path
 import re
 import time
@@ -13,20 +12,7 @@ from ..browser_session import ChromeDebugSessionManager
 from ..config import Config
 from ..http_clients import SiteRateLimiter, create_http_client
 from ..site_policy import PHASE2_MIN_INTERVAL_SECONDS
-
-
-@dataclass
-class SearchHit:
-    title: str = ""
-    doi: str = ""
-    url: str = ""
-    pdf_url: str = ""
-    journal: str = ""
-    year: int | None = None
-    authors: list[str] = field(default_factory=list)
-    citation_count: int = 0
-    abstract: str = ""
-    arxiv_id: str = ""
+from .search_models import SearchHit
 
 
 class PublisherSearchError(RuntimeError):

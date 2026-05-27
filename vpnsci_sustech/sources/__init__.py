@@ -1,3 +1,3 @@
-from . import publisher_search
+from . import openalex, publisher_search, search_mode, standard_search
 
-__all__ = ["publisher_search"]
+__all__ = ["openalex", "publisher_search", "search_mode", "standard_search"]

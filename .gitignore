@@ -43,6 +43,7 @@ chrome-profile/
 downloads/
 .tmp/
 tests/
+CONTEXT.md
 
 # Testing / Coverage
 .coverage

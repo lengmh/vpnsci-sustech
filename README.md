@@ -75,7 +75,58 @@ python -m vpnsci_sustech.mcp_server
 - `backend="sciencedirect"`
 - `backend="ieee"`
 
-这样可以直接验证当前 Phase 2 的 publisher-native search 路线，而不是只测默认 Semantic Scholar 路线。
+这样可以直接验证当前 Phase 2 的 publisher-native search 路线，而不是只测默认标准检索路线。
+
+### 搜索模式
+
+`search_papers` 默认走 **标准检索**：
+
+- OpenAlex-first 元数据检索
+- Semantic Scholar 补充 / fallback
+- 少量中英 query variants（原始 query 永远保留）
+- 多源去重后的结构化结果
+- 返回可复用的 Search Session id
+
+标准检索不会默认生成报告，也不会默认启动 citation chasing、PRISMA、复杂布尔检索式或 `paper-search-pro` 重流程。
+
+当标准检索结果质量足够时，工具可能给出升级建议：
+
+> 如果你想要更全面覆盖、去重整合和 HTML 综合报告，我可以基于这次检索继续进入“专业调研”模式。
+
+这只是提示，不会自动进入专业调研。需要 HTML 综合报告时，显式调用：
+
+```python
+generate_search_report(search_session_id="search-...")
+```
+
+专业调研通过配置好的 `paper-search-pro` bridge 运行，使用标准检索会话作为种子结果。
+
+### OpenAlex 配置
+
+可选配置 OpenAlex API key：
+
+```bash
+vpnsci-sustech config-cmd --openalex-api-key YOUR_KEY
+```
+
+不配置 key 也可尝试搜索，但 OpenAlex 仍可能遇到额度或频率限制。限流会被报告为 rate limit，不会被伪装成 “No results found”。
+
+### paper-search-pro 报告桥接配置
+
+报告桥接是可选项，不影响标准检索和 `fetch_paper`。
+
+```bash
+vpnsci-sustech config-cmd \
+  --paper-search-pro-root "F:\AI playground\paper-search-pro" \
+  --paper-search-pro-command "python -m paper_search_pro --seed {seed_json} --output {output_dir}" \
+  --paper-search-pro-output-dir "F:\AI playground\TempFiles\paper-search-reports"
+```
+
+命令模板可使用：
+
+- `{seed_json}`：标准检索会话导出的种子结果 JSON
+- `{output_dir}`：报告输出目录
+- `{session_id}`：检索会话 id
 
 ### 通过命令行
 

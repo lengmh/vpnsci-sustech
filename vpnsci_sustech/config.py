@@ -22,6 +22,10 @@ class Config:
     elsevier_api_key: str = ""  # Elsevier Developer Portal API key
     elsevier_inst_token: str = ""  # Optional Elsevier institutional token
     semantic_scholar_api_key: str = ""  # Semantic Scholar Graph API key
+    openalex_api_key: str = ""  # OpenAlex API key for higher daily allowance
+    paper_search_pro_root: str = ""  # Optional external paper-search-pro repository/root
+    paper_search_pro_command: str = ""  # Optional command template for report bridge
+    paper_search_pro_output_dir: str = ""  # Optional output directory for generated reports
     flaresolverr_url: str = "http://127.0.0.1:8191/v1"  # FlareSolverr service URL
     output_dir: str = ""
     cache_dir: str = ""
