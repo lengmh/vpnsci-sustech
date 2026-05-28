@@ -18,7 +18,7 @@ import typer
 from rich.console import Console
 from rich.table import Table
 
-from . import report_bridge
+from . import report_bridge, report_tools
 from .config import Config
 from .fetcher import PaperFetcher
 from .schools import get_school, list_schools, search_schools
@@ -29,6 +29,8 @@ app = typer.Typer(
     help="Fetch academic papers via WebVPN, Open Access, or arXiv.",
     no_args_is_help=True,
 )
+report_tools_app = typer.Typer(help="Install and configure bundled professional report tools.")
+app.add_typer(report_tools_app, name="report-tools")
 console = Console()
 
 
@@ -302,6 +304,22 @@ def report(
     console.print(f"Deduped Papers: {result.deduped_paper_count}")
 
 
+@report_tools_app.command("install")
+def install_report_tools(
+    force: bool = typer.Option(False, "--force", help="Replace existing local paper-search-pro runtime copy."),
+):
+    """Install bundled paper-search-pro snapshot into the user-local runtime directory."""
+    cfg = report_tools.ensure_report_tool_configured(Config.load(), force=force)
+    result = report_tools.install_report_tool(cfg, force=False)
+    console.print("[green]paper-search-pro report tool configured.[/green]")
+    console.print(f"Bundled snapshot: {result.bundled_root}")
+    console.print(f"Local runtime:    {result.local_root}")
+    console.print(f"Report output:    {result.output_dir}")
+    console.print(f"Command:          {result.command}")
+    console.print(f"OpenAlex key:     {'SET' if result.openalex_configured else 'EMPTY'}")
+    console.print(f"S2 key:           {'SET' if result.semantic_scholar_configured else 'EMPTY'}")
+
+
 @app.command()
 def cache(
     action: str = typer.Argument(help="Action: 'clear' to remove cached results."),
@@ -363,6 +381,7 @@ def config_cmd(
     set_paper_search_pro_root: str = typer.Option("", "--paper-search-pro-root", help="Set paper-search-pro root path."),
     set_paper_search_pro_command: str = typer.Option("", "--paper-search-pro-command", help="Set paper-search-pro command template."),
     set_paper_search_pro_output_dir: str = typer.Option("", "--paper-search-pro-output-dir", help="Set report output directory."),
+    install_report_tools_flag: bool = typer.Option(False, "--install-report-tools", help="Install bundled paper-search-pro into the user-local runtime directory."),
     set_flaresolverr: str = typer.Option("", "--flaresolverr-url", help="Set FlareSolverr URL."),
     set_carsi_enable: bool = typer.Option(False, "--carsi-enable", help="Enable CARSI/Shibboleth federated auth."),
     set_carsi_disable: bool = typer.Option(False, "--carsi-disable", help="Disable CARSI auth."),
@@ -443,6 +462,11 @@ def config_cmd(
         changed = True
         console.print(f"[green]paper-search-pro output dir set to: {set_paper_search_pro_output_dir}[/green]")
 
+    if install_report_tools_flag:
+        cfg = report_tools.ensure_report_tool_configured(cfg, force=False)
+        changed = False
+        console.print("[green]paper-search-pro report tool installed and configured.[/green]")
+
     if set_flaresolverr:
         cfg.flaresolverr_url = set_flaresolverr.rstrip("/")
         changed = True
@@ -469,7 +493,7 @@ def config_cmd(
     has_setter = any([set_email, set_output, set_webvpn_url, set_school, set_proxy_url,
                       set_elsevier_key, set_elsevier_token, set_s2_key, set_flaresolverr,
                       set_openalex_key, set_paper_search_pro_root, set_paper_search_pro_command,
-                      set_paper_search_pro_output_dir,
+                      set_paper_search_pro_output_dir, install_report_tools_flag,
                       set_carsi_enable, set_carsi_disable, set_carsi_school])
     if show and not has_setter:
         # Determine school type

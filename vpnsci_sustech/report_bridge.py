@@ -9,6 +9,7 @@ import shlex
 import subprocess
 
 from .config import Config
+from . import report_tools
 from .sources.search_cache import load_session
 
 
@@ -109,7 +110,10 @@ def generate_report_from_session(
 ) -> ReportResult:
     """Generate a report from a saved search session via configured command."""
 
+    persist_autoconfig = config is None
     config = config or Config.load()
+    if not config.paper_search_pro_root or not config.paper_search_pro_command:
+        config = report_tools.ensure_report_tool_configured(config, force=False, persist=persist_autoconfig)
     root, command_template, out_dir = _validate_config(config)
     session = load_session(search_session_id, Path(config.cache_dir))
     seed_path = _write_seed_package(session, out_dir)

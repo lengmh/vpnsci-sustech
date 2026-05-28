@@ -103,6 +103,27 @@ generate_search_report(search_session_id="search-...")
 
 `paper-search-pro` 只通过报告桥接显式调用。桥接未配置或报告生成失败时，标准检索结果和 `fetch_paper` 都不受影响。
 
+## 4.6 `tools/paper-search-pro` 和本地 `~/.vpnsci-sustech/tools/paper-search-pro` 是什么关系？
+
+`tools/paper-search-pro` 是源码仓内的上游快照，用来保证随仓库分发的专业报告工具版本可复现。
+
+本地 MCP 实际运行的是用户目录里的副本：
+
+```text
+~/.vpnsci-sustech/tools/paper-search-pro
+```
+
+可以用下面命令安装 / 刷新：
+
+```bash
+vpnsci-sustech report-tools install --force
+```
+
+这样做有两个目的：
+
+- 源码仓不产生报告、缓存、临时文件
+- API key 只进入用户本地配置，不进入 git
+
 ## 5. WebVPN session 会过期吗？
 
 会过期，通常几小时到一天（取决于学校设置）。过期后需要重新登录：
