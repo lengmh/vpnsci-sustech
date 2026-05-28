@@ -12,6 +12,7 @@ Updated user-facing documentation for the current search/report modes and refres
   - `full` professional research report.
 - Root `FAQ.md` now clarifies that seed preview includes topic landscape and lightweight PRISMA-S disclosure, while full mode remains the complete professional workflow.
 - Technical execution details stay in `docs/agent-workflows/` and `docs/requirements.md` instead of the root README.
+- Report messages now prefer a Markdown HTML link plus local path, and include an Agent-code-editor hint for opening the original file through Explorer when the editor captures `file://` links.
 
 ## Clarified
 

@@ -235,6 +235,18 @@ Recommended failure codes:
 - `full_workflow_step_failed`
 - `full_workflow_runner_unavailable`
 
+## User-Facing Report Link
+
+When an HTML report is produced, open it in the default browser when supported.
+
+Final user-facing messages should include:
+
+- a Markdown link: `[打开 HTML 报告](file:///...)`;
+- the local file path, e.g. `C:\Users\...\report.html`;
+- a short Agent-code-editor note when relevant: if the HTML opens inside the editor, right-click the HTML file tab and choose “在资源管理器中显示/打开”, then open the original file in a browser.
+
+Do not also print a separate bare `file://...` line. Some hosts display bare local URLs as text or open them inside the editor, which is confusing.
+
 ## Capability Mapping
 
 | Capability | Owner |

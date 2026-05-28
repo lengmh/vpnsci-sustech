@@ -312,7 +312,8 @@ def report(
         console.print("Multi-agent: 需要 multi_agent_v1.spawn_agent；SubAgent 失败必须在对话内汇报，不会静默退回 seed_preview。")
     else:
         console.print("[green]专业调研报告已生成。[/green]")
-        console.print(f"Report: {result.report_path}")
+        console.print(f"Local Path: {result.report_path}")
+        console.print("Tip: 如果文件在 Agent 代码编辑器内打开，可右键 HTML 文件标签，选择“在资源管理器中显示/打开”，再用浏览器打开原文件。")
     console.print(f"Seed Session: {result.seed_session_id}")
     console.print(f"Deduped Papers: {result.deduped_paper_count}")
 

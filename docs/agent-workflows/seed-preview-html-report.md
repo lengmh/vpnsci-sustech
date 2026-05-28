@@ -124,6 +124,18 @@ Seed preview implementation and agents that patch seed reports should verify:
 - `report_data.json["chart_data"]["theme_treemap"]` matches `chart_data.json`;
 - no `execution_log.json` is emitted or claimed for seed preview.
 
+## User-Facing Report Link
+
+After rendering, the tool should open the report in the default browser when the host supports it.
+
+Final user-facing messages should include only:
+
+- a Markdown link: `[打开 HTML 报告](file:///...)`;
+- the local file path, e.g. `C:\Users\...\report.html`;
+- a short Agent-code-editor note when relevant: if the HTML opens inside the editor, right-click the HTML file tab and choose “在资源管理器中显示/打开”, then open the original file in a browser.
+
+Do not also print a separate bare `file://...` line. Some hosts display bare local URLs as text or open them inside the editor, which is confusing.
+
 ## Failure Policy
 
 If seed preview cannot build topics or disclosure from available metadata:
