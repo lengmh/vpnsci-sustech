@@ -29,8 +29,14 @@ def local_tool_root(config: Config | None = None) -> Path:
     return DEFAULT_BASE_DIR / "tools" / "paper-search-pro"
 
 
-def default_report_command() -> str:
+def default_seed_preview_command() -> str:
     return "python -m vpnsci_sustech.paper_search_pro_adapter --seed {seed_json} --output-dir {output_dir}"
+
+
+def default_report_command() -> str:
+    """Backward-compatible default command for seed-only HTML preview."""
+
+    return default_seed_preview_command()
 
 
 def _report_output_dir(config: Config) -> Path:

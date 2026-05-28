@@ -284,10 +284,13 @@ async def search_papers(query: str, limit: int = 10, year_range: str = "", backe
 
         try:
             report = await asyncio.to_thread(
-                report_bridge.generate_report_from_session,
+                report_bridge.start_report_from_session,
                 session.session_id,
                 config=config,
-                mode="standard",
+                mode="full",
+                display_query=query,
+                language="zh" if any("\u4e00" <= ch <= "\u9fff" for ch in query) else "en",
+                open_report=True,
             )
         except report_bridge.ReportBridgeConfigError as e:
             return (
@@ -306,34 +309,83 @@ async def search_papers(query: str, limit: int = 10, year_range: str = "", backe
                 f"{_render_search_results(session.hits, session=session)}"
             )
 
+        if getattr(report, "status", "") == "handoff_required":
+            return (
+                "已识别为“专业调研”请求；完整 paper-search-pro workflow 需要 handoff。\n\n"
+                f"- Search Session: `{report.seed_session_id}`\n"
+                f"- Report Mode: `{report.report_mode}`\n"
+                f"- Status: `{report.status}`\n"
+                f"- Handoff: `{report.handoff_path}`\n"
+                "- Automation: Codex 会话层读取 handoff 后继续跑 full workflow\n"
+                "- Multi-agent: 需要 `multi_agent_v1.spawn_agent` 启动并行 SubAgent\n"
+                "- Failure policy: SubAgent 启动失败/超时/输出无效会在当前对话内汇报，不会静默退回 seed_preview\n"
+                f"- Deduped Papers: {report.deduped_paper_count}\n"
+                "没有把 seed-only preview 冒充为完整专业调研。"
+            )
+
         return (
-            "✅ 已按“专业调研”请求生成报告。\n\n"
+            "✅ 已按“专业调研”请求启动报告生成。\n\n"
             f"- Search Session: `{report.seed_session_id}`\n"
+            f"- Report Mode: `{report.report_mode}`\n"
+            f"- Status: `{report.status}`\n"
+            f"- PID: `{report.pid}`\n"
+            f"- Link: [打开 HTML 报告]({report.file_url})\n"
+            f"- File URL: {report.file_url}\n"
             f"- Report: `{report.report_path}`\n"
+            f"- Log: `{report.log_path}`\n"
             f"- Deduped Papers: {report.deduped_paper_count}\n"
             f"- Expanded Sources: {', '.join(report.expanded_sources) if report.expanded_sources else '(none)'}\n"
-            f"- Summary: {report.summary or '(none)'}"
+            "报告在后台生成；如文件暂未出现，请稍后查看 Report 路径或 Log。"
         )
 
 
 @mcp.tool()
-async def generate_search_report(search_session_id: str, mode: str = "standard") -> str:
+async def generate_search_report(
+    search_session_id: str,
+    mode: str = "full",
+    display_query: str = "",
+    language: str = "",
+    open_report: bool = True,
+    query_title: str = "",
+) -> str:
     """Generate an HTML research report from a saved search session.
 
     This is the explicit professional-research upgrade path. It uses the saved
     standard-search session as seed input for the configured paper-search-pro
     bridge. It is not called by normal search automatically.
 
+    Agent automation contract:
+        When mode="full" returns status="handoff_required", an Agent host that
+        supports SubAgents should read the handoff package and continue the full
+        upstream paper-search-pro workflow in the conversation/session layer.
+        The MCP Python process does not directly call Codex-only multi_agent_v1
+        tools. If SubAgents cannot start, time out, or return invalid output,
+        the Agent should report the failure in the current conversation and must
+        not silently downgrade to mode="seed_preview".
+
     Args:
         search_session_id: Search session id returned by search_papers.
-        mode: Report mode passed to the bridge. Default: standard.
+        mode: "full" targets the full paper-search-pro workflow. "seed_preview"
+            renders only the saved search session into a quick HTML preview.
+        display_query: Optional human-friendly query/title shown in the report.
+        language: Optional report UI language: "zh" or "en".
+        open_report: Open the generated report in the default browser after rendering.
+        query_title: Backward-compatible alias for display_query.
     """
+    if query_title and not display_query:
+        display_query = query_title
+    if not language:
+        language = "zh" if any("\u4e00" <= ch <= "\u9fff" for ch in display_query) else ""
+
     try:
         result = await asyncio.to_thread(
-            report_bridge.generate_report_from_session,
+            report_bridge.start_report_from_session,
             search_session_id,
             config=Config.load(),
             mode=mode,
+            display_query=display_query,
+            language=language,
+            open_report=open_report,
         )
     except report_bridge.ReportBridgeConfigError as e:
         return (
@@ -348,13 +400,40 @@ async def generate_search_report(search_session_id: str, mode: str = "standard")
             "标准检索结果不受影响，可以稍后重试或检查 paper-search-pro 配置。"
         )
 
+    if getattr(result, "status", "") == "handoff_required":
+        return (
+            "⚠️ 完整专业调研需要 handoff。\n\n"
+            f"- Search Session: `{result.seed_session_id}`\n"
+            f"- Report Mode: `{result.report_mode}`\n"
+            f"- Status: `{result.status}`\n"
+            f"- Handoff: `{result.handoff_path}`\n"
+            "- Automation: Codex 会话层读取 handoff 后继续跑 full workflow\n"
+            "- Multi-agent: 需要 `multi_agent_v1.spawn_agent` 启动并行 SubAgent\n"
+            "- Failure policy: SubAgent 启动失败/超时/输出无效会在当前对话内汇报，不会静默退回 seed_preview\n"
+            f"- Deduped Papers: {result.deduped_paper_count}\n"
+            f"- Expanded Sources: {', '.join(result.expanded_sources) if result.expanded_sources else '(none)'}\n"
+            "当前未启动 HTML 生成；没有把 seed-only preview 冒充为完整 paper-search-pro workflow。"
+        )
+
+    preview_note = (
+        "\n- Note: This is not the full paper-search-pro workflow."
+        if getattr(result, "report_mode", "") == "seed_preview"
+        else ""
+    )
     return (
-        "✅ 专业调研报告已生成。\n\n"
+        "✅ 专业调研报告已启动。\n\n"
         f"- Search Session: `{result.seed_session_id}`\n"
+        f"- Report Mode: `{result.report_mode}`"
+        f"{preview_note}\n"
+        f"- Status: `{result.status}`\n"
+        f"- PID: `{result.pid}`\n"
+        f"- Link: [打开 HTML 报告]({result.file_url})\n"
+        f"- File URL: {result.file_url}\n"
         f"- Report: `{result.report_path}`\n"
+        f"- Log: `{result.log_path}`\n"
         f"- Deduped Papers: {result.deduped_paper_count}\n"
         f"- Expanded Sources: {', '.join(result.expanded_sources) if result.expanded_sources else '(none)'}\n"
-        f"- Summary: {result.summary or '(none)'}"
+        "报告在后台生成；如文件暂未出现，请稍后查看 Report 路径或 Log。"
     )
 
 

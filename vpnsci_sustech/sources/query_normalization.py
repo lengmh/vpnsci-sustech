@@ -37,6 +37,9 @@ TERM_TABLE: tuple[QueryTerm, ...] = (
     QueryTerm(("检索增强生成", "RAG", "rag"), "retrieval augmented generation", abbreviation="RAG", domain="ai"),
     QueryTerm(("图神经网络", "GNN", "gnn"), "graph neural networks", abbreviation="GNN", domain="ai"),
     QueryTerm(("异常检测",), "anomaly detection", domain="ai"),
+    QueryTerm(("非接触", "无接触", "非接触式"), "non-contact"),
+    QueryTerm(("体温测量", "体温监测", "体温检测"), "body temperature measurement", abbreviation="body temperature thermometry", domain="medical"),
+    QueryTerm(("红外线测量", "红外测量", "红外体温", "红外线"), "infrared measurement", abbreviation="infrared thermography", domain="medical"),
 )
 
 

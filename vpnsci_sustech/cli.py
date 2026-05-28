@@ -215,7 +215,7 @@ def search(
         if mode_decision.mode == "pro":
             console.print("[cyan]检测到专业调研强触发，标准检索会话已作为报告种子保存。[/cyan]")
             try:
-                report_result = report_bridge.generate_report_from_session(session.session_id, config=config)
+                report_result = report_bridge.start_report_from_session(session.session_id, config=config, mode="full", display_query=query, language="zh" if any("\u4e00" <= ch <= "\u9fff" for ch in query) else "en", open_report=True)
             except report_bridge.ReportBridgeConfigError as e:
                 console.print(f"[yellow]报告桥接尚未配置：{e}[/yellow]")
                 console.print("[yellow]将继续显示标准检索结果。[/yellow]")
@@ -223,9 +223,16 @@ def search(
                 console.print(f"[red]报告生成失败：{e}[/red]")
                 console.print("[yellow]将继续显示标准检索结果。[/yellow]")
             else:
-                console.print("[green]专业调研报告已生成。[/green]")
-                console.print(f"Report: {report_result.report_path}")
-                return
+                if getattr(report_result, "status", "") == "handoff_required":
+                    console.print("[yellow]完整专业调研需要 handoff，当前未启动 HTML 生成。[/yellow]")
+                    console.print(f"Handoff: {report_result.handoff_path}")
+                    console.print("Automation: Codex 会话层读取 handoff 后继续跑 full workflow。")
+                    console.print("Multi-agent: 需要 multi_agent_v1.spawn_agent；SubAgent 失败必须在对话内汇报，不会静默退回 seed_preview。")
+                    console.print("[yellow]将继续显示标准检索结果。[/yellow]")
+                else:
+                    console.print("[green]专业调研报告已生成。[/green]")
+                    console.print(f"Report: {report_result.report_path}")
+                    return
 
     if not results:
         console.print("[yellow]No results found.[/yellow]")
@@ -285,12 +292,12 @@ def search(
 @app.command()
 def report(
     search_session_id: str = typer.Argument(help="Search session id returned by search."),
-    mode: str = typer.Option("standard", "--mode", help="Report mode passed to paper-search-pro bridge."),
+    mode: str = typer.Option("full", "--mode", help="Report mode: full or seed_preview."),
 ):
     """Generate an HTML report from a saved search session."""
     cfg = Config.load()
     try:
-        result = report_bridge.generate_report_from_session(search_session_id, config=cfg, mode=mode)
+        result = report_bridge.start_report_from_session(search_session_id, config=cfg, mode=mode, open_report=True)
     except report_bridge.ReportBridgeConfigError as e:
         console.print(f"[yellow]报告桥接尚未配置：{e}[/yellow]")
         raise typer.Exit(1)
@@ -298,8 +305,14 @@ def report(
         console.print(f"[red]报告生成失败：{e}[/red]")
         raise typer.Exit(1)
 
-    console.print("[green]专业调研报告已生成。[/green]")
-    console.print(f"Report: {result.report_path}")
+    if getattr(result, "status", "") == "handoff_required":
+        console.print("[yellow]完整专业调研需要 handoff，当前未启动 HTML 生成。[/yellow]")
+        console.print(f"Handoff: {result.handoff_path}")
+        console.print("Automation: Codex 会话层读取 handoff 后继续跑 full workflow。")
+        console.print("Multi-agent: 需要 multi_agent_v1.spawn_agent；SubAgent 失败必须在对话内汇报，不会静默退回 seed_preview。")
+    else:
+        console.print("[green]专业调研报告已生成。[/green]")
+        console.print(f"Report: {result.report_path}")
     console.print(f"Seed Session: {result.seed_session_id}")
     console.print(f"Deduped Papers: {result.deduped_paper_count}")
 
