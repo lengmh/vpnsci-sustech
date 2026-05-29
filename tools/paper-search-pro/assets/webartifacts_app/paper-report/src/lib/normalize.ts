@@ -45,8 +45,28 @@ interface RawPaper {
   isOpenAccess?: boolean
 }
 
+interface RawQueryVariant {
+  type?: string
+  query?: string
+}
+
+interface RawActualQueryGroup {
+  source?: string
+  queries?: string[]
+}
+
 interface RawMetadata {
   query?: string
+  user_query?: string
+  display_query?: string
+  seed_session_query?: string
+  actual_query_variants?: RawQueryVariant[]
+  query_display?: {
+    user_query?: string
+    primary?: string
+    expanded?: RawQueryVariant[]
+    actual_queries?: RawActualQueryGroup[]
+  }
   /**
    * Optional language-paired query string. Real Skill runs produce a single
    * `query` (already in the user's input language). Demo/mock fixtures may
@@ -84,6 +104,68 @@ interface RawShape {
   prismaLog?: PrismaLog
 }
 
+function normalizeSourceLabel(source: string | undefined): string {
+  const raw = (source ?? "").trim()
+  const key = raw.toLowerCase()
+  const labels: Record<string, string> = {
+    "vpnsci-search-session": "seed",
+    vpnsci_seed: "seed",
+    seed: "seed",
+    openalex: "OpenAlex",
+    semantic_scholar: "Semantic Scholar",
+    semanticscholar: "Semantic Scholar",
+    s2: "Semantic Scholar",
+    crossref: "CrossRef",
+    pubmed: "PubMed",
+    arxiv: "arXiv",
+  }
+  return labels[key] ?? raw
+}
+
+function resolveActualQueries(
+  md: RawMetadata,
+  resolvedQuery: string | undefined,
+): RawActualQueryGroup[] {
+  const queryDisplayGroups = md.query_display?.actual_queries ?? []
+  const groups = new Map<string, string[]>()
+  const userQuery = (md.query_display?.user_query ?? md.display_query ?? md.user_query ?? resolvedQuery ?? "").trim()
+
+  function add(source: string | undefined, query: string | undefined): void {
+    const label = normalizeSourceLabel(source)
+    const text = (query ?? "").trim()
+    if (!label || !text) return
+    if (label === "seed" && userQuery && text === userQuery) return
+    const existing = groups.get(label) ?? []
+    if (!existing.includes(text)) existing.push(text)
+    groups.set(label, existing)
+  }
+
+  for (const group of queryDisplayGroups) {
+    for (const query of group.queries ?? []) {
+      add(group.source, query)
+    }
+  }
+
+  if (groups.size === 0) {
+    for (const variant of md.query_display?.expanded ?? md.actual_query_variants ?? []) {
+      add("seed", variant.query)
+    }
+  }
+
+  const order = ["OpenAlex", "Semantic Scholar", "CrossRef", "PubMed", "arXiv", "seed"]
+  const ordered: RawActualQueryGroup[] = []
+  for (const source of order) {
+    const queries = groups.get(source)
+    if (queries?.length) ordered.push({ source, queries })
+    groups.delete(source)
+  }
+  for (const [source, queries] of groups) {
+    if (queries.length) ordered.push({ source, queries })
+  }
+  return ordered
+}
+
+
 export function normalize(raw: RawShape | null | undefined): NormalizedData {
   if (!raw) {
     return {
@@ -102,9 +184,11 @@ export function normalize(raw: RawShape | null | undefined): NormalizedData {
     // (mock fixtures supply both; real payloads only supply `query` in the
     // user's original language — both behave correctly without changes).
     const resolvedQuery = lang === "zh" && md.query_zh ? md.query_zh : md.query
+    const actualQueries = resolveActualQueries(md, resolvedQuery)
     return {
       meta: {
         query: resolvedQuery,
+        actualQueries,
         searchId: md.search_id,
         tier: md.tier,
         generatedAt: md.generated_at,
@@ -152,6 +236,10 @@ export function normalize(raw: RawShape | null | undefined): NormalizedData {
 
   // (b) Post-materialization fallback — degraded path; do our best.
   const meta = (raw.reportMeta ?? {}) as NormalizedData["meta"]
+  const metadataFallback = (raw.reportMeta ?? {}) as RawMetadata
+  if (!meta.actualQueries) {
+    meta.actualQueries = resolveActualQueries(metadataFallback, meta.query)
+  }
   return {
     meta,
     papers: (raw.papers ?? []).map((p): NormalizedPaper => {

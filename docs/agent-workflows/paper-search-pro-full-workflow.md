@@ -37,8 +37,9 @@ If the user asked for a full/professional/HTML research report and the MCP resul
 7. Before relevance classification, determine how many classifier SubAgents can be active at once.
 8. Use parallel SubAgents for relevance classification if the host supports them.
 9. Materialize renderer data with the expected schema, including PRISMA-S unwrapping rules below.
-10. Render final HTML and export artifacts.
-11. Return the local report link and open the HTML report if requested/supported.
+10. Materialize `query_display.actual_queries` from the executed query plan.
+11. Render final HTML and export artifacts.
+12. Return the local report link and open the HTML report if requested/supported.
 
 ## Dependency Policy
 
@@ -103,6 +104,66 @@ Agents should avoid passing non-ASCII/CJK queries through shell command strings 
 - in Python snippets, use Unicode escapes or load text from UTF-8 files.
 
 If a generated artifact contains replacement text like `???`, treat that as an Agent execution/encoding bug and regenerate the affected artifacts from the UTF-8 handoff files. The current `vpnsci-sustech` handoff JSON files are UTF-8 and should preserve Chinese queries.
+
+## Query Display in HTML
+
+Full reports must show both:
+
+- the user-facing query in the Hero H1;
+- the actual executed source-specific search strings in a compact strip below H1.
+
+Required renderer-facing metadata shape:
+
+```json
+{
+  "query": "红外线测量",
+  "user_query": "红外线测量",
+  "display_query": "红外线测量",
+  "query_display": {
+    "user_query": "红外线测量",
+    "primary": "红外线测量",
+    "actual_queries": [
+      {
+        "source": "OpenAlex",
+        "queries": [
+          "infrared measurement",
+          "infrared thermography measurement",
+          "near-infrared spectroscopy measurement"
+        ]
+      },
+      {
+        "source": "Semantic Scholar",
+        "queries": ["infrared measurement"]
+      }
+    ]
+  }
+}
+```
+
+Source labels should be human-readable (`OpenAlex`, `Semantic Scholar`, `CrossRef`, `PubMed`, `arXiv`, `seed`).
+
+Display rules:
+
+- H1 remains the user query only.
+- The query strip uses hanging alignment: source badge left, query chips right.
+- Do not hardcode `OR` / `AND` between chips. Each chip represents one executed query/strategy; Boolean syntax inside a query string is rendered literally.
+- Omit a `seed` row when the seed query equals the H1 query.
+- Keep the report's existing visual language: muted, small, subtle, wrapping chips.
+
+Materialization rule:
+
+- If `query_plan.json` is available, pass it to `scripts.data_materialization --query-plan`.
+- If materialization already happened, patch `metadata.json` and `report_data.json["metadata"]` from the executed `query_plan.json` / `query_plan_list.json`, then re-render.
+- Do not reconstruct Chinese query text from shell literals. Read UTF-8 JSON files.
+
+Validation before final delivery:
+
+- `metadata.query_display.actual_queries` is present when source-specific queries were executed;
+- `report_data.json["metadata"]["query_display"]["actual_queries"]` matches `metadata.json`;
+- hydrated HTML contains `.psp-query-strip` and the expected source labels;
+- no visible `???` appears in the query or query strip.
+
+Compatibility note: current source builds render the strip in React. If a runtime still ships an older pre-built `bundle.html`, `html_renderer_webartifacts.py` injects a small compatibility guard that reads `query_display.actual_queries` and inserts the strip after the Hero H1. Rebuilding `bundle.html` remains the preferred release path.
 
 ## KG Field Completeness and Theme Fallback
 

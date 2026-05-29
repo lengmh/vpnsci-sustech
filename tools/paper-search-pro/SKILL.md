@@ -389,6 +389,7 @@ PYTHONPATH=~/.claude/skills/paper-search-pro \
     --tier "<quick|standard|deep|audit>" \
     --search-id "$SEARCH_ID" \
     --snapshots "$SEARCH_DIR/curve.json" \
+    --query-plan "$SEARCH_DIR/query_plan.json" \
     --output "$SEARCH_DIR/report_data.json"
 
 # 12b. Render HTML (Shadcn webartifacts — only renderer; no size cap)

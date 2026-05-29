@@ -95,6 +95,7 @@ def render_html_webartifacts(
     )
 
     bundle_html = PREBUILT_BUNDLE.read_text(encoding="utf-8")
+    bundle_html = _inject_actual_query_strip_compat(bundle_html)
     # Inject DATA first then LANG, so LANG ends up FIRST in the HTML stream
     # (each _inject_* helper inserts before the current first <script>; the
     # second call therefore lands before the script written by the first
@@ -192,6 +193,154 @@ def _inject_report_data(bundle_html: str, report_data: Dict[str, Any]) -> str:
         return bundle_html + injection
     insert_at = match.start()
     return bundle_html[:insert_at] + injection + bundle_html[insert_at:]
+
+
+def _inject_actual_query_strip_compat(bundle_html: str) -> str:
+    """Add a small runtime guard for bundles built before the query-strip UI.
+
+    The React source owns the component in current code, but some shipped
+    `bundle.html` files are pre-built. This compatibility layer reads
+    `metadata.query_display.actual_queries` from `window.__REPORT_DATA__` and
+    inserts the same strip after the Hero H1 only when the React bundle has not
+    already rendered `.psp-query-strip`.
+    """
+    marker = "data-psp-query-strip-compat"
+    if marker in bundle_html:
+        return bundle_html
+
+    injection = r'''<style data-psp-query-strip-compat>
+.psp-query-strip{margin-top:16px;max-width:100%;color:hsl(var(--muted-foreground));font-family:var(--font-sans)}
+.rd-hero-swiss .psp-query-strip{max-width:min(680px,100%);margin-top:18px}
+.rd-hero-editorial .psp-query-strip{margin-top:18px}
+.rd-hero-document .psp-query-strip{margin-top:14px}
+.psp-query-strip-kicker{font-family:var(--font-mono);font-size:10.5px;line-height:1;letter-spacing:.12em;text-transform:uppercase;color:hsl(var(--muted-foreground));margin-bottom:9px}
+.psp-query-strip-grid{display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:10px;row-gap:7px;align-items:start;max-width:100%}
+.psp-query-strip-row{display:contents}
+.psp-query-strip-source{justify-self:end;display:inline-flex;align-items:center;min-height:21px;padding:2px 7px;border:1px solid hsl(var(--border));border-radius:999px;background:hsl(var(--background));color:hsl(var(--foreground));font-family:var(--font-mono);font-size:10.5px;line-height:1.2;letter-spacing:.01em;white-space:nowrap}
+.psp-query-strip-chips{display:flex;flex-wrap:wrap;align-items:center;gap:5px;min-width:0}
+.psp-query-strip-chip{display:inline-flex;align-items:center;max-width:100%;min-height:21px;padding:2px 7px;border:1px solid hsl(var(--border));border-radius:6px;background:hsl(var(--muted)/.46);color:hsl(var(--foreground));font-family:var(--font-mono);font-size:11.5px;line-height:1.35;overflow-wrap:anywhere}
+@media (max-width:640px){.psp-query-strip-grid{grid-template-columns:1fr;row-gap:5px}.psp-query-strip-row{display:block}.psp-query-strip-source{justify-self:start;margin-top:3px}.psp-query-strip-chips{margin-top:5px}}
+</style>
+<script data-psp-query-strip-compat>
+(function(){
+  var SOURCE_LABELS={
+    "vpnsci-search-session":"seed","vpnsci_seed":"seed","seed":"seed",
+    "openalex":"OpenAlex","semantic_scholar":"Semantic Scholar",
+    "semanticscholar":"Semantic Scholar","s2":"Semantic Scholar",
+    "crossref":"CrossRef","pubmed":"PubMed","arxiv":"arXiv"
+  };
+  function labelFor(source){
+    var raw=String(source||"").trim();
+    return SOURCE_LABELS[raw.toLowerCase()]||raw;
+  }
+  function userQuery(metadata,queryDisplay){
+    return String(
+      (queryDisplay&&queryDisplay.user_query)||
+      metadata.display_query||
+      metadata.user_query||
+      metadata.query||
+      ""
+    ).trim();
+  }
+  function collectGroups(){
+    var report=window.__REPORT_DATA__||{};
+    var metadata=report.metadata||report.reportMeta||{};
+    var queryDisplay=metadata.query_display||{};
+    var raw=queryDisplay.actual_queries||metadata.actual_queries||[];
+    var user=userQuery(metadata,queryDisplay);
+    var groups=[];
+    if(!Array.isArray(raw)) return groups;
+    raw.forEach(function(group){
+      if(!group) return;
+      var source=labelFor(group.source);
+      var seen={};
+      var queries=[];
+      (Array.isArray(group.queries)?group.queries:[]).forEach(function(query){
+        var text=String(query||"").trim();
+        if(!text) return;
+        if(source==="seed"&&user&&text===user) return;
+        if(seen[text]) return;
+        seen[text]=true;
+        queries.push(text);
+      });
+      if(source&&queries.length) groups.push({source:source,queries:queries});
+    });
+    return groups;
+  }
+  function stripLabel(){
+    return window.__REPORT_LANG__==="zh"?"实际检索 query":"Actual search queries";
+  }
+  function makeStrip(groups){
+    var root=document.createElement("div");
+    root.className="psp-query-strip";
+    root.setAttribute("aria-label",stripLabel());
+    var kicker=document.createElement("div");
+    kicker.className="psp-query-strip-kicker";
+    kicker.textContent=stripLabel();
+    root.appendChild(kicker);
+    var grid=document.createElement("div");
+    grid.className="psp-query-strip-grid";
+    groups.forEach(function(group){
+      var row=document.createElement("div");
+      row.className="psp-query-strip-row";
+      var source=document.createElement("span");
+      source.className="psp-query-strip-source";
+      source.textContent=group.source;
+      var chips=document.createElement("span");
+      chips.className="psp-query-strip-chips";
+      group.queries.forEach(function(query){
+        var chip=document.createElement("span");
+        chip.className="psp-query-strip-chip";
+        chip.textContent=query;
+        chips.appendChild(chip);
+      });
+      row.appendChild(source);
+      row.appendChild(chips);
+      grid.appendChild(row);
+    });
+    root.appendChild(grid);
+    return root;
+  }
+  function findHeroTitle(){
+    return document.querySelector(".rd-hero-swiss h1,.rd-hero-editorial h1,.rd-hero-document h1,header h1");
+  }
+  function apply(){
+    if(document.querySelector(".psp-query-strip")) return true;
+    var groups=collectGroups();
+    if(!groups.length) return false;
+    var h1=findHeroTitle();
+    if(!h1||!h1.parentNode) return false;
+    h1.insertAdjacentElement("afterend",makeStrip(groups));
+    return true;
+  }
+  function boot(){
+    if(apply()) return;
+    var tries=0;
+    var timer=setInterval(function(){
+      tries+=1;
+      if(apply()||tries>100) clearInterval(timer);
+    },100);
+    if(document.body&&window.MutationObserver){
+      var observer=new MutationObserver(function(){
+        if(apply()){
+          observer.disconnect();
+          clearInterval(timer);
+        }
+      });
+      observer.observe(document.body,{childList:true,subtree:true});
+      setTimeout(function(){observer.disconnect();},10000);
+    }
+  }
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",boot);
+  }else{
+    boot();
+  }
+})();
+</script>'''
+    if "</body>" in bundle_html:
+        return bundle_html.replace("</body>", f"{injection}</body>", 1)
+    return bundle_html + injection
 
 
 def _resolve_language(

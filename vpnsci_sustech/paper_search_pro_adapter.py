@@ -124,6 +124,135 @@ def _query_variants_from_session(session: SearchSession) -> list[dict]:
     return variants
 
 
+def _actual_query_groups_from_session(
+    session: SearchSession,
+    *,
+    display_query: str = "",
+) -> list[dict]:
+    source_labels = {
+        "openalex": "OpenAlex",
+        "semantic_scholar": "Semantic Scholar",
+        "semanticscholar": "Semantic Scholar",
+        "s2": "Semantic Scholar",
+        "crossref": "CrossRef",
+        "pubmed": "PubMed",
+        "arxiv": "arXiv",
+        "vpnsci-search-session": "seed",
+        "vpnsci_seed": "seed",
+        "seed": "seed",
+    }
+    source_order = ["OpenAlex", "Semantic Scholar", "CrossRef", "PubMed", "arXiv", "seed"]
+    user_query = (display_query or session.query or "").strip()
+    groups: dict[str, list[str]] = {}
+
+    def add(source: str, query: str) -> None:
+        query = (query or "").strip()
+        if not query:
+            return
+        raw_source = (source or "").strip().lower()
+        label = source_labels.get(raw_source, source or "source")
+        if label == "seed" and user_query and query == user_query:
+            return
+        groups.setdefault(label, [])
+        if query not in groups[label]:
+            groups[label].append(query)
+
+    def add_filter_variants(source: str) -> None:
+        filters = session.filters if isinstance(session.filters, dict) else {}
+        for variant in filters.get("query_variants", []):
+            if not isinstance(variant, dict):
+                continue
+            add(source, variant.get("query", ""))
+
+    filters = session.filters if isinstance(session.filters, dict) else {}
+    filter_variants = filters.get("query_variants", [])
+    if isinstance(filter_variants, list) and filter_variants:
+        # Standard search executes the persisted query_variants against each
+        # routed source. Merged SearchHit records keep `sources[]` and
+        # `query_variants[]`, but not the exact source->variant pairs. Prefer
+        # session-level variants grouped by observed source to avoid assigning
+        # one merged hit's first query_variant to every source.
+        sources_from_summary = [
+            source
+            for source, count in (session.source_summary or {}).items()
+            if count
+        ]
+        if sources_from_summary:
+            for source in sources_from_summary:
+                add_filter_variants(source)
+        elif any(
+            hit.sources or hit.source or hit.backend
+            for hit in session.hits
+        ):
+            seen_sources: list[str] = []
+            for hit in session.hits:
+                hit_sources = hit.sources or [hit.source or hit.backend]
+                for source in hit_sources:
+                    if source and source not in seen_sources:
+                        seen_sources.append(source)
+            for source in seen_sources:
+                add_filter_variants(source)
+        else:
+            add_filter_variants("seed")
+
+    if groups:
+        ordered: list[dict] = []
+        for source in source_order:
+            queries = groups.pop(source, None)
+            if queries:
+                ordered.append({"source": source, "queries": queries})
+        for source, queries in groups.items():
+            if queries:
+                ordered.append({"source": source, "queries": queries})
+        return ordered
+
+    for hit in session.hits:
+        hit_queries: list[str] = []
+        if hit.query_variant:
+            hit_queries.append(hit.query_variant)
+        for marker in hit.query_variants:
+            if ":" in marker:
+                _, marker_query = marker.split(":", 1)
+            else:
+                marker_query = marker
+            if marker_query and marker_query not in hit_queries:
+                hit_queries.append(marker_query)
+        if hit.sources:
+            sources = hit.sources
+        elif hit.source or hit.backend:
+            sources = [hit.source or hit.backend]
+        elif len(session.source_summary or {}) == 1:
+            sources = list(session.source_summary.keys())
+        else:
+            sources = ["seed"]
+        for source in sources:
+            for query in hit_queries:
+                add(source, query)
+
+    if not groups:
+        fallback_sources = list(session.source_summary.keys()) if session.source_summary else []
+        if fallback_sources:
+            for source in fallback_sources:
+                add_filter_variants(source)
+
+    if not groups:
+        add_filter_variants("seed")
+
+    if not groups:
+        for variant in _query_variants_from_session(session):
+            add("seed", variant.get("query", ""))
+
+    ordered: list[dict] = []
+    for source in source_order:
+        queries = groups.pop(source, None)
+        if queries:
+            ordered.append({"source": source, "queries": queries})
+    for source, queries in groups.items():
+        if queries:
+            ordered.append({"source": source, "queries": queries})
+    return ordered
+
+
 def _paper_text(paper: dict) -> str:
     return " ".join(
         str(paper.get(key) or "")
@@ -473,6 +602,7 @@ def _write_materialized_data(
     closely = sum(1 for paper in papers if int(paper.get("rcs") or 0) in (5, 6))
     discovery_curve = chart_data["discovery_curve"]
     actual_query_variants = _query_variants_from_session(session)
+    actual_query_groups = _actual_query_groups_from_session(session, display_query=report_query)
     metadata = {
         "query": report_query,
         "language": report_language,
@@ -484,6 +614,7 @@ def _write_materialized_data(
             "user_query": report_query,
             "primary": report_query,
             "expanded": actual_query_variants,
+            "actual_queries": actual_query_groups,
         },
         "search_id": session.session_id,
         "seed_session_id": session.session_id,

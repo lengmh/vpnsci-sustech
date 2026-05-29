@@ -11,6 +11,7 @@ Key Phase 3 notes:
 
 - [Codex Full Workflow Automation Boundary](releases/2026-05-28-codex-full-workflow-automation.md)
 - [Docs and Local MCP Refresh](releases/2026-05-29-docs-and-local-mcp-refresh.md)
+- [Query Display Workflow](releases/2026-05-29-query-display-workflow.md)
 
 ## Agent Workflows
 

@@ -17,8 +17,14 @@ export type Tier =
   | "Emerging"
   | "Peripheral"
 
+export interface ActualQueryGroup {
+  source?: string
+  queries?: string[]
+}
+
 export interface NormalizedMeta {
   query?: string
+  actualQueries?: ActualQueryGroup[]
   searchId?: string
   /** 'quick' | 'standard' | 'deep' | 'audit' */
   tier?: string

@@ -11,6 +11,7 @@ import { SearchInput } from "@/components/adapters/SearchInput"
 import { SegmentedToggle } from "@/components/adapters/SegmentedToggle"
 import { fmtNum } from "@/lib/format"
 import { t } from "@/lib/i18n"
+import { ActualQueryStrip } from "../ActualQueryStrip"
 import type { NormalizedData, Tier } from "@/lib/types"
 
 import type { TierFilter } from "../TierStrip"
@@ -111,6 +112,8 @@ export function EditorialTop({
           >
             {m.query}
           </h1>
+
+          <ActualQueryStrip groups={m.actualQueries} />
 
           {/* Finding — one sentence, no boxes */}
           <p

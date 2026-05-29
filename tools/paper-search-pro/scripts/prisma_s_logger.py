@@ -47,7 +47,11 @@ def build_prisma_s_log(
     output_paths = output_paths or {}
 
     sources_used = _databases_used(kg, query_plan)
-    query_texts = [q.get("text", "") for q in query_plan if isinstance(q, dict)]
+    query_texts = [
+        q.get("text") or q.get("query") or q.get("search_string") or ""
+        for q in query_plan
+        if isinstance(q, dict)
+    ]
     query_filters = [q.get("filters", []) for q in query_plan if isinstance(q, dict)]
     classified_count = sum(1 for p in kg.values() if p.rcs is not None)
     highly_relevant = sum(
@@ -95,7 +99,7 @@ def build_prisma_s_log(
             "queries": query_texts,
             "boolean_expressions": [
                 {
-                    "text": q.get("text"),
+                    "text": q.get("text") or q.get("query") or q.get("search_string"),
                     "openalex": q.get("boolean_openalex"),
                     "semantic_scholar": q.get("boolean_ss"),
                     "type": q.get("type"),
@@ -176,12 +180,16 @@ def _databases_used(
         # Fallback to plan-stated sources
         for q in query_plan:
             if isinstance(q, dict):
-                src = q.get("source")
+                src = q.get("source") or q.get("database") or q.get("backend")
                 if src:
-                    if src == "both":
+                    if str(src).strip().lower() == "both":
                         sources.update(["openalex", "semantic_scholar"])
                     else:
-                        sources.add(src)
+                        sources.add(str(src))
+                if q.get("openalex") or q.get("boolean_openalex"):
+                    sources.add("openalex")
+                if q.get("semantic_scholar") or q.get("boolean_ss"):
+                    sources.add("semantic_scholar")
     # Stable ordering with OpenAlex first when present
     ordered: List[str] = []
     if "openalex" in sources:
@@ -456,7 +464,14 @@ if __name__ == "__main__":
             )
 
     kg = _kg_from_json(json.loads(kg_path.read_text(encoding="utf-8")))
-    query_plan = _read_json(args.query_plan) or []
+    query_plan_raw = _read_json(args.query_plan) or []
+    if isinstance(query_plan_raw, dict):
+        strategies = query_plan_raw.get("strategies")
+        query_plan = [q for q in strategies if isinstance(q, dict)] if isinstance(strategies, list) else [query_plan_raw]
+    elif isinstance(query_plan_raw, list):
+        query_plan = [q for q in query_plan_raw if isinstance(q, dict)]
+    else:
+        query_plan = []
     snapshots = _read_json(args.snapshots) or []
     output_paths = _read_json(args.output_paths) or {}
     errors = _read_json(args.errors) or []

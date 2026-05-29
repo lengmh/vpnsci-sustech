@@ -113,6 +113,46 @@ Minimum disclosure semantics:
 
 Do not write `{ "seed": {...} }` as the only audit payload; the React audit tab expects top-level PRISMA-S canonical keys.
 
+## Query Display
+
+Seed preview HTML must keep the top title as the user's visible query and show the actual executed search strings directly below it when available.
+
+Required metadata shape:
+
+```json
+{
+  "query": "红外线测量",
+  "user_query": "红外线测量",
+  "display_query": "红外线测量",
+  "query_display": {
+    "user_query": "红外线测量",
+    "primary": "红外线测量",
+    "actual_queries": [
+      {
+        "source": "OpenAlex",
+        "queries": [
+          "infrared measurement",
+          "infrared thermography measurement"
+        ]
+      },
+      {
+        "source": "Semantic Scholar",
+        "queries": ["infrared measurement"]
+      }
+    ]
+  }
+}
+```
+
+Display rules:
+
+- H1 shows only `metadata.query` / `query_display.user_query`.
+- Render a small, low-contrast “实际检索 query” strip below H1.
+- Use hanging alignment: source badge on the left, query chips on the right.
+- Do not hardcode `OR` or `AND` between chips. Each chip is one executed query or strategy; if the query text itself contains Boolean syntax, render it as-is inside the chip.
+- Omit the `seed` row when the seed query is identical to the H1 user query.
+- Preserve the existing report visual style: small text, subtle borders, muted colors, wrapping chips.
+
 ## Validation
 
 Seed preview implementation and agents that patch seed reports should verify:
@@ -122,7 +162,16 @@ Seed preview implementation and agents that patch seed reports should verify:
 - `prisma_log.json` has 16 top-level canonical PRISMA-S keys;
 - `report_data.json["prisma_log"]` has the same direct 16-key payload;
 - `report_data.json["chart_data"]["theme_treemap"]` matches `chart_data.json`;
+- when actual query data exists, `metadata.query_display.actual_queries` is non-empty and the HTML renders `.psp-query-strip`;
 - no `execution_log.json` is emitted or claimed for seed preview.
+
+Compatibility note: current source builds render `.psp-query-strip` in React. If a deployed report still uses an older pre-built `bundle.html`, `html_renderer_webartifacts.py` injects a small runtime compatibility guard that reads the same `query_display.actual_queries` data and inserts the strip after the Hero H1. This guard is only a bridge until the bundle is rebuilt; the data contract above is still the source of truth.
+
+## Encoding
+
+All JSON and HTML artifacts must be UTF-8 without BOM.
+
+For Chinese queries, do not pass the query through an uncertain shell codepage. Prefer reading it from UTF-8 `seed.json`, `metadata.json`, or a UTF-8 JSON argument file. If the rendered query or query strip contains `???`, treat it as an encoding bug and regenerate from UTF-8 source files.
 
 ## User-Facing Report Link
 

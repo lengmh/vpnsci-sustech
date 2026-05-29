@@ -106,6 +106,8 @@ generate_search_report(search_session_id="search-...", mode="full")
 
 `seed_preview` 会自动补齐 HTML 报告需要的主题图景和轻量 PRISMA-S disclosure，但它仍不是完整专业调研。`full` 模式需要支持完整调研执行环境；如果当前 Agent 不支持并行分类，会明确询问你是否改走快速预览、主 Agent 串行分类，或稍后重试。
 
+HTML 报告顶部会保留你的原始查询，并在下方用小标签展示实际执行的检索 query，便于区分“我输入了什么”和“各数据源实际搜了什么”。
+
 仓库内包含 `paper-search-pro` 报告能力，并会在用户目录准备本地运行副本。报告、缓存和个人 API key 保存在用户本地，不进入源码仓库。
 
 ### OpenAlex 配置

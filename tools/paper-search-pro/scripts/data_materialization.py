@@ -80,6 +80,7 @@ def materialize(
     tier: str = "standard",
     search_id: str = "",
     summary: str = "",
+    query_plan: Optional[List[Dict]] = None,
     discovery_curve_snapshots: Optional[List[Dict]] = None,
     wall_clock_seconds: Optional[float] = None,
     stop_reason: Optional[str] = None,
@@ -110,6 +111,7 @@ def materialize(
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     discovery_curve_snapshots = discovery_curve_snapshots or []
+    query_plan = query_plan or []
 
     # P0-7 fix: derive wall_clock when caller didn't pass it directly.
     wall_clock_seconds = _resolve_wall_clock(
@@ -144,6 +146,7 @@ def materialize(
         search_id=search_id,
         wall_clock_seconds=wall_clock_seconds,
         stop_reason=stop_reason,
+        query_plan=query_plan,
     )
 
     from .prisma_s_logger import build_prisma_s_log  # lazy; sibling module
@@ -152,6 +155,7 @@ def materialize(
         user_query=user_query,
         tier=tier,
         search_id=search_id,
+        query_plan=query_plan,
         discovery_curve_snapshots=discovery_curve_snapshots,
         wall_clock_seconds=wall_clock_seconds,
     )
@@ -387,6 +391,74 @@ def _build_themes(papers: List[UnifiedPaperEntity]) -> Dict[str, Any]:
     return {"themes": themes, "total_papers": len(papers)}
 
 
+def _source_label(source: str) -> str:
+    labels = {
+        "vpnsci-search-session": "seed",
+        "vpnsci_seed": "seed",
+        "seed": "seed",
+        "openalex": "OpenAlex",
+        "semantic_scholar": "Semantic Scholar",
+        "semanticscholar": "Semantic Scholar",
+        "s2": "Semantic Scholar",
+        "crossref": "CrossRef",
+        "pubmed": "PubMed",
+        "arxiv": "arXiv",
+    }
+    raw = (source or "").strip()
+    return labels.get(raw.lower(), raw)
+
+
+def _actual_query_groups_from_query_plan(
+    query_plan: List[Dict],
+    *,
+    user_query: str = "",
+) -> List[Dict]:
+    groups: Dict[str, List[str]] = {}
+    normalized_user_query = (user_query or "").strip()
+
+    def add(source: str, query: str) -> None:
+        text = (query or "").strip()
+        label = _source_label(source)
+        if not label or not text:
+            return
+        if label == "seed" and normalized_user_query and text == normalized_user_query:
+            return
+        values = groups.setdefault(label, [])
+        if text not in values:
+            values.append(text)
+
+    for item in query_plan:
+        if not isinstance(item, dict):
+            continue
+        source = item.get("source") or item.get("database") or item.get("backend")
+        query = item.get("text") or item.get("query") or item.get("search_string") or ""
+        sources: List[str] = []
+        if source:
+            if str(source).strip().lower() == "both":
+                sources.extend(["openalex", "semantic_scholar"])
+            else:
+                sources.append(str(source))
+        else:
+            if item.get("openalex") or item.get("boolean_openalex"):
+                sources.append("openalex")
+            if item.get("semantic_scholar") or item.get("boolean_ss"):
+                sources.append("semantic_scholar")
+            if not sources:
+                sources.append("seed")
+        for source_name in sources:
+            add(source_name, str(query))
+
+    ordered: List[Dict] = []
+    for source in ["OpenAlex", "Semantic Scholar", "CrossRef", "PubMed", "arXiv", "seed"]:
+        queries = groups.pop(source, None)
+        if queries:
+            ordered.append({"source": source, "queries": queries})
+    for source, queries in groups.items():
+        if queries:
+            ordered.append({"source": source, "queries": queries})
+    return ordered
+
+
 # ---------- Paper rendering ----------
 
 def _authors_short(p: UnifiedPaperEntity) -> str:
@@ -442,6 +514,7 @@ def _build_metadata(
     search_id: str,
     wall_clock_seconds: Optional[float],
     stop_reason: Optional[str],
+    query_plan: Optional[List[Dict]] = None,
 ) -> Dict[str, Any]:
     highly_relevant = sum(1 for p in classified if (p.rcs or 0) >= 7)
     closely_related = sum(1 for p in classified if (p.rcs or 0) in (5, 6))
@@ -452,7 +525,12 @@ def _build_metadata(
         if wall_clock_seconds is not None
         else 0.0
     )
-    return {
+    query_plan = query_plan or []
+    actual_query_groups = _actual_query_groups_from_query_plan(
+        query_plan,
+        user_query=user_query,
+    )
+    metadata = {
         "search_id": search_id,
         "query": user_query,
         "tier": tier,
@@ -470,6 +548,15 @@ def _build_metadata(
         "skill_version": "paper-search-pro/2.0",
         "stop_reason": stop_reason,
     }
+    if actual_query_groups:
+        metadata["user_query"] = user_query
+        metadata["display_query"] = user_query
+        metadata["query_display"] = {
+            "user_query": user_query,
+            "primary": user_query,
+            "actual_queries": actual_query_groups,
+        }
+    return metadata
 
 
 # ---------- CLI ----------
@@ -573,6 +660,14 @@ if __name__ == "__main__":
         help="Optional path to discovery_curve_snapshots.json.",
     )
     parser.add_argument(
+        "--query-plan",
+        type=Path,
+        help=(
+            "Optional path to query_plan.json/list. When provided, metadata "
+            "records source-specific actual search queries for the HTML Hero."
+        ),
+    )
+    parser.add_argument(
         "--wall-clock-seconds",
         type=float,
         help="Optional wall-clock elapsed time (seconds). Highest priority.",
@@ -613,6 +708,18 @@ if __name__ == "__main__":
         elif isinstance(loaded, list):
             snapshots = [s for s in loaded if isinstance(s, dict)]
 
+    query_plan: List[Dict] = []
+    if args.query_plan and args.query_plan.exists():
+        loaded_query_plan = json.loads(args.query_plan.read_text(encoding="utf-8"))
+        if isinstance(loaded_query_plan, list):
+            query_plan = [q for q in loaded_query_plan if isinstance(q, dict)]
+        elif isinstance(loaded_query_plan, dict):
+            strategies = loaded_query_plan.get("strategies")
+            if isinstance(strategies, list):
+                query_plan = [q for q in strategies if isinstance(q, dict)]
+            else:
+                query_plan = [loaded_query_plan]
+
     output_dir = args.output.parent
     artifacts = materialize(
         kg,
@@ -621,6 +728,7 @@ if __name__ == "__main__":
         tier=args.tier,
         search_id=args.search_id,
         summary=summary_text,
+        query_plan=query_plan,
         discovery_curve_snapshots=snapshots,
         wall_clock_seconds=args.wall_clock_seconds,
         started_at=args.started_at,
