@@ -34,6 +34,13 @@ class Config:
     carsi_enabled: bool = False  # Enable CARSI/Shibboleth federated auth
     carsi_idp_name: str = ""  # University name for CARSI WAYF (e.g. "中国海洋大学")
     carsi_cookie_dir: str = ""  # Per-publisher CARSI cookies
+    paper_filename_policy: str = "identifier"  # identifier | title_author | title_year_author | custom
+    paper_filename_template: str = "{title} - {first_author}"
+    paper_filename_ask: bool = True
+    paper_filename_max_length: int = 180
+    paper_filename_collision: str = "hash"  # hash | increment
+    cnki_convert_caj_to_pdf: bool = False
+    cnki_caj_converter_command: str = ""  # External command template with {input} and {output}
     request_delay_min: float = 2.0
     request_delay_max: float = 5.0
 

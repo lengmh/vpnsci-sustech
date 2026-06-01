@@ -20,7 +20,8 @@ from .http_utils import request_with_retry
 from .carsi import CARSIClient, detect_publisher
 from .config import Config
 from .extractors import html_extractor, pdf_extractor
-from .models import Paper
+from .file_naming import build_artifact_stem, has_strong_identifier, identifier_stem, reserve_unique_path
+from .models import Artifact, Paper
 from .sources import arxiv, unpaywall
 from .site_policy import PHASE2_MIN_INTERVAL_SECONDS
 
@@ -43,6 +44,8 @@ class PaperFetcher:
         self._auth: WebVPNAuth | EZProxyAuth | None = None
         self._carsi: CARSIClient | None = None
         self._last_request_time = 0.0
+        self._filename_policy_override = ""
+        self._filename_template_override = ""
 
     @property
     def auth(self) -> WebVPNAuth | EZProxyAuth:
@@ -61,7 +64,13 @@ class PaperFetcher:
             self._carsi = CARSIClient(self.config)
         return self._carsi
 
-    def fetch(self, identifier: str, use_cache: bool = True) -> Paper:
+    def fetch(
+        self,
+        identifier: str,
+        use_cache: bool = True,
+        filename_policy: str = "",
+        filename_template: str = "",
+    ) -> Paper:
         """Fetch a paper by DOI or URL.
 
         Args:
@@ -71,6 +80,8 @@ class PaperFetcher:
         Returns:
             Paper object with extracted content.
         """
+        self._filename_policy_override = filename_policy
+        self._filename_template_override = filename_template
         doi = self._parse_doi(identifier)
         url = self._parse_url(identifier)
 
@@ -212,7 +223,7 @@ class PaperFetcher:
                         paper.full_text
                     ) if hasattr(pdf_extractor, 'extract_figures_from_text') else []
                     # Save PDF
-                    pdf_path = self._save_pdf(doi, pdf_bytes)
+                    pdf_path = self._save_artifact(paper, pdf_bytes, ext="pdf", original_url=oa.pdf_url)
                     paper.pdf_path = str(pdf_path) if pdf_path else ""
                     if len(paper.full_text or "") >= MIN_FULLTEXT_LEN:
                         return paper
@@ -256,7 +267,7 @@ class PaperFetcher:
                         if "pdf" in pdf_resp.headers.get("content-type", "").lower():
                             pdf_bytes = pdf_resp.content
                             paper.full_text = pdf_extractor.extract_from_bytes(pdf_bytes)
-                            pdf_path = self._save_pdf(doi, pdf_bytes)
+                            pdf_path = self._save_artifact(paper, pdf_bytes, ext="pdf", original_url=pdf_url)
                             paper.pdf_path = str(pdf_path) if pdf_path else ""
                             if len(paper.full_text or "") >= MIN_FULLTEXT_LEN:
                                 return paper
@@ -282,12 +293,16 @@ class PaperFetcher:
             paper.year = paper.year or meta.get("year")
             paper.url = meta.get("url", "")
 
-        # Download PDF
-        pdf_path = Path(self.config.output_dir) / f"arxiv_{arxiv_id.replace('/', '_')}.pdf"
-        if arxiv.download_pdf(arxiv_id, str(pdf_path)):
-            paper.pdf_path = str(pdf_path)
-            paper.full_text = pdf_extractor.extract_text(pdf_path)
-            paper.figures = pdf_extractor.extract_figures(pdf_path)
+        # Download PDF to a temporary cache path first, then save via the
+        # shared artifact namer so arXiv also honors filename_policy.
+        temp_pdf_path = Path(self.config.cache_dir) / f"arxiv_{arxiv_id.replace('/', '_')}.pdf"
+        if arxiv.download_pdf(arxiv_id, str(temp_pdf_path)):
+            pdf_bytes = temp_pdf_path.read_bytes()
+            pdf_path = self._save_artifact(paper, pdf_bytes, ext="pdf", original_url=paper.url)
+            paper.pdf_path = str(pdf_path) if pdf_path else str(temp_pdf_path)
+            text_path = pdf_path or temp_pdf_path
+            paper.full_text = pdf_extractor.extract_text(text_path)
+            paper.figures = pdf_extractor.extract_figures(text_path)
 
         return paper
 
@@ -344,7 +359,7 @@ class PaperFetcher:
                 paper.figures = pdf_extractor.extract_figures_from_text(
                     paper.full_text
                 ) if hasattr(pdf_extractor, 'extract_figures_from_text') else []
-                pdf_path = self._save_pdf(doi, pdf_bytes)
+                pdf_path = self._save_artifact(paper, pdf_bytes, ext="pdf", original_url=pdf_url)
                 paper.pdf_path = str(pdf_path) if pdf_path else ""
                 paper.source = "webvpn"
                 logger.info(
@@ -383,7 +398,7 @@ class PaperFetcher:
                 source="browser",
             )
             result.full_text = pdf_extractor.extract_from_bytes(pdf_bytes)
-            pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=result.url, title=result.title), pdf_bytes)
+            pdf_path = self._save_artifact(result, pdf_bytes, ext="pdf", original_url=final_pdf_url or pdf_url)
             result.pdf_path = str(pdf_path) if pdf_path else ""
             return result
         return self._try_browser_article_html(resolved_url, paper)
@@ -407,7 +422,7 @@ class PaperFetcher:
                     url=pdf_url,
                 )
                 paper_copy.full_text = pdf_extractor.extract_from_bytes(resp.content)
-                pdf_path = self._save_pdf(doi, resp.content)
+                pdf_path = self._save_artifact(paper_copy, resp.content, ext="pdf", original_url=pdf_url)
                 paper_copy.pdf_path = str(pdf_path) if pdf_path else ""
                 paper_copy.source = "carsi"
                 logger.info("CARSI PDF downloaded (%d bytes)", len(resp.content))
@@ -425,7 +440,7 @@ class PaperFetcher:
                         source="carsi+browser",
                     )
                     paper_copy.full_text = pdf_extractor.extract_from_bytes(pdf_bytes)
-                    pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=paper_copy.url, title=paper_copy.title), pdf_bytes)
+                    pdf_path = self._save_artifact(paper_copy, pdf_bytes, ext="pdf", original_url=final_pdf_url or pdf_url)
                     paper_copy.pdf_path = str(pdf_path) if pdf_path else ""
                     return paper_copy
         return None
@@ -450,7 +465,7 @@ class PaperFetcher:
                     url=url,
                 )
                 paper_copy.full_text = pdf_extractor.extract_from_bytes(resp.content)
-                pdf_path = self._save_pdf(paper.doi, resp.content) if paper.doi else None
+                pdf_path = self._save_artifact(paper_copy, resp.content, ext="pdf", original_url=url)
                 paper_copy.pdf_path = str(pdf_path) if pdf_path else ""
                 paper_copy.source = "carsi"
                 return paper_copy
@@ -479,13 +494,13 @@ class PaperFetcher:
                         pdf_bytes, final_pdf_url = browser_pdf
                         paper_copy.url = final_pdf_url or discovered_pdf_url
                         paper_copy.full_text = pdf_extractor.extract_from_bytes(pdf_bytes)
-                        pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=paper_copy.url, title=paper_copy.title), pdf_bytes)
+                        pdf_path = self._save_artifact(paper_copy, pdf_bytes, ext="pdf", original_url=final_pdf_url or discovered_pdf_url)
                         paper_copy.pdf_path = str(pdf_path) if pdf_path else ""
                         return paper_copy
                 if "pdf" in viewer_ct:
                     paper_copy.url = discovered_pdf_url
                     paper_copy.full_text = pdf_extractor.extract_from_bytes(viewer_resp.content)
-                    pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=paper_copy.url, title=paper_copy.title), viewer_resp.content)
+                    pdf_path = self._save_artifact(paper_copy, viewer_resp.content, ext="pdf", original_url=discovered_pdf_url)
                     paper_copy.pdf_path = str(pdf_path) if pdf_path else ""
                     return paper_copy
 
@@ -501,7 +516,7 @@ class PaperFetcher:
                         if "pdf" in pdf_resp.headers.get("content-type", "").lower():
                             paper_copy.url = pdf_url
                             paper_copy.full_text = pdf_extractor.extract_from_bytes(pdf_resp.content)
-                            pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=paper_copy.url, title=paper_copy.title), pdf_resp.content)
+                            pdf_path = self._save_artifact(paper_copy, pdf_resp.content, ext="pdf", original_url=pdf_url)
                             paper_copy.pdf_path = str(pdf_path) if pdf_path else ""
                             return paper_copy
                         browser_pdf = self._download_pdf_via_browser(url, pdf_url)
@@ -509,7 +524,7 @@ class PaperFetcher:
                             pdf_bytes, final_pdf_url = browser_pdf
                             paper_copy.url = final_pdf_url or pdf_url
                             paper_copy.full_text = pdf_extractor.extract_from_bytes(pdf_bytes)
-                            pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=paper_copy.url, title=paper_copy.title), pdf_bytes)
+                            pdf_path = self._save_artifact(paper_copy, pdf_bytes, ext="pdf", original_url=final_pdf_url or pdf_url)
                             paper_copy.pdf_path = str(pdf_path) if pdf_path else ""
                             return paper_copy
 
@@ -538,7 +553,7 @@ class PaperFetcher:
                 if "pdf" in viewer_ct:
                     paper_copy.url = pdf_viewer_url
                     paper_copy.full_text = pdf_extractor.extract_from_bytes(viewer_resp.content)
-                    pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=paper_copy.url, title=paper_copy.title), viewer_resp.content)
+                    pdf_path = self._save_artifact(paper_copy, viewer_resp.content, ext="pdf", original_url=pdf_viewer_url)
                     paper_copy.pdf_path = str(pdf_path) if pdf_path else ""
                     paper_copy.source = "carsi"
                     return paper_copy
@@ -555,7 +570,7 @@ class PaperFetcher:
                         if "pdf" in pdf_resp.headers.get("content-type", "").lower():
                             paper_copy.url = pdf_url
                             paper_copy.full_text = pdf_extractor.extract_from_bytes(pdf_resp.content)
-                            pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=paper_copy.url, title=paper_copy.title), pdf_resp.content)
+                            pdf_path = self._save_artifact(paper_copy, pdf_resp.content, ext="pdf", original_url=pdf_url)
                             paper_copy.pdf_path = str(pdf_path) if pdf_path else ""
                             paper_copy.source = "carsi"
                             return paper_copy
@@ -565,7 +580,7 @@ class PaperFetcher:
                             pdf_bytes, final_pdf_url = browser_pdf
                             paper_copy.url = final_pdf_url or pdf_url
                             paper_copy.full_text = pdf_extractor.extract_from_bytes(pdf_bytes)
-                            pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=paper_copy.url, title=paper_copy.title), pdf_bytes)
+                            pdf_path = self._save_artifact(paper_copy, pdf_bytes, ext="pdf", original_url=final_pdf_url or pdf_url)
                             paper_copy.pdf_path = str(pdf_path) if pdf_path else ""
                             paper_copy.source = "carsi"
                             return paper_copy
@@ -603,7 +618,7 @@ class PaperFetcher:
 
         if "pdf" in content_type:
             result.full_text = pdf_extractor.extract_from_bytes(resp.content)
-            pdf_path = self._save_pdf(self._pdf_stem(doi=result.doi, url=result.url, title=result.title), resp.content)
+            pdf_path = self._save_artifact(result, resp.content, ext="pdf", original_url=result.url)
             result.pdf_path = str(pdf_path) if pdf_path else ""
             return result
 
@@ -617,7 +632,7 @@ class PaperFetcher:
                 pdf_resp.raise_for_status()
                 if "pdf" in pdf_resp.headers.get("content-type", "").lower():
                     result.full_text = pdf_extractor.extract_from_bytes(pdf_resp.content)
-                    pdf_path = self._save_pdf(self._pdf_stem(doi=result.doi, url=pdf_url, title=result.title), pdf_resp.content)
+                    pdf_path = self._save_artifact(result, pdf_resp.content, ext="pdf", original_url=pdf_url)
                     result.pdf_path = str(pdf_path) if pdf_path else ""
             except requests.RequestException as e:
                 logger.info("Direct HTML PDF follow-up failed: %s", e)
@@ -803,7 +818,7 @@ class PaperFetcher:
                     pdf_data = printed.get("data", "")
                     if pdf_data:
                         pdf_bytes = base64.b64decode(pdf_data)
-                        pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=result.url, title=result.title), pdf_bytes)
+                        pdf_path = self._save_artifact(result, pdf_bytes, ext="pdf", original_url=result.url)
                         result.pdf_path = str(pdf_path) if pdf_path else ""
                         if result.pdf_path:
                             result.source = "browser+printed_pdf"
@@ -812,7 +827,7 @@ class PaperFetcher:
                     if len(result.full_text or "") >= MIN_FULLTEXT_LEN:
                         try:
                             generated_pdf = self._create_generated_text_pdf(result)
-                            pdf_path = self._save_pdf(self._pdf_stem(doi=paper.doi, url=result.url, title=result.title), generated_pdf)
+                            pdf_path = self._save_artifact(result, generated_pdf, ext="pdf", original_url=result.url)
                             result.pdf_path = str(pdf_path) if pdf_path else ""
                             if result.pdf_path:
                                 result.source = "browser+generated_pdf"
@@ -899,7 +914,7 @@ class PaperFetcher:
         if "pdf" in content_type:
             pdf_bytes = resp.content
             paper.full_text = pdf_extractor.extract_from_bytes(pdf_bytes)
-            pdf_path = self._save_pdf(paper.doi or "unknown", pdf_bytes)
+            pdf_path = self._save_artifact(paper, pdf_bytes, ext="pdf", original_url=resp.url or url)
             paper.pdf_path = str(pdf_path) if pdf_path else ""
             return paper
 
@@ -918,7 +933,7 @@ class PaperFetcher:
                 ct = pdf_resp.headers.get("content-type", "").lower()
                 if "pdf" in ct and len(pdf_resp.content) > 10000:
                     pdf_bytes = pdf_resp.content
-                    pdf_path = self._save_pdf(paper.doi or "unknown", pdf_bytes)
+                    pdf_path = self._save_artifact(paper, pdf_bytes, ext="pdf", original_url=pdf_url)
                     paper.pdf_path = str(pdf_path) if pdf_path else ""
                     # If HTML extraction was poor, use PDF text
                     if len(paper.full_text or "") < MIN_FULLTEXT_LEN:
@@ -1200,26 +1215,68 @@ class PaperFetcher:
 
     def _pdf_stem(self, doi: str = "", url: str = "", title: str = "") -> str:
         """Build a stable PDF filename stem."""
-        if doi:
-            return re.sub(r"[^\w\-.]", "_", doi)
+        return identifier_stem(doi=doi, url=url, title=title)
 
-        if url:
-            ieee_match = re.search(r"/document/(\d+)", url)
-            if ieee_match:
-                return f"ieee_{ieee_match.group(1)}"
-            pii_match = re.search(r"/pii/([A-Z0-9]+)", url, flags=re.I)
-            if pii_match:
-                return f"pii_{pii_match.group(1)}"
-            springer_match = re.search(r"/article/(10\.\d{4,9}/[^\s/?#]+)", url, flags=re.I)
-            if springer_match:
-                return re.sub(r"[^\w\-.]", "_", springer_match.group(1))
+    def _save_artifact(
+        self,
+        paper: Paper,
+        content: bytes,
+        *,
+        ext: str = "pdf",
+        original_url: str = "",
+    ) -> Path | None:
+        """Save an artifact using configured filename policy."""
 
-        if title:
-            slug = re.sub(r"[^\w\-.]+", "_", title.strip()).strip("_")
-            if slug:
-                return slug[:120]
-
-        return "unknown"
+        policy = getattr(self, "_filename_policy_override", "") or getattr(
+            self.config, "paper_filename_policy", "identifier"
+        )
+        template = getattr(self, "_filename_template_override", "") or getattr(
+            self.config, "paper_filename_template", ""
+        )
+        max_length = int(getattr(self.config, "paper_filename_max_length", 180) or 180)
+        collision = getattr(self.config, "paper_filename_collision", "hash") or "hash"
+        stem = build_artifact_stem(
+            paper,
+            policy=policy,
+            template=template,
+            max_length=max_length,
+        )
+        output_dir = Path(self.config.output_dir)
+        overwrite = (policy or "").strip().lower() == "identifier" and has_strong_identifier(
+            doi=paper.doi,
+            url=paper.url or original_url,
+            cnki_id=getattr(paper, "cnki_id", ""),
+        )
+        path = reserve_unique_path(
+            output_dir,
+            stem=stem,
+            ext=ext,
+            collision_key=paper.doi or original_url or paper.url or stem,
+            collision=collision,
+            overwrite=overwrite,
+        )
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(content)
+            artifact = Artifact(
+                path=str(path),
+                format=(ext or "").lstrip(".").lower() or "bin",
+                kind="fulltext" if (ext or "").lower().lstrip(".") == "pdf" else "source_file",
+                source_url=original_url,
+                text_extracted=(ext or "").lower().lstrip(".") == "pdf",
+            )
+            paper.artifacts = [
+                existing for existing in getattr(paper, "artifacts", [])
+                if not (existing.path == artifact.path and existing.format == artifact.format)
+            ]
+            paper.artifacts.append(artifact)
+            if artifact.format == "pdf":
+                paper.pdf_path = str(path)
+            logger.info("Saved artifact to %s", path)
+            return path
+        except OSError as e:
+            logger.error("Failed to save artifact: %s", e)
+            return None
 
     def _cache_key(self, doi: str) -> Path:
         """Get cache file path for a DOI."""

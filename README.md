@@ -163,15 +163,60 @@ vpnsci-sustech config-cmd --school 你的学校
 # 搜索论文
 vpnsci-sustech search "perovskite solar cells"
 
+# 显式 CNKI backend 当前只保存 gated SearchSession，不访问 CNKI
+vpnsci-sustech search "钙钛矿" --backend cnki
+
 # 获取论文全文
 vpnsci-sustech fetch "10.1038/s41566-024-01234-5"
 
+# 用“标题 + 第一作者”保存 PDF
+vpnsci-sustech fetch "10.1038/s41566-024-01234-5" --filename-policy title_author
+
 # 批量获取
-vpnsci-sustech batch dois.txt --output ./papers
+vpnsci-sustech batch dois.txt --output ./papers --filename-policy title_year_author
+# 批量结果 sidecar（json/markdown/text）也会使用同一套命名策略
+
+# 将已手动下载的 CNKI 文件纳入统一命名/artifact 输出；不会访问 CNKI
+vpnsci-sustech cnki-download --local-file ./paper.caj --title "文献标题" --first-author "张三" --filename-policy title_author
+
+# 受控 CNKI 可见浏览器下载 smoke；必须显式确认，会先提示可能需要人工验证码；无验证码时自动下载，遇登录/验证码需人工处理
+vpnsci-sustech cnki-download --detail-url "https://kns.cnki.net/kcms2/article/abstract?filename=..." --live --confirm-live-access --output ~/.vpnsci-sustech/papers/cnki --prefer pdf --filename-policy title_author
+
+# 规划 CNKI 可见浏览器 smoke；默认 dry-run，不打开浏览器、不访问 CNKI
+vpnsci-sustech cnki-smoke --query "钙钛矿" --limit 1
+
+# 从已捕获的 CNKI 详情页 HTML 离线解析元数据；不会访问 CNKI
+vpnsci-sustech cnki-detail --url-or-id ABC123 --html-file ./detail.html
+
+# 从已捕获的 CNKI 搜索结果 HTML 离线解析并保存 SearchSession；不会访问 CNKI
+vpnsci-sustech cnki-search-html --query "钙钛矿" --html-file ./search.html --limit 3
+
+# 可选：配置外部 CAJ/CAJX 转 PDF 命令，默认关闭、不内置转换器
+vpnsci-sustech config-cmd --cnki-convert-caj-to-pdf true --cnki-caj-converter-command "caj2pdf convert {input} -o {output}"
 
 # 查看支持的学校
 vpnsci-sustech schools
 ```
+
+### 文献文件命名
+
+默认仍使用兼容旧版本的 `identifier` 策略，例如 `10.1038_nphys1509.pdf`。如果想保存为更友好的文件名，可用：
+
+- `--filename-policy title_author`：`文献标题 - 第一作者.pdf`
+- `--filename-policy title_year_author`：`文献标题 (年份) - 第一作者.pdf`
+- `--filename-policy custom --filename-template "{title} - {first_author} - {year}"`
+
+也可修改默认配置：
+
+```bash
+vpnsci-sustech config-cmd --paper-filename-policy title_author
+vpnsci-sustech config-cmd --paper-filename-ask false  # 关闭 MCP 主动询问
+vpnsci-sustech config-cmd --paper-filename-max-length 180 --paper-filename-collision hash
+```
+
+`--paper-filename-policy` 只接受 `identifier/title_author/title_year_author/custom`；
+`--paper-filename-max-length` 必须为正整数；冲突策略只接受 `hash/increment`。
+当标题/作者等元数据不足以生成有效友好文件名时，会自动回退到稳定 `identifier` stem。
 
 ## SUSTech / CARSI 特殊支持
 
@@ -186,6 +231,9 @@ vpnsci-sustech schools
 - Nature：可获取全文
 - Wiley Online Library：当前已可做检索并获取全文；搜索在站内执行受限时会回退到元数据搜索
 - ScienceDirect：当前已可做检索、全文提取，并可生成本地可解析 PDF；原版 publisher PDF 仍可能失败
+- CNKI / 中国知网：当前加入显式路由、会话/DOM 状态探针骨架、离线搜索/详情页解析、`cnki-download --local-file` 本地 artifact 归档、默认 dry-run 的 `cnki-smoke` 可见浏览器 smoke，以及显式 `cnki-download --live --confirm-live-access` 的受控可见浏览器下载 smoke；本地 PDF 会尝试提取全文，CAJ/CAJX/NH/KDH 只保存原文件并标注未提取全文。不会因为普通中文 query 自动访问 CNKI，也不会绕过登录、验证码、DRM、付费墙或下载限制
+
+CNKI 的 CAJ/CAJX 转 PDF 默认关闭，不随包安装或捆绑第三方转换器。用户可显式配置外部命令模板；转换失败时仍保留原始 CAJ/CAJX artifact。
 
 ScienceDirect 在人工浏览器访问下可能可用，但自动化原版 PDF 抓取链路仍可能遇到人机验证或 `403/CPE00001`。当前版本对有效样本已可返回：
 

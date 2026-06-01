@@ -3,14 +3,18 @@
 import asyncio
 import logging
 import sys
+from typing import Literal
 from pathlib import Path
 
 from mcp.server.fastmcp import FastMCP
+from mcp.server.fastmcp import Context
+from pydantic import BaseModel
 
 from . import report_bridge
 from .config import Config
 from .fetcher import PaperFetcher
-from .sources import publisher_search, search_mode, semantic_scholar, standard_search
+from .models import Paper
+from .sources import backend_routing, cnki, publisher_search, search_mode, semantic_scholar, standard_search
 
 # Logging must go to stderr (stdout is used by MCP stdio transport)
 logging.basicConfig(
@@ -64,6 +68,10 @@ UPGRADE_SUGGESTION_TEXT = (
 )
 
 
+class FilenamePolicyChoice(BaseModel):
+    policy: Literal["identifier", "title_author", "title_year_author"] = "title_author"
+
+
 def _render_search_results(results, *, session=None) -> str:
     """Render unified search hits for MCP responses."""
 
@@ -100,6 +108,16 @@ def _render_search_results(results, *, session=None) -> str:
             lines.append(f"- **DOI:** {r.doi}")
         elif r.arxiv_id:
             lines.append(f"- **arXiv:** {r.arxiv_id}")
+        if getattr(r, "cnki_id", ""):
+            lines.append(f"- **CNKI ID:** {r.cnki_id}")
+        if getattr(r, "source_url", ""):
+            lines.append(f"- **Source URL:** {r.source_url}")
+        if getattr(r, "result_type", ""):
+            lines.append(f"- **Result Type:** {r.result_type}")
+        if getattr(r, "download_format", ""):
+            lines.append(f"- **Download Format:** {r.download_format}")
+        if getattr(r, "local_file", ""):
+            lines.append(f"- **Local File:** {r.local_file}")
         lines.append(f"- **Citations:** {getattr(r, 'citation_count', 0)}")
         if getattr(r, "url", ""):
             lines.append(f"- **URL:** {r.url}")
@@ -213,8 +231,49 @@ async def configure_carsi_school(carsi_school_name: str) -> str:
     )
 
 
+async def _resolve_mcp_filename_policy(
+    *,
+    explicit_policy: str = "",
+    ask_rename: bool = False,
+    ctx: Context | None = None,
+) -> str:
+    if explicit_policy:
+        return explicit_policy
+    if ctx is None or not hasattr(ctx, "elicit"):
+        return ""
+
+    cfg = Config.load()
+    default_policy = getattr(cfg, "paper_filename_policy", "identifier") or "identifier"
+    config_ask = bool(getattr(cfg, "paper_filename_ask", False))
+    if not (ask_rename or config_ask):
+        return ""
+
+    message = (
+        "请选择本次下载的文献文件命名策略。"
+        f"当前配置默认是 `{default_policy}`；这次选择只影响本次下载。"
+        "可在 config.json 或 `vpnsci-sustech config-cmd --paper-filename-policy ...` 中修改默认值；"
+        "也可设置 `paper_filename_ask=false` 或运行 `vpnsci-sustech config-cmd --paper-filename-ask false` 关闭后续主动询问。"
+    )
+    try:
+        result = await ctx.elicit(message, FilenamePolicyChoice)
+    except Exception as e:
+        logger.info("Filename policy elicitation unavailable, using config default: %s", e)
+        return ""
+
+    if getattr(result, "action", "") != "accept" or getattr(result, "data", None) is None:
+        return ""
+    return getattr(result.data, "policy", "") or ""
+
+
 @mcp.tool()
-async def fetch_paper(identifier: str, format: str = "markdown") -> str:
+async def fetch_paper(
+    identifier: str,
+    format: str = "markdown",
+    filename_policy: str = "",
+    filename_template: str = "",
+    ask_rename: bool = False,
+    ctx: Context | None = None,
+) -> str:
     """Fetch an academic paper's full text by DOI or URL.
 
     Uses Open Access sources (Unpaywall, arXiv) first, then falls back
@@ -223,12 +282,25 @@ async def fetch_paper(identifier: str, format: str = "markdown") -> str:
     Args:
         identifier: DOI (e.g. "10.1038/nphys1509") or article URL.
         format: Output format - "markdown" (default), "json", or "text".
+        filename_policy: Optional filename policy: identifier, title_author, title_year_author, or custom.
+        filename_template: Optional template used when filename_policy is custom.
+        ask_rename: Ask the MCP client once for this download's filename policy when supported.
     """
     fetcher = _get_fetcher()
     if fetcher is None:
         return _SCHOOL_NOT_CONFIGURED
 
-    paper = await asyncio.to_thread(fetcher.fetch, identifier)
+    resolved_policy = await _resolve_mcp_filename_policy(
+        explicit_policy=filename_policy,
+        ask_rename=ask_rename,
+        ctx=ctx,
+    )
+    paper = await asyncio.to_thread(
+        fetcher.fetch,
+        identifier,
+        filename_policy=resolved_policy,
+        filename_template=filename_template,
+    )
 
     if not paper.full_text and not paper.abstract:
         return f"Could not extract full text for: {identifier}\nTitle: {paper.title}\nURL: {paper.url}"
@@ -255,17 +327,27 @@ async def search_papers(query: str, limit: int = 10, year_range: str = "", backe
         backend: Optional publisher-native backend: sciencedirect, springerlink, wiley, ieee.
     """
     config = Config.load()
-    if backend:
+    route = backend_routing.resolve_requested_backend(query, explicit_backend=backend)
+    if route.backend == "cnki":
+        session = await asyncio.to_thread(
+            cnki.search_cnki,
+            query,
+            limit=limit,
+            config=config,
+        )
+        return _render_search_results(session.hits, session=session)
+
+    if route.backend:
         try:
             results = await asyncio.to_thread(
                 publisher_search.search,
                 query,
-                backend=backend,
+                backend=route.backend,
                 limit=limit,
             )
         except publisher_search.PublisherSearchBlockedError as e:
             return (
-                f"⚠️ publisher-native search blocked for `{backend}`.\n\n"
+                f"⚠️ publisher-native search blocked for `{route.backend}`.\n\n"
                 f"原因：{e}\n"
                 "当前返回更像 challenge / anti-bot / access-control，而不是正常无结果。"
             )
@@ -337,6 +419,263 @@ async def search_papers(query: str, limit: int = 10, year_range: str = "", backe
             f"- Expanded Sources: {', '.join(report.expanded_sources) if report.expanded_sources else '(none)'}\n"
             "报告在后台生成；如文件暂未出现，请稍后查看 Report 路径或 Log。"
         )
+
+
+@mcp.tool()
+async def download_cnki_artifact(
+    detail_url: str = "",
+    local_file: str = "",
+    prefer: str = "pdf",
+    title: str = "",
+    first_author: str = "",
+    cnki_id: str = "",
+    source_url: str = "",
+    filename_policy: str = "",
+    filename_template: str = "",
+    live: bool = False,
+    confirm_live_access: bool = False,
+    mode: str = "managed",
+    debug_port: int = 9222,
+    timeout: int = 45,
+) -> str:
+    """Save a CNKI artifact through the project filename/artifact model.
+
+    Live CNKI browser download is tightly gated. Prefer local_file unless the
+    user explicitly confirms a visible-browser smoke download.
+
+    Args:
+        detail_url: CNKI detail URL for future visible-browser download.
+        local_file: Existing local PDF/CAJ/CAJX/NH/KDH file to materialize.
+        prefer: Preferred live download format, currently gated.
+        title: Paper title used for filename metadata.
+        first_author: First author used for filename metadata.
+        cnki_id: CNKI identifier.
+        source_url: Original CNKI source/download URL.
+        filename_policy: Optional filename policy: identifier, title_author, title_year_author, or custom.
+        filename_template: Optional template used when filename_policy is custom.
+        live: Enable visible-browser CNKI download.
+        confirm_live_access: Required with live.
+        mode: managed or attach.
+        debug_port: Chrome debug port for mode=attach.
+        timeout: Seconds to wait for one CNKI browser download.
+    """
+
+    config = Config.load()
+    paper = Paper(
+        title=title,
+        authors=[first_author] if first_author else [],
+        source="cnki",
+        url=detail_url or source_url,
+    )
+    setattr(paper, "cnki_id", cnki_id)
+    client = cnki.CNKIClient(config)
+
+    if local_file:
+        try:
+            artifact = await asyncio.to_thread(
+                client.materialize_downloaded_file,
+                paper,
+                local_file,
+                source_url=source_url or detail_url,
+                filename_policy=filename_policy,
+                filename_template=filename_template,
+            )
+        except OSError as e:
+            return f"⚠️ CNKI local file could not be saved: {e}"
+        return (
+            "✅ CNKI artifact saved.\n\n"
+            f"- Path: `{artifact.path}`\n"
+            f"- Format: `{artifact.format}`\n"
+            f"- Kind: `{artifact.kind}`\n"
+            f"- text_extracted={str(artifact.text_extracted).lower()}\n"
+            f"- Note: {artifact.note or '(none)'}"
+        )
+
+    if not live:
+        return (
+            "⚠️ CNKI live browser download requires `live=true` and "
+            "`confirm_live_access=true`, or provide `local_file`."
+        )
+    if not confirm_live_access:
+        return "⚠️ confirmation_required: CNKI live browser download requires explicit user confirmation."
+    if not detail_url:
+        return "⚠️ missing_target: provide a CNKI detail_url for live download."
+
+    try:
+        live_download_dir = Path(config.cache_dir) / "cnki-live-downloads"
+        artifact = await asyncio.to_thread(
+            client.download_cnki_artifact,
+            paper,
+            detail_url,
+            prefer=prefer,
+            filename_policy=filename_policy,
+            filename_template=filename_template,
+            confirm_live_access=confirm_live_access,
+            mode=mode,
+            debug_port=debug_port,
+            download_dir=live_download_dir,
+            timeout=timeout,
+        )
+    except (OSError, RuntimeError) as e:
+        return f"⚠️ CNKI artifact could not be saved: {e}"
+
+    if artifact is None:
+        return "⚠️ CNKI artifact could not be saved: no downloaded file was found."
+    return (
+        "ℹ️ CNKI live download may trigger a captcha or safety verification; "
+        "please keep the visible browser open and be ready for manual captcha handling.\n\n"
+        "✅ CNKI artifact saved.\n\n"
+        f"- Path: `{artifact.path}`\n"
+        f"- Format: `{artifact.format}`\n"
+        f"- Kind: `{artifact.kind}`\n"
+        f"- text_extracted={str(artifact.text_extracted).lower()}\n"
+        f"- Note: {artifact.note or '(none)'}"
+    )
+
+
+def _render_cnki_smoke_result(result: cnki.CNKIVisibleSmokeResult) -> str:
+    lines = [
+        f"CNKI visible-browser smoke: {result.status}",
+        "",
+        f"- Dry Run: {str(result.dry_run).lower()}",
+        f"- Mode: `{result.mode}`",
+        f"- Limit: {result.limit}",
+    ]
+    if result.query:
+        lines.append(f"- Query: {result.query}")
+    if result.search_url:
+        lines.append(f"- Search URL: {result.search_url}")
+    if result.detail_url:
+        lines.append(f"- Detail URL: {result.detail_url}")
+    if result.page_state:
+        lines.append(f"- Page State: {result.page_state}")
+    if result.hits:
+        lines.append(f"- Parsed Hits: {len(result.hits)}")
+        for idx, hit in enumerate(result.hits[:3], 1):
+            lines.append(f"  {idx}. {hit.title or '(untitled)'}")
+            if hit.cnki_id:
+                lines.append(f"     CNKI ID: {hit.cnki_id}")
+    if result.paper:
+        lines.append(f"- Parsed Detail: {result.paper.title or '(untitled)'}")
+        cnki_id = getattr(result.paper, "cnki_id", "")
+        if cnki_id:
+            lines.append(f"- CNKI ID: {cnki_id}")
+    if result.warnings:
+        lines.append("- Warnings:")
+        lines.extend(f"  - {warning}" for warning in result.warnings)
+    if result.next_action:
+        lines.append(f"- Next Action: {result.next_action}")
+    return "\n".join(lines)
+
+
+def _render_cnki_detail_result(result: cnki.CNKIDetailResult, output_format: str = "markdown") -> str:
+    fmt = (output_format or "markdown").lower()
+    if result.status == "ok" and result.paper:
+        if fmt == "json":
+            return result.paper.to_json()
+        if fmt == "text":
+            return result.paper.to_text()
+        return result.paper.to_markdown(include_pdf_path=True)
+
+    lines = [f"⚠️ CNKI detail unavailable: {result.status}"]
+    if result.url:
+        lines.append(f"- URL: {result.url}")
+    if result.page_state:
+        lines.append(f"- Page State: {result.page_state}")
+    if result.warnings:
+        lines.append("- Warnings:")
+        lines.extend(f"  - {warning}" for warning in result.warnings)
+    if result.next_action:
+        lines.append(f"- Next Action: {result.next_action}")
+    return "\n".join(lines)
+
+
+@mcp.tool()
+async def cnki_visible_smoke(
+    query: str = "",
+    detail_url: str = "",
+    limit: int = 1,
+    mode: str = "managed",
+    dry_run: bool = True,
+    confirm_live_access: bool = False,
+    search_type: str = "theme",
+    debug_port: int = 9222,
+) -> str:
+    """Plan or run a tightly gated CNKI visible-browser smoke probe.
+
+    Default is dry_run and never opens a browser. Live execution requires
+    dry_run=false and confirm_live_access=true.
+    """
+
+    result = await asyncio.to_thread(
+        cnki.run_visible_browser_smoke,
+        query=query,
+        detail_url=detail_url,
+        limit=limit,
+        mode=mode,
+        dry_run=dry_run,
+        confirm_live_access=confirm_live_access,
+        search_type=search_type,
+        debug_port=debug_port,
+    )
+    return _render_cnki_smoke_result(result)
+
+
+@mcp.tool()
+async def get_cnki_paper_detail(
+    url_or_id: str = "",
+    html: str = "",
+    html_file: str = "",
+    format: str = "markdown",
+) -> str:
+    """Parse CNKI paper detail metadata from supplied HTML/page-source.
+
+    This tool does not access CNKI. Provide html or html_file captured from a
+    user-controlled browser or from cnki_visible_smoke.
+    """
+
+    result = await asyncio.to_thread(
+        cnki.get_cnki_detail,
+        url_or_id,
+        html=html,
+        html_file=html_file,
+    )
+    return _render_cnki_detail_result(result, output_format=format)
+
+
+@mcp.tool()
+async def search_cnki_from_html(
+    query: str,
+    html: str = "",
+    html_file: str = "",
+    limit: int = 10,
+    base_url: str = "https://kns.cnki.net/",
+) -> str:
+    """Parse captured CNKI search-result HTML into a saved SearchSession.
+
+    This tool does not access CNKI. Provide html or html_file captured from a
+    user-controlled browser or from cnki_visible_smoke.
+    """
+
+    if not html and not html_file:
+        return (
+            "⚠️ CNKI HTML search unavailable: live_access_not_enabled\n"
+            "- Warnings:\n"
+            "  - 未提供 HTML；本工具不会直接访问 CNKI。\n"
+            "- Next Action: 提供 html/html_file，或先运行 cnki-smoke dry-run/visible-browser smoke 获取页面快照。"
+        )
+    try:
+        session = await asyncio.to_thread(
+            cnki.search_cnki_from_html_file if html_file else cnki.search_cnki_from_html,
+            query,
+            html_file if html_file else html,
+            limit=limit,
+            cache_dir=Config.load().cache_dir,
+            base_url=base_url,
+        )
+    except OSError as e:
+        return f"⚠️ CNKI HTML search file could not be read: {e}"
+    return _render_search_results(session.hits, session=session)
 
 
 @mcp.tool()

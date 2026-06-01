@@ -93,6 +93,53 @@ def _write_seed_package(session, out_dir: Path) -> Path:
     return seed_path
 
 
+CNKI_SEED_FIELDS = ["cnki_id", "source_url", "download_format", "local_file", "result_type"]
+
+
+def _seed_source_label(session) -> str:
+    summary = getattr(session, "source_summary", {}) or {}
+    active = [source for source, count in summary.items() if count]
+    if active == ["cnki"]:
+        return "cnki"
+    if active:
+        return "mixed" if len(active) > 1 else active[0]
+    hit_sources = {
+        source
+        for hit in getattr(session, "hits", [])
+        for source in (getattr(hit, "sources", []) or [getattr(hit, "source", "") or getattr(hit, "backend", "")])
+        if source
+    }
+    if hit_sources == {"cnki"}:
+        return "cnki"
+    if hit_sources:
+        return "mixed" if len(hit_sources) > 1 else next(iter(hit_sources))
+    return "seed"
+
+
+def _cnki_field_status(session) -> dict:
+    hits = getattr(session, "hits", []) or []
+    cnki_hits = [
+        hit for hit in hits
+        if getattr(hit, "cnki_id", "")
+        or getattr(hit, "source_url", "")
+        or getattr(hit, "download_format", "")
+        or getattr(hit, "local_file", "")
+        or getattr(hit, "result_type", "")
+        or "cnki" in (getattr(hit, "sources", []) or [])
+        or getattr(hit, "source", "") == "cnki"
+        or getattr(hit, "backend", "") == "cnki"
+    ]
+    return {
+        "present": bool(cnki_hits),
+        "hit_count": len(cnki_hits),
+        "fields": CNKI_SEED_FIELDS,
+        "preserved_counts": {
+            field: sum(1 for hit in cnki_hits if getattr(hit, field, ""))
+            for field in CNKI_SEED_FIELDS
+        },
+    }
+
+
 def create_full_workflow_handoff(
     session,
     output_dir: Path,
@@ -114,6 +161,8 @@ def create_full_workflow_handoff(
         "user_query": display_query or session.query,
         "seed_session_query": session.query,
         "seed_count": len(session.hits),
+        "seed_source": _seed_source_label(session),
+        "cnki_fields": _cnki_field_status(session),
         "source_summary": session.source_summary,
         "tool_root": str(tool_root) if tool_root else "",
         "required_workflow": [
