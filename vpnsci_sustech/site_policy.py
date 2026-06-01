@@ -4,6 +4,8 @@ from dataclasses import dataclass
 
 PHASE2_MIN_INTERVAL_SECONDS = 10.0
 PHASE2_MAX_DOWNLOADS_PER_RUN = 10
+CNKI_MIN_INTERVAL_SECONDS = 20.0
+CNKI_MAX_DOWNLOADS_PER_RUN = 5
 
 
 @dataclass(frozen=True)
@@ -58,6 +60,16 @@ _SITE_POLICIES = {
         curl_cffi_candidate=True,
         browser_cdp_candidate=True,
         browser_cdp_preferred=False,
+    ),
+    "cnki": SitePolicy(
+        site="cnki",
+        status="experimental",
+        keep_existing_download_path=False,
+        needs_validation_first=True,
+        publisher_native_search=True,
+        curl_cffi_candidate=False,
+        browser_cdp_candidate=True,
+        browser_cdp_preferred=True,
     ),
 }
 

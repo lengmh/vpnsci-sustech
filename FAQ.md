@@ -103,6 +103,101 @@ generate_search_report(search_session_id="search-...", mode="full")
 
 `paper-search-pro` 只通过报告桥接显式调用。桥接未配置或报告生成失败时，标准检索结果和 `fetch_paper` 都不受影响。
 
+## 4.5.0 下载的 PDF 怎么改成“标题 + 作者”命名？
+
+默认仍是旧版兼容的 DOI/identifier 命名。需要友好文件名时显式传：
+
+```bash
+vpnsci-sustech fetch "10.xxxx/xxxx" --filename-policy title_author
+```
+
+可选策略：
+
+- `identifier`：稳定 DOI/arXiv/URL stem，默认值。
+- `title_author`：`文献标题 - 第一作者.pdf`。
+- `title_year_author`：`文献标题 (年份) - 第一作者.pdf`。
+- `custom`：配合 `--filename-template`。
+
+MCP `fetch_paper` 也支持 `filename_policy`；如果客户端支持 elicitation，可用 `ask_rename=true` 让客户端询问一次。配置里的 `paper_filename_ask=true` 时，支持 elicitation 的 MCP 客户端也会在未显式指定策略时主动询问一次；不想被问可运行：
+
+```bash
+vpnsci-sustech config-cmd --paper-filename-ask false
+```
+
+CLI `batch` 保存的结果 sidecar（JSON / Markdown / TXT）也会使用同一套命名规则；默认仍是兼容旧行为的 `identifier`。
+
+长文件名和冲突策略也可配置：
+
+```bash
+vpnsci-sustech config-cmd --paper-filename-max-length 180 --paper-filename-collision hash
+```
+
+`--paper-filename-policy` 只接受 `identifier/title_author/title_year_author/custom`；
+`--paper-filename-max-length` 必须为正整数；
+`--paper-filename-collision` 只接受 `hash` 或 `increment`。
+如果 `title_author` / `custom` 因缺少标题、作者等元数据只能生成空白、纯符号或纯下划线，会自动回退到稳定 `identifier` stem，避免出现 `-.pdf` / `_.pdf` 这类文件名。
+
+## 4.5.0.1 CNKI / 中国知网现在会自动搜索或下载吗？
+
+不会自动触发。当前 CNKI 路径必须显式调用：
+
+- 普通中文 query 不会自动访问 CNKI。
+- 只有显式 `backend=cnki` 或明确“知网 / CNKI / 硕博论文 / 中文核心”等意图才进入 CNKI 路由。
+- 当前实现不会自动登录、不会抓取 robots 禁止的登录入口、不会绕过验证码/DRM/付费墙/下载限制。
+- CLI `search --backend cnki` 会保存一个带 `live_access_not_enabled` 的 SearchSession，便于后续报告桥接或人工追踪；仍不会访问 CNKI。
+- 可见浏览器 smoke 拒绝 `fsso.cnki.net` / `login.cnki.net` 等登录入口；登录和验证码只能由用户在可见浏览器里手动完成。
+
+如果你已经在浏览器里手动下载了 CNKI 文件，可以用本地归档命令纳入统一命名和 artifact 输出：
+
+```bash
+vpnsci-sustech cnki-download --local-file "./paper.caj" --title "文献标题" --first-author "张三" --cnki-id "CNKIID" --filename-policy title_author
+```
+
+该命令只读取本地文件，不访问 CNKI。PDF 会尝试提取全文，成功时标记为 `text_extracted=true`；如果 PDF 无法解析，会保留文件并标记未提取全文。CAJ/CAJX/NH/KDH 会保存为 `source_file`，并标记 `text_extracted=false`。
+
+MCP 也有对应的 `download_cnki_artifact(local_file=...)` 工具，并支持 `filename_policy/filename_template` 覆盖本次归档命名。
+
+如果要做真实下载 smoke，必须显式给 `--live --confirm-live-access`，并建议限制输出目录：
+
+```bash
+vpnsci-sustech cnki-download --detail-url "https://kns.cnki.net/kcms2/article/abstract?filename=..." --live --confirm-live-access --output ~/.vpnsci-sustech/papers/cnki --prefer pdf --filename-policy title_author
+```
+
+该路径只在可见浏览器中打开用户指定的 CNKI 详情页，从当前页面已有下载链接触发一次下载，并等待 `.pdf/.caj/.cajx/.nh/.kdh` 文件完成。命令开始时会提示下载过程可能触发验证码/安全验证。无验证码时可自动点击下载、等待落盘并归档；若页面是登录页、验证码页、未知页，或没有可用下载链接，会停止或超时报错，需要用户在可见浏览器中人工处理；不会自动处理账号、验证码、DRM、付费限制。
+
+如果只是想检查 CNKI smoke 将做什么，可先跑 dry-run：
+
+```bash
+vpnsci-sustech cnki-smoke --query "钙钛矿" --limit 1
+```
+
+默认 dry-run 不打开浏览器、不访问 CNKI。真实可见浏览器 smoke 需要显式 `--live --confirm-live-access`；`cnki-smoke` 仍只做搜索页/详情页快照解析，不下载文件、不提交账号密码、不绕过验证码，遇登录/验证码会暂停并返回状态。
+
+如果已经保存了 CNKI 详情页 HTML/page source，可离线解析元数据：
+
+```bash
+vpnsci-sustech cnki-detail --url-or-id ABC123 --html-file "./detail.html"
+```
+
+MCP 对应 `get_cnki_paper_detail(url_or_id, html=.../html_file=...)`。未提供 HTML 时返回 `live_access_not_enabled`，不会主动访问 CNKI。
+
+如果保存的是 CNKI 搜索结果页 HTML，可离线解析并保存标准 `SearchSession`：
+
+```bash
+vpnsci-sustech cnki-search-html --query "钙钛矿" --html-file "./search.html" --limit 3
+```
+
+MCP 对应 `search_cnki_from_html(query, html=.../html_file=...)`。该路径只读本地 HTML，遇登录/验证码页会返回分类错误，不会自动重试或联网。
+
+CAJ/CAJX 转 PDF 是可选外部命令，默认关闭：
+
+```bash
+vpnsci-sustech config-cmd --cnki-convert-caj-to-pdf true \
+  --cnki-caj-converter-command "caj2pdf convert {input} -o {output}"
+```
+
+项目不会安装或捆绑第三方转换器。转换成功时会增加 `converted_pdf` artifact；转换失败时保留原始 CAJ/CAJX，并在 note 中标注失败。
+
 ## 4.5.1 完整 `paper-search-pro` 和 seed-only HTML 预览有什么区别？
 
 区别很大：

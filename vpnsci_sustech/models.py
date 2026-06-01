@@ -5,6 +5,18 @@ from dataclasses import asdict, dataclass, field
 
 
 @dataclass
+class Artifact:
+    """Represents a downloaded or generated paper artifact."""
+
+    path: str = ""
+    format: str = ""          # pdf/caj/cajx/nh/kdh
+    kind: str = "fulltext"    # fulltext/generated_pdf/source_file
+    source_url: str = ""
+    text_extracted: bool = False
+    note: str = ""
+
+
+@dataclass
 class Paper:
     """Represents a fetched academic paper."""
 
@@ -20,6 +32,7 @@ class Paper:
     source: str = ""  # "webvpn" | "open_access" | "arxiv"
     pdf_path: str = ""
     url: str = ""
+    artifacts: list[Artifact] = field(default_factory=list)
 
     def to_json(self, indent: int = 2) -> str:
         """Serialize to JSON string."""
@@ -43,6 +56,22 @@ class Paper:
         if include_pdf_path and self.pdf_path:
             lines.append(f"**PDF saved to:** {self.pdf_path}")
         lines.append("")
+
+        if self.artifacts:
+            lines.append("## Artifacts")
+            lines.append("")
+            for artifact in self.artifacts:
+                label = artifact.format or "artifact"
+                status = f"text_extracted={str(artifact.text_extracted).lower()}"
+                line = f"- **{label}:** {artifact.path} ({status})"
+                if artifact.kind:
+                    line += f", kind={artifact.kind}"
+                if artifact.source_url:
+                    line += f", source={artifact.source_url}"
+                if artifact.note:
+                    line += f" — {artifact.note}"
+                lines.append(line)
+            lines.append("")
 
         if self.abstract:
             lines.append("## Abstract")
@@ -90,4 +119,13 @@ class Paper:
         """Deserialize from JSON string or dict."""
         if isinstance(data, str):
             data = json.loads(data)
-        return cls(**{k: v for k, v in data.items() if k in cls.__dataclass_fields__})
+        values = {k: v for k, v in data.items() if k in cls.__dataclass_fields__}
+        raw_artifacts = values.get("artifacts") or []
+        artifacts: list[Artifact] = []
+        for item in raw_artifacts:
+            if isinstance(item, Artifact):
+                artifacts.append(item)
+            elif isinstance(item, dict):
+                artifacts.append(Artifact(**{k: v for k, v in item.items() if k in Artifact.__dataclass_fields__}))
+        values["artifacts"] = artifacts
+        return cls(**values)

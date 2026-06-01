@@ -67,11 +67,57 @@ def _score_hit(hit: SearchHit) -> int:
     return 5
 
 
+def _paper_id_from_hit(hit: SearchHit, index: int) -> str:
+    if hit.doi:
+        return hit.doi
+    if hit.cnki_id:
+        return f"cnki:{hit.cnki_id}"
+    return hit.openalex_id or hit.s2_paper_id or hit.url or hit.source_url or f"seed-{index}"
+
+
+CNKI_SEED_FIELDS = ["cnki_id", "source_url", "download_format", "local_file", "result_type"]
+
+
+def _seed_source_label(session: SearchSession) -> str:
+    summary = session.source_summary or {}
+    active = [source for source, count in summary.items() if count]
+    if active == ["cnki"]:
+        return "cnki"
+    if active:
+        return "mixed" if len(active) > 1 else active[0]
+    hit_sources = {source for hit in session.hits for source in (hit.sources or [hit.source or hit.backend]) if source}
+    if hit_sources == {"cnki"}:
+        return "cnki"
+    if hit_sources:
+        return "mixed" if len(hit_sources) > 1 else next(iter(hit_sources))
+    return "seed"
+
+
+def _cnki_field_status(session: SearchSession) -> dict:
+    cnki_hits = [
+        hit for hit in session.hits
+        if hit.cnki_id or hit.source_url or hit.download_format or hit.local_file or hit.result_type
+        or "cnki" in (hit.sources or []) or hit.source == "cnki" or hit.backend == "cnki"
+    ]
+    preserved = {
+        field: sum(1 for hit in cnki_hits if getattr(hit, field, ""))
+        for field in CNKI_SEED_FIELDS
+    }
+    return {
+        "present": bool(cnki_hits),
+        "hit_count": len(cnki_hits),
+        "fields": CNKI_SEED_FIELDS,
+        "preserved_counts": preserved,
+    }
+
+
 def _paper_from_hit(hit: SearchHit, index: int, query: str) -> dict:
     rcs = _score_hit(hit)
+    paper_id = _paper_id_from_hit(hit, index)
+    paper_url = hit.url or hit.source_url
     return {
-        "id": hit.doi or hit.openalex_id or hit.s2_paper_id or hit.url or f"seed-{index}",
-        "paper_id": hit.doi or hit.openalex_id or hit.s2_paper_id or hit.url or f"seed-{index}",
+        "id": paper_id,
+        "paper_id": paper_id,
         "title": hit.title,
         "authors_short": (
             ", ".join(hit.authors[:2])
@@ -84,11 +130,16 @@ def _paper_from_hit(hit: SearchHit, index: int, query: str) -> dict:
         "year": hit.year,
         "venue": hit.journal,
         "doi": hit.doi,
-        "doi_url": f"https://doi.org/{hit.doi}" if hit.doi else hit.url,
-        "url": hit.url,
+        "doi_url": f"https://doi.org/{hit.doi}" if hit.doi else paper_url,
+        "url": paper_url,
         "pdf_url": hit.pdf_url,
         "abstract": hit.abstract,
         "citation_count": hit.citation_count,
+        "cnki_id": hit.cnki_id,
+        "source_url": hit.source_url,
+        "download_format": hit.download_format,
+        "local_file": hit.local_file,
+        "result_type": hit.result_type,
         "source": ", ".join(hit.sources or [hit.source or hit.backend or "seed"]),
         "tier": "seed",
         "rcs": rcs,
@@ -606,6 +657,8 @@ def _write_materialized_data(
     metadata = {
         "query": report_query,
         "language": report_language,
+        "seed_source": _seed_source_label(session),
+        "cnki_fields": _cnki_field_status(session),
         "user_query": report_query,
         "display_query": report_query,
         "seed_session_query": session.query,

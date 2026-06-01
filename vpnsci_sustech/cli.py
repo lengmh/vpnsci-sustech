@@ -21,8 +21,10 @@ from rich.table import Table
 from . import report_bridge, report_tools
 from .config import Config
 from .fetcher import PaperFetcher
+from .file_naming import POLICIES, build_artifact_stem, reserve_unique_path
+from .models import Paper
 from .schools import get_school, list_schools, search_schools
-from .sources import publisher_search, search_mode, semantic_scholar, standard_search
+from .sources import backend_routing, cnki, publisher_search, search_mode, semantic_scholar, standard_search
 
 app = typer.Typer(
     name="vpnsci-sustech",
@@ -32,6 +34,29 @@ app = typer.Typer(
 report_tools_app = typer.Typer(help="Install and configure bundled professional report tools.")
 app.add_typer(report_tools_app, name="report-tools")
 console = Console()
+
+
+def _reserve_result_output_path(config: Config, paper: Paper, identifier: str, ext: str, *, filename_policy: str = "", filename_template: str = "") -> Path:
+    """Reserve a result sidecar path using the same filename policy family as artifacts."""
+
+    policy = filename_policy or getattr(config, "paper_filename_policy", "identifier") or "identifier"
+    template = filename_template or getattr(config, "paper_filename_template", "") or ""
+    max_length = int(getattr(config, "paper_filename_max_length", 180) or 180)
+    collision = getattr(config, "paper_filename_collision", "hash") or "hash"
+    stem = build_artifact_stem(
+        paper,
+        policy=policy,
+        template=template,
+        max_length=max_length,
+    )
+    return reserve_unique_path(
+        config.output_dir,
+        stem=stem,
+        ext=ext,
+        collision_key=paper.doi or paper.url or identifier or stem,
+        collision=collision,
+        overwrite=False,
+    )
 
 
 def _setup_logging(verbose: bool = False):
@@ -78,6 +103,9 @@ def fetch(
     format: str = typer.Option("json", "--format", "-f", help="Output format: json, markdown, text."),
     text_only: bool = typer.Option(False, "--text-only", "-t", help="Output only plain text (minimal tokens)."),
     no_cache: bool = typer.Option(False, "--no-cache", help="Bypass cache."),
+    filename_policy: str = typer.Option("", "--filename-policy", help="Filename policy: identifier, title_author, title_year_author, custom."),
+    filename_template: str = typer.Option("", "--filename-template", help="Filename template for custom policy."),
+    ask_rename: bool = typer.Option(False, "--ask-rename", help="Prompt once for this fetch's filename policy."),
     verbose: bool = typer.Option(False, "--verbose", "-v", help="Verbose logging."),
 ):
     """Fetch a single paper by DOI or URL."""
@@ -90,7 +118,18 @@ def fetch(
     fetcher = PaperFetcher(config)
     try:
         console.print(f"[bold]Fetching:[/bold] {identifier}")
-        paper = fetcher.fetch(identifier, use_cache=not no_cache)
+        effective_policy = filename_policy
+        if ask_rename and not effective_policy:
+            effective_policy = typer.prompt(
+                "Filename policy",
+                default=config.paper_filename_policy,
+            )
+        paper = fetcher.fetch(
+            identifier,
+            use_cache=not no_cache,
+            filename_policy=effective_policy,
+            filename_template=filename_template,
+        )
 
         if not paper.full_text and not paper.abstract:
             console.print("[yellow]Warning: Could not extract full text.[/yellow]")
@@ -117,6 +156,9 @@ def batch(
     file: Path = typer.Argument(help="File containing DOIs (one per line)."),
     output: str = typer.Option("", "--output", "-o", help="Output directory."),
     format: str = typer.Option("json", "--format", "-f", help="Output format: json, markdown, text."),
+    filename_policy: str = typer.Option("", "--filename-policy", help="Filename policy: identifier, title_author, title_year_author, custom."),
+    filename_template: str = typer.Option("", "--filename-template", help="Filename template for custom policy."),
+    ask_rename: bool = typer.Option(False, "--ask-rename", help="Prompt once for this batch's filename policy."),
     verbose: bool = typer.Option(False, "--verbose", "-v", help="Verbose logging."),
 ):
     """Fetch multiple papers from a file of DOIs."""
@@ -145,6 +187,12 @@ def batch(
     fetcher = PaperFetcher(config)
     results_dir = Path(config.output_dir)
     results_dir.mkdir(parents=True, exist_ok=True)
+    effective_policy = filename_policy
+    if ask_rename and not effective_policy:
+        effective_policy = typer.prompt(
+            "Filename policy",
+            default=config.paper_filename_policy,
+        )
 
     succeeded = 0
     failed = 0
@@ -153,19 +201,43 @@ def batch(
         for i, doi in enumerate(dois, 1):
             console.print(f"\n[bold][{i}/{len(dois)}][/bold] Fetching: {doi}")
             try:
-                paper = fetcher.fetch(doi)
+                paper = fetcher.fetch(
+                    doi,
+                    filename_policy=effective_policy,
+                    filename_template=filename_template,
+                )
                 if paper.full_text:
                     succeeded += 1
                     # Save result
-                    safe_name = doi.replace("/", "_").replace(":", "_")
                     if format == "markdown":
-                        out_file = results_dir / f"{safe_name}.md"
+                        out_file = _reserve_result_output_path(
+                            config,
+                            paper,
+                            doi,
+                            "md",
+                            filename_policy=effective_policy,
+                            filename_template=filename_template,
+                        )
                         out_file.write_text(paper.to_markdown(), encoding="utf-8")
                     elif format == "text":
-                        out_file = results_dir / f"{safe_name}.txt"
+                        out_file = _reserve_result_output_path(
+                            config,
+                            paper,
+                            doi,
+                            "txt",
+                            filename_policy=effective_policy,
+                            filename_template=filename_template,
+                        )
                         out_file.write_text(paper.to_text(), encoding="utf-8")
                     else:
-                        out_file = results_dir / f"{safe_name}.json"
+                        out_file = _reserve_result_output_path(
+                            config,
+                            paper,
+                            doi,
+                            "json",
+                            filename_policy=effective_policy,
+                            filename_template=filename_template,
+                        )
                         out_file.write_text(paper.to_json(), encoding="utf-8")
                     console.print(f"  [green]OK[/green] → {out_file.name}")
                 else:
@@ -188,6 +260,8 @@ def search(
     year: str = typer.Option("", "--year", "-y", help="Year range, e.g., '2020-2024' or '2020-'."),
     backend: str = typer.Option("", "--backend", help="Optional publisher-native backend: sciencedirect, springerlink, wiley, ieee."),
     do_fetch: bool = typer.Option(False, "--fetch", help="Also fetch full text for results with DOIs."),
+    filename_policy: str = typer.Option("", "--filename-policy", help="Filename policy for --fetch downloads."),
+    filename_template: str = typer.Option("", "--filename-template", help="Filename template for --fetch downloads."),
     verbose: bool = typer.Option(False, "--verbose", "-v", help="Verbose logging."),
 ):
     """Search for papers."""
@@ -195,8 +269,20 @@ def search(
 
     console.print(f"[bold]Searching:[/bold] {query}")
     config = Config.load()
-    if backend:
-        results = publisher_search.search(query, backend=backend, limit=limit)
+    route = backend_routing.resolve_requested_backend(query, explicit_backend=backend)
+    if route.backend == "cnki":
+        console.print("[yellow]CNKI backend is experimental and currently gated at the session/DOM probe stage.[/yellow]")
+        session = cnki.search_cnki(query, limit=limit, config=config)
+        console.print(f"[dim]Search Session: {session.session_id}[/dim]")
+        if session.source_summary:
+            console.print(f"[dim]Source Summary: {session.source_summary}[/dim]")
+        for err in session.errors:
+            console.print(f"[yellow]{err.source} {err.code}: {err.message}[/yellow]")
+        console.print("[yellow]No CNKI network access or download was attempted.[/yellow]")
+        console.print("[yellow]Use cnki-search-html with captured page source, or cnki-smoke after explicit confirmation.[/yellow]")
+        raise typer.Exit(0)
+    if route.backend:
+        results = publisher_search.search(query, backend=route.backend, limit=limit)
     else:
         mode_decision = search_mode.classify_search_mode(query, {})
         session = standard_search.search(
@@ -280,7 +366,11 @@ def search(
                     identifier = r.doi or f"arxiv:{r.arxiv_id}"
                     console.print(f"  Fetching: {identifier}")
                     try:
-                        paper = fetcher.fetch(identifier)
+                        paper = fetcher.fetch(
+                            identifier,
+                            filename_policy=filename_policy,
+                            filename_template=filename_template,
+                        )
                         status = "[green]OK[/green]" if paper.full_text else "[yellow]No text[/yellow]"
                         console.print(f"    {status}")
                     except Exception as e:
@@ -400,6 +490,13 @@ def config_cmd(
     set_carsi_enable: bool = typer.Option(False, "--carsi-enable", help="Enable CARSI/Shibboleth federated auth."),
     set_carsi_disable: bool = typer.Option(False, "--carsi-disable", help="Disable CARSI auth."),
     set_carsi_school: str = typer.Option("", "--carsi-school", help="Set school name for CARSI WAYF."),
+    set_paper_filename_policy: str = typer.Option("", "--paper-filename-policy", help="Set default paper filename policy."),
+    set_paper_filename_template: str = typer.Option("", "--paper-filename-template", help="Set default paper filename template."),
+    set_paper_filename_ask: str = typer.Option("", "--paper-filename-ask", help="Set MCP filename ask default: true or false."),
+    set_paper_filename_max_length: int | None = typer.Option(None, "--paper-filename-max-length", help="Set max filename stem length."),
+    set_paper_filename_collision: str = typer.Option("", "--paper-filename-collision", help="Set filename collision strategy: hash or increment."),
+    set_cnki_convert_caj_to_pdf: str = typer.Option("", "--cnki-convert-caj-to-pdf", help="Enable optional external CNKI CAJ conversion: true or false."),
+    set_cnki_caj_converter_command: str = typer.Option("", "--cnki-caj-converter-command", help="External CAJ converter command template with {input} and {output}."),
 ):
     """View or update configuration."""
     cfg = Config.load()
@@ -501,6 +598,52 @@ def config_cmd(
         changed = True
         console.print(f"[green]CARSI school set to: {set_carsi_school}[/green]")
 
+    if set_paper_filename_policy:
+        normalized_policy = set_paper_filename_policy.strip().lower()
+        if normalized_policy not in POLICIES:
+            console.print("[red]Paper filename policy must be one of: identifier, title_author, title_year_author, custom.[/red]")
+            raise typer.Exit(1)
+        cfg.paper_filename_policy = normalized_policy
+        changed = True
+        console.print(f"[green]Paper filename policy set to: {normalized_policy}[/green]")
+
+    if set_paper_filename_template:
+        cfg.paper_filename_template = set_paper_filename_template
+        changed = True
+        console.print("[green]Paper filename template saved.[/green]")
+
+    if set_paper_filename_ask:
+        cfg.paper_filename_ask = set_paper_filename_ask.strip().lower() in {"1", "true", "yes", "y", "on"}
+        changed = True
+        console.print(f"[green]Paper filename ask set to: {cfg.paper_filename_ask}[/green]")
+
+    if set_paper_filename_max_length is not None:
+        if set_paper_filename_max_length <= 0:
+            console.print("[red]Paper filename max length must be a positive integer.[/red]")
+            raise typer.Exit(1)
+        cfg.paper_filename_max_length = set_paper_filename_max_length
+        changed = True
+        console.print(f"[green]Paper filename max length set to: {set_paper_filename_max_length}[/green]")
+
+    if set_paper_filename_collision:
+        normalized_collision = set_paper_filename_collision.strip().lower()
+        if normalized_collision not in {"hash", "increment"}:
+            console.print("[red]Paper filename collision must be hash or increment.[/red]")
+            raise typer.Exit(1)
+        cfg.paper_filename_collision = normalized_collision
+        changed = True
+        console.print(f"[green]Paper filename collision set to: {normalized_collision}[/green]")
+
+    if set_cnki_convert_caj_to_pdf:
+        cfg.cnki_convert_caj_to_pdf = set_cnki_convert_caj_to_pdf.strip().lower() in {"1", "true", "yes", "y", "on"}
+        changed = True
+        console.print(f"[green]CNKI CAJ conversion set to: {cfg.cnki_convert_caj_to_pdf}[/green]")
+
+    if set_cnki_caj_converter_command:
+        cfg.cnki_caj_converter_command = set_cnki_caj_converter_command
+        changed = True
+        console.print("[green]CNKI CAJ converter command saved.[/green]")
+
     if changed:
         cfg.save()
 
@@ -508,7 +651,10 @@ def config_cmd(
                       set_elsevier_key, set_elsevier_token, set_s2_key, set_flaresolverr,
                       set_openalex_key, set_paper_search_pro_root, set_paper_search_pro_command,
                       set_paper_search_pro_output_dir, install_report_tools_flag,
-                      set_carsi_enable, set_carsi_disable, set_carsi_school])
+                      set_carsi_enable, set_carsi_disable, set_carsi_school,
+                      set_paper_filename_policy, set_paper_filename_template, set_paper_filename_ask,
+                      set_paper_filename_max_length is not None, set_paper_filename_collision,
+                      set_cnki_convert_caj_to_pdf, set_cnki_caj_converter_command])
     if show and not has_setter:
         # Determine school type
         try:
@@ -533,9 +679,218 @@ def config_cmd(
         console.print(f"  FlareSolverr URL:  {cfg.flaresolverr_url}")
         console.print(f"  CARSI enabled:     {'Yes' if cfg.carsi_enabled else 'No'}")
         console.print(f"  CARSI school:      {cfg.carsi_idp_name or '(not set)'}")
+        console.print(f"  Filename policy:   {cfg.paper_filename_policy}")
+        console.print(f"  Filename template: {cfg.paper_filename_template}")
+        console.print(f"  Filename ask:      {'Yes' if cfg.paper_filename_ask else 'No'}")
+        console.print(f"  Filename max len:  {cfg.paper_filename_max_length}")
+        console.print(f"  Filename collision:{cfg.paper_filename_collision}")
+        console.print(f"  CNKI CAJ convert:  {'Yes' if cfg.cnki_convert_caj_to_pdf else 'No'}")
+        console.print(f"  CNKI CAJ command:  {'(set)' if cfg.cnki_caj_converter_command else '(not set)'}")
         console.print(f"  Output dir:        {cfg.output_dir}")
         console.print(f"  Cache dir:         {cfg.cache_dir}")
         console.print(f"  Cookie path:       {cfg.cookie_path}")
+
+
+@app.command()
+def cnki_download(
+    detail_url: str = typer.Option("", "--detail-url", help="CNKI detail URL for future visible-browser download."),
+    local_file: str = typer.Option("", "--local-file", help="Existing local CNKI artifact to materialize."),
+    prefer: str = typer.Option("pdf", "--prefer", help="Preferred live download format."),
+    title: str = typer.Option("", "--title", help="Paper title used for filename metadata."),
+    first_author: str = typer.Option("", "--first-author", help="First author used for filename metadata."),
+    cnki_id: str = typer.Option("", "--cnki-id", help="CNKI identifier."),
+    source_url: str = typer.Option("", "--source-url", help="Original CNKI source/download URL."),
+    filename_policy: str = typer.Option("", "--filename-policy", help="Filename policy: identifier, title_author, title_year_author, custom."),
+    filename_template: str = typer.Option("", "--filename-template", help="Filename template for custom policy."),
+    output: str = typer.Option("", "--output", "-o", help="Output directory."),
+    live: bool = typer.Option(False, "--live", help="Enable gated visible-browser CNKI download."),
+    confirm_live_access: bool = typer.Option(False, "--confirm-live-access", help="Required with --live."),
+    mode: str = typer.Option("managed", "--mode", help="managed or attach."),
+    debug_port: int = typer.Option(9222, "--debug-port", help="Chrome debug port for mode=attach."),
+    timeout: int = typer.Option(45, "--timeout", help="Seconds to wait for one CNKI browser download."),
+    verbose: bool = typer.Option(False, "--verbose", "-v", help="Verbose logging."),
+):
+    """Materialize a CNKI artifact or run a gated visible-browser download."""
+    _setup_logging(verbose)
+    cfg = Config.load()
+    if output:
+        cfg.output_dir = output
+    paper = Paper(
+        title=title,
+        authors=[first_author] if first_author else [],
+        source="cnki",
+        url=detail_url or source_url,
+    )
+    setattr(paper, "cnki_id", cnki_id)
+    client = cnki.CNKIClient(cfg)
+
+    if not local_file and not live:
+        console.print("[yellow]CNKI live browser download requires --live and --confirm-live-access, or provide --local-file.[/yellow]")
+        raise typer.Exit(1)
+    if live and not confirm_live_access:
+        console.print("[yellow]confirmation_required: CNKI live browser download requires --confirm-live-access.[/yellow]")
+        raise typer.Exit(1)
+
+    try:
+        if local_file:
+            artifact = client.materialize_downloaded_file(
+                paper,
+                local_file,
+                source_url=source_url or detail_url,
+                filename_policy=filename_policy,
+                filename_template=filename_template,
+            )
+        else:
+            console.print(
+                "[yellow]CNKI live download may trigger a captcha or safety verification; "
+                "please keep the visible browser open and be ready for manual captcha handling.[/yellow]"
+            )
+            live_download_dir = Path(cfg.cache_dir) / "cnki-live-downloads"
+            artifact = client.download_cnki_artifact(
+                paper,
+                detail_url,
+                prefer=prefer,
+                filename_policy=filename_policy,
+                filename_template=filename_template,
+                confirm_live_access=confirm_live_access,
+                mode=mode,
+                debug_port=debug_port,
+                download_dir=live_download_dir,
+                timeout=timeout,
+            )
+    except (OSError, RuntimeError) as e:
+        console.print(f"[red]CNKI artifact could not be saved: {e}[/red]")
+        raise typer.Exit(1)
+
+    console.print("[green]CNKI artifact saved.[/green]")
+    console.print(f"Path: {artifact.path}")
+    console.print(f"Format: {artifact.format}")
+    console.print(f"Kind: {artifact.kind}")
+    console.print(f"text_extracted={str(artifact.text_extracted).lower()}")
+    if artifact.note:
+        console.print(f"Note: {artifact.note}")
+
+
+@app.command()
+def cnki_smoke(
+    query: str = typer.Option("", "--query", "-q", help="CNKI query for search-page smoke."),
+    detail_url: str = typer.Option("", "--detail-url", help="CNKI detail URL for detail-page smoke."),
+    limit: int = typer.Option(1, "--limit", help="Max records to parse during smoke; capped at 3."),
+    mode: str = typer.Option("managed", "--mode", help="managed or attach."),
+    dry_run: bool = typer.Option(True, "--dry-run/--live", help="Dry run never opens a browser; --live requires --confirm-live-access."),
+    confirm_live_access: bool = typer.Option(False, "--confirm-live-access", help="Required for live CNKI visible-browser access."),
+    search_type: str = typer.Option("theme", "--search-type", help="CNKI search type marker for the smoke URL."),
+    debug_port: int = typer.Option(9222, "--debug-port", help="Chrome debug port for mode=attach."),
+    verbose: bool = typer.Option(False, "--verbose", "-v", help="Verbose logging."),
+):
+    """Plan or run a tightly gated CNKI visible-browser smoke probe."""
+    _setup_logging(verbose)
+    result = cnki.run_visible_browser_smoke(
+        query=query,
+        detail_url=detail_url,
+        limit=limit,
+        mode=mode,
+        dry_run=dry_run,
+        confirm_live_access=confirm_live_access,
+        search_type=search_type,
+        debug_port=debug_port,
+    )
+
+    console.print(f"[bold]CNKI visible-browser smoke:[/bold] {result.status}")
+    console.print(f"Dry Run: {str(result.dry_run).lower()}")
+    console.print(f"Mode: {result.mode}")
+    console.print(f"Limit: {result.limit}")
+    if result.search_url:
+        console.print(f"Search URL: {result.search_url}")
+    if result.detail_url:
+        console.print(f"Detail URL: {result.detail_url}")
+    if result.page_state:
+        console.print(f"Page State: {result.page_state}")
+    if result.hits:
+        console.print(f"Parsed Hits: {len(result.hits)}")
+        for hit in result.hits[:3]:
+            console.print(f"- {hit.title or '(untitled)'} [{hit.cnki_id or 'no-cnki-id'}]")
+    if result.paper:
+        console.print(f"Parsed Detail: {result.paper.title or '(untitled)'}")
+    for warning in result.warnings:
+        console.print(f"[yellow]Warning:[/yellow] {warning}")
+    if result.next_action:
+        console.print(f"Next Action: {result.next_action}")
+
+    if result.status in {"invalid_mode", "invalid_url", "missing_target"}:
+        raise typer.Exit(2)
+    if result.status == "confirmation_required":
+        raise typer.Exit(1)
+
+
+@app.command()
+def cnki_detail(
+    url_or_id: str = typer.Option("", "--url-or-id", help="CNKI detail URL or filename/CNKI ID."),
+    html_file: str = typer.Option("", "--html-file", help="Captured CNKI detail page HTML/page-source file."),
+    format: str = typer.Option("markdown", "--format", "-f", help="Output format: markdown, json, text."),
+    verbose: bool = typer.Option(False, "--verbose", "-v", help="Verbose logging."),
+):
+    """Parse CNKI detail metadata from supplied HTML without live access."""
+    _setup_logging(verbose)
+    try:
+        result = cnki.get_cnki_detail(url_or_id, html_file=html_file)
+    except OSError as e:
+        console.print(f"[red]CNKI detail HTML could not be read: {e}[/red]")
+        raise typer.Exit(1)
+
+    if result.status != "ok" or result.paper is None:
+        console.print(f"[yellow]CNKI detail unavailable: {result.status}[/yellow]")
+        if result.url:
+            console.print(f"URL: {result.url}")
+        for warning in result.warnings:
+            console.print(f"[yellow]Warning:[/yellow] {warning}")
+        if result.next_action:
+            console.print(f"Next Action: {result.next_action}")
+        raise typer.Exit(1)
+
+    fmt = (format or "markdown").lower()
+    if fmt == "json":
+        console.print(result.paper.to_json())
+    elif fmt == "text":
+        console.print(result.paper.to_text())
+    else:
+        console.print(result.paper.to_markdown(include_pdf_path=True))
+
+
+@app.command()
+def cnki_search_html(
+    query: str = typer.Option(..., "--query", "-q", help="Original CNKI query for the captured search page."),
+    html_file: str = typer.Option(..., "--html-file", help="Captured CNKI search result HTML/page-source file."),
+    limit: int = typer.Option(10, "--limit", help="Maximum records to parse."),
+    base_url: str = typer.Option("https://kns.cnki.net/", "--base-url", help="Base URL used to resolve relative CNKI links."),
+    verbose: bool = typer.Option(False, "--verbose", "-v", help="Verbose logging."),
+):
+    """Parse captured CNKI search HTML into a saved SearchSession without live access."""
+    _setup_logging(verbose)
+    cfg = Config.load()
+    try:
+        session = cnki.search_cnki_from_html_file(
+            query,
+            html_file,
+            limit=limit,
+            cache_dir=cfg.cache_dir,
+            base_url=base_url,
+        )
+    except OSError as e:
+        console.print(f"[red]CNKI search HTML could not be read: {e}[/red]")
+        raise typer.Exit(1)
+
+    console.print("[green]CNKI search HTML parsed.[/green]")
+    console.print(f"Search Session: {session.session_id}")
+    console.print(f"Results: {len(session.hits)}")
+    for err in session.errors:
+        console.print(f"[yellow]{err.source}/{err.code}:[/yellow] {err.message}")
+    for idx, hit in enumerate(session.hits[:limit], 1):
+        console.print(f"{idx}. {hit.title or '(untitled)'}")
+        if hit.cnki_id:
+            console.print(f"   CNKI ID: {hit.cnki_id}")
+        if hit.source_url:
+            console.print(f"   Source URL: {hit.source_url}")
 
 
 @app.command()
