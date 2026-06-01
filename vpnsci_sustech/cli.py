@@ -1,5 +1,6 @@
 """CLI interface for vpnsci-sustech."""
 
+import json
 import logging
 import os
 import sys
@@ -34,6 +35,52 @@ app = typer.Typer(
 report_tools_app = typer.Typer(help="Install and configure bundled professional report tools.")
 app.add_typer(report_tools_app, name="report-tools")
 console = Console()
+
+
+def _load_cnki_batch_items(file: Path) -> list[cnki.CNKIBatchItem]:
+    """Load CNKI batch items from JSON, JSONL, or plain URL lines."""
+
+    text = file.read_text(encoding="utf-8-sig")
+    stripped = text.strip()
+    if not stripped:
+        return []
+    records = []
+    if stripped.startswith("["):
+        loaded = json.loads(stripped)
+        records = loaded if isinstance(loaded, list) else []
+    elif stripped.startswith("{") and "\n" not in stripped:
+        loaded = json.loads(stripped)
+        if isinstance(loaded, dict) and isinstance(loaded.get("items"), list):
+            records = loaded["items"]
+        else:
+            records = [loaded]
+    else:
+        for line in text.splitlines():
+            value = line.strip()
+            if not value or value.startswith("#"):
+                continue
+            if value.startswith("{"):
+                records.append(json.loads(value))
+            else:
+                records.append({"detail_url": value})
+
+    items: list[cnki.CNKIBatchItem] = []
+    for record in records:
+        if not isinstance(record, dict):
+            continue
+        detail_url = str(record.get("detail_url") or record.get("url") or "").strip()
+        if not detail_url:
+            continue
+        items.append(
+            cnki.CNKIBatchItem(
+                detail_url=detail_url,
+                title=str(record.get("title") or ""),
+                first_author=str(record.get("first_author") or record.get("firstAuthor") or ""),
+                cnki_id=str(record.get("cnki_id") or record.get("cnkiId") or ""),
+                source_url=str(record.get("source_url") or record.get("sourceUrl") or detail_url),
+            )
+        )
+    return items
 
 
 def _reserve_result_output_path(config: Config, paper: Paper, identifier: str, ext: str, *, filename_policy: str = "", filename_template: str = "") -> Path:
@@ -769,6 +816,96 @@ def cnki_download(
     console.print(f"text_extracted={str(artifact.text_extracted).lower()}")
     if artifact.note:
         console.print(f"Note: {artifact.note}")
+
+
+@app.command()
+def cnki_batch_download(
+    file: Path = typer.Argument(help="JSON/JSONL/plain-text file of CNKI detail URLs or item objects."),
+    prefer: str = typer.Option("pdf", "--prefer", help="Preferred live download format."),
+    filename_policy: str = typer.Option("", "--filename-policy", help="Filename policy: identifier, title_author, title_year_author, custom."),
+    filename_template: str = typer.Option("", "--filename-template", help="Filename template for custom policy."),
+    output: str = typer.Option("", "--output", "-o", help="Output directory."),
+    live: bool = typer.Option(False, "--live", help="Enable gated visible-browser CNKI batch download."),
+    confirm_live_access: bool = typer.Option(False, "--confirm-live-access", help="Required with --live."),
+    mode: str = typer.Option("managed", "--mode", help="managed or attach."),
+    debug_port: int = typer.Option(9222, "--debug-port", help="Chrome debug port for mode=attach."),
+    timeout: int = typer.Option(45, "--timeout", help="Seconds to wait for each CNKI browser download."),
+    min_interval: float = typer.Option(cnki.CNKI_MIN_INTERVAL_SECONDS, "--min-interval", help="Minimum seconds between CNKI downloads."),
+    cooldown_every: int = typer.Option(cnki.CNKI_MAX_DOWNLOADS_PER_RUN, "--cooldown-every", help="Use long cooldown after every N attempted downloads."),
+    cooldown_seconds: float = typer.Option(cnki.CNKI_MIN_INTERVAL_SECONDS * 3, "--cooldown-seconds", help="Long cooldown seconds."),
+    max_consecutive_failures: int = typer.Option(1, "--max-consecutive-failures", help="Stop after this many consecutive failures/captcha timeouts."),
+    state_file: str = typer.Option("", "--state-file", help="Batch state JSON path for resume."),
+    resume: bool = typer.Option(False, "--resume", help="Resume from state file and skip completed/failed entries."),
+    verbose: bool = typer.Option(False, "--verbose", "-v", help="Verbose logging."),
+):
+    """Run gated CNKI batch download with conservative throttling and resume state."""
+
+    _setup_logging(verbose)
+    if not file.exists() and not (resume and state_file):
+        console.print(f"[red]File not found: {file}[/red]")
+        raise typer.Exit(1)
+    if not live:
+        console.print("[yellow]CNKI batch live download requires --live and --confirm-live-access.[/yellow]")
+        raise typer.Exit(1)
+    if not confirm_live_access:
+        console.print("[yellow]confirmation_required: CNKI batch live download requires --confirm-live-access.[/yellow]")
+        raise typer.Exit(1)
+
+    cfg = Config.load()
+    if output:
+        cfg.output_dir = output
+    try:
+        items = [] if resume and state_file and not file.exists() else _load_cnki_batch_items(file)
+    except (OSError, json.JSONDecodeError) as e:
+        console.print(f"[red]CNKI batch input could not be read: {e}[/red]")
+        raise typer.Exit(1)
+    if not items and not (resume and state_file):
+        console.print("[yellow]No CNKI batch items found.[/yellow]")
+        raise typer.Exit(0)
+
+    console.print(
+        "[yellow]CNKI batch live download may trigger captcha/safety verification; "
+        "keep the visible browser open. This command will throttle, cooldown, and stop after repeated failures.[/yellow]"
+    )
+    client = cnki.CNKIClient(cfg)
+    try:
+        result = client.download_cnki_batch(
+            items,
+            prefer=prefer,
+            filename_policy=filename_policy,
+            filename_template=filename_template,
+            confirm_live_access=confirm_live_access,
+            mode=mode,
+            debug_port=debug_port,
+            download_dir=Path(cfg.cache_dir) / "cnki-live-downloads",
+            timeout=timeout,
+            state_file=state_file or None,
+            resume=resume,
+            min_interval_seconds=min_interval,
+            cooldown_every=cooldown_every,
+            cooldown_seconds=cooldown_seconds,
+            max_consecutive_failures=max_consecutive_failures,
+        )
+    except (OSError, RuntimeError) as e:
+        console.print(f"[red]CNKI batch download failed: {e}[/red]")
+        raise typer.Exit(1)
+
+    console.print(f"[bold]CNKI batch download:[/bold] {result.status}")
+    console.print(f"State File: {result.state_path}")
+    console.print(f"Succeeded: {result.succeeded}")
+    console.print(f"Failed: {result.failed}")
+    console.print(f"Pending: {result.pending}")
+    if result.stopped_reason:
+        console.print(f"Stopped Reason: {result.stopped_reason}")
+    for idx, entry in enumerate(result.entries, 1):
+        label = entry.item.title or entry.item.cnki_id or entry.item.detail_url
+        console.print(f"{idx}. {entry.status}: {label}")
+        if entry.artifact_path:
+            console.print(f"   → {entry.artifact_path}")
+        if entry.error:
+            console.print(f"   error: {entry.error}")
+    if result.status == "stopped":
+        raise typer.Exit(1)
 
 
 @app.command()

@@ -7,13 +7,16 @@ limited to explicit visible-browser smoke paths after caller confirmation.
 from __future__ import annotations
 
 import base64
+import json
 import re
 import shlex
 import subprocess
 import time
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
+from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import parse_qs, urlencode, urljoin, urlparse
+from uuid import uuid4
 
 from bs4 import BeautifulSoup
 
@@ -41,6 +44,42 @@ class DownloadedArtifact:
     format: str
     source_url: str = ""
     metadata: Paper | None = None
+    note: str = ""
+
+
+@dataclass
+class CNKIBatchItem:
+    detail_url: str
+    title: str = ""
+    first_author: str = ""
+    cnki_id: str = ""
+    source_url: str = ""
+
+
+@dataclass
+class CNKIBatchEntry:
+    item: CNKIBatchItem
+    status: str = "pending"
+    artifact_path: str = ""
+    format: str = ""
+    note: str = ""
+    error: str = ""
+    attempts: int = 0
+    started_at: str = ""
+    finished_at: str = ""
+
+
+@dataclass
+class CNKIBatchResult:
+    status: str
+    state_path: Path
+    entries: list[CNKIBatchEntry] = field(default_factory=list)
+    succeeded: int = 0
+    failed: int = 0
+    skipped: int = 0
+    pending: int = 0
+    stopped_reason: str = ""
+    warnings: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -709,6 +748,53 @@ def wait_for_cnki_download(
         time.sleep(1)
 
 
+def wait_for_cnki_download_after_manual_captcha(
+    driver,
+    download_dir: str | Path,
+    *,
+    timeout: int = 45,
+    extensions: set[str] | None = None,
+    before: dict[Path, tuple[float, int]] | set[Path] | None = None,
+) -> DownloadedArtifact | None:
+    """Wait while the user completes a visible CNKI captcha, then resume.
+
+    This helper does not solve or bypass captcha. It only observes the visible
+    browser and local download directory after the click has already opened a
+    CNKI/bar verification page.
+    """
+
+    allowed = {ext.lower().lstrip(".") for ext in (extensions or CNKI_DOWNLOAD_EXTENSIONS)}
+    before_snapshot = _normalize_cnki_download_snapshot(before)
+    directory = Path(download_dir)
+    deadline = time.time() + max(timeout, 0)
+    while True:
+        downloaded = _latest_completed_cnki_download(directory, allowed=allowed, before_snapshot=before_snapshot)
+        if downloaded is not None:
+            return downloaded
+
+        current_url = getattr(driver, "current_url", "") or ""
+        html = getattr(driver, "page_source", "") or ""
+        if "verifysuccess" in current_url.lower() or "verifysuccess" in html.lower():
+            # CNKI/bar often starts the browser download immediately after the
+            # success page appears. Keep observing the directory until timeout.
+            pass
+        elif not _cnki_page_looks_like_captcha_or_verify(current_url, html):
+            # The user may have completed verification and been redirected back
+            # to the previous page. Keep observing local download state.
+            pass
+
+        if time.time() >= deadline:
+            return None
+
+        refresh = getattr(driver, "refresh", None)
+        if callable(refresh):
+            try:
+                refresh()
+            except Exception:
+                pass
+        time.sleep(1)
+
+
 def snapshot_cnki_download_dir(download_dir: str | Path) -> dict[Path, tuple[float, int]]:
     """Snapshot file identity for detecting new or overwritten downloads."""
 
@@ -740,6 +826,57 @@ def _cnki_file_is_new_or_changed(path: Path, before: dict[Path, tuple[float, int
         return True
     stat = path.stat()
     return (stat.st_mtime, stat.st_size) != previous
+
+
+def _latest_completed_cnki_download(
+    directory: Path,
+    *,
+    allowed: set[str],
+    before_snapshot: dict[Path, tuple[float, int]],
+) -> DownloadedArtifact | None:
+    if not directory.exists():
+        return None
+    files = [p for p in directory.iterdir() if p.is_file()]
+    partial = [
+        p for p in files
+        if p.name.lower().endswith(CNKI_PARTIAL_SUFFIXES)
+    ]
+    complete = [
+        p for p in files
+        if _cnki_file_is_new_or_changed(p, before_snapshot)
+        and p.suffix.lower().lstrip(".") in allowed
+        and p.stat().st_size > 0
+    ]
+    if complete and not partial:
+        file_path = max(complete, key=lambda p: p.stat().st_mtime)
+        return DownloadedArtifact(
+            content=file_path.read_bytes(),
+            path=file_path,
+            format=file_path.suffix.lower().lstrip("."),
+        )
+    return None
+
+
+def _cnki_driver_is_captcha_or_verify(driver) -> bool:
+    current_url = getattr(driver, "current_url", "") or ""
+    html = getattr(driver, "page_source", "") or ""
+    return _cnki_page_looks_like_captcha_or_verify(current_url, html)
+
+
+def _cnki_page_looks_like_captcha_or_verify(url: str, html: str) -> bool:
+    lowered = f"{url or ''} {html or ''}".lower()
+    return any(
+        signal in lowered
+        for signal in [
+            "bar.cnki.net/bar/verify",
+            "captcha",
+            "验证码",
+            "滑块",
+            "拼图",
+            "安全验证",
+            "tencent-captcha",
+        ]
+    )
 
 
 def save_cnki_downloaded_artifact(
@@ -782,6 +919,12 @@ def save_cnki_downloaded_artifact(
         if extracted_text:
             paper.full_text = extracted_text
             paper.figures = pdf_extractor.extract_figures_from_text(extracted_text)
+    base_note = (
+        "" if extracted_text
+        else "CNKI PDF 已保存，但未能提取全文。" if is_pdf
+        else "CNKI 原文已保存，但当前未解析全文。"
+    )
+    note = _append_note(base_note, downloaded.note)
 
     artifact = Artifact(
         path=str(path),
@@ -789,11 +932,7 @@ def save_cnki_downloaded_artifact(
         kind="fulltext" if is_pdf else "source_file",
         source_url=downloaded.source_url,
         text_extracted=bool(extracted_text) if is_pdf else False,
-        note=(
-            "" if extracted_text
-            else "CNKI PDF 已保存，但未能提取全文。" if is_pdf
-            else "CNKI 原文已保存，但当前未解析全文。"
-        ),
+        note=note,
     )
     paper.artifacts = [
         existing for existing in paper.artifacts
@@ -898,6 +1037,84 @@ def _append_note(current: str, extra: str) -> str:
     return f"{current} {extra}"
 
 
+def _utc_now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def _cnki_batch_state_dir(cache_dir: str | Path) -> Path:
+    return Path(cache_dir) / "cnki" / "batch"
+
+
+def _default_cnki_batch_state_path(cache_dir: str | Path) -> Path:
+    directory = _cnki_batch_state_dir(cache_dir)
+    directory.mkdir(parents=True, exist_ok=True)
+    return directory / f"cnki-batch-{uuid4().hex[:12]}.json"
+
+
+def _serialize_cnki_batch_entry(entry: CNKIBatchEntry) -> dict:
+    return {
+        "item": asdict(entry.item),
+        "status": entry.status,
+        "artifact_path": entry.artifact_path,
+        "format": entry.format,
+        "note": entry.note,
+        "error": entry.error,
+        "attempts": entry.attempts,
+        "started_at": entry.started_at,
+        "finished_at": entry.finished_at,
+    }
+
+
+def _write_cnki_batch_state(path: Path, entries: list[CNKIBatchEntry], *, status: str = "running", stopped_reason: str = "") -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "version": 1,
+        "status": status,
+        "stopped_reason": stopped_reason,
+        "updated_at": _utc_now_iso(),
+        "entries": [_serialize_cnki_batch_entry(entry) for entry in entries],
+    }
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def _load_cnki_batch_state(path: str | Path) -> list[CNKIBatchEntry]:
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    entries: list[CNKIBatchEntry] = []
+    for raw in data.get("entries", []):
+        item_raw = raw.get("item") or {}
+        item = CNKIBatchItem(
+            detail_url=item_raw.get("detail_url", ""),
+            title=item_raw.get("title", ""),
+            first_author=item_raw.get("first_author", ""),
+            cnki_id=item_raw.get("cnki_id", ""),
+            source_url=item_raw.get("source_url", ""),
+        )
+        entries.append(
+            CNKIBatchEntry(
+                item=item,
+                status=raw.get("status") or "pending",
+                artifact_path=raw.get("artifact_path") or "",
+                format=raw.get("format") or "",
+                note=raw.get("note") or "",
+                error=raw.get("error") or "",
+                attempts=int(raw.get("attempts") or 0),
+                started_at=raw.get("started_at") or "",
+                finished_at=raw.get("finished_at") or "",
+            )
+        )
+    return entries
+
+
+def _cnki_batch_status(entries: list[CNKIBatchEntry], stopped_reason: str = "") -> str:
+    if stopped_reason:
+        return "stopped"
+    if any(entry.status == "pending" for entry in entries):
+        return "partial"
+    if any(entry.status == "failed" for entry in entries):
+        return "completed_with_failures"
+    return "completed"
+
+
 class CNKIClient:
     """CNKI download client.
 
@@ -966,12 +1183,35 @@ class CNKIClient:
             clicked = _click_cnki_download_button(driver, expected_format, download_url=download_url)
             if not clicked:
                 driver.get(download_url)
-            downloaded = wait_for_cnki_download(
-                target_download_dir,
-                timeout=timeout,
-                extensions={expected_format} if expected_format else CNKI_DOWNLOAD_EXTENSIONS,
-                before=before,
-            )
+            resumed_after_captcha = False
+            captcha_waited = False
+            if _cnki_driver_is_captcha_or_verify(driver):
+                captcha_waited = True
+                downloaded = wait_for_cnki_download_after_manual_captcha(
+                    driver,
+                    target_download_dir,
+                    timeout=timeout,
+                    extensions={expected_format} if expected_format else CNKI_DOWNLOAD_EXTENSIONS,
+                    before=before,
+                )
+                resumed_after_captcha = downloaded is not None
+            else:
+                downloaded = wait_for_cnki_download(
+                    target_download_dir,
+                    timeout=timeout,
+                    extensions={expected_format} if expected_format else CNKI_DOWNLOAD_EXTENSIONS,
+                    before=before,
+                )
+                if downloaded is None and _cnki_driver_is_captcha_or_verify(driver):
+                    captcha_waited = True
+                    downloaded = wait_for_cnki_download_after_manual_captcha(
+                        driver,
+                        target_download_dir,
+                        timeout=timeout,
+                        extensions={expected_format} if expected_format else CNKI_DOWNLOAD_EXTENSIONS,
+                        before=before,
+                    )
+                    resumed_after_captcha = downloaded is not None
             if downloaded is None:
                 downloaded = _materialize_inline_browser_pdf(
                     driver,
@@ -979,11 +1219,15 @@ class CNKIClient:
                     download_dir=target_download_dir,
                 )
             if downloaded is None:
+                if captcha_waited:
+                    raise RuntimeError("captcha_timeout: 用户未在限定时间内完成 CNKI 验证码，或验证码完成后未发现下载文件。")
                 raise RuntimeError("download_timeout: 未在限定时间内发现完成的 CNKI 下载文件。")
             if not _cnki_file_is_new_or_changed(downloaded.path, before):
                 raise RuntimeError("download_not_new: 未发现本次新增的 CNKI 下载文件。")
             downloaded.source_url = download_url
             downloaded.metadata = detail_paper
+            if resumed_after_captcha:
+                downloaded.note = _append_note(downloaded.note, "resumed_after_captcha: 用户在可见浏览器中完成验证码后继续下载。")
             return downloaded
         finally:
             quit_fn = getattr(driver, "quit", None)
@@ -1063,6 +1307,131 @@ class CNKIClient:
             config=self.config,
             filename_policy=filename_policy,
             filename_template=filename_template,
+        )
+
+    def download_cnki_batch(
+        self,
+        items: list[CNKIBatchItem],
+        *,
+        prefer: str = "pdf",
+        filename_policy: str = "",
+        filename_template: str = "",
+        confirm_live_access: bool = False,
+        mode: str = "managed",
+        debug_port: int = 9222,
+        download_dir: str | Path | None = None,
+        timeout: int = CNKI_DOWNLOAD_TIMEOUT_SECONDS,
+        state_file: str | Path | None = None,
+        resume: bool = False,
+        min_interval_seconds: float = CNKI_MIN_INTERVAL_SECONDS,
+        cooldown_every: int = CNKI_MAX_DOWNLOADS_PER_RUN,
+        cooldown_seconds: float = CNKI_MIN_INTERVAL_SECONDS * 3,
+        max_consecutive_failures: int = 1,
+        sleeper=time.sleep,
+        driver_factory=None,
+    ) -> CNKIBatchResult:
+        """Download CNKI artifacts one by one with conservative pacing.
+
+        This method does not bypass login, captcha, DRM, paywalls, or CNKI
+        download limits. It only serializes single-download calls, persists a
+        state file, and stops when repeated failures suggest manual intervention.
+        """
+
+        if not confirm_live_access:
+            raise RuntimeError("confirmation_required: CNKI batch live download requires explicit confirmation.")
+
+        state_path = Path(state_file) if state_file else _default_cnki_batch_state_path(self.config.cache_dir)
+        if resume and state_path.exists():
+            entries = _load_cnki_batch_state(state_path)
+        else:
+            entries = [CNKIBatchEntry(item=item) for item in items]
+        if not entries:
+            _write_cnki_batch_state(state_path, entries, status="completed")
+            return CNKIBatchResult(status="completed", state_path=state_path)
+
+        consecutive_failures = 0
+        completed_this_run = 0
+        stopped_reason = ""
+
+        _write_cnki_batch_state(state_path, entries, status="running")
+
+        for index, entry in enumerate(entries):
+            if resume and entry.status in {"succeeded", "failed", "skipped"}:
+                continue
+            if entry.status == "succeeded":
+                continue
+
+            if completed_this_run > 0:
+                if cooldown_every > 0 and completed_this_run % int(cooldown_every) == 0:
+                    cooldown = float(cooldown_seconds or 0)
+                    if cooldown > 0:
+                        sleeper(cooldown)
+                else:
+                    wait_seconds = float(min_interval_seconds or 0)
+                    if wait_seconds > 0:
+                        sleeper(wait_seconds)
+
+            paper = Paper(
+                title=entry.item.title,
+                authors=[entry.item.first_author] if entry.item.first_author else [],
+                source="cnki",
+                url=entry.item.detail_url or entry.item.source_url,
+            )
+            setattr(paper, "cnki_id", entry.item.cnki_id)
+            entry.status = "running"
+            entry.error = ""
+            entry.started_at = _utc_now_iso()
+            entry.attempts += 1
+            _write_cnki_batch_state(state_path, entries, status="running")
+
+            try:
+                artifact = self.download_cnki_artifact(
+                    paper,
+                    entry.item.detail_url,
+                    prefer=prefer,
+                    filename_policy=filename_policy,
+                    filename_template=filename_template,
+                    confirm_live_access=confirm_live_access,
+                    mode=mode,
+                    debug_port=debug_port,
+                    download_dir=download_dir,
+                    timeout=timeout,
+                    driver_factory=driver_factory,
+                )
+                if artifact is None:
+                    raise RuntimeError("download_failed: no artifact returned.")
+                entry.status = "succeeded"
+                entry.artifact_path = artifact.path
+                entry.format = artifact.format
+                entry.note = artifact.note
+                entry.finished_at = _utc_now_iso()
+                consecutive_failures = 0
+                completed_this_run += 1
+            except Exception as e:
+                entry.status = "failed"
+                entry.error = str(e)
+                entry.finished_at = _utc_now_iso()
+                consecutive_failures += 1
+                completed_this_run += 1
+                if max_consecutive_failures > 0 and consecutive_failures >= max_consecutive_failures:
+                    stopped_reason = f"max_consecutive_failures:{max_consecutive_failures}"
+                    _write_cnki_batch_state(state_path, entries, status="stopped", stopped_reason=stopped_reason)
+                    break
+            finally:
+                if not stopped_reason:
+                    _write_cnki_batch_state(state_path, entries, status="running")
+
+        final_status = _cnki_batch_status(entries, stopped_reason=stopped_reason)
+        _write_cnki_batch_state(state_path, entries, status=final_status, stopped_reason=stopped_reason)
+        return CNKIBatchResult(
+            status=final_status,
+            state_path=state_path,
+            entries=entries,
+            succeeded=sum(1 for entry in entries if entry.status == "succeeded"),
+            failed=sum(1 for entry in entries if entry.status == "failed"),
+            skipped=sum(1 for entry in entries if entry.status == "skipped"),
+            pending=sum(1 for entry in entries if entry.status == "pending"),
+            stopped_reason=stopped_reason,
         )
 
 

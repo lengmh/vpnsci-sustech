@@ -20,6 +20,7 @@
 - 新增默认 dry-run 的 CNKI 可见浏览器 smoke 脚手架：MCP `cnki_visible_smoke` 与 CLI `cnki-smoke`；真实访问需要 `confirm_live_access`。
 - 新增 CNKI 详情页离线解析入口：MCP `get_cnki_paper_detail` 与 CLI `cnki-detail --html-file ...`。
 - 新增 CNKI 搜索结果页离线解析入口：MCP `search_cnki_from_html` 与 CLI `cnki-search-html --html-file ...`，解析后保存标准 `SearchSession`。
+- 新增 CNKI 批量下载保守控制：CLI `cnki-batch-download` 与 MCP `download_cnki_batch_artifacts` 支持逐篇串行、站点级最小间隔、每 N 篇长冷却、连续失败停止、状态 JSON 与 `--resume`。
 - 新增默认关闭的 CNKI CAJ/CAJX 外部转换器配置：`cnki_convert_caj_to_pdf` 与 `cnki_caj_converter_command`；转换成功会增加 `converted_pdf` artifact。
 - 报告桥接 metadata / full-workflow handoff 已标注 CNKI seed：`seed_source=cnki` 与 `cnki_fields` 保留状态。
 - 多源 seed 会标记 `seed_source=mixed`，同时保留 `cnki_fields` 审计信息。
@@ -35,10 +36,10 @@
 - `cnki-detail` 只解析用户提供的 HTML/page source；未提供 HTML 时不会联网。
 - `cnki-search-html` 只解析用户提供的搜索页 HTML/page source；遇登录/验证码返回分类错误。
 - CAJ/CAJX 转 PDF 不内置、不自动安装第三方工具，默认关闭；转换失败不影响原始文件保存。
-- `backend=cnki` 当前只保存 experimental/gated SearchSession 并返回提示；`cnki-download --local-file` 只读取本地文件；`cnki-download --live --confirm-live-access` 只允许单次可见浏览器下载 smoke，遇登录/验证码/未知页/无下载链接即停止。
+- `backend=cnki` 当前只保存 experimental/gated SearchSession 并返回提示；`cnki-download --local-file` 只读取本地文件；`cnki-download --live --confirm-live-access` 只允许单次可见浏览器下载 smoke；`cnki-batch-download --live --confirm-live-access` 仅把单次下载串行编排并保守节流/冷却/状态恢复，仍不绕过登录、验证码、DRM 或付费限制。
 - CNKI 下载链路可能频繁触发 `bar.cnki.net` 拼图/滑块验证码，尤其是连续下载、机构共享出口 IP、CAJ/硕博大文件或自动化点击场景；CDP/Selenium 只能辅助打开页面、点击、设置下载目录和检测落盘，不能稳定、合规地越过服务端风控验证码。
 - 本项目不会接入验证码破解、打码平台或滑块绕过方案；后续优化方向仅限“检测到验证码后暂停/等待用户人工完成，再自动继续归档”，并配合节流、冷却和 `--resume` 降低重复触发。
-- CNKI live 下载命令开始前会主动提示：下载过程可能触发验证码/安全验证，需要保持可见浏览器打开并准备人工处理；未触发验证码时，PDF/CAJ 链路可自动点击、等待落盘并归档。
+- CNKI live 下载命令开始前会主动提示：下载过程可能触发验证码/安全验证，需要保持可见浏览器打开并准备人工处理；未触发验证码时，PDF/CAJ 链路可自动点击、等待落盘并归档。点击下载后若触发 `bar.cnki.net` 验证页，会等待人工完成并自动继续检测落盘；成功 note 标注 `resumed_after_captcha`，超时返回 `captcha_timeout`。
 
 ## 第三方参考与许可证
 
@@ -73,3 +74,9 @@ python -m unittest discover -s tests -v
 - 验证：12899642 bytes，SHA256 `cb3a4d4bc400850ceec85486843346b3c7b9dd9c1cb4744c6ace1239a5f42625`，文件头 `KDH 2.00 Copyright`，`text_extracted=false`。
 - 说明：CAJ 原文保存成功；当前默认不解析 CAJ 全文，不内置转换器。
 - 文件后续已由用户整理到 `C:\Users\SUSTech\.vpnsci-sustech\papers\cnki`；仓库内不再保留 `cnki/` 下载目录。
+
+## 待真实 smoke 验证项
+
+- 计划 A：验证码等待与人工完成后自动 resume 已有 fake-driver/单元测试覆盖，但尚未单独做一次“点击下载后触发 `bar.cnki.net` 验证页、用户人工完成、工具自动继续归档”的真实 CNKI smoke。
+- 计划 B：`cnki-batch-download` / `download_cnki_batch_artifacts` 的节流、冷却、连续失败停止与 `--resume` 已有单元测试覆盖，但尚未做真实小批量 CNKI 下载 smoke。
+- 以上 smoke 仍需用户再次显式授权；执行时应限制小样本，建议 2 篇以内，输出目录仍使用 `C:\Users\SUSTech\.vpnsci-sustech\papers\cnki` 或用户指定目录。
