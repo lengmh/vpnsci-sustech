@@ -179,8 +179,11 @@ vpnsci-sustech batch dois.txt --output ./papers --filename-policy title_year_aut
 # 将已手动下载的 CNKI 文件纳入统一命名/artifact 输出；不会访问 CNKI
 vpnsci-sustech cnki-download --local-file ./paper.caj --title "文献标题" --first-author "张三" --filename-policy title_author
 
-# 受控 CNKI 可见浏览器下载 smoke；必须显式确认，会先提示可能需要人工验证码；无验证码时自动下载，遇登录/验证码需人工处理
+# 受控 CNKI 可见浏览器下载 smoke；必须显式确认，会先提示可能需要人工验证码；无验证码时自动下载，点击后如触发验证码会等待人工完成并自动继续归档，超时返回 `captcha_timeout`
 vpnsci-sustech cnki-download --detail-url "https://kns.cnki.net/kcms2/article/abstract?filename=..." --live --confirm-live-access --output ~/.vpnsci-sustech/papers/cnki --prefer pdf --filename-policy title_author
+
+# 受控 CNKI 批量下载；逐篇串行，支持最小间隔、每 N 篇冷却、连续失败停止和 --resume 状态恢复
+vpnsci-sustech cnki-batch-download cnki-items.jsonl --live --confirm-live-access --output ~/.vpnsci-sustech/papers/cnki --filename-policy title_author --min-interval 20 --cooldown-every 5 --cooldown-seconds 120 --max-consecutive-failures 1 --state-file ~/.vpnsci-sustech/cache/cnki/batch/state.json --resume
 
 # 规划 CNKI 可见浏览器 smoke；默认 dry-run，不打开浏览器、不访问 CNKI
 vpnsci-sustech cnki-smoke --query "钙钛矿" --limit 1
@@ -231,7 +234,7 @@ vpnsci-sustech config-cmd --paper-filename-max-length 180 --paper-filename-colli
 - Nature：可获取全文
 - Wiley Online Library：当前已可做检索并获取全文；搜索在站内执行受限时会回退到元数据搜索
 - ScienceDirect：当前已可做检索、全文提取，并可生成本地可解析 PDF；原版 publisher PDF 仍可能失败
-- CNKI / 中国知网：当前加入显式路由、会话/DOM 状态探针骨架、离线搜索/详情页解析、`cnki-download --local-file` 本地 artifact 归档、默认 dry-run 的 `cnki-smoke` 可见浏览器 smoke，以及显式 `cnki-download --live --confirm-live-access` 的受控可见浏览器下载 smoke；本地 PDF 会尝试提取全文，CAJ/CAJX/NH/KDH 只保存原文件并标注未提取全文。不会因为普通中文 query 自动访问 CNKI，也不会绕过登录、验证码、DRM、付费墙或下载限制
+- CNKI / 中国知网：当前加入显式路由、会话/DOM 状态探针骨架、离线搜索/详情页解析、`cnki-download --local-file` 本地 artifact 归档、默认 dry-run 的 `cnki-smoke` 可见浏览器 smoke、显式 `cnki-download --live --confirm-live-access` 的受控可见浏览器下载 smoke，以及 `cnki-batch-download` 的保守串行批量下载控制；本地 PDF 会尝试提取全文，CAJ/CAJX/NH/KDH 只保存原文件并标注未提取全文。不会因为普通中文 query 自动访问 CNKI，也不会绕过登录、验证码、DRM、付费墙或下载限制
 
 CNKI 的 CAJ/CAJX 转 PDF 默认关闭，不随包安装或捆绑第三方转换器。用户可显式配置外部命令模板；转换失败时仍保留原始 CAJ/CAJX artifact。
 

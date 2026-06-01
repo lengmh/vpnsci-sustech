@@ -72,6 +72,60 @@ class FilenamePolicyChoice(BaseModel):
     policy: Literal["identifier", "title_author", "title_year_author"] = "title_author"
 
 
+def _cnki_batch_items_from_payload(items) -> list[cnki.CNKIBatchItem]:
+    """Normalize MCP list payload into CNKIBatchItem objects."""
+
+    normalized: list[cnki.CNKIBatchItem] = []
+    for item in items or []:
+        if isinstance(item, cnki.CNKIBatchItem):
+            normalized.append(item)
+            continue
+        if isinstance(item, str):
+            value = item.strip()
+            if value:
+                normalized.append(cnki.CNKIBatchItem(detail_url=value, source_url=value))
+            continue
+        if not isinstance(item, dict):
+            continue
+        detail_url = str(item.get("detail_url") or item.get("url") or "").strip()
+        if not detail_url:
+            continue
+        normalized.append(
+            cnki.CNKIBatchItem(
+                detail_url=detail_url,
+                title=str(item.get("title") or ""),
+                first_author=str(item.get("first_author") or item.get("firstAuthor") or ""),
+                cnki_id=str(item.get("cnki_id") or item.get("cnkiId") or ""),
+                source_url=str(item.get("source_url") or item.get("sourceUrl") or detail_url),
+            )
+        )
+    return normalized
+
+
+def _render_cnki_batch_result(result: cnki.CNKIBatchResult) -> str:
+    lines = [
+        f"CNKI batch download: {result.status}",
+        "",
+        f"- State File: `{result.state_path}`",
+        f"- Succeeded: {result.succeeded}",
+        f"- Failed: {result.failed}",
+        f"- Pending: {result.pending}",
+    ]
+    if result.stopped_reason:
+        lines.append(f"- Stopped Reason: `{result.stopped_reason}`")
+    if result.entries:
+        lines.append("- Entries:")
+        for idx, entry in enumerate(result.entries, 1):
+            label = entry.item.title or entry.item.cnki_id or entry.item.detail_url
+            line = f"  {idx}. `{entry.status}` — {label}"
+            if entry.artifact_path:
+                line += f" → `{entry.artifact_path}`"
+            if entry.error:
+                line += f" — error: {entry.error}"
+            lines.append(line)
+    return "\n".join(lines)
+
+
 def _render_search_results(results, *, session=None) -> str:
     """Render unified search hits for MCP responses."""
 
@@ -530,6 +584,73 @@ async def download_cnki_artifact(
         f"- Kind: `{artifact.kind}`\n"
         f"- text_extracted={str(artifact.text_extracted).lower()}\n"
         f"- Note: {artifact.note or '(none)'}"
+    )
+
+
+@mcp.tool()
+async def download_cnki_batch_artifacts(
+    items: list[dict] | list[str],
+    prefer: str = "pdf",
+    filename_policy: str = "",
+    filename_template: str = "",
+    live: bool = False,
+    confirm_live_access: bool = False,
+    mode: str = "managed",
+    debug_port: int = 9222,
+    timeout: int = 45,
+    min_interval_seconds: float = cnki.CNKI_MIN_INTERVAL_SECONDS,
+    cooldown_every: int = cnki.CNKI_MAX_DOWNLOADS_PER_RUN,
+    cooldown_seconds: float = cnki.CNKI_MIN_INTERVAL_SECONDS * 3,
+    max_consecutive_failures: int = 1,
+    state_file: str = "",
+    resume: bool = False,
+) -> str:
+    """Run gated CNKI batch download with throttling, cooldown, stop, and resume state.
+
+    Args:
+        items: List of CNKI detail URL strings or objects with detail_url/title/first_author/cnki_id.
+        live: Must be true for browser download.
+        confirm_live_access: Required with live.
+        state_file: Optional JSON state path; use with resume=true to continue pending entries.
+    """
+
+    if not live:
+        return "⚠️ CNKI batch live download requires `live=true` and `confirm_live_access=true`."
+    if not confirm_live_access:
+        return "⚠️ confirmation_required: CNKI batch live download requires explicit user confirmation."
+
+    config = Config.load()
+    batch_items = _cnki_batch_items_from_payload(items)
+    if not batch_items and not (resume and state_file):
+        return "⚠️ CNKI batch download has no items. Provide `items` or `resume=true` with `state_file`."
+
+    client = cnki.CNKIClient(config)
+    try:
+        result = await asyncio.to_thread(
+            client.download_cnki_batch,
+            batch_items,
+            prefer=prefer,
+            filename_policy=filename_policy,
+            filename_template=filename_template,
+            confirm_live_access=confirm_live_access,
+            mode=mode,
+            debug_port=debug_port,
+            download_dir=Path(config.cache_dir) / "cnki-live-downloads",
+            timeout=timeout,
+            state_file=state_file or None,
+            resume=resume,
+            min_interval_seconds=min_interval_seconds,
+            cooldown_every=cooldown_every,
+            cooldown_seconds=cooldown_seconds,
+            max_consecutive_failures=max_consecutive_failures,
+        )
+    except (OSError, RuntimeError) as e:
+        return f"⚠️ CNKI batch download failed: {e}"
+
+    return (
+        "ℹ️ CNKI batch live download may trigger captcha/safety verification; "
+        "keep the visible browser open. No captcha bypass is attempted.\n\n"
+        + _render_cnki_batch_result(result)
     )
 
 

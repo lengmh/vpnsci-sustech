@@ -163,7 +163,18 @@ MCP 也有对应的 `download_cnki_artifact(local_file=...)` 工具，并支持 
 vpnsci-sustech cnki-download --detail-url "https://kns.cnki.net/kcms2/article/abstract?filename=..." --live --confirm-live-access --output ~/.vpnsci-sustech/papers/cnki --prefer pdf --filename-policy title_author
 ```
 
-该路径只在可见浏览器中打开用户指定的 CNKI 详情页，从当前页面已有下载链接触发一次下载，并等待 `.pdf/.caj/.cajx/.nh/.kdh` 文件完成。命令开始时会提示下载过程可能触发验证码/安全验证。无验证码时可自动点击下载、等待落盘并归档；若页面是登录页、验证码页、未知页，或没有可用下载链接，会停止或超时报错，需要用户在可见浏览器中人工处理；不会自动处理账号、验证码、DRM、付费限制。
+该路径只在可见浏览器中打开用户指定的 CNKI 详情页，从当前页面已有下载链接触发一次下载，并等待 `.pdf/.caj/.cajx/.nh/.kdh` 文件完成。命令开始时会提示下载过程可能触发验证码/安全验证。无验证码时可自动点击下载、等待落盘并归档；如果点击下载后跳到 `bar.cnki.net` 验证页，会进入等待窗口，用户在可见浏览器中人工完成后自动继续检测落盘并归档，成功 note 会标注 `resumed_after_captcha`；超时返回 `captcha_timeout`。若页面是登录页、未知页，或没有可用下载链接，会停止或报错；不会自动处理账号、验证码、DRM、付费限制。
+
+批量 CNKI 下载必须同样显式确认，并默认走逐篇串行保守控制：
+
+```bash
+vpnsci-sustech cnki-batch-download "./cnki-items.jsonl" --live --confirm-live-access \
+  --output ~/.vpnsci-sustech/papers/cnki \
+  --min-interval 20 --cooldown-every 5 --cooldown-seconds 120 \
+  --max-consecutive-failures 1 --state-file ~/.vpnsci-sustech/cache/cnki/batch/state.json --resume
+```
+
+输入文件可用 JSONL，每行包含 `detail_url/title/first_author/cnki_id`，也可每行只放一个详情页 URL。批量过程会写状态 JSON；`--resume` 会跳过已成功或已失败条目，从 pending 条目继续。连续验证码超时或下载失败达到阈值时停止本轮，避免继续刷请求。MCP 对应 `download_cnki_batch_artifacts(items=[...], live=true, confirm_live_access=true, ...)`。
 
 如果只是想检查 CNKI smoke 将做什么，可先跑 dry-run：
 
