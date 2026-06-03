@@ -22,7 +22,8 @@ from .config import Config
 from .extractors import html_extractor, pdf_extractor
 from .file_naming import build_artifact_stem, has_strong_identifier, identifier_stem, reserve_unique_path
 from .models import Artifact, Paper
-from .sources import arxiv, unpaywall
+from .sources import arxiv, cnki, unpaywall
+from .sources.search_models import SearchHit, coerce_search_hit
 from .site_policy import PHASE2_MIN_INTERVAL_SECONDS
 
 logger = logging.getLogger(__name__)
@@ -84,6 +85,16 @@ class PaperFetcher:
         self._filename_template_override = filename_template
         doi = self._parse_doi(identifier)
         url = self._parse_url(identifier)
+
+        # Phase 6 boundary: do not fold CNKI detail URLs into the generic DOI/URL
+        # fetch kernel. CNKI continuation goes through fetch_from_search_hit().
+        if url and cnki.is_cnki_url(url):
+            return Paper(
+                doi="",
+                title="",
+                url=url,
+                source="cnki_blocked_main_kernel",
+            )
 
         # Check cache — only return if the cached result has real full text
         if use_cache and doi:
@@ -177,6 +188,88 @@ class PaperFetcher:
             self._save_cache(paper)
 
         return paper
+
+    def fetch_from_search_hit(
+        self,
+        hit: SearchHit | dict,
+        *,
+        use_cache: bool = True,
+        filename_policy: str = "",
+        filename_template: str = "",
+        confirm_live_access: bool = False,
+    ) -> Paper:
+        """Continue full-text fetch from a persisted SearchHit."""
+
+        resolved = coerce_search_hit(hit)
+        if (resolved.source or "").lower() == "cnki" or "cnki" in (resolved.sources or []):
+            paper = Paper(
+                doi=resolved.doi,
+                title=resolved.title,
+                authors=list(resolved.authors or []),
+                journal=resolved.journal,
+                year=resolved.year,
+                abstract=resolved.abstract,
+                source="cnki",
+                url=resolved.source_url or resolved.url,
+                cnki_id=resolved.cnki_id,
+                dbcode=resolved.dbcode,
+                dbname=resolved.dbname,
+                result_type=resolved.result_type,
+                download_format=resolved.download_format,
+                keywords=list(resolved.keywords or []),
+                affiliations=list(resolved.affiliations or []),
+                citation_count=resolved.citation_count,
+            )
+            client = cnki.CNKIClient(self.config)
+            if resolved.local_file:
+                artifact = client.materialize_downloaded_file(
+                    paper,
+                    resolved.local_file,
+                    source_url=resolved.source_url or resolved.url,
+                    filename_policy=filename_policy,
+                    filename_template=filename_template,
+                )
+                if artifact.format == "pdf" and artifact.path:
+                    paper.pdf_path = artifact.path
+                return paper
+            if resolved.source_url:
+                artifact = client.download_cnki_artifact(
+                    paper,
+                    resolved.source_url,
+                    prefer=resolved.download_format or "pdf",
+                    filename_policy=filename_policy,
+                    filename_template=filename_template,
+                    confirm_live_access=confirm_live_access,
+                )
+                if artifact and artifact.format == "pdf" and artifact.path:
+                    paper.pdf_path = artifact.path
+                return paper
+            return paper
+
+        identifier = (
+            resolved.doi
+            or (f"arxiv:{resolved.arxiv_id}" if resolved.arxiv_id else "")
+            or resolved.url
+            or resolved.pdf_url
+            or resolved.source_url
+        )
+        if not identifier:
+            return Paper(
+                doi=resolved.doi,
+                title=resolved.title,
+                authors=list(resolved.authors or []),
+                journal=resolved.journal,
+                year=resolved.year,
+                abstract=resolved.abstract,
+                source=resolved.source or resolved.backend,
+                url=resolved.url or resolved.source_url,
+            )
+        return self.fetch(
+            identifier,
+            use_cache=use_cache,
+            filename_policy=filename_policy,
+            filename_template=filename_template,
+        )
 
     def _try_open_access(self, doi: str) -> Paper | None:
         """Try to fetch paper from Open Access sources.

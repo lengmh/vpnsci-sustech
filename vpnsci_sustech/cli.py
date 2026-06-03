@@ -24,8 +24,10 @@ from .config import Config
 from .fetcher import PaperFetcher
 from .file_naming import POLICIES, build_artifact_stem, reserve_unique_path
 from .models import Paper
+from .report_recovery import recover_session_from_download_sidecar
 from .schools import get_school, list_schools, search_schools
 from .sources import backend_routing, cnki, publisher_search, search_mode, semantic_scholar, standard_search
+from .sources.search_cache import load_session, save_session
 
 app = typer.Typer(
     name="vpnsci-sustech",
@@ -194,6 +196,34 @@ def fetch(
             console.print(f"\n[dim]PDF saved to: {paper.pdf_path}[/dim]")
         console.print(f"[dim]Source: {paper.source}[/dim]")
 
+    finally:
+        fetcher.close()
+
+
+@app.command("fetch-hit")
+def fetch_hit(
+    search_session_id: str = typer.Argument(help="Search session id."),
+    hit_key: str = typer.Argument(help="Persisted SearchHit hit_key."),
+    filename_policy: str = typer.Option("", "--filename-policy", help="Filename policy override."),
+    filename_template: str = typer.Option("", "--filename-template", help="Filename template override."),
+    confirm_live_access: bool = typer.Option(False, "--confirm-live-access", help="Required for CNKI live continuation."),
+):
+    """Fetch full text from a saved SearchSession hit."""
+    cfg = Config.load()
+    session = load_session(search_session_id, Path(cfg.cache_dir))
+    hit = next((item for item in session.hits if item.hit_key == hit_key), None)
+    if hit is None:
+        console.print(f"[red]Hit not found: {hit_key}[/red]")
+        raise typer.Exit(1)
+    fetcher = PaperFetcher(cfg)
+    try:
+        paper = fetcher.fetch_from_search_hit(
+            hit,
+            filename_policy=filename_policy,
+            filename_template=filename_template,
+            confirm_live_access=confirm_live_access,
+        )
+        console.print(paper.to_markdown(include_pdf_path=True))
     finally:
         fetcher.close()
 
@@ -453,6 +483,31 @@ def report(
         console.print("Tip: 如果文件在 Agent 代码编辑器内打开，可右键 HTML 文件标签，选择“在资源管理器中显示/打开”，再用浏览器打开原文件。")
     console.print(f"Seed Session: {result.seed_session_id}")
     console.print(f"Deduped Papers: {result.deduped_paper_count}")
+
+
+@app.command("report-recover")
+def report_recover(
+    sidecar: str = typer.Option("", "--sidecar", help="Download workflow sidecar JSON path."),
+    mode: str = typer.Option("seed_preview", "--mode", help="Report mode: full or seed_preview."),
+):
+    """Recover a SearchSession from sidecar and start report generation."""
+    if not sidecar:
+        console.print("[red]Missing --sidecar.[/red]")
+        raise typer.Exit(1)
+    cfg = Config.load()
+    session = recover_session_from_download_sidecar(sidecar)
+    save_session(session, Path(cfg.cache_dir))
+    result = report_bridge.start_report_from_session(
+        session.session_id,
+        config=cfg,
+        mode=mode,
+        display_query=session.display_query or session.recovered_label,
+        open_report=True,
+    )
+    console.print(f"Restored Session: {session.session_id}")
+    console.print(f"Display Query: {session.display_query or session.recovered_label}")
+    console.print(f"Report Status: {result.status}")
+    console.print(f"Seed Session: {result.seed_session_id}")
 
 
 @report_tools_app.command("install")
@@ -892,6 +947,8 @@ def cnki_batch_download(
 
     console.print(f"[bold]CNKI batch download:[/bold] {result.status}")
     console.print(f"State File: {result.state_path}")
+    if getattr(result, "sidecar_path", None):
+        console.print(f"Recovery Sidecar: {result.sidecar_path}")
     console.print(f"Succeeded: {result.succeeded}")
     console.print(f"Failed: {result.failed}")
     console.print(f"Pending: {result.pending}")

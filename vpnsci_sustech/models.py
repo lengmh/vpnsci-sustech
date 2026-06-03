@@ -21,6 +21,7 @@ class Paper:
     """Represents a fetched academic paper."""
 
     doi: str = ""
+    citation_count: int | None = None
     title: str = ""
     authors: list[str] = field(default_factory=list)
     journal: str = ""
@@ -32,6 +33,18 @@ class Paper:
     source: str = ""  # "webvpn" | "open_access" | "arxiv"
     pdf_path: str = ""
     url: str = ""
+    keywords: list[str] = field(default_factory=list)
+    affiliations: list[str] = field(default_factory=list)
+    fund: str = ""
+    classification: str = ""
+    publication_info: str = ""
+    online_first: bool | None = None
+    citation_network: dict = field(default_factory=dict)
+    cnki_id: str = ""
+    dbcode: str = ""
+    dbname: str = ""
+    result_type: str = ""
+    download_format: str = ""
     artifacts: list[Artifact] = field(default_factory=list)
 
     def to_json(self, indent: int = 2) -> str:

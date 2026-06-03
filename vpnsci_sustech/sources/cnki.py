@@ -23,6 +23,7 @@ from bs4 import BeautifulSoup
 from ..config import Config
 from ..extractors import pdf_extractor
 from ..file_naming import build_artifact_stem, reserve_unique_path
+from ..download_workflows import DownloadWorkflowSidecar, write_download_workflow_sidecar
 from ..models import Artifact, Paper
 from ..site_policy import CNKI_MAX_DOWNLOADS_PER_RUN, CNKI_MIN_INTERVAL_SECONDS
 from .search_cache import SearchError, SearchSession, new_session_id, save_session
@@ -73,6 +74,7 @@ class CNKIBatchEntry:
 class CNKIBatchResult:
     status: str
     state_path: Path
+    sidecar_path: Path | None = None
     entries: list[CNKIBatchEntry] = field(default_factory=list)
     succeeded: int = 0
     failed: int = 0
@@ -649,6 +651,12 @@ def search_cnki_from_html(
     session = SearchSession(
         session_id=new_session_id(),
         query=query,
+        origin={
+            "engine": "cnki",
+            "kind": "html_import",
+            "capture_source": "user_html",
+        },
+        display_query=query,
         filters={"backend": "cnki", "limit": limit},
         hits=hits,
         source_summary={"cnki": len(hits)},
@@ -691,6 +699,12 @@ def search_cnki(query: str, limit: int = 10, search_type: str = "theme", *, conf
     session = SearchSession(
         session_id=new_session_id(),
         query=query,
+        origin={
+            "engine": "cnki",
+            "kind": "source_execution",
+            "route_reason": "explicit_backend",
+        },
+        display_query=query,
         filters={"backend": "cnki", "limit": limit, "search_type": search_type},
         hits=[],
         source_summary={"cnki": 0},
@@ -1115,6 +1129,21 @@ def _cnki_batch_status(entries: list[CNKIBatchEntry], stopped_reason: str = "") 
     return "completed"
 
 
+def _sidecar_item_from_batch_entry(entry: CNKIBatchEntry) -> dict:
+    item = entry.item
+    return {
+        "hit_key": (f"cnki:{item.cnki_id}" if item.cnki_id else ""),
+        "title": item.title,
+        "authors": [item.first_author] if item.first_author else [],
+        "source": "cnki",
+        "source_url": item.source_url or item.detail_url,
+        "local_file": entry.artifact_path,
+        "download_format": entry.format,
+        "result_type": entry.format and f"downloaded_{entry.format}" or "downloaded_artifact",
+        "cnki_id": item.cnki_id,
+    }
+
+
 class CNKIClient:
     """CNKI download client.
 
@@ -1423,9 +1452,25 @@ class CNKIClient:
 
         final_status = _cnki_batch_status(entries, stopped_reason=stopped_reason)
         _write_cnki_batch_state(state_path, entries, status=final_status, stopped_reason=stopped_reason)
+        sidecar_path = None
+        succeeded_entries = [entry for entry in entries if entry.status == "succeeded" and entry.artifact_path]
+        if succeeded_entries:
+            first_item = succeeded_entries[0].item
+            sidecar = DownloadWorkflowSidecar(
+                root_session_id="",
+                source_session_id="",
+                derived_session_id="",
+                original_query="",
+                display_query=first_item.title or "",
+                recovered_label=first_item.title or "",
+                actual_queries=[],
+                items=[_sidecar_item_from_batch_entry(entry) for entry in succeeded_entries],
+            )
+            sidecar_path = write_download_workflow_sidecar(sidecar, self.config)
         return CNKIBatchResult(
             status=final_status,
             state_path=state_path,
+            sidecar_path=sidecar_path,
             entries=entries,
             succeeded=sum(1 for entry in entries if entry.status == "succeeded"),
             failed=sum(1 for entry in entries if entry.status == "failed"),

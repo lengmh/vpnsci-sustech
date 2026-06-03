@@ -153,6 +153,21 @@ Display rules:
 - Omit the `seed` row when the seed query is identical to the H1 user query.
 - Preserve the existing report visual style: small text, subtle borders, muted colors, wrapping chips.
 
+### Query / title provenance rules
+
+Seed preview materialization must distinguish:
+
+- `original_query`
+- `display_query`
+- `recovered_label`
+
+Required behavior:
+
+- if `original_query` exists, title mode may be treated as search-like wording;
+- if `original_query` is missing but `display_query` exists, prefer neutral summary wording;
+- if only `recovered_label` exists, use explicit recovered-summary wording;
+- never collapse inferred/recovered title text back into fake original query provenance.
+
 ## Validation
 
 Seed preview implementation and agents that patch seed reports should verify:
@@ -193,3 +208,16 @@ If seed preview cannot build topics or disclosure from available metadata:
 - show a clear note in the generated metadata or disclosure;
 - do not label the report as full;
 - do not fabricate full PRISMA-S execution evidence.
+
+### Degraded chart policy
+
+For thin metadata / CNKI subsets / `html_import` / weak recovery:
+
+- discovery curve may enter `disabled`;
+- citation analysis may enter `disabled`;
+- topic analysis may enter `limited` or `disabled`;
+- renderer-facing metadata should disclose whether the issue is:
+  - `暂无数据` / missing data
+  - `数据不够` / insufficient data
+
+Do not keep legacy-looking charts alive with misleading estimates when execution trace or citation/year support is too weak.

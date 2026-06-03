@@ -142,6 +142,12 @@ def search(
     session = SearchSession(
         session_id=new_session_id(),
         query=query,
+        origin={
+            "engine": "standard_search",
+            "kind": "source_execution",
+            "route_reason": "default_standard_search",
+        },
+        display_query=query,
         filters={"year_range": year_range or "", "limit": limit, "query_variants": [v.__dict__ for v in variants]},
         hits=merged,
         source_summary=_source_summary(merged),

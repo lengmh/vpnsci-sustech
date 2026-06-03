@@ -14,7 +14,9 @@ from . import report_bridge
 from .config import Config
 from .fetcher import PaperFetcher
 from .models import Paper
+from .report_recovery import recover_session_from_download_sidecar
 from .sources import backend_routing, cnki, publisher_search, search_mode, semantic_scholar, standard_search
+from .sources.search_cache import load_session, save_session
 
 # Logging must go to stderr (stdout is used by MCP stdio transport)
 logging.basicConfig(
@@ -111,6 +113,8 @@ def _render_cnki_batch_result(result: cnki.CNKIBatchResult) -> str:
         f"- Failed: {result.failed}",
         f"- Pending: {result.pending}",
     ]
+    if getattr(result, "sidecar_path", None):
+        lines.append(f"- Recovery Sidecar: `{result.sidecar_path}`")
     if result.stopped_reason:
         lines.append(f"- Stopped Reason: `{result.stopped_reason}`")
     if result.entries:
@@ -365,6 +369,32 @@ async def fetch_paper(
         return paper.to_text()
     else:
         return paper.to_markdown(include_pdf_path=True)
+
+
+@mcp.tool()
+async def fetch_search_hit(
+    session_id: str,
+    hit_key: str,
+    filename_policy: str = "",
+    filename_template: str = "",
+    confirm_live_access: bool = False,
+) -> str:
+    """Continue full-text fetch from one SearchSession hit."""
+    fetcher = _get_fetcher()
+    if fetcher is None:
+        return _SCHOOL_NOT_CONFIGURED
+    session = load_session(session_id, Path(Config.load().cache_dir))
+    hit = next((item for item in session.hits if item.hit_key == hit_key), None)
+    if hit is None:
+        return f"Hit not found: {hit_key}"
+    paper = await asyncio.to_thread(
+        fetcher.fetch_from_search_hit,
+        hit,
+        filename_policy=filename_policy,
+        filename_template=filename_template,
+        confirm_live_access=confirm_live_access,
+    )
+    return paper.to_markdown(include_pdf_path=True)
 
 
 @mcp.tool()
@@ -894,6 +924,32 @@ async def generate_search_report(
         f"- Deduped Papers: {result.deduped_paper_count}\n"
         f"- Expanded Sources: {', '.join(result.expanded_sources) if result.expanded_sources else '(none)'}\n"
         "报告在后台生成；如文件暂未出现，请稍后查看 Report 路径或 Log。"
+    )
+
+
+@mcp.tool()
+async def generate_recovery_report(
+    sidecar_path: str,
+    mode: str = "seed_preview",
+) -> str:
+    """Recover a SearchSession from a download-workflow sidecar and generate a report."""
+    cfg = Config.load()
+    session = recover_session_from_download_sidecar(sidecar_path)
+    save_session(session, Path(cfg.cache_dir))
+    result = await asyncio.to_thread(
+        report_bridge.start_report_from_session,
+        session.session_id,
+        config=cfg,
+        mode=mode,
+        display_query=session.display_query or session.recovered_label,
+        open_report=True,
+    )
+    return (
+        "✅ Recovery report started.\n\n"
+        f"- Search Session: `{result.seed_session_id}`\n"
+        f"- Display Query: `{session.display_query or session.recovered_label}`\n"
+        f"- Status: `{result.status}`\n"
+        f"- Local Path: `{result.report_path}`\n"
     )
 
 
