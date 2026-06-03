@@ -10,7 +10,7 @@ from pathlib import Path
 import time
 from uuid import uuid4
 
-from .search_models import SearchError, SearchHit
+from .search_models import SearchError, SearchHit, coerce_search_hit
 
 
 @dataclass
@@ -21,6 +21,11 @@ class SearchSession:
     query: str
     filters: dict
     hits: list[SearchHit]
+    schema_version: int = 2
+    origin: dict = field(default_factory=dict)
+    derivation: dict = field(default_factory=dict)
+    display_query: str = ""
+    recovered_label: str = ""
     source_summary: dict[str, int] = field(default_factory=dict)
     errors: list[SearchError] = field(default_factory=list)
     upgrade_suggested: bool = False
@@ -53,7 +58,23 @@ def save_session(session: SearchSession, cache_dir: Path) -> Path:
     directory = _session_dir(cache_dir)
     directory.mkdir(parents=True, exist_ok=True)
     path = directory / f"{session.session_id}.json"
-    path.write_text(json.dumps(asdict(session), ensure_ascii=False, indent=2), encoding="utf-8")
+    normalized = SearchSession(
+        session_id=session.session_id,
+        query=session.query,
+        filters=session.filters,
+        hits=[coerce_search_hit(hit) for hit in session.hits],
+        schema_version=session.schema_version or 2,
+        origin=session.origin or {},
+        derivation=session.derivation or {},
+        display_query=session.display_query or session.query,
+        recovered_label=session.recovered_label or "",
+        source_summary=session.source_summary,
+        errors=session.errors,
+        upgrade_suggested=session.upgrade_suggested,
+        decision_reasons=session.decision_reasons,
+        created_at=session.created_at,
+    )
+    path.write_text(json.dumps(asdict(normalized), ensure_ascii=False, indent=2), encoding="utf-8")
     return path
 
 
@@ -64,7 +85,12 @@ def load_session(session_id: str, cache_dir: Path) -> SearchSession:
         session_id=data["session_id"],
         query=data["query"],
         filters=data.get("filters") or {},
-        hits=[SearchHit(**item) for item in data.get("hits", [])],
+        hits=[coerce_search_hit(item) for item in data.get("hits", [])],
+        schema_version=int(data.get("schema_version") or 2),
+        origin=data.get("origin") or {},
+        derivation=data.get("derivation") or {},
+        display_query=(data.get("display_query") or data.get("query") or ""),
+        recovered_label=data.get("recovered_label") or "",
         source_summary=data.get("source_summary") or {},
         errors=[SearchError(**item) for item in data.get("errors", [])],
         upgrade_suggested=bool(data.get("upgrade_suggested")),
@@ -85,7 +111,7 @@ def save_cached_hits(source: str, query: str, filters: dict, hits: list[SearchHi
         "query": query,
         "filters": filters,
         "created_at_epoch": time.time(),
-        "hits": [asdict(hit) for hit in hits],
+        "hits": [asdict(coerce_search_hit(hit)) for hit in hits],
     }
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     return path
@@ -108,4 +134,4 @@ def load_cached_hits(
     created_at = float(data.get("created_at_epoch") or 0)
     if ttl_seconds > 0 and time.time() - created_at > ttl_seconds:
         return None
-    return [SearchHit(**item) for item in data.get("hits", [])]
+    return [coerce_search_hit(item) for item in data.get("hits", [])]

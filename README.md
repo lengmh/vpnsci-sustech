@@ -106,6 +106,32 @@ generate_search_report(search_session_id="search-...", mode="full")
 
 `seed_preview` 会自动补齐 HTML 报告需要的主题图景和轻量 PRISMA-S disclosure，但它仍不是完整专业调研。`full` 模式需要支持完整调研执行环境；如果当前 Agent 不支持并行分类，会明确询问你是否改走快速预览、主 Agent 串行分类，或稍后重试。
 
+### Search Session / 恢复 / continuation
+
+当前主链已经统一到 `SearchSession`：
+
+- 标准检索会保存 Search Session
+- CNKI HTML 导入会保存带 `html_import` provenance 的 Search Session
+- 下载工作流会额外保存 **report recovery sidecar**
+- 从单条结果继续全文获取，优先走 **session hit continuation**
+
+当前约定：
+
+- `SearchHit.hit_key` 是单条结果的稳定持久化标识
+- 报告、派生、恢复、continuation 不再依赖数组序号
+- `original_query / display_query / recovered_label` 必须区分
+
+CNKI 下载 sidecar 默认保存到：
+
+```text
+~/.vpnsci-sustech/cache/download-workflows/
+```
+
+它和批量下载 `state_file` 不是一个东西：
+
+- `state_file`：mutable resume state
+- `download-workflows/*.json`：报告恢复 sidecar
+
 HTML 报告顶部会保留你的原始查询，并在下方用小标签展示实际执行的检索 query，便于区分“我输入了什么”和“各数据源实际搜了什么”。
 
 仓库内包含 `paper-search-pro` 报告能力，并会在用户目录准备本地运行副本。报告、缓存和个人 API key 保存在用户本地，不进入源码仓库。
@@ -194,6 +220,12 @@ vpnsci-sustech cnki-detail --url-or-id ABC123 --html-file ./detail.html
 # 从已捕获的 CNKI 搜索结果 HTML 离线解析并保存 SearchSession；不会访问 CNKI
 vpnsci-sustech cnki-search-html --query "钙钛矿" --html-file ./search.html --limit 3
 
+# 从下载 sidecar 恢复 SearchSession 并启动报告
+vpnsci-sustech report-recover --sidecar ~/.vpnsci-sustech/cache/download-workflows/download-xxxx.json --mode seed_preview
+
+# 从 SearchSession 的单条 hit 继续全文获取
+vpnsci-sustech fetch-hit search-xxxx cnki:ABC123 --confirm-live-access
+
 # 可选：配置外部 CAJ/CAJX 转 PDF 命令，默认关闭、不内置转换器
 vpnsci-sustech config-cmd --cnki-convert-caj-to-pdf true --cnki-caj-converter-command "caj2pdf convert {input} -o {output}"
 
@@ -235,6 +267,19 @@ vpnsci-sustech config-cmd --paper-filename-max-length 180 --paper-filename-colli
 - Wiley Online Library：当前已可做检索并获取全文；搜索在站内执行受限时会回退到元数据搜索
 - ScienceDirect：当前已可做检索、全文提取，并可生成本地可解析 PDF；原版 publisher PDF 仍可能失败
 - CNKI / 中国知网：当前加入显式路由、会话/DOM 状态探针骨架、离线搜索/详情页解析、`cnki-download --local-file` 本地 artifact 归档、默认 dry-run 的 `cnki-smoke` 可见浏览器 smoke、显式 `cnki-download --live --confirm-live-access` 的受控可见浏览器下载 smoke，以及 `cnki-batch-download` 的保守串行批量下载控制；本地 PDF 会尝试提取全文，CAJ/CAJX/NH/KDH 只保存原文件并标注未提取全文。不会因为普通中文 query 自动访问 CNKI，也不会绕过登录、验证码、DRM、付费墙或下载限制
+
+CNKI 当前额外支持：
+
+- `search_cnki_from_html(...)` 作为正式 `html_import` provenance 并入主链
+- 批量下载后自动产出恢复 sidecar
+- `report-recover` / `generate_recovery_report(...)` 从 sidecar 恢复报告输入
+- `fetch-hit` / `fetch_search_hit(...)` 从 session hit 继续获取全文
+
+但仍保持以下边界：
+
+- 普通中文 query 不默认访问 CNKI
+- `fetch_paper(cnki_url)` **没有**并入通用 DOI/URL fetch 主内核
+- CNKI URL 继续走专用 continuation / download 路线，而不是通用主 fetch 内核
 
 CNKI 的 CAJ/CAJX 转 PDF 默认关闭，不随包安装或捆绑第三方转换器。用户可显式配置外部命令模板；转换失败时仍保留原始 CAJ/CAJX artifact。
 

@@ -4,6 +4,7 @@ This directory records reviewable project update briefs for `vpnsci-sustech`: wh
 
 ## 2026
 
+- [2026-06-03 CNKI Mainline Session, Recovery, and Continuation](2026-06-03-cnki-mainline-session-recovery-continuation.md)
 - [2026-05-28 Phase 3 Bridge Boundary Correction](2026-05-28-phase3-bridge-correction.md)
 - [2026-05-28 Codex Full Workflow Automation Boundary](2026-05-28-codex-full-workflow-automation.md)
 - [2026-05-29 Seed Preview Report Fallbacks](2026-05-29-seed-preview-report-fallbacks.md)

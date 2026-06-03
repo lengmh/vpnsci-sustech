@@ -200,6 +200,64 @@ vpnsci-sustech cnki-search-html --query "钙钛矿" --html-file "./search.html" 
 
 MCP 对应 `search_cnki_from_html(query, html=.../html_file=...)`。该路径只读本地 HTML，遇登录/验证码页会返回分类错误，不会自动重试或联网。
 
+## 4.5.0.2 下载后没立刻生成报告，之后还能补吗？
+
+可以。
+
+现在批量 CNKI 下载完成后，除了 resume `state_file`，还会单独保存 **report recovery sidecar**：
+
+```text
+~/.vpnsci-sustech/cache/download-workflows/
+```
+
+这两个文件语义不同：
+
+- `state_file`：给 `--resume` 用的可变批量状态
+- `download-workflows/*.json`：给恢复报告/恢复 SearchSession 用的稳定 sidecar
+
+CLI 可直接恢复：
+
+```bash
+vpnsci-sustech report-recover --sidecar ~/.vpnsci-sustech/cache/download-workflows/download-xxxx.json --mode seed_preview
+```
+
+MCP 可直接恢复：
+
+```python
+generate_recovery_report(sidecar_path="~/.vpnsci-sustech/cache/download-workflows/download-xxxx.json")
+```
+
+默认恢复优先级现在是：
+
+- A：sidecar
+- C：只有弱本地文件信息时的受控降级恢复
+- B：旧 `metadata.json / report_data.json / paper_list.json / prisma_log.json` 兼容恢复
+
+也就是说，旧 JSON 仍能兼容，但不是新的首选恢复底座。
+
+## 4.5.0.3 现在能直接对 `cnki_url` 用 `fetch_paper(...)` 吗？
+
+不建议这样理解。
+
+当前结论是：
+
+- CNKI 已经统一到 session-hit continuation 主语义
+- 但 **`fetch_paper(cnki_url)` 没有并入通用 DOI/URL fetch 主内核**
+
+原因：
+
+1. CNKI 需要受控浏览器 / 手动验证码 / 特化 artifact 语义；
+2. 把它塞进通用 fetch 主内核会明显增加站点特化复杂度；
+3. 当前更清晰的正式路径已经存在：
+   - `fetch-hit <search_session_id> <hit_key>`
+   - MCP `fetch_search_hit(session_id, hit_key, ...)`
+   - `cnki-download` / `cnki-batch-download`
+
+换句话说：
+
+- **可以继续获取 CNKI hit 的全文**
+- **但建议从 SearchSession hit 继续，而不是把 CNKI detail URL 当普通 publisher URL 直接喂给通用 fetch 主内核**
+
 CAJ/CAJX 转 PDF 是可选外部命令，默认关闭：
 
 ```bash

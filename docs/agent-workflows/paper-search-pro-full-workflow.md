@@ -163,6 +163,20 @@ Validation before final delivery:
 - hydrated HTML contains `.psp-query-strip` and the expected source labels;
 - no visible `???` appears in the query or query strip.
 
+## Recovery and sidecar notes
+
+Agents continuing from `vpnsci-sustech` should be aware that report inputs may come from:
+
+- standard Search Session;
+- derived Search Session;
+- download workflow sidecar recovery.
+
+When the source is a download workflow sidecar:
+
+- restored sessions should preserve `display_query` / `recovered_label` distinctly;
+- the restored session provenance should not be mislabeled as live `source_execution`;
+- if original query provenance is absent, prefer summary/recovered-summary wording rather than search wording.
+
 Compatibility note: current source builds render the strip in React. If a runtime still ships an older pre-built `bundle.html`, `html_renderer_webartifacts.py` injects a small compatibility guard that reads `query_display.actual_queries` and inserts the strip after the Hero H1. Rebuilding `bundle.html` remains the preferred release path.
 
 ## KG Field Completeness and Theme Fallback

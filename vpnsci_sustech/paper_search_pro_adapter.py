@@ -11,8 +11,9 @@ import sys
 import webbrowser
 
 from .config import Config
+from .report_recovery import infer_quality_profile, split_missing_and_insufficient_fields
 from .sources.search_cache import SearchSession
-from .sources.search_models import SearchHit
+from .sources.search_models import SearchHit, coerce_search_hit
 
 
 def render_html_webartifacts(*args, **kwargs):
@@ -31,7 +32,12 @@ def _load_seed(path: Path) -> SearchSession:
         session_id=data["session_id"],
         query=data["query"],
         filters=data.get("filters") or {},
-        hits=[SearchHit(**item) for item in data.get("hits", [])],
+        hits=[coerce_search_hit(item) for item in data.get("hits", [])],
+        schema_version=int(data.get("schema_version") or 2),
+        origin=data.get("origin") or {},
+        derivation=data.get("derivation") or {},
+        display_query=(data.get("display_query") or data.get("query") or ""),
+        recovered_label=data.get("recovered_label") or "",
         source_summary=data.get("source_summary") or {},
         errors=[],
         upgrade_suggested=bool(data.get("upgrade_suggested")),
@@ -68,6 +74,8 @@ def _score_hit(hit: SearchHit) -> int:
 
 
 def _paper_id_from_hit(hit: SearchHit, index: int) -> str:
+    if hit.hit_key:
+        return hit.hit_key
     if hit.doi:
         return hit.doi
     if hit.cnki_id:
@@ -136,10 +144,14 @@ def _paper_from_hit(hit: SearchHit, index: int, query: str) -> dict:
         "abstract": hit.abstract,
         "citation_count": hit.citation_count,
         "cnki_id": hit.cnki_id,
+        "dbcode": hit.dbcode,
+        "dbname": hit.dbname,
         "source_url": hit.source_url,
         "download_format": hit.download_format,
         "local_file": hit.local_file,
         "result_type": hit.result_type,
+        "keywords": hit.keywords,
+        "affiliations": hit.affiliations,
         "source": ", ".join(hit.sources or [hit.source or hit.backend or "seed"]),
         "tier": "seed",
         "rcs": rcs,
@@ -516,6 +528,15 @@ def _build_chart_data(papers: list[dict], source_summary: dict) -> dict:
     }
 
 
+def _report_label_mode(quality_profile: dict) -> str:
+    title_mode = quality_profile.get("title_mode")
+    if title_mode == "search":
+        return "检索结果"
+    if title_mode == "summary":
+        return "结果总结"
+    return "恢复总结"
+
+
 PRISMA_STEP_KEYS: tuple[str, ...] = (
     "1_database_information",
     "2_multi_database_searching",
@@ -645,7 +666,10 @@ def _write_materialized_data(
 ) -> Path:
     data_dir = output_dir / "materialized"
     data_dir.mkdir(parents=True, exist_ok=True)
-    report_query = display_query or session.query
+    original_query = session.query or ""
+    resolved_display_query = display_query or session.display_query or ""
+    recovered_label = session.recovered_label or ""
+    report_query = resolved_display_query or original_query or recovered_label
     report_language = language or _detect_language(report_query)
     papers = [_paper_from_hit(hit, i, report_query) for i, hit in enumerate(session.hits, 1)]
     chart_data = _build_chart_data(papers, session.source_summary)
@@ -654,14 +678,66 @@ def _write_materialized_data(
     discovery_curve = chart_data["discovery_curve"]
     actual_query_variants = _query_variants_from_session(session)
     actual_query_groups = _actual_query_groups_from_session(session, display_query=report_query)
+    year_count = sum(1 for paper in papers if paper.get("year"))
+    citation_count = sum(1 for paper in papers if (paper.get("citation_count") or 0) > 0)
+    topic_signal_count = sum(1 for paper in papers if paper.get("abstract") or paper.get("keywords"))
+    origin = session.origin if isinstance(session.origin, dict) else {}
+    quality_profile = infer_quality_profile(
+        origin_kind=origin.get("kind", ""),
+        actual_queries=actual_query_groups,
+        total_hits=len(papers),
+        field_presence={
+            "actual_queries": len(actual_query_groups),
+            "year": year_count,
+            "citation_count": citation_count,
+            "abstract_or_keywords": topic_signal_count,
+        },
+        original_query=original_query,
+        display_query=resolved_display_query,
+        recovered_label=recovered_label,
+    )
+    missing_fields, insufficient_fields = split_missing_and_insufficient_fields(
+        total_hits=len(papers),
+        field_presence={
+            "actual_queries": len(actual_query_groups),
+            "year": year_count,
+            "citation_count": citation_count,
+        },
+    )
+    if quality_profile["discovery_curve_mode"] == "disabled":
+        discovery_curve["mode"] = "disabled"
+        discovery_curve["status"] = "missing_data" if "actual_queries" in missing_fields else "insufficient_data"
+        discovery_curve["reason"] = (
+            "缺少可解释的执行轨迹，当前不输出覆盖率/饱和度结论。"
+            if "actual_queries" in missing_fields
+            else "样本量过小，当前不输出覆盖率/饱和度结论。"
+        )
+    else:
+        discovery_curve["mode"] = "enabled"
+        discovery_curve["status"] = "ok"
+    chart_data["citation_analysis"] = {
+        "mode": quality_profile["citation_analysis_mode"],
+        "status": (
+            "ok"
+            if quality_profile["citation_analysis_mode"] == "enabled"
+            else "missing_data" if citation_count == 0 and year_count == 0 else "insufficient_data"
+        ),
+        "reason": (
+            ""
+            if quality_profile["citation_analysis_mode"] == "enabled"
+            else "缺少足够 citation/year 元数据，当前不输出 citation × year 分析。"
+        ),
+    }
     metadata = {
         "query": report_query,
+        "original_query": original_query,
         "language": report_language,
         "seed_source": _seed_source_label(session),
         "cnki_fields": _cnki_field_status(session),
         "user_query": report_query,
-        "display_query": report_query,
-        "seed_session_query": session.query,
+        "display_query": resolved_display_query,
+        "recovered_label": recovered_label,
+        "seed_session_query": original_query,
         "actual_query_variants": actual_query_variants,
         "query_display": {
             "user_query": report_query,
@@ -669,6 +745,10 @@ def _write_materialized_data(
             "expanded": actual_query_variants,
             "actual_queries": actual_query_groups,
         },
+        "quality_profile": quality_profile,
+        "report_label_mode": _report_label_mode(quality_profile),
+        "missing_fields": missing_fields,
+        "insufficient_analysis_fields": insufficient_fields,
         "search_id": session.session_id,
         "seed_session_id": session.session_id,
         "generated_at": datetime.now(timezone.utc).isoformat(),
