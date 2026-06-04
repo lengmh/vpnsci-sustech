@@ -712,6 +712,11 @@ def _write_materialized_data(
             if "actual_queries" in missing_fields
             else "样本量过小，当前不输出覆盖率/饱和度结论。"
         )
+        discovery_curve["coverage_estimate"] = None
+        discovery_curve["ci_low"] = None
+        discovery_curve["ci_high"] = None
+        discovery_curve["estimated_total_relevant"] = None
+        discovery_curve["summary"] = ""
     else:
         discovery_curve["mode"] = "enabled"
         discovery_curve["status"] = "ok"
@@ -759,7 +764,7 @@ def _write_materialized_data(
         "closely_related_count": closely,
         "coverage_estimate": discovery_curve["coverage_estimate"],
         "coverage_ci": [discovery_curve["ci_low"], discovery_curve["ci_high"]],
-        "coverage_label": "seed preview estimate",
+        "coverage_label": "seed preview estimate" if discovery_curve["coverage_estimate"] is not None else "",
         "source_summary": session.source_summary,
         "mode": "vpnsci-seed-report",
         "report_mode": "seed_preview",

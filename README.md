@@ -220,8 +220,11 @@ vpnsci-sustech cnki-detail --url-or-id ABC123 --html-file ./detail.html
 # 从已捕获的 CNKI 搜索结果 HTML 离线解析并保存 SearchSession；不会访问 CNKI
 vpnsci-sustech cnki-search-html --query "钙钛矿" --html-file ./search.html --limit 3
 
-# 从下载 sidecar 恢复 SearchSession 并启动报告
+# 从下载 sidecar 恢复 SearchSession 并启动报告（A 恢复）
 vpnsci-sustech report-recover --sidecar ~/.vpnsci-sustech/cache/download-workflows/download-xxxx.json --mode seed_preview
+
+# 显式从旧 materialized/report JSON 恢复 SearchSession 并启动报告（B 恢复）
+vpnsci-sustech report-recover --report-json ~/.vpnsci-sustech/cache/search/reports/search-xxxx/materialized/report_data.json --prefer B --mode seed_preview
 
 # 从 SearchSession 的单条 hit 继续全文获取
 vpnsci-sustech fetch-hit search-xxxx cnki:ABC123 --confirm-live-access
@@ -272,7 +275,9 @@ CNKI 当前额外支持：
 
 - `search_cnki_from_html(...)` 作为正式 `html_import` provenance 并入主链
 - 批量下载后自动产出恢复 sidecar
-- `report-recover` / `generate_recovery_report(...)` 从 sidecar 恢复报告输入
+- `report-recover` / `generate_recovery_report(...)` 通过统一 recovery resolver 恢复报告输入
+  - A：默认优先使用 download-workflows sidecar
+  - B：支持显式传入 legacy `report_data.json`，以及基于 materialized bundle 的兼容恢复
 - `fetch-hit` / `fetch_search_hit(...)` 从 session hit 继续获取全文
 
 但仍保持以下边界：
@@ -280,6 +285,7 @@ CNKI 当前额外支持：
 - 普通中文 query 不默认访问 CNKI
 - `fetch_paper(cnki_url)` **没有**并入通用 DOI/URL fetch 主内核
 - CNKI URL 继续走专用 continuation / download 路线，而不是通用主 fetch 内核
+- A/B 自动比较目前保持**保守裁决**：auto 仍优先 A，但会记录 identity/freshness 比较信息
 
 CNKI 的 CAJ/CAJX 转 PDF 默认关闭，不随包安装或捆绑第三方转换器。用户可显式配置外部命令模板；转换失败时仍保留原始 CAJ/CAJX artifact。
 

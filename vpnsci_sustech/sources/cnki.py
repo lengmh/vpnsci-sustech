@@ -27,7 +27,7 @@ from ..download_workflows import DownloadWorkflowSidecar, write_download_workflo
 from ..models import Artifact, Paper
 from ..site_policy import CNKI_MAX_DOWNLOADS_PER_RUN, CNKI_MIN_INTERVAL_SECONDS
 from .search_cache import SearchError, SearchSession, new_session_id, save_session
-from .search_models import SearchHit
+from .search_models import SearchHit, build_hit_key
 
 
 CNKI_DOWNLOAD_EXTENSIONS = {"pdf", "caj", "cajx", "nh", "kdh"}
@@ -36,6 +36,7 @@ CNKI_ALLOWED_HOST_SUFFIXES = ("cnki.net", "oversea.cnki.net")
 CNKI_BLOCKED_HOSTS = {"fsso.cnki.net", "login.cnki.net"}
 CNKI_SMOKE_MAX_RESULTS = 3
 CNKI_DOWNLOAD_TIMEOUT_SECONDS = 45
+CNKI_DEFAULT_RECOVERED_LABEL = "CNKI 下载结果集合"
 
 
 @dataclass
@@ -701,7 +702,7 @@ def search_cnki(query: str, limit: int = 10, search_type: str = "theme", *, conf
         query=query,
         origin={
             "engine": "cnki",
-            "kind": "source_execution",
+            "kind": "gated_request",
             "route_reason": "explicit_backend",
         },
         display_query=query,
@@ -1131,16 +1132,34 @@ def _cnki_batch_status(entries: list[CNKIBatchEntry], stopped_reason: str = "") 
 
 def _sidecar_item_from_batch_entry(entry: CNKIBatchEntry) -> dict:
     item = entry.item
+    identifiers = extract_cnki_identifiers(item.detail_url or item.source_url)
+    cnki_id = item.cnki_id or identifiers.get("filename", "")
+    dbcode = identifiers.get("dbcode", "")
+    dbname = identifiers.get("dbname", "")
+    source_url = item.source_url or item.detail_url
+    hit_key = build_hit_key(
+        SearchHit(
+            title=item.title,
+            authors=[item.first_author] if item.first_author else [],
+            source="cnki",
+            source_url=source_url,
+            cnki_id=cnki_id,
+            dbcode=dbcode,
+            dbname=dbname,
+        )
+    )
     return {
-        "hit_key": (f"cnki:{item.cnki_id}" if item.cnki_id else ""),
+        "hit_key": hit_key,
         "title": item.title,
         "authors": [item.first_author] if item.first_author else [],
         "source": "cnki",
-        "source_url": item.source_url or item.detail_url,
+        "source_url": source_url,
         "local_file": entry.artifact_path,
         "download_format": entry.format,
         "result_type": entry.format and f"downloaded_{entry.format}" or "downloaded_artifact",
-        "cnki_id": item.cnki_id,
+        "cnki_id": cnki_id,
+        "dbcode": dbcode,
+        "dbname": dbname,
     }
 
 
@@ -1356,6 +1375,13 @@ class CNKIClient:
         cooldown_every: int = CNKI_MAX_DOWNLOADS_PER_RUN,
         cooldown_seconds: float = CNKI_MIN_INTERVAL_SECONDS * 3,
         max_consecutive_failures: int = 1,
+        root_session_id: str = "",
+        source_session_id: str = "",
+        derived_session_id: str = "",
+        original_query: str = "",
+        display_query: str = "",
+        recovered_label: str = "",
+        actual_queries: list[dict] | None = None,
         sleeper=time.sleep,
         driver_factory=None,
     ) -> CNKIBatchResult:
@@ -1455,16 +1481,34 @@ class CNKIClient:
         sidecar_path = None
         succeeded_entries = [entry for entry in entries if entry.status == "succeeded" and entry.artifact_path]
         if succeeded_entries:
-            first_item = succeeded_entries[0].item
+            normalized_display_query = (display_query or "").strip()
+            normalized_recovered_label = (recovered_label or "").strip()
+            if not normalized_display_query and not normalized_recovered_label:
+                normalized_recovered_label = CNKI_DEFAULT_RECOVERED_LABEL
+            actual_query_groups = [dict(group) for group in (actual_queries or [])]
+            missing_fields = []
+            if not root_session_id:
+                missing_fields.append("root_session_id")
+            if not source_session_id:
+                missing_fields.append("source_session_id")
+            if not derived_session_id:
+                missing_fields.append("derived_session_id")
+            if not original_query:
+                missing_fields.append("original_query")
+            if not actual_query_groups:
+                missing_fields.append("actual_queries")
+            recovery_capability = "standard" if not missing_fields else "degraded"
             sidecar = DownloadWorkflowSidecar(
-                root_session_id="",
-                source_session_id="",
-                derived_session_id="",
-                original_query="",
-                display_query=first_item.title or "",
-                recovered_label=first_item.title or "",
-                actual_queries=[],
+                root_session_id=root_session_id,
+                source_session_id=source_session_id,
+                derived_session_id=derived_session_id,
+                original_query=original_query,
+                display_query=normalized_display_query,
+                recovered_label=normalized_recovered_label,
+                actual_queries=actual_query_groups,
                 items=[_sidecar_item_from_batch_entry(entry) for entry in succeeded_entries],
+                report_recovery_capability=recovery_capability,
+                missing_fields=missing_fields,
             )
             sidecar_path = write_download_workflow_sidecar(sidecar, self.config)
         return CNKIBatchResult(

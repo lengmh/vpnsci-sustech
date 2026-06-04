@@ -14,7 +14,7 @@ from . import report_bridge
 from .config import Config
 from .fetcher import PaperFetcher
 from .models import Paper
-from .report_recovery import recover_session_from_download_sidecar
+from .report_recovery import resolve_report_recovery_session
 from .sources import backend_routing, cnki, publisher_search, search_mode, semantic_scholar, standard_search
 from .sources.search_cache import load_session, save_session
 
@@ -929,12 +929,19 @@ async def generate_search_report(
 
 @mcp.tool()
 async def generate_recovery_report(
-    sidecar_path: str,
+    sidecar_path: str = "",
+    report_json: str = "",
+    prefer: str = "auto",
     mode: str = "seed_preview",
 ) -> str:
-    """Recover a SearchSession from a download-workflow sidecar and generate a report."""
+    """Recover a SearchSession from sidecar/legacy materials and generate a report."""
     cfg = Config.load()
-    session = recover_session_from_download_sidecar(sidecar_path)
+    resolved = resolve_report_recovery_session(
+        sidecar=sidecar_path or None,
+        report_json=report_json or None,
+        prefer=prefer,
+    )
+    session = resolved.session
     save_session(session, Path(cfg.cache_dir))
     result = await asyncio.to_thread(
         report_bridge.start_report_from_session,
@@ -946,6 +953,7 @@ async def generate_recovery_report(
     )
     return (
         "✅ Recovery report started.\n\n"
+        f"- Recovery Kind: `{resolved.decision.recovery_kind}`\n"
         f"- Search Session: `{result.seed_session_id}`\n"
         f"- Display Query: `{session.display_query or session.recovered_label}`\n"
         f"- Status: `{result.status}`\n"

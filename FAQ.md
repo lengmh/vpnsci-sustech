@@ -221,19 +221,44 @@ CLI 可直接恢复：
 vpnsci-sustech report-recover --sidecar ~/.vpnsci-sustech/cache/download-workflows/download-xxxx.json --mode seed_preview
 ```
 
+如果你要显式走 legacy materialized/report JSON 兼容恢复（B），可传：
+
+```bash
+vpnsci-sustech report-recover --report-json ~/.vpnsci-sustech/cache/search/reports/search-xxxx/materialized/report_data.json --prefer B --mode seed_preview
+```
+
 MCP 可直接恢复：
 
 ```python
 generate_recovery_report(sidecar_path="~/.vpnsci-sustech/cache/download-workflows/download-xxxx.json")
 ```
 
-默认恢复优先级现在是：
+显式走 B 恢复时：
+
+```python
+generate_recovery_report(
+    report_json="~/.vpnsci-sustech/cache/search/reports/search-xxxx/materialized/report_data.json",
+    prefer="B",
+)
+```
+
+当前**已落地的公开恢复入口**有两类：
+
+- A：download-workflows sidecar（默认公开入口）
+- B：legacy `report_data.json` 显式恢复（已实现，需明确传 `report_json` / `--report-json`）；同目录 materialized bundle 可用于兼容重建
+
+设计语义仍然区分：
 
 - A：sidecar
 - C：只有弱本地文件信息时的受控降级恢复
-- B：旧 `metadata.json / report_data.json / paper_list.json / prisma_log.json` 兼容恢复
+- B：旧 materialized/report JSON 兼容恢复（最直接的公开单文件入口是 `report_data.json`）
 
-也就是说，旧 JSON 仍能兼容，但不是新的首选恢复底座。
+补充说明：
+
+- **A/B 的统一 resolver 已经落地**
+- 但 auto 裁决仍保持保守：有 A 时默认优先 A，只记录与 B 的 identity/freshness 比较结果，不轻易自动改判到 B
+- 目前不建议把 `metadata.json` / `paper_list.json` / `prisma_log.json` 各自单独理解成和 `report_data.json` 完全同等级的公开单文件主入口；更准确的说法是 **materialized bundle 兼容重建**
+- **C 仍不是面向用户的独立公开恢复命令主入口**；它目前主要是内部/受控降级恢复语义
 
 ## 4.5.0.3 现在能直接对 `cnki_url` 用 `fetch_paper(...)` 吗？
 
