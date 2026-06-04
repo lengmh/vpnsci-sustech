@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections import Counter
 from dataclasses import replace
 
 from .search_cache import SearchSession, new_session_id
@@ -44,9 +45,18 @@ def derive_search_session(
         derivation=derivation,
         display_query=session.display_query or session.query,
         recovered_label=session.recovered_label or "",
-        source_summary=dict(session.source_summary or {}),
+        source_summary=_source_summary(selected_hits),
         errors=list(session.errors or []),
         upgrade_suggested=session.upgrade_suggested,
         decision_reasons=list(session.decision_reasons or []),
         created_at=session.created_at,
     )
+
+
+def _source_summary(hits: list[SearchHit]) -> dict[str, int]:
+    counts: Counter[str] = Counter()
+    for hit in hits:
+        source_names = hit.sources or [hit.source or hit.backend or "unknown"]
+        for source in source_names:
+            counts[source] += 1
+    return dict(counts)

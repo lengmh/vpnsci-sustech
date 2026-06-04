@@ -24,7 +24,7 @@ from .config import Config
 from .fetcher import PaperFetcher
 from .file_naming import POLICIES, build_artifact_stem, reserve_unique_path
 from .models import Paper
-from .report_recovery import recover_session_from_download_sidecar
+from .report_recovery import resolve_report_recovery_session
 from .schools import get_school, list_schools, search_schools
 from .sources import backend_routing, cnki, publisher_search, search_mode, semantic_scholar, standard_search
 from .sources.search_cache import load_session, save_session
@@ -488,14 +488,21 @@ def report(
 @app.command("report-recover")
 def report_recover(
     sidecar: str = typer.Option("", "--sidecar", help="Download workflow sidecar JSON path."),
+    report_json: str = typer.Option("", "--report-json", help="Legacy materialized report JSON path."),
     mode: str = typer.Option("seed_preview", "--mode", help="Report mode: full or seed_preview."),
+    prefer: str = typer.Option("auto", "--prefer", help="Recovery preference: auto/A/B/C."),
 ):
-    """Recover a SearchSession from sidecar and start report generation."""
-    if not sidecar:
-        console.print("[red]Missing --sidecar.[/red]")
+    """Recover a SearchSession from sidecar/legacy materials and start report generation."""
+    if not sidecar and not report_json:
+        console.print("[red]Missing recovery input: provide --sidecar or --report-json.[/red]")
         raise typer.Exit(1)
     cfg = Config.load()
-    session = recover_session_from_download_sidecar(sidecar)
+    resolved = resolve_report_recovery_session(
+        sidecar=sidecar or None,
+        report_json=report_json or None,
+        prefer=prefer,
+    )
+    session = resolved.session
     save_session(session, Path(cfg.cache_dir))
     result = report_bridge.start_report_from_session(
         session.session_id,
@@ -504,6 +511,7 @@ def report_recover(
         display_query=session.display_query or session.recovered_label,
         open_report=True,
     )
+    console.print(f"Recovery Kind: {resolved.decision.recovery_kind}")
     console.print(f"Restored Session: {session.session_id}")
     console.print(f"Display Query: {session.display_query or session.recovered_label}")
     console.print(f"Report Status: {result.status}")
