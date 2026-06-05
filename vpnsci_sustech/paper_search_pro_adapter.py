@@ -684,6 +684,7 @@ def _write_materialized_data(
     origin = session.origin if isinstance(session.origin, dict) else {}
     quality_profile = infer_quality_profile(
         origin_kind=origin.get("kind", ""),
+        recovery_capability=str(origin.get("report_recovery_capability") or ""),
         actual_queries=actual_query_groups,
         total_hits=len(papers),
         field_presence={
@@ -706,12 +707,17 @@ def _write_materialized_data(
     )
     if quality_profile["discovery_curve_mode"] == "disabled":
         discovery_curve["mode"] = "disabled"
-        discovery_curve["status"] = "missing_data" if "actual_queries" in missing_fields else "insufficient_data"
-        discovery_curve["reason"] = (
-            "缺少可解释的执行轨迹，当前不输出覆盖率/饱和度结论。"
-            if "actual_queries" in missing_fields
-            else "样本量过小，当前不输出覆盖率/饱和度结论。"
-        )
+        recovery_capability = str(origin.get("report_recovery_capability") or "")
+        if recovery_capability and recovery_capability != "standard":
+            discovery_curve["status"] = "degraded_recovery"
+            discovery_curve["reason"] = "恢复材料能力不足，当前不输出覆盖率/饱和度结论。"
+        else:
+            discovery_curve["status"] = "missing_data" if "actual_queries" in missing_fields else "insufficient_data"
+            discovery_curve["reason"] = (
+                "缺少可解释的执行轨迹，当前不输出覆盖率/饱和度结论。"
+                if "actual_queries" in missing_fields
+                else "样本量过小，当前不输出覆盖率/饱和度结论。"
+            )
         discovery_curve["coverage_estimate"] = None
         discovery_curve["ci_low"] = None
         discovery_curve["ci_high"] = None
@@ -751,6 +757,17 @@ def _write_materialized_data(
             "actual_queries": actual_query_groups,
         },
         "quality_profile": quality_profile,
+        "recovery_kind": (
+            "A"
+            if origin.get("kind") == "download_sidecar"
+            else "B"
+            if origin.get("kind") in {"legacy_report_json", "html_import", "source_execution"}
+            and session.filters.get("recovered_from") == "legacy_report_json"
+            else "C"
+            if session.filters.get("recovered_from") == "local_files"
+            else ""
+        ),
+        "report_recovery_capability": str(origin.get("report_recovery_capability") or ""),
         "report_label_mode": _report_label_mode(quality_profile),
         "missing_fields": missing_fields,
         "insufficient_analysis_fields": insufficient_fields,

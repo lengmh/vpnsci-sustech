@@ -93,6 +93,10 @@ interface RawMetadata {
   coverage_ci?: [number, number]
   wall_clock_total_s?: number
   stop_reason?: string | null
+  recovery_kind?: string
+  report_recovery_capability?: string
+  missing_fields?: string[]
+  insufficient_analysis_fields?: string[]
 }
 
 interface RawShape {
@@ -201,6 +205,10 @@ export function normalize(raw: RawShape | null | undefined): NormalizedData {
         coverageCi: md.coverage_ci,
         wallClockS: md.wall_clock_total_s,
         stopReason: md.stop_reason,
+        recoveryKind: md.recovery_kind,
+        reportRecoveryCapability: md.report_recovery_capability,
+        missingFields: md.missing_fields,
+        insufficientAnalysisFields: md.insufficient_analysis_fields,
       },
       papers: (raw.papers ?? [])
         .map((p): NormalizedPaper => {

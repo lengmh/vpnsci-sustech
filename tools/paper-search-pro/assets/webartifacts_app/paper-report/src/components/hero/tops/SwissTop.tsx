@@ -207,8 +207,10 @@ export function SwissTop({
                   fontVariantNumeric: "tabular-nums",
                 }}
               >
-                {coverage !== undefined ? Math.round(coverage * 100) : "—"}
-                {coverage !== undefined && (
+                {coverage !== undefined && coverage !== null
+                  ? Math.round(coverage * 100)
+                  : "—"}
+                {coverage !== undefined && coverage !== null && (
                   <span style={{ fontSize: 56, marginLeft: 2 }}>%</span>
                 )}
               </div>
@@ -221,7 +223,10 @@ export function SwissTop({
                   letterSpacing: "0.02em",
                 }}
               >
-                {ciLow !== undefined && ciHigh !== undefined && (
+                {ciLow !== undefined &&
+                  ciLow !== null &&
+                  ciHigh !== undefined &&
+                  ciHigh !== null && (
                   <>
                     CI {Math.round(ciLow * 100)}–{Math.round(ciHigh * 100)}%
                     <br />

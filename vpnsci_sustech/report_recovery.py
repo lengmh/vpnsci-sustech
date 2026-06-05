@@ -491,6 +491,7 @@ def split_missing_and_insufficient_fields(
 def infer_quality_profile(
     *,
     origin_kind: str,
+    recovery_capability: str = "",
     actual_queries: list[dict],
     total_hits: int,
     field_presence: dict[str, int],
@@ -527,9 +528,13 @@ def infer_quality_profile(
     else:
         query_strip_mode = "hidden"
 
+    capability = str(recovery_capability or "").strip().lower()
     discovery_curve_mode = (
         "enabled"
-        if origin_kind in {"source_execution", "download_sidecar"} and actual_queries and total_hits >= 8
+        if capability in {"", "standard"}
+        and origin_kind in {"source_execution", "download_sidecar"}
+        and actual_queries
+        and total_hits >= 8
         else "disabled"
     )
 

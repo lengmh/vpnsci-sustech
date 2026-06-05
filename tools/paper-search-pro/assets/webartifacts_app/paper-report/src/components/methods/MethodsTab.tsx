@@ -62,6 +62,30 @@ export function MethodsTab({ data, onSelectPaper }: MethodsTabProps) {
   const totalScreened = m.papersEvaluated ?? 0
   const highlyRelevant = m.highlyRelevant ?? 0
   const closelyRelated = m.closelyRelated ?? 0
+  const missingFields = new Set(m.missingFields || [])
+  const discoveryDisabled = dc?.mode === "disabled" || dc?.status === "degraded_recovery"
+  const discoveryReason =
+    dc?.reason ||
+    (missingFields.has("actual_queries")
+      ? "缺少可解释的执行轨迹，当前不输出覆盖率/饱和度结论。"
+      : "数据量不够分析。")
+  const citationDisabled = c.citation_analysis?.mode === "disabled"
+  const citationReason =
+    c.citation_analysis?.reason ||
+    (missingFields.has("citation_count") || missingFields.has("year")
+      ? "缺少足够 citation/year 元数据，当前不输出 citation × year 分析。"
+      : "数据量不够分析。")
+  const yearUnavailable = yearBins.length === 0
+  const yearReason = missingFields.has("year")
+    ? "暂无年份数据。"
+    : "年份数据不足，当前不输出年度分布。"
+  const rcsUnavailable = !rcsBins.length || missingFields.has("citation_count")
+  const rcsReason =
+    missingFields.has("citation_count")
+      ? "当前缺少足够相关性支撑元数据，RCS 分布仅供参考。"
+      : "暂无可用的 RCS 分布数据。"
+  const tierUnavailable = rcsUnavailable
+  const tierReason = "未完成可用的相关性评分，当前不输出档级分配。"
 
   const cardStyle = {
     padding: "20px 24px",
@@ -71,6 +95,38 @@ export function MethodsTab({ data, onSelectPaper }: MethodsTabProps) {
     // default `shadow` Tailwind class baked into shadcn Card.
     boxShadow: "none",
   } as const
+
+  function PlaceholderCard({
+    message,
+    height = 220,
+  }: {
+    message: string
+    height?: number
+  }) {
+    return (
+      <Card
+        style={{
+          ...cardStyle,
+          minHeight: height,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+        }}
+      >
+        <div
+          style={{
+            fontSize: 12.5,
+            lineHeight: 1.7,
+            color: "hsl(var(--muted-foreground))",
+            maxWidth: 420,
+          }}
+        >
+          {message}
+        </div>
+      </Card>
+    )
+  }
 
   return (
     <div
@@ -98,18 +154,22 @@ export function MethodsTab({ data, onSelectPaper }: MethodsTabProps) {
               marginBottom: 16,
             }}
           >
-            <Card style={cardStyle}>
-              <DiscoveryCurve
-                tau={dc.tau}
-                coverage={dc.coverage_estimate}
-                ciLow={dc.ci_low}
-                ciHigh={dc.ci_high}
-                totalScreened={totalScreened}
-                estimatedRelevant={dc.estimated_total_relevant}
-                foundRelevant={highlyRelevant}
-                height={260}
-              />
-            </Card>
+            {discoveryDisabled ? (
+              <PlaceholderCard message={discoveryReason} height={260} />
+            ) : (
+              <Card style={cardStyle}>
+                <DiscoveryCurve
+                  tau={dc.tau as number}
+                  coverage={dc.coverage_estimate as number}
+                  ciLow={dc.ci_low as number}
+                  ciHigh={dc.ci_high as number}
+                  totalScreened={totalScreened}
+                  estimatedRelevant={dc.estimated_total_relevant as number}
+                  foundRelevant={highlyRelevant}
+                  height={260}
+                />
+              </Card>
+            )}
             <Card
               style={{
                 ...cardStyle,
@@ -120,18 +180,26 @@ export function MethodsTab({ data, onSelectPaper }: MethodsTabProps) {
             >
               <Stat
                 label={t("coverageEstimate")}
-                value={fmtPct(dc.coverage_estimate, 1)}
-                sub={`95% CI ${fmtPct(dc.ci_low)} – ${fmtPct(dc.ci_high)}`}
+                value={discoveryDisabled ? "—" : fmtPct(dc.coverage_estimate, 1)}
+                sub={
+                  discoveryDisabled
+                    ? t("noData")
+                    : `95% CI ${fmtPct(dc.ci_low)} – ${fmtPct(dc.ci_high)}`
+                }
               />
               <Stat
                 label={t("estTotalRelevant")}
-                value={dc.estimated_total_relevant?.toFixed(1)}
-                sub={t("asymptote")}
+                value={
+                  discoveryDisabled
+                    ? "—"
+                    : dc.estimated_total_relevant?.toFixed(1)
+                }
+                sub={discoveryDisabled ? t("noData") : t("asymptote")}
               />
               <Stat
                 label={t("decayConstant")}
-                value={dc.tau?.toFixed(1)}
-                sub={t("lowerTauHint")}
+                value={discoveryDisabled ? "—" : dc.tau?.toFixed(1)}
+                sub={discoveryDisabled ? t("noData") : t("lowerTauHint")}
               />
               <p
                 style={{
@@ -143,21 +211,18 @@ export function MethodsTab({ data, onSelectPaper }: MethodsTabProps) {
                   borderTop: "1px solid hsl(var(--border))",
                 }}
               >
-                {/* Prefer front-end-rendered summary built from i18n
-                    `discoveryCurveSummary` template; fall back to the
-                    backend-rendered `dc.summary` string (English) when
-                    the dict is unavailable. Mirrors ground truth
-                    v2-methods.jsx line 56. */}
-                {t("discoveryCurveSummary", {
-                  found: Math.round(dc.estimated_total_relevant),
-                  pct: Math.round(dc.coverage_estimate * 100),
-                  lo: Math.round(dc.ci_low * 100),
-                  hi: Math.round(dc.ci_high * 100),
-                }) || dc.summary}
+                {discoveryDisabled
+                  ? discoveryReason
+                  : (t("discoveryCurveSummary", {
+                      found: Math.round(dc.estimated_total_relevant as number),
+                      pct: Math.round((dc.coverage_estimate as number) * 100),
+                      lo: Math.round((dc.ci_low as number) * 100),
+                      hi: Math.round((dc.ci_high as number) * 100),
+                    }) || dc.summary)}
               </p>
             </Card>
           </div>
-          {insights.coverage && (
+          {!discoveryDisabled && insights.coverage && (
             <KickerAlert
               variant="success"
               Icon={Check}
@@ -178,25 +243,28 @@ export function MethodsTab({ data, onSelectPaper }: MethodsTabProps) {
           alignItems: "stretch",
         }}
       >
-        {yearBins.length > 0 && (
-          <section style={{ display: "flex", flexDirection: "column" }}>
+        <section style={{ display: "flex", flexDirection: "column" }}>
             <SectionHeader
               kicker={t("timeKicker")}
               title={t("publicationsTitle")}
               sub={t("publicationsSub")}
             />
-            <Card
-              style={{
-                ...cardStyle,
-                flex: 1,
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <YearBarChart bins={yearBins} height={200} />
-              <div style={{ flex: 1 }} />
-            </Card>
-            {insights.time && (
+            {yearUnavailable ? (
+              <PlaceholderCard message={yearReason} height={200} />
+            ) : (
+              <Card
+                style={{
+                  ...cardStyle,
+                  flex: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <YearBarChart bins={yearBins} height={200} />
+                <div style={{ flex: 1 }} />
+              </Card>
+            )}
+            {!yearUnavailable && insights.time && (
               <div style={{ marginTop: 14 }}>
                 <KickerAlert variant="info" Icon={Info}>
                   {insights.time}
@@ -204,102 +272,114 @@ export function MethodsTab({ data, onSelectPaper }: MethodsTabProps) {
               </div>
             )}
           </section>
-        )}
 
-        {rcsBins.length > 0 && (
-          <section style={{ display: "flex", flexDirection: "column" }}>
+        <section style={{ display: "flex", flexDirection: "column" }}>
             <SectionHeader
               kicker={t("qualityKicker")}
               title={t("rcsDistTitle")}
-              sub={t("rcsDistSub", {
-                mean:
-                  rcsMean !== undefined ? (rcsMean / 10).toFixed(2) : "—",
-                lo:
-                  rcsCiLow !== undefined ? (rcsCiLow / 10).toFixed(2) : "—",
-                hi:
-                  rcsCiHigh !== undefined
-                    ? (rcsCiHigh / 10).toFixed(2)
-                    : "—",
-              })}
+              sub={
+                rcsUnavailable
+                  ? rcsReason
+                  : t("rcsDistSub", {
+                      mean:
+                        rcsMean !== undefined ? (rcsMean / 10).toFixed(2) : "—",
+                      lo:
+                        rcsCiLow !== undefined ? (rcsCiLow / 10).toFixed(2) : "—",
+                      hi:
+                        rcsCiHigh !== undefined
+                          ? (rcsCiHigh / 10).toFixed(2)
+                          : "—",
+                    })
+              }
             />
-            <Card
-              style={{
-                ...cardStyle,
-                flex: 1,
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <RcsHistogram
-                bins={rcsBins}
-                mean={rcsMean}
-                ciLow={rcsCiLow}
-                ciHigh={rcsCiHigh}
-                height={200}
-              />
-              <div
+            {rcsUnavailable ? (
+              <PlaceholderCard message={rcsReason} height={200} />
+            ) : (
+              <Card
                 style={{
-                  marginTop: 14,
-                  paddingTop: 14,
-                  borderTop: "1px solid hsl(var(--border))",
+                  ...cardStyle,
+                  flex: 1,
                   display: "flex",
-                  justifyContent: "space-between",
-                  gap: 8,
-                  fontSize: 10.5,
-                  color: "hsl(var(--muted-foreground))",
+                  flexDirection: "column",
                 }}
               >
-                {(
-                  [
-                    [0.45, t("periphShort")],
-                    [0.55, t("emergShort")],
-                    [0.7, t("modShort")],
-                    [0.85, t("highShort")],
-                  ] as Array<[number, string]>
-                ).map(([threshold, label]) => (
+                <RcsHistogram
+                  bins={rcsBins}
+                  mean={rcsMean}
+                  ciLow={rcsCiLow}
+                  ciHigh={rcsCiHigh}
+                  height={200}
+                />
+                <div
+                  style={{
+                    marginTop: 14,
+                    paddingTop: 14,
+                    borderTop: "1px solid hsl(var(--border))",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    gap: 8,
+                    fontSize: 10.5,
+                    color: "hsl(var(--muted-foreground))",
+                  }}
+                >
+                  {(
+                    [
+                      [0.45, t("periphShort")],
+                      [0.55, t("emergShort")],
+                      [0.7, t("modShort")],
+                      [0.85, t("highShort")],
+                    ] as Array<[number, string]>
+                  ).map(([threshold, label]) => (
+                    <span
+                      key={threshold}
+                      className="tabular-nums"
+                      style={{ fontFamily: "var(--font-mono)" }}
+                    >
+                      {label} {threshold.toFixed(2)}+
+                    </span>
+                  ))}
                   <span
-                    key={threshold}
                     className="tabular-nums"
                     style={{ fontFamily: "var(--font-mono)" }}
                   >
-                    {label} {threshold.toFixed(2)}+
+                    {t("foundPlus")}
                   </span>
-                ))}
-                <span
-                  className="tabular-nums"
-                  style={{ fontFamily: "var(--font-mono)" }}
-                >
-                  {t("foundPlus")}
-                </span>
-              </div>
-            </Card>
-            {insights.quality && (
+                </div>
+              </Card>
+            )}
+            {!rcsUnavailable && insights.quality && (
               <div style={{ marginTop: 14 }}>
                 <KickerAlert variant="info" Icon={Info}>
                   {insights.quality}
                 </KickerAlert>
               </div>
             )}
+            <div style={{ marginTop: 14 }}>
+              <KickerAlert variant="info" Icon={Info} title={t("whatThisRunDid")}>
+                当前 RCS / 档级结果为 seed/recovery 局部展示信号，不代表 full workflow 的正式相关性判断。
+              </KickerAlert>
+            </div>
           </section>
-        )}
       </div>
 
-      {nodes.length > 0 && (
-        <section style={{ marginBottom: 56 }}>
+      <section style={{ marginBottom: 56 }}>
           <SectionHeader
             kicker={t("citationGraphKicker")}
             title={t("citationScatterTitle")}
             sub={t("citationScatterSub")}
           />
-          <Card style={cardStyle}>
-            <CitationScatter
-              nodes={nodes}
-              height={260}
-              onSelect={clickScatterNode}
-            />
-          </Card>
+          {citationDisabled ? (
+            <PlaceholderCard message={citationReason} height={260} />
+          ) : (
+            <Card style={cardStyle}>
+              <CitationScatter
+                nodes={nodes}
+                height={260}
+                onSelect={clickScatterNode}
+              />
+            </Card>
+          )}
         </section>
-      )}
 
       {/* 05 · Topics — full-width Mosaic treemap. Renders when the payload
           includes `chart_data.theme_treemap` (object exists, even if its
@@ -337,14 +417,18 @@ export function MethodsTab({ data, onSelectPaper }: MethodsTabProps) {
           title={t("allocationTitle")}
           sub={t("allocationSub")}
         />
-        <Card style={{ padding: "24px 28px", borderRadius: 12, boxShadow: "none" }}>
-          <TierAllocation
-            papers={data.papers}
-            totalScreened={totalScreened}
-            highlyRelevant={highlyRelevant}
-            closelyRelated={closelyRelated}
-          />
-        </Card>
+        {tierUnavailable ? (
+          <PlaceholderCard message={tierReason} height={180} />
+        ) : (
+          <Card style={{ padding: "24px 28px", borderRadius: 12, boxShadow: "none" }}>
+            <TierAllocation
+              papers={data.papers}
+              totalScreened={totalScreened}
+              highlyRelevant={highlyRelevant}
+              closelyRelated={closelyRelated}
+            />
+          </Card>
+        )}
       </section>
 
       <section>

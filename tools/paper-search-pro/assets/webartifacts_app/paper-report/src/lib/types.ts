@@ -35,11 +35,15 @@ export interface NormalizedMeta {
   highlyRelevant?: number
   closelyRelated?: number
   /** 0-1 fraction */
-  coverage?: number
+  coverage?: number | null
   /** [low, high] both 0-1 fractions */
-  coverageCi?: [number, number]
+  coverageCi?: [number | null, number | null]
   wallClockS?: number
   stopReason?: string | null
+  recoveryKind?: string
+  reportRecoveryCapability?: string
+  missingFields?: string[]
+  insufficientAnalysisFields?: string[]
 }
 
 export interface AuthorRef {
@@ -90,16 +94,25 @@ export interface DiscoveryCurvePoint {
 
 export interface DiscoveryCurve {
   /** Decay constant of the saturation fit (lower → faster saturation) */
-  tau: number
+  tau: number | null
   /** 0-1 fraction */
-  coverage_estimate: number
+  coverage_estimate: number | null
   /** 0-1 fraction */
-  ci_low: number
+  ci_low: number | null
   /** 0-1 fraction */
-  ci_high: number
-  estimated_total_relevant: number
+  ci_high: number | null
+  estimated_total_relevant: number | null
   summary?: string
   points?: DiscoveryCurvePoint[]
+  mode?: string
+  status?: string
+  reason?: string
+}
+
+export interface CitationAnalysisStatus {
+  mode?: string
+  status?: string
+  reason?: string
 }
 
 export interface CitationNetworkNode {
@@ -162,6 +175,7 @@ export interface ChartDataBins {
   discovery_curve?: DiscoveryCurve
   citation_network?: CitationNetwork
   theme_treemap?: ThemeTreemap
+  citation_analysis?: CitationAnalysisStatus
 }
 
 /** PRISMA step values are open-shape — every step keeps different fields */

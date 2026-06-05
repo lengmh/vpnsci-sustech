@@ -185,9 +185,14 @@ export function DocumentTop({
                 className="tabular"
                 style={{ fontFamily: "var(--font-mono)", fontWeight: 600 }}
               >
-                {coverage !== undefined ? Math.round(coverage * 100) : "—"}%
+                {coverage !== undefined && coverage !== null
+                  ? Math.round(coverage * 100)
+                  : "—"}%
               </span>
-              {ciLow !== undefined && ciHigh !== undefined && (
+              {ciLow !== undefined &&
+                ciLow !== null &&
+                ciHigh !== undefined &&
+                ciHigh !== null && (
                 <>
                   {" "}
                   (95% CI {Math.round(ciLow * 100)}–{Math.round(ciHigh * 100)}%){" "}

@@ -140,10 +140,15 @@ export function EditorialTop({
             </span>{" "}
             {t("closelyRelatedCovering")}{" "}
             <strong style={{ fontWeight: 600 }}>
-              {coverage !== undefined ? Math.round(coverage * 100) : "—"}%
+              {coverage !== undefined && coverage !== null
+                ? Math.round(coverage * 100)
+                : "—"}%
             </strong>{" "}
             {t("ofTheField")}
-            {ciLow !== undefined && ciHigh !== undefined && (
+            {ciLow !== undefined &&
+              ciLow !== null &&
+              ciHigh !== undefined &&
+              ciHigh !== null && (
               <span style={{ color: "hsl(var(--muted-foreground))" }}>
                 {" "}
                 (CI {Math.round(ciLow * 100)}–{Math.round(ciHigh * 100)}%)
