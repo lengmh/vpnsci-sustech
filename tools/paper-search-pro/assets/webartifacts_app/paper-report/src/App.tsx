@@ -204,7 +204,7 @@ function ReportShell({
   RowComponent: PaperRowComponent
 }) {
   const [tab, setTab] = useState<"findings" | "methods" | "audit">("findings")
-  const [threshold, setThreshold] = useState<number>(0)
+  const threshold = 0
   const [search, setSearch] = useState<string>("")
   const [view, setView] = useState<string>("compact")
   const [active, setActive] = useState<NormalizedPaper | null>(null)
@@ -269,8 +269,6 @@ function ReportShell({
         data={data}
         tab={tab}
         setTab={setTab as (next: string) => void}
-        threshold={threshold}
-        setThreshold={setThreshold}
         search={search}
         setSearch={setSearch}
         view={view}

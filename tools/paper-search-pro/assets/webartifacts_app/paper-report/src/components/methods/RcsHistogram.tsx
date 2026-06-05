@@ -105,9 +105,20 @@ export function RcsHistogram({
           cursor={{ fill: "hsl(var(--muted) / 0.4)" }}
           content={
             <ChartTooltipContent
-              labelFormatter={(label) =>
-                `RCS ${(Number(label) / 10).toFixed(2)} – ${(Number(label) / 10 + 0.1).toFixed(2)}`
-              }
+              labelFormatter={(label, payload) => {
+                const rcs =
+                  typeof payload?.[0]?.payload?.rcs === "number"
+                    ? payload[0].payload.rcs
+                    : Number(label)
+
+                if (!Number.isFinite(rcs)) {
+                  return "RCS —"
+                }
+
+                return `RCS ${(rcs / 10).toFixed(2)} – ${(
+                  rcs / 10 + 0.1
+                ).toFixed(2)}`
+              }}
               formatter={(value) => [`${value} ${getS().papers || "papers"}`, ""]}
               indicator="dot"
             />
