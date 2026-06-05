@@ -39,7 +39,12 @@ export function useInsights({
   return useMemo(() => {
     const out: Insights = {}
 
-    if (dc) {
+    if (
+      dc &&
+      dc.mode !== "disabled" &&
+      typeof dc.coverage_estimate === "number" &&
+      Number.isFinite(dc.coverage_estimate)
+    ) {
       const c = dc.coverage_estimate
       const pct = Math.round(c * 100)
       if (c >= 0.95) {
