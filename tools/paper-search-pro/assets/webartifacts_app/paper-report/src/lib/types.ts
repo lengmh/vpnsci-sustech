@@ -26,6 +26,8 @@ export interface NormalizedMeta {
   query?: string
   actualQueries?: ActualQueryGroup[]
   searchId?: string
+  reportMode?: string
+  mode?: string
   /** 'quick' | 'standard' | 'deep' | 'audit' */
   tier?: string
   generatedAt?: string

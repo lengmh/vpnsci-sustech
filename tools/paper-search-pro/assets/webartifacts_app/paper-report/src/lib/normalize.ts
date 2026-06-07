@@ -59,6 +59,8 @@ interface RawMetadata {
   query?: string
   user_query?: string
   display_query?: string
+  mode?: string
+  report_mode?: string
   seed_session_query?: string
   actual_query_variants?: RawQueryVariant[]
   query_display?: {
@@ -194,6 +196,8 @@ export function normalize(raw: RawShape | null | undefined): NormalizedData {
         query: resolvedQuery,
         actualQueries,
         searchId: md.search_id,
+        reportMode: md.report_mode,
+        mode: md.mode,
         tier: md.tier,
         generatedAt: md.generated_at,
         skillVersion: md.skill_version,
@@ -247,6 +251,12 @@ export function normalize(raw: RawShape | null | undefined): NormalizedData {
   const metadataFallback = (raw.reportMeta ?? {}) as RawMetadata
   if (!meta.actualQueries) {
     meta.actualQueries = resolveActualQueries(metadataFallback, meta.query)
+  }
+  if (!meta.reportMode) {
+    meta.reportMode = metadataFallback.report_mode
+  }
+  if (!meta.mode) {
+    meta.mode = metadataFallback.mode
   }
   return {
     meta,

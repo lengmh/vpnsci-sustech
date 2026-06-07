@@ -83,6 +83,13 @@ def render_html_webartifacts(
     chart_data = _read_json(materialized_data_dir / "chart_data.json")
     prisma_log_raw = _read_json(materialized_data_dir / "prisma_log.json")
 
+    metadata, chart_data = _apply_payload_compat(
+        metadata=metadata,
+        paper_list=paper_list,
+        chart_data=chart_data,
+        user_query=user_query,
+    )
+
     # Resolve language: explicit > metadata.language > "en"
     resolved_lang = _resolve_language(language, metadata)
 
@@ -162,6 +169,157 @@ def _build_report_data(
         "papers": list(paper_list) if isinstance(paper_list, list) else [],
         "chart_data": chart_data if isinstance(chart_data, dict) else {},
         "prisma_log": prisma_log_raw if isinstance(prisma_log_raw, dict) else {},
+    }
+
+
+def _apply_payload_compat(
+    *,
+    metadata: Dict[str, Any],
+    paper_list: List[Dict[str, Any]],
+    chart_data: Dict[str, Any],
+    user_query: str = "",
+) -> tuple[Dict[str, Any], Dict[str, Any]]:
+    """Backfill renderer-facing compatibility fields for full/recovery payloads.
+
+    `seed_preview` already emits a richer contract from
+    `vpnsci_sustech.paper_search_pro_adapter`. Full/recovery flows may only
+    carry the lean upstream materialization shape. This shim fills the
+    renderer-facing gaps while preserving any stronger upstream truth.
+    """
+
+    meta_out: Dict[str, Any] = dict(metadata) if isinstance(metadata, dict) else {}
+    chart_out: Dict[str, Any] = dict(chart_data) if isinstance(chart_data, dict) else {}
+    papers: List[Dict[str, Any]] = list(paper_list) if isinstance(paper_list, list) else []
+
+    resolved_query = (
+        str(
+            meta_out.get("query")
+            or meta_out.get("display_query")
+            or meta_out.get("user_query")
+            or user_query
+            or ""
+        ).strip()
+    )
+    if resolved_query:
+        meta_out.setdefault("query", resolved_query)
+        meta_out.setdefault("original_query", resolved_query)
+        meta_out.setdefault("user_query", resolved_query)
+        meta_out.setdefault("display_query", resolved_query)
+        meta_out.setdefault("seed_session_query", resolved_query)
+
+    # metadata/query-display compatibility
+    query_display = dict(meta_out.get("query_display") or {})
+    query_display.setdefault("user_query", resolved_query)
+    query_display.setdefault("primary", resolved_query)
+    actual_queries = list(query_display.get("actual_queries") or [])
+    query_display["actual_queries"] = actual_queries
+
+    actual_query_variants = list(meta_out.get("actual_query_variants") or [])
+    if not actual_query_variants and actual_queries:
+        for group in actual_queries:
+            for query in group.get("queries") or []:
+                text = str(query or "").strip()
+                if text:
+                    actual_query_variants.append(
+                        {
+                            "type": "original" if text == resolved_query else "expanded",
+                            "query": text,
+                        }
+                    )
+    if actual_query_variants and not query_display.get("expanded"):
+        query_display["expanded"] = actual_query_variants
+    meta_out["query_display"] = query_display
+    if actual_query_variants:
+        meta_out.setdefault("actual_query_variants", actual_query_variants)
+
+    # metadata defaults aligned with seed-preview compatibility contract
+    meta_out.setdefault("language", _detect_language(resolved_query))
+    meta_out.setdefault("seed_source", _seed_source_label(papers))
+    meta_out.setdefault("cnki_fields", _cnki_field_status_from_papers(papers))
+    meta_out.setdefault("recovered_label", "")
+    meta_out.setdefault("report_label_mode", "检索结果")
+    meta_out.setdefault("missing_fields", [])
+    meta_out.setdefault("insufficient_analysis_fields", [])
+    meta_out.setdefault("seed_session_id", meta_out.get("search_id") or "")
+    meta_out.setdefault("total_papers", len(papers))
+    meta_out.setdefault("coverage_label", "compat estimate")
+    meta_out.setdefault("source_summary", _source_summary_from_papers(papers))
+    meta_out.setdefault("mode", "vpnsci-compat-report")
+    meta_out.setdefault("report_mode", "full")
+
+    # chart-data compatibility aligned with seed-preview outputs
+    publication_year = chart_out.get("publication_year") or {}
+    bins = publication_year.get("bins") or []
+    if "year_counts" not in chart_out and isinstance(bins, list):
+        chart_out["year_counts"] = {
+            str(item.get("year")): int(item.get("total") or 0)
+            for item in bins
+            if isinstance(item, dict) and item.get("year") is not None
+        }
+    chart_out.setdefault("source_summary", meta_out.get("source_summary") or _source_summary_from_papers(papers))
+    chart_out.setdefault("total_papers", len(papers))
+    if isinstance(chart_out.get("theme_treemap"), dict):
+        chart_out["theme_treemap"].setdefault("method", "compat_renderer_fallback")
+        chart_out["theme_treemap"].setdefault(
+            "note",
+            "Compatibility metadata injected by html_renderer_webartifacts so lean full/recovery payloads stay renderable under the same frontend contract as seed_preview.",
+        )
+
+    return meta_out, chart_out
+
+
+def _detect_language(query: str) -> str:
+    return "zh" if any("\u4e00" <= ch <= "\u9fff" for ch in query or "") else "en"
+
+
+def _source_summary_from_papers(papers: List[Dict[str, Any]]) -> Dict[str, int]:
+    summary: Dict[str, int] = {}
+    for paper in papers:
+        raw_sources = paper.get("sources") or []
+        if isinstance(raw_sources, list) and raw_sources:
+            sources = [str(source) for source in raw_sources if source]
+        else:
+            source_value = paper.get("source") or "openalex"
+            sources = [part.strip() for part in str(source_value).split(",") if part.strip()] or ["openalex"]
+        for source in sources:
+            summary[source] = summary.get(source, 0) + 1
+    return summary
+
+
+def _seed_source_label(papers: List[Dict[str, Any]]) -> str:
+    summary = _source_summary_from_papers(papers)
+    active = [source for source, count in summary.items() if count]
+    if active == ["cnki"]:
+        return "cnki"
+    if active:
+        return "mixed" if len(active) > 1 else active[0]
+    return "seed"
+
+
+def _cnki_field_status_from_papers(papers: List[Dict[str, Any]]) -> Dict[str, Any]:
+    fields = ["cnki_id", "source_url", "download_format", "local_file", "result_type"]
+    cnki_like = []
+    for paper in papers:
+        sources = paper.get("sources") or []
+        source = str(paper.get("source") or "")
+        if (
+            paper.get("cnki_id")
+            or paper.get("source_url")
+            or paper.get("download_format")
+            or paper.get("local_file")
+            or paper.get("result_type")
+            or "cnki" in sources
+            or source == "cnki"
+        ):
+            cnki_like.append(paper)
+    return {
+        "present": bool(cnki_like),
+        "hit_count": len(cnki_like),
+        "fields": fields,
+        "preserved_counts": {
+            field: sum(1 for paper in cnki_like if paper.get(field))
+            for field in fields
+        },
     }
 
 

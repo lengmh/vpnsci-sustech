@@ -62,6 +62,16 @@ export function MethodsTab({ data, onSelectPaper }: MethodsTabProps) {
   const totalScreened = m.papersEvaluated ?? 0
   const highlyRelevant = m.highlyRelevant ?? 0
   const closelyRelated = m.closelyRelated ?? 0
+  const isFormalFullWorkflow = m.reportMode === "full"
+  const isSeedPreview =
+    m.reportMode === "seed_preview" || m.mode === "vpnsci-seed-report"
+  const isRecoveryReport =
+    Boolean(m.recoveryKind) || Boolean(m.reportRecoveryCapability)
+  const showMethodsReliability =
+    !isFormalFullWorkflow && (isSeedPreview || isRecoveryReport)
+  const methodsReliabilityScope = isRecoveryReport
+    ? t("methodsReliabilityScopeRecovery")
+    : t("methodsReliabilityScopeSeed")
   const missingFields = new Set(m.missingFields || [])
   const discoveryDisabled = dc?.mode === "disabled" || dc?.status === "degraded_recovery"
   const discoveryReason =
@@ -138,6 +148,27 @@ export function MethodsTab({ data, onSelectPaper }: MethodsTabProps) {
         fontFamily: "var(--font-sans)",
       }}
     >
+      {showMethodsReliability && (
+        <section style={{ marginBottom: 32 }}>
+          <KickerAlert variant="info" Icon={Info} title={t("methodsReliabilityTitle")}>
+            <>
+              {t("methodsReliabilityLead", {
+                scope: methodsReliabilityScope,
+              })}
+              <strong>{t("discoveryCurveTitle")}</strong>、
+              <strong>{t("publicationsTitle")}</strong>、
+              <strong>{t("rcsDistTitle")}</strong>、
+              <strong>{t("citationScatterTitle")}</strong>、
+              <strong>{t("topicsTitle")}</strong>
+              {t("methodsReliabilityAnd")} <strong>{t("allocationTitle")}</strong>
+              {t("methodsReliabilityBody")}
+              <br />
+              <strong>{t("methodsReliabilityUpgrade")}</strong>
+            </>
+          </KickerAlert>
+        </section>
+      )}
+
       {dc && (
         <section style={{ marginBottom: 56 }}>
           <SectionHeader
@@ -354,11 +385,6 @@ export function MethodsTab({ data, onSelectPaper }: MethodsTabProps) {
                 </KickerAlert>
               </div>
             )}
-            <div style={{ marginTop: 14 }}>
-              <KickerAlert variant="info" Icon={Info} title={t("whatThisRunDid")}>
-                当前 RCS / 档级结果为 seed/recovery 局部展示信号，不代表 full workflow 的正式相关性判断。
-              </KickerAlert>
-            </div>
           </section>
       </div>
 
