@@ -245,7 +245,7 @@ const STRINGS = {
     rcsExplain: "Each candidate paper is scored 0–10 by an LLM pass over its title and abstract. The score is then weighted by the paper's position in the local citation graph (PageRank over within-set citations) to reward bibliographically central works.",
     coverageExplain: 'We fit the observed (papers screened, highly-relevant found) trajectory to the model y(n) = R · (1 - e^(-n/τ)); the asymptote R is our estimate of the total relevant literature, and coverage = y(n)/R. The 95% CI reflects model parameter uncertainty, not a ground-truth boundary.',
     dedupExplain: 'Papers from multiple sources (OpenAlex / Semantic Scholar / Crossref / PubMed / arXiv) are merged in four passes: Level 1 DOI exact match → Level 2 arXiv ID → Level 3 PMID / OpenAlex / SS ID fallback → Level 4 normalized-title + year. The sources of each paper are preserved in its sources[] array.',
-    themeExplain: 'Themes are derived via BERTopic over concatenated title + abstract, with minimum cluster size 4 papers and manual label refinement.',
+    themeExplain: 'Themes are derived from available keywords/topics when present, and otherwise from deterministic title + abstract text clustering. Exact method depends on the current report run.',
 
     // Threshold labels for RCS histogram footer
     periphShort: 'Periph',
@@ -269,6 +269,13 @@ const STRINGS = {
 
     // Method tab titles (also covers some title= attrs on Cards)
     whatThisRunDid: 'What this run did',
+    methodsReliabilityTitle: 'Methods reliability statement',
+    methodsReliabilityScopeSeed: 'seed preview',
+    methodsReliabilityScopeRecovery: 'recovery',
+    methodsReliabilityLead: 'The methods-page outputs in this {scope} run — ',
+    methodsReliabilityAnd: ' and ',
+    methodsReliabilityBody: ' — are generated from the data available in the current result set. They show structure and local signal only. If execution trace, year, citation, or recovery fields are missing, the affected visuals fall back to placeholders or reference-only displays.',
+    methodsReliabilityUpgrade: 'For more reliable chart data, run the full literature report workflow (full workflow).',
     discoveryCurveSummary: 'Estimated to have found about {found} relevant papers, approximately {pct}% of the relevant set (95% CI: {lo}–{hi}%).',
   },
 
@@ -482,7 +489,7 @@ const STRINGS = {
     rcsExplain: '每篇候选论文先由 LLM 基于标题+摘要打 0–10 分，再结合局部引用图的 PageRank 加权，优先突出学术中心位置的工作。',
     coverageExplain: '我们将"已筛选 / 已发现高相关"轨迹拟合到模型 y(n) = R · (1 − e^(−n/τ));渐近线 R 即对相关文献总量的估计，覆盖率 = y(n)/R。95% 置信区间反映模型参数不确定性，而非真实事实边界。',
     dedupExplain: '多数据源(OpenAlex / Semantic Scholar / Crossref / PubMed / arXiv)按四级合并:Level 1 DOI 精确匹配 → Level 2 arXiv ID → Level 3 PMID/OpenAlex/SS ID 兜底 → Level 4 标题归一化 + 年份。同一论文的来源在 sources[] 数组中保留溯源。',
-    themeExplain: '主题由 BERTopic 基于"标题 + 摘要"聚类生成，最小簇大小为 4 篇，聚类后手工精修标签。',
+    themeExplain: '主题优先来自已有 keywords/topics；若缺失，则退回到基于标题 + 摘要的确定性文本聚类。具体方法取决于当前报告实际运行链路。',
 
     // Threshold labels for RCS histogram footer
     periphShort: '外围', emergShort: '新兴', modShort: '中等', highShort: '高',
@@ -502,6 +509,13 @@ const STRINGS = {
 
     // Method tab titles (also covers some title= attrs on Cards)
     whatThisRunDid: '本次运行做了什么',
+    methodsReliabilityTitle: '方法页可靠性声明',
+    methodsReliabilityScopeSeed: 'seed 预览',
+    methodsReliabilityScopeRecovery: 'recovery 恢复',
+    methodsReliabilityLead: '当前方法页中的以下内容在本次 {scope} 运行中属于局部展示信号：',
+    methodsReliabilityAnd: '与',
+    methodsReliabilityBody: '。它们均基于本次结果里可用的数据生成，用于展示当前结果集的结构与局部信号。若缺少执行轨迹、年份、citation 或恢复字段，相关图表会降级为占位或参考性展示。',
+    methodsReliabilityUpgrade: '如果希望得到更多可靠图表数据，请进行完整文献报告生成(full workflow)。',
     discoveryCurveSummary: '估算已发现约 {found} 篇相关论文，约占相关集合的 {pct}%(95% CI: {lo}–{hi}%)。',
   },
 }

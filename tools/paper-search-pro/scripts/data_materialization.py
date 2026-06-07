@@ -26,6 +26,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+from .theme_clustering import build_keyword_topic_themes, build_text_themes
 from .types import UnifiedPaperEntity
 
 
@@ -353,42 +354,43 @@ def _build_themes(papers: List[UnifiedPaperEntity]) -> Dict[str, Any]:
     No LLM call here — that keeps materialization deterministic and cheap. The
     write_report tool can optionally enrich this later via theme_extraction.
     """
-    keyword_counts: Counter = Counter()
-    keyword_to_papers: Dict[str, List[str]] = defaultdict(list)
-    for p in papers:
-        kw_sources: List[str] = []
-        for kw in (p.keywords or []):
-            if isinstance(kw, str):
-                kw_sources.append(kw.lower().strip())
-        for topic in (p.topics or []):
-            if isinstance(topic, dict):
-                name = topic.get("display_name") or topic.get("name")
-                if name:
-                    kw_sources.append(str(name).lower().strip())
-        for kw in set(kw_sources):
-            if not kw or len(kw) > 60:
-                continue
-            keyword_counts[kw] += 1
-            keyword_to_papers[kw].append(p.paper_id)
-    # Top 8 themes with at least 2 papers each
-    top = [(k, c) for k, c in keyword_counts.most_common(20) if c >= 2][:8]
-    themes = [
-        {
-            "name": kw.title(),
-            "value": count,
-            "paper_ids": keyword_to_papers[kw][:20],
-        }
-        for kw, count in top
-    ]
-    if not themes:
-        themes = [
+    data = build_keyword_topic_themes(
+        [
             {
-                "name": "All papers",
-                "value": len(papers),
-                "paper_ids": [p.paper_id for p in papers[:20]],
+                "paper_id": p.paper_id,
+                "keywords": p.keywords or [],
+                "topics": p.topics or [],
             }
+            for p in papers
         ]
-    return {"themes": themes, "total_papers": len(papers)}
+    )
+    if not data["themes"]:
+        text_fallback = build_text_themes(
+            [
+                {
+                    "paper_id": p.paper_id,
+                    "title": p.title,
+                    "abstract": p.abstract,
+                    "venue": p.venue,
+                }
+                for p in papers
+            ]
+        )
+        if not text_fallback["themes"] and papers:
+            text_fallback["themes"] = [
+                {
+                    "name": "Paper Set",
+                    "value": len(papers),
+                    "paper_ids": [p.paper_id for p in papers],
+                }
+            ]
+        text_fallback["method"] = "text_frequency_fallback"
+        text_fallback["note"] = (
+            "Theme groups derived from repeated title, abstract, and venue terms because "
+            "structured keywords/topics were unavailable in the materialized KG."
+        )
+        return text_fallback
+    return data
 
 
 def _source_label(source: str) -> str:

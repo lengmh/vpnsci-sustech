@@ -14,6 +14,7 @@ from .config import Config
 from .report_recovery import infer_quality_profile, split_missing_and_insufficient_fields
 from .sources.search_cache import SearchSession
 from .sources.search_models import SearchHit, coerce_search_hit
+from .theme_clustering import build_keyword_topic_themes, build_text_themes
 
 
 def render_html_webartifacts(*args, **kwargs):
@@ -316,141 +317,65 @@ def _actual_query_groups_from_session(
     return ordered
 
 
-def _paper_text(paper: dict) -> str:
-    return " ".join(
-        str(paper.get(key) or "")
-        for key in ("title", "abstract", "venue", "journal", "source")
-    ).lower()
-
-
-THEME_RULES: tuple[tuple[str, tuple[str, ...]], ...] = (
-    (
-        "非接触测温/热筛查",
-        (
-            "fever",
-            "body temperature",
-            "non-contact",
-            "non contact",
-            "thermometry",
-            "thermal screening",
-            "temperature measurement",
-            "体温",
-            "测温",
-            "发热",
-            "筛查",
-            "非接触",
-        ),
-    ),
-    (
-        "红外热成像/热像仪",
-        (
-            "thermography",
-            "thermal imaging",
-            "thermal image",
-            "thermal camera",
-            "infrared imaging",
-            "热成像",
-            "热像",
-            "热红外",
-        ),
-    ),
-    (
-        "传感器/光谱/仪器",
-        (
-            "sensor",
-            "spectroscopy",
-            "spectrometer",
-            "instrument",
-            "calibration",
-            "optical",
-            "detector",
-            "光谱",
-            "传感器",
-            "仪器",
-            "标定",
-            "探测器",
-        ),
-    ),
-    (
-        "遥感/环境红外",
-        (
-            "remote sensing",
-            "satellite",
-            "land surface",
-            "environment",
-            "retrieval",
-            "遥感",
-            "卫星",
-            "地表",
-            "环境",
-        ),
-    ),
-    (
-        "材料/器件红外",
-        (
-            "material",
-            "nanomaterial",
-            "device",
-            "semiconductor",
-            "emissivity",
-            "thin film",
-            "材料",
-            "器件",
-            "半导体",
-            "发射率",
-        ),
-    ),
-    (
-        "医学/生物应用",
-        (
-            "medical",
-            "clinical",
-            "patient",
-            "diagnosis",
-            "biomedical",
-            "physiological",
-            "医学",
-            "临床",
-            "患者",
-            "诊断",
-            "生物",
-        ),
-    ),
-)
-
-
-def _fallback_theme_name(paper: dict) -> str:
-    text = _paper_text(paper)
-    for theme, terms in THEME_RULES:
-        if any(term in text for term in terms):
-            return theme
-    if "infrared" in text or "红外" in text:
-        return "红外测量综合"
-    return "其他相关研究"
-
-
 def _build_theme_treemap(papers: list[dict]) -> dict:
-    """Build seed-preview topic groups without relying on upstream KG topics."""
+    """Build seed-preview topic groups with the same structured-first order as full workflow."""
 
-    grouped: dict[str, list[str]] = {}
-    for index, paper in enumerate(papers, 1):
-        paper_id = paper.get("paper_id") or paper.get("id") or f"seed-{index}"
-        theme = _fallback_theme_name(paper)
-        grouped.setdefault(theme, []).append(str(paper_id))
+    keyword_topic = build_keyword_topic_themes(papers)
+    if keyword_topic["themes"]:
+        keyword_topic["method"] = "seed_keywords_topics_frequency_fallback"
+        keyword_topic["note"] = (
+            "Seed-preview topic groups derived from repeated keywords/topics already present in the "
+            "seed metadata, reusing the same structured-first clustering order as full workflow."
+        )
+        return keyword_topic
 
-    themes = [
-        {"name": name, "value": len(paper_ids), "paper_ids": paper_ids}
-        for name, paper_ids in grouped.items()
-        if paper_ids
-    ]
-    themes.sort(key=lambda item: (-int(item["value"]), str(item["name"])))
+    text_fallback = build_text_themes(papers)
+    if not text_fallback["themes"] and papers:
+        text_fallback["themes"] = [
+            {
+                "name": "Paper Set",
+                "value": len(papers),
+                "paper_ids": [
+                    str(paper.get("paper_id") or paper.get("id") or f"seed-{index}")
+                    for index, paper in enumerate(papers, 1)
+                ],
+            }
+        ]
+    text_fallback["method"] = "seed_text_frequency_fallback"
+    text_fallback["note"] = (
+        "Seed-preview topic groups derived from repeated title, abstract, and venue terms because "
+        "structured keywords/topics were unavailable in the seed metadata."
+    )
+    return text_fallback
 
-    return {
-        "themes": themes,
-        "total_papers": len(papers),
-        "method": "seed_title_abstract_rule_fallback",
-        "note": "Seed-preview topic groups derived from title, abstract, and venue because upstream KG topics/keywords are not available.",
-    }
+
+def _has_effective_theme_signal(theme_treemap: dict | None) -> bool:
+    if not isinstance(theme_treemap, dict):
+        return False
+    themes = theme_treemap.get("themes") or []
+    for theme in themes:
+        if not isinstance(theme, dict):
+            continue
+        try:
+            value = int(theme.get("value") or 0)
+        except (TypeError, ValueError):
+            value = 0
+        if value > 0 and theme.get("name"):
+            return True
+    return False
+
+
+def _reconcile_quality_profile_with_chart_signals(
+    quality_profile: dict,
+    chart_data: dict,
+) -> dict:
+    reconciled = dict(quality_profile or {})
+    if (
+        reconciled.get("topic_analysis_mode") == "disabled"
+        and _has_effective_theme_signal((chart_data or {}).get("theme_treemap"))
+    ):
+        reconciled["topic_analysis_mode"] = "limited"
+    return reconciled
 
 
 def _build_chart_data(papers: list[dict], source_summary: dict) -> dict:
@@ -697,6 +622,7 @@ def _write_materialized_data(
         display_query=resolved_display_query,
         recovered_label=recovered_label,
     )
+    quality_profile = _reconcile_quality_profile_with_chart_signals(quality_profile, chart_data)
     missing_fields, insufficient_fields = split_missing_and_insufficient_fields(
         total_hits=len(papers),
         field_presence={

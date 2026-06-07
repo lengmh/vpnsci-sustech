@@ -1,73 +1,62 @@
-# React + TypeScript + Vite
+# paper-report frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + TypeScript + Vite source for the single-file report frontend used by
+`html_renderer_webartifacts.py`.
 
-Currently, two official plugins are available:
+## Maintainer boundary
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This directory is **source** for the report frontend, not the final runtime
+artifact by itself.
 
-## React Compiler
+There are multiple layers that can drift:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. `src/**` source
+2. `dist/assets/*` build output
+3. repo `bundle.html`
+4. user-local runtime copy under:
 
-## Expanding the ESLint configuration
+   ```text
+   ~/.vpnsci-sustech/tools/paper-search-pro/assets/webartifacts_app/paper-report/bundle.html
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+If you only run `npm run build`, you refresh layer 2 but **not** layer 3/4.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Recommended refresh shortcut
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+From the repo root:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```powershell
+pwsh -File scripts/refresh_report_frontend.ps1
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+This repo-maintainer script will:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. run `npm run build`
+2. inline `dist/index.html` back into repo `bundle.html`
+3. run `uv run python -m vpnsci_sustech.cli report-tools install --force`
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+It does **not** regenerate a report or validate the DOM. After running it,
+regenerate a representative `report.html` and verify the visible page.
+
+## Manual refresh steps
+
+If you need the explicit manual chain instead of the shortcut script:
+
+```powershell
+cd tools/paper-search-pro/assets/webartifacts_app/paper-report
+npm run build
+
+$tmp = 'F:\AI playground\TempFiles\paper-report-inline-index.html'
+((Get-Content 'dist/index.html' -Raw -Encoding utf8) -replace '/assets/', './assets/') |
+  Set-Content -LiteralPath $tmp -Encoding utf8
+.\node_modules\.bin\html-inline.cmd -i $tmp -o 'bundle.html' -b 'dist'
+
+cd ../../../../..
+uv run python -m vpnsci_sustech.cli report-tools install --force
 ```
+
+## Notes
+
+- This is a repo maintenance workflow, not a packaged end-user feature.
+- If a long-lived MCP/host process still serves stale output after refresh, it
+  may need a restart.

@@ -43,38 +43,31 @@ Required behavior:
    - title;
    - abstract;
    - venue/journal;
-   - source metadata if useful.
-2. Use deterministic rule-based fallback first. Do not require LLM or SubAgent classification for seed preview.
-3. Write `chart_data.theme_treemap` with:
+   - source metadata if useful;
+   - existing `keywords` / `topics` when present.
+2. Prefer deterministic clustering from existing `keywords` / `topics` first.
+3. If structured theme metadata is missing or empty, use deterministic text-derived fallback.
+4. Do not require LLM or SubAgent classification for seed preview.
+5. Write `chart_data.theme_treemap` with:
 
    ```json
    {
      "themes": [
        {
-         "name": "非接触测温/热筛查",
-         "value": 12,
-         "paper_ids": ["10.x/example"]
-       }
-     ],
-     "total_papers": 30,
-     "method": "seed_title_abstract_rule_fallback",
-     "note": "..."
-   }
+        "name": "Machine Learning",
+        "value": 12,
+        "paper_ids": ["10.x/example"]
+      }
+    ],
+    "total_papers": 30,
+    "method": "seed_keywords_topics_frequency_fallback",
+    "note": "..."
+  }
    ```
 
-4. Copy the same `chart_data` into `report_data.json["chart_data"]`.
-5. Do not leave `theme_treemap.themes` empty when papers have title/abstract text.
-
-Recommended baseline categories for infrared-style queries:
-
-- `非接触测温/热筛查`
-- `红外热成像/热像仪`
-- `传感器/光谱/仪器`
-- `遥感/环境红外`
-- `材料/器件红外`
-- `医学/生物应用`
-- `红外测量综合`
-- `其他相关研究`
+6. Copy the same `chart_data` into `report_data.json["chart_data"]`.
+7. Do not leave `theme_treemap.themes` empty when papers have title/abstract text.
+8. Theme names must come from the current paper set's existing `keywords` / `topics` or repeated text signals, not from a query-family-specific hardcoded taxonomy.
 
 ## Lightweight PRISMA-S Disclosure
 
@@ -181,6 +174,69 @@ Seed preview implementation and agents that patch seed reports should verify:
 - no `execution_log.json` is emitted or claimed for seed preview.
 
 Compatibility note: current source builds render `.psp-query-strip` in React. If a deployed report still uses an older pre-built `bundle.html`, `html_renderer_webartifacts.py` injects a small runtime compatibility guard that reads the same `query_display.actual_queries` data and inserts the strip after the Hero H1. This guard is only a bridge until the bundle is rebuilt; the data contract above is still the source of truth.
+
+## Frontend Bundle / Runtime Copy Refresh Boundary
+
+The HTML renderer hydrates a **pre-built** single-file frontend artifact:
+
+- repo source bundle:
+  - `tools/paper-search-pro/assets/webartifacts_app/paper-report/bundle.html`
+- local runtime copy used by MCP/CLI/report bridge:
+  - `C:\Users\<user>\.vpnsci-sustech\tools\paper-search-pro\assets\webartifacts_app\paper-report\bundle.html`
+
+This creates three distinct layers that can drift:
+
+1. React/TS source (`src/**/*.tsx`, `src/lib/*.ts`)
+2. built `dist/assets/*`
+3. hydrated runtime bundle copy (`bundle.html` in repo and local runtime copy)
+
+Required refresh rule after any React/TS report change:
+
+Recommended shortcut for repo maintainers:
+
+```powershell
+pwsh -File scripts/refresh_report_frontend.ps1
+```
+
+This shortcut is for **source-repo maintenance only**. It is not a product CLI
+feature and not an MCP tool. The manual source-of-truth steps remain below.
+
+1. rebuild frontend assets:
+
+   ```powershell
+   cd tools/paper-search-pro/assets/webartifacts_app/paper-report
+   npm run build
+   ```
+
+2. inline `dist/index.html` back into the single-file bundle:
+
+   ```powershell
+   $tmp = Join-Path $env:TEMP 'paper-report-inline-index.html'
+   ((Get-Content 'dist/index.html' -Raw -Encoding utf8) -replace '/assets/', './assets/') |
+     Set-Content -LiteralPath $tmp -Encoding utf8
+   .\node_modules\.bin\html-inline.cmd -i $tmp -o 'bundle.html' -b 'dist'
+   Remove-Item -LiteralPath $tmp -Force
+   ```
+
+3. refresh the local runtime copy when reports are generated through MCP/CLI/report bridge:
+
+   ```powershell
+   uv run python -m vpnsci_sustech.cli report-tools install --force
+   ```
+
+4. regenerate a representative report and verify the visible DOM, not just source files.
+
+Important:
+
+- `npm run build` alone only updates `dist/assets/*`; it does **not** refresh `bundle.html`.
+- Refreshing the browser page alone does **not** help when the wrong `bundle.html` is already embedded in the generated report.
+- Restarting a long-lived MCP host can still be necessary after refreshing the local runtime copy, but restart is a **last-mile refresh step**, not the main artifact-sync step.
+
+Typical drift symptoms:
+
+- TS/JS source looks correct, but generated HTML still renders old wording;
+- `dist/assets/*.js` contains the new render path, but `bundle.html` does not;
+- repo `bundle.html` is correct, but MCP/CLI-generated reports still use the old local runtime copy.
 
 ## Encoding
 

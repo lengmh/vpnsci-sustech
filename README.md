@@ -162,6 +162,14 @@ vpnsci-sustech config-cmd --install-report-tools
 
 安装后会自动配置报告工具位置、生成命令和报告输出目录。默认命令用于 `seed_preview` 快速 HTML 预览；`mode="full"` 会按完整调研流程继续执行，或在当前 Agent 环境不满足时给出明确选择。
 
+如果你改的是源码仓里的报告前端（`tools/paper-search-pro/assets/webartifacts_app/paper-report/src/**`），推荐用下面的 repo 维护脚本刷新构建产物和本地 bundled runtime：
+
+```powershell
+pwsh -File scripts/refresh_report_frontend.ps1
+```
+
+这是源码仓维护动作，不是普通终端用户 / MCP 工具能力。
+
 如果你要改成自己的外部 `paper-search-pro`，也可以手动设置：
 
 ```bash

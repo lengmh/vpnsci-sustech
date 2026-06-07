@@ -330,6 +330,29 @@ vpnsci-sustech report-tools install --force
 - 源码仓不产生报告、缓存、临时文件；
 - API key 只进入用户本地配置，不进入 git
 
+### 开发者补充：如果改了报告前端但 HTML 没变化
+
+这通常不是普通使用问题，而是**源码仓维护链路**没有把以下几层一起刷新：
+
+1. React/TS source
+2. `dist/assets/*`
+3. repo `bundle.html`
+4. `~/.vpnsci-sustech/tools/paper-search-pro` 本地 runtime copy
+
+源码仓维护者可优先运行：
+
+```powershell
+pwsh -File scripts/refresh_report_frontend.ps1
+```
+
+然后：
+
+1. 重生成代表性 `report.html`
+2. 验证实际页面 DOM / 文案
+3. 如仍是旧内容，再重启长驻 MCP / host 进程
+
+这不是普通终端用户能力，也不是 MCP tool。
+
 ## 5. WebVPN session 会过期吗？
 
 会过期，通常几小时到一天（取决于学校设置）。过期后需要重新登录：

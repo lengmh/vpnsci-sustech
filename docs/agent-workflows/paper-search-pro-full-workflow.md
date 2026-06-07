@@ -179,6 +179,35 @@ When the source is a download workflow sidecar:
 
 Compatibility note: current source builds render the strip in React. If a runtime still ships an older pre-built `bundle.html`, `html_renderer_webartifacts.py` injects a small compatibility guard that reads `query_display.actual_queries` and inserts the strip after the Hero H1. Rebuilding `bundle.html` remains the preferred release path.
 
+### Bundle / runtime refresh rule
+
+When full-workflow or compatibility-path report UI code changes under:
+
+- `tools/paper-search-pro/assets/webartifacts_app/paper-report/src/**`
+
+the Agent should treat the report frontend as a three-layer artifact:
+
+1. TS/React source
+2. built `dist/assets/*`
+3. pre-built single-file `bundle.html` plus the user-local runtime copy under `~/.vpnsci-sustech/tools/paper-search-pro`
+
+Therefore:
+
+- repo maintainers may use the shortcut:
+
+  ```powershell
+  pwsh -File scripts/refresh_report_frontend.ps1
+  ```
+
+  This is a source-repo maintenance helper, not a product CLI/MCP feature.
+
+- `npm run build` is not enough by itself;
+- `bundle.html` must be re-inlined from `dist/index.html`;
+- MCP/CLI/report-bridge users must refresh the local runtime copy (for example via `vpnsci-sustech report-tools install --force`);
+- then regenerate HTML and verify the visible DOM.
+
+Do not diagnose all stale-report problems as "browser cache" or "MCP restart" by default. The more common failure is artifact drift between source, bundle, and local runtime copy.
+
 ## KG Field Completeness and Theme Fallback
 
 Full reports may receive a seed KG that has titles, abstracts, identifiers, sources, and citations but lacks upstream `paper-search-pro` fields such as `keywords` and `topics`.
