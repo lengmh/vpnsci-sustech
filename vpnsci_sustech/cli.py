@@ -477,6 +477,12 @@ def report(
         console.print(f"Handoff: {result.handoff_path}")
         console.print("Automation: Codex 会话层读取 handoff 后继续跑 full workflow。")
         console.print("Multi-agent: 需要 multi_agent_v1.spawn_agent；SubAgent 失败必须在对话内汇报，不会静默退回 seed_preview。")
+    elif getattr(result, "status", "") == "theme_postprocess_required":
+        console.print("[yellow]主题后处理需要 host Agent 接管，当前未启动最终 HTML 渲染。[/yellow]")
+        console.print(f"Materialized Dir: {result.materialized_dir}")
+        console.print(f"Request: {result.theme_postprocess_request_path}")
+        console.print(f"Result Target: {result.theme_postprocess_result_path}")
+        console.print("Automation: host Agent 读取 request，写回 result，再回到正式主链完成渲染。")
     else:
         console.print("[green]专业调研报告已生成。[/green]")
         console.print(f"Local Path: {result.report_path}")

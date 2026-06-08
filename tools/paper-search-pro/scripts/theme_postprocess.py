@@ -9,6 +9,8 @@ from typing import Any
 
 THEME_POSTPROCESS_MAX_LABEL_LENGTH = 80
 THEME_POSTPROCESS_MAX_REPRESENTATIVE_TITLES = 3
+THEME_POSTPROCESS_REQUEST_FILENAME = "theme_postprocess_request.json"
+THEME_POSTPROCESS_RESULT_FILENAME = "theme_postprocess_result.json"
 
 SYSTEM_PROMPT = """You are refining precomputed research-report theme labels.
 

@@ -29,3 +29,8 @@ include = ["vpnsci_sustech*"]
 
 [tool.setuptools.package-data]
 vpnsci_sustech = ["data/*.json"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+]

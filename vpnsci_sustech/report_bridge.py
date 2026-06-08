@@ -12,6 +12,7 @@ from urllib.parse import quote
 
 from .config import Config
 from . import report_tools
+from .paper_search_pro_adapter import prepare_report
 from .sources.search_cache import load_session
 
 
@@ -42,6 +43,12 @@ class ReportResult:
     failures: list[str] = field(default_factory=list)
     report_mode: str = "seed_preview"
     handoff_path: str = ""
+    status: str = "completed"
+    materialized_dir: str = ""
+    theme_postprocess_request_path: str = ""
+    theme_postprocess_result_path: str = ""
+    user_query: str = ""
+    language: str = ""
 
 
 @dataclass
@@ -57,6 +64,11 @@ class ReportJob:
     failures: list[str] = field(default_factory=list)
     report_mode: str = "seed_preview"
     handoff_path: str = ""
+    materialized_dir: str = ""
+    theme_postprocess_request_path: str = ""
+    theme_postprocess_result_path: str = ""
+    user_query: str = ""
+    language: str = ""
 
 
 def normalize_report_mode(mode: str) -> str:
@@ -341,6 +353,21 @@ def _append_adapter_options(
     return extended
 
 
+def _prepare_builtin_adapter_report(
+    *,
+    seed_path: Path,
+    session_out_dir: Path,
+    display_query: str = "",
+    language: str = "",
+) -> dict:
+    return prepare_report(
+        seed_path,
+        session_out_dir,
+        display_query=display_query,
+        language=language,
+    )
+
+
 def generate_report_from_session(
     search_session_id: str,
     *,
@@ -461,6 +488,30 @@ def start_report_from_session(
             report_mode="full",
             handoff_path=str(handoff_path),
         )
+    if normalized_mode == "seed_preview" and _is_builtin_adapter_command(command):
+        prepared = _prepare_builtin_adapter_report(
+            seed_path=seed_path,
+            session_out_dir=session_out_dir,
+            display_query=display_query,
+            language=language,
+        )
+        if prepared.get("theme_postprocess_pending"):
+            return ReportJob(
+                report_path=str(Path(prepared["report_path"])),
+                file_url=path_to_file_url(prepared["report_path"]),
+                seed_session_id=session.session_id,
+                status="theme_postprocess_required",
+                log_path="",
+                expanded_sources=list(session.source_summary.keys()),
+                deduped_paper_count=len(session.hits),
+                failures=["theme_postprocess_pending"],
+                report_mode=normalized_mode,
+                materialized_dir=str(prepared["materialized_dir"]),
+                theme_postprocess_request_path=str(prepared["theme_postprocess_request_path"]),
+                theme_postprocess_result_path=str(prepared["theme_postprocess_result_path"]),
+                user_query=str(prepared["user_query"]),
+                language=str(prepared["language"]),
+            )
     command = _append_adapter_options(
         command,
         display_query=display_query,
@@ -498,4 +549,91 @@ def start_report_from_session(
         deduped_paper_count=len(session.hits),
         failures=[],
         report_mode=normalized_mode,
+    )
+
+
+def apply_theme_postprocess_and_render(
+    search_session_id: str,
+    *,
+    result_payload: dict,
+    config: Config | None = None,
+    mode: str = "seed_preview",
+    display_query: str = "",
+    language: str = "",
+    open_report: bool = False,
+) -> ReportResult:
+    """Persist one host-Agent result payload and render the final report."""
+
+    normalized_mode = normalize_report_mode(mode)
+    if normalized_mode != "seed_preview":
+        raise ReportBridgeConfigError("Theme postprocess apply is currently only supported for seed_preview mode.")
+
+    persist_autoconfig = config is None
+    config = config or Config.load()
+    if not config.paper_search_pro_root or not config.paper_search_pro_command:
+        config = report_tools.ensure_report_tool_configured(config, force=False, persist=persist_autoconfig)
+    root, command_template, out_dir = _validate_config(config)
+    session = load_session(search_session_id, Path(config.cache_dir))
+    session_out_dir = _session_output_dir(out_dir, session.session_id)
+    session_out_dir.mkdir(parents=True, exist_ok=True)
+    seed_path = _write_seed_package(session, session_out_dir)
+    command = _render_command(
+        command_template,
+        seed_json=seed_path,
+        output_dir=session_out_dir,
+        session_id=session.session_id,
+        mode=normalized_mode,
+    )
+    if not _is_builtin_adapter_command(command):
+        raise ReportBridgeConfigError("Theme postprocess apply requires the built-in vpnsci adapter command.")
+
+    prepared = _prepare_builtin_adapter_report(
+        seed_path=seed_path,
+        session_out_dir=session_out_dir,
+        display_query=display_query,
+        language=language,
+    )
+    result_path = Path(prepared["theme_postprocess_result_path"])
+    result_path.write_text(
+        json.dumps(result_payload, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+    command = _append_adapter_options(
+        command,
+        display_query=display_query,
+        language=language,
+        open_report=open_report,
+    )
+    completed = subprocess.run(
+        command,
+        cwd=str(root),
+        capture_output=True,
+        text=True,
+        timeout=1800,
+    )
+    if completed.returncode != 0:
+        raise ReportBridgeExecutionError(
+            f"paper-search-pro failed with code {completed.returncode}: {completed.stderr or completed.stdout}"
+        )
+
+    report_path = session_out_dir / "report.html"
+    if not report_path.exists():
+        raise ReportBridgeExecutionError(f"paper-search-pro did not produce expected report: {report_path}")
+
+    return ReportResult(
+        report_path=str(report_path),
+        file_url=path_to_file_url(report_path),
+        seed_session_id=session.session_id,
+        summary=(completed.stdout or "").strip(),
+        expanded_sources=list(session.source_summary.keys()),
+        deduped_paper_count=len(session.hits),
+        failures=[],
+        report_mode=normalized_mode,
+        status="completed",
+        materialized_dir=str(prepared["materialized_dir"]),
+        theme_postprocess_request_path=str(prepared["theme_postprocess_request_path"]),
+        theme_postprocess_result_path=str(prepared["theme_postprocess_result_path"]),
+        user_query=str(prepared["user_query"]),
+        language=str(prepared["language"]),
     )

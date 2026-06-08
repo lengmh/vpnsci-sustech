@@ -1,6 +1,7 @@
 """MCP server exposing vpnsci-sustech tools for AI agents supporting MCP protocol."""
 
 import asyncio
+import json
 import logging
 import sys
 from typing import Literal
@@ -904,6 +905,22 @@ async def generate_search_report(
             f"- Expanded Sources: {', '.join(result.expanded_sources) if result.expanded_sources else '(none)'}\n"
             "当前未启动 HTML 生成；没有把 seed-only preview 冒充为完整 paper-search-pro workflow。"
         )
+    if getattr(result, "status", "") == "theme_postprocess_required":
+        return (
+            "⚠️ 主题后处理需要 host Agent 接管。\n\n"
+            f"- Search Session: `{result.seed_session_id}`\n"
+            f"- Report Mode: `{result.report_mode}`\n"
+            f"- Status: `{result.status}`\n"
+            f"- Materialized Dir: `{result.materialized_dir}`\n"
+            f"- Request: `{result.theme_postprocess_request_path}`\n"
+            f"- Result Target: `{result.theme_postprocess_result_path}`\n"
+            f"- Query: `{result.user_query}`\n"
+            f"- Language: `{result.language}`\n"
+            "- Automation: host Agent 应读取 request，生成 result，再回到正式主链完成渲染\n"
+            "- Failure policy: 若 result 缺失/非法，Python 侧保持 fail-open，不把未精修结果冒充为已完成后处理\n"
+            f"- Deduped Papers: {result.deduped_paper_count}\n"
+            "当前未启动最终 HTML 渲染；等待 host Agent 完成 theme_postprocess_result.json。"
+        )
 
     preview_note = (
         "\n- Note: This is not the full paper-search-pro workflow."
@@ -958,6 +975,118 @@ async def generate_recovery_report(
         f"- Display Query: `{session.display_query or session.recovered_label}`\n"
         f"- Status: `{result.status}`\n"
         f"- Local Path: `{result.report_path}`\n"
+    )
+
+
+@mcp.tool()
+async def get_theme_postprocess_request(
+    search_session_id: str,
+    mode: str = "seed_preview",
+    display_query: str = "",
+    language: str = "",
+) -> str:
+    """Prepare report artifacts and return the normalized theme-postprocess request payload."""
+
+    try:
+        result = await asyncio.to_thread(
+            report_bridge.start_report_from_session,
+            search_session_id,
+            config=Config.load(),
+            mode=mode,
+            display_query=display_query,
+            language=language,
+            open_report=False,
+        )
+    except report_bridge.ReportBridgeConfigError as e:
+        return (
+            "⚠️ 主题后处理 request 生成失败。\n\n"
+            f"原因：{e}\n"
+            "请先确认报告桥接配置可用。"
+        )
+    except report_bridge.ReportBridgeError as e:
+        return (
+            "⚠️ 主题后处理 request 生成失败。\n\n"
+            f"原因：{e}\n"
+            "请检查 seed session 与 report adapter 主链。"
+        )
+
+    if getattr(result, "status", "") != "theme_postprocess_required":
+        return (
+            "⚠️ 当前报告不处于 theme_postprocess_required 状态。\n\n"
+            f"- Search Session: `{result.seed_session_id}`\n"
+            f"- Report Mode: `{result.report_mode}`\n"
+            f"- Status: `{getattr(result, 'status', '')}`\n"
+            "只有在 host Agent 需要接管主题后处理时，才会返回标准 request payload。"
+        )
+
+    request_path = Path(result.theme_postprocess_request_path)
+    payload = json.loads(request_path.read_text(encoding="utf-8"))
+    return json.dumps(
+        {
+            "search_session_id": result.seed_session_id,
+            "report_mode": result.report_mode,
+            "status": result.status,
+            "materialized_dir": result.materialized_dir,
+            "request_path": result.theme_postprocess_request_path,
+            "result_target_path": result.theme_postprocess_result_path,
+            "payload": payload,
+        },
+        ensure_ascii=False,
+        indent=2,
+    )
+
+
+@mcp.tool()
+async def apply_theme_postprocess_result(
+    search_session_id: str,
+    result_json: str,
+    mode: str = "seed_preview",
+    display_query: str = "",
+    language: str = "",
+    open_report: bool = True,
+) -> str:
+    """Apply one host-Agent theme postprocess result and render the final HTML report."""
+
+    try:
+        payload = json.loads(result_json)
+    except json.JSONDecodeError as e:
+        return f"⚠️ theme postprocess result JSON 无法解析：{e}"
+
+    try:
+        result = await asyncio.to_thread(
+            report_bridge.apply_theme_postprocess_and_render,
+            search_session_id,
+            result_payload=payload,
+            config=Config.load(),
+            mode=mode,
+            display_query=display_query,
+            language=language,
+            open_report=open_report,
+        )
+    except report_bridge.ReportBridgeConfigError as e:
+        return (
+            "⚠️ 主题后处理回写失败。\n\n"
+            f"原因：{e}\n"
+            "请确认当前报告桥接仍指向内置 vpnsci seed adapter。"
+        )
+    except report_bridge.ReportBridgeError as e:
+        return (
+            "⚠️ 主题后处理回写后渲染失败。\n\n"
+            f"原因：{e}\n"
+            "请检查 result payload、materialized artifacts 与 paper-search-pro 运行时。"
+        )
+
+    return (
+        "✅ 主题后处理结果已写回并完成渲染。\n\n"
+        f"- Search Session: `{result.seed_session_id}`\n"
+        f"- Report Mode: `{result.report_mode}`\n"
+        f"- Status: `{result.status}`\n"
+        f"- Request: `{result.theme_postprocess_request_path}`\n"
+        f"- Result: `{result.theme_postprocess_result_path}`\n"
+        f"- Link: [打开 HTML 报告]({result.file_url})\n"
+        f"- Local Path: `{result.report_path}`\n"
+        f"- Materialized Dir: `{result.materialized_dir}`\n"
+        "- Tip: 如果链接在 Agent 代码编辑器内打开，请右键 HTML 文件标签，选择“在资源管理器中显示/打开”，再用浏览器打开原文件。"
     )
 
 
