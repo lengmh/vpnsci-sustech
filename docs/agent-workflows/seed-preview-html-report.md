@@ -69,6 +69,105 @@ Required behavior:
 7. Do not leave `theme_treemap.themes` empty when papers have title/abstract text.
 8. Theme names must come from the current paper set's existing `keywords` / `topics` or repeated text signals, not from a query-family-specific hardcoded taxonomy.
 
+## Agent-owned Theme Postprocess Contract
+
+Quick reference:
+
+- `docs/agent-workflows/theme-postprocess-contract.md`
+
+Seed preview now distinguishes:
+
+- `chart_data.raw_theme_treemap`
+- `chart_data.theme_treemap`
+- `chart_data.theme_postprocess`
+
+Required semantics:
+
+1. `raw_theme_treemap` is the renderer-independent raw topic signal.
+2. `theme_treemap` is the display-facing refined layer.
+3. `theme_postprocess` is a lightweight trace object describing whether an Agent-supplied refinement was applied.
+
+### Default execution boundary
+
+The default postprocess provider is **the current host Agent**, not a Python-side external API call.
+
+That means:
+
+- Python/materialization code may prepare a normalized request payload and validate/apply a result.
+- The Agent is responsible for the conservative “manual” label cleanup when that step is actually executed.
+- If no Agent result is supplied, seed preview must fail open and keep `theme_treemap == raw_theme_treemap`.
+
+### Agent request payload
+
+When the host wants to run theme postprocess, Python should be able to expose a normalized request payload shaped like:
+
+```json
+{
+  "report_mode": "seed_preview",
+  "agent_guidance": "...",
+  "themes": [
+    {
+      "index": 0,
+      "name": "Machine Learning",
+      "value": 12,
+      "paper_ids": ["10.x/example"],
+      "representative_titles": ["Paper title A", "Paper title B"]
+    }
+  ]
+}
+```
+
+### Agent result payload
+
+The Agent result must be shaped like:
+
+```json
+{
+  "groups": [
+    {
+      "label": "Machine Learning",
+      "theme_indices": [0, 2]
+    }
+  ]
+}
+```
+
+Validation rules:
+
+- every raw `index` must appear exactly once across all groups;
+- no out-of-range indices;
+- no empty labels;
+- no partial coverage.
+
+### Allowed actions
+
+The Agent may only:
+
+- normalize incomplete labels;
+- merge obviously synonymous themes;
+- expand abbreviations then merge.
+
+The Agent must not:
+
+- recluster papers;
+- invent unsupported new topics;
+- delete evidence;
+- change relevance / RCS / tier semantics.
+
+### Trace expectations
+
+`chart_data.theme_postprocess` should at least allow:
+
+- `attempted`
+- `applied`
+- `reason`
+- optional `merge_count`
+- optional `model`
+
+If no Agent postprocess result is supplied, the expected trace reason is:
+
+- `agent_postprocess_not_supplied`
+
 ## Lightweight PRISMA-S Disclosure
 
 Seed preview must generate a renderer-compatible, direct 16-key PRISMA-S disclosure so the HTML audit tab is not blank.

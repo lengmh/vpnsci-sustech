@@ -96,6 +96,16 @@ export function MethodsTab({ data, onSelectPaper }: MethodsTabProps) {
       : "暂无可用的 RCS 分布数据。"
   const tierUnavailable = rcsUnavailable
   const tierReason = "未完成可用的相关性评分，当前不输出档级分配。"
+  const topicThemes = c.theme_treemap?.themes || []
+  const topicHasRenderableThemes = topicThemes.some(
+    (theme) => typeof theme?.value === "number" && theme.value > 0 && theme.name,
+  )
+  const topicMode = m.topicAnalysisMode ?? (topicHasRenderableThemes ? "limited" : "disabled")
+  const topicDisabled = topicMode === "disabled"
+  const topicLimited = topicMode === "limited"
+  const topicPlaceholderReason = topicDisabled
+    ? t("topicsDisabledNotice")
+    : t("topicsNoRenderableSignal")
 
   const cardStyle = {
     padding: "20px 24px",
@@ -407,35 +417,37 @@ export function MethodsTab({ data, onSelectPaper }: MethodsTabProps) {
           )}
         </section>
 
-      {/* 05 · Topics — full-width Mosaic treemap. Renders when the payload
-          includes `chart_data.theme_treemap` (object exists, even if its
-          `themes` array is empty / all zero). 1:1 with delta source: the
-          inner TopicsTreemap component handles the empty case itself by
-          rendering a dashed "Topic clustering not available for this run."
-          placeholder, so the section header stays visible and the user
-          gets explicit feedback that this channel had no signal. */}
-      {c.theme_treemap && (
-          <section style={{ marginBottom: 56 }}>
-            <SectionHeader
-              kicker={t("topicsKicker")}
-              title={t("topicsTitle")}
-              sub={t("topicsSub")}
+      <section style={{ marginBottom: 56 }}>
+        <SectionHeader
+          kicker={t("topicsKicker")}
+          title={t("topicsTitle")}
+          sub={t("topicsSub")}
+        />
+        {topicDisabled || !topicHasRenderableThemes ? (
+          <PlaceholderCard message={topicPlaceholderReason} height={320} />
+        ) : (
+          <Card style={{ padding: "20px 24px", borderRadius: 12, boxShadow: "none" }}>
+            <TopicsTreemap
+              data={c.theme_treemap}
+              height={320}
+              onSelect={(paperId) => {
+                if (!onSelectPaper) return
+                const p = data.papers.find(
+                  (q) => q.id === paperId || q.doi === paperId,
+                )
+                if (p) onSelectPaper(p)
+              }}
             />
-            <Card style={{ padding: "20px 24px", borderRadius: 12, boxShadow: "none" }}>
-              <TopicsTreemap
-                data={c.theme_treemap}
-                height={320}
-                onSelect={(paperId) => {
-                  if (!onSelectPaper) return
-                  const p = data.papers.find(
-                    (q) => q.id === paperId || q.doi === paperId,
-                  )
-                  if (p) onSelectPaper(p)
-                }}
-              />
-            </Card>
-          </section>
+          </Card>
         )}
+        {topicLimited && topicHasRenderableThemes && (
+          <div style={{ marginTop: 14 }}>
+            <KickerAlert variant="info" Icon={Info}>
+              {t("topicsLimitedNotice")}
+            </KickerAlert>
+          </div>
+        )}
+      </section>
 
       <section style={{ marginBottom: 56 }}>
         <SectionHeader

@@ -99,6 +99,9 @@ interface RawMetadata {
   report_recovery_capability?: string
   missing_fields?: string[]
   insufficient_analysis_fields?: string[]
+  quality_profile?: {
+    topic_analysis_mode?: "enabled" | "limited" | "disabled"
+  }
 }
 
 interface RawShape {
@@ -198,6 +201,7 @@ export function normalize(raw: RawShape | null | undefined): NormalizedData {
         searchId: md.search_id,
         reportMode: md.report_mode,
         mode: md.mode,
+        topicAnalysisMode: md.quality_profile?.topic_analysis_mode,
         tier: md.tier,
         generatedAt: md.generated_at,
         skillVersion: md.skill_version,
@@ -257,6 +261,13 @@ export function normalize(raw: RawShape | null | undefined): NormalizedData {
   }
   if (!meta.mode) {
     meta.mode = metadataFallback.mode
+  }
+  if (!meta.topicAnalysisMode) {
+    const themes = raw.chart_data?.theme_treemap?.themes ?? []
+    const hasEffectiveThemes = themes.some(
+      (theme) => typeof theme?.value === "number" && theme.value > 0 && theme.name,
+    )
+    meta.topicAnalysisMode = hasEffectiveThemes ? "limited" : "disabled"
   }
   return {
     meta,
