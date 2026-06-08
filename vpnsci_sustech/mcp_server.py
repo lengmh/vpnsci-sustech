@@ -302,7 +302,7 @@ async def _resolve_mcp_filename_policy(
         return ""
 
     cfg = Config.load()
-    default_policy = getattr(cfg, "paper_filename_policy", "identifier") or "identifier"
+    default_policy = getattr(cfg, "paper_filename_policy", "title_author") or "title_author"
     config_ask = bool(getattr(cfg, "paper_filename_ask", False))
     if not (ask_rename or config_ask):
         return ""

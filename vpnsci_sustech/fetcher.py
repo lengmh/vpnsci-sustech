@@ -1321,7 +1321,7 @@ class PaperFetcher:
         """Save an artifact using configured filename policy."""
 
         policy = getattr(self, "_filename_policy_override", "") or getattr(
-            self.config, "paper_filename_policy", "identifier"
+            self.config, "paper_filename_policy", "title_author"
         )
         template = getattr(self, "_filename_template_override", "") or getattr(
             self.config, "paper_filename_template", ""

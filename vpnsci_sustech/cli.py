@@ -88,7 +88,7 @@ def _load_cnki_batch_items(file: Path) -> list[cnki.CNKIBatchItem]:
 def _reserve_result_output_path(config: Config, paper: Paper, identifier: str, ext: str, *, filename_policy: str = "", filename_template: str = "") -> Path:
     """Reserve a result sidecar path using the same filename policy family as artifacts."""
 
-    policy = filename_policy or getattr(config, "paper_filename_policy", "identifier") or "identifier"
+    policy = filename_policy or getattr(config, "paper_filename_policy", "title_author") or "title_author"
     template = filename_template or getattr(config, "paper_filename_template", "") or ""
     max_length = int(getattr(config, "paper_filename_max_length", 180) or 180)
     collision = getattr(config, "paper_filename_collision", "hash") or "hash"
