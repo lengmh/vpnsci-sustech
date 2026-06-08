@@ -225,14 +225,19 @@ Semantic Scholar Graph API search should not be treated as a source of paper-lev
 Agents must not leave the HTML topic/主题图景 section as a single meaningless `All papers` block when enough title/abstract text exists. Required fallback:
 
 1. Try upstream `keywords` / `topics` clustering.
-2. If missing or empty, derive rule-based or LLM-assisted topic groups from title + abstract.
+2. If missing or empty, derive rule-based topic groups from title + abstract.
+   Chinese fallback uses the deterministic lexicon documented in
+   `docs/agent-workflows/theme-lexicon-maintenance.md`.
 3. Store the result in `chart_data.theme_treemap` with:
    - `themes[]` entries containing `name`, `value`, and `paper_ids`;
    - `total_papers`;
-   - optional `method` and `note` explaining the fallback.
+   - optional `method`, `status`, and `note` explaining the fallback.
 4. Re-render HTML after patching `chart_data.json` and `report_data.json`.
 
-For Chinese reports, theme names should be readable Chinese labels when the Agent can reliably infer them.
+For Chinese reports, the deterministic fallback should prefer readable Chinese
+labels when title/abstract evidence supports them. If it only finds generic word
+piles, write `status = "insufficient_text_theme_signal"` and keep the visible
+module explicit rather than inventing labels.
 
 ### Agent-owned theme postprocess boundary
 
@@ -241,6 +246,17 @@ Quick reference:
 - `docs/agent-workflows/theme-postprocess-contract.md`
 
 When the workflow performs an optional label-refinement step after raw theme clustering, the default provider is the **current host Agent**, not a Python-side external API call.
+
+Current repo truth:
+
+- built-in `seed_preview` / recovery path already exposes formal host-Agent request/apply entrypoints for this postprocess step;
+- `full` must reuse the same request/result/apply contract **and** is now in scope for the same automatic host-Agent postprocess coverage;
+- this does **not** mean the whole full workflow loses its broader handoff semantics for expansion / classification / PRISMA-S orchestration.
+
+This optional step may normalize or merge existing labels only. It must not
+override the deterministic low-signal gate. If the lexicon needs improvement,
+use the user-confirmed flow in
+`docs/agent-workflows/theme-lexicon-maintenance.md`.
 
 Recommended payload split:
 
@@ -290,6 +306,22 @@ If the Agent does not provide a result, the workflow should fail open:
 
 - keep `theme_treemap == raw_theme_treemap`
 - record `theme_postprocess.reason = "agent_postprocess_not_supplied"`
+
+Target handoff shape for the full-report theme-postprocess subchain:
+
+```text
+full materialization produces raw_theme_treemap
+-> theme_postprocess_request.json written
+-> host Agent reads request artifact or formal MCP request endpoint
+-> host Agent returns validated result payload
+-> Python applies refined theme_treemap
+-> final full HTML rendered
+```
+
+In other words:
+
+- `full` may still require a broader workflow handoff for upstream research steps;
+- but once the theme-postprocess stage is reached, it should not stay permanently in an ad hoc/manual-only compare-script state.
 
 ## PRISMA-S Audit Data Shape
 

@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 from collections import Counter, defaultdict
+import json
+from pathlib import Path
 import re
 from typing import Any
 
@@ -86,79 +88,45 @@ THEME_STOPWORDS_EN = {
     "we",
     "with",
 }
-THEME_STOPWORDS_ZH = {
-    "研究",
-    "分析",
-    "方法",
-    "系统",
-    "模型",
-    "应用",
-    "综述",
-    "进展",
-    "实验",
-    "结果",
-    "影响",
-    "评价",
-    "比较",
-    "案例",
-    "数据",
-    "基于",
-    "面向",
-    "相关",
-    "大学",
-    "学院",
-    "学报",
-    "学位",
-    "硕士",
-    "博士",
-    "论文",
-    "论文集",
-    "会议",
-    "学术会议",
-    # Generic Chinese function/domain-overbroad terms. These are not enough
-    # by themselves, but removing them keeps fallback labels from becoming a
-    # common-word frequency list when no structured keywords/topics exist.
-    "治疗",
-    "进行",
-    "通过",
-    "患者",
-    "作用",
-    "疾病",
-    "药物",
-    "目的",
-    "使用",
-    "可以",
-    "可能",
-    "我们",
-    "临床",
-    "的",
-    "在",
-    "和",
-    "与",
-    "及",
-    "于",
-    "用于",
-    "结合",
-    "评估",
-    "讨论",
-    "方向",
-    "是",
-    "为",
-}
+THEME_LEXICON_EN_PATH = Path(__file__).resolve().parent / "data" / "theme_lexicon.en.json"
+THEME_LEXICON_ZH_PATH = Path(__file__).resolve().parent / "data" / "theme_lexicon.zh.json"
+
+
+
+def _load_theme_lexicon_en() -> dict[str, list[str]]:
+    payload = json.loads(THEME_LEXICON_EN_PATH.read_text(encoding="utf-8"))
+    required_keys = ("token_stopwords", "generic_label_terms")
+    missing = [key for key in required_keys if key not in payload]
+    if missing:
+        raise ValueError(f"English theme lexicon missing keys: {', '.join(missing)}")
+    return {key: [str(item).lower() for item in payload.get(key) or []] for key in required_keys}
+
+def _load_theme_lexicon_zh() -> dict[str, list[str]]:
+    payload = json.loads(THEME_LEXICON_ZH_PATH.read_text(encoding="utf-8"))
+    required_keys = (
+        "generic_terms",
+        "connector_terms",
+        "theme_shape_suffixes",
+        "noise_substrings",
+        "fragment_prefixes",
+        "embedded_suffix_connectors",
+    )
+    missing = [key for key in required_keys if key not in payload]
+    if missing:
+        raise ValueError(f"Chinese theme lexicon missing keys: {', '.join(missing)}")
+    return {key: [str(item) for item in payload.get(key) or []] for key in required_keys}
+
+
+THEME_LEXICON_EN = _load_theme_lexicon_en()
+THEME_LEXICON_ZH = _load_theme_lexicon_zh()
+THEME_STOPWORDS_ZH = set(THEME_LEXICON_ZH["generic_terms"])
+THEME_STOPWORDS_EN.update(THEME_LEXICON_EN["token_stopwords"])
+THEME_GENERIC_LABELS_EN = set(THEME_LEXICON_EN["generic_label_terms"])
 THEME_ACRONYMS = {"ai", "ct", "dna", "mri", "nlp", "pcr", "rna", "svm"}
 ENGLISH_TOKEN_RE = re.compile(r"[a-zA-Z][a-zA-Z0-9-]*")
 CHINESE_SEGMENT_RE = re.compile(r"[\u4e00-\u9fff]{2,20}")
 THEME_NOISE_SUBSTRINGS = (
-    "大学",
-    "学院",
-    "学报",
-    "学位",
-    "硕士",
-    "博士",
-    "论文",
-    "论文集",
-    "会议",
-    "学术会议",
+    *THEME_LEXICON_ZH["noise_substrings"],
     "university",
     "college",
     "school",
@@ -169,45 +137,11 @@ THEME_NOISE_SUBSTRINGS = (
     "thesis",
     "dissertation",
 )
-CHINESE_DOMAIN_SUFFIXES = (
-    "治疗",
-    "机制",
-    "剂量学",
-    "生物学",
-    "医学",
-    "肿瘤",
-    "糖尿病",
-    "卒中",
-    "综合征",
-    "心血管",
-    "神经",
-    "免疫",
-    "病理",
-    "药理学",
-    "分子对接",
-    "核素",
-    "中子俘获治疗",
-    "粒子治疗",
-)
+CHINESE_DOMAIN_SUFFIXES = tuple(THEME_LEXICON_ZH["theme_shape_suffixes"])
 CHINESE_BOUNDARY_CHARS = set("，。；;：:、（）()[]【】<>《》!?！？\n\r\t ")
-CHINESE_LINKER_TOKENS = (
-    "用于",
-    "结合",
-    "评估",
-    "讨论",
-    "以及",
-    "或者",
-    "和",
-    "与",
-    "及",
-    "的",
-    "在",
-    "是",
-    "为",
-    "于",
-)
-CHINESE_FRAGMENT_PREFIXES = ("的", "和", "与", "及", "在", "于", "疗", "论", "量", "学", "性", "子", "射", "获", "素")
-CHINESE_EMBEDDED_SUFFIX_CONNECTORS = ("的", "在", "用于", "结合", "和", "与", "及", "是", "为")
+CHINESE_LINKER_TOKENS = tuple(THEME_LEXICON_ZH["connector_terms"])
+CHINESE_FRAGMENT_PREFIXES = tuple(THEME_LEXICON_ZH["fragment_prefixes"])
+CHINESE_EMBEDDED_SUFFIX_CONNECTORS = tuple(THEME_LEXICON_ZH["embedded_suffix_connectors"])
 LOW_SIGNAL_STATUS = "insufficient_text_theme_signal"
 
 
@@ -228,7 +162,7 @@ def _is_noisy_theme_term(term: str) -> bool:
     if not normalized:
         return True
     lowered = normalized.lower()
-    if lowered in THEME_STOPWORDS_EN or normalized in THEME_STOPWORDS_ZH:
+    if lowered in THEME_STOPWORDS_EN or lowered in THEME_GENERIC_LABELS_EN or normalized in THEME_STOPWORDS_ZH:
         return True
     return any(noise in normalized or noise in lowered for noise in THEME_NOISE_SUBSTRINGS)
 
@@ -463,7 +397,7 @@ def _theme_specificity(term: str) -> int:
             score -= 4
         if len(term) <= 2:
             score -= 8
-        if term.startswith(("者", "行", "量", "疗", "估")):
+        if term.startswith(CHINESE_FRAGMENT_PREFIXES):
             score -= 8
         return score
     token_count = len(term.split()) if " " in term else 1
@@ -476,6 +410,12 @@ def _theme_specificity(term: str) -> int:
 def _theme_sort_key(term: str, paper_ids: tuple[str, ...], frequency: int) -> tuple[int, int, int, int, str]:
     token_count = len(term.split()) if " " in term else 1
     return (-len(paper_ids), -_theme_specificity(term), -frequency, -token_count, term)
+
+
+def _is_allowed_text_candidate_for_corpus(term: str, corpus_has_chinese: bool) -> bool:
+    if not corpus_has_chinese:
+        return True
+    return _is_chinese_term(term) or " " in term
 
 
 def _is_redundant_theme_term(
@@ -504,26 +444,39 @@ def _is_specific_theme_term(term: str) -> bool:
     if _is_chinese_term(term):
         if any(linker in term for linker in CHINESE_LINKER_TOKENS):
             return False
-        if term.startswith(("者", "行", "量", "疗", "估")):
+        if term.startswith(CHINESE_FRAGMENT_PREFIXES):
             return False
         if len(term) == 3 and _theme_specificity(term) >= 3:
             return True
         return len(term) >= 4 and _theme_specificity(term) >= 6
     if " " in term:
-        return True
-    return len(term) >= 5
+        tokens = [token for token in term.lower().split() if token]
+        return any(token not in THEME_GENERIC_LABELS_EN for token in tokens)
+    return len(term) >= 5 and term.lower() not in THEME_GENERIC_LABELS_EN
 
 
 def _apply_text_theme_quality_gate(themes: list[dict[str, Any]], total_papers: int) -> tuple[list[dict[str, Any]], str]:
     specific = [theme for theme in themes if _is_specific_theme_term(str(theme.get("name") or ""))]
     if not specific:
         return [], LOW_SIGNAL_STATUS
-    repeated_specific = [theme for theme in specific if int(theme.get("value") or 0) >= 2]
+    repeated_specific = [theme for theme in specific if _has_repeated_theme_support(theme, total_papers)]
     if total_papers <= 2:
         return (repeated_specific[: max(1, len(repeated_specific))], "ok") if repeated_specific else ([], LOW_SIGNAL_STATUS)
     if len(repeated_specific) < min(2, total_papers):
         return [], LOW_SIGNAL_STATUS
     return specific, "ok"
+
+
+def _has_repeated_theme_support(theme: dict[str, Any], total_papers: int) -> bool:
+    value = int(theme.get("value") or 0)
+    if value < 2:
+        return False
+    name = str(theme.get("name") or "")
+    if total_papers > 2 and _is_chinese_term(name) and len(name) <= 3:
+        min_short_term_support = min(total_papers, max(3, (total_papers + 4) // 5))
+        if value < min_short_term_support:
+            return False
+    return True
 
 
 def build_text_themes(
@@ -534,9 +487,12 @@ def build_text_themes(
 ) -> dict[str, Any]:
     term_to_papers: dict[str, list[str]] = defaultdict(list)
     term_frequency: Counter[str] = Counter()
+    corpus_has_chinese = any(_is_chinese_term(_paper_text(paper)) for paper in papers)
     for index, paper in enumerate(papers, 1):
         paper_id = str(paper.get(paper_id_key) or paper.get("id") or f"seed-{index}")
         for term in _theme_term_candidates(paper):
+            if not _is_allowed_text_candidate_for_corpus(term, corpus_has_chinese):
+                continue
             term_to_papers[term].append(paper_id)
             term_frequency[term] += 1
 

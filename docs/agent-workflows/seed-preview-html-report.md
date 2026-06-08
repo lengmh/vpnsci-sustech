@@ -66,8 +66,15 @@ Required behavior:
    ```
 
 6. Copy the same `chart_data` into `report_data.json["chart_data"]`.
-7. Do not leave `theme_treemap.themes` empty when papers have title/abstract text.
-8. Theme names must come from the current paper set's existing `keywords` / `topics` or repeated text signals, not from a query-family-specific hardcoded taxonomy.
+7. Do not leave `theme_treemap` ambiguous: if title/abstract fallback has no
+   reliable signal, keep the module visible and write an explicit low-signal
+   status such as `insufficient_text_theme_signal` instead of inventing topics.
+8. Theme names must come from the current paper set's existing `keywords` /
+   `topics` or repeated text signals, not from a query-family-specific hardcoded
+   taxonomy.
+9. Chinese text fallback uses the maintained deterministic lexicon documented in
+   `docs/agent-workflows/theme-lexicon-maintenance.md`; this lexicon is not a
+   domain ontology.
 
 ## Agent-owned Theme Postprocess Contract
 
@@ -94,8 +101,12 @@ The default postprocess provider is **the current host Agent**, not a Python-sid
 That means:
 
 - Python/materialization code may prepare a normalized request payload and validate/apply a result.
+- The built-in seed/recovery mainline already exposes formal host-Agent request/apply entrypoints rather than relying on ad hoc compare scripts.
+- This is not meant to remain seed-only forever; the same host-Agent coverage target also applies to the full-report theme-postprocess subchain.
 - The Agent is responsible for the conservative “manual” label cleanup when that step is actually executed.
 - If no Agent result is supplied, seed preview must fail open and keep `theme_treemap == raw_theme_treemap`.
+- The Agent must not override `insufficient_text_theme_signal`; lexicon updates
+  are a separate user-confirmed maintenance flow.
 
 ### Agent request payload
 
@@ -264,8 +275,8 @@ Required behavior:
 
 Seed preview implementation and agents that patch seed reports should verify:
 
-- `chart_data.theme_treemap.themes` is non-empty for non-empty paper sets with text;
-- every theme has `name`, positive integer `value`, and non-empty `paper_ids`;
+- `chart_data.theme_treemap` either has positive themes or an explicit low-signal status;
+- every rendered theme has `name`, positive integer `value`, and non-empty `paper_ids`;
 - `prisma_log.json` has 16 top-level canonical PRISMA-S keys;
 - `report_data.json["prisma_log"]` has the same direct 16-key payload;
 - `report_data.json["chart_data"]["theme_treemap"]` matches `chart_data.json`;

@@ -194,6 +194,22 @@ raw_theme_treemap generated
 -> re-render report
 ```
 
+The formal host-Agent handoff target for all three report families is:
+
+```text
+start_report_from_session(...)
+-> status = theme_postprocess_required
+-> host Agent reads request artifact or get_theme_postprocess_request(...)
+-> host Agent writes normalized result
+-> apply_theme_postprocess_result(...)
+-> final HTML rendered
+```
+
+Current rollout truth:
+
+- built-in `seed_preview` / recovery already use this direction as the formal mainline;
+- `full` is also now in scope for the same automatic host-Agent coverage and should no longer be documented as “contract-only forever”.
+
 ---
 
 ## Current non-goals

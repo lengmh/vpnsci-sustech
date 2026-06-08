@@ -15,7 +15,12 @@ from .report_recovery import infer_quality_profile, split_missing_and_insufficie
 from .sources.search_cache import SearchSession
 from .sources.search_models import SearchHit, coerce_search_hit
 from .theme_clustering import build_keyword_topic_themes, build_text_themes
-from .theme_postprocess import build_theme_postprocess_request
+from .theme_postprocess import (
+    THEME_POSTPROCESS_REQUEST_FILENAME,
+    THEME_POSTPROCESS_RESULT_FILENAME,
+    apply_theme_postprocess_result,
+    build_theme_postprocess_request,
+)
 
 
 def render_html_webartifacts(*args, **kwargs):
@@ -350,18 +355,35 @@ def _build_theme_treemap(papers: list[dict]) -> dict:
     return text_fallback
 
 
+def _load_theme_postprocess_result(materialized_dir: Path) -> dict | None:
+    result_path = materialized_dir / THEME_POSTPROCESS_RESULT_FILENAME
+    if not result_path.exists():
+        return None
+    data = json.loads(result_path.read_text(encoding="utf-8"))
+    return data if isinstance(data, dict) else None
+
+
 def _apply_theme_postprocess(
     raw_theme_treemap: dict,
     papers: list[dict],
     *,
     report_mode: str,
-) -> tuple[dict, dict]:
-    _request, trace = build_theme_postprocess_request(
+    materialized_dir: Path | None = None,
+) -> tuple[dict, dict, dict]:
+    request_payload, trace = build_theme_postprocess_request(
         raw_theme_treemap,
         papers,
         report_mode=report_mode,
     )
-    return raw_theme_treemap, trace
+    result_payload = _load_theme_postprocess_result(materialized_dir) if materialized_dir else None
+    if result_payload is None:
+        return raw_theme_treemap, trace, request_payload
+    refined, applied_trace = apply_theme_postprocess_result(
+        raw_theme_treemap,
+        result_payload,
+        model_label="host-agent",
+    )
+    return refined, applied_trace, request_payload
 
 
 def _has_effective_theme_signal(theme_treemap: dict | None) -> bool:
@@ -396,7 +418,7 @@ def _reconcile_quality_profile_with_chart_signals(
     return reconciled
 
 
-def _build_chart_data(papers: list[dict], source_summary: dict) -> dict:
+def _build_chart_data(papers: list[dict], source_summary: dict, *, materialized_dir: Path | None = None) -> dict:
     years: dict[int, dict[str, int]] = {}
     rcs_counts = [0] * 11
     for paper in papers:
@@ -425,10 +447,11 @@ def _build_chart_data(papers: list[dict], source_summary: dict) -> dict:
         f"(95% CI: {max(0.0, coverage - ci_band)*100:.0f}-{min(1.0, coverage + ci_band)*100:.0f}%)."
     )
     raw_theme_treemap = _build_theme_treemap(papers)
-    theme_treemap, theme_postprocess = _apply_theme_postprocess(
+    theme_treemap, theme_postprocess, theme_postprocess_request = _apply_theme_postprocess(
         raw_theme_treemap,
         papers,
         report_mode="seed_preview",
+        materialized_dir=materialized_dir,
     )
     return {
         "year_counts": {str(year): data["total"] for year, data in years.items()},
@@ -476,6 +499,7 @@ def _build_chart_data(papers: list[dict], source_summary: dict) -> dict:
         "raw_theme_treemap": raw_theme_treemap,
         "theme_treemap": theme_treemap,
         "theme_postprocess": theme_postprocess,
+        "theme_postprocess_request": theme_postprocess_request,
     }
 
 
@@ -623,7 +647,7 @@ def _write_materialized_data(
     report_query = resolved_display_query or original_query or recovered_label
     report_language = language or _detect_language(report_query)
     papers = [_paper_from_hit(hit, i, report_query) for i, hit in enumerate(session.hits, 1)]
-    chart_data = _build_chart_data(papers, session.source_summary)
+    chart_data = _build_chart_data(papers, session.source_summary, materialized_dir=data_dir)
     highly = sum(1 for paper in papers if int(paper.get("rcs") or 0) >= 7)
     closely = sum(1 for paper in papers if int(paper.get("rcs") or 0) in (5, 6))
     discovery_curve = chart_data["discovery_curve"]
@@ -747,12 +771,50 @@ def _write_materialized_data(
         "prisma_log": prisma_log,
         "summary": "",
     }
+    theme_postprocess_request = chart_data.get("theme_postprocess_request")
     (data_dir / "metadata.json").write_text(json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8")
     (data_dir / "paper_list.json").write_text(json.dumps(papers, ensure_ascii=False, indent=2), encoding="utf-8")
     (data_dir / "chart_data.json").write_text(json.dumps(chart_data, ensure_ascii=False, indent=2), encoding="utf-8")
     (data_dir / "prisma_log.json").write_text(json.dumps(prisma_log, ensure_ascii=False, indent=2), encoding="utf-8")
     (data_dir / "report_data.json").write_text(json.dumps(report_data, ensure_ascii=False, indent=2), encoding="utf-8")
+    if theme_postprocess_request:
+        (data_dir / THEME_POSTPROCESS_REQUEST_FILENAME).write_text(
+            json.dumps(theme_postprocess_request, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
     return data_dir
+
+
+def prepare_report(
+    seed_json: Path,
+    output_dir: Path,
+    *,
+    display_query: str = "",
+    language: str = "",
+) -> dict:
+    """Prepare materialized data and expose theme-postprocess artifact paths."""
+
+    session = _load_seed(seed_json)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    materialized_dir = _write_materialized_data(
+        session,
+        output_dir,
+        display_query=display_query,
+        language=language,
+    )
+    selected_language = language or _detect_language(display_query or session.query)
+    request_path = materialized_dir / THEME_POSTPROCESS_REQUEST_FILENAME
+    result_path = materialized_dir / THEME_POSTPROCESS_RESULT_FILENAME
+    return {
+        "session_id": session.session_id,
+        "report_path": str(output_dir / "report.html"),
+        "materialized_dir": str(materialized_dir),
+        "theme_postprocess_request_path": str(request_path),
+        "theme_postprocess_result_path": str(result_path),
+        "theme_postprocess_pending": request_path.exists() and not result_path.exists(),
+        "user_query": display_query or session.query,
+        "language": selected_language,
+    }
 
 
 def render_report(
@@ -767,17 +829,17 @@ def render_report(
     tool_root = Path(config.paper_search_pro_root)
     if not tool_root.exists():
         raise FileNotFoundError(f"paper-search-pro local runtime not found: {tool_root}")
-    session = _load_seed(seed_json)
-    output_dir.mkdir(parents=True, exist_ok=True)
-    materialized_dir = _write_materialized_data(
-        session,
+    prepared = prepare_report(
+        seed_json,
         output_dir,
         display_query=display_query,
         language=language,
     )
+    session = _load_seed(seed_json)
+    materialized_dir = Path(prepared["materialized_dir"])
     sys.path.insert(0, str(tool_root))
 
-    selected_language = language or _detect_language(display_query or session.query)
+    selected_language = str(prepared["language"] or language or _detect_language(display_query or session.query))
     report_path = output_dir / "report.html"
     render_html_webartifacts(
         materialized_data_dir=materialized_dir,

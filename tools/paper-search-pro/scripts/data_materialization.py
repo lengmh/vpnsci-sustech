@@ -27,13 +27,25 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from .theme_clustering import build_keyword_topic_themes, build_text_themes
-from .theme_postprocess import build_theme_postprocess_request
+from .theme_postprocess import (
+    THEME_POSTPROCESS_REQUEST_FILENAME,
+    THEME_POSTPROCESS_RESULT_FILENAME,
+    apply_theme_postprocess_result,
+    build_theme_postprocess_request,
+)
 from .types import UnifiedPaperEntity
 
 
 def _dump(path: Path, obj: Any) -> Path:
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
     return path
+
+
+def _load_json_if_exists(path: Path) -> dict[str, Any] | None:
+    if not path.exists():
+        return None
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return data if isinstance(data, dict) else None
 
 
 def _resolve_wall_clock(
@@ -136,7 +148,7 @@ def materialize(
         # from when the hydrated bundle was capped at 1.5 MB. With 5 MB now
         # acceptable, the broader citation-graph view is worth +25 KB.
         "citation_network": _build_citation_network(classified, max_nodes=150),
-        **_build_theme_chart_payload(classified),
+        **_build_theme_chart_payload(classified, output_dir=output_dir),
     }
     paper_list = [_render_paper(p) for p in _sorted_for_display(classified)]
     metadata = _build_metadata(
@@ -393,17 +405,29 @@ def _build_themes(papers: List[UnifiedPaperEntity]) -> Dict[str, Any]:
     return data
 
 
-def _build_theme_chart_payload(papers: List[UnifiedPaperEntity]) -> Dict[str, Any]:
+def _build_theme_chart_payload(papers: List[UnifiedPaperEntity], *, output_dir: Path) -> Dict[str, Any]:
     raw_theme_treemap = _build_themes(papers)
-    _request, theme_postprocess = build_theme_postprocess_request(
+    request_payload, theme_postprocess = build_theme_postprocess_request(
         raw_theme_treemap,
         papers,
         report_mode="full",
     )
+    result_payload = _load_json_if_exists(output_dir / THEME_POSTPROCESS_RESULT_FILENAME)
+    if result_payload is not None:
+        theme_treemap, theme_postprocess = apply_theme_postprocess_result(
+            raw_theme_treemap,
+            result_payload,
+            model_label="host-agent",
+        )
+    else:
+        theme_treemap = raw_theme_treemap
+    if request_payload:
+        _dump(output_dir / THEME_POSTPROCESS_REQUEST_FILENAME, request_payload)
     return {
         "raw_theme_treemap": raw_theme_treemap,
-        "theme_treemap": raw_theme_treemap,
+        "theme_treemap": theme_treemap,
         "theme_postprocess": theme_postprocess,
+        "theme_postprocess_request": request_payload,
     }
 
 

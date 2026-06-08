@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "description": "English deterministic theme-fallback lexicon. This is not a domain ontology; generic_label_terms are rejected as standalone display themes but may still appear inside more specific multi-word phrases.",
+  "token_stopwords": [
+    "which",
+    "other",
+    "there",
+    "allow",
+    "including"
+  ],
+  "generic_label_terms": [
+    "treatment",
+    "treatments",
+    "disease",
+    "diseases",
+    "mechanism",
+    "mechanisms",
+    "protocol",
+    "protocols",
+    "patient",
+    "patients",
+    "drug",
+    "drugs",
+    "purpose",
+    "objective",
+    "objectives",
+    "analysis",
+    "analysi",
+    "other",
+    "there",
+    "allow",
+    "therapeutic",
+    "response",
+    "responses",
+    "including"
+  ]
+}
