@@ -18,6 +18,7 @@ ENV/
 
 # IDE / Editor
 .claude/
+.codex/
 .vscode/
 .idea/
 *.swp
@@ -56,3 +57,7 @@ htmlcov/
 # Distribution
 *.tar.gz
 *.whl
+
+# Local lexicon source caches and intermediate outputs
+lexicons/
+*.lexicon-source

@@ -39,16 +39,17 @@ Seed preview cannot assume upstream KG fields such as `keywords` or `topics`.
 
 Required behavior:
 
-1. Build topic groups from available paper metadata:
-   - title;
-   - abstract;
-   - venue/journal;
-   - source metadata if useful;
-   - existing `keywords` / `topics` when present.
+1. Build topic groups from available paper metadata, using only auditable theme
+   signals:
+   - existing `keywords` / `topics` when present;
+   - otherwise `title` + `abstract` text.
 2. Prefer deterministic clustering from existing `keywords` / `topics` first.
-3. If structured theme metadata is missing or empty, use deterministic text-derived fallback.
-4. Do not require LLM or SubAgent classification for seed preview.
-5. Write `chart_data.theme_treemap` with:
+3. If structured theme metadata is missing or empty, use deterministic
+   title+abstract frequency fallback.
+4. Treat `venue` / `journal` / source metadata as provenance or noise-filter
+   context, not as primary theme-label evidence.
+5. Do not require LLM or SubAgent classification for seed preview.
+6. Write `chart_data.theme_treemap` with:
 
    ```json
    {
@@ -65,16 +66,24 @@ Required behavior:
   }
    ```
 
-6. Copy the same `chart_data` into `report_data.json["chart_data"]`.
-7. Do not leave `theme_treemap` ambiguous: if title/abstract fallback has no
+7. Copy the same `chart_data` into `report_data.json["chart_data"]`.
+8. Do not leave `theme_treemap` ambiguous: if title/abstract fallback has no
    reliable signal, keep the module visible and write an explicit low-signal
    status such as `insufficient_text_theme_signal` instead of inventing topics.
-8. Theme names must come from the current paper set's existing `keywords` /
+9. Theme names must come from the current paper set's existing `keywords` /
    `topics` or repeated text signals, not from a query-family-specific hardcoded
    taxonomy.
-9. Chinese text fallback uses the maintained deterministic lexicon documented in
+10. Chinese text fallback uses the maintained deterministic lexicon documented in
    `docs/agent-workflows/theme-lexicon-maintenance.md`; this lexicon is not a
    domain ontology.
+
+Historical guardrail:
+
+- Seed preview previously carried a query-family-specific infrared `THEME_RULES`
+  taxonomy. That path is removed.
+- Do not reintroduce fixed theme buckets for infrared or any other query family.
+- Examples that use `红外线测量` / `infrared measurement` are query-display
+  examples only; they are not a runtime theme taxonomy.
 
 ## Agent-owned Theme Postprocess Contract
 

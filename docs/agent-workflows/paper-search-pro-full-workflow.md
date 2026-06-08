@@ -76,7 +76,7 @@ Therefore, a host without SubAgent support is not an MCP failure. It is an Agent
 | Full `paper-search-pro` Python dependency missing | Helper script that imports it | Report package and failed command | Install after user approval, skip optional enrichment when tier allows, or stop |
 | Optional source API unavailable/rate-limited | Source expansion or enrichment | Record source failure and continue if tier permits | Continue with available sources; disclose reduced source coverage |
 | CJK shell encoding unreliable | Query passing / rendering | Read query from UTF-8 JSON or argument file | Regenerate corrupted artifacts from UTF-8 handoff files |
-| Topic metadata missing | HTML topic section | Use title+abstract fallback | Rule-based or LLM-assisted fallback, then re-render |
+| Topic metadata missing | HTML topic section | Use deterministic title+abstract fallback | Deterministic frequency fallback; optional Agent label postprocess only after raw themes exist, then re-render |
 | PRISMA wrapper/data shape mismatch | HTML audit section | Unwrap `execution_log["prisma_s"]` for renderer | Patch `prisma_log.json` and `report_data.json["prisma_log"]`, then re-render |
 
 ### Required User Prompt When SubAgents Are Unavailable

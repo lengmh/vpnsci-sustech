@@ -54,29 +54,13 @@ def _load_seed(path: Path) -> SearchSession:
 
 
 def _score_hit(hit: SearchHit) -> int:
-    """Heuristic RCS score for seed-only reports that skip LLM classification."""
+    """Neutral seed-preview RCS for reports that skip formal classification.
 
-    title = (hit.title or "").lower()
-    abstract = (hit.abstract or "").lower()
-    text = f"{title} {abstract}"
-    high_signal_terms = (
-        "systematic review",
-        "meta-analysis",
-        "clinical accuracy",
-        "core body temperature",
-        "fever detection",
-    )
-    close_signal_terms = (
-        "infrared",
-        "thermography",
-        "non-contact",
-        "thermal scanner",
-        "body temperature",
-    )
-    if any(term in text for term in high_signal_terms):
-        return 7
-    if any(term in text for term in close_signal_terms):
-        return 6
+    Domain-specific relevance terms must not live here. Reviewed concept aliases
+    and future scoring/classification inputs belong in explicit data contracts,
+    not hidden adapter heuristics.
+    """
+
     return 5
 
 
