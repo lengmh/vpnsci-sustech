@@ -13,6 +13,12 @@ from urllib.parse import quote
 from .config import Config
 from . import report_tools
 from .paper_search_pro_adapter import prepare_report
+from .theme_postprocess import (
+    THEME_POSTPROCESS_REQUEST_FILENAME,
+    THEME_POSTPROCESS_RESULT_FILENAME,
+    apply_theme_postprocess_result,
+    build_theme_postprocess_request,
+)
 from .sources.search_cache import load_session
 
 
@@ -368,6 +374,162 @@ def _prepare_builtin_adapter_report(
     )
 
 
+def render_html_webartifacts(
+    *,
+    materialized_data_dir: Path,
+    output_path: Path,
+    user_query: str = "",
+    language: str = "",
+    tool_root: Path | None = None,
+) -> Path:
+    if tool_root:
+        candidates = [tool_root]
+        nested = tool_root / "tools" / "paper-search-pro"
+        if nested.exists():
+            candidates.append(nested)
+        for candidate in candidates:
+            if (candidate / "scripts").exists():
+                sys.path.insert(0, str(candidate))
+    from scripts.html_renderer_webartifacts import render_html_webartifacts as renderer
+
+    return renderer(
+        materialized_data_dir=materialized_data_dir,
+        output_path=output_path,
+        user_query=user_query,
+        language=language or None,
+    )
+
+
+def _read_json_if_exists(path: Path) -> dict | list | None:
+    if not path.exists():
+        return None
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _write_json(path: Path, payload: object) -> None:
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def _detect_language_from_text(text: str) -> str:
+    return "zh" if any("\u4e00" <= ch <= "\u9fff" for ch in text or "") else "en"
+
+
+def _prepare_existing_full_materialized_theme_postprocess(
+    *,
+    session_out_dir: Path,
+    display_query: str = "",
+    language: str = "",
+) -> dict | None:
+    materialized_dir = session_out_dir / "materialized"
+    chart_path = materialized_dir / "chart_data.json"
+    paper_path = materialized_dir / "paper_list.json"
+    metadata_path = materialized_dir / "metadata.json"
+    report_data_path = materialized_dir / "report_data.json"
+    if not chart_path.exists() or not paper_path.exists():
+        return None
+
+    chart_data = _read_json_if_exists(chart_path)
+    papers = _read_json_if_exists(paper_path)
+    metadata = _read_json_if_exists(metadata_path) or {}
+    if not isinstance(chart_data, dict) or not isinstance(papers, list):
+        return None
+
+    raw_theme_treemap = chart_data.get("raw_theme_treemap") or chart_data.get("theme_treemap")
+    request_payload, trace = build_theme_postprocess_request(
+        raw_theme_treemap,
+        papers,
+        report_mode="full",
+    )
+    if not request_payload:
+        return None
+
+    request_path = materialized_dir / THEME_POSTPROCESS_REQUEST_FILENAME
+    result_path = materialized_dir / THEME_POSTPROCESS_RESULT_FILENAME
+    _write_json(request_path, request_payload)
+
+    chart_data["theme_postprocess_request"] = request_payload
+    chart_data["theme_postprocess"] = trace
+    _write_json(chart_path, chart_data)
+
+    report_data = _read_json_if_exists(report_data_path)
+    if isinstance(report_data, dict):
+        report_data["chart_data"] = chart_data
+        _write_json(report_data_path, report_data)
+
+    resolved_query = (
+        display_query
+        or str(metadata.get("display_query") or metadata.get("query") or "")
+    )
+    resolved_language = language or str(metadata.get("language") or "") or _detect_language_from_text(resolved_query)
+    return {
+        "report_path": str(session_out_dir / "report.html"),
+        "materialized_dir": str(materialized_dir),
+        "theme_postprocess_request_path": str(request_path),
+        "theme_postprocess_result_path": str(result_path),
+        "theme_postprocess_pending": not result_path.exists(),
+        "user_query": resolved_query,
+        "language": resolved_language,
+    }
+
+
+def _apply_theme_postprocess_to_existing_materialized(
+    *,
+    session_out_dir: Path,
+    result_payload: dict,
+    display_query: str = "",
+    language: str = "",
+    tool_root: Path,
+    open_report: bool = False,
+) -> dict:
+    prepared = _prepare_existing_full_materialized_theme_postprocess(
+        session_out_dir=session_out_dir,
+        display_query=display_query,
+        language=language,
+    )
+    if not prepared:
+        raise ReportBridgeConfigError("Full theme postprocess apply requires an existing materialized full report.")
+
+    materialized_dir = Path(prepared["materialized_dir"])
+    chart_path = materialized_dir / "chart_data.json"
+    report_data_path = materialized_dir / "report_data.json"
+    chart_data = _read_json_if_exists(chart_path)
+    report_data = _read_json_if_exists(report_data_path)
+    if not isinstance(chart_data, dict):
+        raise ReportBridgeExecutionError("chart_data.json is missing or invalid.")
+
+    raw_theme_treemap = chart_data.get("raw_theme_treemap") or chart_data.get("theme_treemap")
+    refined, trace = apply_theme_postprocess_result(
+        raw_theme_treemap,
+        result_payload,
+        model_label="host-agent",
+    )
+    result_path = Path(prepared["theme_postprocess_result_path"])
+    _write_json(result_path, result_payload)
+
+    chart_data["theme_treemap"] = refined
+    chart_data["theme_postprocess"] = trace
+    _write_json(chart_path, chart_data)
+
+    if isinstance(report_data, dict):
+        report_data["chart_data"] = chart_data
+        _write_json(report_data_path, report_data)
+
+    report_path = Path(prepared["report_path"])
+    render_html_webartifacts(
+        materialized_data_dir=materialized_dir,
+        output_path=report_path,
+        user_query=str(prepared["user_query"]),
+        language=str(prepared["language"]),
+        tool_root=tool_root,
+    )
+    if open_report:
+        import webbrowser
+        webbrowser.open(report_path.resolve().as_uri())
+
+    prepared["status"] = "completed"
+    return prepared
+
+
 def generate_report_from_session(
     search_session_id: str,
     *,
@@ -469,6 +631,28 @@ def start_report_from_session(
         mode=normalized_mode,
     )
     if normalized_mode == "full" and _is_builtin_adapter_command(command):
+        prepared_full = _prepare_existing_full_materialized_theme_postprocess(
+            session_out_dir=session_out_dir,
+            display_query=display_query,
+            language=language,
+        )
+        if prepared_full and prepared_full.get("theme_postprocess_pending"):
+            return ReportJob(
+                report_path=str(Path(prepared_full["report_path"])),
+                file_url=path_to_file_url(prepared_full["report_path"]),
+                seed_session_id=session.session_id,
+                status="theme_postprocess_required",
+                log_path="",
+                expanded_sources=list(session.source_summary.keys()),
+                deduped_paper_count=len(session.hits),
+                failures=["theme_postprocess_pending"],
+                report_mode="full",
+                materialized_dir=str(prepared_full["materialized_dir"]),
+                theme_postprocess_request_path=str(prepared_full["theme_postprocess_request_path"]),
+                theme_postprocess_result_path=str(prepared_full["theme_postprocess_result_path"]),
+                user_query=str(prepared_full["user_query"]),
+                language=str(prepared_full["language"]),
+            )
         handoff_path = create_full_workflow_handoff(
             session,
             session_out_dir,
@@ -565,8 +749,6 @@ def apply_theme_postprocess_and_render(
     """Persist one host-Agent result payload and render the final report."""
 
     normalized_mode = normalize_report_mode(mode)
-    if normalized_mode != "seed_preview":
-        raise ReportBridgeConfigError("Theme postprocess apply is currently only supported for seed_preview mode.")
 
     persist_autoconfig = config is None
     config = config or Config.load()
@@ -586,6 +768,33 @@ def apply_theme_postprocess_and_render(
     )
     if not _is_builtin_adapter_command(command):
         raise ReportBridgeConfigError("Theme postprocess apply requires the built-in vpnsci adapter command.")
+
+    if normalized_mode == "full":
+        prepared = _apply_theme_postprocess_to_existing_materialized(
+            session_out_dir=session_out_dir,
+            result_payload=result_payload,
+            display_query=display_query,
+            language=language,
+            tool_root=root,
+            open_report=open_report,
+        )
+        report_path = Path(prepared["report_path"])
+        return ReportResult(
+            report_path=str(report_path),
+            file_url=path_to_file_url(report_path),
+            seed_session_id=session.session_id,
+            summary="",
+            expanded_sources=list(session.source_summary.keys()),
+            deduped_paper_count=len(session.hits),
+            failures=[],
+            report_mode=normalized_mode,
+            status="completed",
+            materialized_dir=str(prepared["materialized_dir"]),
+            theme_postprocess_request_path=str(prepared["theme_postprocess_request_path"]),
+            theme_postprocess_result_path=str(prepared["theme_postprocess_result_path"]),
+            user_query=str(prepared["user_query"]),
+            language=str(prepared["language"]),
+        )
 
     prepared = _prepare_builtin_adapter_report(
         seed_path=seed_path,
