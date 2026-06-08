@@ -402,6 +402,203 @@ def _reconcile_quality_profile_with_chart_signals(
     return reconciled
 
 
+GENERIC_RECOVERED_LABELS = {
+    "",
+    "recovered local files",
+    "recovered local file",
+    "local files",
+    "local file recovery",
+    "recovered report",
+    "recovered reports",
+    "recovered paper set",
+    "recovered papers",
+    "paper set",
+    "paper collection",
+    "cnki 下载结果集合",
+    "本地文件结果集合",
+    "本地文件恢复",
+    "历史报告恢复",
+    "恢复报告",
+    "恢复文献集",
+    "文献集合",
+}
+
+
+GENERIC_THEME_LABELS = {
+    "paper set",
+    "paper collection",
+    "document set",
+    "documents",
+    "unknown",
+    "uncategorized",
+    "miscellaneous",
+    "other",
+    "文献集合",
+    "文献集",
+    "其他",
+    "未分类",
+}
+
+
+def _normalize_display_text(value: object) -> str:
+    return " ".join(str(value or "").strip().split())
+
+
+def _is_generic_recovered_label(label: str) -> bool:
+    normalized = _normalize_display_text(label).strip("[]【】（）()：:").lower()
+    return normalized in GENERIC_RECOVERED_LABELS
+
+
+def _recovery_kind_from_session(session: SearchSession) -> str:
+    origin = session.origin if isinstance(session.origin, dict) else {}
+    filters = session.filters if isinstance(session.filters, dict) else {}
+    origin_kind = origin.get("kind")
+    recovered_from = filters.get("recovered_from")
+    if origin_kind == "download_sidecar" or recovered_from == "download_sidecar":
+        return "A"
+    if recovered_from == "legacy_report_json":
+        return "B"
+    if recovered_from == "local_files":
+        return "C"
+    return ""
+
+
+def _recovery_title_prefix(recovery_kind: str) -> str:
+    return {
+        "A": "[下载记录恢复]：",
+        "B": "[历史报告恢复]：",
+        "C": "[本地文件恢复]：",
+    }.get(recovery_kind, "")
+
+
+def _theme_name_is_generic(name: str) -> bool:
+    normalized = _normalize_display_text(name).lower()
+    return not normalized or normalized in GENERIC_THEME_LABELS
+
+
+def _semantic_title_from_theme_treemap(theme_treemap: dict | None) -> str:
+    if not isinstance(theme_treemap, dict):
+        return ""
+    ranked: list[tuple[int, int, str]] = []
+    for index, theme in enumerate(theme_treemap.get("themes") or []):
+        if not isinstance(theme, dict):
+            continue
+        name = _normalize_display_text(theme.get("name"))
+        if _theme_name_is_generic(name):
+            continue
+        try:
+            value = int(theme.get("value") or 0)
+        except (TypeError, ValueError):
+            value = 0
+        if value <= 0:
+            continue
+        ranked.append((value, -index, name))
+    ranked.sort(reverse=True)
+    names: list[str] = []
+    for _, _, name in ranked:
+        if name not in names:
+            names.append(name)
+        if len(names) >= 2:
+            break
+    return " / ".join(names)
+
+
+def _semantic_title_from_papers(papers: list[dict]) -> str:
+    titles = [
+        _normalize_display_text(paper.get("title"))
+        for paper in papers
+        if _normalize_display_text(paper.get("title"))
+    ]
+    if not titles:
+        return ""
+    if len(titles) == 1:
+        return titles[0]
+    # Multi-paper title-only recovery should not pretend to know more than the
+    # available metadata. Use the first non-empty title only when no theme
+    # signal can be derived at all.
+    return titles[0]
+
+
+def _resolve_report_display_queries(
+    session: SearchSession,
+    *,
+    explicit_display_query: str = "",
+    chart_data: dict | None = None,
+    papers: list[dict] | None = None,
+) -> dict:
+    """Resolve report-visible title without overwriting the true original query."""
+
+    original_query = _normalize_display_text(session.query)
+    session_display_query = _normalize_display_text(session.display_query)
+    recovered_label = _normalize_display_text(session.recovered_label)
+    recovery_kind = _recovery_kind_from_session(session)
+    resolved_display_query = ""
+    source = ""
+
+    candidates = [
+        ("explicit_display_query", explicit_display_query),
+        ("session_display_query", session_display_query),
+        ("original_query", original_query),
+    ]
+    for candidate_source, candidate in candidates:
+        text = _normalize_display_text(candidate)
+        if text:
+            resolved_display_query = text
+            source = candidate_source
+            break
+
+    if (
+        not resolved_display_query
+        and recovered_label
+        and (not recovery_kind or not _is_generic_recovered_label(recovered_label))
+    ):
+        resolved_display_query = recovered_label
+        source = "recovered_label"
+
+    if not resolved_display_query:
+        theme_title = _semantic_title_from_theme_treemap(
+            (chart_data or {}).get("theme_treemap")
+            or (chart_data or {}).get("raw_theme_treemap")
+        )
+        if theme_title:
+            resolved_display_query = theme_title
+            source = "theme_treemap"
+
+    if not resolved_display_query:
+        paper_title = _semantic_title_from_papers(papers or [])
+        if paper_title:
+            resolved_display_query = paper_title
+            source = "paper_titles"
+
+    if not resolved_display_query and recovered_label:
+        resolved_display_query = recovered_label
+        source = "generic_recovered_label"
+
+    if not resolved_display_query:
+        resolved_display_query = "文献集合"
+        source = "fallback"
+
+    prefix = _recovery_title_prefix(recovery_kind)
+    display_title = f"{prefix}{resolved_display_query}" if prefix else resolved_display_query
+    return {
+        "display_query": resolved_display_query,
+        "display_title": display_title,
+        "display_query_source": source,
+        "recovery_kind": recovery_kind,
+    }
+
+
+def _build_report_summary(display_query: str, paper_count: int, language: str) -> str:
+    display_query = _normalize_display_text(display_query)
+    if (language or "").lower().startswith("zh"):
+        if display_query:
+            return f"当前文献集主要围绕 {display_query}，包含 {paper_count} 篇文献。"
+        return f"当前文献集包含 {paper_count} 篇文献。"
+    if display_query:
+        return f"The current paper set mainly focuses on {display_query}, covering {paper_count} papers."
+    return f"The current paper set contains {paper_count} papers."
+
+
 def _build_chart_data(papers: list[dict], source_summary: dict, *, materialized_dir: Path | None = None) -> dict:
     years: dict[int, dict[str, int]] = {}
     rcs_counts = [0] * 11
@@ -563,7 +760,7 @@ def _build_seed_prisma_log(session: SearchSession, papers: list[dict], metadata:
         },
         "8_full_search_strategies": {
             "performed": True,
-            "user_query": metadata.get("query") or session.query,
+            "user_query": metadata.get("seed_session_query") or session.query or metadata.get("display_query") or metadata.get("query"),
             "seed_session_query": session.query,
             "query_variants": query_variants,
             "note": "Records the available query variants from the seed Search Session; not a full upstream query plan.",
@@ -626,17 +823,32 @@ def _write_materialized_data(
     data_dir = output_dir / "materialized"
     data_dir.mkdir(parents=True, exist_ok=True)
     original_query = session.query or ""
-    resolved_display_query = display_query or session.display_query or ""
     recovered_label = session.recovered_label or ""
-    report_query = resolved_display_query or original_query or recovered_label
-    report_language = language or _detect_language(report_query)
-    papers = [_paper_from_hit(hit, i, report_query) for i, hit in enumerate(session.hits, 1)]
+    pre_resolved_display_query = display_query or session.display_query or original_query
+    papers = [_paper_from_hit(hit, i, pre_resolved_display_query) for i, hit in enumerate(session.hits, 1)]
     chart_data = _build_chart_data(papers, session.source_summary, materialized_dir=data_dir)
+    display_resolution = _resolve_report_display_queries(
+        session,
+        explicit_display_query=display_query,
+        chart_data=chart_data,
+        papers=papers,
+    )
+    resolved_display_query = display_resolution["display_query"]
+    display_query_field = resolved_display_query
+    if (
+        display_resolution["display_query_source"] in {"recovered_label", "generic_recovered_label"}
+        and not display_query
+        and not session.display_query
+    ):
+        display_query_field = ""
+    report_query = display_resolution["display_title"]
+    report_language = language or _detect_language(report_query)
+    report_summary = _build_report_summary(resolved_display_query, len(papers), report_language)
     highly = sum(1 for paper in papers if int(paper.get("rcs") or 0) >= 7)
     closely = sum(1 for paper in papers if int(paper.get("rcs") or 0) in (5, 6))
     discovery_curve = chart_data["discovery_curve"]
     actual_query_variants = _query_variants_from_session(session)
-    actual_query_groups = _actual_query_groups_from_session(session, display_query=report_query)
+    actual_query_groups = _actual_query_groups_from_session(session, display_query=resolved_display_query or original_query)
     year_count = sum(1 for paper in papers if paper.get("year"))
     citation_count = sum(1 for paper in papers if (paper.get("citation_count") or 0) > 0)
     topic_signal_count = sum(1 for paper in papers if paper.get("abstract") or paper.get("keywords"))
@@ -653,7 +865,7 @@ def _write_materialized_data(
             "abstract_or_keywords": topic_signal_count,
         },
         original_query=original_query,
-        display_query=resolved_display_query,
+        display_query=display_query_field,
         recovered_label=recovered_label,
     )
     quality_profile = _reconcile_quality_profile_with_chart_signals(quality_profile, chart_data)
@@ -706,8 +918,11 @@ def _write_materialized_data(
         "seed_source": _seed_source_label(session),
         "cnki_fields": _cnki_field_status(session),
         "user_query": report_query,
-        "display_query": resolved_display_query,
+        "display_query": display_query_field,
+        "display_title": report_query,
+        "display_query_source": display_resolution["display_query_source"],
         "recovered_label": recovered_label,
+        "summary": report_summary,
         "seed_session_query": original_query,
         "actual_query_variants": actual_query_variants,
         "query_display": {
@@ -717,16 +932,7 @@ def _write_materialized_data(
             "actual_queries": actual_query_groups,
         },
         "quality_profile": quality_profile,
-        "recovery_kind": (
-            "A"
-            if origin.get("kind") == "download_sidecar"
-            else "B"
-            if origin.get("kind") in {"legacy_report_json", "html_import", "source_execution"}
-            and session.filters.get("recovered_from") == "legacy_report_json"
-            else "C"
-            if session.filters.get("recovered_from") == "local_files"
-            else ""
-        ),
+        "recovery_kind": display_resolution["recovery_kind"],
         "report_recovery_capability": str(origin.get("report_recovery_capability") or ""),
         "report_label_mode": _report_label_mode(quality_profile),
         "missing_fields": missing_fields,
@@ -753,7 +959,7 @@ def _write_materialized_data(
         "chart_data": chart_data,
         "paper_list": papers,
         "prisma_log": prisma_log,
-        "summary": "",
+        "summary": report_summary,
     }
     theme_postprocess_request = chart_data.get("theme_postprocess_request")
     (data_dir / "metadata.json").write_text(json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8")

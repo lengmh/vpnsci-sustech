@@ -82,6 +82,10 @@ def render_html_webartifacts(
     paper_list = _read_json(materialized_data_dir / "paper_list.json")
     chart_data = _read_json(materialized_data_dir / "chart_data.json")
     prisma_log_raw = _read_json(materialized_data_dir / "prisma_log.json")
+    report_bundle = _read_optional_json(materialized_data_dir / "report_data.json")
+    report_summary = ""
+    if isinstance(report_bundle, dict):
+        report_summary = str(report_bundle.get("summary") or "")
 
     metadata, chart_data = _apply_payload_compat(
         metadata=metadata,
@@ -99,6 +103,7 @@ def render_html_webartifacts(
         chart_data=chart_data,
         prisma_log_raw=prisma_log_raw,
         user_query=user_query,
+        summary=report_summary,
     )
 
     bundle_html = PREBUILT_BUNDLE.read_text(encoding="utf-8")
@@ -132,6 +137,7 @@ def _build_report_data(
     prisma_log_raw: Dict[str, Any],
     *,
     user_query: str = "",
+    summary: str = "",
 ) -> Dict[str, Any]:
     """Build the raw-shape payload that React's `normalize(raw)` expects.
 
@@ -163,9 +169,12 @@ def _build_report_data(
     meta_out: Dict[str, Any] = dict(metadata) if isinstance(metadata, dict) else {}
     if not meta_out.get("query") and user_query:
         meta_out["query"] = user_query
+    if not meta_out.get("summary") and summary:
+        meta_out["summary"] = summary
 
     return {
         "metadata": meta_out,
+        "summary": meta_out.get("summary") or summary or "",
         "papers": list(paper_list) if isinstance(paper_list, list) else [],
         "chart_data": chart_data if isinstance(chart_data, dict) else {},
         "prisma_log": prisma_log_raw if isinstance(prisma_log_raw, dict) else {},
@@ -553,6 +562,12 @@ def _inject_language(bundle_html: str, language: str) -> str:
 def _read_json(path: Path) -> Any:
     if not path.exists():
         raise HtmlRenderError(f"Required input not found: {path}")
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _read_optional_json(path: Path) -> Any:
+    if not path.exists():
+        return None
     return json.loads(path.read_text(encoding="utf-8"))
 
 
