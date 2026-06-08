@@ -53,6 +53,7 @@ export function DocumentTop({
   const coverage = m.coverage
   const ciLow = m.coverageCi?.[0]
   const ciHigh = m.coverageCi?.[1]
+  const reportSummary = (m.summary || "").trim()
 
   // Tab labels are i18n-bound (computed at runtime via `t()`).
   const TAB_ITEMS = [
@@ -158,53 +159,57 @@ export function DocumentTop({
                 fontFamily: "var(--font-sans)",
               }}
             >
-              {t("docWeScreened")}
-              <span
-                className="tabular"
-                style={{ fontFamily: "var(--font-mono)", fontWeight: 500 }}
-              >
-                {fmtNum(m.papersEvaluated)}
-              </span>
-              {t("docPapersAndIdentified")}
-              <span
-                className="tabular"
-                style={{ fontFamily: "var(--font-mono)", fontWeight: 600 }}
-              >
-                {m.highlyRelevant}
-              </span>
-              {t("docAsHighlyRelevant")}
-              <span
-                className="tabular"
-                style={{ fontFamily: "var(--font-mono)", fontWeight: 500 }}
-              >
-                {m.closelyRelated}
-              </span>
-              {t("docAdditional")}
-              {t("docModelEstimates")}
-              <span
-                className="tabular"
-                style={{ fontFamily: "var(--font-mono)", fontWeight: 600 }}
-              >
-                {coverage !== undefined && coverage !== null
-                  ? Math.round(coverage * 100)
-                  : "—"}%
-              </span>
-              {ciLow !== undefined &&
-                ciLow !== null &&
-                ciHigh !== undefined &&
-                ciHigh !== null && (
+              {reportSummary || (
                 <>
-                  {" "}
-                  (95% CI {Math.round(ciLow * 100)}–{Math.round(ciHigh * 100)}%){" "}
+                  {t("docWeScreened")}
+                  <span
+                    className="tabular"
+                    style={{ fontFamily: "var(--font-mono)", fontWeight: 500 }}
+                  >
+                    {fmtNum(m.papersEvaluated)}
+                  </span>
+                  {t("docPapersAndIdentified")}
+                  <span
+                    className="tabular"
+                    style={{ fontFamily: "var(--font-mono)", fontWeight: 600 }}
+                  >
+                    {m.highlyRelevant}
+                  </span>
+                  {t("docAsHighlyRelevant")}
+                  <span
+                    className="tabular"
+                    style={{ fontFamily: "var(--font-mono)", fontWeight: 500 }}
+                  >
+                    {m.closelyRelated}
+                  </span>
+                  {t("docAdditional")}
+                  {t("docModelEstimates")}
+                  <span
+                    className="tabular"
+                    style={{ fontFamily: "var(--font-mono)", fontWeight: 600 }}
+                  >
+                    {coverage !== undefined && coverage !== null
+                      ? Math.round(coverage * 100)
+                      : "—"}%
+                  </span>
+                  {ciLow !== undefined &&
+                    ciLow !== null &&
+                    ciHigh !== undefined &&
+                    ciHigh !== null && (
+                    <>
+                      {" "}
+                      (95% CI {Math.round(ciLow * 100)}–{Math.round(ciHigh * 100)}%){" "}
+                    </>
+                  )}
+                  {/* Strip the leading '%' from docRelevanceClause — we already
+                      rendered '%' inline on the coverage number so it sits next
+                      to it (EN: "99%"; ZH: "99%"). The dict keeps the '%' at the
+                      start of docRelevanceClause for callers that render the
+                      coverage number as a bare digit; we override that here to
+                      preserve the original EN typography. */}
+                  {t("docRelevanceClause").replace(/^%\s*/, "")}
                 </>
               )}
-              {/* Strip the leading '%' from docRelevanceClause — we already
-                  rendered '%' inline on the coverage number so it sits next
-                  to it (EN: "99%"; ZH: "99%"). The dict keeps the '%' at the
-                  start of docRelevanceClause for callers that render the
-                  coverage number as a bare digit; we override that here to
-                  preserve the original EN typography. */}
-              {t("docRelevanceClause").replace(/^%\s*/, "")}
             </p>
 
             {/* Composition footnote */}

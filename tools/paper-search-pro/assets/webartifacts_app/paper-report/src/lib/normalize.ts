@@ -57,6 +57,7 @@ interface RawActualQueryGroup {
 
 interface RawMetadata {
   query?: string
+  summary?: string
   user_query?: string
   display_query?: string
   mode?: string
@@ -107,6 +108,7 @@ interface RawMetadata {
 interface RawShape {
   metadata?: RawMetadata
   reportMeta?: Record<string, unknown>
+  summary?: string
   papers?: RawPaper[]
   chart_data?: ChartDataBins
   prisma_log?: PrismaLog
@@ -197,6 +199,7 @@ export function normalize(raw: RawShape | null | undefined): NormalizedData {
     return {
       meta: {
         query: resolvedQuery,
+        summary: md.summary ?? raw.summary,
         actualQueries,
         searchId: md.search_id,
         reportMode: md.report_mode,
@@ -252,6 +255,9 @@ export function normalize(raw: RawShape | null | undefined): NormalizedData {
 
   // (b) Post-materialization fallback — degraded path; do our best.
   const meta = (raw.reportMeta ?? {}) as NormalizedData["meta"]
+  if (!meta.summary && raw.summary) {
+    meta.summary = raw.summary
+  }
   const metadataFallback = (raw.reportMeta ?? {}) as RawMetadata
   if (!meta.actualQueries) {
     meta.actualQueries = resolveActualQueries(metadataFallback, meta.query)

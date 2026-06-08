@@ -51,6 +51,7 @@ export function SwissTop({
   const coverage = m.coverage
   const ciLow = m.coverageCi?.[0]
   const ciHigh = m.coverageCi?.[1]
+  const reportSummary = (m.summary || "").trim()
 
   // Tab labels are i18n-bound, so they must be computed at runtime
   // (not at module load) — `t()` reads `window.S` which is set by
@@ -130,6 +131,20 @@ export function SwissTop({
               </h1>
 
               <ActualQueryStrip groups={m.actualQueries} />
+              {reportSummary && (
+                <p
+                  style={{
+                    margin: "20px 0 0",
+                    fontSize: 14,
+                    lineHeight: 1.65,
+                    color: "hsl(var(--foreground))",
+                    maxWidth: "54ch",
+                    fontFamily: "var(--font-sans)",
+                  }}
+                >
+                  {reportSummary}
+                </p>
+              )}
             </div>
 
             <div />

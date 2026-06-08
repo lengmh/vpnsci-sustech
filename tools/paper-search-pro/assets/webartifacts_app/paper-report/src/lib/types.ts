@@ -24,6 +24,7 @@ export interface ActualQueryGroup {
 
 export interface NormalizedMeta {
   query?: string
+  summary?: string
   actualQueries?: ActualQueryGroup[]
   searchId?: string
   reportMode?: string

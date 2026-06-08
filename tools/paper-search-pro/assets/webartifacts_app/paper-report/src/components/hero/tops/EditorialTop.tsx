@@ -46,6 +46,7 @@ export function EditorialTop({
   const coverage = m.coverage
   const ciLow = m.coverageCi?.[0]
   const ciHigh = m.coverageCi?.[1]
+  const reportSummary = (m.summary || "").trim()
 
   // Tab labels are i18n-bound (computed at runtime via `t()`).
   const TAB_ITEMS = [
@@ -127,34 +128,38 @@ export function EditorialTop({
               fontFamily: "var(--font-sans)",
             }}
           >
-            {t("sentenceOf")}
-            <span className="tabular" style={{ fontFamily: "var(--font-mono)" }}>
-              {fmtNum(m.papersEvaluated)}
-            </span>
-            {t("papersScreenedShort")}
-            <strong style={{ fontWeight: 600 }}>
-              {m.highlyRelevant} {t("areHighlyRelevant")}
-            </strong>{" "}
-            <span className="tabular" style={{ fontFamily: "var(--font-mono)" }}>
-              {m.closelyRelated}
-            </span>{" "}
-            {t("closelyRelatedCovering")}{" "}
-            <strong style={{ fontWeight: 600 }}>
-              {coverage !== undefined && coverage !== null
-                ? Math.round(coverage * 100)
-                : "—"}%
-            </strong>{" "}
-            {t("ofTheField")}
-            {ciLow !== undefined &&
-              ciLow !== null &&
-              ciHigh !== undefined &&
-              ciHigh !== null && (
-              <span style={{ color: "hsl(var(--muted-foreground))" }}>
-                {" "}
-                (CI {Math.round(ciLow * 100)}–{Math.round(ciHigh * 100)}%)
-              </span>
+            {reportSummary || (
+              <>
+                {t("sentenceOf")}
+                <span className="tabular" style={{ fontFamily: "var(--font-mono)" }}>
+                  {fmtNum(m.papersEvaluated)}
+                </span>
+                {t("papersScreenedShort")}
+                <strong style={{ fontWeight: 600 }}>
+                  {m.highlyRelevant} {t("areHighlyRelevant")}
+                </strong>{" "}
+                <span className="tabular" style={{ fontFamily: "var(--font-mono)" }}>
+                  {m.closelyRelated}
+                </span>{" "}
+                {t("closelyRelatedCovering")}{" "}
+                <strong style={{ fontWeight: 600 }}>
+                  {coverage !== undefined && coverage !== null
+                    ? Math.round(coverage * 100)
+                    : "—"}%
+                </strong>{" "}
+                {t("ofTheField")}
+                {ciLow !== undefined &&
+                  ciLow !== null &&
+                  ciHigh !== undefined &&
+                  ciHigh !== null && (
+                  <span style={{ color: "hsl(var(--muted-foreground))" }}>
+                    {" "}
+                    (CI {Math.round(ciLow * 100)}–{Math.round(ciHigh * 100)}%)
+                  </span>
+                )}
+                .
+              </>
             )}
-            .
           </p>
         </div>
       </header>
