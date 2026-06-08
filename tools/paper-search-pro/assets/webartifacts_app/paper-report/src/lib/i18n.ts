@@ -79,7 +79,7 @@ const STRINGS = {
     citationScatterTitle: 'Top 50 papers by citation × year',
     citationScatterSub: 'Point area scales with RCS score. Hover any dot for paper details; click to open.',
     topicsTitle: 'Topical landscape of the screened set',
-    topicsSub: 'Each block is a cluster discovered via topic modelling over title + abstract. Block area scales with the number of papers in that cluster. Click any block to open its top paper.',
+    topicsSub: 'Each block is a deterministic theme cluster derived from available keywords/topics or fallback title + abstract frequency signals. Block area scales with the number of papers in that cluster. Click any block to open its top paper.',
     allocationTitle: 'Where the screened papers ended up',
     allocationSub: 'Distribution across the 5 RCS tiers. Width is proportional to count.',
     methodologyTitle: 'How these numbers are computed',
@@ -248,7 +248,7 @@ const STRINGS = {
     rcsExplain: "Each candidate paper is scored 0–10 by an LLM pass over its title and abstract. The score is then weighted by the paper's position in the local citation graph (PageRank over within-set citations) to reward bibliographically central works.",
     coverageExplain: 'We fit the observed (papers screened, highly-relevant found) trajectory to the model y(n) = R · (1 - e^(-n/τ)); the asymptote R is our estimate of the total relevant literature, and coverage = y(n)/R. The 95% CI reflects model parameter uncertainty, not a ground-truth boundary.',
     dedupExplain: 'Papers from multiple sources (OpenAlex / Semantic Scholar / Crossref / PubMed / arXiv) are merged in four passes: Level 1 DOI exact match → Level 2 arXiv ID → Level 3 PMID / OpenAlex / SS ID fallback → Level 4 normalized-title + year. The sources of each paper are preserved in its sources[] array.',
-    themeExplain: 'Themes are derived from available keywords/topics when present, and otherwise from deterministic title + abstract text clustering. Exact method depends on the current report run.',
+    themeExplain: 'Themes are derived from available keywords/topics when present, and otherwise from deterministic title + abstract frequency clustering. Exact method depends on the current report run.',
 
     // Threshold labels for RCS histogram footer
     periphShort: 'Periph',
@@ -340,7 +340,7 @@ const STRINGS = {
     citationScatterTitle: '引用 × 年份(Top 50)',
     citationScatterSub: '点面积按 RCS 缩放。悬停查看详情，点击打开论文。',
     topicsTitle: '检索结果的主题图景',
-    topicsSub: '每个方块表示一个由主题模型聚类(基于标题 + 摘要)发现的簇，面积按该簇文献数缩放。点击方块打开代表性论文。',
+    topicsSub: '每个方块表示一个由已有 keywords/topics 或标题 + 摘要频次信号生成的确定性主题聚类，面积按该簇文献数缩放。点击方块打开代表性论文。',
     allocationTitle: '已筛文献的最终归属',
     allocationSub: '在 5 个 RCS 档级上的分布，宽度与数量成正比。',
     methodologyTitle: '这些数字是怎么算出来的',
@@ -495,7 +495,7 @@ const STRINGS = {
     rcsExplain: '每篇候选论文先由 LLM 基于标题+摘要打 0–10 分，再结合局部引用图的 PageRank 加权，优先突出学术中心位置的工作。',
     coverageExplain: '我们将"已筛选 / 已发现高相关"轨迹拟合到模型 y(n) = R · (1 − e^(−n/τ));渐近线 R 即对相关文献总量的估计，覆盖率 = y(n)/R。95% 置信区间反映模型参数不确定性，而非真实事实边界。',
     dedupExplain: '多数据源(OpenAlex / Semantic Scholar / Crossref / PubMed / arXiv)按四级合并:Level 1 DOI 精确匹配 → Level 2 arXiv ID → Level 3 PMID/OpenAlex/SS ID 兜底 → Level 4 标题归一化 + 年份。同一论文的来源在 sources[] 数组中保留溯源。',
-    themeExplain: '主题优先来自已有 keywords/topics；若缺失，则退回到基于标题 + 摘要的确定性文本聚类。具体方法取决于当前报告实际运行链路。',
+    themeExplain: '主题优先来自已有 keywords/topics；若缺失，则退回到基于标题 + 摘要频次信号的确定性文本聚类。具体方法取决于当前报告实际运行链路。',
 
     // Threshold labels for RCS histogram footer
     periphShort: '外围', emergShort: '新兴', modShort: '中等', highShort: '高',

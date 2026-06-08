@@ -89,6 +89,85 @@ return:
 The optional host-Agent postprocess may polish or merge display labels only after
 raw themes exist. It must not invent new themes or override a low-signal gate.
 
+## Example direction: concept alias overlay
+
+If the observed problem is mixed Chinese/English synonyms, do not solve it by
+adding more stopwords or by importing a broad subject taxonomy as the main
+decision layer.
+
+The intended direction is a lightweight **concept alias overlay**:
+
+```json
+{
+  "schema_version": "theme_concept_aliases.v1",
+  "concept_aliases": [
+    {
+      "concept_id": "comm:channel_estimation",
+      "canonical": {
+        "en": "Channel Estimation",
+        "zh": "信道估计"
+      },
+      "aliases": {
+        "en": ["channel estimation", "CSI estimation"],
+        "zh": ["信道估计", "信道状态信息估计"]
+      },
+      "domains": ["communications", "signal_processing"],
+      "source_refs": [
+        {
+          "source": "manual_overlay",
+          "label": "Channel Estimation"
+        }
+      ],
+      "review_status": "accepted",
+      "confidence": "curated"
+    },
+    {
+      "concept_id": "comm:ris",
+      "canonical": {
+        "en": "Reconfigurable Intelligent Surface",
+        "zh": "可重构智能表面"
+      },
+      "aliases": {
+        "en": [
+          "RIS",
+          "reconfigurable intelligent surface",
+          "intelligent reflecting surface"
+        ],
+        "zh": ["智能反射面", "可重构智能表面"]
+      },
+      "domains": ["communications"],
+      "source_refs": [
+        {
+          "source": "manual_overlay",
+          "label": "Reconfigurable Intelligent Surface"
+        }
+      ],
+      "review_status": "accepted",
+      "confidence": "curated"
+    }
+  ]
+}
+```
+
+The alias overlay is alias-only. Stopwords, connectors, generic terms, and
+fragment rules remain in `theme_lexicon.zh.json` / `theme_lexicon.en.json`.
+
+Expected deterministic flow:
+
+1. Extract candidate phrases from titles/abstracts.
+2. Match candidates against `concept_aliases`.
+3. Merge all matched aliases into the same `concept_id`.
+   - Example: `无线通信`, `wireless communication`, and
+     `wireless communications` should count as one concept.
+4. Sort concept-level groups by merged paper coverage and specificity.
+5. Send unmatched candidates through the normal balanced fallback path.
+6. Keep raw candidates auditable; apply display quality gates separately.
+
+External taxonomies such as IEEE Taxonomy, CSO, PhySH, MSC2020, arXiv
+categories, or MeSH/UMLS may be used as references for canonical labels or
+Agent-suggested maintenance, but they should not replace the accepted alias
+overlay or silently become a bundled query-specific ontology.
+
 ## User-triggered lexicon update flow
 
 Trigger phrase examples:
@@ -107,10 +186,14 @@ Required flow:
 3. Propose lexicon changes as a diff-style list grouped by section.
 4. State why each entry is generic/connector/shape/noise, and why it is not a
    query-specific topic injection.
-5. Wait for explicit user confirmation before editing lexicon JSON.
-6. Apply the same update to both lexicon copies.
-7. Add or update a regression test using a small fixture.
-8. Re-run targeted tests and regenerate the representative report if requested.
+5. If the problem is mixed-language synonyms, propose a
+   `theme_concept_aliases.json` diff instead of a stopword diff.
+6. Wait for explicit user confirmation before editing lexicon JSON.
+7. Apply negative-lexicon updates to both package/tool lexicon copies; apply
+   alias updates to the reviewed alias overlay.
+8. Validate alias collisions before promotion.
+9. Add or update a regression test using a small fixture.
+10. Re-run targeted tests and regenerate the representative report if requested.
 
 ## Guardrails
 
