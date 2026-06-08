@@ -15,6 +15,7 @@ from .report_recovery import infer_quality_profile, split_missing_and_insufficie
 from .sources.search_cache import SearchSession
 from .sources.search_models import SearchHit, coerce_search_hit
 from .theme_clustering import build_keyword_topic_themes, build_text_themes
+from .theme_postprocess import build_theme_postprocess_request
 
 
 def render_html_webartifacts(*args, **kwargs):
@@ -330,7 +331,7 @@ def _build_theme_treemap(papers: list[dict]) -> dict:
         return keyword_topic
 
     text_fallback = build_text_themes(papers)
-    if not text_fallback["themes"] and papers:
+    if not text_fallback["themes"] and papers and not text_fallback.get("status"):
         text_fallback["themes"] = [
             {
                 "name": "Paper Set",
@@ -343,10 +344,24 @@ def _build_theme_treemap(papers: list[dict]) -> dict:
         ]
     text_fallback["method"] = "seed_text_frequency_fallback"
     text_fallback["note"] = (
-        "Seed-preview topic groups derived from repeated title, abstract, and venue terms because "
+        "Seed-preview topic groups derived from repeated title and abstract terms because "
         "structured keywords/topics were unavailable in the seed metadata."
     )
     return text_fallback
+
+
+def _apply_theme_postprocess(
+    raw_theme_treemap: dict,
+    papers: list[dict],
+    *,
+    report_mode: str,
+) -> tuple[dict, dict]:
+    _request, trace = build_theme_postprocess_request(
+        raw_theme_treemap,
+        papers,
+        report_mode=report_mode,
+    )
+    return raw_theme_treemap, trace
 
 
 def _has_effective_theme_signal(theme_treemap: dict | None) -> bool:
@@ -372,7 +387,10 @@ def _reconcile_quality_profile_with_chart_signals(
     reconciled = dict(quality_profile or {})
     if (
         reconciled.get("topic_analysis_mode") == "disabled"
-        and _has_effective_theme_signal((chart_data or {}).get("theme_treemap"))
+        and _has_effective_theme_signal(
+            (chart_data or {}).get("raw_theme_treemap")
+            or (chart_data or {}).get("theme_treemap")
+        )
     ):
         reconciled["topic_analysis_mode"] = "limited"
     return reconciled
@@ -405,6 +423,12 @@ def _build_chart_data(papers: list[dict], source_summary: dict) -> dict:
         f"Estimated to have found about {highly} relevant papers, "
         f"approximately {coverage*100:.0f}% of the relevant set "
         f"(95% CI: {max(0.0, coverage - ci_band)*100:.0f}-{min(1.0, coverage + ci_band)*100:.0f}%)."
+    )
+    raw_theme_treemap = _build_theme_treemap(papers)
+    theme_treemap, theme_postprocess = _apply_theme_postprocess(
+        raw_theme_treemap,
+        papers,
+        report_mode="seed_preview",
     )
     return {
         "year_counts": {str(year): data["total"] for year, data in years.items()},
@@ -449,7 +473,9 @@ def _build_chart_data(papers: list[dict], source_summary: dict) -> dict:
             ],
             "edges": [],
         },
-        "theme_treemap": _build_theme_treemap(papers),
+        "raw_theme_treemap": raw_theme_treemap,
+        "theme_treemap": theme_treemap,
+        "theme_postprocess": theme_postprocess,
     }
 
 

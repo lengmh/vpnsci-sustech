@@ -28,6 +28,7 @@ export interface NormalizedMeta {
   searchId?: string
   reportMode?: string
   mode?: string
+  topicAnalysisMode?: "enabled" | "limited" | "disabled"
   /** 'quick' | 'standard' | 'deep' | 'audit' */
   tier?: string
   generatedAt?: string

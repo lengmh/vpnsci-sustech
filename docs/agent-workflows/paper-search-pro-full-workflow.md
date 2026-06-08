@@ -234,6 +234,63 @@ Agents must not leave the HTML topic/主题图景 section as a single meaningles
 
 For Chinese reports, theme names should be readable Chinese labels when the Agent can reliably infer them.
 
+### Agent-owned theme postprocess boundary
+
+Quick reference:
+
+- `docs/agent-workflows/theme-postprocess-contract.md`
+
+When the workflow performs an optional label-refinement step after raw theme clustering, the default provider is the **current host Agent**, not a Python-side external API call.
+
+Recommended payload split:
+
+- `chart_data.raw_theme_treemap` → raw deterministic clustering output
+- `chart_data.theme_treemap` → display-facing refined result
+- `chart_data.theme_postprocess` → lightweight trace
+
+Recommended Agent request payload:
+
+```json
+{
+  "report_mode": "full",
+  "agent_guidance": "...",
+  "themes": [
+    {
+      "index": 0,
+      "name": "Machine Learning",
+      "value": 12,
+      "paper_ids": ["10.x/example"],
+      "representative_titles": ["Paper title A", "Paper title B"]
+    }
+  ]
+}
+```
+
+Required Agent result payload:
+
+```json
+{
+  "groups": [
+    {
+      "label": "Machine Learning",
+      "theme_indices": [0, 2]
+    }
+  ]
+}
+```
+
+Validation rules:
+
+- every raw theme index appears exactly once;
+- no out-of-range indices;
+- no empty labels;
+- no partial coverage.
+
+If the Agent does not provide a result, the workflow should fail open:
+
+- keep `theme_treemap == raw_theme_treemap`
+- record `theme_postprocess.reason = "agent_postprocess_not_supplied"`
+
 ## PRISMA-S Audit Data Shape
 
 The full workflow has two related but different PRISMA-S artifacts. Agents must not confuse them:

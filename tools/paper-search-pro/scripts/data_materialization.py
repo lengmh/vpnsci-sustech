@@ -27,6 +27,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from .theme_clustering import build_keyword_topic_themes, build_text_themes
+from .theme_postprocess import build_theme_postprocess_request
 from .types import UnifiedPaperEntity
 
 
@@ -135,7 +136,7 @@ def materialize(
         # from when the hydrated bundle was capped at 1.5 MB. With 5 MB now
         # acceptable, the broader citation-graph view is worth +25 KB.
         "citation_network": _build_citation_network(classified, max_nodes=150),
-        "theme_treemap": _build_themes(classified),
+        **_build_theme_chart_payload(classified),
     }
     paper_list = [_render_paper(p) for p in _sorted_for_display(classified)]
     metadata = _build_metadata(
@@ -371,12 +372,11 @@ def _build_themes(papers: List[UnifiedPaperEntity]) -> Dict[str, Any]:
                     "paper_id": p.paper_id,
                     "title": p.title,
                     "abstract": p.abstract,
-                    "venue": p.venue,
                 }
                 for p in papers
             ]
         )
-        if not text_fallback["themes"] and papers:
+        if not text_fallback["themes"] and papers and not text_fallback.get("status"):
             text_fallback["themes"] = [
                 {
                     "name": "Paper Set",
@@ -386,11 +386,25 @@ def _build_themes(papers: List[UnifiedPaperEntity]) -> Dict[str, Any]:
             ]
         text_fallback["method"] = "text_frequency_fallback"
         text_fallback["note"] = (
-            "Theme groups derived from repeated title, abstract, and venue terms because "
+            "Theme groups derived from repeated title and abstract terms because "
             "structured keywords/topics were unavailable in the materialized KG."
         )
         return text_fallback
     return data
+
+
+def _build_theme_chart_payload(papers: List[UnifiedPaperEntity]) -> Dict[str, Any]:
+    raw_theme_treemap = _build_themes(papers)
+    _request, theme_postprocess = build_theme_postprocess_request(
+        raw_theme_treemap,
+        papers,
+        report_mode="full",
+    )
+    return {
+        "raw_theme_treemap": raw_theme_treemap,
+        "theme_treemap": raw_theme_treemap,
+        "theme_postprocess": theme_postprocess,
+    }
 
 
 def _source_label(source: str) -> str:

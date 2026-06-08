@@ -228,6 +228,9 @@ const STRINGS = {
     closelyRelatedCovering: 'closely related — covering an estimated',
     ofTheField: 'of the field',
     topicNotAvailable: 'Topic clustering not available for this run.',
+    topicsDisabledNotice: 'Not enough reliable abstract, keyword, or topic signal was available for this run, so the topical landscape was not rendered.',
+    topicsLimitedNotice: 'The topical landscape below is derived from limited metadata or fallback theme signals and should be treated as reference-only.',
+    topicsNoRenderableSignal: 'No renderable topical landscape was formed for this run.',
 
     // Charts axis & hint labels
     yearArrow: 'year →',
@@ -472,6 +475,9 @@ const STRINGS = {
     closelyRelatedCovering: '密切相关 — 覆盖该领域约',
     ofTheField: '的文献',
     topicNotAvailable: '本次运行未进行主题聚类。',
+    topicsDisabledNotice: '当前缺少足够可靠的摘要、关键词或主题信号，未输出主题图景。',
+    topicsLimitedNotice: '当前主题图景基于有限元数据或回退主题信号生成，仅供参考。',
+    topicsNoRenderableSignal: '当前未形成可展示的主题图景。',
 
     // Charts axis & hint labels
     yearArrow: '年份 →',
