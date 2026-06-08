@@ -4,7 +4,7 @@
 
 - 新增统一文献 artifact 命名器：`identifier`、`title_author`、`title_year_author`、`custom`。
 - `fetch_paper` / CLI `fetch` / `batch` / `search --fetch` 支持命名参数。
-- CLI `batch` 保存的 JSON / Markdown / TXT sidecar 结果也复用同一套命名规则；默认 `identifier` 保持兼容。
+- CLI `batch` 保存的 JSON / Markdown / TXT sidecar 结果也复用同一套命名规则。2026-06-08 起新默认改为 `title_author`；`identifier` 仍可显式选择以保持旧脚本兼容。
 - CLI `config-cmd` 支持配置 `paper_filename_max_length` 与 `paper_filename_collision`，并校验：policy 仅允许 `identifier/title_author/title_year_author/custom`，max length 必须为正整数，collision 仅允许 `hash/increment`。
 - 友好命名策略在标题/作者等元数据不足、模板结果为空白、纯符号或纯下划线时，会回退到稳定 `identifier` stem，避免 `-.pdf` / `_.pdf` 这类文件名。
 - MCP `fetch_paper` 支持 `ask_rename`，客户端支持 elicitation 时可询问一次命名策略；失败或取消时回退配置。

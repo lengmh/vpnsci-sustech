@@ -905,7 +905,7 @@ def save_cnki_downloaded_artifact(
     """Save a CNKI downloaded artifact through the shared filename policy."""
 
     cfg = config or Config.load()
-    policy = filename_policy or getattr(cfg, "paper_filename_policy", "identifier") or "identifier"
+    policy = filename_policy or getattr(cfg, "paper_filename_policy", "title_author") or "title_author"
     template = filename_template or getattr(cfg, "paper_filename_template", "") or ""
     max_length = int(getattr(cfg, "paper_filename_max_length", 180) or 180)
     collision = getattr(cfg, "paper_filename_collision", "hash") or "hash"
