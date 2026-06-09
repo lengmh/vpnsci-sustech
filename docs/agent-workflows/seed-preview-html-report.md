@@ -9,6 +9,8 @@ Seed preview is intentionally different from full `paper-search-pro`:
 - it reuses an existing Search Session;
 - it does not run full source expansion;
 - it does not run classifier SubAgents;
+- it does not produce formal RCS unless the user explicitly runs the separate
+  `seed_classified` path described below;
 - it does not create a full `execution_log.json`;
 - it must still provide enough renderer data for visible topic and audit sections.
 
@@ -84,6 +86,48 @@ Historical guardrail:
 - Do not reintroduce fixed theme buckets for infrared or any other query family.
 - Examples that use `红外线测量` / `infrared measurement` are query-display
   examples only; they are not a runtime theme taxonomy.
+
+## RCS Validity
+
+`mode="seed_preview"` and recovery-compatible seed reports do not execute
+formal relevance classification. The adapter may still carry a neutral raw
+`rcs=5` value for renderer compatibility, but that value is scaffold only:
+
+```json
+{
+  "rcs": 5,
+  "rcs_valid": false,
+  "rcs_source": "scaffold",
+  "rcs_flag": "scaffold_neutral"
+}
+```
+
+Renderer and statistics rules:
+
+- scaffold RCS must not appear as a real paper score;
+- scaffold RCS must not enter RCS histograms, high/close relevance counts, or
+  tier allocation;
+- paper cards/list rows should display `—` for invalid RCS;
+- methods copy should say formal RCS classification was not executed.
+
+`mode="seed_classified"` is the explicit seed-only alternative when the user
+wants valid RCS for the saved Search Session papers without full source
+expansion. It prepares a host-Agent classification request, applies the
+returned JSON, and records:
+
+```json
+{
+  "rcs_valid": true,
+  "rcs_source": "seed_classifier",
+  "rcs_scope": "seed_set",
+  "rcs_execution_mode": "subagent_parallel"
+}
+```
+
+If classification is done by the main Agent rather than classifier SubAgents,
+the report must disclose `rcs_execution_mode="main_agent_serial"`.
+`seed_classified` is not a full workflow fallback unless it is explicitly
+presented as a seed-only classified alternative and the user chooses it.
 
 ## Agent-owned Theme Postprocess Contract
 

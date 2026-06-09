@@ -390,7 +390,7 @@ def search(
                     console.print("[yellow]完整专业调研需要 handoff，当前未启动 HTML 生成。[/yellow]")
                     console.print(f"Handoff: {report_result.handoff_path}")
                     console.print("Automation: Codex 会话层读取 handoff 后继续跑 full workflow。")
-                    console.print("Multi-agent: 需要 multi_agent_v1.spawn_agent；SubAgent 失败必须在对话内汇报，不会静默退回 seed_preview。")
+                    console.print("Multi-agent: 需要 multi_agent_v1.spawn_agent；SubAgent 失败必须在对话内汇报，不会静默退回 seed_preview/seed_classified。")
                     console.print("[yellow]将继续显示标准检索结果。[/yellow]")
                 else:
                     console.print("[green]专业调研报告已生成。[/green]")
@@ -459,7 +459,7 @@ def search(
 @app.command()
 def report(
     search_session_id: str = typer.Argument(help="Search session id returned by search."),
-    mode: str = typer.Option("full", "--mode", help="Report mode: full or seed_preview."),
+    mode: str = typer.Option("full", "--mode", help="Report mode: full, seed_preview, or seed_classified."),
 ):
     """Generate an HTML report from a saved search session."""
     cfg = Config.load()
@@ -476,13 +476,19 @@ def report(
         console.print("[yellow]完整专业调研需要 handoff，当前未启动 HTML 生成。[/yellow]")
         console.print(f"Handoff: {result.handoff_path}")
         console.print("Automation: Codex 会话层读取 handoff 后继续跑 full workflow。")
-        console.print("Multi-agent: 需要 multi_agent_v1.spawn_agent；SubAgent 失败必须在对话内汇报，不会静默退回 seed_preview。")
+        console.print("Multi-agent: 需要 multi_agent_v1.spawn_agent；SubAgent 失败必须在对话内汇报，不会静默退回 seed_preview/seed_classified。")
     elif getattr(result, "status", "") == "theme_postprocess_required":
         console.print("[yellow]主题后处理需要 host Agent 接管，当前未启动最终 HTML 渲染。[/yellow]")
         console.print(f"Materialized Dir: {result.materialized_dir}")
         console.print(f"Request: {result.theme_postprocess_request_path}")
         console.print(f"Result Target: {result.theme_postprocess_result_path}")
         console.print("Automation: host Agent 读取 request，写回 result，再回到正式主链完成渲染。")
+    elif getattr(result, "status", "") == "rcs_classification_required":
+        console.print("[yellow]RCS 分类需要 host Agent 接管，当前未启动最终 HTML 渲染。[/yellow]")
+        console.print(f"Materialized Dir: {result.materialized_dir}")
+        console.print(f"Request: {result.rcs_classification_request_path}")
+        console.print(f"Result Target: {result.rcs_classification_result_path}")
+        console.print("Automation: host Agent 读取 request，按 full RCS rubric 对 seed set 分类，再回写 result。")
     else:
         console.print("[green]专业调研报告已生成。[/green]")
         console.print(f"Local Path: {result.report_path}")
@@ -502,6 +508,14 @@ def report_recover(
     if not sidecar and not report_json:
         console.print("[red]Missing recovery input: provide --sidecar or --report-json.[/red]")
         raise typer.Exit(1)
+    try:
+        normalized_mode = report_bridge.normalize_report_mode(mode)
+    except report_bridge.ReportBridgeConfigError as exc:
+        console.print(f"[red]Unsupported report mode: {exc}[/red]")
+        raise typer.Exit(1)
+    if normalized_mode == "seed_classified":
+        console.print("[red]Recovery reports do not run formal RCS classification. Use --mode seed_preview.[/red]")
+        raise typer.Exit(1)
     cfg = Config.load()
     resolved = resolve_report_recovery_session(
         sidecar=sidecar or None,
@@ -513,7 +527,7 @@ def report_recover(
     result = report_bridge.start_report_from_session(
         session.session_id,
         config=cfg,
-        mode=mode,
+        mode=normalized_mode,
         display_query=session.display_query or session.recovered_label,
         open_report=True,
     )

@@ -51,6 +51,10 @@ function tierForRcs(rcs: number): 1 | 2 | 3 | 4 | 5 {
   return 5
 }
 
+function validRcs(node: CitationNetworkNode): number | null {
+  return node.rcs_valid === false ? null : node.rcs
+}
+
 function sizeForRcs(rcs: number): number {
   return 4 + (rcs / 10) * 8
 }
@@ -149,11 +153,12 @@ export function CitationScatter({
   const Dot = (props: DotProps) => {
     const { cx, cy, payload } = props
     if (cx == null || cy == null || !payload) return <g />
-    const tier = tierForRcs(payload.rcs)
-    const baseR = sizeForRcs(payload.rcs)
+    const rcs = validRcs(payload)
+    const tier = tierForRcs(rcs ?? 0)
+    const baseR = sizeForRcs(rcs ?? 0)
     const maxR = baseR + 3 // rendered SVG r — also the hover-state size
     const isHovered = hoveredId === payload.id
-    const baseOpacity = payload.rcs >= 5.5 ? 0.9 : 0.55
+    const baseOpacity = rcs !== null && rcs >= 5.5 ? 0.9 : 0.35
 
     // Resting scale = baseR/maxR; hover scale = 1.0 (full maxR rendered).
     const targetScale = isHovered ? 1 : baseR / maxR
@@ -214,7 +219,8 @@ export function CitationScatter({
     const { active, payload } = props
     if (!active || !payload || payload.length === 0) return null
     const n = payload[0].payload
-    const tier = tierForRcs(n.rcs)
+    const rcs = validRcs(n)
+    const tier = tierForRcs(rcs ?? 0)
     const S = getS()
     return (
       <div className="border-border/50 bg-background grid min-w-[8rem] max-w-[320px] items-start gap-1 rounded-lg border px-2.5 py-1.5 text-xs shadow-xl">
@@ -237,7 +243,7 @@ export function CitationScatter({
             }}
           >
             {n.year} · {n.citation_count} {S.cites || "cites"} · RCS{" "}
-            {(n.rcs / 10).toFixed(2)}
+            {rcs === null ? "—" : (rcs / 10).toFixed(2)}
           </span>
         </div>
         <div className="font-medium text-foreground leading-snug">

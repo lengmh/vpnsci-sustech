@@ -48,7 +48,10 @@ export function PaperList({
   // a Foundational+High-only view with no UI to disable, so clicking
   // Moderate/Emerging/Peripheral in TierStrip produced an empty list. See
   // App.tsx ReportShell comment for the full rationale.
-  const tierFilter = papers.filter((p) => p.rcs >= threshold)
+  const tierFilter =
+    threshold > 0
+      ? papers.filter((p) => p.rcsValid && p.rcs >= threshold)
+      : papers
   const searched = search
     ? tierFilter.filter((p) => {
         const q = search.toLowerCase()
@@ -62,9 +65,14 @@ export function PaperList({
       })
     : tierFilter
 
-  // Group by tier
+  const validScored = searched.filter((p) => p.rcsValid)
+  const unscored = searched.filter((p) => !p.rcsValid)
+
+  // Group by tier. Invalid scaffold/parser-fallback values are listed in a
+  // separate unavailable section so a neutral raw `rcs=5` never masquerades as
+  // an Emerging tier.
   const groups: Partial<Record<Tier, NormalizedPaper[]>> = {}
-  for (const p of searched) {
+  for (const p of validScored) {
     if (!groups[p.tier]) groups[p.tier] = []
     groups[p.tier]!.push(p)
   }
@@ -146,6 +154,92 @@ export function PaperList({
           </section>
         )
       })}
+
+      {unscored.length > 0 && (
+        <section>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "baseline",
+              gap: 12,
+              padding: "30px 4px 12px",
+            }}
+          >
+            <span
+              style={{
+                fontSize: 11,
+                fontWeight: 500,
+                fontFamily: "var(--font-mono)",
+                textTransform: "uppercase",
+                letterSpacing: "0.14em",
+                color: "hsl(var(--foreground))",
+              }}
+            >
+              {t("rcsUnavailableTitle")}
+            </span>
+            <span
+              className="tabular"
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: 11,
+                color: "hsl(var(--muted-foreground))",
+                opacity: 0.7,
+              }}
+            >
+              {unscored.length}
+            </span>
+            <div
+              style={{
+                flex: 1,
+                height: 1,
+                background: "hsl(var(--border))",
+                margin: "0 4px",
+              }}
+            />
+            <span
+              style={{
+                fontSize: 11,
+                color: "hsl(var(--muted-foreground))",
+                fontFamily: "var(--font-mono)",
+              }}
+            >
+              {t("rcsUnavailableReason")}
+            </span>
+          </div>
+          <div
+            style={
+              view === "card"
+                ? {
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 14,
+                    padding: "8px 0 0",
+                  }
+                : undefined
+            }
+          >
+            {unscored.map((p) => {
+              const idx = globalIdx++
+              return view === "card" ? (
+                <PaperCardItem
+                  key={p.id}
+                  paper={p}
+                  index={idx}
+                  onSelect={onSelect}
+                />
+              ) : (
+                <Row
+                  key={p.id}
+                  paper={p}
+                  index={idx}
+                  onSelect={onSelect}
+                  dim={true}
+                />
+              )
+            })}
+          </div>
+        </section>
+      )}
     </div>
   )
 }

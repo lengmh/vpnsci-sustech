@@ -220,10 +220,13 @@ function ReportShell({
   // Top and reintroduce the state with a real UI toggle.
 
   const filtered = useMemo(() => {
-    const out = data.papers.filter((p) => p.rcs >= threshold)
+    const out =
+      threshold > 0
+        ? data.papers.filter((p) => p.rcsValid && p.rcs >= threshold)
+        : data.papers
     return tierFilter === "all"
       ? out
-      : out.filter((p) => p.tier === tierFilter)
+      : out.filter((p) => p.rcsValid && p.tier === tierFilter)
   }, [data.papers, threshold, tierFilter])
 
   function go(delta: number): void {
@@ -251,7 +254,9 @@ function ReportShell({
 
   const tierCounts = useMemo(() => {
     const c: Partial<Record<Tier, number>> = {}
-    for (const p of data.papers) c[p.tier] = (c[p.tier] || 0) + 1
+    for (const p of data.papers) {
+      if (p.rcsValid) c[p.tier] = (c[p.tier] || 0) + 1
+    }
     return c
   }, [data.papers])
 

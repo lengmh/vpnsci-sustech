@@ -108,6 +108,8 @@ class UnifiedPaperEntity:
     rcs: Optional[int] = None                # 0-10, set during classification
     rcs_reasoning: Optional[str] = None
     rcs_flag: Optional[str] = None           # parse_failed_uncertain / off_topic_despite_keywords / abstract_unavailable / no_abstract_uncertain
+    rcs_valid: Optional[bool] = None         # False for parser fallback / scaffold values that must not count as formal RCS
+    rcs_source: Optional[str] = None         # full_classifier / seed_classifier / parser_fallback / scaffold / none
     sources: List[str] = field(default_factory=list)  # ["openalex", "semantic_scholar", "crossref", "pubmed", "arxiv"]
     discovery_path: Optional[str] = None     # "query: prospect theory" / "ref of W12345" / "cites W12345" / "arxiv:T-0~T-4"
 

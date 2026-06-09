@@ -35,6 +35,9 @@ from .theme_postprocess import (
 )
 from .types import UnifiedPaperEntity
 
+INVALID_RCS_FLAGS = {"parse_failed_uncertain"}
+VALID_RCS_EXECUTION_MODES = {"none", "subagent_parallel", "main_agent_serial"}
+
 
 def _dump(path: Path, obj: Any) -> Path:
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -100,6 +103,7 @@ def materialize(
     stop_reason: Optional[str] = None,
     started_at: Optional[str] = None,
     kg_source_path: Optional[Path] = None,
+    rcs_execution_mode: str = "subagent_parallel",
 ) -> Dict[str, Path]:
     """Write chart_data / paper_list / metadata / prisma_log + report_data.
 
@@ -121,6 +125,10 @@ def materialize(
             a graceful fallback for wall_clock when neither
             `wall_clock_seconds` nor `started_at` is provided (uses
             now - kg.json mtime). P0-7 graceful fallback.
+        rcs_execution_mode: how formal RCS classification was executed. The
+            normal full workflow uses ``subagent_parallel``; explicit serial
+            fallback should pass ``main_agent_serial`` so the report can
+            disclose it.
     """
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -161,6 +169,7 @@ def materialize(
         wall_clock_seconds=wall_clock_seconds,
         stop_reason=stop_reason,
         query_plan=query_plan,
+        rcs_execution_mode=rcs_execution_mode,
     )
 
     from .prisma_s_logger import build_prisma_s_log  # lazy; sibling module
@@ -201,7 +210,8 @@ def _build_year_histogram(papers: List[UnifiedPaperEntity]) -> Dict[str, Any]:
         if not p.year:
             continue
         by_year_total[p.year] += 1
-        if (p.rcs or 0) >= 7:
+        valid_rcs = _rcs_value_if_valid(p)
+        if valid_rcs is not None and valid_rcs >= 7:
             by_year_highly[p.year] += 1
     if not by_year_total:
         return {"bins": [], "year_min": None, "year_max": None}
@@ -219,12 +229,16 @@ def _build_year_histogram(papers: List[UnifiedPaperEntity]) -> Dict[str, Any]:
 
 
 def _build_rcs_distribution(papers: List[UnifiedPaperEntity]) -> Dict[str, Any]:
-    """Histogram of RCS 0-10 with mean and 95% CI (binomial). Counts only RCS-set papers."""
-    scored = [p for p in papers if p.rcs is not None]
+    """Histogram of valid formal RCS 0-10 with mean and 95% CI."""
+    scored = [
+        rcs
+        for p in papers
+        for rcs in [_rcs_value_if_valid(p)]
+        if rcs is not None
+    ]
     counts = [0] * 11
-    for p in scored:
-        if 0 <= int(p.rcs) <= 10:
-            counts[int(p.rcs)] += 1
+    for rcs in scored:
+        counts[rcs] += 1
     n = sum(counts)
     if n == 0:
         return {"bins": [], "mean": None, "ci_low": None, "ci_high": None, "n": 0}
@@ -263,7 +277,12 @@ def _build_discovery_curve(
         y = snap.get("n_highly_relevant") or snap.get("highly_relevant_count") or 0
         points.append({"n": int(n), "y": int(y)})
     if not points and papers:
-        highly = sum(1 for p in papers if (p.rcs or 0) >= 7)
+        highly = sum(
+            1
+            for p in papers
+            for rcs in [_rcs_value_if_valid(p)]
+            if rcs is not None and rcs >= 7
+        )
         points = [{"n": 0, "y": 0}, {"n": len(papers), "y": highly}]
 
     tau = _fit_tau(points)
@@ -322,7 +341,7 @@ def _build_citation_network(
     """Force-directed graph nodes (top relevance) + edges derived from discovery_path."""
     sorted_papers = sorted(
         papers,
-        key=lambda p: (-(p.rcs or 0), -(p.citation_count or 0)),
+        key=lambda p: (-(_rcs_value_if_valid(p) or 0), -(p.citation_count or 0)),
     )[:max_nodes]
     id_to_node: Dict[str, Dict[str, Any]] = {}
     for p in sorted_papers:
@@ -334,6 +353,8 @@ def _build_citation_network(
             "year": p.year,
             "venue": p.venue,
             "rcs": p.rcs,
+            "rcs_valid": _rcs_value_if_valid(p) is not None,
+            "rcs_source": _rcs_source_for_paper(p),
             "citation_count": p.citation_count or 0,
             "doi_url": p.doi_url or (f"https://doi.org/{p.doi}" if p.doi else None),
             "is_seed": (p.discovery_path or "").startswith("query:"),
@@ -515,6 +536,7 @@ def _authors_short(p: UnifiedPaperEntity) -> str:
 
 
 def _render_paper(p: UnifiedPaperEntity) -> Dict[str, Any]:
+    valid_rcs = _rcs_value_if_valid(p)
     return {
         "paper_id": p.paper_id,
         "title": p.title or "(untitled)",
@@ -529,6 +551,8 @@ def _render_paper(p: UnifiedPaperEntity) -> Dict[str, Any]:
         "rcs": p.rcs,
         "rcs_reasoning": p.rcs_reasoning,
         "rcs_flag": p.rcs_flag,
+        "rcs_valid": valid_rcs is not None,
+        "rcs_source": _rcs_source_for_paper(p),
         "citation_count": p.citation_count or 0,
         "influential_citation_count": p.influential_citation_count,
         "discovery_path": p.discovery_path,
@@ -539,7 +563,67 @@ def _render_paper(p: UnifiedPaperEntity) -> Dict[str, Any]:
 
 def _sorted_for_display(papers: List[UnifiedPaperEntity]) -> List[UnifiedPaperEntity]:
     """Display order: highly relevant first, then by citation count."""
-    return sorted(papers, key=lambda p: (-(p.rcs or 0), -(p.citation_count or 0), p.year or 0))
+    return sorted(papers, key=lambda p: (-(_rcs_value_if_valid(p) or 0), -(p.citation_count or 0), p.year or 0))
+
+
+def _rcs_value_if_valid(p: UnifiedPaperEntity) -> Optional[int]:
+    if p.rcs is None:
+        return None
+    if p.rcs_flag in INVALID_RCS_FLAGS:
+        return None
+    if p.rcs_valid is False:
+        return None
+    try:
+        rcs = int(p.rcs)
+    except (TypeError, ValueError):
+        return None
+    if 0 <= rcs <= 10:
+        return rcs
+    return None
+
+
+def _rcs_source_for_paper(p: UnifiedPaperEntity) -> str:
+    if p.rcs is None:
+        return p.rcs_source or "none"
+    if p.rcs_flag in INVALID_RCS_FLAGS:
+        return "parser_fallback"
+    if p.rcs_valid is False:
+        return p.rcs_source or "none"
+    return p.rcs_source or "full_classifier"
+
+
+def _rcs_coverage_metadata(
+    papers: List[UnifiedPaperEntity],
+    *,
+    rcs_execution_mode: str,
+) -> Dict[str, Any]:
+    mode = (rcs_execution_mode or "none").strip()
+    if mode not in VALID_RCS_EXECUTION_MODES:
+        raise ValueError(
+            "rcs_execution_mode must be one of: "
+            + ", ".join(sorted(VALID_RCS_EXECUTION_MODES))
+        )
+    valid_count = sum(1 for p in papers if _rcs_value_if_valid(p) is not None)
+    total_count = len(papers)
+    if valid_count:
+        notice = (
+            "RCS covers the full workflow result set; classification was executed serially by the main host Agent."
+            if mode == "main_agent_serial"
+            else "RCS covers the full workflow result set."
+        )
+    else:
+        notice = (
+            "Formal RCS classification was attempted, but no valid RCS scores were produced."
+            if mode != "none"
+            else "RCS is unavailable for this report."
+        )
+    return {
+        "rcs_execution_mode": mode if valid_count or mode != "none" else "none",
+        "rcs_scope": "full_workflow" if valid_count else "none",
+        "rcs_valid_count": valid_count,
+        "rcs_total_count": total_count,
+        "rcs_notice": notice,
+    }
 
 
 # ---------- Metadata ----------
@@ -555,9 +639,16 @@ def _build_metadata(
     wall_clock_seconds: Optional[float],
     stop_reason: Optional[str],
     query_plan: Optional[List[Dict]] = None,
+    rcs_execution_mode: str = "subagent_parallel",
 ) -> Dict[str, Any]:
-    highly_relevant = sum(1 for p in classified if (p.rcs or 0) >= 7)
-    closely_related = sum(1 for p in classified if (p.rcs or 0) in (5, 6))
+    valid_rcs_values = [
+        rcs
+        for p in classified
+        for rcs in [_rcs_value_if_valid(p)]
+        if rcs is not None
+    ]
+    highly_relevant = sum(1 for rcs in valid_rcs_values if rcs >= 7)
+    closely_related = sum(1 for rcs in valid_rcs_values if rcs in (5, 6))
     # P0-7 fix: use explicit None check so a real 0.0 still renders 0.0 and a
     # genuine resolved value (e.g. mtime fallback) survives.
     wall_clock = (
@@ -587,6 +678,10 @@ def _build_metadata(
         "generated_at": datetime.now().isoformat(),
         "skill_version": "paper-search-pro/2.0",
         "stop_reason": stop_reason,
+        **_rcs_coverage_metadata(
+            classified,
+            rcs_execution_mode=rcs_execution_mode,
+        ),
     }
     if actual_query_groups:
         metadata["user_query"] = user_query
@@ -639,6 +734,8 @@ def _kg_from_json(payload) -> Dict[str, UnifiedPaperEntity]:
             rcs=d.get("rcs"),
             rcs_reasoning=d.get("rcs_reasoning"),
             rcs_flag=d.get("rcs_flag"),
+            rcs_valid=d.get("rcs_valid"),
+            rcs_source=d.get("rcs_source"),
             sources=list(d.get("sources") or []),
             discovery_path=d.get("discovery_path"),
             is_oa=d.get("is_oa"),
@@ -722,6 +819,15 @@ if __name__ == "__main__":
         ),
     )
     parser.add_argument(
+        "--rcs-execution-mode",
+        choices=sorted(VALID_RCS_EXECUTION_MODES),
+        default="subagent_parallel",
+        help=(
+            "How formal RCS classification was executed. Use main_agent_serial "
+            "only after explicit serial fallback."
+        ),
+    )
+    parser.add_argument(
         "--output",
         required=True,
         type=Path,
@@ -776,6 +882,7 @@ if __name__ == "__main__":
         # --started-at is passed, fall back to kg.json mtime so metadata
         # carries a non-zero (approximate) wall_clock.
         kg_source_path=args.kg,
+        rcs_execution_mode=args.rcs_execution_mode,
     )
     # If --output names a file other than report_data.json, point it there.
     if args.output.name != "report_data.json":

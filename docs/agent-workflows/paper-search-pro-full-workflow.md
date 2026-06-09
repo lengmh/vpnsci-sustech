@@ -68,11 +68,11 @@ Therefore, a host without SubAgent support is not an MCP failure. It is an Agent
 
 ### Dependency and Degradation Matrix
 
-| Missing / unavailable item | Affected step | Required handling | Allowed degraded path |
+| Missing / unavailable item | Affected step | Required handling | Allowed user-confirmed path |
 |---|---|---|---|
-| SubAgent / multi-agent tool unavailable | STEP 6 relevance classification | Ask the user before continuing | User chooses `seed_preview`, main-Agent serial classification, or stop/retry |
+| SubAgent / multi-agent tool unavailable | STEP 6 relevance classification | Ask the user before continuing | User chooses `seed_preview`, `seed_classified`, main-Agent serial classification, or stop/retry |
 | SubAgent capacity lower than expected | STEP 6 relevance classification | Reduce `max_active_subagents`, dispatch in smaller waves, record wave size | Continue parallel with smaller waves |
-| SubAgent spawn timeout / invalid output | STEP 6 relevance classification | Report failure code and failed batch; retry only when safe | Ask user before serial fallback or seed preview |
+| SubAgent spawn timeout / invalid output | STEP 6 relevance classification | Report failure code and failed batch; retry only when safe | Ask user before serial fallback, seed preview, or seed-classified |
 | Full `paper-search-pro` Python dependency missing | Helper script that imports it | Report package and failed command | Install after user approval, skip optional enrichment when tier allows, or stop |
 | Optional source API unavailable/rate-limited | Source expansion or enrichment | Record source failure and continue if tier permits | Continue with available sources; disclose reduced source coverage |
 | CJK shell encoding unreliable | Query passing / rendering | Read query from UTF-8 JSON or argument file | Regenerate corrupted artifacts from UTF-8 handoff files |
@@ -86,12 +86,15 @@ When the Agent detects that no SubAgent/multi-agent capability exists, it should
 ```text
 SubAgent/multi-agent execution is unavailable in this host.
 Choose one:
-1. Run seed_preview HTML report now — fastest, not full paper-search-pro.
-2. Continue with main-Agent serial classification — closer to full workflow, slower; final report will disclose no SubAgents were used.
-3. Stop and retry later when SubAgents are available.
+1. Run seed_preview HTML report now — fastest, not full paper-search-pro; no formal RCS.
+2. Run seed_classified seed-only RCS report — still not full paper-search-pro; classifies only the saved Search Session papers and performs no source expansion.
+3. Continue with main-Agent serial classification — same full workflow scope, slower; final report will disclose no SubAgents were used.
+4. Stop and retry later when SubAgents are available.
 ```
 
-Do not infer this choice from the original full-report request. The user must explicitly choose a degraded path.
+Do not infer this choice from the original full-report request. The user must
+explicitly choose one of these alternatives. `seed_classified` must never be
+described as a degraded full report; it is a seed-only classified alternative.
 
 ## Text Encoding Policy
 
@@ -153,6 +156,14 @@ Display rules:
 Materialization rule:
 
 - If `query_plan.json` is available, pass it to `scripts.data_materialization --query-plan`.
+- When materializing classified full-workflow results, pass the RCS execution
+  mode explicitly:
+  - `--rcs-execution-mode subagent_parallel` for normal classifier SubAgents;
+  - `--rcs-execution-mode main_agent_serial` only after explicit user-confirmed
+    serial fallback.
+- `parse_failed_uncertain` parser fallback records remain visible in the paper
+  list but are marked `rcs_valid=false`, `rcs_source="parser_fallback"`, and do
+  not enter RCS histograms or high/close relevance totals.
 - If materialization already happened, patch `metadata.json` and `report_data.json["metadata"]` from the executed `query_plan.json` / `query_plan_list.json`, then re-render.
 - Do not reconstruct Chinese query text from shell literals. Read UTF-8 JSON files.
 
@@ -396,19 +407,27 @@ Recommended procedure:
    - completed batches;
    - whether retry is safe.
 
-The workflow must not silently switch to `seed_preview` because SubAgents are unavailable.
+The workflow must not silently switch to `seed_preview` or `seed_classified`
+because SubAgents are unavailable.
 
-If the host has no SubAgent capability, the Agent must ask the user before using any degraded path. The question should present these choices clearly:
+If the host has no SubAgent capability, the Agent must ask the user before using
+any fallback or seed-only alternative. The question should present these choices
+clearly:
 
-1. **Run `seed_preview` HTML report** — fast; uses the existing Search Session only; no full source expansion or full PRISMA-S audit.
-2. **Continue with main-Agent serial classification** — closer to full workflow, but slower and more context-intensive; must disclose that SubAgents were not used.
-3. **Stop and retry later when SubAgents are available** — preserves upstream parallel workflow semantics.
+1. **Run `seed_preview` HTML report** — fast; uses the existing Search Session only; no full source expansion, full PRISMA-S audit, or formal RCS.
+2. **Run `seed_classified` seed-only RCS report** — uses the existing Search Session only and asks the host Agent to classify that seed set; no source expansion or full PRISMA-S audit.
+3. **Continue with main-Agent serial classification** — same full workflow scope, but slower and more context-intensive; must disclose that SubAgents were not used.
+4. **Stop and retry later when SubAgents are available** — preserves upstream parallel workflow semantics.
 
-Only run seed preview or serial classification after the user explicitly chooses that option. If the user chooses serial classification, record the degraded execution mode in workflow notes, PRISMA/disclosure notes, and final response.
+Only run seed preview, seed-classified, or serial classification after the user
+explicitly chooses that option. If the user chooses seed-classified, label it as
+seed-only. If the user chooses serial classification, record the degraded
+execution mode in workflow notes, PRISMA/disclosure notes, and final response.
 
 ## Failure Policy
 
-The Agent must not silently downgrade to `mode="seed_preview"` or main-Agent serial classification.
+The Agent must not silently switch to `mode="seed_preview"`,
+`mode="seed_classified"`, or main-Agent serial classification.
 
 If full workflow cannot continue, report the failure in the current conversation with:
 

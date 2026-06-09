@@ -485,7 +485,7 @@ async def search_papers(query: str, limit: int = 10, year_range: str = "", backe
                 f"- Handoff: `{report.handoff_path}`\n"
                 "- Automation: Codex 会话层读取 handoff 后继续跑 full workflow\n"
                 "- Multi-agent: 需要 `multi_agent_v1.spawn_agent` 启动并行 SubAgent\n"
-                "- Failure policy: SubAgent 启动失败/超时/输出无效会在当前对话内汇报，不会静默退回 seed_preview\n"
+                "- Failure policy: SubAgent 启动失败/超时/输出无效会在当前对话内汇报，不会静默退回 seed_preview/seed_classified\n"
                 f"- Deduped Papers: {report.deduped_paper_count}\n"
                 "没有把 seed-only preview 冒充为完整专业调研。"
             )
@@ -852,12 +852,14 @@ async def generate_search_report(
         The MCP Python process does not directly call Codex-only multi_agent_v1
         tools. If SubAgents cannot start, time out, or return invalid output,
         the Agent should report the failure in the current conversation and must
-        not silently downgrade to mode="seed_preview".
+        not silently downgrade to mode="seed_preview" or "seed_classified".
 
     Args:
         search_session_id: Search session id returned by search_papers.
         mode: "full" targets the full paper-search-pro workflow. "seed_preview"
             renders only the saved search session into a quick HTML preview.
+            "seed_classified" prepares a seed-only formal RCS classification
+            request and does not run full source expansion.
         display_query: Optional human-friendly query/title shown in the report.
         language: Optional report UI language: "zh" or "en".
         open_report: Open the generated report in the default browser after rendering.
@@ -900,7 +902,7 @@ async def generate_search_report(
             f"- Handoff: `{result.handoff_path}`\n"
             "- Automation: Codex 会话层读取 handoff 后继续跑 full workflow\n"
             "- Multi-agent: 需要 `multi_agent_v1.spawn_agent` 启动并行 SubAgent\n"
-            "- Failure policy: SubAgent 启动失败/超时/输出无效会在当前对话内汇报，不会静默退回 seed_preview\n"
+            "- Failure policy: SubAgent 启动失败/超时/输出无效会在当前对话内汇报，不会静默退回 seed_preview/seed_classified\n"
             f"- Deduped Papers: {result.deduped_paper_count}\n"
             f"- Expanded Sources: {', '.join(result.expanded_sources) if result.expanded_sources else '(none)'}\n"
             "当前未启动 HTML 生成；没有把 seed-only preview 冒充为完整 paper-search-pro workflow。"
@@ -920,6 +922,23 @@ async def generate_search_report(
             "- Failure policy: 若 result 缺失/非法，Python 侧保持 fail-open，不把未精修结果冒充为已完成后处理\n"
             f"- Deduped Papers: {result.deduped_paper_count}\n"
             "当前未启动最终 HTML 渲染；等待 host Agent 完成 theme_postprocess_result.json。"
+        )
+    if getattr(result, "status", "") == "rcs_classification_required":
+        return (
+            "⚠️ RCS 分类需要 host Agent 接管。\n\n"
+            f"- Search Session: `{result.seed_session_id}`\n"
+            f"- Report Mode: `{result.report_mode}`\n"
+            f"- Status: `{result.status}`\n"
+            f"- Materialized Dir: `{result.materialized_dir}`\n"
+            f"- Request: `{result.rcs_classification_request_path}`\n"
+            f"- Result Target: `{result.rcs_classification_result_path}`\n"
+            f"- Query: `{result.user_query}`\n"
+            f"- Language: `{result.language}`\n"
+            "- Automation: host Agent 应读取 request，按 full RCS rubric 对 seed set 分类，再调用 apply_rcs_classification_result\n"
+            "- Scope: seed_classified 只覆盖 seed set，不执行 full source expansion\n"
+            "- Failure policy: Python 侧不直接调用 LLM；parse_failed_uncertain 不计为有效 RCS\n"
+            f"- Deduped Papers: {result.deduped_paper_count}\n"
+            "当前未启动最终 HTML 渲染；等待 host Agent 完成 rcs_classification_result.json。"
         )
 
     preview_note = (
@@ -953,6 +972,16 @@ async def generate_recovery_report(
 ) -> str:
     """Recover a SearchSession from sidecar/legacy materials and generate a report."""
     cfg = Config.load()
+    try:
+        normalized_mode = report_bridge.normalize_report_mode(mode)
+    except report_bridge.ReportBridgeConfigError as e:
+        return f"⚠️ Unsupported recovery report mode: {e}"
+    if normalized_mode == "seed_classified":
+        return (
+            "⚠️ Recovery reports do not run formal RCS classification.\n\n"
+            "Use `mode=\"seed_preview\"` for recovery. If you need classified seed-set RCS, "
+            "run `get_rcs_classification_request` on a normal SearchSession instead."
+        )
     resolved = resolve_report_recovery_session(
         sidecar=sidecar_path or None,
         report_json=report_json or None,
@@ -964,7 +993,7 @@ async def generate_recovery_report(
         report_bridge.start_report_from_session,
         session.session_id,
         config=cfg,
-        mode=mode,
+        mode=normalized_mode,
         display_query=session.display_query or session.recovered_label,
         open_report=True,
     )
@@ -1087,6 +1116,120 @@ async def apply_theme_postprocess_result(
         f"- Local Path: `{result.report_path}`\n"
         f"- Materialized Dir: `{result.materialized_dir}`\n"
         "- Tip: 如果链接在 Agent 代码编辑器内打开，请右键 HTML 文件标签，选择“在资源管理器中显示/打开”，再用浏览器打开原文件。"
+    )
+
+
+@mcp.tool()
+async def get_rcs_classification_request(
+    search_session_id: str,
+    display_query: str = "",
+    language: str = "",
+) -> str:
+    """Prepare seed_classified artifacts and return the host-Agent RCS classification request."""
+
+    try:
+        result = await asyncio.to_thread(
+            report_bridge.start_report_from_session,
+            search_session_id,
+            config=Config.load(),
+            mode="seed_classified",
+            display_query=display_query,
+            language=language,
+            open_report=False,
+        )
+    except report_bridge.ReportBridgeConfigError as e:
+        return (
+            "⚠️ RCS classification request 生成失败。\n\n"
+            f"原因：{e}\n"
+            "请先确认报告桥接配置可用。"
+        )
+    except report_bridge.ReportBridgeError as e:
+        return (
+            "⚠️ RCS classification request 生成失败。\n\n"
+            f"原因：{e}\n"
+            "请检查 seed session 与 report adapter 主链。"
+        )
+
+    if getattr(result, "status", "") != "rcs_classification_required":
+        return (
+            "⚠️ 当前报告不处于 rcs_classification_required 状态。\n\n"
+            f"- Search Session: `{result.seed_session_id}`\n"
+            f"- Report Mode: `{result.report_mode}`\n"
+            f"- Status: `{getattr(result, 'status', '')}`\n"
+            "只有在 host Agent 需要接管 RCS 分类时，才会返回标准 request payload。"
+        )
+
+    request_path = Path(result.rcs_classification_request_path)
+    payload = json.loads(request_path.read_text(encoding="utf-8"))
+    return json.dumps(
+        {
+            "search_session_id": result.seed_session_id,
+            "report_mode": result.report_mode,
+            "status": result.status,
+            "materialized_dir": result.materialized_dir,
+            "request_path": result.rcs_classification_request_path,
+            "result_target_path": result.rcs_classification_result_path,
+            "payload": payload,
+        },
+        ensure_ascii=False,
+        indent=2,
+    )
+
+
+@mcp.tool()
+async def apply_rcs_classification_result(
+    search_session_id: str,
+    result_json: str,
+    rcs_execution_mode: str = "main_agent_serial",
+    display_query: str = "",
+    language: str = "",
+    open_report: bool = True,
+) -> str:
+    """Apply one host-Agent RCS classification result and render the seed_classified HTML report."""
+
+    try:
+        payload = json.loads(result_json)
+    except json.JSONDecodeError as e:
+        return f"⚠️ RCS classification result JSON 无法解析：{e}"
+
+    try:
+        result = await asyncio.to_thread(
+            report_bridge.apply_rcs_classification_and_render,
+            search_session_id,
+            result_payload=payload,
+            rcs_execution_mode=rcs_execution_mode,
+            config=Config.load(),
+            display_query=display_query,
+            language=language,
+            open_report=open_report,
+        )
+    except report_bridge.ReportBridgeConfigError as e:
+        return (
+            "⚠️ RCS 分类结果回写失败。\n\n"
+            f"原因：{e}\n"
+            "请确认当前报告桥接仍指向内置 vpnsci seed adapter。"
+        )
+    except report_bridge.ReportBridgeError as e:
+        return (
+            "⚠️ RCS 分类结果回写后渲染失败。\n\n"
+            f"原因：{e}\n"
+            "请检查 result payload、materialized artifacts 与 paper-search-pro 运行时。"
+        )
+    except ValueError as e:
+        return f"⚠️ RCS classification result 无效：{e}"
+
+    return (
+        "✅ RCS 分类结果已写回并完成渲染。\n\n"
+        f"- Search Session: `{result.seed_session_id}`\n"
+        f"- Report Mode: `{result.report_mode}`\n"
+        f"- Status: `{result.status}`\n"
+        f"- Execution Mode: `{rcs_execution_mode}`\n"
+        f"- Request: `{result.rcs_classification_request_path}`\n"
+        f"- Result: `{result.rcs_classification_result_path}`\n"
+        f"- Link: [打开 HTML 报告]({result.file_url})\n"
+        f"- Local Path: `{result.report_path}`\n"
+        f"- Materialized Dir: `{result.materialized_dir}`\n"
+        "- Scope: RCS 只覆盖 seed set；未执行 full source expansion。"
     )
 
 

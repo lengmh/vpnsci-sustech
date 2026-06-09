@@ -48,6 +48,11 @@ export interface NormalizedMeta {
   reportRecoveryCapability?: string
   missingFields?: string[]
   insufficientAnalysisFields?: string[]
+  rcsExecutionMode?: "none" | "subagent_parallel" | "main_agent_serial" | string
+  rcsScope?: "none" | "seed_set" | "full_workflow" | string
+  rcsValidCount?: number
+  rcsTotalCount?: number
+  rcsNotice?: string
 }
 
 export interface AuthorRef {
@@ -69,6 +74,8 @@ export interface NormalizedPaper {
   tldr: string | null
   /** 0-10 integer (raw shape) or 0-10 number (post-mat); fmtRcs divides by 10 */
   rcs: number
+  rcsValid: boolean
+  rcsSource: string | null
   rcsReasoning: string | null
   rcsFlag: string | null
   tier: Tier
@@ -125,6 +132,8 @@ export interface CitationNetworkNode {
   /** Some pipelines emit `citation_count`, older fixtures `count` */
   citation_count: number
   rcs: number
+  rcs_valid?: boolean
+  rcs_source?: string
   title: string
   authors_short?: string
   venue?: string

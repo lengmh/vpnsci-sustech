@@ -54,6 +54,8 @@ const STRINGS = {
     // Paper row / card
     cites: 'cites', influential: '★ influential', noPapersMatch: 'No papers match these filters. Lower the RCS threshold or clear the search.',
     fieldDefining: 'field-defining', authorsUnspecified: 'Authors unspecified',
+    rcsUnavailableTitle: 'RCS unavailable',
+    rcsUnavailableReason: 'Formal RCS classification was not executed or did not parse.',
 
     // Detail Sheet
     tldrLabel: 'TL;DR — Semantic Scholar', whyThisPaper: 'Why this paper',
@@ -317,6 +319,8 @@ const STRINGS = {
     cites: '次引用', influential: '★ 高影响力引用',
     noPapersMatch: '没有文献符合当前筛选条件。降低 RCS 阈值或清除搜索词。',
     fieldDefining: '领域定义性', authorsUnspecified: '作者信息未提供',
+    rcsUnavailableTitle: 'RCS 不可用',
+    rcsUnavailableReason: '未执行正式 RCS 分类，或分类结果未能解析。',
 
     tldrLabel: '一句话摘要 · Semantic Scholar', whyThisPaper: '为何收录这篇',
     abstractLabel: '摘要', authorsLabel: '作者', metadataLabel: '元数据',

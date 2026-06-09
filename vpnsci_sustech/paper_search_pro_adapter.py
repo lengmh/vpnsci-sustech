@@ -23,6 +23,10 @@ from .theme_postprocess import (
 )
 
 
+RCS_CLASSIFICATION_REQUEST_FILENAME = "rcs_classification_request.json"
+RCS_CLASSIFICATION_RESULT_FILENAME = "rcs_classification_result.json"
+
+
 def render_html_webartifacts(*args, **kwargs):
     from scripts.html_renderer_webartifacts import render_html_webartifacts as renderer
 
@@ -62,6 +66,147 @@ def _score_hit(hit: SearchHit) -> int:
     """
 
     return 5
+
+
+SCAFFOLD_RCS = 5
+SCAFFOLD_RCS_SOURCE = "scaffold"
+SCAFFOLD_RCS_FLAG = "scaffold_neutral"
+INVALID_RCS_FLAGS = {"parse_failed_uncertain"}
+
+
+def _rcs_value_if_valid(paper: dict) -> int | None:
+    if not paper.get("rcs_valid"):
+        return None
+    if paper.get("rcs_flag") in INVALID_RCS_FLAGS:
+        return None
+    try:
+        rcs = int(paper.get("rcs"))
+    except (TypeError, ValueError):
+        return None
+    if 0 <= rcs <= 10:
+        return rcs
+    return None
+
+
+def _rcs_coverage_metadata(
+    papers: list[dict],
+    *,
+    rcs_execution_mode: str = "none",
+) -> dict:
+    valid_count = sum(1 for paper in papers if _rcs_value_if_valid(paper) is not None)
+    total_count = len(papers)
+    execution_mode = rcs_execution_mode if rcs_execution_mode != "none" else "none"
+    if valid_count == 0 and rcs_execution_mode == "none":
+        notice = "RCS is unavailable for this report mode; formal RCS classification was not executed."
+    elif valid_count == 0:
+        notice = "Formal RCS classification was attempted, but no valid RCS scores were produced."
+    elif execution_mode == "main_agent_serial":
+        notice = "RCS covers the current seed paper set only; classification was executed serially by the main host Agent."
+    else:
+        notice = "RCS covers the current seed paper set only."
+    return {
+        "rcs_execution_mode": execution_mode if valid_count or rcs_execution_mode != "none" else "none",
+        "rcs_scope": "none" if valid_count == 0 else "seed_set",
+        "rcs_valid_count": valid_count,
+        "rcs_total_count": total_count,
+        "rcs_notice": notice,
+    }
+
+
+def _classification_records(result_payload: object) -> list[dict]:
+    if isinstance(result_payload, dict):
+        records = result_payload.get("papers") or result_payload.get("results")
+    else:
+        records = result_payload
+    if not isinstance(records, list):
+        raise ValueError("RCS classification result must be a JSON array or an object with papers/results.")
+    if not all(isinstance(item, dict) for item in records):
+        raise ValueError("Every RCS classification record must be an object.")
+    return records
+
+
+def _apply_rcs_classification_result(papers: list[dict], result_payload: object) -> list[dict]:
+    records = _classification_records(result_payload)
+    by_id = {
+        str(paper.get("paper_id") or paper.get("id")): dict(paper)
+        for paper in papers
+    }
+    if len(records) != len(by_id):
+        raise ValueError("RCS classification result must cover every paper exactly once.")
+    seen: set[str] = set()
+    for record in records:
+        paper_id = str(record.get("paper_id") or "")
+        if not paper_id:
+            raise ValueError("RCS classification record missing paper_id.")
+        if paper_id in seen:
+            raise ValueError(f"Duplicate RCS classification record for paper_id: {paper_id}")
+        if paper_id not in by_id:
+            raise ValueError(f"Unknown RCS classification paper_id: {paper_id}")
+        seen.add(paper_id)
+        try:
+            rcs = int(record.get("rcs"))
+        except (TypeError, ValueError):
+            raise ValueError(f"Invalid RCS value for paper_id: {paper_id}") from None
+        if rcs < 0 or rcs > 10:
+            raise ValueError(f"RCS out of range for paper_id: {paper_id}")
+        reasoning = str(record.get("reasoning") or "").strip()
+        if not reasoning:
+            raise ValueError(f"RCS classification record missing reasoning for paper_id: {paper_id}")
+        flag = record.get("flag")
+        flag_value = str(flag) if flag is not None else None
+        valid = flag_value not in INVALID_RCS_FLAGS
+        paper = by_id[paper_id]
+        paper["rcs"] = rcs
+        paper["rcs_reasoning"] = reasoning
+        paper["rcs_valid"] = valid
+        paper["rcs_source"] = "seed_classifier" if valid else "parser_fallback"
+        paper["rcs_flag"] = flag_value
+        by_id[paper_id] = paper
+    return [by_id[str(paper.get("paper_id") or paper.get("id"))] for paper in papers]
+
+
+def _build_rcs_classification_request(
+    papers: list[dict],
+    *,
+    query: str,
+    language: str,
+    report_mode: str,
+) -> dict:
+    request_papers: list[dict] = []
+    for paper in papers:
+        request_papers.append(
+            {
+                "paper_id": paper.get("paper_id") or paper.get("id"),
+                "title": paper.get("title") or "",
+                "abstract": paper.get("abstract") or "",
+                "keywords": paper.get("keywords") or [],
+                "year": paper.get("year"),
+                "venue": paper.get("venue") or "",
+                "doi": paper.get("doi") or "",
+                "source": paper.get("source") or "",
+            }
+        )
+    return {
+        "report_mode": report_mode,
+        "rcs_scope": "seed_set",
+        "classification_owner": "host_agent",
+        "query": query,
+        "language": language,
+        "rubric_reference": "tools/paper-search-pro/references/rcs_rubric.md",
+        "classifier_prompt_reference": "tools/paper-search-pro/references/classifier_subagent_prompt.md",
+        "instructions": [
+            "Apply the full paper-search-pro RCS rubric to this seed paper set only.",
+            "Return JSON records only; do not run source expansion or PRISMA reconstruction.",
+            "If classification runs in the main Agent instead of SubAgents, disclose rcs_execution_mode=main_agent_serial when applying the result.",
+        ],
+        "expected_output_schema": {
+            "type": "array",
+            "required": ["paper_id", "rcs", "reasoning"],
+            "optional": ["flag"],
+            "rcs_range": [0, 10],
+        },
+        "papers": request_papers,
+    }
 
 
 def _paper_id_from_hit(hit: SearchHit, index: int) -> str:
@@ -146,7 +291,10 @@ def _paper_from_hit(hit: SearchHit, index: int, query: str) -> dict:
         "source": ", ".join(hit.sources or [hit.source or hit.backend or "seed"]),
         "tier": "seed",
         "rcs": rcs,
-        "rcs_reasoning": "Seed result from vpnsci-sustech standard search session; relevance estimated heuristically for report visualization.",
+        "rcs_reasoning": "Neutral scaffold value; formal RCS classification was not executed.",
+        "rcs_valid": False,
+        "rcs_source": SCAFFOLD_RCS_SOURCE,
+        "rcs_flag": SCAFFOLD_RCS_FLAG,
         "discovery_path": f"query: {query}",
         "sources": hit.sources or [hit.source or hit.backend or "seed"],
     }
@@ -599,22 +747,35 @@ def _build_report_summary(display_query: str, paper_count: int, language: str) -
     return f"The current paper set contains {paper_count} papers."
 
 
-def _build_chart_data(papers: list[dict], source_summary: dict, *, materialized_dir: Path | None = None) -> dict:
+def _build_chart_data(
+    papers: list[dict],
+    source_summary: dict,
+    *,
+    materialized_dir: Path | None = None,
+    report_mode: str = "seed_preview",
+) -> dict:
     years: dict[int, dict[str, int]] = {}
     rcs_counts = [0] * 11
     for paper in papers:
         year = paper.get("year")
-        rcs = int(paper.get("rcs") or 0)
+        valid_rcs = _rcs_value_if_valid(paper)
         if year:
             years.setdefault(int(year), {"year": int(year), "total": 0, "highly_relevant": 0})
             years[int(year)]["total"] += 1
-            if rcs >= 7:
+            if valid_rcs is not None and valid_rcs >= 7:
                 years[int(year)]["highly_relevant"] += 1
-        if 0 <= rcs <= 10:
-            rcs_counts[rcs] += 1
+        if valid_rcs is not None:
+            rcs_counts[valid_rcs] += 1
     total = len(papers)
-    highly = sum(1 for p in papers if int(p.get("rcs") or 0) >= 7)
-    closely = sum(1 for p in papers if int(p.get("rcs") or 0) in (5, 6))
+    valid_rcs_values = [
+        rcs
+        for paper in papers
+        for rcs in [_rcs_value_if_valid(paper)]
+        if rcs is not None
+    ]
+    valid_total = len(valid_rcs_values)
+    highly = sum(1 for rcs in valid_rcs_values if rcs >= 7)
+    closely = sum(1 for rcs in valid_rcs_values if rcs in (5, 6))
     coverage = 0.0 if total == 0 else min(0.98, max(0.5, total / (total + max(1, closely))))
     ci_band = 0.15 if total < 50 else 0.08
     estimated_total = highly / coverage if coverage > 0 else 0.0
@@ -631,7 +792,7 @@ def _build_chart_data(papers: list[dict], source_summary: dict, *, materialized_
     theme_treemap, theme_postprocess, theme_postprocess_request = _apply_theme_postprocess(
         raw_theme_treemap,
         papers,
-        report_mode="seed_preview",
+        report_mode=report_mode,
         materialized_dir=materialized_dir,
     )
     return {
@@ -644,11 +805,15 @@ def _build_chart_data(papers: list[dict], source_summary: dict, *, materialized_
             "year_max": max(years) if years else None,
         },
         "relevance_score": {
-            "bins": [{"rcs": i, "count": rcs_counts[i]} for i in range(11)],
-            "mean": round(sum(i * rcs_counts[i] for i in range(11)) / total, 2) if total else None,
+            "bins": (
+                [{"rcs": i, "count": rcs_counts[i]} for i in range(11)]
+                if valid_total
+                else []
+            ),
+            "mean": round(sum(i * rcs_counts[i] for i in range(11)) / valid_total, 2) if valid_total else None,
             "ci_low": None,
             "ci_high": None,
-            "n": total,
+            "n": valid_total,
         },
         "discovery_curve": {
             "points": discovery_points,
@@ -666,6 +831,8 @@ def _build_chart_data(papers: list[dict], source_summary: dict, *, materialized_
                     "year": p.get("year"),
                     "citation_count": p.get("citation_count") or 0,
                     "rcs": p.get("rcs") or 0,
+                    "rcs_valid": _rcs_value_if_valid(p) is not None,
+                    "rcs_source": p.get("rcs_source") or "",
                     "title": p.get("title") or "",
                     "authors_short": p.get("authors_short") or "",
                     "venue": p.get("venue") or "",
@@ -717,7 +884,13 @@ def _seed_step_not_performed(note: str) -> dict:
     return {"performed": False, "note": note}
 
 
-def _build_seed_prisma_log(session: SearchSession, papers: list[dict], metadata: dict) -> dict:
+def _build_seed_prisma_log(
+    session: SearchSession,
+    papers: list[dict],
+    metadata: dict,
+    *,
+    report_mode: str = "seed_preview",
+) -> dict:
     """Build a lightweight, renderer-compatible PRISMA-S disclosure for seed previews."""
 
     sources = [source for source, count in sorted((session.source_summary or {}).items()) if count]
@@ -749,11 +922,11 @@ def _build_seed_prisma_log(session: SearchSession, papers: list[dict], metadata:
         },
         "3_study_registries": {
             "queried": False,
-            "note": "Not performed in seed_preview mode.",
+            "note": f"Not performed in {report_mode} mode.",
         },
-        "4_online_resources_browsing": _seed_step_not_performed("Not performed in seed_preview mode."),
-        "5_citation_searching": _seed_step_not_performed("Citation chasing is part of full paper-search-pro, not seed_preview."),
-        "6_contacts": _seed_step_not_performed("Author/contact search is not performed in seed_preview mode."),
+        "4_online_resources_browsing": _seed_step_not_performed(f"Not performed in {report_mode} mode."),
+        "5_citation_searching": _seed_step_not_performed(f"Citation chasing is part of full paper-search-pro, not {report_mode}."),
+        "6_contacts": _seed_step_not_performed(f"Author/contact search is not performed in {report_mode} mode."),
         "7_other_methods": {
             "performed": True,
             "note": "Existing vpnsci-sustech Search Session reused as seed evidence for quick HTML reporting.",
@@ -768,18 +941,18 @@ def _build_seed_prisma_log(session: SearchSession, papers: list[dict], metadata:
         "9_limits_and_restrictions": {
             "performed": True,
             "limits": [
-                "seed_preview mode",
+                f"{report_mode} mode",
                 "existing Search Session only",
                 "no full source expansion",
-                "no SubAgent relevance grading",
+                "no full-workflow SubAgent relevance grading",
             ],
         },
         "10_search_filters": {
             "performed": bool(session.filters),
             "filters": session.filters or {},
         },
-        "11_prior_work": _seed_step_not_performed("Prior systematic review search is not performed in seed_preview mode."),
-        "12_updates": _seed_step_not_performed("Search update tracking is not performed in seed_preview mode."),
+        "11_prior_work": _seed_step_not_performed(f"Prior systematic review search is not performed in {report_mode} mode."),
+        "12_updates": _seed_step_not_performed(f"Search update tracking is not performed in {report_mode} mode."),
         "13_dates_of_searches": {
             "performed": True,
             "generated_at": generated_at,
@@ -798,11 +971,11 @@ def _build_seed_prisma_log(session: SearchSession, papers: list[dict], metadata:
         "16_record_management": {
             "performed": True,
             "search_id": session.session_id,
-            "report_mode": "seed_preview",
+            "report_mode": report_mode,
             "outputs": ["metadata.json", "paper_list.json", "chart_data.json", "prisma_log.json", "report_data.json", "report.html"],
         },
         "_meta": {
-            "mode": "seed_preview",
+            "mode": report_mode,
             "is_full_prisma_s": False,
             "note": "Lightweight disclosure only; full PRISMA-S requires generate_search_report(..., mode='full') and the upstream paper-search-pro workflow.",
         },
@@ -819,6 +992,9 @@ def _write_materialized_data(
     *,
     display_query: str = "",
     language: str = "",
+    report_mode: str = "seed_preview",
+    rcs_classification_result: object | None = None,
+    rcs_execution_mode: str = "none",
 ) -> Path:
     data_dir = output_dir / "materialized"
     data_dir.mkdir(parents=True, exist_ok=True)
@@ -826,7 +1002,14 @@ def _write_materialized_data(
     recovered_label = session.recovered_label or ""
     pre_resolved_display_query = display_query or session.display_query or original_query
     papers = [_paper_from_hit(hit, i, pre_resolved_display_query) for i, hit in enumerate(session.hits, 1)]
-    chart_data = _build_chart_data(papers, session.source_summary, materialized_dir=data_dir)
+    if rcs_classification_result is not None:
+        papers = _apply_rcs_classification_result(papers, rcs_classification_result)
+    chart_data = _build_chart_data(
+        papers,
+        session.source_summary,
+        materialized_dir=data_dir,
+        report_mode=report_mode,
+    )
     display_resolution = _resolve_report_display_queries(
         session,
         explicit_display_query=display_query,
@@ -844,8 +1027,15 @@ def _write_materialized_data(
     report_query = display_resolution["display_title"]
     report_language = language or _detect_language(report_query)
     report_summary = _build_report_summary(resolved_display_query, len(papers), report_language)
-    highly = sum(1 for paper in papers if int(paper.get("rcs") or 0) >= 7)
-    closely = sum(1 for paper in papers if int(paper.get("rcs") or 0) in (5, 6))
+    rcs_coverage = _rcs_coverage_metadata(papers, rcs_execution_mode=rcs_execution_mode)
+    valid_rcs_values = [
+        rcs
+        for paper in papers
+        for rcs in [_rcs_value_if_valid(paper)]
+        if rcs is not None
+    ]
+    highly = sum(1 for rcs in valid_rcs_values if rcs >= 7)
+    closely = sum(1 for rcs in valid_rcs_values if rcs in (5, 6))
     discovery_curve = chart_data["discovery_curve"]
     actual_query_variants = _query_variants_from_session(session)
     actual_query_groups = _actual_query_groups_from_session(session, display_query=resolved_display_query or original_query)
@@ -945,15 +1135,16 @@ def _write_materialized_data(
         "papers_in_kg": len(papers),
         "highly_relevant_count": highly,
         "closely_related_count": closely,
+        **rcs_coverage,
         "coverage_estimate": discovery_curve["coverage_estimate"],
         "coverage_ci": [discovery_curve["ci_low"], discovery_curve["ci_high"]],
         "coverage_label": "seed preview estimate" if discovery_curve["coverage_estimate"] is not None else "",
         "source_summary": session.source_summary,
         "mode": "vpnsci-seed-report",
-        "report_mode": "seed_preview",
+        "report_mode": report_mode,
         "tier": "standard",
     }
-    prisma_log = _build_seed_prisma_log(session, papers, metadata)
+    prisma_log = _build_seed_prisma_log(session, papers, metadata, report_mode=report_mode)
     report_data = {
         "metadata": metadata,
         "chart_data": chart_data,
@@ -972,6 +1163,17 @@ def _write_materialized_data(
             json.dumps(theme_postprocess_request, ensure_ascii=False, indent=2),
             encoding="utf-8",
         )
+    if report_mode == "seed_classified":
+        rcs_request = _build_rcs_classification_request(
+            papers,
+            query=report_query,
+            language=report_language,
+            report_mode=report_mode,
+        )
+        (data_dir / RCS_CLASSIFICATION_REQUEST_FILENAME).write_text(
+            json.dumps(rcs_request, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
     return data_dir
 
 
@@ -981,6 +1183,9 @@ def prepare_report(
     *,
     display_query: str = "",
     language: str = "",
+    report_mode: str = "seed_preview",
+    rcs_classification_result: object | None = None,
+    rcs_execution_mode: str = "none",
 ) -> dict:
     """Prepare materialized data and expose theme-postprocess artifact paths."""
 
@@ -991,10 +1196,15 @@ def prepare_report(
         output_dir,
         display_query=display_query,
         language=language,
+        report_mode=report_mode,
+        rcs_classification_result=rcs_classification_result,
+        rcs_execution_mode=rcs_execution_mode,
     )
     selected_language = language or _detect_language(display_query or session.query)
     request_path = materialized_dir / THEME_POSTPROCESS_REQUEST_FILENAME
     result_path = materialized_dir / THEME_POSTPROCESS_RESULT_FILENAME
+    rcs_request_path = materialized_dir / RCS_CLASSIFICATION_REQUEST_FILENAME
+    rcs_result_path = materialized_dir / RCS_CLASSIFICATION_RESULT_FILENAME
     return {
         "session_id": session.session_id,
         "report_path": str(output_dir / "report.html"),
@@ -1002,6 +1212,9 @@ def prepare_report(
         "theme_postprocess_request_path": str(request_path),
         "theme_postprocess_result_path": str(result_path),
         "theme_postprocess_pending": request_path.exists() and not result_path.exists(),
+        "rcs_classification_request_path": str(rcs_request_path),
+        "rcs_classification_result_path": str(rcs_result_path),
+        "rcs_classification_pending": rcs_request_path.exists() and not rcs_result_path.exists(),
         "user_query": display_query or session.query,
         "language": selected_language,
     }

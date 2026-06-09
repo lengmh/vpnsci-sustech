@@ -25,6 +25,14 @@ export function fmtRcs(rcs: number | null | undefined): string {
   return (rcs / 10).toFixed(2)
 }
 
+/** Display score only when it is a valid formal RCS value. */
+export function fmtRcsMaybe(
+  rcs: number | null | undefined,
+  valid: boolean | null | undefined,
+): string {
+  return valid ? fmtRcs(rcs) : "—"
+}
+
 /** Tier from raw rcs (0-10 scale). */
 export function rcsTier(rcs: number): Tier {
   if (rcs >= 8.5) return "Foundational"
