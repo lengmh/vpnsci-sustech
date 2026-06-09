@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/tooltip"
 
 import type { NormalizedPaper } from "@/lib/types"
-import { fmtNum, fmtRcs } from "@/lib/format"
+import { fmtNum, fmtRcsMaybe } from "@/lib/format"
 import { t, getS } from "@/lib/i18n"
 
 function Dot() {
@@ -74,7 +74,7 @@ function RcsInstrument({ paper }: { paper: NormalizedPaper }) {
           color: "hsl(var(--foreground))",
         }}
       >
-        {fmtRcs(paper.rcs)}
+        {fmtRcsMaybe(paper.rcs, paper.rcsValid)}
       </span>
     </div>
   )

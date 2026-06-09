@@ -22,7 +22,7 @@ import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 
 import type { NormalizedPaper } from "@/lib/types"
-import { fmtNum, fmtRcs } from "@/lib/format"
+import { fmtNum, fmtRcsMaybe } from "@/lib/format"
 import { t, getS } from "@/lib/i18n"
 
 import { TierDot } from "./TierDot"
@@ -116,7 +116,7 @@ export function PaperSheet({
               {paper.year ||
                 (getS() as Record<string, string>).yearUnknownA11y ||
                 "year unknown"}{" "}
-              · RCS {((paper.rcs ?? 0) / 10).toFixed(2)}
+              · RCS {fmtRcsMaybe(paper.rcs, paper.rcsValid)}
             </SheetDescription>
             {/* Header row — tier pill + nav buttons */}
             <div
@@ -139,11 +139,15 @@ export function PaperSheet({
                   boxShadow: "inset 0 0 0 1px hsl(var(--border))",
                 }}
               >
-                <TierDot tier={paper.tier} />
-                <span style={{ fontSize: 11.5, fontWeight: 500 }}>
-                  {(getS() as Record<string, string>)[paper.tier] || paper.tier}
-                </span>
-                <Separator orientation="vertical" className="h-4" />
+                {paper.rcsValid && (
+                  <>
+                    <TierDot tier={paper.tier} />
+                    <span style={{ fontSize: 11.5, fontWeight: 500 }}>
+                      {(getS() as Record<string, string>)[paper.tier] || paper.tier}
+                    </span>
+                    <Separator orientation="vertical" className="h-4" />
+                  </>
+                )}
                 <span
                   className="tabular"
                   style={{
@@ -152,7 +156,7 @@ export function PaperSheet({
                     fontWeight: 600,
                   }}
                 >
-                  {fmtRcs(paper.rcs)}
+                  {fmtRcsMaybe(paper.rcs, paper.rcsValid)}
                 </span>
               </div>
               <div style={{ flex: 1 }} />

@@ -34,6 +34,8 @@ interface RawPaper {
   rcs?: number
   rcsScore?: number
   rcs_reasoning?: string | null
+  rcs_valid?: boolean | null
+  rcs_source?: string | null
   reasoning?: string | null
   rcs_flag?: string | null
   citation_count?: number
@@ -100,6 +102,11 @@ interface RawMetadata {
   report_recovery_capability?: string
   missing_fields?: string[]
   insufficient_analysis_fields?: string[]
+  rcs_execution_mode?: string
+  rcs_scope?: string
+  rcs_valid_count?: number
+  rcs_total_count?: number
+  rcs_notice?: string
   quality_profile?: {
     topic_analysis_mode?: "enabled" | "limited" | "disabled"
   }
@@ -220,11 +227,25 @@ export function normalize(raw: RawShape | null | undefined): NormalizedData {
         reportRecoveryCapability: md.report_recovery_capability,
         missingFields: md.missing_fields,
         insufficientAnalysisFields: md.insufficient_analysis_fields,
+        rcsExecutionMode: md.rcs_execution_mode,
+        rcsScope: md.rcs_scope,
+        rcsValidCount: md.rcs_valid_count,
+        rcsTotalCount: md.rcs_total_count,
+        rcsNotice: md.rcs_notice,
       },
       papers: (raw.papers ?? [])
         .map((p): NormalizedPaper => {
           const authorsFull = p.authors_full ?? []
           const rcs = typeof p.rcs === "number" ? p.rcs : 0
+          const rcsFlag = p.rcs_flag ?? null
+          const rcsValid =
+            p.rcs_valid === false || rcsFlag === "parse_failed_uncertain"
+              ? false
+              : p.rcs_valid === true
+                ? true
+                : p.rcs_source === "full_classifier" || p.rcs_source === "seed_classifier"
+                  ? true
+                  : md.report_mode === "full" && typeof p.rcs === "number"
           return {
             id: p.paper_id ?? p.id ?? "",
             title: p.title ?? "",
@@ -237,8 +258,10 @@ export function normalize(raw: RawShape | null | undefined): NormalizedData {
             abstract: p.abstract ?? null,
             tldr: p.tldr ?? null,
             rcs,
+            rcsValid,
+            rcsSource: p.rcs_source ?? null,
             rcsReasoning: p.rcs_reasoning ?? null,
-            rcsFlag: p.rcs_flag ?? null,
+            rcsFlag,
             tier: rcsTier(rcs),
             citations: p.citation_count ?? 0,
             influentialCitations: p.influential_citation_count ?? 0,
@@ -247,7 +270,10 @@ export function normalize(raw: RawShape | null | undefined): NormalizedData {
             isOpenAccess: p.is_oa,
           }
         })
-        .sort((a, b) => b.rcs - a.rcs),
+        .sort((a, b) => {
+          if (a.rcsValid !== b.rcsValid) return a.rcsValid ? -1 : 1
+          return b.rcs - a.rcs
+        }),
       chartData: raw.chart_data ?? {},
       prismaLog: raw.prisma_log ?? {},
     }
@@ -284,6 +310,15 @@ export function normalize(raw: RawShape | null | undefined): NormalizedData {
         .filter(Boolean)
       const rawRcs =
         typeof p.rcsScore === "number" ? p.rcsScore * 10 : (p.rcs ?? 0)
+      const rcsFlag = p.rcs_flag ?? null
+      const rcsValid =
+        p.rcs_valid === false || rcsFlag === "parse_failed_uncertain"
+          ? false
+          : p.rcs_valid === true
+            ? true
+            : p.rcs_source === "full_classifier" || p.rcs_source === "seed_classifier"
+              ? true
+              : meta.reportMode === "full" && (typeof p.rcsScore === "number" || typeof p.rcs === "number")
       return {
         id: p.id ?? p.paper_id ?? "",
         title: p.title ?? "",
@@ -296,8 +331,10 @@ export function normalize(raw: RawShape | null | undefined): NormalizedData {
         abstract: p.abstract ?? null,
         tldr: p.tldr ?? null,
         rcs: rawRcs,
+        rcsValid,
+        rcsSource: p.rcs_source ?? null,
         rcsReasoning: p.reasoning ?? p.rcs_reasoning ?? null,
-        rcsFlag: null,
+        rcsFlag,
         tier: rcsTier(rawRcs),
         citations: p.citations ?? 0,
         influentialCitations: 0,

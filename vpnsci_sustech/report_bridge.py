@@ -36,6 +36,8 @@ class ReportBridgeExecutionError(ReportBridgeError):
 
 FULL_MODE_ALIASES = {"full", "pro", "professional", "paper-search-pro", "paper_search_pro"}
 SEED_PREVIEW_ALIASES = {"seed", "seed_preview", "seed-preview", "preview", "standard", ""}
+SEED_CLASSIFIED_ALIASES = {"seed_classified", "seed-classified", "classified_seed", "seed_rcs"}
+RCS_EXECUTION_MODES = {"subagent_parallel", "main_agent_serial"}
 
 
 @dataclass
@@ -53,6 +55,8 @@ class ReportResult:
     materialized_dir: str = ""
     theme_postprocess_request_path: str = ""
     theme_postprocess_result_path: str = ""
+    rcs_classification_request_path: str = ""
+    rcs_classification_result_path: str = ""
     user_query: str = ""
     language: str = ""
 
@@ -73,6 +77,8 @@ class ReportJob:
     materialized_dir: str = ""
     theme_postprocess_request_path: str = ""
     theme_postprocess_result_path: str = ""
+    rcs_classification_request_path: str = ""
+    rcs_classification_result_path: str = ""
     user_query: str = ""
     language: str = ""
 
@@ -83,6 +89,8 @@ def normalize_report_mode(mode: str) -> str:
         return "full"
     if normalized in SEED_PREVIEW_ALIASES:
         return "seed_preview"
+    if normalized in SEED_CLASSIFIED_ALIASES:
+        return "seed_classified"
     raise ReportBridgeConfigError(f"Unsupported report mode: {mode}")
 
 
@@ -200,7 +208,12 @@ def create_full_workflow_handoff(
                 {
                     "id": "seed_preview",
                     "label": "Run seed_preview HTML report",
-                    "tradeoff": "Fast; no full source expansion or full PRISMA-S audit.",
+                    "tradeoff": "Fast; no full source expansion, formal RCS, or full PRISMA-S audit.",
+                },
+                {
+                    "id": "seed_classified",
+                    "label": "Run seed-only RCS classification report",
+                    "tradeoff": "Classifies only the saved SearchSession seed set; no full source expansion or full PRISMA-S audit.",
                 },
                 {
                     "id": "main_agent_serial",
@@ -253,11 +266,12 @@ def create_full_workflow_handoff(
             "- Wait tool: `multi_agent_v1.wait_agent`.",
             "- If SubAgents cannot start, time out, or return invalid output, report in the current conversation.",
             "- Failure codes: `subagent_spawn_failed`, `subagent_timeout`, `subagent_result_invalid`, `full_workflow_step_failed`.",
-            "- Fallback: do not silently run seed_preview or serial classification.",
+            "- Fallback: do not silently run seed_preview, seed_classified, or serial classification.",
             "- If SubAgents are unavailable, ask the user to choose one option:",
-            "  1. run `seed_preview` HTML report (fast, not full workflow);",
-            "  2. continue with main-Agent serial classification (slower; disclose no SubAgents were used);",
-            "  3. stop and retry when SubAgents are available.",
+            "  1. run `seed_preview` HTML report (fast, not full workflow, no formal RCS);",
+            "  2. run `seed_classified` seed-only RCS report (not full workflow);",
+            "  3. continue with main-Agent serial classification (same full scope, slower; disclose no SubAgents were used);",
+            "  4. stop and retry when SubAgents are available.",
             "",
             "Run the upstream paper-search-pro Skill workflow with this seed package to perform full professional research.",
             "Required upstream capabilities: five-source expansion, query planning, source routing, SubAgent relevance grading, RCS/PRISMA/export generation.",
@@ -365,12 +379,27 @@ def _prepare_builtin_adapter_report(
     session_out_dir: Path,
     display_query: str = "",
     language: str = "",
+    report_mode: str = "seed_preview",
+    rcs_classification_result: object | None = None,
+    rcs_execution_mode: str = "none",
 ) -> dict:
+    if report_mode == "seed_classified" and rcs_classification_result is None:
+        materialized_dir = session_out_dir / "materialized"
+        result_path = materialized_dir / "rcs_classification_result.json"
+        metadata = _read_json_if_exists(materialized_dir / "metadata.json")
+        if result_path.exists() and isinstance(metadata, dict):
+            existing_mode = str(metadata.get("rcs_execution_mode") or "")
+            if existing_mode in RCS_EXECUTION_MODES:
+                rcs_classification_result = _read_json_if_exists(result_path)
+                rcs_execution_mode = existing_mode
     return prepare_report(
         seed_path,
         session_out_dir,
         display_query=display_query,
         language=language,
+        report_mode=report_mode,
+        rcs_classification_result=rcs_classification_result,
+        rcs_execution_mode=rcs_execution_mode,
     )
 
 
@@ -555,6 +584,48 @@ def generate_report_from_session(
         session_id=session.session_id,
         mode=normalized_mode,
     )
+    if normalized_mode == "seed_classified" and _is_builtin_adapter_command(command):
+        prepared = _prepare_builtin_adapter_report(
+            seed_path=seed_path,
+            session_out_dir=session_out_dir,
+            report_mode=normalized_mode,
+        )
+        if prepared.get("rcs_classification_pending"):
+            return ReportResult(
+                report_path=str(Path(prepared["report_path"])),
+                file_url=path_to_file_url(prepared["report_path"]),
+                seed_session_id=session.session_id,
+                expanded_sources=list(session.source_summary.keys()),
+                deduped_paper_count=len(session.hits),
+                failures=["rcs_classification_pending"],
+                report_mode=normalized_mode,
+                status="rcs_classification_required",
+                materialized_dir=str(prepared["materialized_dir"]),
+                theme_postprocess_request_path=str(prepared["theme_postprocess_request_path"]),
+                theme_postprocess_result_path=str(prepared["theme_postprocess_result_path"]),
+                rcs_classification_request_path=str(prepared["rcs_classification_request_path"]),
+                rcs_classification_result_path=str(prepared["rcs_classification_result_path"]),
+                user_query=str(prepared["user_query"]),
+                language=str(prepared["language"]),
+            )
+        if prepared.get("theme_postprocess_pending"):
+            return ReportResult(
+                report_path=str(Path(prepared["report_path"])),
+                file_url=path_to_file_url(prepared["report_path"]),
+                seed_session_id=session.session_id,
+                expanded_sources=list(session.source_summary.keys()),
+                deduped_paper_count=len(session.hits),
+                failures=["theme_postprocess_pending"],
+                report_mode=normalized_mode,
+                status="theme_postprocess_required",
+                materialized_dir=str(prepared["materialized_dir"]),
+                theme_postprocess_request_path=str(prepared["theme_postprocess_request_path"]),
+                theme_postprocess_result_path=str(prepared["theme_postprocess_result_path"]),
+                rcs_classification_request_path=str(prepared["rcs_classification_request_path"]),
+                rcs_classification_result_path=str(prepared["rcs_classification_result_path"]),
+                user_query=str(prepared["user_query"]),
+                language=str(prepared["language"]),
+            )
     if normalized_mode == "full" and _is_builtin_adapter_command(command):
         handoff_path = create_full_workflow_handoff(
             session,
@@ -672,13 +743,33 @@ def start_report_from_session(
             report_mode="full",
             handoff_path=str(handoff_path),
         )
-    if normalized_mode == "seed_preview" and _is_builtin_adapter_command(command):
+    if normalized_mode in {"seed_preview", "seed_classified"} and _is_builtin_adapter_command(command):
         prepared = _prepare_builtin_adapter_report(
             seed_path=seed_path,
             session_out_dir=session_out_dir,
             display_query=display_query,
             language=language,
+            report_mode=normalized_mode,
         )
+        if normalized_mode == "seed_classified" and prepared.get("rcs_classification_pending"):
+            return ReportJob(
+                report_path=str(Path(prepared["report_path"])),
+                file_url=path_to_file_url(prepared["report_path"]),
+                seed_session_id=session.session_id,
+                status="rcs_classification_required",
+                log_path="",
+                expanded_sources=list(session.source_summary.keys()),
+                deduped_paper_count=len(session.hits),
+                failures=["rcs_classification_pending"],
+                report_mode=normalized_mode,
+                materialized_dir=str(prepared["materialized_dir"]),
+                theme_postprocess_request_path=str(prepared["theme_postprocess_request_path"]),
+                theme_postprocess_result_path=str(prepared["theme_postprocess_result_path"]),
+                rcs_classification_request_path=str(prepared["rcs_classification_request_path"]),
+                rcs_classification_result_path=str(prepared["rcs_classification_result_path"]),
+                user_query=str(prepared["user_query"]),
+                language=str(prepared["language"]),
+            )
         if prepared.get("theme_postprocess_pending"):
             return ReportJob(
                 report_path=str(Path(prepared["report_path"])),
@@ -693,6 +784,8 @@ def start_report_from_session(
                 materialized_dir=str(prepared["materialized_dir"]),
                 theme_postprocess_request_path=str(prepared["theme_postprocess_request_path"]),
                 theme_postprocess_result_path=str(prepared["theme_postprocess_result_path"]),
+                rcs_classification_request_path=str(prepared.get("rcs_classification_request_path", "")),
+                rcs_classification_result_path=str(prepared.get("rcs_classification_result_path", "")),
                 user_query=str(prepared["user_query"]),
                 language=str(prepared["language"]),
             )
@@ -733,6 +826,84 @@ def start_report_from_session(
         deduped_paper_count=len(session.hits),
         failures=[],
         report_mode=normalized_mode,
+    )
+
+
+def apply_rcs_classification_and_render(
+    search_session_id: str,
+    *,
+    result_payload: object,
+    rcs_execution_mode: str,
+    config: Config | None = None,
+    display_query: str = "",
+    language: str = "",
+    open_report: bool = False,
+) -> ReportResult:
+    """Persist one host-Agent RCS classification result and render seed_classified HTML."""
+
+    if rcs_execution_mode not in {"subagent_parallel", "main_agent_serial"}:
+        raise ReportBridgeConfigError("rcs_execution_mode must be subagent_parallel or main_agent_serial.")
+
+    persist_autoconfig = config is None
+    config = config or Config.load()
+    if not config.paper_search_pro_root or not config.paper_search_pro_command:
+        config = report_tools.ensure_report_tool_configured(config, force=False, persist=persist_autoconfig)
+    root, command_template, out_dir = _validate_config(config)
+    session = load_session(search_session_id, Path(config.cache_dir))
+    session_out_dir = _session_output_dir(out_dir, session.session_id)
+    session_out_dir.mkdir(parents=True, exist_ok=True)
+    seed_path = _write_seed_package(session, session_out_dir)
+    command = _render_command(
+        command_template,
+        seed_json=seed_path,
+        output_dir=session_out_dir,
+        session_id=session.session_id,
+        mode="seed_classified",
+    )
+    if not _is_builtin_adapter_command(command):
+        raise ReportBridgeConfigError("RCS classification apply requires the built-in vpnsci adapter command.")
+
+    prepared = _prepare_builtin_adapter_report(
+        seed_path=seed_path,
+        session_out_dir=session_out_dir,
+        display_query=display_query,
+        language=language,
+        report_mode="seed_classified",
+        rcs_classification_result=result_payload,
+        rcs_execution_mode=rcs_execution_mode,
+    )
+    result_path = Path(prepared["rcs_classification_result_path"])
+    _write_json(result_path, result_payload)
+
+    report_path = Path(prepared["report_path"])
+    render_html_webartifacts(
+        materialized_data_dir=Path(prepared["materialized_dir"]),
+        output_path=report_path,
+        user_query=str(prepared["user_query"]),
+        language=str(prepared["language"]),
+        tool_root=root,
+    )
+    if open_report:
+        import webbrowser
+        webbrowser.open(report_path.resolve().as_uri())
+
+    return ReportResult(
+        report_path=str(report_path),
+        file_url=path_to_file_url(report_path),
+        seed_session_id=session.session_id,
+        summary="",
+        expanded_sources=list(session.source_summary.keys()),
+        deduped_paper_count=len(session.hits),
+        failures=[],
+        report_mode="seed_classified",
+        status="completed",
+        materialized_dir=str(prepared["materialized_dir"]),
+        theme_postprocess_request_path=str(prepared["theme_postprocess_request_path"]),
+        theme_postprocess_result_path=str(prepared["theme_postprocess_result_path"]),
+        rcs_classification_request_path=str(prepared["rcs_classification_request_path"]),
+        rcs_classification_result_path=str(result_path),
+        user_query=str(prepared["user_query"]),
+        language=str(prepared["language"]),
     )
 
 
@@ -801,6 +972,7 @@ def apply_theme_postprocess_and_render(
         session_out_dir=session_out_dir,
         display_query=display_query,
         language=language,
+        report_mode=normalized_mode,
     )
     result_path = Path(prepared["theme_postprocess_result_path"])
     result_path.write_text(

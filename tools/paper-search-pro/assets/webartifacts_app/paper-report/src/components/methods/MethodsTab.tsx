@@ -41,6 +41,7 @@ export function MethodsTab({ data, onSelectPaper }: MethodsTabProps) {
   const rcsMean = c.relevance_score?.mean
   const rcsCiLow = c.relevance_score?.ci_low
   const rcsCiHigh = c.relevance_score?.ci_high
+  const rcsValidCount = m.rcsValidCount ?? c.relevance_score?.n ?? 0
   const dc = c.discovery_curve
   const nodes: CitationNetworkNode[] = c.citation_network?.nodes || []
 
@@ -89,11 +90,23 @@ export function MethodsTab({ data, onSelectPaper }: MethodsTabProps) {
   const yearReason = missingFields.has("year")
     ? "暂无年份数据。"
     : "年份数据不足，当前不输出年度分布。"
-  const rcsUnavailable = !rcsBins.length || missingFields.has("citation_count")
+  const rcsUnavailable = rcsValidCount === 0 || !rcsBins.length
   const rcsReason =
-    missingFields.has("citation_count")
-      ? "当前缺少足够相关性支撑元数据，RCS 分布仅供参考。"
+    m.rcsNotice
+      ? m.rcsNotice
+      : missingFields.has("citation_count")
+      ? "当前缺少足够相关性支撑元数据，RCS 分布不可用。"
       : "暂无可用的 RCS 分布数据。"
+  const rcsSummary =
+    rcsMean !== undefined
+      ? t("rcsDistSub", {
+          mean: (rcsMean / 10).toFixed(2),
+          lo: rcsCiLow !== undefined ? (rcsCiLow / 10).toFixed(2) : "—",
+          hi: rcsCiHigh !== undefined ? (rcsCiHigh / 10).toFixed(2) : "—",
+        })
+      : ""
+  const rcsAvailableSub =
+    [rcsSummary, m.rcsNotice].filter(Boolean).join(" ")
   const tierUnavailable = rcsUnavailable
   const tierReason = "未完成可用的相关性评分，当前不输出档级分配。"
   const topicThemes = c.theme_treemap?.themes || []
@@ -321,16 +334,7 @@ export function MethodsTab({ data, onSelectPaper }: MethodsTabProps) {
               sub={
                 rcsUnavailable
                   ? rcsReason
-                  : t("rcsDistSub", {
-                      mean:
-                        rcsMean !== undefined ? (rcsMean / 10).toFixed(2) : "—",
-                      lo:
-                        rcsCiLow !== undefined ? (rcsCiLow / 10).toFixed(2) : "—",
-                      hi:
-                        rcsCiHigh !== undefined
-                          ? (rcsCiHigh / 10).toFixed(2)
-                          : "—",
-                    })
+                  : rcsAvailableSub
               }
             />
             {rcsUnavailable ? (
@@ -460,7 +464,7 @@ export function MethodsTab({ data, onSelectPaper }: MethodsTabProps) {
         ) : (
           <Card style={{ padding: "24px 28px", borderRadius: 12, boxShadow: "none" }}>
             <TierAllocation
-              papers={data.papers}
+              papers={data.papers.filter((p) => p.rcsValid)}
               totalScreened={totalScreened}
               highlyRelevant={highlyRelevant}
               closelyRelated={closelyRelated}

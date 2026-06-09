@@ -390,6 +390,7 @@ PYTHONPATH=~/.claude/skills/paper-search-pro \
     --search-id "$SEARCH_ID" \
     --snapshots "$SEARCH_DIR/curve.json" \
     --query-plan "$SEARCH_DIR/query_plan.json" \
+    --rcs-execution-mode "<subagent_parallel|main_agent_serial>" \
     --output "$SEARCH_DIR/report_data.json"
 
 # 12b. Render HTML (Shadcn webartifacts — only renderer; no size cap)

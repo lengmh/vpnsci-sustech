@@ -4,7 +4,7 @@
 // Direct port of TARGET redesign/list-variants.jsx (88-161).
 
 import type { NormalizedPaper } from "@/lib/types"
-import { fmtNum, fmtRcs } from "@/lib/format"
+import { fmtNum, fmtRcsMaybe } from "@/lib/format"
 
 import { QuickJump } from "./QuickJump"
 import { TierDot } from "./TierDot"
@@ -136,7 +136,7 @@ export function PaperRowIndex({ paper, index, onSelect }: PaperRowIndexProps) {
         }}
       >
         <QuickJump paper={paper} />
-        <TierDot tier={paper.tier} size={7} />
+        {paper.rcsValid && <TierDot tier={paper.tier} size={7} />}
         <span
           className="tabular"
           style={{
@@ -146,7 +146,7 @@ export function PaperRowIndex({ paper, index, onSelect }: PaperRowIndexProps) {
             letterSpacing: "-0.01em",
           }}
         >
-          {fmtRcs(paper.rcs)}
+          {fmtRcsMaybe(paper.rcs, paper.rcsValid)}
         </span>
       </span>
     </button>
