@@ -33,7 +33,16 @@ vpnsci-sustech 通过 [MCP](https://modelcontextprotocol.io/) 协议接入 AI Ag
 
 ### MCP 手动安装 / 配置
 
-如果你的 MCP 宿主支持直接填写 `command` / `args`，推荐使用：
+普通用户如果希望不手动 clone 源码仓，可以用 Git URL `uvx` 启动 MCP 入口：
+
+```toml
+[mcp_servers.vpnsci_sustech]
+type = "stdio"
+command = "uvx"
+args = ["--from", "git+https://github.com/lengmh/vpnsci-sustech.git", "vpnsci-sustech-mcp"]
+```
+
+开发者源码 checkout 或本地可编辑安装时，也可以使用：
 
 ```toml
 [mcp_servers.vpnsci_sustech]
@@ -42,7 +51,7 @@ command = "python"
 args = ["-m", "vpnsci_sustech.mcp_server"]
 ```
 
-如果你是从源码仓库安装，推荐先执行：
+如果你是从源码仓库安装，也可先执行：
 
 ```bash
 pip install git+https://github.com/lengmh/vpnsci-sustech.git
@@ -161,6 +170,8 @@ vpnsci-sustech config-cmd --install-report-tools
 ```
 
 安装后会自动配置报告工具位置、生成命令和报告输出目录。默认命令用于 `seed_preview` 快速 HTML 预览；`mode="full"` 会按完整调研流程继续执行，或在当前 Agent 环境不满足时给出明确选择。
+
+当前仓库边界：Git URL `uvx` 路径可以启动 MCP 入口；但报告前端运行时仍依赖源码仓 `tools/paper-search-pro` 或本地已准备好的 bundled runtime。若 `report-tools install` 在安装态找不到 bundled 资源，应视为配置/打包能力缺口，不要把 `seed_preview` 或 `seed_classified` 说成 `full` 报告。
 
 如果你改的是源码仓里的报告前端（`tools/paper-search-pro/assets/webartifacts_app/paper-report/src/**`），推荐用下面的 repo 维护脚本刷新构建产物和本地 bundled runtime：
 

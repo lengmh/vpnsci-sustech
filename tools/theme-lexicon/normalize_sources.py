@@ -1,9 +1,8 @@
-"""Normalize local theme lexicon source dumps into one JSONL schema.
+"""Normalize local theme concept source dumps into one common JSONL schema.
 
-This script is an offline maintenance tool. It reads gitignored source dumps
-under ``lexicons/sources`` and writes gitignored normalized JSONL outputs under
-``lexicons/normalized``. Runtime report generation must not import this module
-or read its intermediate outputs.
+Offline maintenance only. Reads ignored source caches under ``lexicons/sources``
+and writes ignored normalized records under ``lexicons/normalized``. Runtime
+report generation must not import this module or read these intermediate files.
 """
 
 from __future__ import annotations
@@ -12,8 +11,8 @@ import argparse
 import csv
 from datetime import datetime, timezone
 import json
-import re
 from pathlib import Path
+import re
 from typing import Any, Iterable, Iterator
 from urllib.parse import unquote
 import xml.etree.ElementTree as ET
@@ -61,6 +60,8 @@ ARXIV_DOMAINS = {
     "stat": "statistics",
 }
 
+CSO_TOPIC_PREFIX = "https://cso.kmi.open.ac.uk/topics/"
+
 MESH_ROOTS = {
     "A": "Anatomy",
     "B": "Organisms",
@@ -94,13 +95,32 @@ def _slug(value: str) -> str:
 
 def _uri_tail(uri: str) -> str:
     text = _clean_text(uri).strip("<>")
-    tail = text.rstrip("/").rsplit("/", 1)[-1]
-    return unquote(tail)
+    return unquote(text.rstrip("/").rsplit("/", 1)[-1])
 
 
 def _label_from_uri(uri: str) -> str:
-    tail = _uri_tail(uri)
-    return _clean_text(tail.replace("_", " ").replace("-", " "))
+    return _clean_text(_uri_tail(uri).replace("_", " ").replace("-", " "))
+
+
+def _is_cso_topic_uri(uri: str) -> bool:
+    return _clean_text(uri).strip("<>").startswith(CSO_TOPIC_PREFIX)
+
+
+def _literal_label(value: str) -> str:
+    text = _clean_text(value).strip("<>").strip()
+    if "://" in text:
+        return ""
+    text = re.sub(r"\s*\.\s*$", "", text).strip()
+    text = re.sub(r"@[a-z]{2}(?:-[A-Z]{2})?$", "", text).strip()
+    return text.strip('"')
+
+
+def _as_list(value: Any) -> list[Any]:
+    if value is None:
+        return []
+    if isinstance(value, list):
+        return value
+    return [value]
 
 
 def _unique_text(values: Iterable[Any]) -> list[str]:
@@ -137,9 +157,7 @@ def _record(
     label = _clean_text(label)
     if not label:
         return None
-    clean_path = _unique_text(path)
-    if not clean_path:
-        clean_path = [label]
+    clean_path = _unique_text(path) or [label]
     clean_aliases = [
         alias
         for alias in _unique_text(aliases)
@@ -196,13 +214,15 @@ def normalize_openalex_topics(source_root: Path) -> Iterator[dict[str, Any]]:
         domain = _clean_text((item.get("domain") or {}).get("display_name"))
         field = _clean_text((item.get("field") or {}).get("display_name"))
         subfield = _clean_text((item.get("subfield") or {}).get("display_name"))
-        path = [value for value in (domain, field, subfield, label) if value]
-        aliases = item.get("keywords") or []
+        path = [part for part in (domain, field, subfield, label) if part]
         rec = _record(
             source=source,
             source_id=_source_id(source, topic_id),
             label=label,
-            aliases=aliases,
+            # OpenAlex topic keywords are topical descriptors, not explicit
+            # synonym aliases. Treating them as aliases causes broad transitive
+            # concept merges during L2.
+            aliases=[],
             path=path,
             parent=subfield or field or domain or None,
             root=domain or field or label,
@@ -215,18 +235,17 @@ def normalize_openalex_topics(source_root: Path) -> Iterator[dict[str, Any]]:
 
 def normalize_ieee_taxonomy(source_root: Path) -> Iterator[dict[str, Any]]:
     source = "ieee_taxonomy"
-    path = source_root / source / "taxonomy_terms.jsonl"
-    with path.open("r", encoding="utf-8") as handle:
+    with (source_root / source / "taxonomy_terms.jsonl").open("r", encoding="utf-8") as handle:
         for line in handle:
             if not line.strip():
                 continue
             item = json.loads(line)
             label = _clean_text(item.get("term"))
-            term_path = item.get("path") or [label]
-            root = _clean_text(item.get("root")) or (term_path[0] if term_path else label)
+            term_path = _as_list(item.get("path")) or [label]
+            root = _clean_text(item.get("root")) or _clean_text(term_path[0]) or label
             rec = _record(
                 source=source,
-                source_id=_source_id(source, _slug(" / ".join(term_path))),
+                source_id=_source_id(source, _slug(" / ".join(str(part) for part in term_path))),
                 label=label,
                 aliases=[],
                 path=term_path,
@@ -250,7 +269,7 @@ def normalize_physh(source_root: Path) -> Iterator[dict[str, Any]]:
             source=source,
             source_id=_source_id(source, raw_id),
             label=label,
-            aliases=item.get("altLabel") or [],
+            aliases=_as_list(item.get("altLabel")),
             path=["Physics", label],
             parent="Physics",
             root="Physics",
@@ -261,44 +280,55 @@ def normalize_physh(source_root: Path) -> Iterator[dict[str, Any]]:
             yield rec
 
 
-def _read_cso_edges(zip_path: Path) -> tuple[set[str], dict[str, set[str]], dict[str, set[str]]]:
+def _read_cso_edges(zip_path: Path) -> tuple[set[str], dict[str, set[str]], dict[str, set[str]], dict[str, str]]:
     topics: set[str] = set()
     parents: dict[str, set[str]] = {}
     aliases: dict[str, set[str]] = {}
+    labels: dict[str, str] = {}
     with zipfile.ZipFile(zip_path) as archive:
         csv_names = [name for name in archive.namelist() if name.lower().endswith(".csv")]
         if not csv_names:
             raise FileNotFoundError(f"No CSV file found inside {zip_path}")
         with archive.open(csv_names[0]) as raw:
-            text = (line.decode("utf-8", errors="replace") for line in raw)
-            reader = csv.reader(text)
+            reader = csv.reader(line.decode("utf-8", errors="replace") for line in raw)
             for row in reader:
                 if len(row) < 3:
                     continue
                 subj, pred, obj = (_clean_text(part).strip("<>") for part in row[:3])
-                pred_tail = pred.rsplit("#", 1)[-1].rsplit("/", 1)[-1]
                 if not subj or not obj:
                     continue
-                topics.add(subj)
-                topics.add(obj)
-                if pred_tail == "superTopicOf":
+                pred_tail = pred.rsplit("#", 1)[-1].rsplit("/", 1)[-1]
+                subj_is_topic = _is_cso_topic_uri(subj)
+                obj_is_topic = _is_cso_topic_uri(obj)
+                if subj_is_topic:
+                    topics.add(subj)
+                if obj_is_topic:
+                    topics.add(obj)
+                if pred_tail == "label" and subj_is_topic:
+                    label = _literal_label(obj)
+                    if label:
+                        labels[subj] = label
+                elif pred_tail == "superTopicOf" and subj_is_topic and obj_is_topic:
                     parents.setdefault(obj, set()).add(subj)
-                elif pred_tail in {"relatedEquivalent", "preferentialEquivalent"}:
+                elif pred_tail in {"relatedEquivalent", "preferentialEquivalent"} and subj_is_topic and obj_is_topic:
                     aliases.setdefault(subj, set()).add(obj)
                     aliases.setdefault(obj, set()).add(subj)
-    return topics, parents, aliases
+    return topics, parents, aliases, labels
 
 
-def _cso_path(uri: str, parents: dict[str, set[str]]) -> list[str]:
-    path = [_label_from_uri(uri)]
+def _cso_label(uri: str, labels: dict[str, str]) -> str:
+    return labels.get(uri) or _label_from_uri(uri)
+
+
+def _cso_path(uri: str, parents: dict[str, set[str]], labels: dict[str, str]) -> list[str]:
+    path = [_cso_label(uri, labels)]
     seen = {uri}
     current = uri
     for _ in range(12):
-        candidates = sorted(parents.get(current, set()))
-        parent = next((candidate for candidate in candidates if candidate not in seen), "")
+        parent = next((candidate for candidate in sorted(parents.get(current, set())) if candidate not in seen), "")
         if not parent:
             break
-        path.insert(0, _label_from_uri(parent))
+        path.insert(0, _cso_label(parent, labels))
         seen.add(parent)
         current = parent
     return path
@@ -306,18 +336,18 @@ def _cso_path(uri: str, parents: dict[str, set[str]]) -> list[str]:
 
 def normalize_cso(source_root: Path) -> Iterator[dict[str, Any]]:
     source = "cso"
-    topics, parents, aliases = _read_cso_edges(source_root / source / "CSO.3.5.csv.zip")
+    topics, parents, aliases, labels = _read_cso_edges(source_root / source / "CSO.3.5.csv.zip")
     for uri in sorted(topics):
-        label = _label_from_uri(uri)
-        term_path = _cso_path(uri, parents)
+        label = _cso_label(uri, labels)
+        term_path = _cso_path(uri, parents, labels)
         parent_uri = sorted(parents.get(uri, set()))[0] if parents.get(uri) else ""
         rec = _record(
             source=source,
             source_id=_source_id(source, _slug(_uri_tail(uri))),
             label=label,
-            aliases=[_label_from_uri(alias) for alias in sorted(aliases.get(uri, set()))],
+            aliases=[_cso_label(alias, labels) for alias in sorted(aliases.get(uri, set()))],
             path=term_path,
-            parent=_label_from_uri(parent_uri) if parent_uri else None,
+            parent=_cso_label(parent_uri, labels) if parent_uri else None,
             root=term_path[0] if term_path else "Computer Science",
             domains=["computer_science"],
             source_confidence="high",
@@ -329,15 +359,11 @@ def normalize_cso(source_root: Path) -> Iterator[dict[str, Any]]:
 def _mesh_root_from_tree_numbers(tree_numbers: list[str], fallback: str) -> str:
     if not tree_numbers:
         return fallback
-    key = tree_numbers[0][:1]
-    return MESH_ROOTS.get(key, fallback)
+    return MESH_ROOTS.get(tree_numbers[0][:1], fallback)
 
 
 def _mesh_terms(record: ET.Element) -> list[str]:
-    return [
-        node.text or ""
-        for node in record.findall(".//TermList/Term/String")
-    ]
+    return [node.text or "" for node in record.findall(".//TermList/Term/String")]
 
 
 def _mesh_record(
@@ -350,11 +376,7 @@ def _mesh_record(
 ) -> dict[str, Any] | None:
     ui = _clean_text(record.findtext(ui_tag))
     label = _clean_text(record.findtext(name_path))
-    tree_numbers = [
-        _clean_text(node.text)
-        for node in record.findall("./TreeNumberList/TreeNumber")
-        if _clean_text(node.text)
-    ]
+    tree_numbers = [_clean_text(node.text) for node in record.findall("./TreeNumberList/TreeNumber") if _clean_text(node.text)]
     root = _mesh_root_from_tree_numbers(tree_numbers, fallback_root)
     return _record(
         source="mesh",
@@ -371,34 +393,30 @@ def _mesh_record(
 
 def normalize_mesh(source_root: Path) -> Iterator[dict[str, Any]]:
     source_dir = source_root / "mesh"
-
     for _event, elem in ET.iterparse(source_dir / "desc2026.xml", events=("end",)):
-        if elem.tag != "DescriptorRecord":
-            continue
-        rec = _mesh_record(
-            source_id_prefix="descriptor",
-            record=elem,
-            ui_tag="./DescriptorUI",
-            name_path="./DescriptorName/String",
-            fallback_root="MeSH Descriptor",
-        )
-        if rec:
-            yield rec
-        elem.clear()
-
+        if elem.tag == "DescriptorRecord":
+            rec = _mesh_record(
+                source_id_prefix="descriptor",
+                record=elem,
+                ui_tag="./DescriptorUI",
+                name_path="./DescriptorName/String",
+                fallback_root="MeSH Descriptor",
+            )
+            if rec:
+                yield rec
+            elem.clear()
     for _event, elem in ET.iterparse(source_dir / "qual2026.xml", events=("end",)):
-        if elem.tag != "QualifierRecord":
-            continue
-        rec = _mesh_record(
-            source_id_prefix="qualifier",
-            record=elem,
-            ui_tag="./QualifierUI",
-            name_path="./QualifierName/String",
-            fallback_root="Qualifiers",
-        )
-        if rec:
-            yield rec
-        elem.clear()
+        if elem.tag == "QualifierRecord":
+            rec = _mesh_record(
+                source_id_prefix="qualifier",
+                record=elem,
+                ui_tag="./QualifierUI",
+                name_path="./QualifierName/String",
+                fallback_root="Qualifiers",
+            )
+            if rec:
+                yield rec
+            elem.clear()
 
 
 NORMALIZERS = {
@@ -411,16 +429,19 @@ NORMALIZERS = {
 }
 
 
+def _sort_key(record: dict[str, Any]) -> tuple[str, str, str]:
+    return (str(record.get("source_id") or ""), str(record.get("label") or "").casefold(), json.dumps(record, sort_keys=True, ensure_ascii=False))
+
+
 def write_jsonl(records: Iterable[dict[str, Any]], output_path: Path, *, limit: int | None = None) -> int:
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    count = 0
+    ordered = sorted(records, key=_sort_key)
+    if limit is not None:
+        ordered = ordered[:limit]
     with output_path.open("w", encoding="utf-8", newline="\n") as handle:
-        for record in records:
+        for record in ordered:
             handle.write(json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n")
-            count += 1
-            if limit is not None and count >= limit:
-                break
-    return count
+    return len(ordered)
 
 
 def normalize_sources(
@@ -430,8 +451,8 @@ def normalize_sources(
     sources: Iterable[str] = DEFAULT_SOURCES,
     limit_per_source: int | None = None,
 ) -> dict[str, Any]:
-    source_root = source_root.resolve()
-    output_dir = output_dir.resolve()
+    source_root = Path(source_root).resolve()
+    output_dir = Path(output_dir).resolve()
     summary: dict[str, Any] = {
         "schema_version": "theme_source_normalization.v1",
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -443,19 +464,12 @@ def normalize_sources(
         if source not in NORMALIZERS:
             raise ValueError(f"Unsupported source: {source}")
         output_path = output_dir / OUTPUT_FILENAMES[source]
-        count = write_jsonl(
-            NORMALIZERS[source](source_root),
-            output_path,
-            limit=limit_per_source,
-        )
-        summary["sources"][source] = {
-            "output": str(output_path),
-            "records": count,
-        }
+        count = write_jsonl(NORMALIZERS[source](source_root), output_path, limit=limit_per_source)
+        summary["sources"][source] = {"output": str(output_path), "records": count}
     output_dir.mkdir(parents=True, exist_ok=True)
     manifest_path = output_dir / "source_parse_manifest.json"
-    manifest_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
     summary["manifest"] = str(manifest_path)
+    manifest_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
     return summary
 
 
@@ -464,12 +478,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--source-root", type=Path, default=Path("lexicons/sources"))
     parser.add_argument("--output-dir", type=Path, default=Path("lexicons/normalized"))
     parser.add_argument("--sources", nargs="+", choices=DEFAULT_SOURCES, default=list(DEFAULT_SOURCES))
-    parser.add_argument(
-        "--limit-per-source",
-        type=int,
-        default=None,
-        help="Optional smoke/debug cap. Omit for full deterministic normalization.",
-    )
+    parser.add_argument("--limit-per-source", type=int, default=None)
     return parser.parse_args(argv)
 
 

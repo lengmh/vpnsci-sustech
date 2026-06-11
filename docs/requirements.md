@@ -13,6 +13,34 @@ Core features covered there include:
 - paper fetching and PDF processing;
 - seed-preview HTML rendering through the bundled adapter when assets are present.
 
+## Install modes and bundled report resources
+
+The project exposes installable console scripts:
+
+- `vpnsci-sustech`
+- `vpnsci-sustech-mcp`
+
+This is enough for a Git URL `uvx` host to start the MCP entry point, for
+example:
+
+```text
+uvx --from git+https://github.com/lengmh/vpnsci-sustech.git vpnsci-sustech-mcp
+```
+
+Current repository truth: the package metadata still only includes
+`vpnsci_sustech/data/*.json`; there is no packaged
+`vpnsci_sustech/_bundled/paper-search-pro` runtime and no `MANIFEST.in` staging
+the repo `tools/paper-search-pro` snapshot into wheels.
+
+Therefore:
+
+- Git URL `uvx` can be used as an MCP entrypoint path;
+- `report-tools install` is only install-safe when the runtime resources are
+  actually available, such as in a source checkout or a package build that
+  includes the bundled snapshot;
+- a local source checkout fallback must not be treated as proof that the Git URL
+  `uvx` install path is fully report-runtime safe.
+
 ## Full `paper-search-pro` workflow
 
 Full report mode is Agent/Codex-orchestrated. The MCP server creates a handoff package and does not install or run the entire upstream Skill workflow itself.

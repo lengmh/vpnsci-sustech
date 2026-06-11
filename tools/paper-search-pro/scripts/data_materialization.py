@@ -382,7 +382,7 @@ def _build_citation_network(
     }
 
 
-def _build_themes(papers: List[UnifiedPaperEntity]) -> Dict[str, Any]:
+def _build_themes(papers: List[UnifiedPaperEntity], *, apply_quality_gate: bool = True) -> Dict[str, Any]:
     """Frequency-based clustering of keywords/topics into theme buckets.
 
     No LLM call here — that keeps materialization deterministic and cheap. The
@@ -407,7 +407,8 @@ def _build_themes(papers: List[UnifiedPaperEntity]) -> Dict[str, Any]:
                     "abstract": p.abstract,
                 }
                 for p in papers
-            ]
+            ],
+            apply_quality_gate=apply_quality_gate,
         )
         if not text_fallback["themes"] and papers and not text_fallback.get("status"):
             text_fallback["themes"] = [
@@ -427,21 +428,23 @@ def _build_themes(papers: List[UnifiedPaperEntity]) -> Dict[str, Any]:
 
 
 def _build_theme_chart_payload(papers: List[UnifiedPaperEntity], *, output_dir: Path) -> Dict[str, Any]:
-    raw_theme_treemap = _build_themes(papers)
+    ungated_theme_treemap = _build_themes(papers, apply_quality_gate=False)
+    gated_theme_treemap = _build_themes(papers, apply_quality_gate=True)
+    raw_theme_treemap = ungated_theme_treemap if not gated_theme_treemap.get("themes") else gated_theme_treemap
     request_payload, theme_postprocess = build_theme_postprocess_request(
-        raw_theme_treemap,
+        gated_theme_treemap,
         papers,
         report_mode="full",
     )
     result_payload = _load_json_if_exists(output_dir / THEME_POSTPROCESS_RESULT_FILENAME)
     if result_payload is not None:
         theme_treemap, theme_postprocess = apply_theme_postprocess_result(
-            raw_theme_treemap,
+            gated_theme_treemap,
             result_payload,
             model_label="host-agent",
         )
     else:
-        theme_treemap = raw_theme_treemap
+        theme_treemap = gated_theme_treemap
     if request_payload:
         _dump(output_dir / THEME_POSTPROCESS_REQUEST_FILENAME, request_payload)
     return {

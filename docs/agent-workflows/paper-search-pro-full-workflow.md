@@ -96,6 +96,30 @@ Do not infer this choice from the original full-report request. The user must
 explicitly choose one of these alternatives. `seed_classified` must never be
 described as a degraded full report; it is a seed-only classified alternative.
 
+### Serial Fallback Implementation Boundary
+
+Current repository truth: there is no standalone
+`vpnsci_sustech.serial_full_report_runner` or Python-side serial-full runner.
+
+If the user explicitly chooses main-Agent serial classification, the Agent must
+continue the same full workflow scope from the handoff artifacts in the
+conversation/session layer:
+
+```text
+seed SearchSession
+-> query planning
+-> source expansion / multi-query retrieval
+-> dedup / KG
+-> RCS classification by main Agent in batches
+-> discovery curve / materialization
+-> HTML report
+```
+
+This path is an execution-mode fallback for the full workflow, not a new report
+mode and not a seed-only report. The final artifacts and response must record
+the fallback reason, `rcs_execution_mode="main_agent_serial"`, completed
+batches, budget/stop reason, and any missing full-workflow steps.
+
 ## Text Encoding Policy
 
 All handoff inputs and generated artifacts must be UTF-8 without BOM.
