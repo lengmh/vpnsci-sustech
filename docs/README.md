@@ -18,6 +18,8 @@ Key Phase 3 notes:
 
 - [paper-search-pro Full Report Handoff](agent-workflows/paper-search-pro-full-workflow.md)
 - [Seed Preview HTML Report Workflow](agent-workflows/seed-preview-html-report.md)
+- [Theme Postprocess Contract](agent-workflows/theme-postprocess-contract.md)
+- [Theme Lexicon Maintenance](agent-workflows/theme-lexicon-maintenance.md)
 
 ## Repo Maintainer Notes
 

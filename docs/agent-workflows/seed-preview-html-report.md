@@ -22,6 +22,15 @@ This workflow runs when report generation uses `mode="seed_preview"` or the defa
 vpnsci_sustech.paper_search_pro_adapter
 ```
 
+Current repository entrypoint truth:
+
+- `vpnsci_sustech.paper_search_pro_adapter` is still the implemented light
+  report bridge module.
+- The intended future name is `vpnsci_sustech.light_report_bridge`.
+- After that rename lands, new defaults and docs should point at
+  `light_report_bridge`; the old `paper_search_pro_adapter` name should remain
+  only as an import/CLI compatibility shim.
+
 ## Required Outputs
 
 The materialized report directory must contain:
@@ -86,6 +95,34 @@ Historical guardrail:
 - Do not reintroduce fixed theme buckets for infrared or any other query family.
 - Examples that use `红外线测量` / `infrared measurement` are query-display
   examples only; they are not a runtime theme taxonomy.
+
+## Discovery Curve Boundary
+
+Seed preview and recovery-compatible reports must not fabricate a full-workflow
+discovery curve.
+
+Allowed states:
+
+1. **Enabled** only when there is real staged provenance / query-stage
+   trajectory sufficient for the shared discovery-curve helper to estimate the
+   curve.
+2. **Disabled** when there is no staged evidence, weak recovery provenance, or
+   too little sample signal. In this state numeric fields such as `tau`,
+   `coverage_estimate`, confidence interval, and `estimated_total_relevant`
+   should be `null`, and the HTML should keep the module visible with a clear
+   placeholder/reason.
+
+Forbidden:
+
+- fixed default values such as `tau = 80.0`;
+- two-point seed-only curves that imply full source expansion happened;
+- coverage / CI / total-relevant estimates invented by renderer fallback;
+- branches keyed to a historical session id, query text, fixture name, or fixed
+  paper count.
+
+Known current blocker: the implemented module still needs the planned
+`light_report_bridge` / discovery-curve cleanup before this contract is fully
+enforced in code.
 
 ## RCS Validity
 

@@ -90,6 +90,7 @@ THEME_STOPWORDS_EN = {
 }
 THEME_LEXICON_EN_PATH = Path(__file__).resolve().parent / "data" / "theme_lexicon.en.json"
 THEME_LEXICON_ZH_PATH = Path(__file__).resolve().parent / "data" / "theme_lexicon.zh.json"
+THEME_CONCEPT_ALIASES_PATH = Path(__file__).resolve().parent / "data" / "theme_concept_aliases.json"
 
 
 
@@ -143,6 +144,52 @@ CHINESE_LINKER_TOKENS = tuple(THEME_LEXICON_ZH["connector_terms"])
 CHINESE_FRAGMENT_PREFIXES = tuple(THEME_LEXICON_ZH["fragment_prefixes"])
 CHINESE_EMBEDDED_SUFFIX_CONNECTORS = tuple(THEME_LEXICON_ZH["embedded_suffix_connectors"])
 LOW_SIGNAL_STATUS = "insufficient_text_theme_signal"
+RAW_LOW_SIGNAL_STATUS = "low_signal_candidates"
+
+
+def _singular_alias_token(token: str) -> str:
+    if len(token) > 4 and token.endswith("ies"):
+        return token[:-3] + "y"
+    if len(token) > 4 and token.endswith(("ches", "shes", "sses", "xes", "zes")):
+        return token[:-2]
+    if len(token) > 4 and token.endswith("s") and not token.endswith("ss"):
+        return token[:-1]
+    return token
+
+
+def _normalize_concept_alias(value: str) -> str:
+    text = (value or "").strip().casefold()
+    if any("\u4e00" <= ch <= "\u9fff" for ch in text):
+        text = re.sub(r"[\s，。；;：:、（）()\[\]【】<>《》!?！？\-_／/]+", "", text)
+        return text
+    text = text.replace("&", " and ")
+    text = re.sub(r"[\-_/]+", " ", text)
+    text = re.sub(r"[^a-z0-9+\s]+", " ", text)
+    tokens = [_singular_alias_token(token) for token in text.split() if token]
+    return " ".join(tokens)
+
+
+def _load_theme_concept_aliases() -> dict[str, dict[str, Any]]:
+    if not THEME_CONCEPT_ALIASES_PATH.exists():
+        return {}
+    payload = json.loads(THEME_CONCEPT_ALIASES_PATH.read_text(encoding="utf-8"))
+    alias_index: dict[str, dict[str, Any]] = {}
+    for concept in payload.get("concept_aliases") or []:
+        if not isinstance(concept, dict):
+            continue
+        aliases = concept.get("aliases") or {}
+        for lang in ("en", "zh"):
+            for alias in aliases.get(lang) or []:
+                normalized = _normalize_concept_alias(str(alias))
+                if not normalized:
+                    continue
+                # Materialization removes accepted alias conflicts; keep first
+                # value stable if a future partial artifact contains a duplicate.
+                alias_index.setdefault(f"{lang}:{normalized}", concept)
+    return alias_index
+
+
+THEME_CONCEPT_ALIAS_INDEX = _load_theme_concept_aliases()
 
 
 def display_theme_name(term: str) -> str:
@@ -372,6 +419,31 @@ def _is_chinese_term(term: str) -> bool:
     return any("\u4e00" <= ch <= "\u9fff" for ch in term or "")
 
 
+def _concept_alias_key(term: str) -> str:
+    lang = "zh" if _is_chinese_term(term) else "en"
+    return f"{lang}:{_normalize_concept_alias(term)}"
+
+
+def _concept_display_name(concept: dict[str, Any]) -> str:
+    canonical = concept.get("canonical") or {}
+    en = str(canonical.get("en") or "").strip()
+    zh = str(canonical.get("zh") or "").strip()
+    if en and zh:
+        return f"{display_theme_name(en)} / {zh}"
+    if zh:
+        return zh
+    if en:
+        return display_theme_name(en)
+    return str(concept.get("concept_id") or "").strip()
+
+
+def _concept_specificity(concept: dict[str, Any]) -> int:
+    try:
+        return int(concept.get("specificity") or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
 def _theme_specificity(term: str) -> int:
     if _is_chinese_term(term):
         score = min(len(term), 12)
@@ -410,6 +482,15 @@ def _theme_specificity(term: str) -> int:
 def _theme_sort_key(term: str, paper_ids: tuple[str, ...], frequency: int) -> tuple[int, int, int, int, str]:
     token_count = len(term.split()) if " " in term else 1
     return (-len(paper_ids), -_theme_specificity(term), -frequency, -token_count, term)
+
+
+def _concept_sort_key(
+    name: str,
+    concept: dict[str, Any],
+    paper_ids: tuple[str, ...],
+    frequency: int,
+) -> tuple[int, int, int, int, str]:
+    return (-len(paper_ids), -_concept_specificity(concept), -frequency, -len(name), name)
 
 
 def _is_allowed_text_candidate_for_corpus(term: str, corpus_has_chinese: bool) -> bool:
@@ -479,33 +560,33 @@ def _has_repeated_theme_support(theme: dict[str, Any], total_papers: int) -> boo
     return True
 
 
-def build_text_themes(
-    papers: list[dict[str, Any]],
+def _paper_candidate_items(
+    paper: dict[str, Any],
     *,
-    paper_id_key: str = "paper_id",
-    max_themes: int = 8,
-) -> dict[str, Any]:
-    term_to_papers: dict[str, list[str]] = defaultdict(list)
-    term_frequency: Counter[str] = Counter()
-    corpus_has_chinese = any(_is_chinese_term(_paper_text(paper)) for paper in papers)
-    for index, paper in enumerate(papers, 1):
-        paper_id = str(paper.get(paper_id_key) or paper.get("id") or f"seed-{index}")
-        for term in _theme_term_candidates(paper):
-            if not _is_allowed_text_candidate_for_corpus(term, corpus_has_chinese):
-                continue
-            term_to_papers[term].append(paper_id)
-            term_frequency[term] += 1
+    paper_id: str,
+    corpus_has_chinese: bool,
+) -> list[tuple[str, str, dict[str, Any] | None]]:
+    items: list[tuple[str, str, dict[str, Any] | None]] = []
+    for term in _theme_term_candidates(paper):
+        if not _is_allowed_text_candidate_for_corpus(term, corpus_has_chinese):
+            continue
+        concept = THEME_CONCEPT_ALIAS_INDEX.get(_concept_alias_key(term)) if corpus_has_chinese else None
+        if concept:
+            items.append(("concept", term, concept))
+        else:
+            items.append(("term", term, None))
+    return items
 
-    candidate_terms = sorted(
-        (
-            (term, tuple(sorted(set(paper_ids))))
-            for term, paper_ids in term_to_papers.items()
-            if term and paper_ids
-        ),
-        key=lambda item: _theme_sort_key(item[0], item[1], term_frequency[item[0]]),
-    )
 
+def _select_text_theme_candidates(
+    candidate_terms: list[tuple[str, tuple[str, ...]]],
+    term_frequency: Counter[str],
+    *,
+    max_themes: int,
+    require_quality_gate: bool,
+) -> tuple[list[tuple[str, tuple[str, ...]]], str]:
     selected_terms: list[tuple[str, tuple[str, ...]]] = []
+    status = "ok"
     repeated_candidates = [
         item for item in candidate_terms
         if len(item[1]) >= 2 and _is_specific_theme_term(item[0])
@@ -526,15 +607,96 @@ def build_text_themes(
         selected_terms.append((term, paper_ids))
         if len(selected_terms) >= max_themes:
             break
-    if not selected_terms:
+    if not selected_terms and not require_quality_gate:
         for term, paper_ids in candidate_terms:
             if _is_redundant_theme_term(term, paper_ids, selected_terms):
                 continue
             selected_terms.append((term, paper_ids))
             if len(selected_terms) >= max_themes:
                 break
+        if selected_terms:
+            status = RAW_LOW_SIGNAL_STATUS
+    return selected_terms, status if selected_terms else RAW_LOW_SIGNAL_STATUS
 
-    themes = [
+
+def build_text_themes(
+    papers: list[dict[str, Any]],
+    *,
+    paper_id_key: str = "paper_id",
+    max_themes: int = 8,
+    apply_quality_gate: bool = True,
+) -> dict[str, Any]:
+    term_to_papers: dict[str, list[str]] = defaultdict(list)
+    term_frequency: Counter[str] = Counter()
+    concept_to_papers: dict[str, list[str]] = defaultdict(list)
+    concept_frequency: Counter[str] = Counter()
+    concept_by_id: dict[str, dict[str, Any]] = {}
+    concept_matched_aliases: dict[str, dict[str, set[str]]] = defaultdict(lambda: {"en": set(), "zh": set()})
+    corpus_has_chinese = any(_is_chinese_term(_paper_text(paper)) for paper in papers)
+    for index, paper in enumerate(papers, 1):
+        paper_id = str(paper.get(paper_id_key) or paper.get("id") or f"seed-{index}")
+        for kind, term, concept in _paper_candidate_items(paper, paper_id=paper_id, corpus_has_chinese=corpus_has_chinese):
+            if kind == "concept" and concept:
+                concept_id = str(concept.get("concept_id") or "")
+                if not concept_id:
+                    continue
+                concept_by_id[concept_id] = concept
+                concept_to_papers[concept_id].append(paper_id)
+                concept_frequency[concept_id] += 1
+                lang = "zh" if _is_chinese_term(term) else "en"
+                concept_matched_aliases[concept_id][lang].add(term)
+            else:
+                term_to_papers[term].append(paper_id)
+                term_frequency[term] += 1
+
+    concept_candidates = sorted(
+        (
+            (concept_id, tuple(sorted(set(paper_ids))))
+            for concept_id, paper_ids in concept_to_papers.items()
+            if concept_id and paper_ids
+        ),
+        key=lambda item: _concept_sort_key(
+            _concept_display_name(concept_by_id[item[0]]),
+            concept_by_id[item[0]],
+            item[1],
+            concept_frequency[item[0]],
+        ),
+    )
+
+    candidate_terms = sorted(
+        (
+            (term, tuple(sorted(set(paper_ids))))
+            for term, paper_ids in term_to_papers.items()
+            if term and paper_ids
+        ),
+        key=lambda item: _theme_sort_key(item[0], item[1], term_frequency[item[0]]),
+    )
+
+    selected_concepts = concept_candidates[:max_themes]
+    remaining_slots = max(0, max_themes - len(selected_concepts))
+    selected_terms, raw_status = _select_text_theme_candidates(
+        candidate_terms,
+        term_frequency,
+        max_themes=remaining_slots,
+        require_quality_gate=apply_quality_gate,
+    )
+
+    concept_themes = [
+        {
+            "name": _concept_display_name(concept_by_id[concept_id]),
+            "concept_id": concept_id,
+            "value": len(paper_ids),
+            "paper_ids": list(paper_ids),
+            "matched_aliases": {
+                lang: sorted(values)
+                for lang, values in concept_matched_aliases[concept_id].items()
+                if values
+            },
+            "method": "concept_alias_text_fallback",
+        }
+        for concept_id, paper_ids in selected_concepts
+    ]
+    term_themes = [
         {
             "name": display_theme_name(term),
             "value": len(paper_ids),
@@ -542,9 +704,19 @@ def build_text_themes(
         }
         for term, paper_ids in selected_terms
     ]
-    themes, status = _apply_text_theme_quality_gate(themes, len(papers))
+    themes = concept_themes + term_themes
+    if apply_quality_gate:
+        themes, status = _apply_text_theme_quality_gate(themes, len(papers))
+    else:
+        _, gate_status = _apply_text_theme_quality_gate(themes, len(papers))
+        status = RAW_LOW_SIGNAL_STATUS if themes and gate_status != "ok" else ("ok" if themes else raw_status)
     result = {"themes": themes, "total_papers": len(papers), "method": "text_frequency_fallback"}
     if status != "ok":
         result["status"] = status
-        result["note"] = "Text-derived theme signal was too generic for reliable topic grouping."
+        result["note"] = (
+            "Text-derived raw candidates were kept for audit but too generic "
+            "for reliable display topic grouping."
+            if not apply_quality_gate and status == RAW_LOW_SIGNAL_STATUS
+            else "Text-derived theme signal was too generic for reliable topic grouping."
+        )
     return result

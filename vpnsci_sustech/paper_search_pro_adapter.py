@@ -455,7 +455,7 @@ def _actual_query_groups_from_session(
     return ordered
 
 
-def _build_theme_treemap(papers: list[dict]) -> dict:
+def _build_theme_treemap(papers: list[dict], *, apply_quality_gate: bool = True) -> dict:
     """Build seed-preview topic groups with the same structured-first order as full workflow."""
 
     keyword_topic = build_keyword_topic_themes(papers)
@@ -467,7 +467,7 @@ def _build_theme_treemap(papers: list[dict]) -> dict:
         )
         return keyword_topic
 
-    text_fallback = build_text_themes(papers)
+    text_fallback = build_text_themes(papers, apply_quality_gate=apply_quality_gate)
     if not text_fallback["themes"] and papers and not text_fallback.get("status"):
         text_fallback["themes"] = [
             {
@@ -788,9 +788,11 @@ def _build_chart_data(
         f"approximately {coverage*100:.0f}% of the relevant set "
         f"(95% CI: {max(0.0, coverage - ci_band)*100:.0f}-{min(1.0, coverage + ci_band)*100:.0f}%)."
     )
-    raw_theme_treemap = _build_theme_treemap(papers)
+    ungated_theme_treemap = _build_theme_treemap(papers, apply_quality_gate=False)
+    gated_theme_treemap = _build_theme_treemap(papers, apply_quality_gate=True)
+    raw_theme_treemap = ungated_theme_treemap if not gated_theme_treemap.get("themes") else gated_theme_treemap
     theme_treemap, theme_postprocess, theme_postprocess_request = _apply_theme_postprocess(
-        raw_theme_treemap,
+        gated_theme_treemap,
         papers,
         report_mode=report_mode,
         materialized_dir=materialized_dir,
