@@ -7,7 +7,8 @@ import os
 from pathlib import Path
 import tempfile
 import unittest
-import uuid
+
+from tests.temp_helpers import select_temp_parent, usable_temp_parent
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -36,37 +37,17 @@ def read_jsonl(path: Path) -> list[dict]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
-def usable_temp_parent(path: Path) -> Path | None:
-    if not path.is_dir():
-        return None
-    probe = path / f".vpnsci-test-probe-{os.getpid()}-{uuid.uuid4().hex}"
-    try:
-        probe.mkdir()
-        probe.rmdir()
-    except OSError:
-        return None
-    return path
-
-
-def select_temp_parent(primary: Path) -> Path:
-    for candidate in (primary, REPO_ROOT / "tests", REPO_ROOT):
-        usable = usable_temp_parent(candidate)
-        if usable is not None:
-            return usable
-    raise RuntimeError("No writable temporary parent is available for tests")
-
-
 def test_usable_temp_parent_rejects_existing_file_path() -> None:
     assert usable_temp_parent(Path(__file__)) is None
 
 
 def test_select_temp_parent_falls_back_to_repo_tests_dir_when_primary_unusable() -> None:
-    assert select_temp_parent(Path(__file__)) == REPO_ROOT / "tests"
+    assert select_temp_parent(Path(__file__), REPO_ROOT / "tests") == REPO_ROOT / "tests"
 
 
 class FillZhAliasCandidatesTests(unittest.TestCase):
     def setUp(self) -> None:
-        temp_parent = select_temp_parent(TEMP_ROOT)
+        temp_parent = select_temp_parent(TEMP_ROOT, REPO_ROOT / "tests", REPO_ROOT)
         self.tmp = tempfile.TemporaryDirectory(dir=temp_parent)
         self.root = Path(self.tmp.name)
         self.candidates = self.root / "candidates"

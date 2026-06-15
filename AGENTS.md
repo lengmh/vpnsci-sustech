@@ -59,15 +59,16 @@ docs/
   agent-workflows/               # Agent 工作流合同和报告流程文档
 
 tests/
-  test_*.py                      # 回归测试；本仓库 .gitignore 忽略 tests/
+  test_*.py                      # 回归测试源码；测试产物仍忽略
 
 lexicons/
   sources/ normalized/ builds/ candidates/ review/
                                 # alias pipeline 本地源和中间产物；gitignored
 ```
 
-`.idea/`、`tests/`、`CONTEXT.md`、`lexicons/` 当前被 `.gitignore` 忽略。
-如果修改这些文件，`git status` 默认可能不显示，需要显式检查。
+`.idea/`、`CONTEXT.md`、`lexicons/` 当前被 `.gitignore` 忽略。
+`tests/` 测试源码应进入源码仓；`__pycache__`、`.tmp`、`.pytest_cache`
+等测试产物仍忽略。
 
 ## 3. 常用验证命令
 
@@ -137,27 +138,27 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-15 L3-L5 video/parallel/automatic/human bounded pass）：
+最新已知状态（2026-06-15 L3-L5 source-specific / biomedical word-order pass）：
 
 - runtime `build_status`: `partial_review_pending`
 - 中文候选覆盖：`13835 / 54682 = 25.30%`
-- `zh:accept`: `1966`
+- `zh:accept`: `2066`
 - `zh:blocked`: `3306`
-- `zh:needs_review`: `8539`
+- `zh:needs_review`: `8438`
 - `zh:reject`: `208`
 - accepted/runtime alias conflicts: `0`
-- runtime concept aliases: `48832`
+- runtime concept aliases: `48834`
 - package/tool runtime alias 文件 byte-identical
 - pollution audit：
-  - ordinary English residue: `0`
+  - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- 最近相关测试：`49 passed`
+- 最近相关测试：`53 passed`
 
 当前下一步：
 
 - review medium-confidence `agent_compositional_glossary / medium`，
-  按 domain 分层处理；下一优先高频桶：`dynamic`，以及剩余
-  biomedical inverted/source-specific items。
+  按 domain 分层处理；继续处理剩余 biomedical / thermodynamic /
+  source-specific word-order items。
 - 低置信 `agent_review_gated_mixed_fallback` 不能当覆盖率来源；只能作为
   需要 exact/domain-specific replacement 的 review 队列。
 - `System-on-a-chip -> 片上系统` 当前与 `system_on_chip*` 概念冲突，
@@ -251,6 +252,9 @@ uv run python tools/theme-lexicon/materialize_runtime_overlay.py `
 - `power amplifier`: 应为 `功率放大器`，不是 `电力放大器`
 - `architectural`: CS 语境优先 `架构`，不是建筑领域的 `建筑`
 - `identity`: 数学语境可能为 `恒等式`，不是 `身份`
+- `dynamic`: CS/通信/软件多为 `动态*`，物理/力学/生物系统中的
+  `dynamics` 多为 `动力学`；社科场景常为 `动态`。
+  不接受机械生成的 `动力学带宽分配`、`动力学程序分析` 等。
 
 处理：
 
@@ -294,6 +298,33 @@ uv run python tools/theme-lexicon/materialize_runtime_overlay.py `
 - 不使用 blanket `accept_missing`。
 - RPM/TPM 紧张时减少 subagent 和等待频率，优先本地脚本分桶。
 
+### 6.8 pytest / tempfile 长时间无输出
+
+症状：
+
+- 单个 pytest case 长时间无输出、CPU 很低，需要手动终止。
+- 典型命令：
+  `.\.venv\Scripts\python.exe -B -m pytest tests/test_theme_lexicon_fill_zh_alias_candidates.py::... -q`
+
+已确认原因：
+
+- 卡点不是 alias 生成规则，而是测试 `setUp()` 里的
+  `tempfile.TemporaryDirectory(dir=F:\AI playground\TempFiles)`。
+- 在 sandbox 内，`F:\AI playground\TempFiles` 可能存在但不可写；只检查
+  `exists()` 不够。
+- Python 3.14 / Windows 下 `tempfile.mkdtemp()` 遇到部分
+  `PermissionError` 会反复尝试随机目录名，表现为长时间卡住。
+
+处理规则：
+
+- Python / pytest / tempfile 诊断命令一律用 timeout wrapper，不再裸跑可疑命令。
+- 若怀疑卡住，先用 `--collect-only` 区分 collection 与 test body。
+- 用 `-o faulthandler_timeout=30` 抓栈，确认是否卡在 `tempfile.py`。
+- `tests/temp_helpers.py` 提供 temp parent 可用性探测；theme lexicon tests
+  必须实际 `mkdir + rmdir` 成功后才把目录交给 `TemporaryDirectory`。
+- 若有残留进程，只终止路径精确等于当前仓库
+  `.venv\Scripts\python.exe` 的进程；不要按进程名批量杀。
+
 ## 7. 报告 / 搜索主链注意事项
 
 - 标准检索默认只返回结果和 SearchSession，不默认生成报告。
@@ -324,8 +355,10 @@ uv run python tools/theme-lexicon/materialize_runtime_overlay.py `
 
 注意：
 
-- `.idea/`、`tests/`、`lexicons/` 是 gitignored；这些文件改动不会默认出现在
+- `.idea/`、`lexicons/` 是 gitignored；这些文件改动不会默认出现在
   `git status --short`。
+- `tests/` 测试源码不再整体 gitignored；测试产物如 `tests/*.tmp`、
+  `tests/**/__pycache__/` 仍忽略。
 - runtime alias 文件是 tracked，变更会出现在 git status。
 - 不要把 source dumps、review working files 或大中间产物提升进 runtime JSON。
 

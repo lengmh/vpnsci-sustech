@@ -8,6 +8,8 @@ import tempfile
 import unittest
 import zipfile
 
+from tests.temp_helpers import select_temp_parent
+
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT_PATH = REPO_ROOT / "tools" / "theme-lexicon" / "normalize_sources.py"
@@ -37,7 +39,7 @@ def read_jsonl(path: Path) -> list[dict]:
 
 class ThemeLexiconNormalizeSourcesTests(unittest.TestCase):
     def setUp(self) -> None:
-        temp_parent = TEMP_ROOT if TEMP_ROOT.exists() else None
+        temp_parent = select_temp_parent(TEMP_ROOT, REPO_ROOT / "tests", REPO_ROOT)
         self.tmp = tempfile.TemporaryDirectory(dir=temp_parent)
         self.root = Path(self.tmp.name)
         self.sources = self.root / "sources"
