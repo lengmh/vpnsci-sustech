@@ -7,6 +7,8 @@ from pathlib import Path
 import tempfile
 import unittest
 
+from tests.temp_helpers import select_temp_parent
+
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 TEMP_ROOT = Path(os.environ.get("VPNSCI_TEST_TMP", r"F:\AI playground\TempFiles"))
@@ -35,7 +37,7 @@ def read_jsonl(path: Path) -> list[dict]:
 
 class ThemeLexiconPollutionGuardTests(unittest.TestCase):
     def setUp(self) -> None:
-        temp_parent = TEMP_ROOT if TEMP_ROOT.exists() else None
+        temp_parent = select_temp_parent(TEMP_ROOT, REPO_ROOT / "tests", REPO_ROOT)
         self.tmp = tempfile.TemporaryDirectory(dir=temp_parent)
         self.root = Path(self.tmp.name)
 

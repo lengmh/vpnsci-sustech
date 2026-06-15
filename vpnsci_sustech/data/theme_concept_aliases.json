@@ -8911,11 +8911,13 @@
           "Abdominal Cavities",
           "Cavitas abdominis"
         ],
-        "zh": []
+        "zh": [
+          "腹腔"
+        ]
       },
       "canonical": {
         "en": "Abdominal Cavity",
-        "zh": null
+        "zh": "腹腔"
       },
       "concept_id": "concept:abdominal_cavity",
       "confidence": "curated",
@@ -10006,11 +10008,13 @@
           "ABO Factors",
           "Blood Group H Type 1 Antigen"
         ],
-        "zh": []
+        "zh": [
+          "ABO血型系统"
+        ]
       },
       "canonical": {
         "en": "ABO Blood-group System",
-        "zh": null
+        "zh": "ABO血型系统"
       },
       "concept_id": "concept:abo_blood_group_system",
       "confidence": "curated",
@@ -63590,11 +63594,13 @@
         "en": [
           "American Political And Social Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "美国政治与社会动态"
+        ]
       },
       "canonical": {
         "en": "American Political And Social Dynamics",
-        "zh": null
+        "zh": "美国政治与社会动态"
       },
       "concept_id": "concept:american_political_and_social_dynamic",
       "confidence": "curated",
@@ -116282,11 +116288,13 @@
         "en": [
           "Atmospheric And Environmental Gas Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "大气与环境气体动力学"
+        ]
       },
       "canonical": {
         "en": "Atmospheric And Environmental Gas Dynamics",
-        "zh": null
+        "zh": "大气与环境气体动力学"
       },
       "concept_id": "concept:atmospheric_and_environmental_gas_dynamic",
       "confidence": "curated",
@@ -141736,11 +141744,13 @@
         "en": [
           "Beam Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "波束动力学"
+        ]
       },
       "canonical": {
         "en": "Beam Dynamics",
-        "zh": null
+        "zh": "波束动力学"
       },
       "concept_id": "concept:beam_dynamic",
       "confidence": "curated",
@@ -206668,11 +206678,13 @@
           "Nonsmall Cell Lung Cancer",
           "Non-Small Cell Lung Carcinoma"
         ],
-        "zh": []
+        "zh": [
+          "非小细胞肺癌"
+        ]
       },
       "canonical": {
         "en": "Non-Small-Cell Lung Carcinomas",
-        "zh": null
+        "zh": "非小细胞肺癌"
       },
       "concept_id": "concept:carcinoma_non_small_cell_lung",
       "confidence": "curated",
@@ -209379,11 +209391,13 @@
         "en": [
           "Cardiovascular Conditions And Treatments"
         ],
-        "zh": []
+        "zh": [
+          "心血管疾病与治疗"
+        ]
       },
       "canonical": {
         "en": "Cardiovascular Conditions And Treatments",
-        "zh": null
+        "zh": "心血管疾病与治疗"
       },
       "concept_id": "concept:cardiovascular_condition_and_treatment",
       "confidence": "curated",
@@ -223309,11 +223323,13 @@
           "Cell Culture",
           "Cell Cultures"
         ],
-        "zh": []
+        "zh": [
+          "细胞培养技术"
+        ]
       },
       "canonical": {
         "en": "Cell Culture Techniques",
-        "zh": null
+        "zh": "细胞培养技术"
       },
       "concept_id": "concept:cell_culture_techniqu",
       "confidence": "curated",
@@ -236164,11 +236180,13 @@
           "Chaotic Dynamics",
           "nlin.CD"
         ],
-        "zh": []
+        "zh": [
+          "混沌动力学"
+        ]
       },
       "canonical": {
         "en": "Chaotic Dynamics",
-        "zh": null
+        "zh": "混沌动力学"
       },
       "concept_id": "concept:chaotic_dynamic",
       "confidence": "curated",
@@ -238373,11 +238391,13 @@
         "en": [
           "Chemical And Physical Properties Of Materials"
         ],
-        "zh": []
+        "zh": [
+          "材料的化学与物理性质"
+        ]
       },
       "canonical": {
         "en": "Chemical And Physical Properties Of Materials",
-        "zh": null
+        "zh": "材料的化学与物理性质"
       },
       "concept_id": "concept:chemical_and_physical_property_of_material",
       "confidence": "curated",
@@ -239238,11 +239258,13 @@
         "en": [
           "Chemical Thermodynamics And Molecular Structure"
         ],
-        "zh": []
+        "zh": [
+          "化学热力学与分子结构"
+        ]
       },
       "canonical": {
         "en": "Chemical Thermodynamics And Molecular Structure",
-        "zh": null
+        "zh": "化学热力学与分子结构"
       },
       "concept_id": "concept:chemical_thermodynamic_and_molecular_structure",
       "confidence": "curated",
@@ -241155,11 +241177,13 @@
         "en": [
           "Chemokine Receptors And Signaling"
         ],
-        "zh": []
+        "zh": [
+          "趋化因子受体与信号传导"
+        ]
       },
       "canonical": {
         "en": "Chemokine Receptors And Signaling",
-        "zh": null
+        "zh": "趋化因子受体与信号传导"
       },
       "concept_id": "concept:chemokine_receptor_and_signaling",
       "confidence": "curated",
@@ -254526,11 +254550,13 @@
           "Artificial Chromosome",
           "Artificial Chromosomes"
         ],
-        "zh": []
+        "zh": [
+          "人工染色体"
+        ]
       },
       "canonical": {
         "en": "Artificial Chromosome",
-        "zh": null
+        "zh": "人工染色体"
       },
       "concept_id": "concept:chromosom_artificial",
       "confidence": "curated",
@@ -293427,11 +293453,13 @@
         "en": [
           "Complex Systems And Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "复杂系统与动力学"
+        ]
       },
       "canonical": {
         "en": "Complex Systems And Dynamics",
-        "zh": null
+        "zh": "复杂系统与动力学"
       },
       "concept_id": "concept:complex_system_and_dynamic",
       "confidence": "curated",
@@ -306405,11 +306433,13 @@
         "en": [
           "Consumer Behavior And Market Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "消费者行为与市场动态"
+        ]
       },
       "canonical": {
         "en": "Consumer Behavior And Market Dynamics",
-        "zh": null
+        "zh": "消费者行为与市场动态"
       },
       "concept_id": "concept:consumer_behavior_and_market_dynamic",
       "confidence": "curated",
@@ -310485,11 +310515,13 @@
         "en": [
           "Control And Dynamics Of Mobile Robots"
         ],
-        "zh": []
+        "zh": [
+          "移动机器人控制与动力学"
+        ]
       },
       "canonical": {
         "en": "Control And Dynamics Of Mobile Robots",
-        "zh": null
+        "zh": "移动机器人控制与动力学"
       },
       "concept_id": "concept:control_and_dynamic_of_mobile_robot",
       "confidence": "curated",
@@ -333039,11 +333071,13 @@
         "en": [
           "Cultural And Social Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "文化与社会动态"
+        ]
       },
       "canonical": {
         "en": "Cultural And Social Dynamics",
-        "zh": null
+        "zh": "文化与社会动态"
       },
       "concept_id": "concept:cultural_and_social_dynamic",
       "confidence": "curated",
@@ -333094,11 +333128,13 @@
         "en": [
           "Cultural And Social Studies In Latin America"
         ],
-        "zh": []
+        "zh": [
+          "拉丁美洲文化与社会研究"
+        ]
       },
       "canonical": {
         "en": "Cultural And Social Studies In Latin America",
-        "zh": null
+        "zh": "拉丁美洲文化与社会研究"
       },
       "concept_id": "concept:cultural_and_social_study_in_latin_america",
       "confidence": "curated",
@@ -379935,11 +379971,13 @@
           "Cardiovascular Diagnostic Techniques",
           "Cardiovascular Diagnostic Technique"
         ],
-        "zh": []
+        "zh": [
+          "心血管诊断技术"
+        ]
       },
       "canonical": {
         "en": "Cardiovascular Diagnostic Technics",
-        "zh": null
+        "zh": "心血管诊断技术"
       },
       "concept_id": "concept:diagnostic_techniqu_cardiovascular",
       "confidence": "curated",
@@ -387524,11 +387562,13 @@
         "en": [
           "Diffusion And Search Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "扩散与搜索动力学"
+        ]
       },
       "canonical": {
         "en": "Diffusion And Search Dynamics",
-        "zh": null
+        "zh": "扩散与搜索动力学"
       },
       "concept_id": "concept:diffusion_and_search_dynamic",
       "confidence": "curated",
@@ -422136,11 +422176,13 @@
         "en": [
           "Dynamics And Control Of Mechanical Systems"
         ],
-        "zh": []
+        "zh": [
+          "机械系统动力学与控制"
+        ]
       },
       "canonical": {
         "en": "Dynamics And Control Of Mechanical Systems",
-        "zh": null
+        "zh": "机械系统动力学与控制"
       },
       "concept_id": "concept:dynamic_and_control_of_mechanical_system",
       "confidence": "curated",
@@ -422164,11 +422206,13 @@
         "en": [
           "Dynamic Background"
         ],
-        "zh": []
+        "zh": [
+          "动态背景"
+        ]
       },
       "canonical": {
         "en": "Dynamic Background",
-        "zh": null
+        "zh": "动态背景"
       },
       "concept_id": "concept:dynamic_background",
       "confidence": "curated",
@@ -422191,11 +422235,13 @@
         "en": [
           "Dynamic Bandwidth Allocation"
         ],
-        "zh": []
+        "zh": [
+          "动态带宽分配"
+        ]
       },
       "canonical": {
         "en": "Dynamic Bandwidth Allocation",
-        "zh": null
+        "zh": "动态带宽分配"
       },
       "concept_id": "concept:dynamic_bandwidth_allocation",
       "confidence": "curated",
@@ -422251,11 +422297,13 @@
         "en": [
           "Dynamic Binary Translation"
         ],
-        "zh": []
+        "zh": [
+          "动态二进制翻译"
+        ]
       },
       "canonical": {
         "en": "Dynamic Binary Translation",
-        "zh": null
+        "zh": "动态二进制翻译"
       },
       "concept_id": "concept:dynamic_binary_translation",
       "confidence": "curated",
@@ -422278,11 +422326,13 @@
         "en": [
           "Dynamic Channel Assignment"
         ],
-        "zh": []
+        "zh": [
+          "动态信道分配"
+        ]
       },
       "canonical": {
         "en": "Dynamic Channel Assignment",
-        "zh": null
+        "zh": "动态信道分配"
       },
       "concept_id": "concept:dynamic_channel_assignment",
       "confidence": "curated",
@@ -422332,11 +422382,13 @@
         "en": [
           "Dynamic Composition"
         ],
-        "zh": []
+        "zh": [
+          "动态组合"
+        ]
       },
       "canonical": {
         "en": "Dynamic Composition",
-        "zh": null
+        "zh": "动态组合"
       },
       "concept_id": "concept:dynamic_composition",
       "confidence": "curated",
@@ -422390,11 +422442,13 @@
           "Dynamic Environment",
           "dynamic environments"
         ],
-        "zh": []
+        "zh": [
+          "动态环境"
+        ]
       },
       "canonical": {
         "en": "Dynamic Environment",
-        "zh": null
+        "zh": "动态环境"
       },
       "concept_id": "concept:dynamic_environment",
       "confidence": "curated",
@@ -422449,11 +422503,13 @@
         "en": [
           "Dynamic Groups"
         ],
-        "zh": []
+        "zh": [
+          "动态群组"
+        ]
       },
       "canonical": {
         "en": "Dynamic Groups",
-        "zh": null
+        "zh": "动态群组"
       },
       "concept_id": "concept:dynamic_group",
       "confidence": "curated",
@@ -422503,11 +422559,13 @@
         "en": [
           "Dynamic Languages"
         ],
-        "zh": []
+        "zh": [
+          "动态语言"
+        ]
       },
       "canonical": {
         "en": "Dynamic Languages",
-        "zh": null
+        "zh": "动态语言"
       },
       "concept_id": "concept:dynamic_languag",
       "confidence": "curated",
@@ -422533,11 +422591,13 @@
           "Quasi Elastic Light Scattering (QELS)",
           "Quasi-Elastic Light Scatterings (QELS)"
         ],
-        "zh": []
+        "zh": [
+          "动态光散射"
+        ]
       },
       "canonical": {
         "en": "Dynamic Light Scattering",
-        "zh": null
+        "zh": "动态光散射"
       },
       "concept_id": "concept:dynamic_light_scattering",
       "confidence": "curated",
@@ -422561,11 +422621,13 @@
         "en": [
           "Dynamic Load Balancing"
         ],
-        "zh": []
+        "zh": [
+          "动态负载均衡"
+        ]
       },
       "canonical": {
         "en": "Dynamic Load Balancing",
-        "zh": null
+        "zh": "动态负载均衡"
       },
       "concept_id": "concept:dynamic_load_balancing",
       "confidence": "curated",
@@ -422588,11 +422650,13 @@
         "en": [
           "Dynamic Logic"
         ],
-        "zh": []
+        "zh": [
+          "动态逻辑"
+        ]
       },
       "canonical": {
         "en": "Dynamic Logic",
-        "zh": null
+        "zh": "动态逻辑"
       },
       "concept_id": "concept:dynamic_logic",
       "confidence": "curated",
@@ -422615,11 +422679,13 @@
         "en": [
           "Dynamic Mechanical Analysis"
         ],
-        "zh": []
+        "zh": [
+          "动态力学分析"
+        ]
       },
       "canonical": {
         "en": "Dynamic Mechanical Analysis",
-        "zh": null
+        "zh": "动态力学分析"
       },
       "concept_id": "concept:dynamic_mechanical_analysi",
       "confidence": "curated",
@@ -422669,11 +422735,13 @@
         "en": [
           "Dynamics Of Networks"
         ],
-        "zh": []
+        "zh": [
+          "网络动力学"
+        ]
       },
       "canonical": {
         "en": "Dynamics Of Networks",
-        "zh": null
+        "zh": "网络动力学"
       },
       "concept_id": "concept:dynamic_of_network",
       "confidence": "curated",
@@ -422696,11 +422764,13 @@
         "en": [
           "Dynamic Optimization Problems"
         ],
-        "zh": []
+        "zh": [
+          "动态优化问题"
+        ]
       },
       "canonical": {
         "en": "Dynamic Optimization Problems",
-        "zh": null
+        "zh": "动态优化问题"
       },
       "concept_id": "concept:dynamic_optimization_problem",
       "confidence": "curated",
@@ -422750,11 +422820,13 @@
         "en": [
           "Dynamic Output Feedback Controller"
         ],
-        "zh": []
+        "zh": [
+          "动态输出反馈控制器"
+        ]
       },
       "canonical": {
         "en": "Dynamic Output Feedback Controller",
-        "zh": null
+        "zh": "动态输出反馈控制器"
       },
       "concept_id": "concept:dynamic_output_feedback_controller",
       "confidence": "curated",
@@ -422831,11 +422903,13 @@
         "en": [
           "Dynamic Program Analysis"
         ],
-        "zh": []
+        "zh": [
+          "动态程序分析"
+        ]
       },
       "canonical": {
         "en": "Dynamic Program Analysis",
-        "zh": null
+        "zh": "动态程序分析"
       },
       "concept_id": "concept:dynamic_program_analysi",
       "confidence": "curated",
@@ -422942,11 +423016,13 @@
         "en": [
           "Dynamic Range"
         ],
-        "zh": []
+        "zh": [
+          "动态范围"
+        ]
       },
       "canonical": {
         "en": "Dynamic Range",
-        "zh": null
+        "zh": "动态范围"
       },
       "concept_id": "concept:dynamic_range",
       "confidence": "curated",
@@ -423002,11 +423078,13 @@
         "en": [
           "Dynamic Response"
         ],
-        "zh": []
+        "zh": [
+          "动态响应"
+        ]
       },
       "canonical": {
         "en": "Dynamic Response",
-        "zh": null
+        "zh": "动态响应"
       },
       "concept_id": "concept:dynamic_response",
       "confidence": "curated",
@@ -423029,11 +423107,13 @@
         "en": [
           "Dynamic Scheduling"
         ],
-        "zh": []
+        "zh": [
+          "动态调度"
+        ]
       },
       "canonical": {
         "en": "Dynamic Scheduling",
-        "zh": null
+        "zh": "动态调度"
       },
       "concept_id": "concept:dynamic_scheduling",
       "confidence": "curated",
@@ -423083,11 +423163,13 @@
         "en": [
           "Dynamic Service Composition"
         ],
-        "zh": []
+        "zh": [
+          "动态服务组合"
+        ]
       },
       "canonical": {
         "en": "Dynamic Service Composition",
-        "zh": null
+        "zh": "动态服务组合"
       },
       "concept_id": "concept:dynamic_service_composition",
       "confidence": "curated",
@@ -423137,11 +423219,13 @@
         "en": [
           "Dynamic Software Architecture"
         ],
-        "zh": []
+        "zh": [
+          "动态软件架构"
+        ]
       },
       "canonical": {
         "en": "Dynamic Software Architecture",
-        "zh": null
+        "zh": "动态软件架构"
       },
       "concept_id": "concept:dynamic_software_architecture",
       "confidence": "curated",
@@ -423164,11 +423248,13 @@
         "en": [
           "Dynamic Source Routing Protocol"
         ],
-        "zh": []
+        "zh": [
+          "动态源路由协议"
+        ]
       },
       "canonical": {
         "en": "Dynamic Source Routing Protocol",
-        "zh": null
+        "zh": "动态源路由协议"
       },
       "concept_id": "concept:dynamic_source_routing_protocol",
       "confidence": "curated",
@@ -423252,11 +423338,13 @@
           "Dynamic Spectrum Allocation",
           "dynamic spectrum allocations"
         ],
-        "zh": []
+        "zh": [
+          "动态频谱分配"
+        ]
       },
       "canonical": {
         "en": "Dynamic Spectrum Allocation",
-        "zh": null
+        "zh": "动态频谱分配"
       },
       "concept_id": "concept:dynamic_spectrum_allocation",
       "confidence": "curated",
@@ -423311,11 +423399,13 @@
         "en": [
           "Dynamic Spectrum Sharing"
         ],
-        "zh": []
+        "zh": [
+          "动态频谱共享"
+        ]
       },
       "canonical": {
         "en": "Dynamic Spectrum Sharing",
-        "zh": null
+        "zh": "动态频谱共享"
       },
       "concept_id": "concept:dynamic_spectrum_sharing",
       "confidence": "curated",
@@ -423392,11 +423482,13 @@
         "en": [
           "Dynamic Traffic"
         ],
-        "zh": []
+        "zh": [
+          "动态流量"
+        ]
       },
       "canonical": {
         "en": "Dynamic Traffic",
-        "zh": null
+        "zh": "动态流量"
       },
       "concept_id": "concept:dynamic_traffic",
       "confidence": "curated",
@@ -423446,11 +423538,13 @@
         "en": [
           "Dynamic Walking"
         ],
-        "zh": []
+        "zh": [
+          "动态行走"
+        ]
       },
       "canonical": {
         "en": "Dynamic Walking",
-        "zh": null
+        "zh": "动态行走"
       },
       "concept_id": "concept:dynamic_walking",
       "confidence": "curated",
@@ -430444,11 +430538,13 @@
         "en": [
           "Ecology And Vegetation Dynamics Studies"
         ],
-        "zh": []
+        "zh": [
+          "生态学与植被动力学研究"
+        ]
       },
       "canonical": {
         "en": "Ecology And Vegetation Dynamics Studies",
-        "zh": null
+        "zh": "生态学与植被动力学研究"
       },
       "concept_id": "concept:ecology_and_vegetation_dynamic_study",
       "confidence": "curated",
@@ -431800,11 +431896,13 @@
         "en": [
           "Ecosystem Dynamics And Resilience"
         ],
-        "zh": []
+        "zh": [
+          "生态系统动力学与韧性"
+        ]
       },
       "canonical": {
         "en": "Ecosystem Dynamics And Resilience",
-        "zh": null
+        "zh": "生态系统动力学与韧性"
       },
       "concept_id": "concept:ecosystem_dynamic_and_resilience",
       "confidence": "curated",
@@ -442741,11 +442839,13 @@
         "en": [
           "Electrical And Thermal Properties Of Materials"
         ],
-        "zh": []
+        "zh": [
+          "材料的电学与热学性质"
+        ]
       },
       "canonical": {
         "en": "Electrical And Thermal Properties Of Materials",
-        "zh": null
+        "zh": "材料的电学与热学性质"
       },
       "concept_id": "concept:electrical_and_thermal_property_of_material",
       "confidence": "curated",
@@ -447605,11 +447705,13 @@
         "en": [
           "Electronic And Structural Properties Of Oxides"
         ],
-        "zh": []
+        "zh": [
+          "氧化物的电子与结构性质"
+        ]
       },
       "canonical": {
         "en": "Electronic And Structural Properties Of Oxides",
-        "zh": null
+        "zh": "氧化物的电子与结构性质"
       },
       "concept_id": "concept:electronic_and_structural_property_of_oxid",
       "confidence": "curated",
@@ -471308,11 +471410,13 @@
         "en": [
           "Enzyme Structure And Function"
         ],
-        "zh": []
+        "zh": [
+          "酶结构与功能"
+        ]
       },
       "canonical": {
         "en": "Enzyme Structure And Function",
-        "zh": null
+        "zh": "酶结构与功能"
       },
       "concept_id": "concept:enzyme_structure_and_function",
       "confidence": "curated",
@@ -492474,11 +492578,13 @@
         "en": [
           "Evolution And Genetic Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "演化与遗传动力学"
+        ]
       },
       "canonical": {
         "en": "Evolution And Genetic Dynamics",
-        "zh": null
+        "zh": "演化与遗传动力学"
       },
       "concept_id": "concept:evolution_and_genetic_dynamic",
       "confidence": "curated",
@@ -492878,11 +492984,13 @@
         "en": [
           "Evolutionary Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "进化动力学"
+        ]
       },
       "canonical": {
         "en": "Evolutionary Dynamics",
-        "zh": null
+        "zh": "进化动力学"
       },
       "concept_id": "concept:evolutionary_dynamic",
       "confidence": "curated",
@@ -505893,11 +506001,13 @@
           "Family Dynamics",
           "Family Dynamic"
         ],
-        "zh": []
+        "zh": [
+          "家庭关系"
+        ]
       },
       "canonical": {
         "en": "Family Relations",
-        "zh": null
+        "zh": "家庭关系"
       },
       "concept_id": "concept:family_relation",
       "confidence": "curated",
@@ -529094,11 +529204,13 @@
         "en": [
           "Fluid Dynamics And Thin Films"
         ],
-        "zh": []
+        "zh": [
+          "流体动力学与薄膜"
+        ]
       },
       "canonical": {
         "en": "Fluid Dynamics And Thin Films",
-        "zh": null
+        "zh": "流体动力学与薄膜"
       },
       "concept_id": "concept:fluid_dynamic_and_thin_film",
       "confidence": "curated",
@@ -529150,11 +529262,13 @@
         "en": [
           "Fluid Dynamics And Vibration Analysis"
         ],
-        "zh": []
+        "zh": [
+          "流体动力学与振动分析"
+        ]
       },
       "canonical": {
         "en": "Fluid Dynamics And Vibration Analysis",
-        "zh": null
+        "zh": "流体动力学与振动分析"
       },
       "concept_id": "concept:fluid_dynamic_and_vibration_analysi",
       "confidence": "curated",
@@ -529178,11 +529292,13 @@
         "en": [
           "Fluid Dynamics Simulations And Interactions"
         ],
-        "zh": []
+        "zh": [
+          "流体动力学仿真与相互作用"
+        ]
       },
       "canonical": {
         "en": "Fluid Dynamics Simulations And Interactions",
-        "zh": null
+        "zh": "流体动力学仿真与相互作用"
       },
       "concept_id": "concept:fluid_dynamic_simulation_and_interaction",
       "confidence": "curated",
@@ -535144,11 +535260,13 @@
         "en": [
           "Food Security And Socioeconomic Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "粮食安全与社会经济动态"
+        ]
       },
       "canonical": {
         "en": "Food Security And Socioeconomic Dynamics",
-        "zh": null
+        "zh": "粮食安全与社会经济动态"
       },
       "concept_id": "concept:food_security_and_socioeconomic_dynamic",
       "confidence": "curated",
@@ -569353,6 +569471,33 @@
     },
     {
       "aliases": {
+        "en": [],
+        "zh": [
+          "性别、劳动与家庭动态"
+        ]
+      },
+      "canonical": {
+        "en": null,
+        "zh": "性别、劳动与家庭动态"
+      },
+      "concept_id": "concept:gender_labor_and_family_dynamic",
+      "confidence": "curated",
+      "domains": [
+        "social_sciences"
+      ],
+      "parents": [],
+      "review_status": "accepted",
+      "source_refs": [
+        {
+          "label": "Gender, Labor, and Family Dynamics",
+          "source": "openalex_topics",
+          "source_id": "openalex_topics:T11544"
+        }
+      ],
+      "specificity": 100
+    },
+    {
+      "aliases": {
         "en": [
           "Gender-nonconforming Persons",
           "Gender Non conforming",
@@ -575408,11 +575553,13 @@
           "Fungal Pangenome",
           "Fungal Pan-genome"
         ],
-        "zh": []
+        "zh": [
+          "真菌基因组"
+        ]
       },
       "canonical": {
         "en": "Fungal Genome",
-        "zh": null
+        "zh": "真菌基因组"
       },
       "concept_id": "concept:genome_fungal",
       "confidence": "curated",
@@ -585127,11 +585274,13 @@
         "en": [
           "Global Political And Social Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "全球政治与社会动态"
+        ]
       },
       "canonical": {
         "en": "Global Political And Social Dynamics",
-        "zh": null
+        "zh": "全球政治与社会动态"
       },
       "concept_id": "concept:global_political_and_social_dynamic",
       "confidence": "curated",
@@ -585236,11 +585385,13 @@
         "en": [
           "Global Socioeconomic And Cultural Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "全球社会经济与文化动态"
+        ]
       },
       "canonical": {
         "en": "Global Socioeconomic And Cultural Dynamics",
-        "zh": null
+        "zh": "全球社会经济与文化动态"
       },
       "concept_id": "concept:global_socioeconomic_and_cultural_dynamic",
       "confidence": "curated",
@@ -585263,11 +585414,13 @@
         "en": [
           "Global Socioeconomic And Political Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "全球社会经济与政治动态"
+        ]
       },
       "canonical": {
         "en": "Global Socioeconomic And Political Dynamics",
-        "zh": null
+        "zh": "全球社会经济与政治动态"
       },
       "concept_id": "concept:global_socioeconomic_and_political_dynamic",
       "confidence": "curated",
@@ -585455,11 +585608,13 @@
         "en": [
           "Global Urban Networks And Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "全球城市网络与动态"
+        ]
       },
       "canonical": {
         "en": "Global Urban Networks And Dynamics",
-        "zh": null
+        "zh": "全球城市网络与动态"
       },
       "concept_id": "concept:global_urban_network_and_dynamic",
       "confidence": "curated",
@@ -603748,11 +603903,13 @@
           "Social Dynamic",
           "Groupthink"
         ],
-        "zh": []
+        "zh": [
+          "群体动力学"
+        ]
       },
       "canonical": {
         "en": "Group Dynamics",
-        "zh": null
+        "zh": "群体动力学"
       },
       "concept_id": "concept:group_dynamic",
       "confidence": "curated",
@@ -623145,11 +623302,13 @@
         "en": [
           "Heart Rate And Cardiovascular Health"
         ],
-        "zh": []
+        "zh": [
+          "心率与心血管健康"
+        ]
       },
       "canonical": {
         "en": "Heart Rate And Cardiovascular Health",
-        "zh": null
+        "zh": "心率与心血管健康"
       },
       "concept_id": "concept:heart_rate_and_cardiovascular_health",
       "confidence": "curated",
@@ -636642,11 +636801,13 @@
           "Infectious Bovine Rhinotracheitis Virus",
           "Infectious Pustular Vulvovaginitis Virus"
         ],
-        "zh": []
+        "zh": [
+          "牛疱疹病毒1型"
+        ]
       },
       "canonical": {
         "en": "Bovine Herpesvirus 1",
-        "zh": null
+        "zh": "牛疱疹病毒1型"
       },
       "concept_id": "concept:herpesviru_1_bovine",
       "confidence": "curated",
@@ -641507,11 +641668,13 @@
         "en": [
           "High Dynamic Range"
         ],
-        "zh": []
+        "zh": [
+          "高动态范围"
+        ]
       },
       "canonical": {
         "en": "High Dynamic Range",
-        "zh": null
+        "zh": "高动态范围"
       },
       "concept_id": "concept:high_dynamic_range",
       "confidence": "curated",
@@ -724552,11 +724715,13 @@
         "en": [
           "International Relations In Latin America"
         ],
-        "zh": []
+        "zh": [
+          "拉丁美洲国际关系"
+        ]
       },
       "canonical": {
         "en": "International Relations In Latin America",
-        "zh": null
+        "zh": "拉丁美洲国际关系"
       },
       "concept_id": "concept:international_relation_in_latin_america",
       "confidence": "curated",
@@ -743646,11 +743811,13 @@
           "Joint Source Channel Coding",
           "joint source-channel coding"
         ],
-        "zh": []
+        "zh": [
+          "联合信源信道编码"
+        ]
       },
       "canonical": {
         "en": "Joint Source Channel Coding",
-        "zh": null
+        "zh": "联合信源信道编码"
       },
       "concept_id": "concept:joint_source_channel_coding",
       "confidence": "curated",
@@ -820098,11 +820265,13 @@
         "en": [
           "Manipulator Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "机械臂动力学"
+        ]
       },
       "canonical": {
         "en": "Manipulator Dynamics",
-        "zh": null
+        "zh": "机械臂动力学"
       },
       "concept_id": "concept:manipulator_dynamic",
       "confidence": "curated",
@@ -827994,11 +828163,13 @@
         "en": [
           "Material Dynamics And Properties"
         ],
-        "zh": []
+        "zh": [
+          "材料动力学与性质"
+        ]
       },
       "canonical": {
         "en": "Material Dynamics And Properties",
-        "zh": null
+        "zh": "材料动力学与性质"
       },
       "concept_id": "concept:material_dynamic_and_property",
       "confidence": "curated",
@@ -828499,11 +828670,13 @@
         "en": [
           "Material Science And Thermodynamics"
         ],
-        "zh": []
+        "zh": [
+          "材料科学与热力学"
+        ]
       },
       "canonical": {
         "en": "Material Science And Thermodynamics",
-        "zh": null
+        "zh": "材料科学与热力学"
       },
       "concept_id": "concept:material_science_and_thermodynamic",
       "confidence": "curated",
@@ -871466,11 +871639,13 @@
         "en": [
           "Migration And Labor Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "迁移与劳动动态"
+        ]
       },
       "canonical": {
         "en": "Migration And Labor Dynamics",
-        "zh": null
+        "zh": "迁移与劳动动态"
       },
       "concept_id": "concept:migration_and_labor_dynamic",
       "confidence": "curated",
@@ -871484,6 +871659,33 @@
           "label": "Migration and Labor Dynamics",
           "source": "openalex_topics",
           "source_id": "openalex_topics:T10349"
+        }
+      ],
+      "specificity": 100
+    },
+    {
+      "aliases": {
+        "en": [],
+        "zh": [
+          "迁移、教育与原住民社会动态"
+        ]
+      },
+      "canonical": {
+        "en": null,
+        "zh": "迁移、教育与原住民社会动态"
+      },
+      "concept_id": "concept:migration_education_indigenou_social_dynamic",
+      "confidence": "curated",
+      "domains": [
+        "social_sciences"
+      ],
+      "parents": [],
+      "review_status": "accepted",
+      "source_refs": [
+        {
+          "label": "Migration, Education, Indigenous Social Dynamics",
+          "source": "openalex_topics",
+          "source_id": "openalex_topics:T12861"
         }
       ],
       "specificity": 100
@@ -885322,11 +885524,13 @@
           "Molecular Dynamics",
           "Molecular Dynamic"
         ],
-        "zh": []
+        "zh": [
+          "分子动力学仿真"
+        ]
       },
       "canonical": {
         "en": "Molecular Dynamics Simulation",
-        "zh": null
+        "zh": "分子动力学仿真"
       },
       "concept_id": "concept:molecular_dynamic_simulation",
       "confidence": "curated",
@@ -938467,11 +938671,13 @@
         "en": [
           "Neural Dynamics And Brain Function"
         ],
-        "zh": []
+        "zh": [
+          "神经动力学与脑函数"
+        ]
       },
       "canonical": {
         "en": "Neural Dynamics And Brain Function",
-        "zh": null
+        "zh": "神经动力学与脑函数"
       },
       "concept_id": "concept:neural_dynamic_and_brain_function",
       "confidence": "curated",
@@ -958247,11 +958453,13 @@
         "en": [
           "Nonlinear Dynamics And Pattern Formation"
         ],
-        "zh": []
+        "zh": [
+          "非线性动力学与模式形成"
+        ]
       },
       "canonical": {
         "en": "Nonlinear Dynamics And Pattern Formation",
-        "zh": null
+        "zh": "非线性动力学与模式形成"
       },
       "concept_id": "concept:nonlinear_dynamic_and_pattern_formation",
       "confidence": "curated",
@@ -958275,11 +958483,13 @@
         "en": [
           "Nonlinear Dynamics In Fluids"
         ],
-        "zh": []
+        "zh": [
+          "流体中的非线性动力学"
+        ]
       },
       "canonical": {
         "en": "Nonlinear Dynamics In Fluids",
-        "zh": null
+        "zh": "流体中的非线性动力学"
       },
       "concept_id": "concept:nonlinear_dynamic_in_fluid",
       "confidence": "curated",
@@ -964762,11 +964972,13 @@
         "en": [
           "Nuclear Thermodynamics"
         ],
-        "zh": []
+        "zh": [
+          "核热力学"
+        ]
       },
       "canonical": {
         "en": "Nuclear Thermodynamics",
-        "zh": null
+        "zh": "核热力学"
       },
       "concept_id": "concept:nuclear_thermodynamic",
       "confidence": "curated",
@@ -1026353,11 +1026565,13 @@
         "en": [
           "Particle Accelerators And Beam Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "粒子加速器与波束动力学"
+        ]
       },
       "canonical": {
         "en": "Particle Accelerators And Beam Dynamics",
-        "zh": null
+        "zh": "粒子加速器与波束动力学"
       },
       "concept_id": "concept:particle_accelerator_and_beam_dynamic",
       "confidence": "curated",
@@ -1026735,11 +1026949,13 @@
         "en": [
           "Particle Dynamics In Fluid Flows"
         ],
-        "zh": []
+        "zh": [
+          "流体流动中的粒子动力学"
+        ]
       },
       "canonical": {
         "en": "Particle Dynamics In Fluid Flows",
-        "zh": null
+        "zh": "流体流动中的粒子动力学"
       },
       "concept_id": "concept:particle_dynamic_in_fluid_flow",
       "confidence": "curated",
@@ -1028189,11 +1028405,13 @@
         "en": [
           "Passive Dynamic Walking"
         ],
-        "zh": []
+        "zh": [
+          "被动动态行走"
+        ]
       },
       "canonical": {
         "en": "Passive Dynamic Walking",
-        "zh": null
+        "zh": "被动动态行走"
       },
       "concept_id": "concept:passive_dynamic_walking",
       "confidence": "curated",
@@ -1079584,11 +1079802,13 @@
         "en": [
           "Plant Water Relations And Carbon Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "植物水分关系与碳动态"
+        ]
       },
       "canonical": {
         "en": "Plant Water Relations And Carbon Dynamics",
-        "zh": null
+        "zh": "植物水分关系与碳动态"
       },
       "concept_id": "concept:plant_water_relation_and_carbon_dynamic",
       "confidence": "curated",
@@ -1081026,11 +1081246,13 @@
         "en": [
           "Plasma Thermodynamics"
         ],
-        "zh": []
+        "zh": [
+          "等离子体热力学"
+        ]
       },
       "canonical": {
         "en": "Plasma Thermodynamics",
-        "zh": null
+        "zh": "等离子体热力学"
       },
       "concept_id": "concept:plasma_thermodynamic",
       "confidence": "curated",
@@ -1089752,11 +1089974,13 @@
         "en": [
           "Political Dynamics In Latin America"
         ],
-        "zh": []
+        "zh": [
+          "拉丁美洲政治动态"
+        ]
       },
       "canonical": {
         "en": "Political Dynamics In Latin America",
-        "zh": null
+        "zh": "拉丁美洲政治动态"
       },
       "concept_id": "concept:political_dynamic_in_latin_america",
       "confidence": "curated",
@@ -1107097,11 +1107321,13 @@
         "en": [
           "Power System Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "电力系统动力学"
+        ]
       },
       "canonical": {
         "en": "Power System Dynamics",
-        "zh": null
+        "zh": "电力系统动力学"
       },
       "concept_id": "concept:power_system_dynamic",
       "confidence": "curated",
@@ -1227921,11 +1228147,13 @@
         "en": [
           "Robot Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "机器人动力学"
+        ]
       },
       "canonical": {
         "en": "Robot Dynamics",
-        "zh": null
+        "zh": "机器人动力学"
       },
       "concept_id": "concept:robot_dynamic",
       "confidence": "curated",
@@ -1228655,11 +1228883,13 @@
         "en": [
           "Robotic Mechanisms And Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "机器人机构与动力学"
+        ]
       },
       "canonical": {
         "en": "Robotic Mechanisms And Dynamics",
-        "zh": null
+        "zh": "机器人机构与动力学"
       },
       "concept_id": "concept:robotic_mechanism_and_dynamic",
       "confidence": "curated",
@@ -1295660,11 +1295890,13 @@
         "en": [
           "Social And Cultural Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "社会与文化动态"
+        ]
       },
       "canonical": {
         "en": "Social And Cultural Dynamics",
-        "zh": null
+        "zh": "社会与文化动态"
       },
       "concept_id": "concept:social_and_cultural_dynamic",
       "confidence": "curated",
@@ -1297200,11 +1297432,13 @@
         "en": [
           "Social Issues And Policies In Latin America"
         ],
-        "zh": []
+        "zh": [
+          "拉丁美洲社会问题与政策"
+        ]
       },
       "canonical": {
         "en": "Social Issues And Policies In Latin America",
-        "zh": null
+        "zh": "拉丁美洲社会问题与政策"
       },
       "concept_id": "concept:social_issu_and_policy_in_latin_america",
       "confidence": "curated",
@@ -1304987,11 +1305221,13 @@
         "en": [
           "Soil Mechanics And Vehicle Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "土壤力学与车辆动力学"
+        ]
       },
       "canonical": {
         "en": "Soil Mechanics And Vehicle Dynamics",
-        "zh": null
+        "zh": "土壤力学与车辆动力学"
       },
       "concept_id": "concept:soil_mechanic_and_vehicle_dynamic",
       "confidence": "curated",
@@ -1305517,11 +1305753,13 @@
         "en": [
           "Solar And Space Plasma Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "太阳与空间等离子体动力学"
+        ]
       },
       "canonical": {
         "en": "Solar And Space Plasma Dynamics",
-        "zh": null
+        "zh": "太阳与空间等离子体动力学"
       },
       "concept_id": "concept:solar_and_space_plasma_dynamic",
       "confidence": "curated",
@@ -1330193,11 +1330431,13 @@
         "en": [
           "Static And Dynamic Analysis"
         ],
-        "zh": []
+        "zh": [
+          "静态与动态分析"
+        ]
       },
       "canonical": {
         "en": "Static And Dynamic Analysis",
-        "zh": null
+        "zh": "静态与动态分析"
       },
       "concept_id": "concept:static_and_dynamic_analysi",
       "confidence": "curated",
@@ -1336038,11 +1336278,13 @@
         "en": [
           "Stochastic Dynamics"
         ],
-        "zh": []
+        "zh": [
+          "随机动力学"
+        ]
       },
       "canonical": {
         "en": "Stochastic Dynamics",
-        "zh": null
+        "zh": "随机动力学"
       },
       "concept_id": "concept:stochastic_dynamic",
       "confidence": "curated",
@@ -1343261,11 +1343503,13 @@
         "en": [
           "Structural Response To Dynamic Loads"
         ],
-        "zh": []
+        "zh": [
+          "结构对动力荷载的响应"
+        ]
       },
       "canonical": {
         "en": "Structural Response To Dynamic Loads",
-        "zh": null
+        "zh": "结构对动力荷载的响应"
       },
       "concept_id": "concept:structural_response_to_dynamic_load",
       "confidence": "curated",
@@ -1363810,11 +1364054,13 @@
         "en": [
           "Synthesis And Properties Of Polymers"
         ],
-        "zh": []
+        "zh": [
+          "聚合物的合成与性质"
+        ]
       },
       "canonical": {
         "en": "Synthesis And Properties Of Polymers",
-        "zh": null
+        "zh": "聚合物的合成与性质"
       },
       "concept_id": "concept:synthesi_and_property_of_polymer",
       "confidence": "curated",
@@ -1390938,11 +1391184,13 @@
         "en": [
           "Thermodynamic And Structural Properties Of Metals And Alloys"
         ],
-        "zh": []
+        "zh": [
+          "金属与合金的热力学和结构性质"
+        ]
       },
       "canonical": {
         "en": "Thermodynamic And Structural Properties Of Metals And Alloys",
-        "zh": null
+        "zh": "金属与合金的热力学和结构性质"
       },
       "concept_id": "concept:thermodynamic_and_structural_property_of_metal_and_alloy",
       "confidence": "curated",
@@ -1474707,11 +1474955,13 @@
         "en": [
           "Vibration And Dynamic Analysis"
         ],
-        "zh": []
+        "zh": [
+          "振动与动力分析"
+        ]
       },
       "canonical": {
         "en": "Vibration And Dynamic Analysis",
-        "zh": null
+        "zh": "振动与动力分析"
       },
       "concept_id": "concept:vibration_and_dynamic_analysi",
       "confidence": "curated",
@@ -1516757,9 +1517007,9 @@
     "en:blocked": 14085,
     "en:needs_review": 713,
     "en:reject": 101116,
-    "zh:accept": 1966,
+    "zh:accept": 2066,
     "zh:blocked": 3306,
-    "zh:needs_review": 8539,
+    "zh:needs_review": 8438,
     "zh:reject": 208
   },
   "schema_version": "theme_concept_aliases.v1",
