@@ -105,6 +105,104 @@ class ApplyZhReviewRecommendationsTests(unittest.TestCase):
         self.assertEqual(summary["accept"], 1)
         self.assertEqual(summary["accept_missing"], True)
 
+    def test_can_apply_explicit_english_recommendations_when_lang_is_en(self) -> None:
+        review = self.root / "review_decisions.jsonl"
+        recs = self.root / "recommendations.json"
+        write_jsonl(
+            review,
+            [
+                {"concept_id": "c1", "alias": "ATP", "lang": "en", "decision": "needs_review", "review_tier": "needs_review"},
+                {"concept_id": "c2", "alias": "AMP", "lang": "en", "decision": "needs_review", "review_tier": "needs_review"},
+                {"concept_id": "c3", "alias": "信道估计", "lang": "zh", "decision": "needs_review", "review_tier": "needs_review"},
+            ],
+        )
+        recs.write_text(
+            json.dumps(
+                {
+                    "recommendations": [
+                        {"concept_id": "c1", "alias": "ATP", "recommendation": "blocked", "reason": "ambiguous acronym", "merge_duplicate_concepts": False},
+                    ]
+                },
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+
+        module = load_module()
+        summary = module.apply_zh_review_recommendations(
+            review_decisions_path=review,
+            recommendations_path=recs,
+            lang="en",
+        )
+
+        rows = {(row["concept_id"], row["alias"], row["lang"]): row for row in read_jsonl(review)}
+        self.assertEqual(rows[("c1", "ATP", "en")]["decision"], "blocked")
+        self.assertEqual(rows[("c2", "AMP", "en")]["decision"], "needs_review")
+        self.assertEqual(rows[("c3", "信道估计", "zh")]["decision"], "needs_review")
+        self.assertEqual(summary["blocked"], 1)
+        self.assertEqual(summary["lang"], "en")
+        self.assertEqual(summary["schema_version"], "theme_en_review_apply.v1")
+        self.assertEqual(Path(summary["manifest"]).name, "en_review_apply_manifest.json")
+        self.assertTrue((review.parent / "en_review_apply_manifest.json").exists())
+        self.assertFalse((review.parent / "zh_review_apply_manifest.json").exists())
+
+    def test_explicit_recommendation_lang_prevents_cross_language_key_collision(self) -> None:
+        review = self.root / "review_decisions.jsonl"
+        recs = self.root / "recommendations.json"
+        write_jsonl(
+            review,
+            [
+                {"concept_id": "c1", "alias": "ATP", "lang": "en", "decision": "needs_review", "review_tier": "needs_review"},
+                {"concept_id": "c1", "alias": "ATP", "lang": "zh", "decision": "needs_review", "review_tier": "needs_review"},
+            ],
+        )
+        recs.write_text(
+            json.dumps(
+                {
+                    "recommendations": [
+                        {"concept_id": "c1", "alias": "ATP", "lang": "zh", "recommendation": "blocked", "reason": "zh only", "merge_duplicate_concepts": False},
+                    ]
+                },
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+
+        module = load_module()
+        summary = module.apply_zh_review_recommendations(
+            review_decisions_path=review,
+            recommendations_path=recs,
+            lang="en",
+        )
+
+        rows = {(row["concept_id"], row["alias"], row["lang"]): row for row in read_jsonl(review)}
+        self.assertEqual(rows[("c1", "ATP", "en")]["decision"], "needs_review")
+        self.assertEqual(rows[("c1", "ATP", "zh")]["decision"], "needs_review")
+        self.assertEqual(summary["blocked"], 0)
+
+    def test_accept_missing_is_rejected_for_english_review(self) -> None:
+        review = self.root / "review_decisions.jsonl"
+        recs = self.root / "recommendations.json"
+        write_jsonl(
+            review,
+            [
+                {"concept_id": "c1", "alias": "ATP", "lang": "en", "decision": "needs_review", "review_tier": "needs_review"},
+            ],
+        )
+        recs.write_text(json.dumps({"recommendations": []}, ensure_ascii=False), encoding="utf-8")
+
+        module = load_module()
+        with self.assertRaisesRegex(ValueError, "accept_missing is only supported for zh review"):
+            module.apply_zh_review_recommendations(
+                review_decisions_path=review,
+                recommendations_path=recs,
+                accept_missing=True,
+                lang="en",
+            )
+
+        rows = {(row["concept_id"], row["alias"], row["lang"]): row for row in read_jsonl(review)}
+        self.assertEqual(rows[("c1", "ATP", "en")]["decision"], "needs_review")
+
 
 if __name__ == "__main__":
     unittest.main()

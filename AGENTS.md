@@ -138,31 +138,82 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-15 L3-L5 source-specific / biomedical word-order pass）：
+最新已知状态（2026-06-16 L3-L5 final en acronym review complete）：
 
-- runtime `build_status`: `partial_review_pending`
+- runtime `build_status`: `review_complete`
 - 中文候选覆盖：`13835 / 54682 = 25.30%`
-- `zh:accept`: `2066`
-- `zh:blocked`: `3306`
-- `zh:needs_review`: `8438`
+- `en:accept`: `233199`
+- `en:blocked`: `14798`
+- `en:needs_review`: `0`
+- `en:reject`: `101116`
+- `zh:accept`: `2353`
+- `zh:blocked`: `11457`
+- `zh:needs_review`: `0`
 - `zh:reject`: `208`
 - accepted/runtime alias conflicts: `0`
+- runtime en alias conflicts: `0`
+- runtime zh alias conflicts: `0`
 - runtime concept aliases: `48834`
 - package/tool runtime alias 文件 byte-identical
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- 最近相关测试：`53 passed`
+- 最近相关测试：`56 passed`
 
 当前下一步：
 
-- review medium-confidence `agent_compositional_glossary / medium`，
-  按 domain 分层处理；继续处理剩余 biomedical / thermodynamic /
-  source-specific word-order items。
+- en/zh review 均已清零，runtime `build_status` 已是 `review_complete`。
+- 后续若继续扩大中文 runtime coverage，只能通过 exact glossary 或
+  domain-aware replacement 重新打开已 blocked 的组合候选；不要直接把
+  medium-confidence compositional 候选批量转 accept。
+- 短英文 acronym 默认保持 blocked；只有显式 acronym allowlist 或
+  source-specific review 后才能进入 runtime。
 - 低置信 `agent_review_gated_mixed_fallback` 不能当覆盖率来源；只能作为
   需要 exact/domain-specific replacement 的 review 队列。
 - `System-on-a-chip -> 片上系统` 当前与 `system_on_chip*` 概念冲突，
   保持 blocked，不自动 merge。
+- 本轮已纠正并接受的 biomedical exact 项包括
+  `Acid Phosphatase -> 酸性磷酸酶`、
+  `Activated Protein C Resistance -> 活化蛋白C抵抗`、
+  `Acute-phase Reaction -> 急性期反应`、
+  `B7-1 Antigen -> B7-1抗原`；旧坏形态
+  `酸磷酸酶`、`活性蛋白C抗性`、`急性相位反应`、`B7 1抗原`
+  不应进入 runtime。
+- 最新 1000 条 bounded review 批次已处理：
+  - `218 accept`：只接受无碰撞、无空格、无已知坏形态的
+    biomedical/exact 标准命名；
+  - `782 blocked`：低置信 `agent_review_gated_mixed_fallback / low`
+    一律不作为覆盖来源，blocked pending exact/domain-specific replacement。
+  - 新发现 biomedical mixed-class suffix 风险：
+  `B7 2抗原`、`HCV NS3 4A蛋白酶抑制剂` 这类空格编号格式不自动
+  accept；`S phase` 不得译为 `S相位`，应后续 exact 修正为 `S期`
+  相关表述。
+- 最新 goal2000 bounded review 后半批次已处理：
+  - batch `006-010` 共 `1000` 条全部 `blocked`；
+  - 未新增 accepted alias，runtime coverage 不增加；
+  - 目的只是清理低质量 / 高风险 pending review 项，保留
+    exact/domain-specific replacement 的后续空间；
+  - 仍不自动 merge collision，不打开低质 mixed fallback，不进入 L6。
+- 最新 goal-next2000 bounded review 批次已处理：
+  - batch `001-010` 共 `2000` 条全部 `blocked`；
+  - 处理对象优先级：OpenAlex topic compositional、MeSH compositional
+    word-order、ASCII/spacing residual、多义/词序风险、敏感域组合词、
+    已知技术误译风险、生医样式但非 exact 证据项、少量保守尾部；
+  - 未新增 accepted alias，runtime coverage 不增加；
+  - 仍不自动 merge collision，不打开低质 mixed fallback，不进入 L6。
+- 最新 final zh needs review sweep 已处理：
+  - batch `001-017` 共 `3369` 条全部 `blocked`；
+  - 这些是高风险桶清理后剩余的 medium-confidence compositional 候选；
+  - 未新增 accepted alias，runtime coverage 不增加；
+  - 中文 review 完成：`zh:needs_review = 0`；
+  - 仍不自动 merge collision，不打开低质 mixed fallback，不进入 L6。
+- 最新 final en acronym review 已处理：
+  - batch `001-004` 共 `713` 条全部 `blocked`；
+  - 这些都是 validator 标记的 short acronym，主要来自 MeSH/biomedical；
+  - 未新增 accepted alias，runtime coverage 不增加；
+  - 英文 review 完成：`en:needs_review = 0`；
+  - `tools/theme-lexicon/apply_zh_review_recommendations.py` 已向后兼容地
+    增加 `--lang en|zh`，默认仍为 `zh`。
 
 ## 5. Alias pipeline 操作规范
 
@@ -297,6 +348,12 @@ uv run python tools/theme-lexicon/materialize_runtime_overlay.py `
 - 主 Agent 必须筛选并负责最终写入 review decisions。
 - 不使用 blanket `accept_missing`。
 - RPM/TPM 紧张时减少 subagent 和等待频率，优先本地脚本分桶。
+- `tools/theme-lexicon/apply_zh_review_recommendations.py` 支持
+  `--lang en|zh`；recommendation 匹配必须使用
+  `(lang, concept_id, alias)`，旧 recommendation 文件没有 `lang` 时按当前
+  `--lang` 解释；manifest 使用 `{lang}_review_apply_manifest.json`。
+- `--accept-missing` 只允许用于 `--lang zh` 的旧流程；英文 short acronym
+  review 不允许 blanket accept，必须显式 recommendation / allowlist。
 
 ### 6.8 pytest / tempfile 长时间无输出
 
