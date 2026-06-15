@@ -43,7 +43,6 @@ chrome-profile/
 .chrome-sciencedirect/
 downloads/
 .tmp/
-tests/
 CONTEXT.md
 paper-search-results/
 
@@ -53,6 +52,10 @@ htmlcov/
 .pytest_cache/
 .tox/
 .nox/
+tests/__pycache__/
+tests/**/*.py[cod]
+tests/*.tmp
+tests/**/*.tmp
 
 # Distribution
 *.tar.gz
