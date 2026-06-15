@@ -3727,6 +3727,30 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
                 ["health_sciences", "medicine"],
                 "趋化因子受体与信号传导",
             ),
+            (
+                "acid_phosphatase",
+                "Acid Phosphatase",
+                ["biomedical", "chemicals_and_drugs"],
+                "酸性磷酸酶",
+            ),
+            (
+                "activated_protein_c_resistance",
+                "Activated Protein C Resistance",
+                ["biomedical", "diseases"],
+                "活化蛋白C抵抗",
+            ),
+            (
+                "acute_phase_reaction",
+                "Acute-phase Reaction",
+                ["biomedical", "diseases"],
+                "急性期反应",
+            ),
+            (
+                "b7_1_antigen",
+                "B7-1 Antigen",
+                ["biomedical", "chemicals_and_drugs"],
+                "B7-1抗原",
+            ),
         ]
         write_jsonl(
             self.batch,

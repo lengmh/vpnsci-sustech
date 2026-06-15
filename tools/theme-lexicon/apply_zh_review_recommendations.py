@@ -1,4 +1,8 @@
-"""Apply SubAgent Chinese alias review recommendations to review decisions."""
+"""Apply SubAgent alias review recommendations to review decisions.
+
+The default target language remains Chinese for backward compatibility with
+the existing L3 zh review workflow.
+"""
 
 from __future__ import annotations
 
@@ -27,8 +31,8 @@ def _write_jsonl(path: Path, rows: Iterable[dict[str, Any]]) -> int:
     return len(materialized)
 
 
-def _key(row: dict[str, Any]) -> tuple[str, str]:
-    return str(row.get("concept_id") or ""), str(row.get("alias") or "")
+def _key(row: dict[str, Any], *, default_lang: str | None = None) -> tuple[str, str, str]:
+    return str(row.get("lang") or default_lang or ""), str(row.get("concept_id") or ""), str(row.get("alias") or "")
 
 
 def apply_zh_review_recommendations(
@@ -37,7 +41,12 @@ def apply_zh_review_recommendations(
     recommendations_path: Path,
     output_path: Path | None = None,
     accept_missing: bool = False,
+    lang: str = "zh",
 ) -> dict[str, Any]:
+    if lang not in {"en", "zh"}:
+        raise ValueError(f"Unsupported review language: {lang}")
+    if accept_missing and lang != "zh":
+        raise ValueError("accept_missing is only supported for zh review")
     review_decisions_path = Path(review_decisions_path)
     recommendations_path = Path(recommendations_path)
     output_path = Path(output_path or review_decisions_path)
@@ -50,23 +59,23 @@ def apply_zh_review_recommendations(
         recommendation = str(item.get("recommendation") or "")
         if recommendation not in VALID_RECOMMENDATIONS:
             raise ValueError(f"Invalid recommendation: {recommendation}")
-        explicit[_key(item)] = item
+        explicit[_key(item, default_lang=lang)] = item
 
     rows = _read_jsonl(review_decisions_path)
     counts = {"accept": 0, "reject": 0, "blocked": 0, "unchanged": 0}
     applied_at = datetime.now(timezone.utc).date().isoformat()
 
     for row in rows:
-        if row.get("lang") != "zh" or row.get("decision") != "needs_review":
+        if row.get("lang") != lang or row.get("decision") != "needs_review":
             counts["unchanged"] += 1
             continue
-        recommendation = explicit.get(_key(row))
+        recommendation = explicit.get(_key(row, default_lang=lang))
         if recommendation is None:
             if not accept_missing:
                 counts["unchanged"] += 1
                 continue
             decision = "accept"
-            reason = "SubAgent review did not flag this high-confidence Chinese alias"
+            reason = f"SubAgent review did not flag this high-confidence {lang} alias"
             merge_duplicate_concepts = False
         else:
             decision = str(recommendation["recommendation"])
@@ -91,14 +100,15 @@ def apply_zh_review_recommendations(
 
     written = _write_jsonl(output_path, rows)
     summary = {
-        "schema_version": "theme_zh_review_apply.v1",
+        "schema_version": f"theme_{lang}_review_apply.v1",
         "review_decisions": str(output_path.resolve()),
         "recommendations": str(recommendations_path.resolve()),
         "accept_missing": accept_missing,
+        "lang": lang,
         "written": written,
         **counts,
     }
-    manifest_path = output_path.parent / "zh_review_apply_manifest.json"
+    manifest_path = output_path.parent / f"{lang}_review_apply_manifest.json"
     summary["manifest"] = str(manifest_path)
     manifest_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
     return summary
@@ -109,10 +119,11 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--review-decisions", type=Path, default=Path("lexicons/review/review_decisions.jsonl"))
     parser.add_argument("--recommendations", type=Path, required=True)
     parser.add_argument("--output", type=Path, default=None)
+    parser.add_argument("--lang", choices=("en", "zh"), default="zh", help="Review decision language to update.")
     parser.add_argument(
         "--accept-missing",
         action="store_true",
-        help="Legacy mode: accept zh needs_review rows missing from recommendations.",
+        help="Legacy zh-only mode: accept zh needs_review rows missing from recommendations.",
     )
     return parser.parse_args(argv)
 
@@ -124,6 +135,7 @@ def main(argv: list[str] | None = None) -> int:
         recommendations_path=args.recommendations,
         output_path=args.output,
         accept_missing=args.accept_missing,
+        lang=args.lang,
     )
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0

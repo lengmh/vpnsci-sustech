@@ -1,5 +1,5 @@
 {
-  "build_status": "partial_review_pending",
+  "build_status": "review_complete",
   "concept_aliases": [
     {
       "aliases": {
@@ -365,11 +365,13 @@
           "T Cell Surface Glycoprotein E2",
           "MIC2 Protein"
         ],
-        "zh": []
+        "zh": [
+          "12E7抗原"
+        ]
       },
       "canonical": {
         "en": "12E7 Antigen",
-        "zh": null
+        "zh": "12E7抗原"
       },
       "concept_id": "concept:12e7_antigen",
       "confidence": "curated",
@@ -438,11 +440,13 @@
           "14-3-3eta Protein",
           "14 3 3eta Protein"
         ],
-        "zh": []
+        "zh": [
+          "14-3-3蛋白"
+        ]
       },
       "canonical": {
         "en": "14-3-3 Proteins",
-        "zh": null
+        "zh": "14-3-3蛋白"
       },
       "concept_id": "concept:14_3_3_protein",
       "confidence": "curated",
@@ -5976,11 +5980,13 @@
           "Cell, 3T3",
           "Cells, 3T3"
         ],
-        "zh": []
+        "zh": [
+          "3T3细胞"
+        ]
       },
       "canonical": {
         "en": "3T3 Cells",
-        "zh": null
+        "zh": "3T3细胞"
       },
       "concept_id": "concept:3t3_cell",
       "confidence": "curated",
@@ -7102,11 +7108,13 @@
           "5-alpha-Reductase Inhibitor, Testosterone",
           "Testosterone 5 alpha Reductase Inhibitor"
         ],
-        "zh": []
+        "zh": [
+          "5α还原酶抑制剂"
+        ]
       },
       "canonical": {
         "en": "5-alpha Reductase Inhibitors",
-        "zh": null
+        "zh": "5α还原酶抑制剂"
       },
       "concept_id": "concept:5_alpha_reductase_inhibitor",
       "confidence": "curated",
@@ -8290,11 +8298,13 @@
           "A549 Cell Line",
           "A549 Cell Lines"
         ],
-        "zh": []
+        "zh": [
+          "A549细胞"
+        ]
       },
       "canonical": {
         "en": "A549 Cells",
-        "zh": null
+        "zh": "A549细胞"
       },
       "concept_id": "concept:a549_cell",
       "confidence": "curated",
@@ -8402,11 +8412,13 @@
           "P-Loop NTPases",
           "P Loop NTPases"
         ],
-        "zh": []
+        "zh": [
+          "AAA蛋白"
+        ]
       },
       "canonical": {
         "en": "AAA Proteins",
-        "zh": null
+        "zh": "AAA蛋白"
       },
       "concept_id": "concept:aaa_protein",
       "confidence": "curated",
@@ -9000,11 +9012,13 @@
           "Abdominal Injuries",
           "Abdominal Injury"
         ],
-        "zh": []
+        "zh": [
+          "腹部损伤"
+        ]
       },
       "canonical": {
         "en": "Abdominal Injuries",
-        "zh": null
+        "zh": "腹部损伤"
       },
       "concept_id": "concept:abdominal_injury",
       "confidence": "curated",
@@ -9133,11 +9147,13 @@
           "Colicky Pain",
           "Colicky Pains"
         ],
-        "zh": []
+        "zh": [
+          "腹部疼痛"
+        ]
       },
       "canonical": {
         "en": "Abdominal Pain",
-        "zh": null
+        "zh": "腹部疼痛"
       },
       "concept_id": "concept:abdominal_pain",
       "confidence": "curated",
@@ -11478,11 +11494,13 @@
           "AC133-2 Antigen",
           "AC133 2 Antigen"
         ],
-        "zh": []
+        "zh": [
+          "AC133抗原"
+        ]
       },
       "canonical": {
         "en": "Ac133 Antigen",
-        "zh": null
+        "zh": "AC133抗原"
       },
       "concept_id": "concept:ac133_antigen",
       "confidence": "curated",
@@ -17808,11 +17826,13 @@
           "Acid beta-Glycerophosphatase",
           "Acid beta Glycerophosphatase"
         ],
-        "zh": []
+        "zh": [
+          "酸性磷酸酶"
+        ]
       },
       "canonical": {
         "en": "Acid Phosphatase",
-        "zh": null
+        "zh": "酸性磷酸酶"
       },
       "concept_id": "concept:acid_phosphatase",
       "confidence": "curated",
@@ -22954,11 +22974,13 @@
           "Activated Protein C Resistance",
           "APC Resistance"
         ],
-        "zh": []
+        "zh": [
+          "活化蛋白C抵抗"
+        ]
       },
       "canonical": {
         "en": "Activated Protein C Resistance",
-        "zh": null
+        "zh": "活化蛋白C抵抗"
       },
       "concept_id": "concept:activated_protein_c_resistance",
       "confidence": "curated",
@@ -24586,11 +24608,13 @@
           "Acute Aortic Syndrome",
           "Acute Aortic Syndromes"
         ],
-        "zh": []
+        "zh": [
+          "急性主动脉综合征"
+        ]
       },
       "canonical": {
         "en": "Acute Aortic Syndrome",
-        "zh": null
+        "zh": "急性主动脉综合征"
       },
       "concept_id": "concept:acute_aortic_syndrome",
       "confidence": "curated",
@@ -24681,11 +24705,13 @@
           "Acute Coronary Syndrome",
           "Acute Coronary Syndromes"
         ],
-        "zh": []
+        "zh": [
+          "急性冠状动脉综合征"
+        ]
       },
       "canonical": {
         "en": "Acute Coronary Syndrome",
-        "zh": null
+        "zh": "急性冠状动脉综合征"
       },
       "concept_id": "concept:acute_coronary_syndrome",
       "confidence": "curated",
@@ -24840,11 +24866,13 @@
           "Acute Renal Insufficiency",
           "Acute Kidney Insufficiencies"
         ],
-        "zh": []
+        "zh": [
+          "急性肾脏损伤"
+        ]
       },
       "canonical": {
         "en": "Acute Kidney Injury",
-        "zh": null
+        "zh": "急性肾脏损伤"
       },
       "concept_id": "concept:acute_kidney_injury",
       "confidence": "curated",
@@ -24897,11 +24925,13 @@
           "Acute Lung Injury",
           "Acute Lung Injuries"
         ],
-        "zh": []
+        "zh": [
+          "急性肺损伤"
+        ]
       },
       "canonical": {
         "en": "Acute Lung Injury",
-        "zh": null
+        "zh": "急性肺损伤"
       },
       "concept_id": "concept:acute_lung_injury",
       "confidence": "curated",
@@ -25043,11 +25073,13 @@
           "Acute Pain",
           "Acute Pains"
         ],
-        "zh": []
+        "zh": [
+          "急性疼痛"
+        ]
       },
       "canonical": {
         "en": "Acute Pain",
-        "zh": null
+        "zh": "急性疼痛"
       },
       "concept_id": "concept:acute_pain",
       "confidence": "curated",
@@ -25118,11 +25150,13 @@
           "Acute Phase State",
           "Acute-Phase Response"
         ],
-        "zh": []
+        "zh": [
+          "急性期反应"
+        ]
       },
       "canonical": {
         "en": "Acute-phase Reaction",
-        "zh": null
+        "zh": "急性期反应"
       },
       "concept_id": "concept:acute_phase_reaction",
       "confidence": "curated",
@@ -25147,11 +25181,13 @@
           "Acute Radiation Syndrome",
           "Acute Radiation Syndromes"
         ],
-        "zh": []
+        "zh": [
+          "急性辐射综合征"
+        ]
       },
       "canonical": {
         "en": "Acute Radiation Syndrome",
-        "zh": null
+        "zh": "急性辐射综合征"
       },
       "concept_id": "concept:acute_radiation_syndrome",
       "confidence": "curated",
@@ -26055,11 +26091,13 @@
           "CD156c Antigen",
           "CD156w Antigen"
         ],
-        "zh": []
+        "zh": [
+          "ADAM10蛋白"
+        ]
       },
       "canonical": {
         "en": "Adam10 Protein",
-        "zh": null
+        "zh": "ADAM10蛋白"
       },
       "concept_id": "concept:adam10_protein",
       "confidence": "curated",
@@ -26093,11 +26131,13 @@
           "ADAM12-S Protein",
           "ADAM12 S Protein"
         ],
-        "zh": []
+        "zh": [
+          "ADAM12蛋白"
+        ]
       },
       "canonical": {
         "en": "Adam12 Protein",
-        "zh": null
+        "zh": "ADAM12蛋白"
       },
       "concept_id": "concept:adam12_protein",
       "confidence": "curated",
@@ -26137,11 +26177,13 @@
           "Disintegrin and Metalloproteinase Domain Containing Protein 17",
           "ADAM-17"
         ],
-        "zh": []
+        "zh": [
+          "ADAM17蛋白"
+        ]
       },
       "canonical": {
         "en": "Adam17 Protein",
-        "zh": null
+        "zh": "ADAM17蛋白"
       },
       "concept_id": "concept:adam17_protein",
       "confidence": "curated",
@@ -26168,11 +26210,13 @@
           "ADAM (A Disintegrin and Metalloprotease) Proteins",
           "A Disintegrin and Metalloprotease Protein"
         ],
-        "zh": []
+        "zh": [
+          "ADAM蛋白"
+        ]
       },
       "canonical": {
         "en": "ADAM Proteins",
-        "zh": null
+        "zh": "ADAM蛋白"
       },
       "concept_id": "concept:adam_protein",
       "confidence": "curated",
@@ -26368,11 +26412,13 @@
           "von Willebrand Factor-Cleaving Protease",
           "von Willebrand Factor Cleaving Protease"
         ],
-        "zh": []
+        "zh": [
+          "ADAMTS13蛋白"
+        ]
       },
       "canonical": {
         "en": "Adamts13 Protein",
-        "zh": null
+        "zh": "ADAMTS13蛋白"
       },
       "concept_id": "concept:adamts13_protein",
       "confidence": "curated",
@@ -26400,11 +26446,13 @@
           "ADAMTS 1 Protein",
           "A Disintegrin And Metalloproteinase with Thrombospondin Motifs 1 Protein"
         ],
-        "zh": []
+        "zh": [
+          "ADAMTS1蛋白"
+        ]
       },
       "canonical": {
         "en": "Adamts1 Protein",
-        "zh": null
+        "zh": "ADAMTS1蛋白"
       },
       "concept_id": "concept:adamts1_protein",
       "confidence": "curated",
@@ -26433,11 +26481,13 @@
           "Aggrecanase 1",
           "A Disintegrin And Metalloproteinase With Thrombospondin Motifs 4 Protein"
         ],
-        "zh": []
+        "zh": [
+          "ADAMTS4蛋白"
+        ]
       },
       "canonical": {
         "en": "Adamts4 Protein",
-        "zh": null
+        "zh": "ADAMTS4蛋白"
       },
       "concept_id": "concept:adamts4_protein",
       "confidence": "curated",
@@ -26468,11 +26518,13 @@
           "Aggrecanase 2",
           "A Disintegrin And Metalloproteinase With Thrombospondin Motifs 5 Protein"
         ],
-        "zh": []
+        "zh": [
+          "ADAMTS5蛋白"
+        ]
       },
       "canonical": {
         "en": "Adamts5 Protein",
-        "zh": null
+        "zh": "ADAMTS5蛋白"
       },
       "concept_id": "concept:adamts5_protein",
       "confidence": "curated",
@@ -26500,11 +26552,13 @@
           "A Disintegrin And Metalloproteinase With Thrombospondin Motifs 7 Protein",
           "COMPase"
         ],
-        "zh": []
+        "zh": [
+          "ADAMTS7蛋白"
+        ]
       },
       "canonical": {
         "en": "Adamts7 Protein",
-        "zh": null
+        "zh": "ADAMTS7蛋白"
       },
       "concept_id": "concept:adamts7_protein",
       "confidence": "curated",
@@ -26531,11 +26585,13 @@
           "ADAMTS 9 Protein",
           "A Disintegrin And Metalloproteinase With Thrombospondin Motifs 9 Protein"
         ],
-        "zh": []
+        "zh": [
+          "ADAMTS9蛋白"
+        ]
       },
       "canonical": {
         "en": "Adamts9 Protein",
-        "zh": null
+        "zh": "ADAMTS9蛋白"
       },
       "concept_id": "concept:adamts9_protein",
       "confidence": "curated",
@@ -31077,11 +31133,13 @@
         "en": [
           "Adenosine A1 Receptor Agonists"
         ],
-        "zh": []
+        "zh": [
+          "腺苷A1受体激动剂"
+        ]
       },
       "canonical": {
         "en": "Adenosine A1 Receptor Agonists",
-        "zh": null
+        "zh": "腺苷A1受体激动剂"
       },
       "concept_id": "concept:adenosine_a1_receptor_agonist",
       "confidence": "curated",
@@ -31105,11 +31163,13 @@
         "en": [
           "Adenosine A1 Receptor Antagonists"
         ],
-        "zh": []
+        "zh": [
+          "腺苷A1受体拮抗剂"
+        ]
       },
       "canonical": {
         "en": "Adenosine A1 Receptor Antagonists",
-        "zh": null
+        "zh": "腺苷A1受体拮抗剂"
       },
       "concept_id": "concept:adenosine_a1_receptor_antagonist",
       "confidence": "curated",
@@ -31135,11 +31195,13 @@
           "Adenosine A2A Receptor Agonists",
           "Adenosine A2B Receptor Agonists"
         ],
-        "zh": []
+        "zh": [
+          "腺苷A2受体激动剂"
+        ]
       },
       "canonical": {
         "en": "Adenosine A2 Receptor Agonists",
-        "zh": null
+        "zh": "腺苷A2受体激动剂"
       },
       "concept_id": "concept:adenosine_a2_receptor_agonist",
       "confidence": "curated",
@@ -31165,11 +31227,13 @@
           "Adenosine A2B Receptor Antagonists",
           "Adenosine A2A Receptor Antagonists"
         ],
-        "zh": []
+        "zh": [
+          "腺苷A2受体拮抗剂"
+        ]
       },
       "canonical": {
         "en": "Adenosine A2 Receptor Antagonists",
-        "zh": null
+        "zh": "腺苷A2受体拮抗剂"
       },
       "concept_id": "concept:adenosine_a2_receptor_antagonist",
       "confidence": "curated",
@@ -31193,11 +31257,13 @@
         "en": [
           "Adenosine A3 Receptor Agonists"
         ],
-        "zh": []
+        "zh": [
+          "腺苷A3受体激动剂"
+        ]
       },
       "canonical": {
         "en": "Adenosine A3 Receptor Agonists",
-        "zh": null
+        "zh": "腺苷A3受体激动剂"
       },
       "concept_id": "concept:adenosine_a3_receptor_agonist",
       "confidence": "curated",
@@ -31221,11 +31287,13 @@
         "en": [
           "Adenosine A3 Receptor Antagonists"
         ],
-        "zh": []
+        "zh": [
+          "腺苷A3受体拮抗剂"
+        ]
       },
       "canonical": {
         "en": "Adenosine A3 Receptor Antagonists",
-        "zh": null
+        "zh": "腺苷A3受体拮抗剂"
       },
       "concept_id": "concept:adenosine_a3_receptor_antagonist",
       "confidence": "curated",
@@ -34172,11 +34240,13 @@
         "en": [
           "Admission Control Algorithms"
         ],
-        "zh": []
+        "zh": [
+          "接入控制算法"
+        ]
       },
       "canonical": {
         "en": "Admission Control Algorithms",
-        "zh": null
+        "zh": "接入控制算法"
       },
       "concept_id": "concept:admission_control_algorithm",
       "confidence": "curated",
@@ -34199,11 +34269,13 @@
         "en": [
           "Admission Control Scheme"
         ],
-        "zh": []
+        "zh": [
+          "接入控制方案"
+        ]
       },
       "canonical": {
         "en": "Admission Control Scheme",
-        "zh": null
+        "zh": "接入控制方案"
       },
       "concept_id": "concept:admission_control_scheme",
       "confidence": "curated",
@@ -35465,11 +35537,13 @@
           "Corticoids",
           "Corticosteroids"
         ],
-        "zh": []
+        "zh": [
+          "肾上腺皮质激素"
+        ]
       },
       "canonical": {
         "en": "Adrenal Cortex Hormones",
-        "zh": null
+        "zh": "肾上腺皮质激素"
       },
       "concept_id": "concept:adrenal_cortex_hormon",
       "confidence": "curated",
@@ -35875,11 +35949,13 @@
           "Adrenergic Receptor Agonists",
           "Adrenergic Receptor Agonist"
         ],
-        "zh": []
+        "zh": [
+          "肾上腺素能激动剂"
+        ]
       },
       "canonical": {
         "en": "Adrenergic Agonists",
-        "zh": null
+        "zh": "肾上腺素能激动剂"
       },
       "concept_id": "concept:adrenergic_agonist",
       "confidence": "curated",
@@ -35910,11 +35986,13 @@
           "Adrenergic alpha1-Agonists",
           "Adrenergic alpha1 Agonists"
         ],
-        "zh": []
+        "zh": [
+          "肾上腺素能α1受体激动剂"
+        ]
       },
       "canonical": {
         "en": "Adrenergic Alpha-1 Receptor Agonists",
-        "zh": null
+        "zh": "肾上腺素能α1受体激动剂"
       },
       "concept_id": "concept:adrenergic_alpha_1_receptor_agonist",
       "confidence": "curated",
@@ -35951,11 +36029,13 @@
           "Adrenergic alpha-1 Receptor Blockers",
           "Adrenergic alpha 1 Receptor Blockers"
         ],
-        "zh": []
+        "zh": [
+          "肾上腺素能α1受体拮抗剂"
+        ]
       },
       "canonical": {
         "en": "Adrenergic Alpha-1 Receptor Antagonists",
-        "zh": null
+        "zh": "肾上腺素能α1受体拮抗剂"
       },
       "concept_id": "concept:adrenergic_alpha_1_receptor_antagonist",
       "confidence": "curated",
@@ -35986,11 +36066,13 @@
           "Adrenergic alpha2-Agonists",
           "Adrenergic alpha2 Agonists"
         ],
-        "zh": []
+        "zh": [
+          "肾上腺素能α2受体激动剂"
+        ]
       },
       "canonical": {
         "en": "Adrenergic Alpha-2 Receptor Agonists",
-        "zh": null
+        "zh": "肾上腺素能α2受体激动剂"
       },
       "concept_id": "concept:adrenergic_alpha_2_receptor_agonist",
       "confidence": "curated",
@@ -36025,11 +36107,13 @@
           "Adrenergic alpha-2 Receptor Blockers",
           "Adrenergic alpha 2 Receptor Blockers"
         ],
-        "zh": []
+        "zh": [
+          "肾上腺素能α2受体拮抗剂"
+        ]
       },
       "canonical": {
         "en": "Adrenergic Alpha-2 Receptor Antagonists",
-        "zh": null
+        "zh": "肾上腺素能α2受体拮抗剂"
       },
       "concept_id": "concept:adrenergic_alpha_2_receptor_antagonist",
       "confidence": "curated",
@@ -36068,11 +36152,13 @@
           "alpha-Adrenergic Agonists",
           "alpha Adrenergic Agonists"
         ],
-        "zh": []
+        "zh": [
+          "肾上腺素能α激动剂"
+        ]
       },
       "canonical": {
         "en": "Adrenergic Alpha-agonists",
-        "zh": null
+        "zh": "肾上腺素能α激动剂"
       },
       "concept_id": "concept:adrenergic_alpha_agonist",
       "confidence": "curated",
@@ -36109,11 +36195,13 @@
           "alpha-Adrenergic Antagonists",
           "alpha Adrenergic Antagonists"
         ],
-        "zh": []
+        "zh": [
+          "肾上腺素能α拮抗剂"
+        ]
       },
       "canonical": {
         "en": "Adrenergic Alpha-antagonists",
-        "zh": null
+        "zh": "肾上腺素能α拮抗剂"
       },
       "concept_id": "concept:adrenergic_alpha_antagonist",
       "confidence": "curated",
@@ -36152,11 +36240,13 @@
           "Adrenolytics",
           "Antiadrenergics"
         ],
-        "zh": []
+        "zh": [
+          "肾上腺素能拮抗剂"
+        ]
       },
       "canonical": {
         "en": "Adrenergic Antagonists",
-        "zh": null
+        "zh": "肾上腺素能拮抗剂"
       },
       "concept_id": "concept:adrenergic_antagonist",
       "confidence": "curated",
@@ -36187,11 +36277,13 @@
           "Adrenergic beta1-Agonists",
           "Adrenergic beta1 Agonists"
         ],
-        "zh": []
+        "zh": [
+          "肾上腺素能β1受体激动剂"
+        ]
       },
       "canonical": {
         "en": "Adrenergic Beta-1 Receptor Agonists",
-        "zh": null
+        "zh": "肾上腺素能β1受体激动剂"
       },
       "concept_id": "concept:adrenergic_beta_1_receptor_agonist",
       "confidence": "curated",
@@ -36226,11 +36318,13 @@
           "Adrenergic beta1-Antagonists",
           "Adrenergic beta1 Antagonists"
         ],
-        "zh": []
+        "zh": [
+          "肾上腺素能β1受体拮抗剂"
+        ]
       },
       "canonical": {
         "en": "Adrenergic Beta-1 Receptor Antagonists",
-        "zh": null
+        "zh": "肾上腺素能β1受体拮抗剂"
       },
       "concept_id": "concept:adrenergic_beta_1_receptor_antagonist",
       "confidence": "curated",
@@ -36261,11 +36355,13 @@
           "Adrenergic beta2-Agonists",
           "Adrenergic beta2 Agonists"
         ],
-        "zh": []
+        "zh": [
+          "肾上腺素能β2受体激动剂"
+        ]
       },
       "canonical": {
         "en": "Adrenergic Beta-2 Receptor Agonists",
-        "zh": null
+        "zh": "肾上腺素能β2受体激动剂"
       },
       "concept_id": "concept:adrenergic_beta_2_receptor_agonist",
       "confidence": "curated",
@@ -36300,11 +36396,13 @@
           "Adrenergic beta2-Antagonists",
           "Adrenergic beta2 Antagonists"
         ],
-        "zh": []
+        "zh": [
+          "肾上腺素能β2受体拮抗剂"
+        ]
       },
       "canonical": {
         "en": "Adrenergic Beta-2 Receptor Antagonists",
-        "zh": null
+        "zh": "肾上腺素能β2受体拮抗剂"
       },
       "concept_id": "concept:adrenergic_beta_2_receptor_antagonist",
       "confidence": "curated",
@@ -36335,11 +36433,13 @@
           "Adrenergic beta3-Agonists",
           "Adrenergic beta3 Agonists"
         ],
-        "zh": []
+        "zh": [
+          "肾上腺素能β3受体激动剂"
+        ]
       },
       "canonical": {
         "en": "Adrenergic Beta-3 Receptor Agonists",
-        "zh": null
+        "zh": "肾上腺素能β3受体激动剂"
       },
       "concept_id": "concept:adrenergic_beta_3_receptor_agonist",
       "confidence": "curated",
@@ -36372,11 +36472,13 @@
           "beta-3 Adrenergic Blocking Agents",
           "beta 3 Adrenergic Blocking Agents"
         ],
-        "zh": []
+        "zh": [
+          "肾上腺素能β3受体拮抗剂"
+        ]
       },
       "canonical": {
         "en": "Adrenergic Beta-3 Receptor Antagonists",
-        "zh": null
+        "zh": "肾上腺素能β3受体拮抗剂"
       },
       "concept_id": "concept:adrenergic_beta_3_receptor_antagonist",
       "confidence": "curated",
@@ -36416,11 +36518,13 @@
           "beta Adrenergic Receptor Agonists",
           "Betamimetics"
         ],
-        "zh": []
+        "zh": [
+          "肾上腺素能β激动剂"
+        ]
       },
       "canonical": {
         "en": "Adrenergic Beta-agonists",
-        "zh": null
+        "zh": "肾上腺素能β激动剂"
       },
       "concept_id": "concept:adrenergic_beta_agonist",
       "confidence": "curated",
@@ -36472,11 +36576,13 @@
           "beta-Adrenergic Blocker",
           "beta Adrenergic Blocker"
         ],
-        "zh": []
+        "zh": [
+          "肾上腺素能β拮抗剂"
+        ]
       },
       "canonical": {
         "en": "Adrenergic Beta-antagonists",
-        "zh": null
+        "zh": "肾上腺素能β拮抗剂"
       },
       "concept_id": "concept:adrenergic_beta_antagonist",
       "confidence": "curated",
@@ -40161,11 +40267,13 @@
         "en": [
           "Advanced Power Amplifier Design"
         ],
-        "zh": []
+        "zh": [
+          "先进功率放大器设计"
+        ]
       },
       "canonical": {
         "en": "Advanced Power Amplifier Design",
-        "zh": null
+        "zh": "先进功率放大器设计"
       },
       "concept_id": "concept:advanced_power_amplifier_design",
       "confidence": "curated",
@@ -49599,11 +49707,13 @@
           "HIV Vaccines",
           "HIV Vaccine"
         ],
-        "zh": []
+        "zh": [
+          "AIDS疫苗"
+        ]
       },
       "canonical": {
         "en": "AIDS Vaccines",
-        "zh": null
+        "zh": "AIDS疫苗"
       },
       "concept_id": "concept:aids_vaccin",
       "confidence": "curated",
@@ -50926,11 +51036,13 @@
           "Autoimmune Regulator Protein",
           "Autoimmune Polyendocrinopathy Candidiasis Ectodermal Dystrophy Protein"
         ],
-        "zh": []
+        "zh": [
+          "AIRE蛋白"
+        ]
       },
       "canonical": {
         "en": "AIRE Protein",
-        "zh": null
+        "zh": "AIRE蛋白"
       },
       "concept_id": "concept:aire_protein",
       "confidence": "curated",
@@ -64809,11 +64921,13 @@
           "Acetyl Coenzyme A Glutamate N Acetyltransferase",
           "Amino Acid Acetyltransferase"
         ],
-        "zh": []
+        "zh": [
+          "氨基酸N乙酰转移酶"
+        ]
       },
       "canonical": {
         "en": "Amino-acid N-acetyltransferase",
-        "zh": null
+        "zh": "氨基酸N乙酰转移酶"
       },
       "concept_id": "concept:amino_acid_n_acetyltransferase",
       "confidence": "curated",
@@ -71198,11 +71312,13 @@
           "Analytic Network Process",
           "analytic network process (anp)"
         ],
-        "zh": []
+        "zh": [
+          "网络分析法"
+        ]
       },
       "canonical": {
         "en": "Analytic Network Process",
-        "zh": null
+        "zh": "网络分析法"
       },
       "concept_id": "concept:analytic_network_process",
       "confidence": "curated",
@@ -98133,11 +98249,13 @@
           "APUD Cell",
           "Amine Precursor Uptake and Decarboxylation Cells"
         ],
-        "zh": []
+        "zh": [
+          "APUD细胞"
+        ]
       },
       "canonical": {
         "en": "APUD Cells",
-        "zh": null
+        "zh": "APUD细胞"
       },
       "concept_id": "concept:apud_cell",
       "confidence": "curated",
@@ -130734,11 +130852,13 @@
           "B7-1 Costimulatory Molecule",
           "B7 1 Costimulatory Molecule"
         ],
-        "zh": []
+        "zh": [
+          "B7-1抗原"
+        ]
       },
       "canonical": {
         "en": "B7-1 Antigen",
-        "zh": null
+        "zh": "B7-1抗原"
       },
       "concept_id": "concept:b7_1_antigen",
       "confidence": "curated",
@@ -130801,11 +130921,13 @@
           "B-7 Antigen",
           "B 7 Antigen"
         ],
-        "zh": []
+        "zh": [
+          "B7抗原"
+        ]
       },
       "canonical": {
         "en": "B7 Antigens",
-        "zh": null
+        "zh": "B7抗原"
       },
       "concept_id": "concept:b7_antigen",
       "confidence": "curated",
@@ -130885,11 +131007,13 @@
           "B-Lymphocyte Activating Factor",
           "B Lymphocyte Activating Factor"
         ],
-        "zh": []
+        "zh": [
+          "B细胞活化因子"
+        ]
       },
       "canonical": {
         "en": "B-cell Activating Factor",
-        "zh": null
+        "zh": "B细胞活化因子"
       },
       "concept_id": "concept:b_cell_activating_factor",
       "confidence": "curated",
@@ -130921,11 +131045,13 @@
           "BR3 B-Cell Activation Factor Receptor",
           "BR3 B Cell Activation Factor Receptor"
         ],
-        "zh": []
+        "zh": [
+          "B细胞活化因子受体"
+        ]
       },
       "canonical": {
         "en": "B-cell Activation Factor Receptor",
-        "zh": null
+        "zh": "B细胞活化因子受体"
       },
       "concept_id": "concept:b_cell_activation_factor_receptor",
       "confidence": "curated",
@@ -130994,11 +131120,13 @@
           "BCL-3 Protein",
           "BCL 3 Protein"
         ],
-        "zh": []
+        "zh": [
+          "B细胞淋巴瘤3蛋白"
+        ]
       },
       "canonical": {
         "en": "B-cell Lymphoma 3 Protein",
-        "zh": null
+        "zh": "B细胞淋巴瘤3蛋白"
       },
       "concept_id": "concept:b_cell_lymphoma_3_protein",
       "confidence": "curated",
@@ -141317,11 +141445,13 @@
           "Calmette Vaccine",
           "Bacillus Calmette Guerin Vaccine"
         ],
-        "zh": []
+        "zh": [
+          "BCG疫苗"
+        ]
       },
       "canonical": {
         "en": "BCG Vaccine",
-        "zh": null
+        "zh": "BCG疫苗"
       },
       "concept_id": "concept:bcg_vaccine",
       "confidence": "curated",
@@ -168512,11 +168642,13 @@
           "BNT-162C2",
           "BNT 162C2"
         ],
-        "zh": []
+        "zh": [
+          "BNT162疫苗"
+        ]
       },
       "canonical": {
         "en": "Bnt162 Vaccine",
-        "zh": null
+        "zh": "BNT162疫苗"
       },
       "concept_id": "concept:bnt162_vaccine",
       "confidence": "curated",
@@ -177686,11 +177818,13 @@
           "Focal Brain Injury",
           "Focal Brain Injuries"
         ],
-        "zh": []
+        "zh": [
+          "脑损伤"
+        ]
       },
       "canonical": {
         "en": "Brain Injuries",
-        "zh": null
+        "zh": "脑损伤"
       },
       "concept_id": "concept:brain_injury",
       "confidence": "curated",
@@ -178941,11 +179075,13 @@
           "Breast Cancer 2 Protein",
           "Fanconi Anemia Group D1 Protein"
         ],
-        "zh": []
+        "zh": [
+          "BRCA2蛋白"
+        ]
       },
       "canonical": {
         "en": "Brca2 Protein",
-        "zh": null
+        "zh": "BRCA2蛋白"
       },
       "concept_id": "concept:brca2_protein",
       "confidence": "curated",
@@ -194011,11 +194147,13 @@
           "Calcium Channel Agonist",
           "Exogenous Calcium Channel Agonists"
         ],
-        "zh": []
+        "zh": [
+          "钙信道激动剂"
+        ]
       },
       "canonical": {
         "en": "Calcium Channel Agonists",
-        "zh": null
+        "zh": "钙信道激动剂"
       },
       "concept_id": "concept:calcium_channel_agonist",
       "confidence": "curated",
@@ -198597,11 +198735,13 @@
           "Tumor Related Pain",
           "Tumor-Related Pains"
         ],
-        "zh": []
+        "zh": [
+          "癌症疼痛"
+        ]
       },
       "canonical": {
         "en": "Cancer Pain",
-        "zh": null
+        "zh": "癌症疼痛"
       },
       "concept_id": "concept:cancer_pain",
       "confidence": "curated",
@@ -219006,11 +219146,13 @@
           "HIV-1 Fusion Coreceptor Antagonists",
           "HIV 1 Fusion Coreceptor Antagonists"
         ],
-        "zh": []
+        "zh": [
+          "CCR5受体拮抗剂"
+        ]
       },
       "canonical": {
         "en": "CCR5 Receptor Antagonists",
-        "zh": null
+        "zh": "CCR5受体拮抗剂"
       },
       "concept_id": "concept:ccr5_receptor_antagonist",
       "confidence": "curated",
@@ -219035,11 +219177,13 @@
           "CD11 Antigens",
           "CD11 Antigen"
         ],
-        "zh": []
+        "zh": [
+          "CD11抗原"
+        ]
       },
       "canonical": {
         "en": "CD11 Antigens",
-        "zh": null
+        "zh": "CD11抗原"
       },
       "concept_id": "concept:cd11_antigen",
       "confidence": "curated",
@@ -219169,11 +219313,13 @@
           "Aminooligopeptidase",
           "Amino-oligopeptidase"
         ],
-        "zh": []
+        "zh": [
+          "CD13抗原"
+        ]
       },
       "canonical": {
         "en": "CD13 Antigens",
-        "zh": null
+        "zh": "CD13抗原"
       },
       "concept_id": "concept:cd13_antigen",
       "confidence": "curated",
@@ -219202,11 +219348,13 @@
           "Gicerin",
           "CD146 Antigens"
         ],
-        "zh": []
+        "zh": [
+          "CD146抗原"
+        ]
       },
       "canonical": {
         "en": "Cd146 Antigen",
-        "zh": null
+        "zh": "CD146抗原"
       },
       "concept_id": "concept:cd146_antigen",
       "confidence": "curated",
@@ -219239,11 +219387,13 @@
           "CD163B",
           "M160 Scavenger Receptor"
         ],
-        "zh": []
+        "zh": [
+          "CD163抗原"
+        ]
       },
       "canonical": {
         "en": "Cd163 Antigen",
-        "zh": null
+        "zh": "CD163抗原"
       },
       "concept_id": "concept:cd163_antigen",
       "confidence": "curated",
@@ -219272,11 +219422,13 @@
           "p150,95 beta-Subunit",
           "p150,95 beta Subunit"
         ],
-        "zh": []
+        "zh": [
+          "CD18抗原"
+        ]
       },
       "canonical": {
         "en": "CD18 Antigens",
-        "zh": null
+        "zh": "CD18抗原"
       },
       "concept_id": "concept:cd18_antigen",
       "confidence": "curated",
@@ -219304,11 +219456,13 @@
           "Nectadrin",
           "CD24 Antigens"
         ],
-        "zh": []
+        "zh": [
+          "CD24抗原"
+        ]
       },
       "canonical": {
         "en": "CD24 Antigen",
-        "zh": null
+        "zh": "CD24抗原"
       },
       "concept_id": "concept:cd24_antigen",
       "confidence": "curated",
@@ -219368,11 +219522,13 @@
           "T-Cell-Specific Surface Glycoprotein CD28",
           "T Cell Specific Surface Glycoprotein CD28"
         ],
-        "zh": []
+        "zh": [
+          "CD28抗原"
+        ]
       },
       "canonical": {
         "en": "CD28 Antigens",
-        "zh": null
+        "zh": "CD28抗原"
       },
       "concept_id": "concept:cd28_antigen",
       "confidence": "curated",
@@ -219399,11 +219555,13 @@
           "T11 Erythrocyte Binding Glycoprotein",
           "CD2 Antigen"
         ],
-        "zh": []
+        "zh": [
+          "CD2抗原"
+        ]
       },
       "canonical": {
         "en": "CD2 Antigens",
-        "zh": null
+        "zh": "CD2抗原"
       },
       "concept_id": "concept:cd2_antigen",
       "confidence": "curated",
@@ -219476,11 +219634,13 @@
           "CD36 Antigen",
           "GPIV Platelet Glycoprotein"
         ],
-        "zh": []
+        "zh": [
+          "CD36抗原"
+        ]
       },
       "canonical": {
         "en": "CD36 Antigens",
-        "zh": null
+        "zh": "CD36抗原"
       },
       "concept_id": "concept:cd36_antigen",
       "confidence": "curated",
@@ -219540,11 +219700,13 @@
           "CD40 Antigen",
           "CDw40 Antigen"
         ],
-        "zh": []
+        "zh": [
+          "CD40抗原"
+        ]
       },
       "canonical": {
         "en": "CD40 Antigens",
-        "zh": null
+        "zh": "CD40抗原"
       },
       "concept_id": "concept:cd40_antigen",
       "confidence": "curated",
@@ -219608,11 +219770,13 @@
           "IAP 50 Antigen",
           "CD47 Antigens"
         ],
-        "zh": []
+        "zh": [
+          "CD47抗原"
+        ]
       },
       "canonical": {
         "en": "CD47 Antigen",
-        "zh": null
+        "zh": "CD47抗原"
       },
       "concept_id": "concept:cd47_antigen",
       "confidence": "curated",
@@ -219651,11 +219815,13 @@
           "Leukocyte Antigen MEM-102",
           "Leukocyte Antigen MEM 102"
         ],
-        "zh": []
+        "zh": [
+          "CD48抗原"
+        ]
       },
       "canonical": {
         "en": "CD48 Antigen",
-        "zh": null
+        "zh": "CD48抗原"
       },
       "concept_id": "concept:cd48_antigen",
       "confidence": "curated",
@@ -219686,11 +219852,13 @@
           "CD4 Receptors",
           "CD4 Molecule"
         ],
-        "zh": []
+        "zh": [
+          "CD4抗原"
+        ]
       },
       "canonical": {
         "en": "CD4 Antigens",
-        "zh": null
+        "zh": "CD4抗原"
       },
       "concept_id": "concept:cd4_antigen",
       "confidence": "curated",
@@ -219867,11 +220035,13 @@
           "Cambridge Pathology 1 Antigen",
           "Lymphocyte Antigen CDw52"
         ],
-        "zh": []
+        "zh": [
+          "CD52抗原"
+        ]
       },
       "canonical": {
         "en": "CD52 Antigen",
-        "zh": null
+        "zh": "CD52抗原"
       },
       "concept_id": "concept:cd52_antigen",
       "confidence": "curated",
@@ -219900,11 +220070,13 @@
           "Complement Decay-Accelerating Factor",
           "Complement Decay Accelerating Factor"
         ],
-        "zh": []
+        "zh": [
+          "CD55抗原"
+        ]
       },
       "canonical": {
         "en": "CD55 Antigens",
-        "zh": null
+        "zh": "CD55抗原"
       },
       "concept_id": "concept:cd55_antigen",
       "confidence": "curated",
@@ -219933,11 +220105,13 @@
           "Leu-19 Antigen",
           "Leu 19 Antigen"
         ],
-        "zh": []
+        "zh": [
+          "CD56抗原"
+        ]
       },
       "canonical": {
         "en": "CD56 Antigen",
-        "zh": null
+        "zh": "CD56抗原"
       },
       "concept_id": "concept:cd56_antigen",
       "confidence": "curated",
@@ -219966,11 +220140,13 @@
           "Leu-7 Antigen",
           "Leu 7 Antigen"
         ],
-        "zh": []
+        "zh": [
+          "CD57抗原"
+        ]
       },
       "canonical": {
         "en": "CD57 Antigens",
-        "zh": null
+        "zh": "CD57抗原"
       },
       "concept_id": "concept:cd57_antigen",
       "confidence": "curated",
@@ -219998,11 +220174,13 @@
           "CD58 Antigen",
           "LFA-3"
         ],
-        "zh": []
+        "zh": [
+          "CD58抗原"
+        ]
       },
       "canonical": {
         "en": "CD58 Antigens",
-        "zh": null
+        "zh": "CD58抗原"
       },
       "concept_id": "concept:cd58_antigen",
       "confidence": "curated",
@@ -220032,11 +220210,13 @@
           "CD59 Antigen",
           "Protectin"
         ],
-        "zh": []
+        "zh": [
+          "CD59抗原"
+        ]
       },
       "canonical": {
         "en": "CD59 Antigens",
-        "zh": null
+        "zh": "CD59抗原"
       },
       "concept_id": "concept:cd59_antigen",
       "confidence": "curated",
@@ -220064,11 +220244,13 @@
           "Leu 1 Antigen",
           "T1 Antigen"
         ],
-        "zh": []
+        "zh": [
+          "CD5抗原"
+        ]
       },
       "canonical": {
         "en": "CD5 Antigens",
-        "zh": null
+        "zh": "CD5抗原"
       },
       "concept_id": "concept:cd5_antigen",
       "confidence": "curated",
@@ -220134,11 +220316,13 @@
           "Early Activation Antigen EA1",
           "Leu-23 antigen"
         ],
-        "zh": []
+        "zh": [
+          "CD69抗原"
+        ]
       },
       "canonical": {
         "en": "CD69 Antigens",
-        "zh": null
+        "zh": "CD69抗原"
       },
       "concept_id": "concept:cd69_antigen",
       "confidence": "curated",
@@ -220176,11 +220360,13 @@
           "Immunoglobulin-Associated Alpha Protein",
           "Immunoglobulin Associated Alpha Protein"
         ],
-        "zh": []
+        "zh": [
+          "CD79抗原"
+        ]
       },
       "canonical": {
         "en": "CD79 Antigens",
-        "zh": null
+        "zh": "CD79抗原"
       },
       "concept_id": "concept:cd79_antigen",
       "confidence": "curated",
@@ -220205,11 +220391,13 @@
           "CD83 Antigen",
           "Cell Surface Protein HB15"
         ],
-        "zh": []
+        "zh": [
+          "CD83抗原"
+        ]
       },
       "canonical": {
         "en": "CD83 Antigen",
-        "zh": null
+        "zh": "CD83抗原"
       },
       "concept_id": "concept:cd83_antigen",
       "confidence": "curated",
@@ -220237,11 +220425,13 @@
           "Leu 2 Antigens",
           "T-Cell T8 Antigens"
         ],
-        "zh": []
+        "zh": [
+          "CD8抗原"
+        ]
       },
       "canonical": {
         "en": "CD8 Antigens",
-        "zh": null
+        "zh": "CD8抗原"
       },
       "concept_id": "concept:cd8_antigen",
       "confidence": "curated",
@@ -220393,11 +220583,13 @@
         "en": [
           "Cdc20 Proteins"
         ],
-        "zh": []
+        "zh": [
+          "CDC20蛋白"
+        ]
       },
       "canonical": {
         "en": "Cdc20 Proteins",
-        "zh": null
+        "zh": "CDC20蛋白"
       },
       "concept_id": "concept:cdc20_protein",
       "confidence": "curated",
@@ -220435,11 +220627,13 @@
           "M Phase Inducer Phosphatase 1",
           "Dual Specificity Phosphatase Cdc25A"
         ],
-        "zh": []
+        "zh": [
+          "CDC25磷酸酶"
+        ]
       },
       "canonical": {
         "en": "Cdc25 Phosphatases",
-        "zh": null
+        "zh": "CDC25磷酸酶"
       },
       "concept_id": "concept:cdc25_phosphatase",
       "confidence": "curated",
@@ -220508,11 +220702,13 @@
           "Histone Kinase p34(cdc2)",
           "Protein p34cdc2"
         ],
-        "zh": []
+        "zh": [
+          "CDC2蛋白激酶"
+        ]
       },
       "canonical": {
         "en": "CDC2 Protein Kinase",
-        "zh": null
+        "zh": "CDC2蛋白激酶"
       },
       "concept_id": "concept:cdc2_protein_kinase",
       "confidence": "curated",
@@ -220604,11 +220800,13 @@
           "Fizzy Cell Division Cycle 20 Related 1",
           "Fzr1 Protein"
         ],
-        "zh": []
+        "zh": [
+          "CDH1蛋白"
+        ]
       },
       "canonical": {
         "en": "Cdh1 Proteins",
-        "zh": null
+        "zh": "CDH1蛋白"
       },
       "concept_id": "concept:cdh1_protein",
       "confidence": "curated",
@@ -220794,11 +220992,13 @@
           "Cdx 2 3 Protein",
           "Caudal Type Homeo Box 2 Protein"
         ],
-        "zh": []
+        "zh": [
+          "CDX2转录因子"
+        ]
       },
       "canonical": {
         "en": "CDX2 Transcription Factor",
-        "zh": null
+        "zh": "CDX2转录因子"
       },
       "concept_id": "concept:cdx2_transcription_factor",
       "confidence": "curated",
@@ -220843,11 +221043,13 @@
           "C-CAM protein",
           "C CAM protein"
         ],
-        "zh": []
+        "zh": [
+          "CEACAM1蛋白"
+        ]
       },
       "canonical": {
         "en": "Ceacam1 Protein",
-        "zh": null
+        "zh": "CEACAM1蛋白"
       },
       "concept_id": "concept:ceacam1_protein",
       "confidence": "curated",
@@ -222568,11 +222770,13 @@
           "2 Protein, Bruno-Like",
           "Bruno Like 2 Protein"
         ],
-        "zh": []
+        "zh": [
+          "CELF1蛋白"
+        ]
       },
       "canonical": {
         "en": "Celf1 Protein",
-        "zh": null
+        "zh": "CELF1蛋白"
       },
       "concept_id": "concept:celf1_protein",
       "confidence": "curated",
@@ -222602,11 +222806,13 @@
           "CUG-BP Proteins",
           "CUG BP Proteins"
         ],
-        "zh": []
+        "zh": [
+          "CELF蛋白"
+        ]
       },
       "canonical": {
         "en": "CELF Proteins",
-        "zh": null
+        "zh": "CELF蛋白"
       },
       "concept_id": "concept:celf_protein",
       "confidence": "curated",
@@ -237387,11 +237593,13 @@
           "Familial CHARGE Syndrome",
           "Familial CHARGE Syndromes"
         ],
-        "zh": []
+        "zh": [
+          "费用综合征"
+        ]
       },
       "canonical": {
         "en": "Charge Syndrome",
-        "zh": null
+        "zh": "费用综合征"
       },
       "concept_id": "concept:charge_syndrome",
       "confidence": "curated",
@@ -238276,11 +238484,13 @@
           "Chemically-Induced Liver Toxicities",
           "Chemically Induced Liver Toxicity"
         ],
-        "zh": []
+        "zh": [
+          "化学与药物诱导肝脏损伤"
+        ]
       },
       "canonical": {
         "en": "Chemical And Drug Induced Liver Injury",
-        "zh": null
+        "zh": "化学与药物诱导肝脏损伤"
       },
       "concept_id": "concept:chemical_and_drug_induced_liver_injury",
       "confidence": "curated",
@@ -248411,11 +248621,13 @@
           "CHO Cells",
           "CHO Cell"
         ],
-        "zh": []
+        "zh": [
+          "CHO细胞"
+        ]
       },
       "canonical": {
         "en": "CHO Cells",
-        "zh": null
+        "zh": "CHO细胞"
       },
       "concept_id": "concept:cho_cell",
       "confidence": "curated",
@@ -257428,11 +257640,13 @@
           "Chronic Primary Pain",
           "Chronic Secondary Pain"
         ],
-        "zh": []
+        "zh": [
+          "慢性疼痛"
+        ]
       },
       "canonical": {
         "en": "Chronic Pain",
-        "zh": null
+        "zh": "慢性疼痛"
       },
       "concept_id": "concept:chronic_pain",
       "confidence": "curated",
@@ -319946,11 +320160,13 @@
           "COS-7 Cell",
           "COS 7 Cells"
         ],
-        "zh": []
+        "zh": [
+          "COS细胞"
+        ]
       },
       "canonical": {
         "en": "COS Cells",
-        "zh": null
+        "zh": "COS细胞"
       },
       "concept_id": "concept:cos_cell",
       "confidence": "curated",
@@ -321692,11 +321908,13 @@
           "COUP-TF Proteins",
           "COUP TF Proteins"
         ],
-        "zh": []
+        "zh": [
+          "COUP转录因子"
+        ]
       },
       "canonical": {
         "en": "COUP Transcription Factors",
-        "zh": null
+        "zh": "COUP转录因子"
       },
       "concept_id": "concept:coup_transcription_factor",
       "confidence": "curated",
@@ -338230,11 +338448,13 @@
           "cAMP Receptor Protein",
           "cAMP Receptor Proteins"
         ],
-        "zh": []
+        "zh": [
+          "环状AMP受体蛋白"
+        ]
       },
       "canonical": {
         "en": "Cyclic AMP Receptor Protein",
-        "zh": null
+        "zh": "环状AMP受体蛋白"
       },
       "concept_id": "concept:cyclic_amp_receptor_protein",
       "confidence": "curated",
@@ -354946,11 +355166,13 @@
           "DCC Netrin 1 Receptor",
           "DCC Tumor Suppressor Protein"
         ],
-        "zh": []
+        "zh": [
+          "DCC受体"
+        ]
       },
       "canonical": {
         "en": "DCC Receptor",
-        "zh": null
+        "zh": "DCC受体"
       },
       "concept_id": "concept:dcc_receptor",
       "confidence": "curated",
@@ -409298,11 +409520,13 @@
           "Polydeoxyribonucleotide Synthetases",
           "T4 DNA Ligase"
         ],
-        "zh": []
+        "zh": [
+          "DNA连接酶"
+        ]
       },
       "canonical": {
         "en": "DNA Ligases",
-        "zh": null
+        "zh": "DNA连接酶"
       },
       "concept_id": "concept:dna_ligase",
       "confidence": "curated",
@@ -425390,11 +425614,13 @@
           "E2F Transcription Factor 1 Protein",
           "Transcription Factor E2F1"
         ],
-        "zh": []
+        "zh": [
+          "E2F1转录因子"
+        ]
       },
       "canonical": {
         "en": "E2F1 Transcription Factor",
-        "zh": null
+        "zh": "E2F1转录因子"
       },
       "concept_id": "concept:e2f1_transcription_factor",
       "confidence": "curated",
@@ -425423,11 +425649,13 @@
           "Transcription Factor E2F-2",
           "Transcription Factor E2F 2"
         ],
-        "zh": []
+        "zh": [
+          "E2F2转录因子"
+        ]
       },
       "canonical": {
         "en": "E2F2 Transcription Factor",
-        "zh": null
+        "zh": "E2F2转录因子"
       },
       "concept_id": "concept:e2f2_transcription_factor",
       "confidence": "curated",
@@ -425456,11 +425684,13 @@
           "E2F3a Transcription Factor",
           "E2F3b Transcription Factor"
         ],
-        "zh": []
+        "zh": [
+          "E2F3转录因子"
+        ]
       },
       "canonical": {
         "en": "E2F3 Transcription Factor",
-        "zh": null
+        "zh": "E2F3转录因子"
       },
       "concept_id": "concept:e2f3_transcription_factor",
       "confidence": "curated",
@@ -425491,11 +425721,13 @@
           "Transcription Factor E2F 4",
           "E2F Transcription Factor 4 Protein"
         ],
-        "zh": []
+        "zh": [
+          "E2F4转录因子"
+        ]
       },
       "canonical": {
         "en": "E2F4 Transcription Factor",
-        "zh": null
+        "zh": "E2F4转录因子"
       },
       "concept_id": "concept:e2f4_transcription_factor",
       "confidence": "curated",
@@ -425522,11 +425754,13 @@
           "Transcription Factor E2F 5",
           "E2F Transcription Factor 5 Protein"
         ],
-        "zh": []
+        "zh": [
+          "E2F5转录因子"
+        ]
       },
       "canonical": {
         "en": "E2F5 Transcription Factor",
-        "zh": null
+        "zh": "E2F5转录因子"
       },
       "concept_id": "concept:e2f5_transcription_factor",
       "confidence": "curated",
@@ -425553,11 +425787,13 @@
           "Transcription Factor E2F 6",
           "E2F Transcription Factor 6 Protein"
         ],
-        "zh": []
+        "zh": [
+          "E2F6转录因子"
+        ]
       },
       "canonical": {
         "en": "E2F6 Transcription Factor",
-        "zh": null
+        "zh": "E2F6转录因子"
       },
       "concept_id": "concept:e2f6_transcription_factor",
       "confidence": "curated",
@@ -425584,11 +425820,13 @@
           "Transcription Factor E2F-7",
           "Transcription Factor E2F 7"
         ],
-        "zh": []
+        "zh": [
+          "E2F7转录因子"
+        ]
       },
       "canonical": {
         "en": "E2F7 Transcription Factor",
-        "zh": null
+        "zh": "E2F7转录因子"
       },
       "concept_id": "concept:e2f7_transcription_factor",
       "confidence": "curated",
@@ -425615,11 +425853,13 @@
           "E2F Transcription Factor",
           "Transcription Factor E2F"
         ],
-        "zh": []
+        "zh": [
+          "E2F转录因子"
+        ]
       },
       "canonical": {
         "en": "E2F Transcription Factors",
-        "zh": null
+        "zh": "E2F转录因子"
       },
       "concept_id": "concept:e2f_transcription_factor",
       "confidence": "curated",
@@ -440775,11 +441015,13 @@
           "Hu Paraneoplastic Encephalomyelitis Antigens",
           "Hu Antigens"
         ],
-        "zh": []
+        "zh": [
+          "ELAV蛋白"
+        ]
       },
       "canonical": {
         "en": "ELAV Proteins",
-        "zh": null
+        "zh": "ELAV蛋白"
       },
       "concept_id": "concept:elav_protein",
       "confidence": "curated",
@@ -441968,11 +442210,13 @@
           "Accidental Electrocution",
           "Accidental Electrocutions"
         ],
-        "zh": []
+        "zh": [
+          "电动损伤"
+        ]
       },
       "canonical": {
         "en": "Electric Injuries",
-        "zh": null
+        "zh": "电动损伤"
       },
       "concept_id": "concept:electric_injury",
       "confidence": "curated",
@@ -499894,11 +500138,13 @@
           "Eye Injuries",
           "Eye Injury"
         ],
-        "zh": []
+        "zh": [
+          "眼损伤"
+        ]
       },
       "canonical": {
         "en": "Eye Injuries",
-        "zh": null
+        "zh": "眼损伤"
       },
       "concept_id": "concept:eye_injury",
       "confidence": "curated",
@@ -500101,11 +500347,13 @@
           "Eye Pain",
           "Eye Pains"
         ],
-        "zh": []
+        "zh": [
+          "眼疼痛"
+        ]
       },
       "canonical": {
         "en": "Eye Pain",
-        "zh": null
+        "zh": "眼疼痛"
       },
       "concept_id": "concept:eye_pain",
       "confidence": "curated",
@@ -500651,11 +500899,13 @@
           "Resistance Transfer Factors",
           "F Plasmid"
         ],
-        "zh": []
+        "zh": [
+          "F因子"
+        ]
       },
       "canonical": {
         "en": "F Factor",
-        "zh": null
+        "zh": "F因子"
       },
       "concept_id": "concept:f_factor",
       "confidence": "curated",
@@ -532042,11 +532292,13 @@
           "NADH-Flavin Oxidoreductase",
           "FMN Oxidoreductase"
         ],
-        "zh": []
+        "zh": [
+          "FMN还原酶"
+        ]
       },
       "canonical": {
         "en": "FMN Reductase",
-        "zh": null
+        "zh": "FMN还原酶"
       },
       "concept_id": "concept:fmn_reductase",
       "confidence": "curated",
@@ -554617,11 +554869,13 @@
           "gamma-Aminobutyric Acid Agonists",
           "gamma Aminobutyric Acid Agonists"
         ],
-        "zh": []
+        "zh": [
+          "GABA激动剂"
+        ]
       },
       "canonical": {
         "en": "GABA Agonists",
-        "zh": null
+        "zh": "GABA激动剂"
       },
       "concept_id": "concept:gaba_agonist",
       "confidence": "curated",
@@ -554677,11 +554931,13 @@
           "GABA Antagonist",
           "GABA Receptor Antagonists"
         ],
-        "zh": []
+        "zh": [
+          "GABA拮抗剂"
+        ]
       },
       "canonical": {
         "en": "GABA Antagonists",
-        "zh": null
+        "zh": "GABA拮抗剂"
       },
       "concept_id": "concept:gaba_antagonist",
       "confidence": "curated",
@@ -554823,11 +555079,13 @@
           "GAT-4 Transporter",
           "GAT 4 Transporter"
         ],
-        "zh": []
+        "zh": [
+          "GABA等离子体膜转运蛋白"
+        ]
       },
       "canonical": {
         "en": "GABA Plasma Membrane Transport Proteins",
-        "zh": null
+        "zh": "GABA等离子体膜转运蛋白"
       },
       "concept_id": "concept:gaba_plasma_membrane_transport_protein",
       "confidence": "curated",
@@ -555207,11 +555465,13 @@
           "Growth Arrest and DNA-Damage-Inducible 45 gamma Protein",
           "GADD45G Protein"
         ],
-        "zh": []
+        "zh": [
+          "GADD45蛋白"
+        ]
       },
       "canonical": {
         "en": "Gadd45 Proteins",
-        "zh": null
+        "zh": "GADD45蛋白"
       },
       "concept_id": "concept:gadd45_protein",
       "confidence": "curated",
@@ -563536,11 +563796,13 @@
           "Nuclear Factor-Erythroid 1",
           "Nuclear Factor Erythroid 1"
         ],
-        "zh": []
+        "zh": [
+          "GATA1转录因子"
+        ]
       },
       "canonical": {
         "en": "Gata1 Transcription Factor",
-        "zh": null
+        "zh": "GATA1转录因子"
       },
       "concept_id": "concept:gata1_transcription_factor",
       "confidence": "curated",
@@ -563609,11 +563871,13 @@
           "Nuclear Factor Erythroid 1B",
           "NFE1B Erythroid Transcription Factor"
         ],
-        "zh": []
+        "zh": [
+          "GATA2转录因子"
+        ]
       },
       "canonical": {
         "en": "Gata2 Transcription Factor",
-        "zh": null
+        "zh": "GATA2转录因子"
       },
       "concept_id": "concept:gata2_transcription_factor",
       "confidence": "curated",
@@ -563644,11 +563908,13 @@
           "Nuclear Factor Erythroid 1C",
           "Transcription Factor GATA3"
         ],
-        "zh": []
+        "zh": [
+          "GATA3转录因子"
+        ]
       },
       "canonical": {
         "en": "Gata3 Transcription Factor",
-        "zh": null
+        "zh": "GATA3转录因子"
       },
       "concept_id": "concept:gata3_transcription_factor",
       "confidence": "curated",
@@ -563677,11 +563943,13 @@
           "Transcription Factor GATA 4",
           "Transcription Factor GATA4"
         ],
-        "zh": []
+        "zh": [
+          "GATA4转录因子"
+        ]
       },
       "canonical": {
         "en": "Gata4 Transcription Factor",
-        "zh": null
+        "zh": "GATA4转录因子"
       },
       "concept_id": "concept:gata4_transcription_factor",
       "confidence": "curated",
@@ -563709,11 +563977,13 @@
           "GATA5 Protein",
           "GATA Binding Protein 5"
         ],
-        "zh": []
+        "zh": [
+          "GATA5转录因子"
+        ]
       },
       "canonical": {
         "en": "Gata5 Transcription Factor",
-        "zh": null
+        "zh": "GATA5转录因子"
       },
       "concept_id": "concept:gata5_transcription_factor",
       "confidence": "curated",
@@ -563742,11 +564012,13 @@
           "GATA 6 Transcription Factor",
           "Transcription Factor GATA6"
         ],
-        "zh": []
+        "zh": [
+          "GATA6转录因子"
+        ]
       },
       "canonical": {
         "en": "Gata6 Transcription Factor",
-        "zh": null
+        "zh": "GATA6转录因子"
       },
       "concept_id": "concept:gata6_transcription_factor",
       "confidence": "curated",
@@ -563773,11 +564045,13 @@
           "GATA Factor",
           "GATA Transcription Factor"
         ],
-        "zh": []
+        "zh": [
+          "GATA转录因子"
+        ]
       },
       "canonical": {
         "en": "GATA Transcription Factors",
-        "zh": null
+        "zh": "GATA转录因子"
       },
       "concept_id": "concept:gata_transcription_factor",
       "confidence": "curated",
@@ -568572,11 +568846,13 @@
           "T-Cell Receptor Gene",
           "T Cell Receptor Genes"
         ],
-        "zh": []
+        "zh": [
+          "基因T细胞受体"
+        ]
       },
       "canonical": {
         "en": "TcR Genes",
-        "zh": null
+        "zh": "基因T细胞受体"
       },
       "concept_id": "concept:gen_t_cell_receptor",
       "confidence": "curated",
@@ -587921,11 +588197,13 @@
           "Glucose-6-Phosphate Phosphohydrolase",
           "Glucosephosphatase"
         ],
-        "zh": []
+        "zh": [
+          "葡萄糖6磷酸酶"
+        ]
       },
       "canonical": {
         "en": "Glucose-6-phosphatase",
-        "zh": null
+        "zh": "葡萄糖6磷酸酶"
       },
       "concept_id": "concept:glucose_6_phosphatase",
       "confidence": "curated",
@@ -593605,11 +593883,13 @@
           "NADPH:GMP Oxidoreductase (Deaminating)",
           "NADPH:Guanosine-5'-Phosphate Oxidoreductase (Deaminating)"
         ],
-        "zh": []
+        "zh": [
+          "GMP还原酶"
+        ]
       },
       "canonical": {
         "en": "GMP Reductase",
-        "zh": null
+        "zh": "GMP还原酶"
       },
       "concept_id": "concept:gmp_reductase",
       "confidence": "curated",
@@ -617171,11 +617451,13 @@
           "HCT-116 Cells",
           "HCT-116 Cell"
         ],
-        "zh": []
+        "zh": [
+          "HCT116细胞"
+        ]
       },
       "canonical": {
         "en": "Hct116 Cells",
-        "zh": null
+        "zh": "HCT116细胞"
       },
       "concept_id": "concept:hct116_cell",
       "confidence": "curated",
@@ -623064,11 +623346,13 @@
           "Traumatic Cardiac Rupture",
           "Traumatic Cardiac Ruptures"
         ],
-        "zh": []
+        "zh": [
+          "心脏损伤"
+        ]
       },
       "canonical": {
         "en": "Heart Injuries",
-        "zh": null
+        "zh": "心脏损伤"
       },
       "concept_id": "concept:heart_injury",
       "confidence": "curated",
@@ -624359,11 +624643,13 @@
         "en": [
           "Heat Transfer And Mathematical Modeling"
         ],
-        "zh": []
+        "zh": [
+          "传热与数学建模"
+        ]
       },
       "canonical": {
         "en": "Heat Transfer And Mathematical Modeling",
-        "zh": null
+        "zh": "传热与数学建模"
       },
       "concept_id": "concept:heat_transfer_and_mathematical_modeling",
       "confidence": "curated",
@@ -624387,11 +624673,13 @@
         "en": [
           "Heat Transfer And Numerical Methods"
         ],
-        "zh": []
+        "zh": [
+          "传热与数值方法"
+        ]
       },
       "canonical": {
         "en": "Heat Transfer And Numerical Methods",
-        "zh": null
+        "zh": "传热与数值方法"
       },
       "concept_id": "concept:heat_transfer_and_numerical_method",
       "confidence": "curated",
@@ -624473,11 +624761,13 @@
         "en": [
           "Heat Transfer Mechanisms"
         ],
-        "zh": []
+        "zh": [
+          "传热机制"
+        ]
       },
       "canonical": {
         "en": "Heat Transfer Mechanisms",
-        "zh": null
+        "zh": "传热机制"
       },
       "concept_id": "concept:heat_transfer_mechanism",
       "confidence": "curated",
@@ -633028,11 +633318,13 @@
           "Hepatitis B Antigen",
           "HBAg"
         ],
-        "zh": []
+        "zh": [
+          "肝炎B抗原"
+        ]
       },
       "canonical": {
         "en": "Hepatitis B Antigens",
-        "zh": null
+        "zh": "肝炎B抗原"
       },
       "concept_id": "concept:hepatiti_b_antigen",
       "confidence": "curated",
@@ -633154,11 +633446,13 @@
           "HBsAg",
           "Hepatitis B Surface Antigen"
         ],
-        "zh": []
+        "zh": [
+          "肝炎B表面抗原"
+        ]
       },
       "canonical": {
         "en": "Hepatitis B Surface Antigens",
-        "zh": null
+        "zh": "肝炎B表面抗原"
       },
       "concept_id": "concept:hepatiti_b_surface_antigen",
       "confidence": "curated",
@@ -633183,11 +633477,13 @@
           "Hepatitis B Vaccines",
           "Hepatitis B Vaccine"
         ],
-        "zh": []
+        "zh": [
+          "肝炎B疫苗"
+        ]
       },
       "canonical": {
         "en": "Hepatitis B Vaccines",
-        "zh": null
+        "zh": "肝炎B疫苗"
       },
       "concept_id": "concept:hepatiti_b_vaccin",
       "confidence": "curated",
@@ -633392,11 +633688,13 @@
           "Hepatitis C Antigens",
           "Hepatitis C Antigen"
         ],
-        "zh": []
+        "zh": [
+          "肝炎C抗原"
+        ]
       },
       "canonical": {
         "en": "Hepatitis C Antigens",
-        "zh": null
+        "zh": "肝炎C抗原"
       },
       "concept_id": "concept:hepatiti_c_antigen",
       "confidence": "curated",
@@ -642698,11 +642996,13 @@
         "en": [
           "High Power Amplifiers"
         ],
-        "zh": []
+        "zh": [
+          "高功率放大器"
+        ]
       },
       "canonical": {
         "en": "High Power Amplifiers",
-        "zh": null
+        "zh": "高功率放大器"
       },
       "concept_id": "concept:high_power_amplifier",
       "confidence": "curated",
@@ -653217,11 +653517,13 @@
           "HMGI-C Protein",
           "HMGI C Protein"
         ],
-        "zh": []
+        "zh": [
+          "HMGA2蛋白"
+        ]
       },
       "canonical": {
         "en": "Hmga2 Protein",
-        "zh": null
+        "zh": "HMGA2蛋白"
       },
       "concept_id": "concept:hmga2_protein",
       "confidence": "curated",
@@ -653250,11 +653552,13 @@
           "HMG-AT Proteins",
           "HMG AT Proteins"
         ],
-        "zh": []
+        "zh": [
+          "HMGA蛋白"
+        ]
       },
       "canonical": {
         "en": "HMGA Proteins",
-        "zh": null
+        "zh": "HMGA蛋白"
       },
       "concept_id": "concept:hmga_protein",
       "confidence": "curated",
@@ -653286,11 +653590,13 @@
           "HMGB1",
           "HMG 1 Protein"
         ],
-        "zh": []
+        "zh": [
+          "HMGB1蛋白"
+        ]
       },
       "canonical": {
         "en": "Hmgb1 Protein",
-        "zh": null
+        "zh": "HMGB1蛋白"
       },
       "concept_id": "concept:hmgb1_protein",
       "confidence": "curated",
@@ -653319,11 +653625,13 @@
           "HMG 2",
           "HMG 2 Protein"
         ],
-        "zh": []
+        "zh": [
+          "HMGB2蛋白"
+        ]
       },
       "canonical": {
         "en": "Hmgb2 Protein",
-        "zh": null
+        "zh": "HMGB2蛋白"
       },
       "concept_id": "concept:hmgb2_protein",
       "confidence": "curated",
@@ -653350,11 +653658,13 @@
           "HMG-4",
           "HMG2a"
         ],
-        "zh": []
+        "zh": [
+          "HMGB3蛋白"
+        ]
       },
       "canonical": {
         "en": "Hmgb3 Protein",
-        "zh": null
+        "zh": "HMGB3蛋白"
       },
       "concept_id": "concept:hmgb3_protein",
       "confidence": "curated",
@@ -653381,11 +653691,13 @@
           "HMG Box Proteins",
           "High Mobility Group Box Proteins"
         ],
-        "zh": []
+        "zh": [
+          "HMGB蛋白"
+        ]
       },
       "canonical": {
         "en": "HMGB Proteins",
-        "zh": null
+        "zh": "HMGB蛋白"
       },
       "concept_id": "concept:hmgb_protein",
       "confidence": "curated",
@@ -653416,11 +653728,13 @@
           "Nonhistone Chromosomal Protein HMG-14",
           "Nonhistone Chromosomal Protein HMG 14"
         ],
-        "zh": []
+        "zh": [
+          "HMGN1蛋白"
+        ]
       },
       "canonical": {
         "en": "Hmgn1 Protein",
-        "zh": null
+        "zh": "HMGN1蛋白"
       },
       "concept_id": "concept:hmgn1_protein",
       "confidence": "curated",
@@ -653449,11 +653763,13 @@
           "HMGN2",
           "HMG17 Protein"
         ],
-        "zh": []
+        "zh": [
+          "HMGN2蛋白"
+        ]
       },
       "canonical": {
         "en": "Hmgn2 Protein",
-        "zh": null
+        "zh": "HMGN2蛋白"
       },
       "concept_id": "concept:hmgn2_protein",
       "confidence": "curated",
@@ -653480,11 +653796,13 @@
           "HMGN Family Proteins",
           "Nucleosomal Binding Proteins"
         ],
-        "zh": []
+        "zh": [
+          "HMGN蛋白"
+        ]
       },
       "canonical": {
         "en": "HMGN Proteins",
-        "zh": null
+        "zh": "HMGN蛋白"
       },
       "concept_id": "concept:hmgn_protein",
       "confidence": "curated",
@@ -653625,11 +653943,13 @@
           "Hemagglutinin-Neuraminidase Glycoprotein",
           "Hemagglutinin Neuraminidase Glycoprotein"
         ],
-        "zh": []
+        "zh": [
+          "HN蛋白"
+        ]
       },
       "canonical": {
         "en": "HN Protein",
-        "zh": null
+        "zh": "HN蛋白"
       },
       "concept_id": "concept:hn_protein",
       "confidence": "curated",
@@ -661483,11 +661803,13 @@
           "HT-29 Cell",
           "HT 29 Cells"
         ],
-        "zh": []
+        "zh": [
+          "HT29细胞"
+        ]
       },
       "canonical": {
         "en": "HT29 Cells",
-        "zh": null
+        "zh": "HT29细胞"
       },
       "concept_id": "concept:ht29_cell",
       "confidence": "curated",
@@ -690985,11 +691307,13 @@
           "Immunoglobulin G4-Related Sclerosing Disease",
           "Immunoglobulin G4 Related Sclerosing Disease"
         ],
-        "zh": []
+        "zh": [
+          "免疫球蛋白G4相关疾病"
+        ]
       },
       "canonical": {
         "en": "Immunoglobulin G4-related Disease",
-        "zh": null
+        "zh": "免疫球蛋白G4相关疾病"
       },
       "concept_id": "concept:immunoglobulin_g4_related_disease",
       "confidence": "curated",
@@ -693023,11 +693347,13 @@
           "Inosine 5 Monophosphate Dehydrogenase",
           "Inosinic Acid Dehydrogenase"
         ],
-        "zh": []
+        "zh": [
+          "IMP脱氢酶"
+        ]
       },
       "canonical": {
         "en": "IMP Dehydrogenase",
-        "zh": null
+        "zh": "IMP脱氢酶"
       },
       "concept_id": "concept:imp_dehydrogenase",
       "confidence": "curated",
@@ -712344,11 +712670,13 @@
         "en": [
           "Insulin Antagonists"
         ],
-        "zh": []
+        "zh": [
+          "胰岛素拮抗剂"
+        ]
       },
       "canonical": {
         "en": "Insulin Antagonists",
-        "zh": null
+        "zh": "胰岛素拮抗剂"
       },
       "concept_id": "concept:insulin_antagonist",
       "confidence": "curated",
@@ -721880,11 +722208,13 @@
           "IRAK-4 Kinase",
           "IRAK 4 Kinase"
         ],
-        "zh": []
+        "zh": [
+          "白细胞介素1受体相关激酶"
+        ]
       },
       "canonical": {
         "en": "Interleukin-1 Receptor-associated Kinases",
-        "zh": null
+        "zh": "白细胞介素1受体相关激酶"
       },
       "concept_id": "concept:interleukin_1_receptor_associated_kinase",
       "confidence": "curated",
@@ -722699,11 +723029,13 @@
           "IL6 inhibitors",
           "Interleukin-6 Antagonists"
         ],
-        "zh": []
+        "zh": [
+          "白细胞介素6抑制剂"
+        ]
       },
       "canonical": {
         "en": "Interleukin-6 Inhibitors",
-        "zh": null
+        "zh": "白细胞介素6抑制剂"
       },
       "concept_id": "concept:interleukin_6_inhibitor",
       "confidence": "curated",
@@ -745340,11 +745672,13 @@
         "en": [
           "K562 Cells"
         ],
-        "zh": []
+        "zh": [
+          "K562细胞"
+        ]
       },
       "canonical": {
         "en": "K562 Cells",
-        "zh": null
+        "zh": "K562细胞"
       },
       "concept_id": "concept:k562_cell",
       "confidence": "curated",
@@ -747452,11 +747786,13 @@
           "HeLa-KB Cell",
           "HeLa KB Cells"
         ],
-        "zh": []
+        "zh": [
+          "KB细胞"
+        ]
       },
       "canonical": {
         "en": "KB Cells",
-        "zh": null
+        "zh": "KB细胞"
       },
       "concept_id": "concept:kb_cell",
       "confidence": "curated",
@@ -755329,11 +755665,13 @@
           "Krev Interaction Trapped Protein 1",
           "Cerebral Cavernous Malformations 1 Protein"
         ],
-        "zh": []
+        "zh": [
+          "KRIT1蛋白"
+        ]
       },
       "canonical": {
         "en": "Krit1 Protein",
-        "zh": null
+        "zh": "KRIT1蛋白"
       },
       "concept_id": "concept:krit1_protein",
       "confidence": "curated",
@@ -756595,11 +756933,13 @@
           "NCTC Clone 929 of Strain L Cells",
           "NCTC Clone 929 Cells"
         ],
-        "zh": []
+        "zh": [
+          "L细胞"
+        ]
       },
       "canonical": {
         "en": "L Cells",
-        "zh": null
+        "zh": "L细胞"
       },
       "concept_id": "concept:l_cell",
       "confidence": "curated",
@@ -776204,11 +776544,13 @@
           "B-Cell Lymphocytic Leukemia",
           "B-Cell Lymphocytic Leukemias"
         ],
-        "zh": []
+        "zh": [
+          "白血病B细胞"
+        ]
       },
       "canonical": {
         "en": "B-Lymphocytic Leukemia",
-        "zh": null
+        "zh": "白血病B细胞"
       },
       "concept_id": "concept:leukemia_b_cell",
       "confidence": "curated",
@@ -777345,11 +777687,13 @@
           "T-Lymphocytic Leukemia",
           "T-Lymphocytic Leukemias"
         ],
-        "zh": []
+        "zh": [
+          "白血病T细胞"
+        ]
       },
       "canonical": {
         "en": "T-Cell Lymphocytic Leukemia",
-        "zh": null
+        "zh": "白血病T细胞"
       },
       "concept_id": "concept:leukemia_t_cell",
       "confidence": "curated",
@@ -784021,11 +784365,13 @@
         "en": [
           "LIM Domain Proteins"
         ],
-        "zh": []
+        "zh": [
+          "LIM域蛋白"
+        ]
       },
       "canonical": {
         "en": "LIM Domain Proteins",
-        "zh": null
+        "zh": "LIM域蛋白"
       },
       "concept_id": "concept:lim_domain_protein",
       "confidence": "curated",
@@ -793193,11 +793539,13 @@
           "Oxysterols Receptor LXR-Beta",
           "Oxysterols Receptor LXR Beta"
         ],
-        "zh": []
+        "zh": [
+          "肝脏X受体"
+        ]
       },
       "canonical": {
         "en": "Liver X Receptors",
-        "zh": null
+        "zh": "肝脏X受体"
       },
       "concept_id": "concept:liver_x_receptor",
       "confidence": "curated",
@@ -802880,11 +803228,13 @@
           "Vaping Product Use-Associated Lung Injury",
           "Vaping Product Use Associated Lung Injury"
         ],
-        "zh": []
+        "zh": [
+          "肺损伤"
+        ]
       },
       "canonical": {
         "en": "Lung Injury",
-        "zh": null
+        "zh": "肺损伤"
       },
       "concept_id": "concept:lung_injury",
       "confidence": "curated",
@@ -805630,11 +805980,13 @@
           "Lymphocyte Activation Gene 3 Proteins",
           "CD223 Antigen"
         ],
-        "zh": []
+        "zh": [
+          "淋巴细胞活化基因3蛋白"
+        ]
       },
       "canonical": {
         "en": "Lymphocyte Activation Gene 3 Protein",
-        "zh": null
+        "zh": "淋巴细胞活化基因3蛋白"
       },
       "concept_id": "concept:lymphocyte_activation_gene_3_protein",
       "confidence": "curated",
@@ -806341,11 +806693,13 @@
           "B Cell Lymphoma",
           "B-Cell Lymphomas"
         ],
-        "zh": []
+        "zh": [
+          "淋巴瘤B细胞"
+        ]
       },
       "canonical": {
         "en": "B-Cell Lymphoma",
-        "zh": null
+        "zh": "淋巴瘤B细胞"
       },
       "concept_id": "concept:lymphoma_b_cell",
       "confidence": "curated",
@@ -806796,11 +807150,13 @@
           "T Cell Lymphoma",
           "T-Cell Lymphomas"
         ],
-        "zh": []
+        "zh": [
+          "淋巴瘤T细胞"
+        ]
       },
       "canonical": {
         "en": "T-Cell Lymphoma",
-        "zh": null
+        "zh": "淋巴瘤T细胞"
       },
       "concept_id": "concept:lymphoma_t_cell",
       "confidence": "curated",
@@ -808384,11 +808740,13 @@
           "Tonsillar M Cells",
           "Tonsillar M Cell"
         ],
-        "zh": []
+        "zh": [
+          "M细胞"
+        ]
       },
       "canonical": {
         "en": "M Cells",
-        "zh": null
+        "zh": "M细胞"
       },
       "concept_id": "concept:m_cell",
       "confidence": "curated",
@@ -811165,11 +811523,13 @@
           "Mad2 Proteins",
           "Mad2 Mitotic Arrest Deficient-like 1 Proteins"
         ],
-        "zh": []
+        "zh": [
+          "MAD2蛋白"
+        ]
       },
       "canonical": {
         "en": "Mad2 Proteins",
-        "zh": null
+        "zh": "MAD2蛋白"
       },
       "concept_id": "concept:mad2_protein",
       "confidence": "curated",
@@ -811289,11 +811649,13 @@
           "Agamous-Related Proteins",
           "Agamous Related Proteins"
         ],
-        "zh": []
+        "zh": [
+          "MADS域蛋白"
+        ]
       },
       "canonical": {
         "en": "MADS Domain Proteins",
-        "zh": null
+        "zh": "MADS域蛋白"
       },
       "concept_id": "concept:mads_domain_protein",
       "confidence": "curated",
@@ -830872,11 +831234,13 @@
           "MMPs",
           "Matrix Metalloproteinase"
         ],
-        "zh": []
+        "zh": [
+          "基质金属蛋白酶"
+        ]
       },
       "canonical": {
         "en": "Matrix Metalloproteinases",
-        "zh": null
+        "zh": "基质金属蛋白酶"
       },
       "concept_id": "concept:matrix_metalloproteinase",
       "confidence": "curated",
@@ -842759,11 +843123,13 @@
           "Muscle Enhancer Factor-2C",
           "Muscle Enhancer Factor 2C"
         ],
-        "zh": []
+        "zh": [
+          "MEF2转录因子"
+        ]
       },
       "canonical": {
         "en": "MEF2 Transcription Factors",
-        "zh": null
+        "zh": "MEF2转录因子"
       },
       "concept_id": "concept:mef2_transcription_factor",
       "confidence": "curated",
@@ -845913,11 +846279,13 @@
           "Memory B-Lymphocyte",
           "Memory B Lymphocytes"
         ],
-        "zh": []
+        "zh": [
+          "存储B细胞"
+        ]
       },
       "canonical": {
         "en": "Memory B Cells",
-        "zh": null
+        "zh": "存储B细胞"
       },
       "concept_id": "concept:memory_b_cell",
       "confidence": "curated",
@@ -846364,11 +846732,13 @@
           "Tissue Resident Memory T Cells",
           "Virtual Memory T Cells"
         ],
-        "zh": []
+        "zh": [
+          "存储T细胞"
+        ]
       },
       "canonical": {
         "en": "Memory T Cells",
-        "zh": null
+        "zh": "存储T细胞"
       },
       "concept_id": "concept:memory_t_cell",
       "confidence": "curated",
@@ -853761,11 +854131,13 @@
           "Cardiometabolic Syndrome",
           "Cardiometabolic Syndromes"
         ],
-        "zh": []
+        "zh": [
+          "代谢综合征"
+        ]
       },
       "canonical": {
         "en": "Metabolic Syndrome",
-        "zh": null
+        "zh": "代谢综合征"
       },
       "concept_id": "concept:metabolic_syndrome",
       "confidence": "curated",
@@ -894894,11 +895266,13 @@
           "Msh Homeo Box Homolog 1 Protein",
           "Homeobox 7.1 Protein"
         ],
-        "zh": []
+        "zh": [
+          "MSX1转录因子"
+        ]
       },
       "canonical": {
         "en": "MSX1 Transcription Factor",
-        "zh": null
+        "zh": "MSX1转录因子"
       },
       "concept_id": "concept:msx1_transcription_factor",
       "confidence": "curated",
@@ -894954,11 +895328,13 @@
           "MTOR Inhibitors",
           "Rapalogs"
         ],
-        "zh": []
+        "zh": [
+          "MTOR抑制剂"
+        ]
       },
       "canonical": {
         "en": "MTOR Inhibitors",
-        "zh": null
+        "zh": "MTOR抑制剂"
       },
       "concept_id": "concept:mtor_inhibitor",
       "confidence": "curated",
@@ -904674,11 +905050,13 @@
         "en": [
           "Multiple Linear Regression Models"
         ],
-        "zh": []
+        "zh": [
+          "多元线性回归模型"
+        ]
       },
       "canonical": {
         "en": "Multiple Linear Regression Models",
-        "zh": null
+        "zh": "多元线性回归模型"
       },
       "concept_id": "concept:multiple_linear_regression_model",
       "confidence": "curated",
@@ -906779,11 +907157,13 @@
           "Munc18-1 Protein",
           "Munc18a Protein"
         ],
-        "zh": []
+        "zh": [
+          "MUNC18蛋白"
+        ]
       },
       "canonical": {
         "en": "Munc18 Proteins",
-        "zh": null
+        "zh": "MUNC18蛋白"
       },
       "concept_id": "concept:munc18_protein",
       "confidence": "curated",
@@ -914282,11 +914662,13 @@
           "Myeloid Cell Factor-1",
           "Myeloid Cell Factor 1"
         ],
-        "zh": []
+        "zh": [
+          "髓系细胞白血病序列1蛋白"
+        ]
       },
       "canonical": {
         "en": "Myeloid Cell Leukemia Sequence 1 Protein",
-        "zh": null
+        "zh": "髓系细胞白血病序列1蛋白"
       },
       "concept_id": "concept:myeloid_cell_leukemia_sequence_1_protein",
       "confidence": "curated",
@@ -919832,11 +920214,13 @@
           "NADH Cytochrome c Reductase",
           "Diaphorase (NADH Dehydrogenase)"
         ],
-        "zh": []
+        "zh": [
+          "NADH脱氢酶"
+        ]
       },
       "canonical": {
         "en": "NADH Dehydrogenase",
-        "zh": null
+        "zh": "NADH脱氢酶"
       },
       "concept_id": "concept:nadh_dehydrogenase",
       "confidence": "curated",
@@ -929843,11 +930227,13 @@
           "Neural Precursor Cell Expressed Developmentally Down-Regulated Protein 8",
           "Neural Precursor Cell Expressed Developmentally Down Regulated Protein 8"
         ],
-        "zh": []
+        "zh": [
+          "NEDD8蛋白"
+        ]
       },
       "canonical": {
         "en": "Nedd8 Protein",
-        "zh": null
+        "zh": "NEDD8蛋白"
       },
       "concept_id": "concept:nedd8_protein",
       "confidence": "curated",
@@ -935000,11 +935386,13 @@
           "External Nerve Compression Syndromes",
           "Internal Nerve Compression Syndromes"
         ],
-        "zh": []
+        "zh": [
+          "神经压缩综合征"
+        ]
       },
       "canonical": {
         "en": "Nerve Compression Syndromes",
-        "zh": null
+        "zh": "神经压缩综合征"
       },
       "concept_id": "concept:nerve_compression_syndrom",
       "confidence": "curated",
@@ -947720,11 +948108,13 @@
           "Nuclear Factor I-X",
           "Nuclear Factor I X"
         ],
-        "zh": []
+        "zh": [
+          "NFI转录因子"
+        ]
       },
       "canonical": {
         "en": "NFI Transcription Factors",
-        "zh": null
+        "zh": "NFI转录因子"
       },
       "concept_id": "concept:nfi_transcription_factor",
       "confidence": "curated",
@@ -953029,11 +953419,13 @@
           "NOD-like Receptors",
           "NOD like Receptors"
         ],
-        "zh": []
+        "zh": [
+          "NLR蛋白"
+        ]
       },
       "canonical": {
         "en": "NLR Proteins",
-        "zh": null
+        "zh": "NLR蛋白"
       },
       "concept_id": "concept:nlr_protein",
       "confidence": "curated",
@@ -963174,11 +963566,13 @@
           "Interleukin Enhancer Binding Factor 2",
           "NF45 Protein"
         ],
-        "zh": []
+        "zh": [
+          "核因子45蛋白"
+        ]
       },
       "canonical": {
         "en": "Nuclear Factor 45 Protein",
-        "zh": null
+        "zh": "核因子45蛋白"
       },
       "concept_id": "concept:nuclear_factor_45_protein",
       "confidence": "curated",
@@ -963211,11 +963605,13 @@
           "Nuclear Factor 90",
           "Nuclear Factor 90 Protein Complex"
         ],
-        "zh": []
+        "zh": [
+          "核因子90蛋白"
+        ]
       },
       "canonical": {
         "en": "Nuclear Factor 90 Proteins",
-        "zh": null
+        "zh": "核因子90蛋白"
       },
       "concept_id": "concept:nuclear_factor_90_protein",
       "confidence": "curated",
@@ -970627,11 +971023,13 @@
           "O Specific Polysaccharides",
           "O-Antigens"
         ],
-        "zh": []
+        "zh": [
+          "O抗原"
+        ]
       },
       "canonical": {
         "en": "O Antigens",
-        "zh": null
+        "zh": "O抗原"
       },
       "concept_id": "concept:o_antigen",
       "confidence": "curated",
@@ -987971,11 +988369,13 @@
           "Optic Nerve Transection",
           "Optic Nerve Transections"
         ],
-        "zh": []
+        "zh": [
+          "光学神经损伤"
+        ]
       },
       "canonical": {
         "en": "Optic Nerve Injuries",
-        "zh": null
+        "zh": "光学神经损伤"
       },
       "concept_id": "concept:optic_nerve_injury",
       "confidence": "curated",
@@ -993421,11 +993821,13 @@
           "Calcium Release-Activated Calcium Channel Protein 1",
           "Calcium Release Activated Calcium Channel Protein 1"
         ],
-        "zh": []
+        "zh": [
+          "ORAI1蛋白"
+        ]
       },
       "canonical": {
         "en": "Orai1 Protein",
-        "zh": null
+        "zh": "ORAI1蛋白"
       },
       "concept_id": "concept:orai1_protein",
       "confidence": "curated",
@@ -993454,11 +993856,13 @@
           "ORAI Calcium Release Activated Calcium Modulator 2",
           "Transmembrane Protein 142B"
         ],
-        "zh": []
+        "zh": [
+          "ORAI2蛋白"
+        ]
       },
       "canonical": {
         "en": "Orai2 Protein",
-        "zh": null
+        "zh": "ORAI2蛋白"
       },
       "concept_id": "concept:orai2_protein",
       "confidence": "curated",
@@ -1010203,11 +1010607,13 @@
           "beta p21 Activated Kinase",
           "beta-PAK"
         ],
-        "zh": []
+        "zh": [
+          "P21活性激酶"
+        ]
       },
       "canonical": {
         "en": "P21-activated Kinases",
-        "zh": null
+        "zh": "P21活性激酶"
       },
       "concept_id": "concept:p21_activated_kinase",
       "confidence": "curated",
@@ -1032998,11 +1033404,13 @@
           "Paired Box Transcription Factor 2",
           "Transcription Factor PAX2"
         ],
-        "zh": []
+        "zh": [
+          "PAX2转录因子"
+        ]
       },
       "canonical": {
         "en": "PAX2 Transcription Factor",
-        "zh": null
+        "zh": "PAX2转录因子"
       },
       "concept_id": "concept:pax2_transcription_factor",
       "confidence": "curated",
@@ -1033029,11 +1033437,13 @@
           "Paired Box Transcription Factor 3",
           "Transcription Factor PAX3"
         ],
-        "zh": []
+        "zh": [
+          "PAX3转录因子"
+        ]
       },
       "canonical": {
         "en": "PAX3 Transcription Factor",
-        "zh": null
+        "zh": "PAX3转录因子"
       },
       "concept_id": "concept:pax3_transcription_factor",
       "confidence": "curated",
@@ -1033066,11 +1033476,13 @@
           "Transcription Factor PAX5",
           "Pax5A Transcription Factor"
         ],
-        "zh": []
+        "zh": [
+          "PAX5转录因子"
+        ]
       },
       "canonical": {
         "en": "PAX5 Transcription Factor",
-        "zh": null
+        "zh": "PAX5转录因子"
       },
       "concept_id": "concept:pax5_transcription_factor",
       "confidence": "curated",
@@ -1033106,11 +1033518,13 @@
           "Pax6.1 Protein",
           "Pax6.2 Protein"
         ],
-        "zh": []
+        "zh": [
+          "PAX6转录因子"
+        ]
       },
       "canonical": {
         "en": "PAX6 Transcription Factor",
-        "zh": null
+        "zh": "PAX6转录因子"
       },
       "concept_id": "concept:pax6_transcription_factor",
       "confidence": "curated",
@@ -1033138,11 +1033552,13 @@
           "Paired Box Transcription Factor 7",
           "Transcription Factor PAX7"
         ],
-        "zh": []
+        "zh": [
+          "PAX7转录因子"
+        ]
       },
       "canonical": {
         "en": "PAX7 Transcription Factor",
-        "zh": null
+        "zh": "PAX7转录因子"
       },
       "concept_id": "concept:pax7_transcription_factor",
       "confidence": "curated",
@@ -1033167,11 +1033583,13 @@
           "PAX8 Transcription Factor",
           "PAX8 Paired-Box Protein"
         ],
-        "zh": []
+        "zh": [
+          "PAX8转录因子"
+        ]
       },
       "canonical": {
         "en": "PAX8 Transcription Factor",
-        "zh": null
+        "zh": "PAX8转录因子"
       },
       "concept_id": "concept:pax8_transcription_factor",
       "confidence": "curated",
@@ -1033197,11 +1033615,13 @@
           "Paired Box Transcription Factor 9",
           "Paired Box 9 Protein"
         ],
-        "zh": []
+        "zh": [
+          "PAX9转录因子"
+        ]
       },
       "canonical": {
         "en": "PAX9 Transcription Factor",
-        "zh": null
+        "zh": "PAX9转录因子"
       },
       "concept_id": "concept:pax9_transcription_factor",
       "confidence": "curated",
@@ -1033342,11 +1033762,13 @@
           "Pheochromocytoma Cell Line",
           "Pheochromocytoma Cell Lines"
         ],
-        "zh": []
+        "zh": [
+          "PC12细胞"
+        ]
       },
       "canonical": {
         "en": "PC12 Cells",
-        "zh": null
+        "zh": "PC12细胞"
       },
       "concept_id": "concept:pc12_cell",
       "confidence": "curated",
@@ -1033524,11 +1033946,13 @@
           "Cardiovascular PCSK9 Inhibitors",
           "PCSK9 Inhibitors Cardiovascular"
         ],
-        "zh": []
+        "zh": [
+          "PCSK9抑制剂"
+        ]
       },
       "canonical": {
         "en": "Pcsk9 Inhibitors",
-        "zh": null
+        "zh": "PCSK9抑制剂"
       },
       "concept_id": "concept:pcsk9_inhibitor",
       "confidence": "curated",
@@ -1039533,11 +1039957,13 @@
           "Polypeptide Hormones",
           "Polypeptide Hormone"
         ],
-        "zh": []
+        "zh": [
+          "肽激素"
+        ]
       },
       "canonical": {
         "en": "Peptide Hormones",
-        "zh": null
+        "zh": "肽激素"
       },
       "concept_id": "concept:peptide_hormon",
       "confidence": "curated",
@@ -1039571,11 +1039997,13 @@
           "Proteolytic Enzyme",
           "Proteinase"
         ],
-        "zh": []
+        "zh": [
+          "肽水解酶"
+        ]
       },
       "canonical": {
         "en": "Peptide Hydrolases",
-        "zh": null
+        "zh": "肽水解酶"
       },
       "concept_id": "concept:peptide_hydrolase",
       "confidence": "curated",
@@ -1039829,11 +1040257,13 @@
           "Acid-Amino-Acid Ligases",
           "Acid Amino Acid Ligases"
         ],
-        "zh": []
+        "zh": [
+          "肽合酶"
+        ]
       },
       "canonical": {
         "en": "Peptide Synthases",
-        "zh": null
+        "zh": "肽合酶"
       },
       "concept_id": "concept:peptide_synthase",
       "confidence": "curated",
@@ -1044553,11 +1044983,13 @@
           "Peripheral Nerve Injuries",
           "Peripheral Nerve Injury"
         ],
-        "zh": []
+        "zh": [
+          "外周神经损伤"
+        ]
       },
       "canonical": {
         "en": "Peripheral Nerve Injuries",
-        "zh": null
+        "zh": "外周神经损伤"
       },
       "concept_id": "concept:peripheral_nerve_injury",
       "confidence": "curated",
@@ -1058737,11 +1059169,13 @@
           "Phosphotransacylase",
           "Phosphoacylase"
         ],
-        "zh": []
+        "zh": [
+          "磷酸盐乙酰转移酶"
+        ]
       },
       "canonical": {
         "en": "Phosphate Acetyltransferase",
-        "zh": null
+        "zh": "磷酸盐乙酰转移酶"
       },
       "concept_id": "concept:phosphate_acetyltransferase",
       "confidence": "curated",
@@ -1059639,11 +1060073,13 @@
           "PDE3 Inhibitors",
           "Phosphodiesterase Type 3 Inhibitors"
         ],
-        "zh": []
+        "zh": [
+          "磷酸二酯酶3抑制剂"
+        ]
       },
       "canonical": {
         "en": "Phosphodiesterase 3 Inhibitors",
-        "zh": null
+        "zh": "磷酸二酯酶3抑制剂"
       },
       "concept_id": "concept:phosphodiesterase_3_inhibitor",
       "confidence": "curated",
@@ -1059677,11 +1060113,13 @@
           "PDE4 Inhibitors",
           "Phosphodiesterase Type 4 Inhibitors"
         ],
-        "zh": []
+        "zh": [
+          "磷酸二酯酶4抑制剂"
+        ]
       },
       "canonical": {
         "en": "Phosphodiesterase 4 Inhibitors",
-        "zh": null
+        "zh": "磷酸二酯酶4抑制剂"
       },
       "concept_id": "concept:phosphodiesterase_4_inhibitor",
       "confidence": "curated",
@@ -1059715,11 +1060153,13 @@
           "PDE5 Inhibitor",
           "Phosphodiesterase Type 5 Inhibitor"
         ],
-        "zh": []
+        "zh": [
+          "磷酸二酯酶5抑制剂"
+        ]
       },
       "canonical": {
         "en": "Phosphodiesterase 5 Inhibitors",
-        "zh": null
+        "zh": "磷酸二酯酶5抑制剂"
       },
       "concept_id": "concept:phosphodiesterase_5_inhibitor",
       "confidence": "curated",
@@ -1104840,11 +1105280,13 @@
           "Pit-Oct-Unc Proteins",
           "Pit Oct Unc Proteins"
         ],
-        "zh": []
+        "zh": [
+          "POU域因子"
+        ]
       },
       "canonical": {
         "en": "POU Domain Factors",
-        "zh": null
+        "zh": "POU域因子"
       },
       "concept_id": "concept:pou_domain_factor",
       "confidence": "curated",
@@ -1129766,11 +1130208,13 @@
           "Prostaglandin Inhibitors",
           "Prostaglandin Antagonist"
         ],
-        "zh": []
+        "zh": [
+          "前列腺素拮抗剂"
+        ]
       },
       "canonical": {
         "en": "Prostaglandin Antagonists",
-        "zh": null
+        "zh": "前列腺素拮抗剂"
       },
       "concept_id": "concept:prostaglandin_antagonist",
       "confidence": "curated",
@@ -1129938,11 +1130382,13 @@
           "PTGES3 Protein",
           "Cytosolic Prostaglandin E2 Synthase"
         ],
-        "zh": []
+        "zh": [
+          "前列腺素E合酶"
+        ]
       },
       "canonical": {
         "en": "Prostaglandin-e Synthases",
-        "zh": null
+        "zh": "前列腺素E合酶"
       },
       "concept_id": "concept:prostaglandin_e_synthase",
       "confidence": "curated",
@@ -1132108,11 +1132554,13 @@
           "Serpin A5",
           "Type 3 Plasminogen Activator Inhibitor"
         ],
-        "zh": []
+        "zh": [
+          "蛋白C抑制剂"
+        ]
       },
       "canonical": {
         "en": "Protein C Inhibitor",
-        "zh": null
+        "zh": "蛋白C抑制剂"
       },
       "concept_id": "concept:protein_c_inhibitor",
       "confidence": "curated",
@@ -1133548,11 +1133996,13 @@
           "Protein Methyltransferase",
           "Protein Methylases"
         ],
-        "zh": []
+        "zh": [
+          "蛋白甲基转移酶"
+        ]
       },
       "canonical": {
         "en": "Protein Methyltransferases",
-        "zh": null
+        "zh": "蛋白甲基转移酶"
       },
       "concept_id": "concept:protein_methyltransferase",
       "confidence": "curated",
@@ -1133667,11 +1134117,13 @@
           "S-Adenosylmethionine Protein Carboxymethyltransferase",
           "S Adenosylmethionine Protein Carboxymethyltransferase"
         ],
-        "zh": []
+        "zh": [
+          "蛋白O甲基转移酶"
+        ]
       },
       "canonical": {
         "en": "Protein O-methyltransferase",
-        "zh": null
+        "zh": "蛋白O甲基转移酶"
       },
       "concept_id": "concept:protein_o_methyltransferase",
       "confidence": "curated",
@@ -1162195,11 +1162647,13 @@
           "R Plasmids",
           "Resistance Factors"
         ],
-        "zh": []
+        "zh": [
+          "R因子"
+        ]
       },
       "canonical": {
         "en": "R Factors",
-        "zh": null
+        "zh": "R因子"
       },
       "concept_id": "concept:r_factor",
       "confidence": "curated",
@@ -1165363,11 +1165817,13 @@
           "Radiation Sickness",
           "Radiation Sicknesses"
         ],
-        "zh": []
+        "zh": [
+          "辐射损伤"
+        ]
       },
       "canonical": {
         "en": "Radiation Injuries",
-        "zh": null
+        "zh": "辐射损伤"
       },
       "concept_id": "concept:radiation_injury",
       "confidence": "curated",
@@ -1179845,11 +1180301,13 @@
           "Surface Immunoglobulin",
           "Membrane Bound Immunoglobulin"
         ],
-        "zh": []
+        "zh": [
+          "受体抗原B细胞"
+        ]
       },
       "canonical": {
         "en": "Membrane-Bound Immunoglobulins",
-        "zh": null
+        "zh": "受体抗原B细胞"
       },
       "concept_id": "concept:receptor_antigen_b_cell",
       "confidence": "curated",
@@ -1179879,11 +1180337,13 @@
           "T-Cell Receptors",
           "T Cell Receptors"
         ],
-        "zh": []
+        "zh": [
+          "受体抗原T细胞"
+        ]
       },
       "canonical": {
         "en": "T-Cell Antigen Receptors",
-        "zh": null
+        "zh": "受体抗原T细胞"
       },
       "concept_id": "concept:receptor_antigen_t_cell",
       "confidence": "curated",
@@ -1180897,11 +1181357,13 @@
           "T-Cell Antigen Receptor-CD3 Complex",
           "T Cell Antigen Receptor CD3 Complex"
         ],
-        "zh": []
+        "zh": [
+          "受体CD3复合物抗原T细胞"
+        ]
       },
       "canonical": {
         "en": "TCR-CD3 Complex",
-        "zh": null
+        "zh": "受体CD3复合物抗原T细胞"
       },
       "concept_id": "concept:receptor_cd3_complex_antigen_t_cell",
       "confidence": "curated",
@@ -1215782,11 +1216244,13 @@
           "Regulators of G-Protein Signaling Proteins",
           "Regulators of G Protein Signaling Proteins"
         ],
-        "zh": []
+        "zh": [
+          "RGS蛋白"
+        ]
       },
       "canonical": {
         "en": "RGS Proteins",
-        "zh": null
+        "zh": "RGS蛋白"
       },
       "concept_id": "concept:rgs_protein",
       "confidence": "curated",
@@ -1236784,11 +1237248,13 @@
           "S 100 Protein",
           "S100 Protein Family"
         ],
-        "zh": []
+        "zh": [
+          "S100蛋白"
+        ]
       },
       "canonical": {
         "en": "S100 Proteins",
-        "zh": null
+        "zh": "S100蛋白"
       },
       "concept_id": "concept:s100_protein",
       "confidence": "curated",
@@ -1274100,11 +1274566,13 @@
           "Sf21 Cell",
           "Spodoptera frugiperda 21 Cell"
         ],
-        "zh": []
+        "zh": [
+          "SF9细胞"
+        ]
       },
       "canonical": {
         "en": "Sf9 Cells",
-        "zh": null
+        "zh": "SF9细胞"
       },
       "concept_id": "concept:sf9_cell",
       "confidence": "curated",
@@ -1290049,11 +1290517,13 @@
           "Slc31 Proteins",
           "Solute Carrier Family 31 Proteins"
         ],
-        "zh": []
+        "zh": [
+          "SLC31蛋白"
+        ]
       },
       "canonical": {
         "en": "Slc31 Proteins",
-        "zh": null
+        "zh": "SLC31蛋白"
       },
       "concept_id": "concept:slc31_protein",
       "confidence": "curated",
@@ -1291886,11 +1292356,13 @@
         "en": [
           "Smad1 Protein"
         ],
-        "zh": []
+        "zh": [
+          "SMAD1蛋白"
+        ]
       },
       "canonical": {
         "en": "Smad1 Protein",
-        "zh": null
+        "zh": "SMAD1蛋白"
       },
       "concept_id": "concept:smad1_protein",
       "confidence": "curated",
@@ -1291917,11 +1292389,13 @@
           "MAD Related 2 Protein",
           "MADR2 Protein"
         ],
-        "zh": []
+        "zh": [
+          "SMAD2蛋白"
+        ]
       },
       "canonical": {
         "en": "Smad2 Protein",
-        "zh": null
+        "zh": "SMAD2蛋白"
       },
       "concept_id": "concept:smad2_protein",
       "confidence": "curated",
@@ -1291946,11 +1292420,13 @@
           "Smad3 Protein",
           "Madh3 Protein"
         ],
-        "zh": []
+        "zh": [
+          "SMAD3蛋白"
+        ]
       },
       "canonical": {
         "en": "Smad3 Protein",
-        "zh": null
+        "zh": "SMAD3蛋白"
       },
       "concept_id": "concept:smad3_protein",
       "confidence": "curated",
@@ -1291976,11 +1292452,13 @@
           "MADH4 Protein",
           "Common Smad"
         ],
-        "zh": []
+        "zh": [
+          "SMAD4蛋白"
+        ]
       },
       "canonical": {
         "en": "Smad4 Protein",
-        "zh": null
+        "zh": "SMAD4蛋白"
       },
       "concept_id": "concept:smad4_protein",
       "confidence": "curated",
@@ -1292007,11 +1292485,13 @@
           "Dwarfin C",
           "Madh5 Protein"
         ],
-        "zh": []
+        "zh": [
+          "SMAD5蛋白"
+        ]
       },
       "canonical": {
         "en": "Smad5 Protein",
-        "zh": null
+        "zh": "SMAD5蛋白"
       },
       "concept_id": "concept:smad5_protein",
       "confidence": "curated",
@@ -1292035,11 +1292515,13 @@
         "en": [
           "Smad6 Protein"
         ],
-        "zh": []
+        "zh": [
+          "SMAD6蛋白"
+        ]
       },
       "canonical": {
         "en": "Smad6 Protein",
-        "zh": null
+        "zh": "SMAD6蛋白"
       },
       "concept_id": "concept:smad6_protein",
       "confidence": "curated",
@@ -1292064,11 +1292546,13 @@
           "Smad7 Protein",
           "Madh7 Protein"
         ],
-        "zh": []
+        "zh": [
+          "SMAD7蛋白"
+        ]
       },
       "canonical": {
         "en": "Smad7 Protein",
-        "zh": null
+        "zh": "SMAD7蛋白"
       },
       "concept_id": "concept:smad7_protein",
       "confidence": "curated",
@@ -1292857,11 +1293341,13 @@
           "SNF5 Homolog Protein",
           "Integrase Interactor 1 Protein"
         ],
-        "zh": []
+        "zh": [
+          "SMARCB1蛋白"
+        ]
       },
       "canonical": {
         "en": "Smarcb1 Protein",
-        "zh": null
+        "zh": "SMARCB1蛋白"
       },
       "concept_id": "concept:smarcb1_protein",
       "confidence": "curated",
@@ -1294251,11 +1294737,13 @@
           "Gemin-8 Protein",
           "Gemin 8 Protein"
         ],
-        "zh": []
+        "zh": [
+          "SMN复合物蛋白"
+        ]
       },
       "canonical": {
         "en": "SMN Complex Proteins",
-        "zh": null
+        "zh": "SMN复合物蛋白"
       },
       "concept_id": "concept:smn_complex_protein",
       "confidence": "curated",
@@ -1300521,11 +1301009,13 @@
           "Sodium Channel Activators",
           "Sodium Channel Stimulators"
         ],
-        "zh": []
+        "zh": [
+          "钠信道激动剂"
+        ]
       },
       "canonical": {
         "en": "Sodium Channel Agonists",
-        "zh": null
+        "zh": "钠信道激动剂"
       },
       "concept_id": "concept:sodium_channel_agonist",
       "confidence": "curated",
@@ -1301097,11 +1301587,13 @@
           "Gliflozin",
           "SGLT2 Inhibitors"
         ],
-        "zh": []
+        "zh": [
+          "钠葡萄糖转运蛋白2抑制剂"
+        ]
       },
       "canonical": {
         "en": "Sodium-glucose Transporter 2 Inhibitors",
-        "zh": null
+        "zh": "钠葡萄糖转运蛋白2抑制剂"
       },
       "concept_id": "concept:sodium_glucose_transporter_2_inhibitor",
       "confidence": "curated",
@@ -1309034,11 +1309526,13 @@
           "mSOS1 Protein",
           "Son of Sevenless Homolog 1"
         ],
-        "zh": []
+        "zh": [
+          "SOS1蛋白"
+        ]
       },
       "canonical": {
         "en": "SOS1 Protein",
-        "zh": null
+        "zh": "SOS1蛋白"
       },
       "concept_id": "concept:sos1_protein",
       "confidence": "curated",
@@ -1310381,11 +1310875,13 @@
           "SOX-9 Transcription Factor",
           "SOX 9 Transcription Factor"
         ],
-        "zh": []
+        "zh": [
+          "SOX9转录因子"
+        ]
       },
       "canonical": {
         "en": "SOX9 Transcription Factor",
-        "zh": null
+        "zh": "SOX9转录因子"
       },
       "concept_id": "concept:sox9_transcription_factor",
       "confidence": "curated",
@@ -1310412,11 +1310908,13 @@
           "SOX Transcription Factor Family",
           "SRY (Sex Determining Region Y)-Box Proteins"
         ],
-        "zh": []
+        "zh": [
+          "SOX转录因子"
+        ]
       },
       "canonical": {
         "en": "SOX Transcription Factors",
-        "zh": null
+        "zh": "SOX转录因子"
       },
       "concept_id": "concept:sox_transcription_factor",
       "confidence": "curated",
@@ -1310452,11 +1310950,13 @@
           "SOX-3 Transcription Factor",
           "SOX 3 Transcription Factor"
         ],
-        "zh": []
+        "zh": [
+          "SOXB1转录因子"
+        ]
       },
       "canonical": {
         "en": "Soxb1 Transcription Factors",
-        "zh": null
+        "zh": "SOXB1转录因子"
       },
       "concept_id": "concept:soxb1_transcription_factor",
       "confidence": "curated",
@@ -1310489,11 +1310989,13 @@
           "SOX-21 Transcription Factor",
           "SOX 21 Transcription Factor"
         ],
-        "zh": []
+        "zh": [
+          "SOXB2转录因子"
+        ]
       },
       "canonical": {
         "en": "Soxb2 Transcription Factors",
-        "zh": null
+        "zh": "SOXB2转录因子"
       },
       "concept_id": "concept:soxb2_transcription_factor",
       "confidence": "curated",
@@ -1310527,11 +1311029,13 @@
           "SOX-12 Transcription Factor",
           "SOX 12 Transcription Factor"
         ],
-        "zh": []
+        "zh": [
+          "SOXC转录因子"
+        ]
       },
       "canonical": {
         "en": "SOXC Transcription Factors",
-        "zh": null
+        "zh": "SOXC转录因子"
       },
       "concept_id": "concept:soxc_transcription_factor",
       "confidence": "curated",
@@ -1310565,11 +1311069,13 @@
           "SOX-13 Transcription Factor",
           "SOX 13 Transcription Factor"
         ],
-        "zh": []
+        "zh": [
+          "SOXD转录因子"
+        ]
       },
       "canonical": {
         "en": "SOXD Transcription Factors",
-        "zh": null
+        "zh": "SOXD转录因子"
       },
       "concept_id": "concept:soxd_transcription_factor",
       "confidence": "curated",
@@ -1310601,11 +1311107,13 @@
           "SOX 8 Transcription Factor",
           "SOX8 Transcription Factors"
         ],
-        "zh": []
+        "zh": [
+          "SOXE转录因子"
+        ]
       },
       "canonical": {
         "en": "SOXE Transcription Factors",
-        "zh": null
+        "zh": "SOXE转录因子"
       },
       "concept_id": "concept:soxe_transcription_factor",
       "confidence": "curated",
@@ -1310639,11 +1311147,13 @@
           "SOX-18 Transcription Factor",
           "SOX 18 Transcription Factor"
         ],
-        "zh": []
+        "zh": [
+          "SOXF转录因子"
+        ]
       },
       "canonical": {
         "en": "SOXF Transcription Factors",
-        "zh": null
+        "zh": "SOXF转录因子"
       },
       "concept_id": "concept:soxf_transcription_factor",
       "confidence": "curated",
@@ -1310834,11 +1311344,13 @@
           "Sp1 Transcription Factor",
           "Specificity Protein 1 Transcription Factor"
         ],
-        "zh": []
+        "zh": [
+          "SP1转录因子"
+        ]
       },
       "canonical": {
         "en": "Sp1 Transcription Factor",
-        "zh": null
+        "zh": "SP1转录因子"
       },
       "concept_id": "concept:sp1_transcription_factor",
       "confidence": "curated",
@@ -1310864,11 +1311376,13 @@
           "Specificity Protein 2 Transcription Factor",
           "Transcription Factor Sp2"
         ],
-        "zh": []
+        "zh": [
+          "SP2转录因子"
+        ]
       },
       "canonical": {
         "en": "Sp2 Transcription Factor",
-        "zh": null
+        "zh": "SP2转录因子"
       },
       "concept_id": "concept:sp2_transcription_factor",
       "confidence": "curated",
@@ -1310894,11 +1311408,13 @@
           "Transcription Factor Sp3",
           "Specificity Protein 3 Transcription Factor"
         ],
-        "zh": []
+        "zh": [
+          "SP3转录因子"
+        ]
       },
       "canonical": {
         "en": "Sp3 Transcription Factor",
-        "zh": null
+        "zh": "SP3转录因子"
       },
       "concept_id": "concept:sp3_transcription_factor",
       "confidence": "curated",
@@ -1310924,11 +1311440,13 @@
           "Transcription Factor Sp4",
           "Specificity Protein 4 Transcription Factor"
         ],
-        "zh": []
+        "zh": [
+          "SP4转录因子"
+        ]
       },
       "canonical": {
         "en": "Sp4 Transcription Factor",
-        "zh": null
+        "zh": "SP4转录因子"
       },
       "concept_id": "concept:sp4_transcription_factor",
       "confidence": "curated",
@@ -1310953,11 +1311471,13 @@
           "Sp7 Transcription Factor",
           "Osterix Protein"
         ],
-        "zh": []
+        "zh": [
+          "SP7转录因子"
+        ]
       },
       "canonical": {
         "en": "Sp7 Transcription Factor",
-        "zh": null
+        "zh": "SP7转录因子"
       },
       "concept_id": "concept:sp7_transcription_factor",
       "confidence": "curated",
@@ -1329594,11 +1330114,13 @@
           "STAT-91 Transcription Factor",
           "STAT 91 Transcription Factor"
         ],
-        "zh": []
+        "zh": [
+          "STAT1转录因子"
+        ]
       },
       "canonical": {
         "en": "Stat1 Transcription Factor",
-        "zh": null
+        "zh": "STAT1转录因子"
       },
       "concept_id": "concept:stat1_transcription_factor",
       "confidence": "curated",
@@ -1329625,11 +1330147,13 @@
           "Signal Transducer and Activator of Transcription 2",
           "Transcription Factor STAT2"
         ],
-        "zh": []
+        "zh": [
+          "STAT2转录因子"
+        ]
       },
       "canonical": {
         "en": "Stat2 Transcription Factor",
-        "zh": null
+        "zh": "STAT2转录因子"
       },
       "concept_id": "concept:stat2_transcription_factor",
       "confidence": "curated",
@@ -1329666,11 +1330190,13 @@
           "STAT3b Transcription Factor",
           "Stat3beta Transcription Factor"
         ],
-        "zh": []
+        "zh": [
+          "STAT3转录因子"
+        ]
       },
       "canonical": {
         "en": "Stat3 Transcription Factor",
-        "zh": null
+        "zh": "STAT3转录因子"
       },
       "concept_id": "concept:stat3_transcription_factor",
       "confidence": "curated",
@@ -1329701,11 +1330227,13 @@
           "STAT4b Transcription Factor",
           "STAT4beta Protein"
         ],
-        "zh": []
+        "zh": [
+          "STAT4转录因子"
+        ]
       },
       "canonical": {
         "en": "Stat4 Transcription Factor",
-        "zh": null
+        "zh": "STAT4转录因子"
       },
       "concept_id": "concept:stat4_transcription_factor",
       "confidence": "curated",
@@ -1329742,11 +1330270,13 @@
           "Signal Transducer and Activator of Transcription 5A",
           "STAT5alpha Protein"
         ],
-        "zh": []
+        "zh": [
+          "STAT5转录因子"
+        ]
       },
       "canonical": {
         "en": "Stat5 Transcription Factor",
-        "zh": null
+        "zh": "STAT5转录因子"
       },
       "concept_id": "concept:stat5_transcription_factor",
       "confidence": "curated",
@@ -1329772,11 +1330302,13 @@
           "STAT6 Protein",
           "Signal Transducer and Activator of Transcription 6"
         ],
-        "zh": []
+        "zh": [
+          "STAT6转录因子"
+        ]
       },
       "canonical": {
         "en": "Stat6 Transcription Factor",
-        "zh": null
+        "zh": "STAT6转录因子"
       },
       "concept_id": "concept:stat6_transcription_factor",
       "confidence": "curated",
@@ -1329801,11 +1330333,13 @@
           "STAT Transcription Factors",
           "STAT (Signal Transducers and Activators of Transcription) Proteins"
         ],
-        "zh": []
+        "zh": [
+          "STAT转录因子"
+        ]
       },
       "canonical": {
         "en": "STAT Transcription Factors",
-        "zh": null
+        "zh": "STAT转录因子"
       },
       "concept_id": "concept:stat_transcription_factor",
       "confidence": "curated",
@@ -1374322,11 +1374856,13 @@
           "T Cell Factor",
           "T-Cell Factor"
         ],
-        "zh": []
+        "zh": [
+          "TCF转录因子"
+        ]
       },
       "canonical": {
         "en": "TCF Transcription Factors",
-        "zh": null
+        "zh": "TCF转录因子"
       },
       "concept_id": "concept:tcf_transcription_factor",
       "confidence": "curated",
@@ -1374820,11 +1375356,13 @@
           "TEAD Transcription Factors",
           "TEA Domain"
         ],
-        "zh": []
+        "zh": [
+          "TEA域转录因子"
+        ]
       },
       "canonical": {
         "en": "TEA Domain Transcription Factors",
-        "zh": null
+        "zh": "TEA域转录因子"
       },
       "concept_id": "concept:tea_domain_transcription_factor",
       "confidence": "curated",
@@ -1387627,11 +1388165,13 @@
           "Th17 Cell",
           "Type 17 Helper T Cell"
         ],
-        "zh": []
+        "zh": [
+          "TH17细胞"
+        ]
       },
       "canonical": {
         "en": "Th17 Cells",
-        "zh": null
+        "zh": "TH17细胞"
       },
       "concept_id": "concept:th17_cell",
       "confidence": "curated",
@@ -1387661,11 +1388201,13 @@
           "TH-1 Cell",
           "TH 1 Cells"
         ],
-        "zh": []
+        "zh": [
+          "TH1细胞"
+        ]
       },
       "canonical": {
         "en": "Th1 Cells",
-        "zh": null
+        "zh": "TH1细胞"
       },
       "concept_id": "concept:th1_cell",
       "confidence": "curated",
@@ -1387734,11 +1388276,13 @@
           "TH-2 Cells",
           "TH 2 Cells"
         ],
-        "zh": []
+        "zh": [
+          "TH2细胞"
+        ]
       },
       "canonical": {
         "en": "Th2 Cells",
-        "zh": null
+        "zh": "TH2细胞"
       },
       "concept_id": "concept:th2_cell",
       "confidence": "curated",
@@ -1406374,11 +1406918,13 @@
           "TNF Receptor Associated Death Domain Protein",
           "TRADD Protein"
         ],
-        "zh": []
+        "zh": [
+          "TNF受体相关死亡域蛋白"
+        ]
       },
       "canonical": {
         "en": "TNF Receptor-associated Death Domain Protein",
-        "zh": null
+        "zh": "TNF受体相关死亡域蛋白"
       },
       "concept_id": "concept:tnf_receptor_associated_death_domain_protein",
       "confidence": "curated",
@@ -1410704,11 +1411250,13 @@
           "Teeth Injury",
           "Tooth Injury"
         ],
-        "zh": []
+        "zh": [
+          "牙损伤"
+        ]
       },
       "canonical": {
         "en": "Tooth Injuries",
-        "zh": null
+        "zh": "牙损伤"
       },
       "concept_id": "concept:tooth_injury",
       "confidence": "curated",
@@ -1430974,11 +1431522,13 @@
           "Trim21 Protein",
           "Ro52 Antigen"
         ],
-        "zh": []
+        "zh": [
+          "TRIM21蛋白"
+        ]
       },
       "canonical": {
         "en": "Trim21 Protein",
-        "zh": null
+        "zh": "TRIM21蛋白"
       },
       "concept_id": "concept:trim21_protein",
       "confidence": "curated",
@@ -1435984,11 +1436534,13 @@
           "Coiled-Coil-Forming Protein 2",
           "Tumor Susceptibility Gene 101"
         ],
-        "zh": []
+        "zh": [
+          "TSG101蛋白"
+        ]
       },
       "canonical": {
         "en": "Tsg101 Protein",
-        "zh": null
+        "zh": "TSG101蛋白"
       },
       "concept_id": "concept:tsg101_protein",
       "confidence": "curated",
@@ -1441296,11 +1441848,13 @@
           "Non-Receptor Tyrosine-Protein Kinase TYK2",
           "Non Receptor Tyrosine Protein Kinase TYK2"
         ],
-        "zh": []
+        "zh": [
+          "TYK2激酶"
+        ]
       },
       "canonical": {
         "en": "TYK2 Kinase",
-        "zh": null
+        "zh": "TYK2激酶"
       },
       "concept_id": "concept:tyk2_kinase",
       "confidence": "curated",
@@ -1443050,11 +1443604,13 @@
           "U937 Cells",
           "U937 Cell"
         ],
-        "zh": []
+        "zh": [
+          "U937细胞"
+        ]
       },
       "canonical": {
         "en": "U937 Cells",
-        "zh": null
+        "zh": "U937细胞"
       },
       "concept_id": "concept:u937_cell",
       "confidence": "curated",
@@ -1466787,11 +1467343,13 @@
           "Vascular Injuries",
           "Vascular Injury"
         ],
-        "zh": []
+        "zh": [
+          "血管系统损伤"
+        ]
       },
       "canonical": {
         "en": "Vascular System Injuries",
-        "zh": null
+        "zh": "血管系统损伤"
       },
       "concept_id": "concept:vascular_system_injury",
       "confidence": "curated",
@@ -1490242,11 +1490800,13 @@
           "WAGR Contiguous Gene Syndrome",
           "Wilms Tumor-Aniridia-Gonadoblastoma-Mental Retardation Syndrome"
         ],
-        "zh": []
+        "zh": [
+          "WAGR综合征"
+        ]
       },
       "canonical": {
         "en": "WAGR Syndrome",
-        "zh": null
+        "zh": "WAGR综合征"
       },
       "concept_id": "concept:wagr_syndrome",
       "confidence": "curated",
@@ -1504978,11 +1505538,13 @@
           "Wnt1 Proto-Oncogene Protein",
           "Wnt1 Proto Oncogene Protein"
         ],
-        "zh": []
+        "zh": [
+          "WNT1蛋白"
+        ]
       },
       "canonical": {
         "en": "Wnt1 Protein",
-        "zh": null
+        "zh": "WNT1蛋白"
       },
       "concept_id": "concept:wnt1_protein",
       "confidence": "curated",
@@ -1505014,11 +1505576,13 @@
           "Wnt-2 Proto-oncogene Protein",
           "Wnt 2 Proto oncogene Protein"
         ],
-        "zh": []
+        "zh": [
+          "WNT2蛋白"
+        ]
       },
       "canonical": {
         "en": "Wnt2 Protein",
-        "zh": null
+        "zh": "WNT2蛋白"
       },
       "concept_id": "concept:wnt2_protein",
       "confidence": "curated",
@@ -1505045,11 +1505609,13 @@
           "Wnt 3 Protein",
           "Wnt3 Proteins"
         ],
-        "zh": []
+        "zh": [
+          "WNT3蛋白"
+        ]
       },
       "canonical": {
         "en": "Wnt3 Protein",
-        "zh": null
+        "zh": "WNT3蛋白"
       },
       "concept_id": "concept:wnt3_protein",
       "confidence": "curated",
@@ -1505107,11 +1505673,13 @@
           "Wnt-4 Proteins",
           "Wnt 4 Proteins"
         ],
-        "zh": []
+        "zh": [
+          "WNT4蛋白"
+        ]
       },
       "canonical": {
         "en": "Wnt4 Protein",
-        "zh": null
+        "zh": "WNT4蛋白"
       },
       "concept_id": "concept:wnt4_protein",
       "confidence": "curated",
@@ -1507816,11 +1508384,13 @@
           "Trauma",
           "Traumas"
         ],
-        "zh": []
+        "zh": [
+          "伤口与损伤"
+        ]
       },
       "canonical": {
         "en": "Wounds And Injuries",
-        "zh": null
+        "zh": "伤口与损伤"
       },
       "concept_id": "concept:wound_and_injury",
       "confidence": "curated",
@@ -1508492,11 +1509062,13 @@
           "WT1 Gene Product",
           "WT1 Protein"
         ],
-        "zh": []
+        "zh": [
+          "WT1蛋白"
+        ]
       },
       "canonical": {
         "en": "WT1 Proteins",
-        "zh": null
+        "zh": "WT1蛋白"
       },
       "concept_id": "concept:wt1_protein",
       "confidence": "curated",
@@ -1513467,11 +1514039,13 @@
           "Nuclear Matrix Protein 1",
           "Delta Transcription Factor"
         ],
-        "zh": []
+        "zh": [
+          "YY1转录因子"
+        ]
       },
       "canonical": {
         "en": "YY1 Transcription Factor",
-        "zh": null
+        "zh": "YY1转录因子"
       },
       "concept_id": "concept:yy1_transcription_factor",
       "confidence": "curated",
@@ -1517004,12 +1517578,10 @@
   ],
   "review_decision_row_summary": {
     "en:accept": 233199,
-    "en:blocked": 14085,
-    "en:needs_review": 713,
+    "en:blocked": 14798,
     "en:reject": 101116,
-    "zh:accept": 2066,
-    "zh:blocked": 3306,
-    "zh:needs_review": 8438,
+    "zh:accept": 2353,
+    "zh:blocked": 11457,
     "zh:reject": 208
   },
   "schema_version": "theme_concept_aliases.v1",
