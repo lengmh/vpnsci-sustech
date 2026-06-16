@@ -138,34 +138,49 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-16 L3-L5 final en acronym review complete）：
+最新已知状态（2026-06-16 zh-exact-expansion-batch-001 后）：
 
 - runtime `build_status`: `review_complete`
-- 中文候选覆盖：`13835 / 54682 = 25.30%`
+- 中文候选覆盖：`13856 / 54682 = 25.34%`
+- runtime 中文覆盖：`2502 / 48834 = 5.12%`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `2353`
-- `zh:blocked`: `11457`
+- `zh:accept`: `2505`
+- `zh:blocked`: `11326`
 - `zh:needs_review`: `0`
-- `zh:reject`: `208`
+- `zh:reject`: `207`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
 - runtime concept aliases: `48834`
 - package/tool runtime alias 文件 byte-identical
+- runtime SHA-256:
+  `362a548e9bc33113fd2178654a4baf7363eaa4d12a19cecd1ea54c2e25b7c523`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- 最近相关测试：`56 passed`
+- 最近相关测试：`57 passed`
 
 当前下一步：
 
 - en/zh review 均已清零，runtime `build_status` 已是 `review_complete`。
+- `zh-exact-expansion-batch-001` 已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_001_ALIASES`；
+  - 显式接受 `156` 条 exact/domain-aware zh recommendation；
+  - `5` 条 exact 输出因 collision 保持 blocked；
+  - `7` 条由 exact 词条引发的 compositional side-effect 已显式 blocked；
+  - runtime 中文覆盖从 `2350 / 48834 = 4.81%` 增至
+    `2502 / 48834 = 5.12%`。
+- 后续 exact batch 的 L3-L5 顺序应为：
+  `fill -> validate -> apply en recommendations -> apply zh exact batch recommendations
+  -> preserve zh prior decisions -> block accepted collisions -> materialize`。
 - 后续若继续扩大中文 runtime coverage，只能通过 exact glossary 或
   domain-aware replacement 重新打开已 blocked 的组合候选；不要直接把
   medium-confidence compositional 候选批量转 accept。
+- 新增 exact 词条可能被 compositional 规则复用并产生宽泛派生候选；
+  这类 side-effect 不应自动 accept，需显式 block 或加入更具体 exact。
 - 短英文 acronym 默认保持 blocked；只有显式 acronym allowlist 或
   source-specific review 后才能进入 runtime。
 - 低置信 `agent_review_gated_mixed_fallback` 不能当覆盖率来源；只能作为

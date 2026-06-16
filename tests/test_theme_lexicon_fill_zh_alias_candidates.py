@@ -3776,8 +3776,190 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
         for concept_id, _canonical_en, _domains, alias in cases:
             self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
 
+    def test_exact_expansion_batch_001_standard_biomedical_and_engineering_terms(self) -> None:
+        cases = [
+            (
+                "blood_alcohol_content",
+                "Blood Alcohol Content",
+                ["biomedical", "chemicals_and_drugs"],
+                "血液酒精浓度",
+            ),
+            (
+                "blood_culture",
+                "Blood Culture",
+                ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                "血培养",
+            ),
+            (
+                "blood_glucose",
+                "Blood Glucose",
+                ["biomedical", "chemicals_and_drugs"],
+                "血糖",
+            ),
+            (
+                "blood_group_antigen",
+                "Blood Group Antigens",
+                ["biomedical", "chemicals_and_drugs"],
+                "血型抗原",
+            ),
+            (
+                "blood_pressure",
+                "Blood Pressure",
+                ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                "血压",
+            ),
+            (
+                "body_fluid",
+                "Body Fluids",
+                ["anatomy", "biomedical"],
+                "体液",
+            ),
+            (
+                "body_surface_area",
+                "Body Surface Area",
+                ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                "体表面积",
+            ),
+            (
+                "body_water",
+                "Body Water",
+                ["anatomy", "biomedical"],
+                "体水分",
+            ),
+            (
+                "body_weight",
+                "Body Weight",
+                ["biomedical", "diseases"],
+                "体重",
+            ),
+            (
+                "bone_development",
+                "Bone Development",
+                ["biomedical", "phenomena_and_processes"],
+                "骨发育",
+            ),
+            (
+                "bone_diseases_infectious",
+                "Bone Diseases, Infectious",
+                ["biomedical", "diseases"],
+                "感染性骨病",
+            ),
+            (
+                "bone_diseases_metabolic",
+                "Bone Diseases, Metabolic",
+                ["biomedical", "diseases"],
+                "代谢性骨病",
+            ),
+            (
+                "cell_line",
+                "Cell Line",
+                ["anatomy", "biomedical"],
+                "细胞系",
+            ),
+            (
+                "cell_line_tumor",
+                "Cell Line, Tumor",
+                ["anatomy", "biomedical"],
+                "肿瘤细胞系",
+            ),
+            (
+                "cell_culture_techniques_three_dimensional",
+                "Cell Culture Techniques, Three Dimensional",
+                ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                "三维细胞培养技术",
+            ),
+            (
+                "calcium_channel",
+                "Calcium Channels",
+                ["biomedical", "chemicals_and_drugs"],
+                "钙通道",
+            ),
+            (
+                "potassium_channel",
+                "Potassium Channels",
+                ["biomedical", "chemicals_and_drugs"],
+                "钾通道",
+            ),
+            (
+                "potassium_channels_calcium_activated",
+                "Potassium Channels, Calcium-activated",
+                ["biomedical", "chemicals_and_drugs"],
+                "钙激活钾通道",
+            ),
+            (
+                "potassium_channels_sodium_activated",
+                "Potassium Channels, Sodium-activated",
+                ["biomedical", "chemicals_and_drugs"],
+                "钠激活钾通道",
+            ),
+            (
+                "liver_function_tests",
+                "Liver Function Tests",
+                ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                "肝功能检查",
+            ),
+            (
+                "respiratory_function_tests",
+                "Respiratory Function Tests",
+                ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                "呼吸功能检查",
+            ),
+            (
+                "acoustic_material",
+                "Acoustic Materials",
+                ["materials_elements_and_compounds"],
+                "声学材料",
+            ),
+            (
+                "acoustic_propagation",
+                "Acoustic Propagation",
+                ["science_general"],
+                "声传播",
+            ),
+            (
+                "acoustical_engineering",
+                "Acoustical Engineering",
+                ["engineering_general"],
+                "声学工程",
+            ),
+            (
+                "aerospace_electronic",
+                "Aerospace Electronics",
+                ["aerospace_and_electronic_systems"],
+                "航空航天电子学",
+            ),
+            (
+                "aerospace_medicine",
+                "Aerospace Medicine",
+                ["biomedical", "disciplines_and_occupations"],
+                "航空航天医学",
+            ),
+        ]
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": f"concept:{concept_id}",
+                    "canonical_en": canonical_en,
+                    "aliases_en": [],
+                    "domains": domains,
+                    "source_refs": [{"source": "openalex_topics", "label": canonical_en}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+                for concept_id, canonical_en, domains, _alias in cases
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        for concept_id, _canonical_en, _domains, alias in cases:
+            self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
+
 
 if __name__ == "__main__":
     unittest.main()
-
 
