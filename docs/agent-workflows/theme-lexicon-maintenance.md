@@ -95,59 +95,33 @@ If the observed problem is mixed Chinese/English synonyms, do not solve it by
 adding more stopwords or by importing a broad subject taxonomy as the main
 decision layer.
 
-The intended direction is a lightweight **concept alias overlay**:
+The intended direction is a reviewed **concept alias pipeline**. Runtime now uses
+a compact alias index plus manifest:
 
 ```json
 {
-  "schema_version": "theme_concept_aliases.v1",
-  "concept_aliases": [
-    {
+  "schema_version": "theme_concept_alias_index.v1",
+  "concepts": {
+    "comm:channel_estimation": {
       "concept_id": "comm:channel_estimation",
-      "canonical": {
-        "en": "Channel Estimation",
-        "zh": "信道估计"
-      },
-      "aliases": {
-        "en": ["channel estimation", "CSI estimation"],
-        "zh": ["信道估计", "信道状态信息估计"]
-      },
+      "canonical": {"en": "Channel Estimation", "zh": "信道估计"},
       "domains": ["communications", "signal_processing"],
-      "source_refs": [
-        {
-          "source": "manual_overlay",
-          "label": "Channel Estimation"
-        }
-      ],
-      "review_status": "accepted",
-      "confidence": "curated"
-    },
-    {
-      "concept_id": "comm:ris",
-      "canonical": {
-        "en": "Reconfigurable Intelligent Surface",
-        "zh": "可重构智能表面"
-      },
-      "aliases": {
-        "en": [
-          "RIS",
-          "reconfigurable intelligent surface",
-          "intelligent reflecting surface"
-        ],
-        "zh": ["智能反射面", "可重构智能表面"]
-      },
-      "domains": ["communications"],
-      "source_refs": [
-        {
-          "source": "manual_overlay",
-          "label": "Reconfigurable Intelligent Surface"
-        }
-      ],
-      "review_status": "accepted",
-      "confidence": "curated"
+      "parents": [],
+      "specificity": 80
     }
-  ]
+  },
+  "aliases": {
+    "en:channel estimation": "comm:channel_estimation",
+    "en:csi estimation": "comm:channel_estimation",
+    "zh:信道估计": "comm:channel_estimation"
+  }
 }
 ```
+
+Host Agents should inspect `theme_concept_alias_manifest.json` or use
+`tools/theme-lexicon/query_alias_index.py` / `summarize_alias_runtime.py`.
+Do not open the legacy full `theme_concept_aliases.json` as a default working
+surface; it may exist only for rollback or explicitly requested audit cleanup.
 
 The alias overlay is alias-only. Stopwords, connectors, generic terms, and
 fragment rules remain in `theme_lexicon.zh.json` / `theme_lexicon.en.json`.
@@ -187,7 +161,7 @@ Required flow:
 4. State why each entry is generic/connector/shape/noise, and why it is not a
    query-specific topic injection.
 5. If the problem is mixed-language synonyms, propose a
-   `theme_concept_aliases.json` diff instead of a stopword diff.
+   reviewed alias-pipeline recommendation / compact alias-index update instead of a stopword diff.
 6. Wait for explicit user confirmation before editing lexicon JSON.
 7. Apply negative-lexicon updates to both package/tool lexicon copies; apply
    alias updates to the reviewed alias overlay.

@@ -121,17 +121,24 @@ postprocess；alias pipeline 构建 deterministic alias layer，用于把中英 
 - L5：物化 runtime overlay 文件，但不改变现有运行时行为。
 - L6：才允许把 runtime alias overlay 接入主题 fallback 逻辑。
 
-运行时只能读 repo-tracked runtime alias 文件：
+当前 runtime alias 工作面：
+
+```text
+vpnsci_sustech/data/theme_concept_alias_index.json
+vpnsci_sustech/data/theme_concept_alias_manifest.json
+tools/paper-search-pro/assets/theme_concept_alias_index.json
+tools/paper-search-pro/assets/theme_concept_alias_manifest.json
+```
+
+legacy full overlay 文件仍保留作回滚/清理确认对象：
 
 ```text
 vpnsci_sustech/data/theme_concept_aliases.json
 tools/paper-search-pro/assets/theme_concept_aliases.json
 ```
 
-当前已确认的下一步是 L5.5 紧凑索引迁移：后续 runtime/Agent 工作面应
-切到 `theme_concept_alias_index.json` + `theme_concept_alias_manifest.json`
-并通过 query/summarize 工具查看状态；在迁移完成前，避免把完整
-`theme_concept_aliases.json` 当作默认阅读对象。
+host Agent 默认不要打开 legacy full JSON 或 compact index 大文件做状态确认；
+优先用 manifest、`summarize_alias_runtime.py`、`query_alias_index.py`。
 
 运行时不得读：
 
@@ -143,13 +150,14 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-16 zh-exact-expansion-batch-006 后）：
+最新已知状态（2026-06-17 L5.5 compact runtime index 完成后）：
 
-- runtime `build_status`: `review_complete`
+- compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
-  runtime 覆盖是最终可用覆盖，但下一步优先迁移为紧凑索引/manifest 视图
+  runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
 - runtime 中文覆盖：`3828 / 48841 = 7.84%`
 - runtime zh aliases: `3840`
+- runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
@@ -162,19 +170,27 @@ lexicons/review/
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
 - runtime concept aliases: `48841`
-- package/tool runtime alias 文件 byte-identical
-- runtime SHA-256:
+- compact loader alias keys: `138713`
+- package/tool compact index byte-identical
+- package/tool compact manifest byte-identical
+- legacy full overlay package/tool 文件仍 byte-identical（回滚保留，不默认读取）
+- compact index SHA-256:
+  `0c5c1d0efbb004443f4735ad8ed1631d439683b57328f47c2cae106bd72c57b4`
+- compact manifest SHA-256:
+  `18227f68f3ab425f2ae45baff53652764560fe74e2cc2edddcc7822169d0b3c3`
+- legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- 最近相关测试：`58 passed in 0.44s`
+- compact loader vs legacy loader 等价：alias_key -> concept_id 完全一致
+- 最近相关测试：`66 passed in 0.84s`
 
 当前下一步：
 
-- 先做 L5.5 紧凑 runtime index / manifest / query 工作面迁移，暂不继续
-  直接扩大 batch-007；
-- host Agent 默认不要再打开完整 `theme_concept_aliases.json` 做状态确认；
+- L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
+- 下一步可恢复 batch-007 中文 coverage 扩展，但仍走 exact/domain-aware 小批次；
+- host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
 - 最新 batch-006 exact/domain-aware 小批次已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_006_ALIASES`，以 S/Z 段高确定性
@@ -324,10 +340,12 @@ uv run python tools/theme-lexicon/materialize_runtime_overlay.py `
 每次物化后必须确认：
 
 - accepted conflict groups 为 `0`
-- L5.5 前：package/tool 两份 `theme_concept_aliases.json` byte-identical
-- L5.5 后：package/tool 两份 `theme_concept_alias_index.json` byte-identical，
-  manifest/stats 对齐，且普通状态确认不读取完整 alias 大文件
+- package/tool 两份 `theme_concept_alias_index.json` byte-identical
+- package/tool 两份 `theme_concept_alias_manifest.json` byte-identical
+- legacy full overlay 若显式重生成，也必须 package/tool byte-identical；默认不要生成/读取
+- manifest/stats 对齐，普通状态确认不读取完整 alias 大文件
 - pollution audit 未恢复 ordinary English residue / known bad shapes
+- compact loader 与 legacy loader 的 alias_key -> concept_id 等价性不回退
 - 相关 tests fresh pass
 
 ## 6. 已遇到的问题与解决方案
@@ -416,6 +434,15 @@ uv run python tools/theme-lexicon/materialize_runtime_overlay.py `
 
 - `Sigma-delta` / `Delta Sigma Modulator` 近重复，暂 blocked。
 - `Admission Control` 与 `Access Control` 有翻译碰撞风险，暂 needs_review。
+
+### 6.6.1 L5.5 runtime-normalization collision 规则
+
+- review collision guard 继续使用 review-time normalization 判定 accepted conflict。
+- compact runtime index 使用 runtime normalization（英文 singular、中文去标点）生成 lookup key。
+- 若多个 accepted 英文别名只在 runtime singular normalization 后碰到同一 key，
+  compact index 必须保持 legacy loader 行为：按 materialized entry 顺序保留第一个
+  alias_key -> concept target，不把该类兼容性碰撞计入 accepted conflict groups。
+- 已验证 compact loader 与 legacy full loader 的 alias_key -> concept_id 完全一致。
 
 ### 6.7 SubAgent review 规则
 
