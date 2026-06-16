@@ -204,9 +204,14 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
         self.assertEqual(rows["concept:dna_repair"]["zh_alias_candidates"][0]["alias"], "DNA修复")
         self.assertEqual(rows["concept:adrenergic_beta_receptors"]["zh_alias_candidates"][0]["alias"], "肾上腺素能β受体")
         self.assertEqual(rows["concept:accelerator_physics"]["zh_alias_candidates"][0]["alias"], "加速器物理")
-        self.assertEqual(rows["concept:protein"]["zh_alias_candidates"], [])
+# protein now has exact glossary entry 蛋白质
+        protein_candidates = rows["concept:protein"]["zh_alias_candidates"]
+        self.assertEqual(len(protein_candidates), 1)
+        self.assertEqual(protein_candidates[0]["alias"], "蛋白质")
+        self.assertEqual(protein_candidates[0]["source"], "agent_exact_glossary")
         self.assertEqual(rows["concept:adrenergic_fiber"]["zh_alias_candidates"], [])
-        self.assertEqual(summary["records_filled"], 3)
+# exact glossary added 1 extra record
+        self.assertEqual(summary["records_filled"], 4)
 
     def test_can_replace_only_agent_generated_candidates(self) -> None:
         write_jsonl(
@@ -476,7 +481,11 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
         rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
         self.assertEqual(rows["concept:accelerometers"]["zh_alias_candidates"][0]["alias"], "加速度计")
         self.assertEqual(rows["concept:power_system_control"]["zh_alias_candidates"][0]["alias"], "电力系统的控制")
-        self.assertEqual(rows["concept:protein"]["zh_alias_candidates"], [])
+# protein now has exact glossary entry 蛋白质
+        protein_candidates = rows["concept:protein"]["zh_alias_candidates"]
+        self.assertEqual(len(protein_candidates), 1)
+        self.assertEqual(protein_candidates[0]["alias"], "蛋白质")
+        self.assertEqual(protein_candidates[0]["source"], "agent_exact_glossary")
         self.assertEqual(rows["concept:acoustic_sensors"]["zh_alias_candidates"][0]["alias"], "声学传感器")
         self.assertEqual(rows["concept:adaptive_beamforming"]["zh_alias_candidates"][0]["alias"], "自适应波束成形")
         self.assertEqual(rows["concept:education"]["zh_alias_candidates"], [])
@@ -488,7 +497,7 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
         self.assertEqual(rows["concept:ac_motor"]["zh_alias_candidates"][0]["alias"], "AC电机")
         self.assertEqual(rows["concept:action_potential"]["zh_alias_candidates"][0]["alias"], "动作电位")
         self.assertEqual(rows["concept:active_pixel_sensor"]["zh_alias_candidates"][0]["alias"], "有源像素传感器")
-        self.assertEqual(summary["records_filled"], 12)
+        self.assertEqual(summary["records_filled"], 13)
 
     def test_priority_only_broad_components_and_relations_do_not_pollute_mesh(self) -> None:
         write_jsonl(
@@ -919,7 +928,7 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
         self.assertEqual(rows["concept:acute_ischemic_stroke_management"]["zh_alias_candidates"][0]["alias"], "急性缺血性卒中管理")
         self.assertEqual(rows["concept:acute_myocardial_infarction_research"]["zh_alias_candidates"][0]["alias"], "急性心肌梗死研究")
         self.assertEqual(rows["concept:acute_respiratory_distress_syndrome"]["zh_alias_candidates"][0]["alias"], "急性呼吸窘迫综合征")
-        self.assertEqual(rows["concept:acid_sensing_ion_channel"]["zh_alias_candidates"][0]["alias"], "酸感知离子通道")
+        self.assertEqual(rows["concept:acid_sensing_ion_channel"]["zh_alias_candidates"][0]["alias"], "酸敏感离子通道")
         self.assertEqual(rows["concept:active_disturbance_rejection_control"]["zh_alias_candidates"][0]["alias"], "主动扰动抑制控制")
         self.assertEqual(rows["concept:central_nervous_system"]["zh_alias_candidates"][0]["alias"], "中枢神经系统")
         self.assertEqual(rows["concept:load_balancing_algorithm"]["zh_alias_candidates"][0]["alias"], "负载均衡算法")
@@ -2284,7 +2293,7 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
         )
         self.assertEqual(
             rows["concept:amino_acids_peptides_proteins"]["zh_alias_candidates"][0]["alias"],
-            "氨基酸肽与蛋白",
+            "氨基酸肽与蛋白质",
         )
         self.assertEqual(rows["concept:bronchiolitis_viral"]["zh_alias_candidates"][0]["alias"], "病毒性细支气管炎")
         self.assertEqual(
