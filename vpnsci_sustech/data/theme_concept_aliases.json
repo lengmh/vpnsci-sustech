@@ -18347,11 +18347,13 @@
           "Acinus Cells",
           "Acinus Cell"
         ],
-        "zh": []
+        "zh": [
+          "腺泡细胞"
+        ]
       },
       "canonical": {
         "en": "Acinar Cells",
-        "zh": null
+        "zh": "腺泡细胞"
       },
       "concept_id": "concept:acinar_cell",
       "confidence": "curated",
@@ -19098,11 +19100,13 @@
         "en": [
           "Acoustic Beams"
         ],
-        "zh": []
+        "zh": [
+          "声束"
+        ]
       },
       "canonical": {
         "en": "Acoustic Beams",
-        "zh": null
+        "zh": "声束"
       },
       "concept_id": "concept:acoustic_beam",
       "confidence": "curated",
@@ -19447,11 +19451,13 @@
         "en": [
           "Acoustic Field"
         ],
-        "zh": []
+        "zh": [
+          "声场"
+        ]
       },
       "canonical": {
         "en": "Acoustic Field",
-        "zh": null
+        "zh": "声场"
       },
       "concept_id": "concept:acoustic_field",
       "confidence": "curated",
@@ -19653,11 +19659,13 @@
         "en": [
           "Acoustic Materials"
         ],
-        "zh": []
+        "zh": [
+          "声学材料"
+        ]
       },
       "canonical": {
         "en": "Acoustic Materials",
-        "zh": null
+        "zh": "声学材料"
       },
       "concept_id": "concept:acoustic_material",
       "confidence": "curated",
@@ -19812,11 +19820,13 @@
         "en": [
           "Acoustic Propagation"
         ],
-        "zh": []
+        "zh": [
+          "声传播"
+        ]
       },
       "canonical": {
         "en": "Acoustic Propagation",
-        "zh": null
+        "zh": "声传播"
       },
       "concept_id": "concept:acoustic_propagation",
       "confidence": "curated",
@@ -19839,11 +19849,13 @@
         "en": [
           "Acoustic Pulses"
         ],
-        "zh": []
+        "zh": [
+          "声脉冲"
+        ]
       },
       "canonical": {
         "en": "Acoustic Pulses",
-        "zh": null
+        "zh": "声脉冲"
       },
       "concept_id": "concept:acoustic_pulse",
       "confidence": "curated",
@@ -20103,11 +20115,13 @@
           "Acoustic Stimulation",
           "Auditory Stimulation"
         ],
-        "zh": []
+        "zh": [
+          "声刺激"
+        ]
       },
       "canonical": {
         "en": "Acoustic Stimulation",
-        "zh": null
+        "zh": "声刺激"
       },
       "concept_id": "concept:acoustic_stimulation",
       "confidence": "curated",
@@ -20218,11 +20232,13 @@
         "en": [
           "Acoustic Techniques"
         ],
-        "zh": []
+        "zh": [
+          "声学技术"
+        ]
       },
       "canonical": {
         "en": "Acoustic Techniques",
-        "zh": null
+        "zh": "声学技术"
       },
       "concept_id": "concept:acoustic_techniqu",
       "confidence": "curated",
@@ -20475,11 +20491,13 @@
         "en": [
           "Acoustical Engineering"
         ],
-        "zh": []
+        "zh": [
+          "声学工程"
+        ]
       },
       "canonical": {
         "en": "Acoustical Engineering",
-        "zh": null
+        "zh": "声学工程"
       },
       "concept_id": "concept:acoustical_engineering",
       "confidence": "curated",
@@ -25044,11 +25062,13 @@
           "Acute On Chronic Liver Failure (ACLF)",
           "Acute-On-Chronic Liver Failures (ACLF)"
         ],
-        "zh": []
+        "zh": [
+          "慢加急性肝衰竭"
+        ]
       },
       "canonical": {
         "en": "Acute-on-chronic Liver Failure",
-        "zh": null
+        "zh": "慢加急性肝衰竭"
       },
       "concept_id": "concept:acute_on_chronic_liver_failure",
       "confidence": "curated",
@@ -43004,11 +43024,13 @@
         "en": [
           "Aerospace Accidents"
         ],
-        "zh": []
+        "zh": [
+          "航空航天事故"
+        ]
       },
       "canonical": {
         "en": "Aerospace Accidents",
-        "zh": null
+        "zh": "航空航天事故"
       },
       "concept_id": "concept:aerospace_accident",
       "confidence": "curated",
@@ -43059,11 +43081,13 @@
         "en": [
           "Aerospace And Electronic Systems"
         ],
-        "zh": []
+        "zh": [
+          "航空航天电子系统"
+        ]
       },
       "canonical": {
         "en": "Aerospace And Electronic Systems",
-        "zh": null
+        "zh": "航空航天电子系统"
       },
       "concept_id": "concept:aerospace_and_electronic_system",
       "confidence": "curated",
@@ -43086,11 +43110,13 @@
         "en": [
           "Aerospace Components"
         ],
-        "zh": []
+        "zh": [
+          "航空航天部件"
+        ]
       },
       "canonical": {
         "en": "Aerospace Components",
-        "zh": null
+        "zh": "航空航天部件"
       },
       "concept_id": "concept:aerospace_component",
       "confidence": "curated",
@@ -43142,11 +43168,13 @@
         "en": [
           "Aerospace Electronics"
         ],
-        "zh": []
+        "zh": [
+          "航空航天电子学"
+        ]
       },
       "canonical": {
         "en": "Aerospace Electronics",
-        "zh": null
+        "zh": "航空航天电子学"
       },
       "concept_id": "concept:aerospace_electronic",
       "confidence": "curated",
@@ -43259,11 +43287,13 @@
         "en": [
           "Aerospace Industry"
         ],
-        "zh": []
+        "zh": [
+          "航空航天工业"
+        ]
       },
       "canonical": {
         "en": "Aerospace Industry",
-        "zh": null
+        "zh": "航空航天工业"
       },
       "concept_id": "concept:aerospace_industry",
       "confidence": "curated",
@@ -43288,11 +43318,13 @@
           "Aviation Medicine",
           "Space Medicine"
         ],
-        "zh": []
+        "zh": [
+          "航空航天医学"
+        ]
       },
       "canonical": {
         "en": "Aerospace Medicine",
-        "zh": null
+        "zh": "航空航天医学"
       },
       "concept_id": "concept:aerospace_medicine",
       "confidence": "curated",
@@ -43316,11 +43348,13 @@
         "en": [
           "Aerospace Propulsion"
         ],
-        "zh": []
+        "zh": [
+          "航空航天推进"
+        ]
       },
       "canonical": {
         "en": "Aerospace Propulsion",
-        "zh": null
+        "zh": "航空航天推进"
       },
       "concept_id": "concept:aerospace_propulsion",
       "confidence": "curated",
@@ -43372,11 +43406,13 @@
         "en": [
           "Aerospace Vehicles"
         ],
-        "zh": []
+        "zh": [
+          "航空航天器"
+        ]
       },
       "canonical": {
         "en": "Aerospace Vehicles",
-        "zh": null
+        "zh": "航空航天器"
       },
       "concept_id": "concept:aerospace_vehicl",
       "confidence": "curated",
@@ -57261,11 +57297,13 @@
           "Allocells",
           "Allocell"
         ],
-        "zh": []
+        "zh": [
+          "异基因细胞"
+        ]
       },
       "canonical": {
         "en": "Allogeneic Cells",
-        "zh": null
+        "zh": "异基因细胞"
       },
       "concept_id": "concept:allogeneic_cell",
       "confidence": "curated",
@@ -61073,11 +61111,13 @@
           "Alveolar Bone Grafting",
           "Alveolar Cleft Grafting"
         ],
-        "zh": []
+        "zh": [
+          "牙槽骨移植"
+        ]
       },
       "canonical": {
         "en": "Alveolar Bone Grafting",
-        "zh": null
+        "zh": "牙槽骨移植"
       },
       "concept_id": "concept:alveolar_bone_grafting",
       "confidence": "curated",
@@ -61112,11 +61152,13 @@
           "Periodontal Resorptions",
           "Periodontal Bone Losses"
         ],
-        "zh": []
+        "zh": [
+          "牙槽骨吸收"
+        ]
       },
       "canonical": {
         "en": "Alveolar Bone Loss",
-        "zh": null
+        "zh": "牙槽骨吸收"
       },
       "concept_id": "concept:alveolar_bone_loss",
       "confidence": "curated",
@@ -61155,11 +61197,13 @@
           "Type 2 Pneumocytes",
           "Type 2 Pneumocyte"
         ],
-        "zh": []
+        "zh": [
+          "肺泡上皮细胞"
+        ]
       },
       "canonical": {
         "en": "Alveolar Epithelial Cells",
-        "zh": null
+        "zh": "肺泡上皮细胞"
       },
       "concept_id": "concept:alveolar_epithelial_cell",
       "confidence": "curated",
@@ -61497,11 +61541,13 @@
           "Amacrine Cells",
           "Amacrine Cell"
         ],
-        "zh": []
+        "zh": [
+          "无长突细胞"
+        ]
       },
       "canonical": {
         "en": "Amacrine Cells",
-        "zh": null
+        "zh": "无长突细胞"
       },
       "concept_id": "concept:amacrine_cell",
       "confidence": "curated",
@@ -74515,11 +74561,13 @@
           "HbS Disease",
           "Sickle Cell Anemia"
         ],
-        "zh": []
+        "zh": [
+          "镰状细胞贫血"
+        ]
       },
       "canonical": {
         "en": "Sickle Cell Anemias",
-        "zh": null
+        "zh": "镰状细胞贫血"
       },
       "concept_id": "concept:anemia_sickle_cell",
       "confidence": "curated",
@@ -83813,11 +83861,13 @@
           "Anterior Eye Segment",
           "Anterior Eye Segments"
         ],
-        "zh": []
+        "zh": [
+          "眼前节"
+        ]
       },
       "canonical": {
         "en": "Anterior Eye Segment",
-        "zh": null
+        "zh": "眼前节"
       },
       "concept_id": "concept:anterior_eye_segment",
       "confidence": "curated",
@@ -83848,11 +83898,13 @@
           "Ventral Horn Cell",
           "Ventral Horn Neurons"
         ],
-        "zh": []
+        "zh": [
+          "前角细胞"
+        ]
       },
       "canonical": {
         "en": "Anterior Horn Cells",
-        "zh": null
+        "zh": "前角细胞"
       },
       "concept_id": "concept:anterior_horn_cell",
       "confidence": "curated",
@@ -86256,11 +86308,13 @@
           "Antibody Avidity",
           "Antibody Avidities"
         ],
-        "zh": []
+        "zh": [
+          "抗体亲和力"
+        ]
       },
       "canonical": {
         "en": "Antibody Affinity",
-        "zh": null
+        "zh": "抗体亲和力"
       },
       "concept_id": "concept:antibody_affinity",
       "confidence": "curated",
@@ -86642,11 +86696,13 @@
           "Antibody-Dependent Cell Cytoxicities",
           "Antibody-Dependent Cell Cytoxicity"
         ],
-        "zh": []
+        "zh": [
+          "抗体依赖性细胞毒性"
+        ]
       },
       "canonical": {
         "en": "Antibody-dependent Cell Cytotoxicity",
-        "zh": null
+        "zh": "抗体依赖性细胞毒性"
       },
       "concept_id": "concept:antibody_dependent_cell_cytotoxicity",
       "confidence": "curated",
@@ -86672,11 +86728,13 @@
           "Antibody Dependent Enhancement",
           "Antibody-Dependent Enhancements"
         ],
-        "zh": []
+        "zh": [
+          "抗体依赖性增强"
+        ]
       },
       "canonical": {
         "en": "Antibody-dependent Enhancement",
-        "zh": null
+        "zh": "抗体依赖性增强"
       },
       "concept_id": "concept:antibody_dependent_enhancement",
       "confidence": "curated",
@@ -86703,11 +86761,13 @@
           "Germ Line Theory",
           "Germ Line Theories"
         ],
-        "zh": []
+        "zh": [
+          "抗体多样性"
+        ]
       },
       "canonical": {
         "en": "Antibody Diversity",
-        "zh": null
+        "zh": "抗体多样性"
       },
       "concept_id": "concept:antibody_diversity",
       "confidence": "curated",
@@ -86734,11 +86794,13 @@
           "Antibody Response",
           "Antibody Responses"
         ],
-        "zh": []
+        "zh": [
+          "抗体形成"
+        ]
       },
       "canonical": {
         "en": "Antibody Formation",
-        "zh": null
+        "zh": "抗体形成"
       },
       "concept_id": "concept:antibody_formation",
       "confidence": "curated",
@@ -87079,11 +87141,13 @@
           "Immunoglobulin-Secreting Cell",
           "Immunoglobulin Secreting Cells"
         ],
-        "zh": []
+        "zh": [
+          "抗体产生细胞"
+        ]
       },
       "canonical": {
         "en": "Antibody-producing Cells",
-        "zh": null
+        "zh": "抗体产生细胞"
       },
       "concept_id": "concept:antibody_producing_cell",
       "confidence": "curated",
@@ -87136,11 +87200,13 @@
           "Antibody Specificity",
           "Antibody Specificities"
         ],
-        "zh": []
+        "zh": [
+          "抗体特异性"
+        ]
       },
       "canonical": {
         "en": "Antibody Specificity",
-        "zh": null
+        "zh": "抗体特异性"
       },
       "concept_id": "concept:antibody_specificity",
       "confidence": "curated",
@@ -88265,11 +88331,13 @@
           "Immune Complex",
           "Immune Complexes"
         ],
-        "zh": []
+        "zh": [
+          "抗原抗体复合物"
+        ]
       },
       "canonical": {
         "en": "Antigen-antibody Complex",
-        "zh": null
+        "zh": "抗原抗体复合物"
       },
       "concept_id": "concept:antigen_antibody_complex",
       "confidence": "curated",
@@ -88295,11 +88363,13 @@
           "Antigen-Antibody Reaction",
           "Antigen Antibody Reactions"
         ],
-        "zh": []
+        "zh": [
+          "抗原抗体反应"
+        ]
       },
       "canonical": {
         "en": "Antigen-antibody Reactions",
-        "zh": null
+        "zh": "抗原抗体反应"
       },
       "concept_id": "concept:antigen_antibody_reaction",
       "confidence": "curated",
@@ -89094,11 +89164,13 @@
           "Antigen Presenting Cell",
           "Immunologic Accessory Cells"
         ],
-        "zh": []
+        "zh": [
+          "抗原呈递细胞"
+        ]
       },
       "canonical": {
         "en": "Antigen-presenting Cells",
-        "zh": null
+        "zh": "抗原呈递细胞"
       },
       "concept_id": "concept:antigen_presenting_cell",
       "confidence": "curated",
@@ -100985,11 +101057,13 @@
         "en": [
           "Architectural Acoustics"
         ],
-        "zh": []
+        "zh": [
+          "建筑声学"
+        ]
       },
       "canonical": {
         "en": "Architectural Acoustics",
-        "zh": null
+        "zh": "建筑声学"
       },
       "concept_id": "concept:architectural_acoustic",
       "confidence": "curated",
@@ -104236,11 +104310,13 @@
           "Arm Bone",
           "Bones of Arm"
         ],
-        "zh": []
+        "zh": [
+          "臂骨"
+        ]
       },
       "canonical": {
         "en": "Arm Bones",
-        "zh": null
+        "zh": "臂骨"
       },
       "concept_id": "concept:arm_bon",
       "confidence": "curated",
@@ -108049,11 +108125,13 @@
           "Synthetic Organelles",
           "Synthetic Organelle"
         ],
-        "zh": []
+        "zh": [
+          "人工细胞"
+        ]
       },
       "canonical": {
         "en": "Artificial Cells",
-        "zh": null
+        "zh": "人工细胞"
       },
       "concept_id": "concept:artificial_cell",
       "confidence": "curated",
@@ -114617,11 +114695,13 @@
           "Asymmetric Stem Cell Division",
           "Asymmetric Stem Cell Differentiation"
         ],
-        "zh": []
+        "zh": [
+          "不对称细胞分裂"
+        ]
       },
       "canonical": {
         "en": "Asymmetric Cell Division",
-        "zh": null
+        "zh": "不对称细胞分裂"
       },
       "concept_id": "concept:asymmetric_cell_division",
       "confidence": "curated",
@@ -120114,11 +120194,13 @@
           "Atypical Squamous Cells of Undetermined Significance",
           "ASC-US"
         ],
-        "zh": []
+        "zh": [
+          "宫颈非典型鳞状细胞"
+        ]
       },
       "canonical": {
         "en": "Atypical Squamous Cells Of The Cervix",
-        "zh": null
+        "zh": "宫颈非典型鳞状细胞"
       },
       "concept_id": "concept:atypical_squamou_cell_of_the_cervix",
       "confidence": "curated",
@@ -120253,11 +120335,13 @@
         "en": [
           "Audio Acoustics"
         ],
-        "zh": []
+        "zh": [
+          "音频声学"
+        ]
       },
       "canonical": {
         "en": "Audio Acoustics",
-        "zh": null
+        "zh": "音频声学"
       },
       "concept_id": "concept:audio_acoustic",
       "confidence": "curated",
@@ -126243,11 +126327,13 @@
           "Autophagy-Dependent Cell Deaths",
           "Autophagic Programmed Cell Death"
         ],
-        "zh": []
+        "zh": [
+          "自噬性细胞死亡"
+        ]
       },
       "canonical": {
         "en": "Autophagic Cell Death",
-        "zh": null
+        "zh": "自噬性细胞死亡"
       },
       "concept_id": "concept:autophagic_cell_death",
       "confidence": "curated",
@@ -165732,11 +165818,13 @@
           "Blood Alcohol Level",
           "Blood Alcohol Concentration"
         ],
-        "zh": []
+        "zh": [
+          "血液酒精浓度"
+        ]
       },
       "canonical": {
         "en": "Blood Alcohol Content",
-        "zh": null
+        "zh": "血液酒精浓度"
       },
       "concept_id": "concept:blood_alcohol_content",
       "confidence": "curated",
@@ -166011,11 +166099,13 @@
           "Blood Corpuscles",
           "Blood Corpuscle"
         ],
-        "zh": []
+        "zh": [
+          "血细胞"
+        ]
       },
       "canonical": {
         "en": "Blood Cells",
-        "zh": null
+        "zh": "血细胞"
       },
       "concept_id": "concept:blood_cell",
       "confidence": "curated",
@@ -166073,11 +166163,13 @@
           "Blood Chemical Analysis",
           "Blood Chemical Analyses"
         ],
-        "zh": []
+        "zh": [
+          "血液化学分析"
+        ]
       },
       "canonical": {
         "en": "Blood Chemical Analysis",
-        "zh": null
+        "zh": "血液化学分析"
       },
       "concept_id": "concept:blood_chemical_analysi",
       "confidence": "curated",
@@ -166162,11 +166254,13 @@
           "Blood Clotting",
           "Blood Clottings"
         ],
-        "zh": []
+        "zh": [
+          "凝血"
+        ]
       },
       "canonical": {
         "en": "Blood Coagulation",
-        "zh": null
+        "zh": "凝血"
       },
       "concept_id": "concept:blood_coagulation",
       "confidence": "curated",
@@ -166219,11 +166313,13 @@
           "Blood Coagulation Disorders",
           "Blood Coagulation Disorder"
         ],
-        "zh": []
+        "zh": [
+          "凝血障碍"
+        ]
       },
       "canonical": {
         "en": "Blood Coagulation Disorders",
-        "zh": null
+        "zh": "凝血障碍"
       },
       "concept_id": "concept:blood_coagulation_disorder",
       "confidence": "curated",
@@ -166285,11 +166381,13 @@
           "Clotting Factors",
           "Blood Coagulation Factor"
         ],
-        "zh": []
+        "zh": [
+          "凝血因子"
+        ]
       },
       "canonical": {
         "en": "Blood Coagulation Factors",
-        "zh": null
+        "zh": "凝血因子"
       },
       "concept_id": "concept:blood_coagulation_factor",
       "confidence": "curated",
@@ -166314,11 +166412,13 @@
           "Blood Coagulation Factor Inhibitors",
           "Blood Coagulation Factor Inhibitor"
         ],
-        "zh": []
+        "zh": [
+          "凝血因子抑制剂"
+        ]
       },
       "canonical": {
         "en": "Blood Coagulation Factor Inhibitors",
-        "zh": null
+        "zh": "凝血因子抑制剂"
       },
       "concept_id": "concept:blood_coagulation_factor_inhibitor",
       "confidence": "curated",
@@ -166343,11 +166443,13 @@
           "Blood Coagulation Tests",
           "Blood Coagulation Test"
         ],
-        "zh": []
+        "zh": [
+          "凝血试验"
+        ]
       },
       "canonical": {
         "en": "Blood Coagulation Tests",
-        "zh": null
+        "zh": "凝血试验"
       },
       "concept_id": "concept:blood_coagulation_test",
       "confidence": "curated",
@@ -166436,11 +166538,13 @@
           "Blood Culture Test",
           "Blood Culture Tests"
         ],
-        "zh": []
+        "zh": [
+          "血培养"
+        ]
       },
       "canonical": {
         "en": "Blood Culture",
-        "zh": null
+        "zh": "血培养"
       },
       "concept_id": "concept:blood_culture",
       "confidence": "curated",
@@ -166616,11 +166720,13 @@
           "Blood Flow Velocity",
           "Blood Flow Velocities"
         ],
-        "zh": []
+        "zh": [
+          "血流速度"
+        ]
       },
       "canonical": {
         "en": "Blood Flow Velocity",
-        "zh": null
+        "zh": "血流速度"
       },
       "concept_id": "concept:blood_flow_velocity",
       "confidence": "curated",
@@ -166712,11 +166818,13 @@
           "Blood Glucose",
           "Blood Sugar"
         ],
-        "zh": []
+        "zh": [
+          "血糖"
+        ]
       },
       "canonical": {
         "en": "Blood Glucose",
-        "zh": null
+        "zh": "血糖"
       },
       "concept_id": "concept:blood_glucose",
       "confidence": "curated",
@@ -166746,11 +166854,13 @@
           "Blood Sugar Self-Monitorings",
           "Home Blood Glucose Monitoring"
         ],
-        "zh": []
+        "zh": [
+          "血糖自我监测"
+        ]
       },
       "canonical": {
         "en": "Blood Glucose Self-monitoring",
-        "zh": null
+        "zh": "血糖自我监测"
       },
       "concept_id": "concept:blood_glucose_self_monitoring",
       "confidence": "curated",
@@ -166805,11 +166915,13 @@
           "Blood Groups",
           "Blood Group"
         ],
-        "zh": []
+        "zh": [
+          "血型抗原"
+        ]
       },
       "canonical": {
         "en": "Blood Group Antigens",
-        "zh": null
+        "zh": "血型抗原"
       },
       "concept_id": "concept:blood_group_antigen",
       "confidence": "curated",
@@ -166907,11 +167019,13 @@
           "Surgical Hemorrhage",
           "Surgical Hemorrhages"
         ],
-        "zh": []
+        "zh": [
+          "手术失血"
+        ]
       },
       "canonical": {
         "en": "Surgical Blood Loss",
-        "zh": null
+        "zh": "手术失血"
       },
       "concept_id": "concept:blood_loss_surgical",
       "confidence": "curated",
@@ -167125,11 +167239,13 @@
           "Diastolic Pressure",
           "Systolic Pressure"
         ],
-        "zh": []
+        "zh": [
+          "血压"
+        ]
       },
       "canonical": {
         "en": "Blood Pressure",
-        "zh": null
+        "zh": "血压"
       },
       "concept_id": "concept:blood_pressure",
       "confidence": "curated",
@@ -167243,11 +167359,13 @@
           "Home Blood Pressure Monitoring",
           "Self Blood Pressure Monitoring"
         ],
-        "zh": []
+        "zh": [
+          "动态血压监测"
+        ]
       },
       "canonical": {
         "en": "Ambulatory Blood Pressure Monitoring",
-        "zh": null
+        "zh": "动态血压监测"
       },
       "concept_id": "concept:blood_pressure_monitoring_ambulatory",
       "confidence": "curated",
@@ -167304,11 +167422,13 @@
           "Serum Proteins",
           "Serum Protein"
         ],
-        "zh": []
+        "zh": [
+          "血液蛋白质"
+        ]
       },
       "canonical": {
         "en": "Blood Proteins",
-        "zh": null
+        "zh": "血液蛋白质"
       },
       "concept_id": "concept:blood_protein",
       "confidence": "curated",
@@ -167917,11 +168037,13 @@
           "Blood Volume",
           "Blood Volumes"
         ],
-        "zh": []
+        "zh": [
+          "血容量"
+        ]
       },
       "canonical": {
         "en": "Blood Volume",
-        "zh": null
+        "zh": "血容量"
       },
       "concept_id": "concept:blood_volume",
       "confidence": "curated",
@@ -168849,11 +168971,13 @@
         "en": [
           "Body Composition Measurement Techniques"
         ],
-        "zh": []
+        "zh": [
+          "身体成分测量技术"
+        ]
       },
       "canonical": {
         "en": "Body Composition Measurement Techniques",
-        "zh": null
+        "zh": "身体成分测量技术"
       },
       "concept_id": "concept:body_composition_measurement_techniqu",
       "confidence": "curated",
@@ -169063,11 +169187,13 @@
           "Body Fluids",
           "Body Fluid"
         ],
-        "zh": []
+        "zh": [
+          "体液"
+        ]
       },
       "canonical": {
         "en": "Body Fluids",
-        "zh": null
+        "zh": "体液"
       },
       "concept_id": "concept:body_fluid",
       "confidence": "curated",
@@ -169155,11 +169281,13 @@
           "Body Representation",
           "Body Representations"
         ],
-        "zh": []
+        "zh": [
+          "身体意象"
+        ]
       },
       "canonical": {
         "en": "Body Image",
-        "zh": null
+        "zh": "身体意象"
       },
       "concept_id": "concept:body_image",
       "confidence": "curated",
@@ -169221,11 +169349,13 @@
           "Xenomelia",
           "Xenomelias"
         ],
-        "zh": []
+        "zh": [
+          "身体完整性身份障碍"
+        ]
       },
       "canonical": {
         "en": "Body Integrity Identity Disorder",
-        "zh": null
+        "zh": "身体完整性身份障碍"
       },
       "concept_id": "concept:body_integrity_identity_disorder",
       "confidence": "curated",
@@ -169458,11 +169588,13 @@
           "Body Regions",
           "Body Region"
         ],
-        "zh": []
+        "zh": [
+          "身体部位"
+        ]
       },
       "canonical": {
         "en": "Body Regions",
-        "zh": null
+        "zh": "身体部位"
       },
       "concept_id": "concept:body_region",
       "confidence": "curated",
@@ -169554,11 +169686,13 @@
           "Body Size",
           "Body Sizes"
         ],
-        "zh": []
+        "zh": [
+          "体型"
+        ]
       },
       "canonical": {
         "en": "Body Size",
-        "zh": null
+        "zh": "体型"
       },
       "concept_id": "concept:body_size",
       "confidence": "curated",
@@ -169583,11 +169717,13 @@
           "Body Surface Area",
           "Body Surface Areas"
         ],
-        "zh": []
+        "zh": [
+          "体表面积"
+        ]
       },
       "canonical": {
         "en": "Body Surface Area",
-        "zh": null
+        "zh": "体表面积"
       },
       "concept_id": "concept:body_surface_area",
       "confidence": "curated",
@@ -169613,11 +169749,13 @@
           "Body Surface Mapping",
           "Body Surface Mappings"
         ],
-        "zh": []
+        "zh": [
+          "体表电位标测"
+        ]
       },
       "canonical": {
         "en": "Body Surface Potential Mapping",
-        "zh": null
+        "zh": "体表电位标测"
       },
       "concept_id": "concept:body_surface_potential_mapping",
       "confidence": "curated",
@@ -169675,11 +169813,13 @@
           "Body Temperature Changes",
           "Body Temperature Change"
         ],
-        "zh": []
+        "zh": [
+          "体温变化"
+        ]
       },
       "canonical": {
         "en": "Body Temperature Changes",
-        "zh": null
+        "zh": "体温变化"
       },
       "concept_id": "concept:body_temperature_chang",
       "confidence": "curated",
@@ -169708,11 +169848,13 @@
           "Heat Loss",
           "Heat Losses"
         ],
-        "zh": []
+        "zh": [
+          "体温调节"
+        ]
       },
       "canonical": {
         "en": "Body Temperature Regulation",
-        "zh": null
+        "zh": "体温调节"
       },
       "concept_id": "concept:body_temperature_regulation",
       "confidence": "curated",
@@ -169736,11 +169878,13 @@
         "en": [
           "Body Water"
         ],
-        "zh": []
+        "zh": [
+          "体水分"
+        ]
       },
       "canonical": {
         "en": "Body Water",
-        "zh": null
+        "zh": "体水分"
       },
       "concept_id": "concept:body_water",
       "confidence": "curated",
@@ -169765,11 +169909,13 @@
           "Body Weight",
           "Body Weights"
         ],
-        "zh": []
+        "zh": [
+          "体重"
+        ]
       },
       "canonical": {
         "en": "Body Weight",
-        "zh": null
+        "zh": "体重"
       },
       "concept_id": "concept:body_weight",
       "confidence": "curated",
@@ -170740,11 +170886,13 @@
           "Subchondral Cysts",
           "Subchondral Cyst"
         ],
-        "zh": []
+        "zh": [
+          "骨囊肿"
+        ]
       },
       "canonical": {
         "en": "Bone Cysts",
-        "zh": null
+        "zh": "骨囊肿"
       },
       "concept_id": "concept:bone_cyst",
       "confidence": "curated",
@@ -170924,11 +171072,13 @@
           "Bone Development",
           "Bone Growth"
         ],
-        "zh": []
+        "zh": [
+          "骨发育"
+        ]
       },
       "canonical": {
         "en": "Bone Development",
-        "zh": null
+        "zh": "骨发育"
       },
       "concept_id": "concept:bone_development",
       "confidence": "curated",
@@ -170953,11 +171103,13 @@
           "Bone Diseases",
           "Bone Disease"
         ],
-        "zh": []
+        "zh": [
+          "骨疾病"
+        ]
       },
       "canonical": {
         "en": "Bone Diseases",
-        "zh": null
+        "zh": "骨疾病"
       },
       "concept_id": "concept:bone_disease",
       "confidence": "curated",
@@ -171042,11 +171194,13 @@
           "Infectious Bone Disease",
           "Infectious Bone Diseases"
         ],
-        "zh": []
+        "zh": [
+          "感染性骨病"
+        ]
       },
       "canonical": {
         "en": "Infectious Bone Disease",
-        "zh": null
+        "zh": "感染性骨病"
       },
       "concept_id": "concept:bone_disease_infectiou",
       "confidence": "curated",
@@ -171076,11 +171230,13 @@
           "Low Bone Densities",
           "Low Bone Mineral Density"
         ],
-        "zh": []
+        "zh": [
+          "代谢性骨病"
+        ]
       },
       "canonical": {
         "en": "Metabolic Bone Diseases",
-        "zh": null
+        "zh": "代谢性骨病"
       },
       "concept_id": "concept:bone_disease_metabolic",
       "confidence": "curated",
@@ -171193,11 +171349,13 @@
           "Bone Prosthesis Interface",
           "Bone-Prosthesis Interfaces"
         ],
-        "zh": []
+        "zh": [
+          "骨-植入物界面"
+        ]
       },
       "canonical": {
         "en": "Bone-implant Interface",
-        "zh": null
+        "zh": "骨-植入物界面"
       },
       "concept_id": "concept:bone_implant_interface",
       "confidence": "curated",
@@ -171285,11 +171443,13 @@
           "Yellow Marrow",
           "Marrow"
         ],
-        "zh": []
+        "zh": [
+          "骨髓"
+        ]
       },
       "canonical": {
         "en": "Bone Marrow",
-        "zh": null
+        "zh": "骨髓"
       },
       "concept_id": "concept:bone_marrow",
       "confidence": "curated",
@@ -171314,11 +171474,13 @@
           "Bone Marrow Cells",
           "Bone Marrow Cell"
         ],
-        "zh": []
+        "zh": [
+          "骨髓细胞"
+        ]
       },
       "canonical": {
         "en": "Bone Marrow Cells",
-        "zh": null
+        "zh": "骨髓细胞"
       },
       "concept_id": "concept:bone_marrow_cell",
       "confidence": "curated",
@@ -171343,11 +171505,13 @@
           "Bone Marrow Diseases",
           "Bone Marrow Disease"
         ],
-        "zh": []
+        "zh": [
+          "骨髓疾病"
+        ]
       },
       "canonical": {
         "en": "Bone Marrow Diseases",
-        "zh": null
+        "zh": "骨髓疾病"
       },
       "concept_id": "concept:bone_marrow_disease",
       "confidence": "curated",
@@ -171403,11 +171567,13 @@
           "Bone Marrow Failure Syndrome",
           "Bone Marrow Failure"
         ],
-        "zh": []
+        "zh": [
+          "骨髓衰竭性疾病"
+        ]
       },
       "canonical": {
         "en": "Bone Marrow Failure Disorders",
-        "zh": null
+        "zh": "骨髓衰竭性疾病"
       },
       "concept_id": "concept:bone_marrow_failure_disorder",
       "confidence": "curated",
@@ -171432,11 +171598,13 @@
           "Bone Marrow Neoplasms",
           "Bone Marrow Neoplasm"
         ],
-        "zh": []
+        "zh": [
+          "骨髓肿瘤"
+        ]
       },
       "canonical": {
         "en": "Bone Marrow Neoplasms",
-        "zh": null
+        "zh": "骨髓肿瘤"
       },
       "concept_id": "concept:bone_marrow_neoplasm",
       "confidence": "curated",
@@ -171552,11 +171720,13 @@
           "Bone Matrix",
           "Bone Matrices"
         ],
-        "zh": []
+        "zh": [
+          "骨基质"
+        ]
       },
       "canonical": {
         "en": "Bone Matrix",
-        "zh": null
+        "zh": "骨基质"
       },
       "concept_id": "concept:bone_matrix",
       "confidence": "curated",
@@ -172022,11 +172192,13 @@
           "Cancer of Bone",
           "Cancer of the Bone"
         ],
-        "zh": []
+        "zh": [
+          "骨肿瘤"
+        ]
       },
       "canonical": {
         "en": "Bone Neoplasms",
-        "zh": null
+        "zh": "骨肿瘤"
       },
       "concept_id": "concept:bone_neoplasm",
       "confidence": "curated",
@@ -172347,11 +172519,13 @@
         "en": [
           "Bone Tissue Engineering Materials"
         ],
-        "zh": []
+        "zh": [
+          "骨组织工程材料"
+        ]
       },
       "canonical": {
         "en": "Bone Tissue Engineering Materials",
-        "zh": null
+        "zh": "骨组织工程材料"
       },
       "concept_id": "concept:bone_tissue_engineering_material",
       "confidence": "curated",
@@ -172376,11 +172550,13 @@
           "Bone Transplantation",
           "Bone Grafting"
         ],
-        "zh": []
+        "zh": [
+          "骨移植"
+        ]
       },
       "canonical": {
         "en": "Bone Transplantation",
-        "zh": null
+        "zh": "骨移植"
       },
       "concept_id": "concept:bone_transplantation",
       "confidence": "curated",
@@ -175607,11 +175783,13 @@
         "en": [
           "Bovine Respiratory Disease Complex"
         ],
-        "zh": []
+        "zh": [
+          "牛呼吸道疾病综合征"
+        ]
       },
       "canonical": {
         "en": "Bovine Respiratory Disease Complex",
-        "zh": null
+        "zh": "牛呼吸道疾病综合征"
       },
       "concept_id": "concept:bovine_respiratory_disease_complex",
       "confidence": "curated",
@@ -194116,11 +194294,13 @@
           "Voltage-Dependent Calcium Channel",
           "Voltage Dependent Calcium Channel"
         ],
-        "zh": []
+        "zh": [
+          "钙通道"
+        ]
       },
       "canonical": {
         "en": "Calcium Channels",
-        "zh": null
+        "zh": "钙通道"
       },
       "concept_id": "concept:calcium_channel",
       "confidence": "curated",
@@ -194498,11 +194678,13 @@
           "Calcium Chloride",
           "Calcium Chloride Dihydrate"
         ],
-        "zh": []
+        "zh": [
+          "氯化钙"
+        ]
       },
       "canonical": {
         "en": "Calcium Chloride",
-        "zh": null
+        "zh": "氯化钙"
       },
       "concept_id": "concept:calcium_chloride",
       "confidence": "curated",
@@ -194555,11 +194737,13 @@
         "en": [
           "Dietary Calcium"
         ],
-        "zh": []
+        "zh": [
+          "膳食钙"
+        ]
       },
       "canonical": {
         "en": "Dietary Calcium",
-        "zh": null
+        "zh": "膳食钙"
       },
       "concept_id": "concept:calcium_dietary",
       "confidence": "curated",
@@ -194746,11 +194930,13 @@
         "en": [
           "Calcium Isotopes"
         ],
-        "zh": []
+        "zh": [
+          "钙同位素"
+        ]
       },
       "canonical": {
         "en": "Calcium Isotopes",
-        "zh": null
+        "zh": "钙同位素"
       },
       "concept_id": "concept:calcium_isotop",
       "confidence": "curated",
@@ -194775,11 +194961,13 @@
           "Calcium Metabolism Disorders",
           "Calcium Metabolism Disorder"
         ],
-        "zh": []
+        "zh": [
+          "钙代谢障碍"
+        ]
       },
       "canonical": {
         "en": "Calcium Metabolism Disorders",
-        "zh": null
+        "zh": "钙代谢障碍"
       },
       "concept_id": "concept:calcium_metabolism_disorder",
       "confidence": "curated",
@@ -194837,11 +195025,13 @@
         "en": [
           "Calcium Phosphates"
         ],
-        "zh": []
+        "zh": [
+          "磷酸钙"
+        ]
       },
       "canonical": {
         "en": "Calcium Phosphates",
-        "zh": null
+        "zh": "磷酸钙"
       },
       "concept_id": "concept:calcium_phosphat",
       "confidence": "curated",
@@ -194899,11 +195089,13 @@
         "en": [
           "Calcium Radioisotopes"
         ],
-        "zh": []
+        "zh": [
+          "钙放射性同位素"
+        ]
       },
       "canonical": {
         "en": "Calcium Radioisotopes",
-        "zh": null
+        "zh": "钙放射性同位素"
       },
       "concept_id": "concept:calcium_radioisotop",
       "confidence": "curated",
@@ -195003,11 +195195,13 @@
           "Calcium Sparks",
           "Calcium Spark"
         ],
-        "zh": []
+        "zh": [
+          "钙信号传导"
+        ]
       },
       "canonical": {
         "en": "Calcium Signaling",
-        "zh": null
+        "zh": "钙信号传导"
       },
       "concept_id": "concept:calcium_signaling",
       "confidence": "curated",
@@ -195073,11 +195267,13 @@
           "Gypsum",
           "Calcium Sulfate (1:1), Dihydrate"
         ],
-        "zh": []
+        "zh": [
+          "硫酸钙"
+        ]
       },
       "canonical": {
         "en": "Calcium Sulfate",
-        "zh": null
+        "zh": "硫酸钙"
       },
       "concept_id": "concept:calcium_sulfate",
       "confidence": "curated",
@@ -223582,11 +223778,13 @@
           "Scaffold Cell Cultures",
           "Scaffold 3D Cell Culture"
         ],
-        "zh": []
+        "zh": [
+          "三维细胞培养技术"
+        ]
       },
       "canonical": {
         "en": "Three-Dimensional Cell Culture",
-        "zh": null
+        "zh": "三维细胞培养技术"
       },
       "concept_id": "concept:cell_culture_techniqu_three_dimensional",
       "confidence": "curated",
@@ -224463,11 +224661,13 @@
           "Cell Line",
           "Cell Lines"
         ],
-        "zh": []
+        "zh": [
+          "细胞系"
+        ]
       },
       "canonical": {
         "en": "Cell Line",
-        "zh": null
+        "zh": "细胞系"
       },
       "concept_id": "concept:cell_line",
       "confidence": "curated",
@@ -224495,11 +224695,13 @@
           "Cell-Line Authentication",
           "Cell Line Misidentification"
         ],
-        "zh": []
+        "zh": [
+          "细胞系鉴定"
+        ]
       },
       "canonical": {
         "en": "Cell Line Authentication",
-        "zh": null
+        "zh": "细胞系鉴定"
       },
       "concept_id": "concept:cell_line_authentication",
       "confidence": "curated",
@@ -224553,11 +224755,13 @@
           "Tumor Cell Lines",
           "Tumor Cell Line"
         ],
-        "zh": []
+        "zh": [
+          "肿瘤细胞系"
+        ]
       },
       "canonical": {
         "en": "Tumor Cell Lines",
-        "zh": null
+        "zh": "肿瘤细胞系"
       },
       "concept_id": "concept:cell_line_tumor",
       "confidence": "curated",
@@ -231038,11 +231242,13 @@
         "en": [
           "Cerebral Blood Volume"
         ],
-        "zh": []
+        "zh": [
+          "脑血容量"
+        ]
       },
       "canonical": {
         "en": "Cerebral Blood Volume",
-        "zh": null
+        "zh": "脑血容量"
       },
       "concept_id": "concept:cerebral_blood_volume",
       "confidence": "curated",
@@ -238515,11 +238721,13 @@
           "Chronic Drug-Induced Liver Injury",
           "Chronic Drug Induced Liver Injury"
         ],
-        "zh": []
+        "zh": [
+          "慢性化学性和药物性肝损伤"
+        ]
       },
       "canonical": {
         "en": "Chronic Drug-Induced Liver Injury",
-        "zh": null
+        "zh": "慢性化学性和药物性肝损伤"
       },
       "concept_id": "concept:chemical_and_drug_induced_liver_injury_chronic",
       "confidence": "curated",
@@ -302727,11 +302935,13 @@
           "Inherited BMF Syndromes",
           "Inherited Bone Marrow Failure Syndrome"
         ],
-        "zh": []
+        "zh": [
+          "先天性骨髓衰竭综合征"
+        ]
       },
       "canonical": {
         "en": "Congenital Bone Marrow Failure Syndromes",
-        "zh": null
+        "zh": "先天性骨髓衰竭综合征"
       },
       "concept_id": "concept:congenital_bone_marrow_failure_syndrom",
       "confidence": "curated",
@@ -380459,11 +380669,13 @@
           "Respiratory System Diagnostic Technique",
           "Respiratory System Diagnostic Techniques"
         ],
-        "zh": []
+        "zh": [
+          "呼吸系统诊断技术"
+        ]
       },
       "canonical": {
         "en": "Respiratory System Diagnostic Technic",
-        "zh": null
+        "zh": "呼吸系统诊断技术"
       },
       "concept_id": "concept:diagnostic_techniqu_respiratory_system",
       "confidence": "curated",
@@ -501977,11 +502189,13 @@
           "Facial Bones",
           "Facial Bone"
         ],
-        "zh": []
+        "zh": [
+          "面骨"
+        ]
       },
       "canonical": {
         "en": "Facial Bones",
-        "zh": null
+        "zh": "面骨"
       },
       "concept_id": "concept:facial_bon",
       "confidence": "curated",
@@ -515791,11 +516005,13 @@
           "Umbilical Cord Blood",
           "Umbilical Cord Bloods"
         ],
-        "zh": []
+        "zh": [
+          "胎血"
+        ]
       },
       "canonical": {
         "en": "Fetal Blood",
-        "zh": null
+        "zh": "胎血"
       },
       "concept_id": "concept:fetal_blood",
       "confidence": "curated",
@@ -542563,11 +542779,13 @@
           "Torsion Fractures",
           "Torsion Fracture"
         ],
-        "zh": []
+        "zh": [
+          "骨折"
+        ]
       },
       "canonical": {
         "en": "Bone Fracture",
-        "zh": null
+        "zh": "骨折"
       },
       "concept_id": "concept:fractur_bone",
       "confidence": "curated",
@@ -679633,11 +679851,13 @@
           "I Blood Group System",
           "I Blood-Group Systems"
         ],
-        "zh": []
+        "zh": [
+          "I血型系统"
+        ]
       },
       "canonical": {
         "en": "I Blood-group System",
-        "zh": null
+        "zh": "I血型系统"
       },
       "concept_id": "concept:i_blood_group_system",
       "confidence": "curated",
@@ -747973,11 +748193,13 @@
           "KCNQ Potassium Channels",
           "KvLQT Potassium Channels"
         ],
-        "zh": []
+        "zh": [
+          "KCNQ钾通道"
+        ]
       },
       "canonical": {
         "en": "KCNQ Potassium Channels",
-        "zh": null
+        "zh": "KCNQ钾通道"
       },
       "concept_id": "concept:kcnq_potassium_channel",
       "confidence": "curated",
@@ -792687,11 +792909,13 @@
           "Hepatic Abscess",
           "Hepatic Abscesses"
         ],
-        "zh": []
+        "zh": [
+          "肝脓肿"
+        ]
       },
       "canonical": {
         "en": "Liver Abscess",
-        "zh": null
+        "zh": "肝脓肿"
       },
       "concept_id": "concept:liver_abscess",
       "confidence": "curated",
@@ -792786,11 +793010,13 @@
           "Bioartificial Liver",
           "Bioartificial Livers"
         ],
-        "zh": []
+        "zh": [
+          "人工肝"
+        ]
       },
       "canonical": {
         "en": "Artificial Liver",
-        "zh": null
+        "zh": "人工肝"
       },
       "concept_id": "concept:liver_artificial",
       "confidence": "curated",
@@ -793173,11 +793399,13 @@
           "Liver Failure",
           "Hepatic Failure"
         ],
-        "zh": []
+        "zh": [
+          "肝衰竭"
+        ]
       },
       "canonical": {
         "en": "Liver Failure",
-        "zh": null
+        "zh": "肝衰竭"
       },
       "concept_id": "concept:liver_failure",
       "confidence": "curated",
@@ -793210,11 +793438,13 @@
           "Fulminating Liver Failure",
           "Fulminating Liver Failures"
         ],
-        "zh": []
+        "zh": [
+          "急性肝衰竭"
+        ]
       },
       "canonical": {
         "en": "Acute Hepatic Failure",
-        "zh": null
+        "zh": "急性肝衰竭"
       },
       "concept_id": "concept:liver_failure_acute",
       "confidence": "curated",
@@ -793239,11 +793469,13 @@
           "Liver Function Tests",
           "Liver Function Test"
         ],
-        "zh": []
+        "zh": [
+          "肝功能检查"
+        ]
       },
       "canonical": {
         "en": "Liver Function Tests",
-        "zh": null
+        "zh": "肝功能检查"
       },
       "concept_id": "concept:liver_function_test",
       "confidence": "curated",
@@ -793307,11 +793539,13 @@
           "Hepatic Cancer",
           "Hepatic Cancers"
         ],
-        "zh": []
+        "zh": [
+          "肝肿瘤"
+        ]
       },
       "canonical": {
         "en": "Liver Neoplasms",
-        "zh": null
+        "zh": "肝肿瘤"
       },
       "concept_id": "concept:liver_neoplasm",
       "confidence": "curated",
@@ -793340,11 +793574,13 @@
           "Experimental Hepatoma",
           "Experimental Hepatomas"
         ],
-        "zh": []
+        "zh": [
+          "实验性肝肿瘤"
+        ]
       },
       "canonical": {
         "en": "Experimental Liver Neoplasm",
-        "zh": null
+        "zh": "实验性肝肿瘤"
       },
       "concept_id": "concept:liver_neoplasm_experimental",
       "confidence": "curated",
@@ -793425,11 +793661,13 @@
         "en": [
           "Liver Segmentation"
         ],
-        "zh": []
+        "zh": [
+          "肝脏分割"
+        ]
       },
       "canonical": {
         "en": "Liver Segmentation",
-        "zh": null
+        "zh": "肝脏分割"
       },
       "concept_id": "concept:liver_segmentation",
       "confidence": "curated",
@@ -793493,11 +793731,13 @@
           "Liver Transplants",
           "Liver Grafting"
         ],
-        "zh": []
+        "zh": [
+          "肝移植"
+        ]
       },
       "canonical": {
         "en": "Liver Transplantation",
-        "zh": null
+        "zh": "肝移植"
       },
       "concept_id": "concept:liver_transplantation",
       "confidence": "curated",
@@ -835320,11 +835560,13 @@
         "en": [
           "Mechanical & Acoustical Properties"
         ],
-        "zh": []
+        "zh": [
+          "机械与声学性质"
+        ]
       },
       "canonical": {
         "en": "Mechanical & Acoustical Properties",
-        "zh": null
+        "zh": "机械与声学性质"
       },
       "concept_id": "concept:mechanical_and_acoustical_property",
       "confidence": "curated",
@@ -868323,11 +868565,13 @@
           "Ultrasonographic Biomicroscopy",
           "Ultrasonographic Biomicroscopies"
         ],
-        "zh": []
+        "zh": [
+          "声学显微术"
+        ]
       },
       "canonical": {
         "en": "Acoustic Microscopies",
-        "zh": null
+        "zh": "声学显微术"
       },
       "concept_id": "concept:microscopy_acoustic",
       "confidence": "curated",
@@ -932618,11 +932862,13 @@
           "Bone Tissue Neoplasms",
           "Bone Tissue Neoplasm"
         ],
-        "zh": []
+        "zh": [
+          "骨组织肿瘤"
+        ]
       },
       "canonical": {
         "en": "Bony Tissue Neoplasms",
-        "zh": null
+        "zh": "骨组织肿瘤"
       },
       "concept_id": "concept:neoplasm_bone_tissue",
       "confidence": "curated",
@@ -958523,11 +958769,13 @@
         "en": [
           "Nonlinear Acoustics"
         ],
-        "zh": []
+        "zh": [
+          "非线性声学"
+        ]
       },
       "canonical": {
         "en": "Nonlinear Acoustics",
-        "zh": null
+        "zh": "非线性声学"
       },
       "concept_id": "concept:nonlinear_acoustic",
       "confidence": "curated",
@@ -965139,11 +965387,13 @@
           "Nuclear Respiratory Factors",
           "Nuclear Respiratory Factor"
         ],
-        "zh": []
+        "zh": [
+          "核呼吸因子"
+        ]
       },
       "canonical": {
         "en": "Nuclear Respiratory Factors",
-        "zh": null
+        "zh": "核呼吸因子"
       },
       "concept_id": "concept:nuclear_respiratory_factor",
       "confidence": "curated",
@@ -965168,11 +965418,13 @@
           "Nuclear Respiratory Factor 1",
           "NRF1 Transcription Factor"
         ],
-        "zh": []
+        "zh": [
+          "核呼吸因子1"
+        ]
       },
       "canonical": {
         "en": "Nuclear Respiratory Factor 1",
-        "zh": null
+        "zh": "核呼吸因子1"
       },
       "concept_id": "concept:nuclear_respiratory_factor_1",
       "confidence": "curated",
@@ -1011114,11 +1011366,13 @@
           "P Blood Group System",
           "P Blood-Group Systems"
         ],
-        "zh": []
+        "zh": [
+          "P血型系统"
+        ]
       },
       "canonical": {
         "en": "P Blood-group System",
-        "zh": null
+        "zh": "P血型系统"
       },
       "concept_id": "concept:p_blood_group_system",
       "confidence": "curated",
@@ -1104097,11 +1104351,13 @@
         "en": [
           "Potassium Acetate"
         ],
-        "zh": []
+        "zh": [
+          "乙酸钾"
+        ]
       },
       "canonical": {
         "en": "Potassium Acetate",
-        "zh": null
+        "zh": "乙酸钾"
       },
       "concept_id": "concept:potassium_acetate",
       "confidence": "curated",
@@ -1104156,11 +1104412,13 @@
           "Potassium Ion Channels",
           "Potassium Channel"
         ],
-        "zh": []
+        "zh": [
+          "钾通道"
+        ]
       },
       "canonical": {
         "en": "Potassium Channels",
-        "zh": null
+        "zh": "钾通道"
       },
       "concept_id": "concept:potassium_channel",
       "confidence": "curated",
@@ -1104225,11 +1104483,13 @@
           "Calcium-Dependent Potassium Channels",
           "Calcium Dependent Potassium Channels"
         ],
-        "zh": []
+        "zh": [
+          "钙激活钾通道"
+        ]
       },
       "canonical": {
         "en": "K+ Channels, Calcium-Activated",
-        "zh": null
+        "zh": "钙激活钾通道"
       },
       "concept_id": "concept:potassium_channel_calcium_activated",
       "confidence": "curated",
@@ -1104295,11 +1104555,13 @@
           "Sodium-Activated Potassium Channel",
           "Sodium Activated Potassium Channel"
         ],
-        "zh": []
+        "zh": [
+          "钠激活钾通道"
+        ]
       },
       "canonical": {
         "en": "Sodium-Activated Potassium Channels",
-        "zh": null
+        "zh": "钠激活钾通道"
       },
       "concept_id": "concept:potassium_channel_sodium_activated",
       "confidence": "curated",
@@ -1104395,11 +1104657,13 @@
           "Potassium Chloride",
           "Slow-K"
         ],
-        "zh": []
+        "zh": [
+          "氯化钾"
+        ]
       },
       "canonical": {
         "en": "Potassium Chloride",
-        "zh": null
+        "zh": "氯化钾"
       },
       "concept_id": "concept:potassium_chloride",
       "confidence": "curated",
@@ -1104452,11 +1104716,13 @@
         "en": [
           "Potassium Compounds"
         ],
-        "zh": []
+        "zh": [
+          "钾化合物"
+        ]
       },
       "canonical": {
         "en": "Potassium Compounds",
-        "zh": null
+        "zh": "钾化合物"
       },
       "concept_id": "concept:potassium_compound",
       "confidence": "curated",
@@ -1104511,11 +1104777,13 @@
           "Potassium Deficiency",
           "Potassium Deficiencies"
         ],
-        "zh": []
+        "zh": [
+          "缺钾症"
+        ]
       },
       "canonical": {
         "en": "Potassium Deficiency",
-        "zh": null
+        "zh": "缺钾症"
       },
       "concept_id": "concept:potassium_deficiency",
       "confidence": "curated",
@@ -1104569,11 +1104837,13 @@
         "en": [
           "Dietary Potassium"
         ],
-        "zh": []
+        "zh": [
+          "膳食钾"
+        ]
       },
       "canonical": {
         "en": "Dietary Potassium",
-        "zh": null
+        "zh": "膳食钾"
       },
       "concept_id": "concept:potassium_dietary",
       "confidence": "curated",
@@ -1104706,11 +1104976,13 @@
         "en": [
           "Potassium Isotopes"
         ],
-        "zh": []
+        "zh": [
+          "钾同位素"
+        ]
       },
       "canonical": {
         "en": "Potassium Isotopes",
-        "zh": null
+        "zh": "钾同位素"
       },
       "concept_id": "concept:potassium_isotop",
       "confidence": "curated",
@@ -1104794,11 +1105066,13 @@
         "en": [
           "Potassium Radioisotopes"
         ],
-        "zh": []
+        "zh": [
+          "钾放射性同位素"
+        ]
       },
       "canonical": {
         "en": "Potassium Radioisotopes",
-        "zh": null
+        "zh": "钾放射性同位素"
       },
       "concept_id": "concept:potassium_radioisotop",
       "confidence": "curated",
@@ -1116971,11 +1117245,13 @@
           "Primary Cell Culture",
           "Primary Cell Cultures"
         ],
-        "zh": []
+        "zh": [
+          "原代细胞培养"
+        ]
       },
       "canonical": {
         "en": "Primary Cell Culture",
-        "zh": null
+        "zh": "原代细胞培养"
       },
       "concept_id": "concept:primary_cell_culture",
       "confidence": "curated",
@@ -1197873,11 +1198149,13 @@
           "Regional Blood Flow",
           "Regional Blood Flows"
         ],
-        "zh": []
+        "zh": [
+          "局部血流"
+        ]
       },
       "canonical": {
         "en": "Regional Blood Flow",
-        "zh": null
+        "zh": "局部血流"
       },
       "concept_id": "concept:regional_blood_flow",
       "confidence": "curated",
@@ -1208801,11 +1209079,13 @@
           "Respiratory Center",
           "Respiratory Centers"
         ],
-        "zh": []
+        "zh": [
+          "呼吸中枢"
+        ]
       },
       "canonical": {
         "en": "Respiratory Center",
-        "zh": null
+        "zh": "呼吸中枢"
       },
       "concept_id": "concept:respiratory_center",
       "confidence": "curated",
@@ -1208927,11 +1209207,13 @@
           "Lung Function Test",
           "Pulmonary Function Test"
         ],
-        "zh": []
+        "zh": [
+          "呼吸功能检查"
+        ]
       },
       "canonical": {
         "en": "Respiratory Function Tests",
-        "zh": null
+        "zh": "呼吸功能检查"
       },
       "concept_id": "concept:respiratory_function_test",
       "confidence": "curated",
@@ -1209061,11 +1209343,13 @@
           "Breathing Mechanics",
           "Breathing Mechanic"
         ],
-        "zh": []
+        "zh": [
+          "呼吸力学"
+        ]
       },
       "canonical": {
         "en": "Respiratory Mechanics",
-        "zh": null
+        "zh": "呼吸力学"
       },
       "concept_id": "concept:respiratory_mechanic",
       "confidence": "curated",
@@ -1209121,11 +1209405,13 @@
           "Ventilatory Muscle",
           "Respiratory Muscle"
         ],
-        "zh": []
+        "zh": [
+          "呼吸肌"
+        ]
       },
       "canonical": {
         "en": "Respiratory Muscles",
-        "zh": null
+        "zh": "呼吸肌"
       },
       "concept_id": "concept:respiratory_muscl",
       "confidence": "curated",
@@ -1209260,11 +1209546,13 @@
           "Respiration Rate",
           "Respiration Rates"
         ],
-        "zh": []
+        "zh": [
+          "呼吸频率"
+        ]
       },
       "canonical": {
         "en": "Respiratory Rate",
-        "zh": null
+        "zh": "呼吸频率"
       },
       "concept_id": "concept:respiratory_rate",
       "confidence": "curated",
@@ -1209333,11 +1209621,13 @@
           "Wheezing",
           "Wheezings"
         ],
-        "zh": []
+        "zh": [
+          "呼吸音"
+        ]
       },
       "canonical": {
         "en": "Respiratory Sounds",
-        "zh": null
+        "zh": "呼吸音"
       },
       "concept_id": "concept:respiratory_sound",
       "confidence": "curated",
@@ -1209547,11 +1209837,13 @@
           "Respiratory Tract",
           "Respiratory Tracts"
         ],
-        "zh": []
+        "zh": [
+          "呼吸系统"
+        ]
       },
       "canonical": {
         "en": "Respiratory System",
-        "zh": null
+        "zh": "呼吸系统"
       },
       "concept_id": "concept:respiratory_system",
       "confidence": "curated",
@@ -1209576,11 +1209868,13 @@
           "Respiratory System Abnormalities",
           "Respiratory System Abnormality"
         ],
-        "zh": []
+        "zh": [
+          "呼吸系统异常"
+        ]
       },
       "canonical": {
         "en": "Respiratory System Abnormalities",
-        "zh": null
+        "zh": "呼吸系统异常"
       },
       "concept_id": "concept:respiratory_system_abnormality",
       "confidence": "curated",
@@ -1209606,11 +1209900,13 @@
           "Respiratory Stimulants",
           "Respiratory Stimulant"
         ],
-        "zh": []
+        "zh": [
+          "呼吸系统药物"
+        ]
       },
       "canonical": {
         "en": "Respiratory System Agents",
-        "zh": null
+        "zh": "呼吸系统药物"
       },
       "concept_id": "concept:respiratory_system_agent",
       "confidence": "curated",
@@ -1209669,11 +1209965,13 @@
           "Inhalation Therapy",
           "Inhalation Therapies"
         ],
-        "zh": []
+        "zh": [
+          "呼吸治疗"
+        ]
       },
       "canonical": {
         "en": "Respiratory Therapy",
-        "zh": null
+        "zh": "呼吸治疗"
       },
       "concept_id": "concept:respiratory_therapy",
       "confidence": "curated",
@@ -1209888,11 +1210186,13 @@
           "Respiratory Transport",
           "Respiratory Transports"
         ],
-        "zh": []
+        "zh": [
+          "呼吸转运"
+        ]
       },
       "canonical": {
         "en": "Respiratory Transport",
-        "zh": null
+        "zh": "呼吸转运"
       },
       "concept_id": "concept:respiratory_transport",
       "confidence": "curated",
@@ -1317835,11 +1318135,13 @@
           "Speech Acoustics",
           "Speech Acoustic"
         ],
-        "zh": []
+        "zh": [
+          "语音声学"
+        ]
       },
       "canonical": {
         "en": "Speech Acoustics",
-        "zh": null
+        "zh": "语音声学"
       },
       "concept_id": "concept:speech_acoustic",
       "confidence": "curated",
@@ -1380893,11 +1381195,13 @@
           "Temporal Bones",
           "Stylomastoid Foramen"
         ],
-        "zh": []
+        "zh": [
+          "颞骨"
+        ]
       },
       "canonical": {
         "en": "Temporal Bone",
-        "zh": null
+        "zh": "颞骨"
       },
       "concept_id": "concept:temporal_bone",
       "confidence": "curated",
@@ -1517580,9 +1517884,9 @@
     "en:accept": 233199,
     "en:blocked": 14798,
     "en:reject": 101116,
-    "zh:accept": 2353,
-    "zh:blocked": 11457,
-    "zh:reject": 208
+    "zh:accept": 2505,
+    "zh:blocked": 11326,
+    "zh:reject": 207
   },
   "schema_version": "theme_concept_aliases.v1",
   "skipped_accepted_alias_conflict_count": 0
