@@ -128,6 +128,11 @@ vpnsci_sustech/data/theme_concept_aliases.json
 tools/paper-search-pro/assets/theme_concept_aliases.json
 ```
 
+当前已确认的下一步是 L5.5 紧凑索引迁移：后续 runtime/Agent 工作面应
+切到 `theme_concept_alias_index.json` + `theme_concept_alias_manifest.json`
+并通过 query/summarize 工具查看状态；在迁移完成前，避免把完整
+`theme_concept_aliases.json` 当作默认阅读对象。
+
 运行时不得读：
 
 ```text
@@ -138,18 +143,19 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-16 zh-exact-expansion-batch-005/864-review 后）：
+最新已知状态（2026-06-16 zh-exact-expansion-batch-006 后）：
 
 - runtime `build_status`: `review_complete`
-- 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；runtime 覆盖是最终可用覆盖
-- runtime 中文覆盖：`3669 / 48841 = 7.51%`
-- runtime zh aliases: `3681`
+- 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
+  runtime 覆盖是最终可用覆盖，但下一步优先迁移为紧凑索引/manifest 视图
+- runtime 中文覆盖：`3828 / 48841 = 7.84%`
+- runtime zh aliases: `3840`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `3681`
-- `zh:blocked`: `11548`
+- `zh:accept`: `3840`
+- `zh:blocked`: `11552`
 - `zh:needs_review`: `0`
 - `zh:reject`: `201`
 - accepted/runtime alias conflicts: `0`
@@ -158,14 +164,43 @@ lexicons/review/
 - runtime concept aliases: `48841`
 - package/tool runtime alias 文件 byte-identical
 - runtime SHA-256:
-  `5ac185a3999e5e1b657d84324b852e4585c98abd788f19c6fcefe23ffb9c6220`
+  `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- 最近相关测试：`57 passed in 0.44s`
+- 最近相关测试：`58 passed in 0.44s`
 
 当前下一步：
 
+- 先做 L5.5 紧凑 runtime index / manifest / query 工作面迁移，暂不继续
+  直接扩大 batch-007；
+- host Agent 默认不要再打开完整 `theme_concept_aliases.json` 做状态确认；
+- 需要状态时优先看 manifest/stats/query 工具输出；
+- 最新 batch-006 exact/domain-aware 小批次已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_006_ALIASES`，以 S/Z 段高确定性
+    生物医学、CS/通信/工程术语为主；
+  - `zh:needs_review`: `159 -> 0`；
+  - 显式接受 `159` 条 exact/domain-aware recommendation；
+  - runtime 中文覆盖从 `3669 / 48841 = 7.51%` 增至
+    `3828 / 48841 = 7.84%`；
+  - `zh:accept`: `3840`，`zh:blocked`: `11552`；
+  - `block_accepted_alias_conflicts.py` 结果：`accepted_conflict_groups = 0`；
+  - 两份 runtime alias JSON byte-identical；
+  - runtime SHA-256:
+    `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`；
+  - 相关测试：`58 passed in 0.44s`。
+- batch-006 期间修正并纳入 exact/domain-aware 的副作用包括：
+  `High-energy Shock Waves -> 高能冲击波`、
+  `Mass Vaccination -> 大规模疫苗接种`、
+  `Receptors, Serotonin -> 5-羟色胺受体`、
+  `Shock Waves -> 冲击波`、
+  `Sodium Salicylate -> 水杨酸钠`、
+  `Subarachnoid Hemorrhage, Traumatic -> 创伤性蛛网膜下腔出血`、
+  `Tachycardia, Sinus -> 窦性心动过速`、
+  `Tachycardia, Ventricular -> 室性心动过速`；对应旧坏形态
+  `高能源休克波`、`质量疫苗接种`、`受体5-羟色胺`、`休克波`、
+  `钠水杨酸盐`、`蛛网膜下腔出血创伤性`、`心动过速窦`、
+  `心动过速心室` 不应进入 runtime。
 - en/zh review 均已清零，runtime `build_status` 已是 `review_complete`。
 - 最新 batch-005 / 864 review sweep 已完成：
   - `zh:needs_review`: `864 -> 0`；
@@ -176,7 +211,7 @@ lexicons/review/
   - `block_accepted_alias_conflicts.py` 结果：`accepted_conflict_groups = 0`；
   - 两份 runtime alias JSON byte-identical。
 - 计划文件 `.idea/plans/2026-06-08-theme-concept-alias-pipeline-plan.md`
-  已同步 batch-004/005 最新状态；若后续继续扩展，保持两处状态同步。
+  已同步 batch-006 最新状态；若后续继续扩展，保持两处状态同步。
 - 后续扩大中文 runtime coverage 只能通过 exact glossary、domain-aware replacement
   或中文来源扩充；不要直接把 medium-confidence compositional 候选批量转 accept。
 - `zh-exact-expansion-batch-003` 已完成：runtime 中文覆盖到
@@ -289,7 +324,9 @@ uv run python tools/theme-lexicon/materialize_runtime_overlay.py `
 每次物化后必须确认：
 
 - accepted conflict groups 为 `0`
-- package/tool 两份 `theme_concept_aliases.json` byte-identical
+- L5.5 前：package/tool 两份 `theme_concept_aliases.json` byte-identical
+- L5.5 后：package/tool 两份 `theme_concept_alias_index.json` byte-identical，
+  manifest/stats 对齐，且普通状态确认不读取完整 alias 大文件
 - pollution audit 未恢复 ordinary English residue / known bad shapes
 - 相关 tests fresh pass
 
@@ -492,3 +529,4 @@ uv run python tools/theme-lexicon/materialize_runtime_overlay.py `
 - Codex 每次完成一个 L1+ 任务后，检查 AGENTS.md 是否需要更新。
 - 用户可以直接编辑 AGENTS.md；Codex 读到更新后按最新规则执行。
 - 若 AGENTS.md 与 `.idea/plans/*.md` 冲突，以 AGENTS.md 为项目基线，以 `.idea/plans/*.md` 为当前任务细节。
+

@@ -3968,6 +3968,105 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
         for concept_id, _canonical_en, _domains, alias in cases:
             self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
 
+    def test_exact_expansion_batch_006_continues_high_confidence_standard_terms(self) -> None:
+        cases = [
+            (
+                "saccades",
+                "Saccades",
+                ["biomedical", "phenomena_and_processes"],
+                "扫视",
+            ),
+            (
+                "saliency_detection",
+                "Saliency Detection",
+                ["computers_and_information_processing"],
+                "显著性检测",
+            ),
+            (
+                "zero_shot_learning",
+                "Zero-shot Learning",
+                ["computer_science"],
+                "零样本学习",
+            ),
+            (
+                "zika_virus",
+                "Zika Virus",
+                ["biomedical", "organisms"],
+                "寨卡病毒",
+            ),
+            (
+                "high_energy_shock_waves",
+                "High-energy Shock Waves",
+                ["biomedical", "phenomena_and_processes"],
+                "高能冲击波",
+            ),
+            (
+                "mass_vaccination",
+                "Mass Vaccination",
+                ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                "大规模疫苗接种",
+            ),
+            (
+                "receptors_serotonin",
+                "Receptors, Serotonin",
+                ["biomedical", "chemicals_and_drugs"],
+                "5-羟色胺受体",
+            ),
+            (
+                "shock_waves",
+                "Shock Waves",
+                ["science_general"],
+                "冲击波",
+            ),
+            (
+                "sodium_salicylate",
+                "Sodium Salicylate",
+                ["biomedical", "chemicals_and_drugs"],
+                "水杨酸钠",
+            ),
+            (
+                "traumatic_subarachnoid_hemorrhage",
+                "Subarachnoid Hemorrhage, Traumatic",
+                ["biomedical", "diseases"],
+                "创伤性蛛网膜下腔出血",
+            ),
+            (
+                "sinus_tachycardia",
+                "Tachycardia, Sinus",
+                ["biomedical", "diseases"],
+                "窦性心动过速",
+            ),
+            (
+                "ventricular_tachycardia",
+                "Tachycardia, Ventricular",
+                ["biomedical", "diseases"],
+                "室性心动过速",
+            ),
+        ]
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": f"concept:{concept_id}",
+                    "canonical_en": canonical_en,
+                    "aliases_en": [],
+                    "domains": domains,
+                    "source_refs": [{"source": "openalex_topics", "label": canonical_en}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+                for concept_id, canonical_en, domains, _alias in cases
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        for concept_id, _canonical_en, _domains, alias in cases:
+            self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
+
 
 if __name__ == "__main__":
     unittest.main()
