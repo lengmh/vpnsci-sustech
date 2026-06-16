@@ -90,7 +90,9 @@ THEME_STOPWORDS_EN = {
 }
 THEME_LEXICON_EN_PATH = Path(__file__).resolve().parent / "data" / "theme_lexicon.en.json"
 THEME_LEXICON_ZH_PATH = Path(__file__).resolve().parent / "data" / "theme_lexicon.zh.json"
-THEME_CONCEPT_ALIASES_PATH = Path(__file__).resolve().parent / "data" / "theme_concept_aliases.json"
+THEME_CONCEPT_ALIAS_INDEX_PATH = Path(__file__).resolve().parent / "data" / "theme_concept_alias_index.json"
+THEME_CONCEPT_ALIASES_LEGACY_PATH = Path(__file__).resolve().parent / "data" / "theme_concept_aliases.json"
+THEME_CONCEPT_ALIASES_PATH = THEME_CONCEPT_ALIASES_LEGACY_PATH
 
 
 
@@ -169,10 +171,27 @@ def _normalize_concept_alias(value: str) -> str:
     return " ".join(tokens)
 
 
-def _load_theme_concept_aliases() -> dict[str, dict[str, Any]]:
-    if not THEME_CONCEPT_ALIASES_PATH.exists():
+def _load_theme_concept_aliases(
+    *,
+    index_path: Path = THEME_CONCEPT_ALIAS_INDEX_PATH,
+    legacy_path: Path = THEME_CONCEPT_ALIASES_LEGACY_PATH,
+) -> dict[str, dict[str, Any]]:
+    index_path = Path(index_path)
+    if index_path.exists():
+        payload = json.loads(index_path.read_text(encoding="utf-8"))
+        concepts = payload.get("concepts") or {}
+        aliases = payload.get("aliases") or {}
+        alias_index: dict[str, dict[str, Any]] = {}
+        for alias_key, concept_id in aliases.items():
+            concept = concepts.get(str(concept_id))
+            if isinstance(concept, dict):
+                alias_index.setdefault(str(alias_key), concept)
+        return alias_index
+
+    legacy_path = Path(legacy_path)
+    if not legacy_path.exists():
         return {}
-    payload = json.loads(THEME_CONCEPT_ALIASES_PATH.read_text(encoding="utf-8"))
+    payload = json.loads(legacy_path.read_text(encoding="utf-8"))
     alias_index: dict[str, dict[str, Any]] = {}
     for concept in payload.get("concept_aliases") or []:
         if not isinstance(concept, dict):
