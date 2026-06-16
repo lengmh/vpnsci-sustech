@@ -138,34 +138,57 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-16 zh-exact-expansion-batch-001 后）：
+最新已知状态（2026-06-16 zh-exact-expansion-batch-005/864-review 后）：
 
 - runtime `build_status`: `review_complete`
-- 中文候选覆盖：`13856 / 54682 = 25.34%`
-- runtime 中文覆盖：`2502 / 48834 = 5.12%`
+- 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；runtime 覆盖是最终可用覆盖
+- runtime 中文覆盖：`3669 / 48841 = 7.51%`
+- runtime zh aliases: `3681`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `2505`
-- `zh:blocked`: `11326`
+- `zh:accept`: `3681`
+- `zh:blocked`: `11548`
 - `zh:needs_review`: `0`
-- `zh:reject`: `207`
+- `zh:reject`: `201`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `48834`
+- runtime concept aliases: `48841`
 - package/tool runtime alias 文件 byte-identical
 - runtime SHA-256:
-  `362a548e9bc33113fd2178654a4baf7363eaa4d12a19cecd1ea54c2e25b7c523`
+  `5ac185a3999e5e1b657d84324b852e4585c98abd788f19c6fcefe23ffb9c6220`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- 最近相关测试：`57 passed`
+- 最近相关测试：`57 passed in 0.44s`
 
 当前下一步：
 
 - en/zh review 均已清零，runtime `build_status` 已是 `review_complete`。
+- 最新 batch-005 / 864 review sweep 已完成：
+  - `zh:needs_review`: `864 -> 0`；
+  - 规则化接受 `684` 条标准中文术语；
+  - 阻断 `180` 条低置信组合候选（connector 短语、泛化后缀、过长/反序/重复）；
+  - runtime 中文覆盖从 `2502 / 48834 = 5.12%` 增至
+    `3669 / 48841 = 7.51%`；
+  - `block_accepted_alias_conflicts.py` 结果：`accepted_conflict_groups = 0`；
+  - 两份 runtime alias JSON byte-identical。
+- 计划文件 `.idea/plans/2026-06-08-theme-concept-alias-pipeline-plan.md`
+  已同步 batch-004/005 最新状态；若后续继续扩展，保持两处状态同步。
+- 后续扩大中文 runtime coverage 只能通过 exact glossary、domain-aware replacement
+  或中文来源扩充；不要直接把 medium-confidence compositional 候选批量转 accept。
+- `zh-exact-expansion-batch-003` 已完成：runtime 中文覆盖到
+  `2780 / 48834 = 5.69%`，相关测试当时为 `59 passed`。
+- `zh-exact-expansion-batch-002` 已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_002_ALIASES`；
+  - 显式接受 `165` 条 exact/domain-aware zh recommendation；
+  - `16` 条 exact 输出保持非 reviewable，多数是 collision-blocked duplicate
+    concepts；
+  - `8` 条由 exact 词条引发的 compositional side-effect 已显式 blocked；
+  - runtime 中文覆盖从 `2502 / 48834 = 5.12%` 增至
+    `2666 / 48834 = 5.46%`。
 - `zh-exact-expansion-batch-001` 已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_001_ALIASES`；
   - 显式接受 `156` 条 exact/domain-aware zh recommendation；
