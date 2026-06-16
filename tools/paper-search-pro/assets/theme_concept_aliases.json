@@ -86116,11 +86116,13 @@
           "Anti-Vaccine Group",
           "Anti Vaccine Groups"
         ],
-        "zh": []
+        "zh": [
+          "反疫苗接种运动"
+        ]
       },
       "canonical": {
         "en": "Anti-vaccination Movement",
-        "zh": null
+        "zh": "反疫苗接种运动"
       },
       "concept_id": "concept:anti_vaccination_movement",
       "confidence": "curated",
@@ -221209,11 +221211,13 @@
         "en": [
           "Yeast cdc42 Protein"
         ],
-        "zh": []
+        "zh": [
+          "酿酒酵母CDC42 GTP结合蛋白"
+        ]
       },
       "canonical": {
         "en": "Yeast cdc42 Protein",
-        "zh": null
+        "zh": "酿酒酵母CDC42 GTP结合蛋白"
       },
       "concept_id": "concept:cdc42_gtp_binding_protein_saccharomyc_cerevisiae",
       "confidence": "curated",
@@ -643639,11 +643643,13 @@
           "Ultrasonic Shockwave",
           "Ultrasonic Shockwaves"
         ],
-        "zh": []
+        "zh": [
+          "高能冲击波"
+        ]
       },
       "canonical": {
         "en": "High-energy Shock Waves",
-        "zh": null
+        "zh": "高能冲击波"
       },
       "concept_id": "concept:high_energy_shock_wav",
       "confidence": "curated",
@@ -690752,11 +690758,13 @@
         "en": [
           "Immune Responses And Vaccinations"
         ],
-        "zh": []
+        "zh": [
+          "免疫应答与疫苗接种"
+        ]
       },
       "canonical": {
         "en": "Immune Responses And Vaccinations",
-        "zh": null
+        "zh": "免疫应答与疫苗接种"
       },
       "concept_id": "concept:immune_response_and_vaccination",
       "confidence": "curated",
@@ -729466,11 +729474,13 @@
           "Small Intestines",
           "Small Intestine"
         ],
-        "zh": []
+        "zh": [
+          "小肠"
+        ]
       },
       "canonical": {
         "en": "Small Intestines",
-        "zh": null
+        "zh": "小肠"
       },
       "concept_id": "concept:intestine_small",
       "confidence": "curated",
@@ -828691,11 +828701,13 @@
           "Mass Immunization",
           "Mass Immunizations"
         ],
-        "zh": []
+        "zh": [
+          "大规模疫苗接种"
+        ]
       },
       "canonical": {
         "en": "Mass Vaccination",
-        "zh": null
+        "zh": "大规模疫苗接种"
       },
       "concept_id": "concept:mass_vaccination",
       "confidence": "curated",
@@ -910663,11 +910675,13 @@
           "Involuntary Muscles",
           "Smooth Muscle"
         ],
-        "zh": []
+        "zh": [
+          "平滑肌"
+        ]
       },
       "canonical": {
         "en": "Smooth Muscles",
-        "zh": null
+        "zh": "平滑肌"
       },
       "concept_id": "concept:muscle_smooth",
       "confidence": "curated",
@@ -1160735,11 +1160749,13 @@
         "en": [
           "Quality Scalability"
         ],
-        "zh": []
+        "zh": [
+          "质量可扩展性"
+        ]
       },
       "canonical": {
         "en": "Quality Scalability",
-        "zh": null
+        "zh": "质量可扩展性"
       },
       "concept_id": "concept:quality_scalability",
       "confidence": "curated",
@@ -1193033,11 +1193049,13 @@
           "Tryptamine Receptors",
           "Tryptamine Receptor"
         ],
-        "zh": []
+        "zh": [
+          "5-羟色胺受体"
+        ]
       },
       "canonical": {
         "en": "Serotonin Receptor",
-        "zh": null
+        "zh": "5-羟色胺受体"
       },
       "concept_id": "concept:receptor_serotonin",
       "confidence": "curated",
@@ -1193080,11 +1193098,13 @@
           "5-HT1 Receptors, Serotonin",
           "Serotonin 5 HT1 Receptors"
         ],
-        "zh": []
+        "zh": [
+          "5-HT1受体"
+        ]
       },
       "canonical": {
         "en": "5-HT1 Receptor",
-        "zh": null
+        "zh": "5-HT1受体"
       },
       "concept_id": "concept:receptor_serotonin_5_ht1",
       "confidence": "curated",
@@ -1193294,11 +1193314,13 @@
           "Receptors, 5 HT 2",
           "Serotonin S2 Receptors"
         ],
-        "zh": []
+        "zh": [
+          "5-HT2受体"
+        ]
       },
       "canonical": {
         "en": "Serotonin-2 Receptors",
-        "zh": null
+        "zh": "5-HT2受体"
       },
       "concept_id": "concept:receptor_serotonin_5_ht2",
       "confidence": "curated",
@@ -1193436,11 +1193458,13 @@
           "Serotonin 3 Receptors",
           "Serotonin 3 Receptor"
         ],
-        "zh": []
+        "zh": [
+          "5-HT3受体"
+        ]
       },
       "canonical": {
         "en": "5-HT3 Receptor",
-        "zh": null
+        "zh": "5-HT3受体"
       },
       "concept_id": "concept:receptor_serotonin_5_ht3",
       "confidence": "curated",
@@ -1193477,11 +1193501,13 @@
           "5 HT4S Receptor",
           "Receptor, 5-HT4S"
         ],
-        "zh": []
+        "zh": [
+          "5-HT4受体"
+        ]
       },
       "canonical": {
         "en": "5-HT4 Receptor",
-        "zh": null
+        "zh": "5-HT4受体"
       },
       "concept_id": "concept:receptor_serotonin_5_ht4",
       "confidence": "curated",
@@ -1236882,11 +1236908,13 @@
         "en": [
           "Routing Scalability"
         ],
-        "zh": []
+        "zh": [
+          "路由可扩展性"
+        ]
       },
       "canonical": {
         "en": "Routing Scalability",
-        "zh": null
+        "zh": "路由可扩展性"
       },
       "concept_id": "concept:routing_scalability",
       "confidence": "curated",
@@ -1240555,11 +1240583,13 @@
           "Saccadic Eye Movements",
           "Saccadic Eye Movement"
         ],
-        "zh": []
+        "zh": [
+          "扫视"
+        ]
       },
       "canonical": {
         "en": "Saccades",
-        "zh": null
+        "zh": "扫视"
       },
       "concept_id": "concept:saccad",
       "confidence": "curated",
@@ -1240585,11 +1240615,13 @@
           "Saccharin Calcium",
           "Saccharin Sodium"
         ],
-        "zh": []
+        "zh": [
+          "糖精"
+        ]
       },
       "canonical": {
         "en": "Saccharin",
-        "zh": null
+        "zh": "糖精"
       },
       "concept_id": "concept:saccharin",
       "confidence": "curated",
@@ -1240682,11 +1240714,13 @@
           "Saccharomyces capensis",
           "S. cerevisiae"
         ],
-        "zh": []
+        "zh": [
+          "酿酒酵母"
+        ]
       },
       "canonical": {
         "en": "Saccharomyces Cerevisiae",
-        "zh": null
+        "zh": "酿酒酵母"
       },
       "concept_id": "concept:saccharomyc_cerevisiae",
       "confidence": "curated",
@@ -1240712,11 +1240746,13 @@
           "Baker's Yeast Proteins",
           "S cerevisiae Proteins"
         ],
-        "zh": []
+        "zh": [
+          "酿酒酵母蛋白"
+        ]
       },
       "canonical": {
         "en": "Saccharomyces Cerevisiae Proteins",
-        "zh": null
+        "zh": "酿酒酵母蛋白"
       },
       "concept_id": "concept:saccharomyc_cerevisiae_protein",
       "confidence": "curated",
@@ -1240972,11 +1241008,13 @@
           "Sacroiliac Joint",
           "Sacroiliac Joints"
         ],
-        "zh": []
+        "zh": [
+          "骶髂关节"
+        ]
       },
       "canonical": {
         "en": "Sacroiliac Joint",
-        "zh": null
+        "zh": "骶髂关节"
       },
       "concept_id": "concept:sacroiliac_joint",
       "confidence": "curated",
@@ -1241005,11 +1241043,13 @@
           "Pyogenic Sacroiliitis",
           "Pyogenic Sacroiliitides"
         ],
-        "zh": []
+        "zh": [
+          "骶髂关节炎"
+        ]
       },
       "canonical": {
         "en": "Sacroiliitis",
-        "zh": null
+        "zh": "骶髂关节炎"
       },
       "concept_id": "concept:sacroiliiti",
       "confidence": "curated",
@@ -1241037,11 +1241077,13 @@
           "Sacral Vertebrae",
           "Sacral Vertebra"
         ],
-        "zh": []
+        "zh": [
+          "骶骨"
+        ]
       },
       "canonical": {
         "en": "Sacrum",
-        "zh": null
+        "zh": "骶骨"
       },
       "concept_id": "concept:sacrum",
       "confidence": "curated",
@@ -1241209,11 +1241251,13 @@
           "Responsible Sex",
           "Protected Sex"
         ],
-        "zh": []
+        "zh": [
+          "安全性行为"
+        ]
       },
       "canonical": {
         "en": "Safe Sex",
-        "zh": null
+        "zh": "安全性行为"
       },
       "concept_id": "concept:safe_sex",
       "confidence": "curated",
@@ -1241654,11 +1241698,13 @@
           "Safflower Oil",
           "Safflower Oils"
         ],
-        "zh": []
+        "zh": [
+          "红花油"
+        ]
       },
       "canonical": {
         "en": "Safflower Oil",
-        "zh": null
+        "zh": "红花油"
       },
       "concept_id": "concept:safflower_oil",
       "confidence": "curated",
@@ -1241781,11 +1241827,13 @@
           "Sagittal Sinus Septic Phlebitis",
           "Sagittal Sinus Thrombophlebitis"
         ],
-        "zh": []
+        "zh": [
+          "矢状窦血栓形成"
+        ]
       },
       "canonical": {
         "en": "Sagittal Sinus Thrombosis",
-        "zh": null
+        "zh": "矢状窦血栓形成"
       },
       "concept_id": "concept:sagittal_sinu_thrombosi",
       "confidence": "curated",
@@ -1242361,11 +1242409,13 @@
           "ortho-Hydroxybenzoic Acid",
           "ortho Hydroxybenzoic Acid"
         ],
-        "zh": []
+        "zh": [
+          "水杨酸盐"
+        ]
       },
       "canonical": {
         "en": "Salicylates",
-        "zh": null
+        "zh": "水杨酸盐"
       },
       "concept_id": "concept:salicylat",
       "confidence": "curated",
@@ -1242394,11 +1242444,13 @@
         "en": [
           "Saliency Detection"
         ],
-        "zh": []
+        "zh": [
+          "显著性检测"
+        ]
       },
       "canonical": {
         "en": "Saliency Detection",
-        "zh": null
+        "zh": "显著性检测"
       },
       "concept_id": "concept:saliency_detection",
       "confidence": "curated",
@@ -1242425,11 +1242477,13 @@
           "Saline, 0.9%",
           "0.9% NaCl"
         ],
-        "zh": []
+        "zh": [
+          "生理盐水"
+        ]
       },
       "canonical": {
         "en": "Saline Solution",
-        "zh": null
+        "zh": "生理盐水"
       },
       "concept_id": "concept:saline_solution",
       "confidence": "curated",
@@ -1242456,11 +1242510,13 @@
           "Saline Hypertonic Solution",
           "Hypertonic Saline Solutions"
         ],
-        "zh": []
+        "zh": [
+          "高渗盐水"
+        ]
       },
       "canonical": {
         "en": "Saline Hypertonic Solutions",
-        "zh": null
+        "zh": "高渗盐水"
       },
       "concept_id": "concept:saline_solution_hypertonic",
       "confidence": "curated",
@@ -1242487,11 +1242543,13 @@
           "Brackish Water",
           "Brackish Waters"
         ],
-        "zh": []
+        "zh": [
+          "盐水"
+        ]
       },
       "canonical": {
         "en": "Saline Waters",
-        "zh": null
+        "zh": "盐水"
       },
       "concept_id": "concept:saline_water",
       "confidence": "curated",
@@ -1242515,11 +1242573,13 @@
         "en": [
           "Salinity"
         ],
-        "zh": []
+        "zh": [
+          "盐度"
+        ]
       },
       "canonical": {
         "en": "Salinity",
-        "zh": null
+        "zh": "盐度"
       },
       "concept_id": "concept:salinity",
       "confidence": "curated",
@@ -1242543,11 +1242603,13 @@
         "en": [
           "Salinity (geophysical)"
         ],
-        "zh": []
+        "zh": [
+          "盐度（地球物理）"
+        ]
       },
       "canonical": {
         "en": "Salinity (geophysical)",
-        "zh": null
+        "zh": "盐度（地球物理）"
       },
       "concept_id": "concept:salinity_geophysical",
       "confidence": "curated",
@@ -1242571,11 +1242633,13 @@
           "Saliva",
           "Salivas"
         ],
-        "zh": []
+        "zh": [
+          "唾液"
+        ]
       },
       "canonical": {
         "en": "Saliva",
-        "zh": null
+        "zh": "唾液"
       },
       "concept_id": "concept:saliva",
       "confidence": "curated",
@@ -1242599,11 +1242663,13 @@
         "en": [
           "Artificial Saliva"
         ],
-        "zh": []
+        "zh": [
+          "人工唾液"
+        ]
       },
       "canonical": {
         "en": "Artificial Saliva",
-        "zh": null
+        "zh": "人工唾液"
       },
       "concept_id": "concept:saliva_artificial",
       "confidence": "curated",
@@ -1242630,11 +1242696,13 @@
           "Salivary alpha-Amylase",
           "Salivary alpha Amylase"
         ],
-        "zh": []
+        "zh": [
+          "唾液α-淀粉酶"
+        ]
       },
       "canonical": {
         "en": "Salivary Alpha-amylases",
-        "zh": null
+        "zh": "唾液α-淀粉酶"
       },
       "concept_id": "concept:salivary_alpha_amylase",
       "confidence": "curated",
@@ -1242659,11 +1242727,13 @@
           "Salivary Calculi",
           "Salivary Calculus"
         ],
-        "zh": []
+        "zh": [
+          "涎石"
+        ]
       },
       "canonical": {
         "en": "Salivary Calculi",
-        "zh": null
+        "zh": "涎石"
       },
       "concept_id": "concept:salivary_calculi",
       "confidence": "curated",
@@ -1242742,11 +1242812,13 @@
           "Wharton Duct",
           "Whartons Duct"
         ],
-        "zh": []
+        "zh": [
+          "唾液腺导管"
+        ]
       },
       "canonical": {
         "en": "Salivary Ducts",
-        "zh": null
+        "zh": "唾液腺导管"
       },
       "concept_id": "concept:salivary_duct",
       "confidence": "curated",
@@ -1242833,11 +1242905,13 @@
           "Salivary Glands",
           "Salivary Gland"
         ],
-        "zh": []
+        "zh": [
+          "唾液腺"
+        ]
       },
       "canonical": {
         "en": "Salivary Glands",
-        "zh": null
+        "zh": "唾液腺"
       },
       "concept_id": "concept:salivary_gland",
       "confidence": "curated",
@@ -1242896,11 +1242970,13 @@
           "Salivary Gland Diseases",
           "Salivary Gland Disease"
         ],
-        "zh": []
+        "zh": [
+          "唾液腺疾病"
+        ]
       },
       "canonical": {
         "en": "Salivary Gland Diseases",
-        "zh": null
+        "zh": "唾液腺疾病"
       },
       "concept_id": "concept:salivary_gland_disease",
       "confidence": "curated",
@@ -1242924,11 +1243000,13 @@
         "en": [
           "Salivary Gland Disorders And Functions"
         ],
-        "zh": []
+        "zh": [
+          "唾液腺疾病与功能"
+        ]
       },
       "canonical": {
         "en": "Salivary Gland Disorders And Functions",
-        "zh": null
+        "zh": "唾液腺疾病与功能"
       },
       "concept_id": "concept:salivary_gland_disorder_and_function",
       "confidence": "curated",
@@ -1242953,11 +1243031,13 @@
           "Salivary Gland Fistula",
           "Salivary Gland Fistulas"
         ],
-        "zh": []
+        "zh": [
+          "唾液腺瘘"
+        ]
       },
       "canonical": {
         "en": "Salivary Gland Fistula",
-        "zh": null
+        "zh": "唾液腺瘘"
       },
       "concept_id": "concept:salivary_gland_fistula",
       "confidence": "curated",
@@ -1243022,11 +1243102,13 @@
           "Non-Sebaceous Lymphadenoma",
           "Non Sebaceous Lymphadenomas"
         ],
-        "zh": []
+        "zh": [
+          "唾液腺肿瘤"
+        ]
       },
       "canonical": {
         "en": "Salivary Gland Neoplasms",
-        "zh": null
+        "zh": "唾液腺肿瘤"
       },
       "concept_id": "concept:salivary_gland_neoplasm",
       "confidence": "curated",
@@ -1243050,11 +1243132,13 @@
         "en": [
           "Salivary Gland Tumors Diagnosis And Treatment"
         ],
-        "zh": []
+        "zh": [
+          "唾液腺肿瘤诊断与治疗"
+        ]
       },
       "canonical": {
         "en": "Salivary Gland Tumors Diagnosis And Treatment",
-        "zh": null
+        "zh": "唾液腺肿瘤诊断与治疗"
       },
       "concept_id": "concept:salivary_gland_tumor_diagnosi_and_treatment",
       "confidence": "curated",
@@ -1243147,11 +1243231,13 @@
         "en": [
           "Salivation"
         ],
-        "zh": []
+        "zh": [
+          "流涎"
+        ]
       },
       "canonical": {
         "en": "Salivation",
-        "zh": null
+        "zh": "流涎"
       },
       "concept_id": "concept:salivation",
       "confidence": "curated",
@@ -1243336,11 +1243422,13 @@
         "en": [
           "Salmonella"
         ],
-        "zh": []
+        "zh": [
+          "沙门菌"
+        ]
       },
       "canonical": {
         "en": "Salmonella",
-        "zh": null
+        "zh": "沙门菌"
       },
       "concept_id": "concept:salmonella",
       "confidence": "curated",
@@ -1243481,11 +1243569,13 @@
           "Salmonella Food Poisoning",
           "Salmonella Food Poisonings"
         ],
-        "zh": []
+        "zh": [
+          "沙门菌食物中毒"
+        ]
       },
       "canonical": {
         "en": "Salmonella Food Poisoning",
-        "zh": null
+        "zh": "沙门菌食物中毒"
       },
       "concept_id": "concept:salmonella_food_poisoning",
       "confidence": "curated",
@@ -1243512,11 +1243602,13 @@
           "Salmonellosis",
           "Salmonelloses"
         ],
-        "zh": []
+        "zh": [
+          "沙门菌感染"
+        ]
       },
       "canonical": {
         "en": "Salmonella Infections",
-        "zh": null
+        "zh": "沙门菌感染"
       },
       "concept_id": "concept:salmonella_infection",
       "confidence": "curated",
@@ -1243541,11 +1243633,13 @@
           "Animal Salmonella Infection",
           "Animal Salmonella Infections"
         ],
-        "zh": []
+        "zh": [
+          "动物沙门菌感染"
+        ]
       },
       "canonical": {
         "en": "Animal Salmonella Infection",
-        "zh": null
+        "zh": "动物沙门菌感染"
       },
       "concept_id": "concept:salmonella_infection_animal",
       "confidence": "curated",
@@ -1243752,11 +1243846,13 @@
           "Salmonellosis Vaccine",
           "Salmonellosis Vaccines"
         ],
-        "zh": []
+        "zh": [
+          "沙门菌疫苗"
+        ]
       },
       "canonical": {
         "en": "Salmonella Vaccines",
-        "zh": null
+        "zh": "沙门菌疫苗"
       },
       "concept_id": "concept:salmonella_vaccin",
       "confidence": "curated",
@@ -1243848,11 +1243944,13 @@
           "Tubal Excision",
           "Tubal Excisions"
         ],
-        "zh": []
+        "zh": [
+          "输卵管切除术"
+        ]
       },
       "canonical": {
         "en": "Salpingectomy",
-        "zh": null
+        "zh": "输卵管切除术"
       },
       "concept_id": "concept:salpingectomy",
       "confidence": "curated",
@@ -1243877,11 +1243975,13 @@
           "Salpingitis",
           "Salpingitides"
         ],
-        "zh": []
+        "zh": [
+          "输卵管炎"
+        ]
       },
       "canonical": {
         "en": "Salpingitis",
-        "zh": null
+        "zh": "输卵管炎"
       },
       "concept_id": "concept:salpingiti",
       "confidence": "curated",
@@ -1243907,11 +1244007,13 @@
           "Salpingo-oophorectomies",
           "Salpingo oophorectomy"
         ],
-        "zh": []
+        "zh": [
+          "输卵管卵巢切除术"
+        ]
       },
       "canonical": {
         "en": "Salpingo-oophorectomy",
-        "zh": null
+        "zh": "输卵管卵巢切除术"
       },
       "concept_id": "concept:salpingo_oophorectomy",
       "confidence": "curated",
@@ -1243936,11 +1244038,13 @@
           "Salpingostomy",
           "Salpingostomies"
         ],
-        "zh": []
+        "zh": [
+          "输卵管造口术"
+        ]
       },
       "canonical": {
         "en": "Salpingostomy",
-        "zh": null
+        "zh": "输卵管造口术"
       },
       "concept_id": "concept:salpingostomy",
       "confidence": "curated",
@@ -1244360,11 +1244464,13 @@
           "Salvage Treatments",
           "Salvage Therapies"
         ],
-        "zh": []
+        "zh": [
+          "挽救治疗"
+        ]
       },
       "canonical": {
         "en": "Salvage Therapy",
-        "zh": null
+        "zh": "挽救治疗"
       },
       "concept_id": "concept:salvage_therapy",
       "confidence": "curated",
@@ -1246582,11 +1246688,13 @@
           "Boeck's Disease",
           "Boecks Disease"
         ],
-        "zh": []
+        "zh": [
+          "结节病"
+        ]
       },
       "canonical": {
         "en": "Sarcoidosis",
-        "zh": null
+        "zh": "结节病"
       },
       "concept_id": "concept:sarcoidosi",
       "confidence": "curated",
@@ -1246639,11 +1246747,13 @@
           "Pulmonary Sarcoidosis",
           "Pulmonary Sarcoidoses"
         ],
-        "zh": []
+        "zh": [
+          "肺结节病"
+        ]
       },
       "canonical": {
         "en": "Pulmonary Sarcoidosis",
-        "zh": null
+        "zh": "肺结节病"
       },
       "concept_id": "concept:sarcoidosi_pulmonary",
       "confidence": "curated",
@@ -1246668,11 +1246778,13 @@
           "Sarcolemma",
           "Sarcolemmas"
         ],
-        "zh": []
+        "zh": [
+          "肌膜"
+        ]
       },
       "canonical": {
         "en": "Sarcolemma",
-        "zh": null
+        "zh": "肌膜"
       },
       "concept_id": "concept:sarcolemma",
       "confidence": "curated",
@@ -1246703,11 +1246815,13 @@
           "Spindle Cell Sarcoma",
           "Spindle Cell Sarcomas"
         ],
-        "zh": []
+        "zh": [
+          "肉瘤"
+        ]
       },
       "canonical": {
         "en": "Sarcoma",
-        "zh": null
+        "zh": "肉瘤"
       },
       "concept_id": "concept:sarcoma",
       "confidence": "curated",
@@ -1246941,11 +1247055,13 @@
           "Ewing's Tumor",
           "Ewings Tumor"
         ],
-        "zh": []
+        "zh": [
+          "尤文肉瘤"
+        ]
       },
       "canonical": {
         "en": "Ewing Sarcoma",
-        "zh": null
+        "zh": "尤文肉瘤"
       },
       "concept_id": "concept:sarcoma_ewing",
       "confidence": "curated",
@@ -1247004,11 +1247120,13 @@
           "Kaposis Sarcoma",
           "Multiple Idiopathic Pigmented Hemangiosarcoma"
         ],
-        "zh": []
+        "zh": [
+          "卡波西肉瘤"
+        ]
       },
       "canonical": {
         "en": "Kaposi Sarcoma",
-        "zh": null
+        "zh": "卡波西肉瘤"
       },
       "concept_id": "concept:sarcoma_kaposi",
       "confidence": "curated",
@@ -1247098,11 +1247216,13 @@
           "Synovioma",
           "Synoviomas"
         ],
-        "zh": []
+        "zh": [
+          "滑膜肉瘤"
+        ]
       },
       "canonical": {
         "en": "Synovial Sarcoma",
-        "zh": null
+        "zh": "滑膜肉瘤"
       },
       "concept_id": "concept:sarcoma_synovial",
       "confidence": "curated",
@@ -1247255,11 +1247375,13 @@
           "Sarcomeres",
           "Sarcomere"
         ],
-        "zh": []
+        "zh": [
+          "肌节"
+        ]
       },
       "canonical": {
         "en": "Sarcomeres",
-        "zh": null
+        "zh": "肌节"
       },
       "concept_id": "concept:sarcomer",
       "confidence": "curated",
@@ -1247284,11 +1247406,13 @@
           "Sarcopenia",
           "Sarcopenias"
         ],
-        "zh": []
+        "zh": [
+          "肌少症"
+        ]
       },
       "canonical": {
         "en": "Sarcopenia",
-        "zh": null
+        "zh": "肌少症"
       },
       "concept_id": "concept:sarcopenia",
       "confidence": "curated",
@@ -1247346,11 +1247470,13 @@
           "Sarcoplasmic Reticulum",
           "Sarcoplasmic Reticulums"
         ],
-        "zh": []
+        "zh": [
+          "肌质网"
+        ]
       },
       "canonical": {
         "en": "Sarcoplasmic Reticulum",
-        "zh": null
+        "zh": "肌质网"
       },
       "concept_id": "concept:sarcoplasmic_reticulum",
       "confidence": "curated",
@@ -1247434,11 +1247560,13 @@
           "Sarcoptes Scabiei",
           "Sarcoptes scabieus"
         ],
-        "zh": []
+        "zh": [
+          "疥螨"
+        ]
       },
       "canonical": {
         "en": "Sarcoptes Scabiei",
-        "zh": null
+        "zh": "疥螨"
       },
       "concept_id": "concept:sarcopt_scabiei",
       "confidence": "curated",
@@ -1247497,11 +1247625,13 @@
           "Sarcosine Monosodium Salt",
           "Sarcosine Hydrochloride"
         ],
-        "zh": []
+        "zh": [
+          "肌氨酸"
+        ]
       },
       "canonical": {
         "en": "Sarcosine",
-        "zh": null
+        "zh": "肌氨酸"
       },
       "concept_id": "concept:sarcosine",
       "confidence": "curated",
@@ -1247528,11 +1247658,13 @@
           "Sarcosine N-Demethylase",
           "Sarcosine N Demethylase"
         ],
-        "zh": []
+        "zh": [
+          "肌氨酸脱氢酶"
+        ]
       },
       "canonical": {
         "en": "Sarcosine Dehydrogenase",
-        "zh": null
+        "zh": "肌氨酸脱氢酶"
       },
       "concept_id": "concept:sarcosine_dehydrogenase",
       "confidence": "curated",
@@ -1247559,11 +1247691,13 @@
           "L Pipecolic Acid Oxidase",
           "Sarcosine-Oxygen Oxidoreductase (Demethylating)"
         ],
-        "zh": []
+        "zh": [
+          "肌氨酸氧化酶"
+        ]
       },
       "canonical": {
         "en": "Sarcosine Oxidase",
-        "zh": null
+        "zh": "肌氨酸氧化酶"
       },
       "concept_id": "concept:sarcosine_oxidase",
       "confidence": "curated",
@@ -1247702,11 +1247836,13 @@
           "Coronavirus, 2019 Novel",
           "Novel Coronavirus, 2019"
         ],
-        "zh": []
+        "zh": [
+          "SARS-CoV-2病毒"
+        ]
       },
       "canonical": {
         "en": "Sars-cov-2",
-        "zh": null
+        "zh": "SARS-CoV-2病毒"
       },
       "concept_id": "concept:sars_cov_2",
       "confidence": "curated",
@@ -1247758,11 +1247894,13 @@
         "en": [
           "Sars-cov-2 Detection And Testing"
         ],
-        "zh": []
+        "zh": [
+          "SARS-CoV-2检测"
+        ]
       },
       "canonical": {
         "en": "Sars-cov-2 Detection And Testing",
-        "zh": null
+        "zh": "SARS-CoV-2检测"
       },
       "concept_id": "concept:sars_cov_2_detection_and_testing",
       "confidence": "curated",
@@ -1249191,11 +1249329,13 @@
           "Scabies",
           "Sarcoptic Mange"
         ],
-        "zh": []
+        "zh": [
+          "疥疮"
+        ]
       },
       "canonical": {
         "en": "Scabies",
-        "zh": null
+        "zh": "疥疮"
       },
       "concept_id": "concept:scaby",
       "confidence": "curated",
@@ -1249281,11 +1249421,13 @@
           "Scala Tympani",
           "Scala Tympanus"
         ],
-        "zh": []
+        "zh": [
+          "鼓阶"
+        ]
       },
       "canonical": {
         "en": "Scala Tympani",
-        "zh": null
+        "zh": "鼓阶"
       },
       "concept_id": "concept:scala_tympani",
       "confidence": "curated",
@@ -1249310,11 +1249452,13 @@
           "Scala Vestibuli",
           "Scala Vestibulus"
         ],
-        "zh": []
+        "zh": [
+          "前庭阶"
+        ]
       },
       "canonical": {
         "en": "Scala Vestibuli",
-        "zh": null
+        "zh": "前庭阶"
       },
       "concept_id": "concept:scala_vestibuli",
       "confidence": "curated",
@@ -1249338,11 +1249482,13 @@
         "en": [
           "Scalability"
         ],
-        "zh": []
+        "zh": [
+          "可扩展性"
+        ]
       },
       "canonical": {
         "en": "Scalability",
-        "zh": null
+        "zh": "可扩展性"
       },
       "concept_id": "concept:scalability",
       "confidence": "curated",
@@ -1249365,11 +1249511,13 @@
         "en": [
           "Scalable Coding"
         ],
-        "zh": []
+        "zh": [
+          "可伸缩编码"
+        ]
       },
       "canonical": {
         "en": "Scalable Coding",
-        "zh": null
+        "zh": "可伸缩编码"
       },
       "concept_id": "concept:scalable_coding",
       "confidence": "curated",
@@ -1249420,11 +1249568,13 @@
           "Scalable Video Coding",
           "scalable video coding (svc)"
         ],
-        "zh": []
+        "zh": [
+          "可伸缩视频编码"
+        ]
       },
       "canonical": {
         "en": "Scalable Video Coding",
-        "zh": null
+        "zh": "可伸缩视频编码"
       },
       "concept_id": "concept:scalable_video_coding",
       "confidence": "curated",
@@ -1250176,11 +1250326,13 @@
           "Shoulder Blades",
           "Scapulae"
         ],
-        "zh": []
+        "zh": [
+          "肩胛骨"
+        ]
       },
       "canonical": {
         "en": "Scapula",
-        "zh": null
+        "zh": "肩胛骨"
       },
       "concept_id": "concept:scapula",
       "confidence": "curated",
@@ -1251849,11 +1252001,13 @@
           "Schizophrenic Disorders",
           "Schizophrenic Disorder"
         ],
-        "zh": []
+        "zh": [
+          "精神分裂症"
+        ]
       },
       "canonical": {
         "en": "Schizophrenia",
-        "zh": null
+        "zh": "精神分裂症"
       },
       "concept_id": "concept:schizophrenia",
       "confidence": "curated",
@@ -1251998,11 +1252152,13 @@
         "en": [
           "Schizophrenia Research And Treatment"
         ],
-        "zh": []
+        "zh": [
+          "精神分裂症研究与治疗"
+        ]
       },
       "canonical": {
         "en": "Schizophrenia Research And Treatment",
-        "zh": null
+        "zh": "精神分裂症研究与治疗"
       },
       "concept_id": "concept:schizophrenia_research_and_treatment",
       "confidence": "curated",
@@ -1260881,11 +1261037,13 @@
           "Petit Mal Convulsion",
           "Absence Seizure"
         ],
-        "zh": []
+        "zh": [
+          "癫痫发作"
+        ]
       },
       "canonical": {
         "en": "Seizures",
-        "zh": null
+        "zh": "癫痫发作"
       },
       "concept_id": "concept:seizur",
       "confidence": "curated",
@@ -1271603,11 +1271761,13 @@
           "Hippophaine",
           "Hydroxytryptamine"
         ],
-        "zh": []
+        "zh": [
+          "5-羟色胺"
+        ]
       },
       "canonical": {
         "en": "Serotonin",
-        "zh": null
+        "zh": "5-羟色胺"
       },
       "concept_id": "concept:serotonin",
       "confidence": "curated",
@@ -1271987,11 +1272147,13 @@
           "Serotoninergic Effect",
           "Serotoninergic Effects"
         ],
-        "zh": []
+        "zh": [
+          "5-羟色胺能药物"
+        ]
       },
       "canonical": {
         "en": "Serotonin Agents",
-        "zh": null
+        "zh": "5-羟色胺能药物"
       },
       "concept_id": "concept:serotonin_agent",
       "confidence": "curated",
@@ -1272113,11 +1272275,13 @@
           "Sodium Dependent Serotonin Transporter",
           "5HT Transporter"
         ],
-        "zh": []
+        "zh": [
+          "5-羟色胺质膜转运蛋白"
+        ]
       },
       "canonical": {
         "en": "Serotonin Plasma Membrane Transport Proteins",
-        "zh": null
+        "zh": "5-羟色胺质膜转运蛋白"
       },
       "concept_id": "concept:serotonin_plasma_membrane_transport_protein",
       "confidence": "curated",
@@ -1272187,11 +1272351,13 @@
           "Serotonin Syndrome",
           "Serotonin Syndromes"
         ],
-        "zh": []
+        "zh": [
+          "5-羟色胺综合征"
+        ]
       },
       "canonical": {
         "en": "Serotonin Syndrome",
-        "zh": null
+        "zh": "5-羟色胺综合征"
       },
       "concept_id": "concept:serotonin_syndrome",
       "confidence": "curated",
@@ -1277572,11 +1277738,13 @@
           "Shadow Detection",
           "shadow detections"
         ],
-        "zh": []
+        "zh": [
+          "阴影检测"
+        ]
       },
       "canonical": {
         "en": "Shadow Detection",
-        "zh": null
+        "zh": "阴影检测"
       },
       "concept_id": "concept:shadow_detection",
       "confidence": "curated",
@@ -1277987,11 +1278155,13 @@
         "en": [
           "Shannon Limit"
         ],
-        "zh": []
+        "zh": [
+          "香农极限"
+        ]
       },
       "canonical": {
         "en": "Shannon Limit",
-        "zh": null
+        "zh": "香农极限"
       },
       "concept_id": "concept:shannon_limit",
       "confidence": "curated",
@@ -1278131,11 +1278301,13 @@
           "Shape Descriptor",
           "shape descriptors"
         ],
-        "zh": []
+        "zh": [
+          "形状描述子"
+        ]
       },
       "canonical": {
         "en": "Shape Descriptor",
-        "zh": null
+        "zh": "形状描述子"
       },
       "concept_id": "concept:shape_descriptor",
       "confidence": "curated",
@@ -1278446,11 +1278618,13 @@
         "en": [
           "Shapley Value"
         ],
-        "zh": []
+        "zh": [
+          "Shapley值"
+        ]
       },
       "canonical": {
         "en": "Shapley Value",
-        "zh": null
+        "zh": "Shapley值"
       },
       "concept_id": "concept:shapley_value",
       "confidence": "curated",
@@ -1278527,11 +1278701,13 @@
         "en": [
           "Shared Cache"
         ],
-        "zh": []
+        "zh": [
+          "共享缓存"
+        ]
       },
       "canonical": {
         "en": "Shared Cache",
-        "zh": null
+        "zh": "共享缓存"
       },
       "concept_id": "concept:shared_cache",
       "confidence": "curated",
@@ -1278639,11 +1278815,13 @@
           "Shared Memories",
           "shared memory"
         ],
-        "zh": []
+        "zh": [
+          "共享内存"
+        ]
       },
       "canonical": {
         "en": "Shared Memories",
-        "zh": null
+        "zh": "共享内存"
       },
       "concept_id": "concept:shared_memory",
       "confidence": "curated",
@@ -1278671,11 +1278849,13 @@
         "en": [
           "Shared Memory Architecture"
         ],
-        "zh": []
+        "zh": [
+          "共享内存架构"
+        ]
       },
       "canonical": {
         "en": "Shared Memory Architecture",
-        "zh": null
+        "zh": "共享内存架构"
       },
       "concept_id": "concept:shared_memory_architecture",
       "confidence": "curated",
@@ -1278699,11 +1278879,13 @@
           "Shared Memory Multiprocessor",
           "shared memory multiprocessors"
         ],
-        "zh": []
+        "zh": [
+          "共享内存多处理器"
+        ]
       },
       "canonical": {
         "en": "Shared Memory Multiprocessor",
-        "zh": null
+        "zh": "共享内存多处理器"
       },
       "concept_id": "concept:shared_memory_multiprocessor",
       "confidence": "curated",
@@ -1278731,11 +1278913,13 @@
         "en": [
           "Shared Memory System"
         ],
-        "zh": []
+        "zh": [
+          "共享内存系统"
+        ]
       },
       "canonical": {
         "en": "Shared Memory System",
-        "zh": null
+        "zh": "共享内存系统"
       },
       "concept_id": "concept:shared_memory_system",
       "confidence": "curated",
@@ -1279777,11 +1279961,13 @@
           "Stx Protein",
           "Shigella Toxin"
         ],
-        "zh": []
+        "zh": [
+          "志贺毒素"
+        ]
       },
       "canonical": {
         "en": "Shiga Toxins",
-        "zh": null
+        "zh": "志贺毒素"
       },
       "concept_id": "concept:shiga_toxin",
       "confidence": "curated",
@@ -1279818,11 +1280004,13 @@
           "Verotoxin I",
           "VT1 Cytotoxin"
         ],
-        "zh": []
+        "zh": [
+          "志贺毒素1"
+        ]
       },
       "canonical": {
         "en": "Shiga Toxin 1",
-        "zh": null
+        "zh": "志贺毒素1"
       },
       "concept_id": "concept:shiga_toxin_1",
       "confidence": "curated",
@@ -1279854,11 +1280042,13 @@
           "Verotoxin 2",
           "VT2 Cytotoxin"
         ],
-        "zh": []
+        "zh": [
+          "志贺毒素2"
+        ]
       },
       "canonical": {
         "en": "Shiga Toxin 2",
-        "zh": null
+        "zh": "志贺毒素2"
       },
       "concept_id": "concept:shiga_toxin_2",
       "confidence": "curated",
@@ -1279882,11 +1280072,13 @@
         "en": [
           "Shigella"
         ],
-        "zh": []
+        "zh": [
+          "志贺菌"
+        ]
       },
       "canonical": {
         "en": "Shigella",
-        "zh": null
+        "zh": "志贺菌"
       },
       "concept_id": "concept:shigella",
       "confidence": "curated",
@@ -1280028,11 +1280220,13 @@
         "en": [
           "Shigella Vaccines"
         ],
-        "zh": []
+        "zh": [
+          "志贺菌疫苗"
+        ]
       },
       "canonical": {
         "en": "Shigella Vaccines",
-        "zh": null
+        "zh": "志贺菌疫苗"
       },
       "concept_id": "concept:shigella_vaccin",
       "confidence": "curated",
@@ -1280205,11 +1280399,13 @@
         "en": [
           "Ship Detection"
         ],
-        "zh": []
+        "zh": [
+          "船舶检测"
+        ]
       },
       "canonical": {
         "en": "Ship Detection",
-        "zh": null
+        "zh": "船舶检测"
       },
       "concept_id": "concept:ship_detection",
       "confidence": "curated",
@@ -1280456,11 +1280652,13 @@
           "Circulatory Failure",
           "Hypovolemic Shock"
         ],
-        "zh": []
+        "zh": [
+          "休克"
+        ]
       },
       "canonical": {
         "en": "Shock",
-        "zh": null
+        "zh": "休克"
       },
       "concept_id": "concept:shock",
       "confidence": "curated",
@@ -1280484,11 +1280682,13 @@
         "en": [
           "Cardiogenic Shock"
         ],
-        "zh": []
+        "zh": [
+          "心源性休克"
+        ]
       },
       "canonical": {
         "en": "Cardiogenic Shock",
-        "zh": null
+        "zh": "心源性休克"
       },
       "concept_id": "concept:shock_cardiogenic",
       "confidence": "curated",
@@ -1280512,11 +1280712,13 @@
         "en": [
           "Hemorrhagic Shock"
         ],
-        "zh": []
+        "zh": [
+          "失血性休克"
+        ]
       },
       "canonical": {
         "en": "Hemorrhagic Shock",
-        "zh": null
+        "zh": "失血性休克"
       },
       "concept_id": "concept:shock_hemorrhagic",
       "confidence": "curated",
@@ -1280540,11 +1280742,13 @@
         "en": [
           "Shock (mechanics)"
         ],
-        "zh": []
+        "zh": [
+          "冲击（力学）"
+        ]
       },
       "canonical": {
         "en": "Shock (mechanics)",
-        "zh": null
+        "zh": "冲击（力学）"
       },
       "concept_id": "concept:shock_mechanic",
       "confidence": "curated",
@@ -1280567,11 +1280771,13 @@
         "en": [
           "Shock Resistance"
         ],
-        "zh": []
+        "zh": [
+          "抗冲击性"
+        ]
       },
       "canonical": {
         "en": "Shock Resistance",
-        "zh": null
+        "zh": "抗冲击性"
       },
       "concept_id": "concept:shock_resistance",
       "confidence": "curated",
@@ -1280599,11 +1280805,13 @@
           "Toxic Shock Syndrome",
           "Toxic Shock Syndromes"
         ],
-        "zh": []
+        "zh": [
+          "感染性休克"
+        ]
       },
       "canonical": {
         "en": "Septic Shock",
-        "zh": null
+        "zh": "感染性休克"
       },
       "concept_id": "concept:shock_septic",
       "confidence": "curated",
@@ -1280628,11 +1280836,13 @@
           "Surgical Shock",
           "Surgical Shocks"
         ],
-        "zh": []
+        "zh": [
+          "手术性休克"
+        ]
       },
       "canonical": {
         "en": "Surgical Shock",
-        "zh": null
+        "zh": "手术性休克"
       },
       "concept_id": "concept:shock_surgical",
       "confidence": "curated",
@@ -1280656,11 +1280866,13 @@
         "en": [
           "Traumatic Shock"
         ],
-        "zh": []
+        "zh": [
+          "创伤性休克"
+        ]
       },
       "canonical": {
         "en": "Traumatic Shock",
-        "zh": null
+        "zh": "创伤性休克"
       },
       "concept_id": "concept:shock_traumatic",
       "confidence": "curated",
@@ -1280684,11 +1280896,13 @@
         "en": [
           "Shock Waves"
         ],
-        "zh": []
+        "zh": [
+          "冲击波"
+        ]
       },
       "canonical": {
         "en": "Shock Waves",
-        "zh": null
+        "zh": "冲击波"
       },
       "concept_id": "concept:shock_wav",
       "confidence": "curated",
@@ -1280712,11 +1280926,13 @@
           "Short Bowel Syndrome",
           "Short Bowel Syndromes"
         ],
-        "zh": []
+        "zh": [
+          "短肠综合征"
+        ]
       },
       "canonical": {
         "en": "Short Bowel Syndrome",
-        "zh": null
+        "zh": "短肠综合征"
       },
       "concept_id": "concept:short_bowel_syndrome",
       "confidence": "curated",
@@ -1280999,11 +1281215,13 @@
           "short-time fourier transform",
           "short time fourier transforms"
         ],
-        "zh": []
+        "zh": [
+          "短时傅里叶变换"
+        ]
       },
       "canonical": {
         "en": "Short Time Fourier Transform",
-        "zh": null
+        "zh": "短时傅里叶变换"
       },
       "concept_id": "concept:short_time_fourier_transform",
       "confidence": "curated",
@@ -1281222,11 +1281440,13 @@
           "Whole Genome Shotgun",
           "Whole Genome Shotgun Sequencing"
         ],
-        "zh": []
+        "zh": [
+          "鸟枪法测序"
+        ]
       },
       "canonical": {
         "en": "Shotgun Sequencing",
-        "zh": null
+        "zh": "鸟枪法测序"
       },
       "concept_id": "concept:shotgun_sequencing",
       "confidence": "curated",
@@ -1281312,11 +1281532,13 @@
           "Glenohumeral Subluxation",
           "Glenohumeral Subluxations"
         ],
-        "zh": []
+        "zh": [
+          "肩关节脱位"
+        ]
       },
       "canonical": {
         "en": "Shoulder Dislocation",
-        "zh": null
+        "zh": "肩关节脱位"
       },
       "concept_id": "concept:shoulder_dislocation",
       "confidence": "curated",
@@ -1281343,11 +1281565,13 @@
           "Fetal Shoulder Dystocia",
           "Fetal Shoulder Dystocias"
         ],
-        "zh": []
+        "zh": [
+          "肩难产"
+        ]
       },
       "canonical": {
         "en": "Shoulder Dystocia",
-        "zh": null
+        "zh": "肩难产"
       },
       "concept_id": "concept:shoulder_dystocia",
       "confidence": "curated",
@@ -1281379,11 +1281603,13 @@
           "Humeral Head Fractures",
           "Humeral Head Fracture Dislocation"
         ],
-        "zh": []
+        "zh": [
+          "肩部骨折"
+        ]
       },
       "canonical": {
         "en": "Shoulder Fractures",
-        "zh": null
+        "zh": "肩部骨折"
       },
       "concept_id": "concept:shoulder_fractur",
       "confidence": "curated",
@@ -1281429,11 +1281655,13 @@
           "Posterosuperior Glenoid Impingement",
           "Posterosuperior Glenoid Impingements"
         ],
-        "zh": []
+        "zh": [
+          "肩峰撞击综合征"
+        ]
       },
       "canonical": {
         "en": "Shoulder Impingement Syndrome",
-        "zh": null
+        "zh": "肩峰撞击综合征"
       },
       "concept_id": "concept:shoulder_impingement_syndrome",
       "confidence": "curated",
@@ -1281461,11 +1281689,13 @@
           "SLAP Tears",
           "SLAP Tear"
         ],
-        "zh": []
+        "zh": [
+          "肩损伤"
+        ]
       },
       "canonical": {
         "en": "Shoulder Injuries",
-        "zh": null
+        "zh": "肩损伤"
       },
       "concept_id": "concept:shoulder_injury",
       "confidence": "curated",
@@ -1281489,11 +1281719,13 @@
         "en": [
           "Shoulder Injury And Treatment"
         ],
-        "zh": []
+        "zh": [
+          "肩损伤与治疗"
+        ]
       },
       "canonical": {
         "en": "Shoulder Injury And Treatment",
-        "zh": null
+        "zh": "肩损伤与治疗"
       },
       "concept_id": "concept:shoulder_injury_and_treatment",
       "confidence": "curated",
@@ -1281521,11 +1281753,13 @@
           "Glenohumeral Joints",
           "Glenoid Labrum"
         ],
-        "zh": []
+        "zh": [
+          "肩关节"
+        ]
       },
       "canonical": {
         "en": "Shoulder Joint",
-        "zh": null
+        "zh": "肩关节"
       },
       "concept_id": "concept:shoulder_joint",
       "confidence": "curated",
@@ -1281550,11 +1281784,13 @@
           "Shoulder Pain",
           "Shoulder Pains"
         ],
-        "zh": []
+        "zh": [
+          "肩痛"
+        ]
       },
       "canonical": {
         "en": "Shoulder Pain",
-        "zh": null
+        "zh": "肩痛"
       },
       "concept_id": "concept:shoulder_pain",
       "confidence": "curated",
@@ -1281585,11 +1281821,13 @@
           "Artificial Shoulder Joint",
           "Artificial Shoulder Joints"
         ],
-        "zh": []
+        "zh": [
+          "肩关节假体"
+        ]
       },
       "canonical": {
         "en": "Shoulder Prosthesis",
-        "zh": null
+        "zh": "肩关节假体"
       },
       "concept_id": "concept:shoulder_prosthesi",
       "confidence": "curated",
@@ -1293348,11 +1293586,13 @@
           "Napping",
           "Nighttime Sleep"
         ],
-        "zh": []
+        "zh": [
+          "睡眠"
+        ]
       },
       "canonical": {
         "en": "Sleep",
-        "zh": null
+        "zh": "睡眠"
       },
       "concept_id": "concept:sleep",
       "confidence": "curated",
@@ -1297993,11 +1298233,13 @@
         "en": [
           "Smooth Muscle Myosins"
         ],
-        "zh": []
+        "zh": [
+          "平滑肌肌球蛋白"
+        ]
       },
       "canonical": {
         "en": "Smooth Muscle Myosins",
-        "zh": null
+        "zh": "平滑肌肌球蛋白"
       },
       "concept_id": "concept:smooth_muscle_myosin",
       "confidence": "curated",
@@ -1298022,11 +1298264,13 @@
           "Smooth Muscle Tumor",
           "Smooth Muscle Tumors"
         ],
-        "zh": []
+        "zh": [
+          "平滑肌肿瘤"
+        ]
       },
       "canonical": {
         "en": "Smooth Muscle Tumor",
-        "zh": null
+        "zh": "平滑肌肿瘤"
       },
       "concept_id": "concept:smooth_muscle_tumor",
       "confidence": "curated",
@@ -1305311,11 +1305555,13 @@
         "en": [
           "Sodium Salicylate"
         ],
-        "zh": []
+        "zh": [
+          "水杨酸钠"
+        ]
       },
       "canonical": {
         "en": "Sodium Salicylate",
-        "zh": null
+        "zh": "水杨酸钠"
       },
       "concept_id": "concept:sodium_salicylate",
       "confidence": "curated",
@@ -1317951,11 +1318197,13 @@
         "en": [
           "Spatial Scalability"
         ],
-        "zh": []
+        "zh": [
+          "空间可扩展性"
+        ]
       },
       "canonical": {
         "en": "Spatial Scalability",
-        "zh": null
+        "zh": "空间可扩展性"
       },
       "concept_id": "concept:spatial_scalability",
       "confidence": "curated",
@@ -1348892,11 +1349140,13 @@
           "Intracranial Subarachnoid Hemorrhage",
           "Intracranial Subarachnoid Hemorrhages"
         ],
-        "zh": []
+        "zh": [
+          "蛛网膜下腔出血"
+        ]
       },
       "canonical": {
         "en": "Subarachnoid Hemorrhage",
-        "zh": null
+        "zh": "蛛网膜下腔出血"
       },
       "concept_id": "concept:subarachnoid_hemorrhage",
       "confidence": "curated",
@@ -1348924,11 +1349174,13 @@
           "Post-Traumatic Subarachnoid Hemorrhages",
           "Traumatic Subarachnoid Hemorrhage"
         ],
-        "zh": []
+        "zh": [
+          "创伤性蛛网膜下腔出血"
+        ]
       },
       "canonical": {
         "en": "Traumatic Subarachnoid Hemorrhages",
-        "zh": null
+        "zh": "创伤性蛛网膜下腔出血"
       },
       "concept_id": "concept:subarachnoid_hemorrhage_traumatic",
       "confidence": "curated",
@@ -1371602,11 +1371854,13 @@
         "en": [
           "Tabu Search"
         ],
-        "zh": []
+        "zh": [
+          "禁忌搜索"
+        ]
       },
       "canonical": {
         "en": "Tabu Search",
-        "zh": null
+        "zh": "禁忌搜索"
       },
       "concept_id": "concept:tabu_search",
       "confidence": "curated",
@@ -1371630,11 +1371884,13 @@
           "Tabu Search Algorithm",
           "tabu search algorithms"
         ],
-        "zh": []
+        "zh": [
+          "禁忌搜索算法"
+        ]
       },
       "canonical": {
         "en": "Tabu Search Algorithm",
-        "zh": null
+        "zh": "禁忌搜索算法"
       },
       "concept_id": "concept:tabu_search_algorithm",
       "confidence": "curated",
@@ -1371662,11 +1371918,13 @@
         "en": [
           "Tachometers"
         ],
-        "zh": []
+        "zh": [
+          "转速计"
+        ]
       },
       "canonical": {
         "en": "Tachometers",
-        "zh": null
+        "zh": "转速计"
       },
       "concept_id": "concept:tachometer",
       "confidence": "curated",
@@ -1371692,11 +1371950,13 @@
           "Tachyarrhythmia",
           "Tachyarrhythmias"
         ],
-        "zh": []
+        "zh": [
+          "心动过速"
+        ]
       },
       "canonical": {
         "en": "Tachycardia",
-        "zh": null
+        "zh": "心动过速"
       },
       "concept_id": "concept:tachycardia",
       "confidence": "curated",
@@ -1371908,11 +1372168,13 @@
           "Sinus Tachycardia",
           "Sinus Tachycardias"
         ],
-        "zh": []
+        "zh": [
+          "窦性心动过速"
+        ]
       },
       "canonical": {
         "en": "Sinus Tachycardia",
-        "zh": null
+        "zh": "窦性心动过速"
       },
       "concept_id": "concept:tachycardia_sinu",
       "confidence": "curated",
@@ -1371974,11 +1372236,13 @@
           "Ventricular Tachyarrhythmias",
           "Ventricular Tachyarrhythmia"
         ],
-        "zh": []
+        "zh": [
+          "室性心动过速"
+        ]
       },
       "canonical": {
         "en": "Ventricular Tachycardias",
-        "zh": null
+        "zh": "室性心动过速"
       },
       "concept_id": "concept:tachycardia_ventricular",
       "confidence": "curated",
@@ -1384047,11 +1384311,13 @@
         "en": [
           "Temporal Scalability"
         ],
-        "zh": []
+        "zh": [
+          "时间可扩展性"
+        ]
       },
       "canonical": {
         "en": "Temporal Scalability",
-        "zh": null
+        "zh": "时间可扩展性"
       },
       "concept_id": "concept:temporal_scalability",
       "confidence": "curated",
@@ -1384316,11 +1384582,13 @@
           "Endotenon",
           "Endotenons"
         ],
-        "zh": []
+        "zh": [
+          "肌腱"
+        ]
       },
       "canonical": {
         "en": "Tendons",
-        "zh": null
+        "zh": "肌腱"
       },
       "concept_id": "concept:tendon",
       "confidence": "curated",
@@ -1384380,11 +1384648,13 @@
           "Tendon Injuries",
           "Tendon Injury"
         ],
-        "zh": []
+        "zh": [
+          "肌腱损伤"
+        ]
       },
       "canonical": {
         "en": "Tendon Injuries",
-        "zh": null
+        "zh": "肌腱损伤"
       },
       "concept_id": "concept:tendon_injury",
       "confidence": "curated",
@@ -1384408,11 +1384678,13 @@
         "en": [
           "Tendon Structure And Treatment"
         ],
-        "zh": []
+        "zh": [
+          "肌腱结构与治疗"
+        ]
       },
       "canonical": {
         "en": "Tendon Structure And Treatment",
-        "zh": null
+        "zh": "肌腱结构与治疗"
       },
       "concept_id": "concept:tendon_structure_and_treatment",
       "confidence": "curated",
@@ -1384437,11 +1384709,13 @@
           "Tendon Transfer",
           "Tendon Transfers"
         ],
-        "zh": []
+        "zh": [
+          "肌腱移位术"
+        ]
       },
       "canonical": {
         "en": "Tendon Transfer",
-        "zh": null
+        "zh": "肌腱移位术"
       },
       "concept_id": "concept:tendon_transfer",
       "confidence": "curated",
@@ -1387648,11 +1387922,13 @@
           "Testicles",
           "Testicle"
         ],
-        "zh": []
+        "zh": [
+          "睾丸"
+        ]
       },
       "canonical": {
         "en": "Testis",
-        "zh": null
+        "zh": "睾丸"
       },
       "concept_id": "concept:testi",
       "confidence": "curated",
@@ -1403011,11 +1403287,13 @@
           "Thyroid",
           "Thyroids"
         ],
-        "zh": []
+        "zh": [
+          "甲状腺"
+        ]
       },
       "canonical": {
         "en": "Thyroid Gland",
-        "zh": null
+        "zh": "甲状腺"
       },
       "concept_id": "concept:thyroid_gland",
       "confidence": "curated",
@@ -1439674,11 +1439952,13 @@
           "Mycobacterium tuberculosis Infection",
           "Mycobacterium tuberculosis Infections"
         ],
-        "zh": []
+        "zh": [
+          "结核病"
+        ]
       },
       "canonical": {
         "en": "Tuberculosis",
-        "zh": null
+        "zh": "结核病"
       },
       "concept_id": "concept:tuberculosi",
       "confidence": "curated",
@@ -1463011,11 +1463291,13 @@
           "Uterus Cornua",
           "Uterine Cornua"
         ],
-        "zh": []
+        "zh": [
+          "子宫"
+        ]
       },
       "canonical": {
         "en": "Uterus",
-        "zh": null
+        "zh": "子宫"
       },
       "concept_id": "concept:uteru",
       "confidence": "curated",
@@ -1464815,11 +1465097,13 @@
           "Active Immunization",
           "Active Immunizations"
         ],
-        "zh": []
+        "zh": [
+          "疫苗接种"
+        ]
       },
       "canonical": {
         "en": "Vaccination",
-        "zh": null
+        "zh": "疫苗接种"
       },
       "concept_id": "concept:vaccination",
       "confidence": "curated",
@@ -1472723,11 +1473007,13 @@
           "Veins",
           "Vein"
         ],
-        "zh": []
+        "zh": [
+          "静脉"
+        ]
       },
       "canonical": {
         "en": "Veins",
-        "zh": null
+        "zh": "静脉"
       },
       "concept_id": "concept:vein",
       "confidence": "curated",
@@ -1511311,11 +1511597,13 @@
           "Wound Healing",
           "Wound Healings"
         ],
-        "zh": []
+        "zh": [
+          "创伤愈合"
+        ]
       },
       "canonical": {
         "en": "Wound Healing",
-        "zh": null
+        "zh": "创伤愈合"
       },
       "concept_id": "concept:wound_healing",
       "confidence": "curated",
@@ -1511339,11 +1511627,13 @@
         "en": [
           "Wound Healing And Treatments"
         ],
-        "zh": []
+        "zh": [
+          "创伤愈合与治疗"
+        ]
       },
       "canonical": {
         "en": "Wound Healing And Treatments",
-        "zh": null
+        "zh": "创伤愈合与治疗"
       },
       "concept_id": "concept:wound_healing_and_treatment",
       "confidence": "curated",
@@ -1515907,11 +1516197,13 @@
           "Yellow Fever",
           "Yellow Fevers"
         ],
-        "zh": []
+        "zh": [
+          "黄热病"
+        ]
       },
       "canonical": {
         "en": "Yellow Fever",
-        "zh": null
+        "zh": "黄热病"
       },
       "concept_id": "concept:yellow_fever",
       "confidence": "curated",
@@ -1515935,11 +1516227,13 @@
         "en": [
           "Yellow Fever Vaccine"
         ],
-        "zh": []
+        "zh": [
+          "黄热病疫苗"
+        ]
       },
       "canonical": {
         "en": "Yellow Fever Vaccine",
-        "zh": null
+        "zh": "黄热病疫苗"
       },
       "concept_id": "concept:yellow_fever_vaccine",
       "confidence": "curated",
@@ -1515963,11 +1516257,13 @@
         "en": [
           "Yellow Fever Virus"
         ],
-        "zh": []
+        "zh": [
+          "黄热病病毒"
+        ]
       },
       "canonical": {
         "en": "Yellow Fever Virus",
-        "zh": null
+        "zh": "黄热病病毒"
       },
       "concept_id": "concept:yellow_fever_viru",
       "confidence": "curated",
@@ -1517771,11 +1518067,13 @@
           "Zero Forcing",
           "zero-forcing"
         ],
-        "zh": []
+        "zh": [
+          "迫零"
+        ]
       },
       "canonical": {
         "en": "Zero Forcing",
-        "zh": null
+        "zh": "迫零"
       },
       "concept_id": "concept:zero_forcing",
       "confidence": "curated",
@@ -1517804,11 +1518102,13 @@
           "Zero-forcing Beam-forming",
           "zero-forcing beamforming"
         ],
-        "zh": []
+        "zh": [
+          "迫零波束成形"
+        ]
       },
       "canonical": {
         "en": "Zero-forcing Beam-forming",
-        "zh": null
+        "zh": "迫零波束成形"
       },
       "concept_id": "concept:zero_forcing_beam_forming",
       "confidence": "curated",
@@ -1517836,11 +1518136,13 @@
         "en": [
           "Zero Moment Point"
         ],
-        "zh": []
+        "zh": [
+          "零力矩点"
+        ]
       },
       "canonical": {
         "en": "Zero Moment Point",
-        "zh": null
+        "zh": "零力矩点"
       },
       "concept_id": "concept:zero_moment_point",
       "confidence": "curated",
@@ -1517863,11 +1518165,13 @@
         "en": [
           "Zero Padding"
         ],
-        "zh": []
+        "zh": [
+          "零填充"
+        ]
       },
       "canonical": {
         "en": "Zero Padding",
-        "zh": null
+        "zh": "零填充"
       },
       "concept_id": "concept:zero_padding",
       "confidence": "curated",
@@ -1517890,11 +1518194,13 @@
         "en": [
           "Zero-shot Learning"
         ],
-        "zh": []
+        "zh": [
+          "零样本学习"
+        ]
       },
       "canonical": {
         "en": "Zero-shot Learning",
-        "zh": null
+        "zh": "零样本学习"
       },
       "concept_id": "concept:zero_shot_learning",
       "confidence": "curated",
@@ -1517917,11 +1518223,13 @@
         "en": [
           "Zero-sum Game"
         ],
-        "zh": []
+        "zh": [
+          "零和博弈"
+        ]
       },
       "canonical": {
         "en": "Zero-sum Game",
-        "zh": null
+        "zh": "零和博弈"
       },
       "concept_id": "concept:zero_sum_game",
       "confidence": "curated",
@@ -1518284,11 +1518592,13 @@
           "Zika Virus",
           "ZikV"
         ],
-        "zh": []
+        "zh": [
+          "寨卡病毒"
+        ]
       },
       "canonical": {
         "en": "Zika Virus",
-        "zh": null
+        "zh": "寨卡病毒"
       },
       "concept_id": "concept:zika_viru",
       "confidence": "curated",
@@ -1518317,11 +1518627,13 @@
           "Congenital Zika Syndrome",
           "Congenital Zika Virus Infection"
         ],
-        "zh": []
+        "zh": [
+          "寨卡病毒感染"
+        ]
       },
       "canonical": {
         "en": "Zika Virus Infection",
-        "zh": null
+        "zh": "寨卡病毒感染"
       },
       "concept_id": "concept:zika_viru_infection",
       "confidence": "curated",
@@ -1518548,11 +1518860,13 @@
           "Zinc Finger Nuclease",
           "Zinc-Finger Nucleases"
         ],
-        "zh": []
+        "zh": [
+          "锌指核酸酶"
+        ]
       },
       "canonical": {
         "en": "Zinc Finger Nucleases",
-        "zh": null
+        "zh": "锌指核酸酶"
       },
       "concept_id": "concept:zinc_finger_nuclease",
       "confidence": "curated",
@@ -1518701,11 +1519015,13 @@
           "Lassar Paste",
           "Lassars Paste"
         ],
-        "zh": []
+        "zh": [
+          "氧化锌"
+        ]
       },
       "canonical": {
         "en": "Zinc Oxide",
-        "zh": null
+        "zh": "氧化锌"
       },
       "concept_id": "concept:zinc_oxide",
       "confidence": "curated",
@@ -1518816,11 +1519132,13 @@
           "Zinc Sulfate",
           "Zincteral"
         ],
-        "zh": []
+        "zh": [
+          "硫酸锌"
+        ]
       },
       "canonical": {
         "en": "Zinc Sulfate",
-        "zh": null
+        "zh": "硫酸锌"
       },
       "concept_id": "concept:zinc_sulfate",
       "confidence": "curated",
@@ -1520410,8 +1520728,8 @@
     "en:accept": 233199,
     "en:blocked": 14798,
     "en:reject": 101116,
-    "zh:accept": 3681,
-    "zh:blocked": 11548,
+    "zh:accept": 3840,
+    "zh:blocked": 11552,
     "zh:reject": 201
   },
   "schema_version": "theme_concept_aliases.v1",
