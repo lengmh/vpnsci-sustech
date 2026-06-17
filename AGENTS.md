@@ -153,47 +153,67 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-17 zh-exact-expansion-batch-041-to-060 后）：
+最新已知状态（2026-06-18 zh-exact-expansion-batch-061-to-080 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`5371 / 48844 = 11.00%`
-- runtime zh aliases: `5386`
+- runtime 中文覆盖：`5608 / 48845 = 11.48%`
+- runtime zh aliases: `5623`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `5386`
-- `zh:blocked`: `11480`
+- `zh:accept`: `5623`
+- `zh:blocked`: `11488`
 - `zh:needs_review`: `0`
 - `zh:reject`: `191`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `48844`
+- runtime concept aliases: `48845`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
-- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-060 运行时以 compact index/manifest 为准）
+- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-080 运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `d3f79d856994605923dc3fe9567575cef1c486d76b2f089d417f7edb0791c594`
+  `7071142ba481dcc68417f8ac1fd6acbd8965b5658bf60e4afdc8e580cb2c2732`
 - compact manifest SHA-256:
-  `4f89436379256928696d6a7592963b74ff09c09cb0ec388a01e32ea0d7a9dbb9`
+  `2b3b0afc6ef26b047c3ebc3ccd1304df745f5a1a13273f169b59e7095a6c5d61`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact index 是 batch-060 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-060 更新，不再作为默认等价检查对象。
-- 最近相关测试：`120 passed in 1.20s`。
+- compact index 是 batch-080 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-080 更新，不再作为默认等价检查对象。
+- 最近相关测试：`141 passed in 1.26s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- batch-041 至 batch-060 中文 coverage 扩展已完成；下一步建议先 review 覆盖收益，再继续 batch-061 exact/domain-aware 小批次；
+- batch-061 至 batch-080 中文 coverage 扩展已完成；下一步按目标继续 batch-081 至 batch-100 exact/domain-aware 小批次；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
+- 最新 batch-061 至 batch-080 exact/domain-aware 小批次已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_061_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_080_ALIASES`，以 G 段 GABA 受体、gadolinium、gait、galactose、galanin、gallbladder、gallium、game/gamete、gamma、ganglia/ganglioside、gas/gastric/gastrointestinal、GATA/gated 等 exact 术语为主；
+  - 新增 `21` 个代表性回归测试，先红灯后转绿；其中补充修正 `α半乳糖苷酶 -> α-半乳糖苷酶`、`G M1神经节苷脂 -> GM1神经节苷脂`、`受体甘丙肽1型 -> 1型甘丙肽受体` 等 side-effect 词序/格式；
+  - grouped L3-L5：fill `records_filled = 17109`，validate `review_decisions = 366415`；
+  - 显式接受 `268` 条 exact/domain-aware recommendation；
+  - 显式阻断 `14` 条由 exact 词条引发的 compositional/domain-title side-effect；
+  - `35` 条 exact-backed 输出因 duplicate/collision 保持 blocked，不自动 merge（包括 `Gabor滤波器`、`步态识别`、`星系`、`镓化合物`、`博弈论`、`游戏化`、`伽马射线`、`石榴石`、`气相色谱法` 等重复概念）；
+  - runtime 中文覆盖从 `5371 / 48844 = 11.00%` 增至 `5608 / 48845 = 11.48%`；
+  - `zh:accept`: `5623`，`zh:blocked`: `11488`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `7071142ba481dcc68417f8ac1fd6acbd8965b5658bf60e4afdc8e580cb2c2732`；
+  - compact manifest SHA-256: `2b3b0afc6ef26b047c3ebc3ccd1304df745f5a1a13273f169b59e7095a6c5d61`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - 相关测试：`141 passed in 1.26s`。
+- batch-080 后 review：
+  - 本轮新增 `237` 个 runtime zh-covered concepts，收益低于 batch-041-to-060 的 `295`，但仍可继续 20-batch 分组；
+  - side-effect 降至 `14`，主要是 title/domain 组合（如 `胃肠动力与障碍`、`星系形成演化现象`）和未选中的组件派生（如 `量子气体`），已保持 blocked；
+  - duplicate/collision exact 输出 `35`，主要来自 Gabor/gamma/game/gas 等多源重复概念，继续不自动 merge；
+  - 后续继续扩大到 15% 时，应优先选择高置信 MeSH exact 和具体 CS/工程术语，同时继续把 OpenAlex `Research/Studies/And ...` title side-effect 阻断。
 - 最新 batch-041 至 batch-060 exact/domain-aware 小批次已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_041_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_060_ALIASES`，以 F/G 段 fibroma、fibrosis、filovirus、fish、flavivirus、fluorescence、fluoride、fluoro-drug、focal、folate、food、foot、fracture、fungal、fusobacterium、GABA 等 exact 术语为主；
   - 新增 `20` 个代表性回归测试，先红灯后转绿；

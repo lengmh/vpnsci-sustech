@@ -6164,6 +6164,238 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_061_adds_gaba_receptor_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gaba_a_receptor_agonist", "GABA-A Receptor Agonists", ["biomedical", "chemicals_and_drugs"], "GABA-A受体激动剂"),
+                ("gaba_a_receptor_antagonist", "GABA-A Receptor Antagonists", ["biomedical", "chemicals_and_drugs"], "GABA-A受体拮抗剂"),
+                ("gaba_b_receptor_agonist", "GABA-B Receptor Agonists", ["biomedical", "chemicals_and_drugs"], "GABA-B受体激动剂"),
+                ("gaba_b_receptor_antagonist", "GABA-B Receptor Antagonists", ["biomedical", "chemicals_and_drugs"], "GABA-B受体拮抗剂"),
+                ("gabapentin", "Gabapentin", ["biomedical", "chemicals_and_drugs"], "加巴喷丁"),
+            ]
+        )
+
+    def test_exact_expansion_batch_062_adds_gadolinium_and_gait_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gadolinium_dtpa", "Gadolinium DTPA", ["biomedical", "chemicals_and_drugs"], "钆喷酸葡胺"),
+                ("gadolinium_oxide", "Gadolinium Oxide", ["materials_elements_and_compounds"], "氧化钆"),
+                ("gain_of_function_mutation", "Gain Of Function Mutation", ["biomedical", "phenomena_and_processes"], "功能获得性突变"),
+                ("gait_analysi", "Gait Analysis", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "步态分析"),
+                ("gait_disorder_neurologic", "Gait Disorders, Neurologic", ["biomedical", "diseases"], "神经性步态障碍"),
+            ]
+        )
+
+    def test_exact_expansion_batch_063_adds_galactose_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("galactitol", "Galactitol", ["biomedical", "chemicals_and_drugs"], "半乳糖醇"),
+                ("galactokinase", "Galactokinase", ["biomedical", "chemicals_and_drugs"], "半乳糖激酶"),
+                ("galactose", "Galactose", ["biomedical", "chemicals_and_drugs"], "半乳糖"),
+                ("galactose_oxidase", "Galactose Oxidase", ["biomedical", "chemicals_and_drugs"], "半乳糖氧化酶"),
+                ("galactosemia", "Galactosemias", ["biomedical", "diseases"], "半乳糖血症"),
+            ]
+        )
+
+    def test_exact_expansion_batch_064_adds_galactosidase_and_galanin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("galactosidase", "Galactosidases", ["biomedical", "chemicals_and_drugs"], "半乳糖苷酶"),
+                ("galactosylceramidase", "Galactosylceramidase", ["biomedical", "chemicals_and_drugs"], "半乳糖神经酰胺酶"),
+                ("galanin", "Galanin", ["biomedical", "chemicals_and_drugs"], "甘丙肽"),
+                ("galanin_like_peptide", "Galanin-like Peptide", ["biomedical", "chemicals_and_drugs"], "甘丙肽样肽"),
+                ("galantamine", "Galantamine", ["biomedical", "chemicals_and_drugs"], "加兰他敏"),
+            ]
+        )
+
+    def test_exact_expansion_batch_065_adds_galectin_and_gallbladder_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("galectin", "Galectins", ["biomedical", "chemicals_and_drugs"], "半乳糖凝集素"),
+                ("galectin_3", "Galectin 3", ["biomedical", "chemicals_and_drugs"], "半乳糖凝集素3"),
+                ("gallbladder", "Gallbladder", ["anatomy", "biomedical"], "胆囊"),
+                ("gallbladder_disease", "Gallbladder Diseases", ["biomedical", "diseases"], "胆囊疾病"),
+                ("gallbladder_neoplasm", "Gallbladder Neoplasms", ["biomedical", "diseases"], "胆囊肿瘤"),
+            ]
+        )
+
+    def test_exact_expansion_batch_066_adds_gallium_and_gallstone_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gallic_acid", "Gallic Acid", ["biomedical", "chemicals_and_drugs"], "没食子酸"),
+                ("gallium_arsenide", "Gallium Arsenide", ["materials_elements_and_compounds"], "砷化镓"),
+                ("gallium_nitride", "Gallium Nitride", ["materials_elements_and_compounds"], "氮化镓"),
+                ("gallium_radioisotop", "Gallium Radioisotopes", ["biomedical", "chemicals_and_drugs"], "镓放射性同位素"),
+                ("gallston", "Gallstones", ["biomedical", "diseases"], "胆结石"),
+            ]
+        )
+
+    def test_exact_expansion_batch_067_adds_gambling_and_gamete_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("galvanic_skin_response", "Galvanic Skin Response", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "皮肤电反应"),
+                ("gambling", "Gambling", ["biomedical", "psychiatry_and_psychology"], "赌博"),
+                ("gamete_intrafallopian_transfer", "Gamete Intrafallopian Transfer", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "配子输卵管内移植"),
+                ("gametogenesi", "Gametogenesis", ["biomedical", "phenomena_and_processes"], "配子发生"),
+                ("gamification", "Gamification", ["computer_science"], "游戏化"),
+            ]
+        )
+
+    def test_exact_expansion_batch_068_adds_gamma_biomedical_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gamma_aminobutyric_acid", "Gamma-aminobutyric Acid", ["biomedical", "chemicals_and_drugs"], "γ-氨基丁酸"),
+                ("gamma_camera", "Gamma Cameras", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "伽马照相机"),
+                ("gamma_globulin", "Gamma-globulins", ["biomedical", "chemicals_and_drugs"], "γ-球蛋白"),
+                ("gamma_linolenic_acid", "Gamma-linolenic Acid", ["biomedical", "chemicals_and_drugs"], "γ-亚麻酸"),
+                ("gamma_tocopherol", "Gamma-tocopherol", ["biomedical", "chemicals_and_drugs"], "γ-生育酚"),
+            ]
+        )
+
+    def test_exact_expansion_batch_069_adds_gamma_ray_and_virus_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gamma_distribution", "Gamma Distribution", ["mathematics"], "伽马分布"),
+                ("gamma_ray_burst", "Gamma-ray Bursts", ["nuclear_and_plasma_sciences"], "伽马射线暴"),
+                ("gamma_ray_detector", "Gamma-ray Detectors", ["sensors"], "伽马射线探测器"),
+                ("gamma_rays", "Gamma-rays", ["nuclear_and_plasma_sciences"], "伽马射线"),
+                ("gammaretroviru", "Gammaretrovirus", ["biomedical", "organisms"], "γ逆转录病毒"),
+            ]
+        )
+
+    def test_exact_expansion_batch_070_adds_ganglia_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("ganglia", "Ganglia", ["anatomy", "biomedical"], "神经节"),
+                ("ganglia_autonomic", "Ganglia, Autonomic", ["anatomy", "biomedical"], "自主神经节"),
+                ("ganglia_parasympathetic", "Ganglia, Parasympathetic", ["anatomy", "biomedical"], "副交感神经节"),
+                ("ganglia_sensory", "Ganglia, Sensory", ["anatomy", "biomedical"], "感觉神经节"),
+                ("ganglia_spinal", "Ganglia, Spinal", ["anatomy", "biomedical"], "脊神经节"),
+            ]
+        )
+
+    def test_exact_expansion_batch_071_adds_ganglion_and_ganglioside_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("ganglioglioma", "Ganglioglioma", ["biomedical", "diseases"], "神经节胶质瘤"),
+                ("ganglion_cyst", "Ganglion Cysts", ["biomedical", "diseases"], "腱鞘囊肿"),
+                ("ganglioneuroblastoma", "Ganglioneuroblastoma", ["biomedical", "diseases"], "神经节神经母细胞瘤"),
+                ("ganglioneuroma", "Ganglioneuroma", ["biomedical", "diseases"], "神经节神经瘤"),
+                ("gangliosid", "Gangliosides", ["biomedical", "chemicals_and_drugs"], "神经节苷脂"),
+            ]
+        )
+
+    def test_exact_expansion_batch_072_adds_gap_junction_and_gardnerella_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gangrene", "Gangrene", ["biomedical", "diseases"], "坏疽"),
+                ("gap_junction", "Gap Junctions", ["anatomy", "biomedical"], "缝隙连接"),
+                ("gardner_syndrome", "Gardner Syndrome", ["biomedical", "diseases"], "Gardner综合征"),
+                ("gardnerella", "Gardnerella", ["biomedical", "organisms"], "加德纳菌属"),
+                ("gardnerella_vaginali", "Gardnerella Vaginalis", ["biomedical", "organisms"], "阴道加德纳菌"),
+            ]
+        )
+
+    def test_exact_expansion_batch_073_adds_gas_chromatography_and_gangrene_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("garlic", "Garlic", ["biomedical", "organisms"], "大蒜"),
+                ("gas_chromatography", "Gas Chromatography", ["instrumentation_and_measurement"], "气相色谱法"),
+                ("gas_chromatography_mass_spectrometry", "Gas Chromatography-mass Spectrometry", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "气相色谱-质谱法"),
+                ("gas_gangrene", "Gas Gangrene", ["biomedical", "diseases"], "气性坏疽"),
+                ("gas_poisoning", "Gas Poisoning", ["biomedical", "diseases"], "气体中毒"),
+            ]
+        )
+
+    def test_exact_expansion_batch_074_adds_gaseous_and_gastrectomy_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gasdermin", "Gasdermins", ["biomedical", "chemicals_and_drugs"], "Gasdermin蛋白"),
+                ("gasoline", "Gasoline", ["biomedical", "chemicals_and_drugs"], "汽油"),
+                ("gasotransmitter", "Gasotransmitters", ["biomedical", "chemicals_and_drugs"], "气体递质"),
+                ("gastrectomy", "Gastrectomy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "胃切除术"),
+                ("gastric_absorption", "Gastric Absorption", ["biomedical", "phenomena_and_processes"], "胃吸收"),
+            ]
+        )
+
+    def test_exact_expansion_batch_075_adds_gastric_anatomy_and_procedure_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gastric_acid", "Gastric Acid", ["anatomy", "biomedical"], "胃酸"),
+                ("gastric_artery", "Gastric Artery", ["anatomy", "biomedical"], "胃动脉"),
+                ("gastric_balloon", "Gastric Balloon", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "胃球囊"),
+                ("gastric_bypass", "Gastric Bypass", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "胃旁路术"),
+                ("gastric_emptying", "Gastric Emptying", ["biomedical", "phenomena_and_processes"], "胃排空"),
+            ]
+        )
+
+    def test_exact_expansion_batch_076_adds_gastric_disease_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gastric_antral_vascular_ectasia", "Gastric Antral Vascular Ectasia", ["biomedical", "diseases"], "胃窦血管扩张症"),
+                ("gastric_dilatation", "Gastric Dilatation", ["biomedical", "diseases"], "胃扩张"),
+                ("gastric_fistula", "Gastric Fistula", ["biomedical", "diseases"], "胃瘘"),
+                ("gastric_lavage", "Gastric Lavage", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "洗胃"),
+                ("gastric_outlet_obstruction", "Gastric Outlet Obstruction", ["biomedical", "diseases"], "胃出口梗阻"),
+            ]
+        )
+
+    def test_exact_expansion_batch_077_adds_gastrin_and_gastritis_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gastrin", "Gastrins", ["biomedical", "chemicals_and_drugs"], "胃泌素"),
+                ("gastrin_releasing_peptide", "Gastrin-releasing Peptide", ["biomedical", "chemicals_and_drugs"], "胃泌素释放肽"),
+                ("gastrinoma", "Gastrinoma", ["biomedical", "diseases"], "胃泌素瘤"),
+                ("gastriti__2", "Gastritis", ["biomedical", "diseases"], "胃炎"),
+                ("gastriti_atrophic", "Gastritis, Atrophic", ["biomedical", "diseases"], "萎缩性胃炎"),
+            ]
+        )
+
+    def test_exact_expansion_batch_078_adds_gastroenteritis_and_reflux_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gastroenteriti", "Gastroenteritis", ["biomedical", "diseases"], "胃肠炎"),
+                ("gastroenterology__2", "Gastroenterology", ["biomedical", "disciplines_and_occupations"], "胃肠病学"),
+                ("gastroenterostomy", "Gastroenterostomy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "胃肠吻合术"),
+                ("gastroepiploic_artery", "Gastroepiploic Artery", ["anatomy", "biomedical"], "胃网膜动脉"),
+                ("gastroesophageal_reflux", "Gastroesophageal Reflux", ["biomedical", "diseases"], "胃食管反流"),
+            ]
+        )
+
+    def test_exact_expansion_batch_079_adds_gastrointestinal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gastrointestinal_absorption", "Gastrointestinal Absorption", ["biomedical", "phenomena_and_processes"], "胃肠吸收"),
+                ("gastrointestinal_content", "Gastrointestinal Contents", ["anatomy", "biomedical"], "胃肠内容物"),
+                ("gastrointestinal_disease", "Gastrointestinal Diseases", ["biomedical", "diseases"], "胃肠疾病"),
+                ("gastrointestinal_hemorrhage", "Gastrointestinal Hemorrhage", ["biomedical", "diseases"], "胃肠出血"),
+                ("gastrointestinal_hormon", "Gastrointestinal Hormones", ["biomedical", "chemicals_and_drugs"], "胃肠激素"),
+            ]
+        )
+
+    def test_exact_expansion_batch_080_adds_gastrointestinal_stromal_and_gata_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gastrointestinal_neoplasm", "Gastrointestinal Neoplasms", ["biomedical", "diseases"], "胃肠肿瘤"),
+                ("gastrointestinal_stromal_tumor", "Gastrointestinal Stromal Tumors", ["biomedical", "diseases"], "胃肠间质瘤"),
+                ("gastroparesi", "Gastroparesis", ["biomedical", "diseases"], "胃轻瘫"),
+                ("gastroscopy", "Gastroscopy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "胃镜检查"),
+                ("gated_blood_pool_imaging", "Gated Blood-pool Imaging", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "门控血池显像"),
+            ]
+        )
+
+    def test_exact_expansion_batch_061_to_080_fixes_review_side_effect_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("alpha_galactosidase", "Alpha-Galactosidase", ["biomedical", "chemicals_and_drugs"], "α-半乳糖苷酶"),
+                ("beta_galactosidase", "Beta-Galactosidase", ["biomedical", "chemicals_and_drugs"], "β-半乳糖苷酶"),
+                ("g_m1_ganglioside", "G(M1) Ganglioside", ["biomedical", "chemicals_and_drugs"], "GM1神经节苷脂"),
+                ("g_m2_ganglioside", "G(M2) Ganglioside", ["biomedical", "chemicals_and_drugs"], "GM2神经节苷脂"),
+                ("receptor_galanin_type_1", "Receptors, Galanin, Type 1", ["biomedical", "chemicals_and_drugs"], "1型甘丙肽受体"),
+                ("receptor_gastrointestinal_hormone", "Receptors, Gastrointestinal Hormone", ["biomedical", "chemicals_and_drugs"], "胃肠激素受体"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

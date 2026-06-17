@@ -4970,6 +4970,355 @@ ZH_EXACT_EXPANSION_BATCH_060_ALIASES = {
         "gabaergic neurons": "GABA能神经元",
 }
 
+ZH_EXACT_EXPANSION_BATCH_061_ALIASES = {
+        "gaba-a receptor agonists": "GABA-A受体激动剂",
+        "gaba-a receptor antagonists": "GABA-A受体拮抗剂",
+        "gaba agonists": "GABA激动剂",
+        "gaba antagonists": "GABA拮抗剂",
+        "gaba-b receptor agonists": "GABA-B受体激动剂",
+        "gaba-b receptor antagonists": "GABA-B受体拮抗剂",
+        "gaba modulators": "GABA调节剂",
+        "gaba plasma membrane transport proteins": "GABA质膜转运蛋白",
+        "gaba uptake inhibitors": "GABA摄取抑制剂",
+        "gabapentin": "加巴喷丁",
+        "gabexate": "加贝酯",
+}
+
+ZH_EXACT_EXPANSION_BATCH_062_ALIASES = {
+        "gabor feature": "Gabor特征",
+        "gabor filters": "Gabor滤波器",
+        "gabor filter banks": "Gabor滤波器组",
+        "gabor filtering": "Gabor滤波",
+        "gabor wavelet": "Gabor小波",
+        "gabor wavelet transforms": "Gabor小波变换",
+        "gadd45 proteins": "GADD45蛋白",
+        "gadolinium": "钆",
+        "gadolinium dtpa": "钆喷酸葡胺",
+        "gadolinium oxide": "氧化钆",
+        "gadu morhua": "大西洋鳕",
+        "gag gene products human immunodeficiency virus": "人免疫缺陷病毒Gag基因产物",
+        "gagging": "作呕",
+        "gain of function mutation": "功能获得性突变",
+}
+
+ZH_EXACT_EXPANSION_BATCH_063_ALIASES = {
+        "gait": "步态",
+        "gait analysis": "步态分析",
+        "gait apraxia": "步态失用",
+        "gait ataxia": "步态共济失调",
+        "gait cycles": "步态周期",
+        "gait disorders neurologic": "神经性步态障碍",
+        "gait features": "步态特征",
+        "gait planning": "步态规划",
+        "gait recognition": "步态识别",
+        "galactans": "半乳聚糖",
+        "galactitol": "半乳糖醇",
+        "galactogogues": "催乳剂",
+        "galactokinase": "半乳糖激酶",
+        "galactolipids": "半乳糖脂",
+        "galactorrhea": "溢乳",
+}
+
+ZH_EXACT_EXPANSION_BATCH_064_ALIASES = {
+        "alpha-galactosidase": "α-半乳糖苷酶",
+        "beta-galactosidase": "β-半乳糖苷酶",
+        "galactosamine": "半乳糖胺",
+        "galactose": "半乳糖",
+        "galactose dehydrogenases": "半乳糖脱氢酶",
+        "galactose oxidase": "半乳糖氧化酶",
+        "galactosemias": "半乳糖血症",
+        "galactosephosphates": "半乳糖磷酸盐",
+        "galactosides": "半乳糖苷",
+        "galactosidases": "半乳糖苷酶",
+        "galactoside 2-alpha-l-fucosyltransferase": "半乳糖苷2-α-L-岩藻糖基转移酶",
+        "galactosylceramides": "半乳糖神经酰胺",
+        "galactosylceramidase": "半乳糖神经酰胺酶",
+        "galactosyltransferases": "半乳糖基转移酶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_065_ALIASES = {
+        "galagidae": "婴猴科",
+        "galago": "婴猴",
+        "galanin": "甘丙肽",
+        "galanin-like peptide": "甘丙肽样肽",
+        "galantamine": "加兰他敏",
+        "galaxies": "星系",
+        "galaxy clusters": "星系团",
+        "galectins": "半乳糖凝集素",
+        "galectin 2": "半乳糖凝集素2",
+        "galectin 3": "半乳糖凝集素3",
+        "galectin 4": "半乳糖凝集素4",
+        "galerkin method": "Galerkin方法",
+        "galileo signals": "伽利略信号",
+}
+
+ZH_EXACT_EXPANSION_BATCH_066_ALIASES = {
+        "aluminum gallium arsenide": "铝镓砷",
+        "aluminum gallium nitride": "铝镓氮",
+        "gallamine triethiodide": "三碘季铵酚",
+        "gallbladder": "胆囊",
+        "gallbladder diseases": "胆囊疾病",
+        "gallbladder emptying": "胆囊排空",
+        "gallbladder neoplasms": "胆囊肿瘤",
+        "gallic acid": "没食子酸",
+        "galliformes": "鸡形目",
+        "gallium": "镓",
+        "gallium alloys": "镓合金",
+        "gallium arsenide": "砷化镓",
+        "gallium compounds": "镓化合物",
+        "gallium isotopes": "镓同位素",
+        "gallium nitride": "氮化镓",
+        "gallium oxide": "氧化镓",
+        "gallium radioisotopes": "镓放射性同位素",
+        "gallopamil": "加洛帕米",
+        "gallstones": "胆结石",
+}
+
+ZH_EXACT_EXPANSION_BATCH_067_ALIASES = {
+        "algorithmic game theory": "算法博弈论",
+        "evolutionary game theory": "演化博弈论",
+        "galois connection": "Galois连接",
+        "galois fields": "Galois域",
+        "galvanic skin response": "皮肤电反应",
+        "games experimental": "实验性游戏",
+        "games recreational": "娱乐性游戏",
+        "gabon": "加蓬",
+        "gambia": "冈比亚",
+        "gambling": "赌博",
+        "game analysis": "博弈分析",
+        "game based learning": "游戏化学习",
+        "game design": "游戏设计",
+        "game development": "游戏开发",
+        "game environment": "游戏环境",
+        "game models": "博弈模型",
+        "game theory": "博弈论",
+        "gameplay": "游戏玩法",
+        "gamete intrafallopian transfer": "配子输卵管内移植",
+        "gametogenesis": "配子发生",
+        "gametogenesis plant": "植物配子发生",
+        "gamification": "游戏化",
+        "non-cooperative game theory": "非合作博弈论",
+}
+
+ZH_EXACT_EXPANSION_BATCH_068_ALIASES = {
+        "gamma-aminobutyric acid": "γ-氨基丁酸",
+        "gamma-butyrobetaine dioxygenase": "γ-丁基甜菜碱双加氧酶",
+        "gamma cameras": "伽马照相机",
+        "gamma catenin": "γ-连环蛋白",
+        "gamma-crystallins": "γ-晶状体蛋白",
+        "gamma-cyclodextrins": "γ-环糊精",
+        "gamma distribution": "伽马分布",
+        "gamma-endorphin": "γ-内啡肽",
+        "gamma-globins": "γ-珠蛋白",
+        "gamma-globulins": "γ-球蛋白",
+        "gamma-glutamyl hydrolase": "γ-谷氨酰水解酶",
+        "gamma-glutamylcyclotransferase": "γ-谷氨酰环转移酶",
+        "gamma-glutamyltransferase": "γ-谷氨酰转移酶",
+        "gamma-linolenic acid": "γ-亚麻酸",
+        "gamma-lipotropin": "γ-促脂解素",
+        "gamma-msh": "γ-MSH",
+}
+
+ZH_EXACT_EXPANSION_BATCH_069_ALIASES = {
+        "gamma-ray bursts": "伽马射线暴",
+        "gamma-ray detection": "伽马射线探测",
+        "gamma-ray detectors": "伽马射线探测器",
+        "gamma-ray effects": "伽马射线效应",
+        "gamma-ray techniques": "伽马射线技术",
+        "gamma-ray telescopes": "伽马射线望远镜",
+        "gamma-rays": "伽马射线",
+        "gamma rays": "伽马射线",
+        "gamma rhythm": "γ节律",
+        "gamma secretase inhibitors and modulators": "γ-分泌酶抑制剂和调节剂",
+        "gamma-synuclein": "γ-突触核蛋白",
+        "gamma-tocopherol": "γ-生育酚",
+        "gammacoronavirus": "γ冠状病毒属",
+        "gammaherpesvirinae": "γ疱疹病毒亚科",
+        "gammainfluenzavirus": "γ流感病毒属",
+        "gammapapillomavirus": "γ乳头瘤病毒属",
+        "gammaproteobacteria": "γ变形菌纲",
+        "gammaretrovirus": "γ逆转录病毒",
+}
+
+ZH_EXACT_EXPANSION_BATCH_070_ALIASES = {
+        "ganciclovir": "更昔洛韦",
+        "ganglia": "神经节",
+        "ganglia autonomic": "自主神经节",
+        "ganglia invertebrate": "无脊椎动物神经节",
+        "ganglia parasympathetic": "副交感神经节",
+        "ganglia sensory": "感觉神经节",
+        "ganglia spinal": "脊神经节",
+        "ganglia sympathetic": "交感神经节",
+        "ganglioglioma": "神经节胶质瘤",
+        "ganglion cysts": "腱鞘囊肿",
+        "ganglionectomy": "神经节切除术",
+}
+
+ZH_EXACT_EXPANSION_BATCH_071_ALIASES = {
+        "g(m1) ganglioside": "GM1神经节苷脂",
+        "g(m2) ganglioside": "GM2神经节苷脂",
+        "g(m3) ganglioside": "GM3神经节苷脂",
+        "ganglioneuroblastoma": "神经节神经母细胞瘤",
+        "ganglioneuroma": "神经节神经瘤",
+        "ganglionic blockers": "神经节阻滞剂",
+        "ganglionic eminence": "神经节隆起",
+        "ganglionic stimulants": "神经节刺激剂",
+        "gangliosides": "神经节苷脂",
+        "ganglioside galactosyltransferase": "神经节苷脂半乳糖基转移酶",
+        "gangliosidoses": "神经节苷脂贮积症",
+        "gangliosidoses gm2": "GM2神经节苷脂贮积症",
+        "gangliosidosis gm1": "GM1神经节苷脂贮积症",
+        "gangrene": "坏疽",
+        "ganoderma": "灵芝属",
+}
+
+ZH_EXACT_EXPANSION_BATCH_072_ALIASES = {
+        "gap-43 protein": "GAP-43蛋白",
+        "gap junctions": "缝隙连接",
+        "gap junction alpha-4 protein": "缝隙连接α-4蛋白",
+        "gap junction alpha-5 protein": "缝隙连接α-5蛋白",
+        "gap junction beta-1 protein": "缝隙连接β-1蛋白",
+        "gap junction delta-2 protein": "缝隙连接δ-2蛋白",
+        "garbage": "垃圾",
+        "garcinia": "藤黄属",
+        "garcinia cambogia": "藤黄果",
+        "garcinia kola": "苦可乐",
+        "gardens": "花园",
+        "gardening": "园艺",
+        "gardner syndrome": "Gardner综合征",
+        "gardnerella": "加德纳菌属",
+        "gardnerella vaginalis": "阴道加德纳菌",
+}
+
+ZH_EXACT_EXPANSION_BATCH_073_ALIASES = {
+        "garlic": "大蒜",
+        "garnets": "石榴石",
+        "garnet films": "石榴石薄膜",
+        "gas chromatography": "气相色谱法",
+        "gas chromatography-mass spectrometry": "气相色谱-质谱法",
+        "gas detectors": "气体探测器",
+        "gas discharge devices": "气体放电器件",
+        "gas gangrene": "气性坏疽",
+        "gas insulation": "气体绝缘",
+        "gas lasers": "气体激光器",
+        "gas poisoning": "气体中毒",
+        "gas scavengers": "气体清除剂",
+        "gas turbine": "燃气轮机",
+}
+
+ZH_EXACT_EXPANSION_BATCH_074_ALIASES = {
+        "gasdermins": "Gasdermin蛋白",
+        "gases": "气体",
+        "gasoline": "汽油",
+        "gasoline engine": "汽油发动机",
+        "gasotransmitters": "气体递质",
+        "gastrectomy": "胃切除术",
+        "gastric absorption": "胃吸收",
+        "gastric acid": "胃酸",
+        "gastric acidity determination": "胃酸度测定",
+        "gastric antral vascular ectasia": "胃窦血管扩张症",
+        "gastric artery": "胃动脉",
+        "gastric balloon": "胃球囊",
+        "gastric bypass": "胃旁路术",
+}
+
+ZH_EXACT_EXPANSION_BATCH_075_ALIASES = {
+        "gastric dilatation": "胃扩张",
+        "gastric emptying": "胃排空",
+        "gastric fistula": "胃瘘",
+        "gastric fundus": "胃底",
+        "gastric hypothermia": "胃低温疗法",
+        "gastric inhibitory polypeptide": "胃抑制多肽",
+        "gastric juice": "胃液",
+        "gastric lavage": "洗胃",
+        "gastric mucins": "胃黏蛋白",
+        "gastric mucosa": "胃黏膜",
+        "gastric outlet obstruction": "胃出口梗阻",
+        "gastric stump": "胃残端",
+}
+
+ZH_EXACT_EXPANSION_BATCH_076_ALIASES = {
+        "gastrins": "胃泌素",
+        "gastrin-releasing peptide": "胃泌素释放肽",
+        "gastrin-secreting cells": "胃泌素分泌细胞",
+        "gastrinoma": "胃泌素瘤",
+        "gastritis": "胃炎",
+        "gastritis atrophic": "萎缩性胃炎",
+        "gastritis hypertrophic": "肥厚性胃炎",
+        "gastrodia": "天麻属",
+        "gastroenteritis": "胃肠炎",
+        "gastroenteritis transmissible of swine": "猪传染性胃肠炎",
+        "gastroenterologists": "胃肠病学家",
+        "gastroenterology": "胃肠病学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_077_ALIASES = {
+        "gastroenterostomy": "胃肠吻合术",
+        "gastroepiploic artery": "胃网膜动脉",
+        "gastroesophageal reflux": "胃食管反流",
+        "gastrointestinal absorption": "胃肠吸收",
+        "gastrointestinal agents": "胃肠道药物",
+        "gastrointestinal contents": "胃肠内容物",
+        "gastrointestinal diseases": "胃肠疾病",
+        "gastrointestinal hemorrhage": "胃肠出血",
+        "gastrointestinal hormones": "胃肠激素",
+        "gastrointestinal microbiome": "胃肠道微生物组",
+        "gastrointestinal motility": "胃肠动力",
+        "receptors gastrointestinal hormone": "胃肠激素受体",
+}
+
+ZH_EXACT_EXPANSION_BATCH_078_ALIASES = {
+        "gastrointestinal neoplasms": "胃肠肿瘤",
+        "gastrointestinal stromal tumors": "胃肠间质瘤",
+        "gastrointestinal tract": "胃肠道",
+        "gastrointestinal transit": "胃肠转运",
+        "gastroparesis": "胃轻瘫",
+        "gastropexy": "胃固定术",
+        "gastroplasty": "胃成形术",
+        "gastropoda": "腹足纲",
+        "gastroschisis": "腹裂",
+        "gastroscopes": "胃镜",
+        "gastroscopy": "胃镜检查",
+        "gastrostomy": "胃造口术",
+        "gastrula": "原肠胚",
+        "gastrulation": "原肠胚形成",
+}
+
+ZH_EXACT_EXPANSION_BATCH_079_ALIASES = {
+        "gata1 transcription factor": "GATA1转录因子",
+        "gata2 deficiency": "GATA2缺乏症",
+        "gata2 transcription factor": "GATA2转录因子",
+        "gata3 transcription factor": "GATA3转录因子",
+        "gata4 transcription factor": "GATA4转录因子",
+        "gata5 transcription factor": "GATA5转录因子",
+        "gata6 transcription factor": "GATA6转录因子",
+        "gata transcription factors": "GATA转录因子",
+        "gate dielectrics": "栅介质",
+        "gate drivers": "栅极驱动器",
+        "gate leakage": "栅漏电",
+        "gate-leakage current": "栅漏电流",
+        "gate oxide": "栅氧化层",
+        "gate sizing": "栅尺寸调整",
+        "gate stacks": "栅堆叠",
+}
+
+ZH_EXACT_EXPANSION_BATCH_080_ALIASES = {
+        "gated blood-pool imaging": "门控血池显像",
+        "gated recurrent units": "门控循环单元",
+        "gatekeeping": "守门",
+        "gateway": "网关",
+        "gateway nodes": "网关节点",
+        "gatifloxacin": "加替沙星",
+        "gaucher disease": "戈谢病",
+        "gauge bosons": "规范玻色子",
+        "gaze": "凝视",
+        "gefitinib": "吉非替尼",
+        "receptors galanin": "甘丙肽受体",
+        "receptors galanin type 1": "1型甘丙肽受体",
+        "receptors galanin type 2": "2型甘丙肽受体",
+        "receptors galanin type 3": "3型甘丙肽受体",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -5032,6 +5381,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_057_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_058_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_059_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_060_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_061_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_062_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_063_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_064_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_065_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_066_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_067_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_068_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_069_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_070_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_071_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_072_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_073_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_074_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_075_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_076_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_077_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_078_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_079_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_080_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",
