@@ -2246,7 +2246,7 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
         self.assertEqual(rows["concept:adenylosuccinate_lyase"]["zh_alias_candidates"][0]["alias"], "腺苷酸琥珀酸裂解酶")
         self.assertEqual(rows["concept:african_people"]["zh_alias_candidates"][0]["alias"], "非洲人群")
 
-    def test_long_biomedical_class_suffixes_are_review_gated_not_runtime_accepted(self) -> None:
+    def test_long_biomedical_class_suffixes_are_review_gated_unless_exact(self) -> None:
         write_jsonl(
             self.batch,
             [
@@ -2293,7 +2293,11 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
         )
         self.assertEqual(
             rows["concept:amino_acids_peptides_proteins"]["zh_alias_candidates"][0]["alias"],
-            "氨基酸肽与蛋白质",
+            "氨基酸、肽和蛋白质",
+        )
+        self.assertEqual(
+            rows["concept:amino_acids_peptides_proteins"]["zh_alias_candidates"][0]["source"],
+            "agent_exact_glossary",
         )
         self.assertEqual(rows["concept:bronchiolitis_viral"]["zh_alias_candidates"][0]["alias"], "病毒性细支气管炎")
         self.assertEqual(
@@ -4041,6 +4045,354 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
                 "Tachycardia, Ventricular",
                 ["biomedical", "diseases"],
                 "室性心动过速",
+            ),
+        ]
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": f"concept:{concept_id}",
+                    "canonical_en": canonical_en,
+                    "aliases_en": [],
+                    "domains": domains,
+                    "source_refs": [{"source": "openalex_topics", "label": canonical_en}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+                for concept_id, canonical_en, domains, _alias in cases
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        for concept_id, _canonical_en, _domains, alias in cases:
+            self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
+
+    def test_exact_expansion_batch_007_continues_domain_aware_biomedical_terms(self) -> None:
+        cases = [
+            (
+                "angina_stable",
+                "Angina, Stable",
+                ["biomedical", "diseases"],
+                "稳定型心绞痛",
+            ),
+            (
+                "aortic_valve_stenosis",
+                "Aortic Valve Stenosis",
+                ["biomedical", "diseases"],
+                "主动脉瓣狭窄",
+            ),
+            (
+                "coronary_artery_bypass",
+                "Coronary Artery Bypass",
+                ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                "冠状动脉旁路移植术",
+            ),
+            (
+                "dna_mitochondrial",
+                "DNA, Mitochondrial",
+                ["biomedical", "chemicals_and_drugs"],
+                "线粒体DNA",
+            ),
+            (
+                "mitochondrial_disease",
+                "Mitochondrial Diseases",
+                ["biomedical", "diseases"],
+                "线粒体疾病",
+            ),
+            (
+                "chemokine_ccl2",
+                "Chemokine CCL2",
+                ["biomedical", "chemicals_and_drugs"],
+                "趋化因子CCL2",
+            ),
+            (
+                "meningioma",
+                "Meningioma",
+                ["biomedical", "diseases"],
+                "脑膜瘤",
+            ),
+            (
+                "mart_1_antigen",
+                "MART-1 Antigen",
+                ["biomedical", "chemicals_and_drugs"],
+                "MART-1抗原",
+            ),
+            (
+                "axon_guidance",
+                "Axon Guidance",
+                ["biomedical", "phenomena_and_processes"],
+                "轴突导向",
+            ),
+            (
+                "cell_adhesion_molecules_neuronal",
+                "Cell Adhesion Molecules, Neuronal",
+                ["biomedical", "chemicals_and_drugs"],
+                "神经元细胞黏附分子",
+            ),
+        ]
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": f"concept:{concept_id}",
+                    "canonical_en": canonical_en,
+                    "aliases_en": [],
+                    "domains": domains,
+                    "source_refs": [{"source": "openalex_topics", "label": canonical_en}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+                for concept_id, canonical_en, domains, _alias in cases
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        for concept_id, _canonical_en, _domains, alias in cases:
+            self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
+
+    def test_exact_expansion_batch_008_continues_biomedical_a_terms(self) -> None:
+        cases = [
+            (
+                "abducens_nerve",
+                "Abducens Nerve",
+                ["anatomy", "biomedical"],
+                "外展神经",
+            ),
+            (
+                "acetyl_coenzyme_a",
+                "Acetyl Coenzyme A",
+                ["biomedical", "chemicals_and_drugs"],
+                "乙酰辅酶A",
+            ),
+            (
+                "acquired_immunodeficiency_syndrome",
+                "Acquired Immunodeficiency Syndrome",
+                ["biomedical", "diseases"],
+                "获得性免疫缺陷综合征",
+            ),
+            (
+                "adenocarcinoma",
+                "Adenocarcinoma",
+                ["biomedical", "diseases"],
+                "腺癌",
+            ),
+            (
+                "adrenocorticotropic_hormone",
+                "Adrenocorticotropic Hormone",
+                ["biomedical", "chemicals_and_drugs"],
+                "促肾上腺皮质激素",
+            ),
+            (
+                "amyotrophic_lateral_sclerosis",
+                "Amyotrophic Lateral Sclerosis",
+                ["biomedical", "diseases"],
+                "肌萎缩侧索硬化",
+            ),
+            (
+                "angiotensin_converting_enzyme_2",
+                "Angiotensin-Converting Enzyme 2",
+                ["biomedical", "chemicals_and_drugs"],
+                "血管紧张素转换酶2",
+            ),
+            (
+                "antigen_presentation",
+                "Antigen Presentation",
+                ["biomedical", "phenomena_and_processes"],
+                "抗原呈递",
+            ),
+            (
+                "anti_n_methyl_d_aspartate_receptor_encephalitis",
+                "Anti-N-Methyl-D-Aspartate Receptor Encephalitis",
+                ["biomedical", "diseases"],
+                "抗N-甲基-D-天冬氨酸受体脑炎",
+            ),
+            (
+                "angelman_syndrome",
+                "Angelman Syndrome",
+                ["biomedical", "diseases"],
+                "Angelman综合征",
+            ),
+        ]
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": f"concept:{concept_id}",
+                    "canonical_en": canonical_en,
+                    "aliases_en": [],
+                    "domains": domains,
+                    "source_refs": [{"source": "openalex_topics", "label": canonical_en}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+                for concept_id, canonical_en, domains, _alias in cases
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        for concept_id, _canonical_en, _domains, alias in cases:
+            self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
+
+    def test_exact_expansion_batch_009_continues_cs_and_signal_terms(self) -> None:
+        cases = [
+            (
+                "adaptive_neuro_fuzzy_inference_system",
+                "Adaptive Neuro-Fuzzy Inference System",
+                ["computer_science"],
+                "自适应神经模糊推理系统",
+            ),
+            (
+                "admission_control",
+                "Admission Control",
+                ["communications_technology", "computer_science"],
+                "准入控制",
+            ),
+            (
+                "admittance_control",
+                "Admittance Control",
+                ["control_systems"],
+                "导纳控制",
+            ),
+            (
+                "aes_encryption",
+                "AES Encryption",
+                ["computer_science"],
+                "AES加密",
+            ),
+            (
+                "affine_projection_algorithm",
+                "Affine Projection Algorithm",
+                ["computer_science"],
+                "仿射投影算法",
+            ),
+            (
+                "all_optical_signal_processing",
+                "All-Optical Signal Processing",
+                ["computer_science"],
+                "全光信号处理",
+            ),
+            (
+                "answer_set_semantics",
+                "Answer Set Semantics",
+                ["computer_science"],
+                "答案集语义",
+            ),
+            (
+                "anycast_routing",
+                "Anycast Routing",
+                ["computer_science"],
+                "任播路由",
+            ),
+            (
+                "cache_coherence_protocol",
+                "Cache Coherence Protocol",
+                ["computer_science"],
+                "缓存一致性协议",
+            ),
+            (
+                "canny_edge_detection",
+                "Canny Edge Detection",
+                ["computer_science"],
+                "Canny边缘检测",
+            ),
+        ]
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": f"concept:{concept_id}",
+                    "canonical_en": canonical_en,
+                    "aliases_en": [],
+                    "domains": domains,
+                    "source_refs": [{"source": "openalex_topics", "label": canonical_en}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+                for concept_id, canonical_en, domains, _alias in cases
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        for concept_id, _canonical_en, _domains, alias in cases:
+            self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
+
+    def test_exact_expansion_batch_010_continues_remaining_biomedical_terms(self) -> None:
+        cases = [
+            (
+                "antiphospholipid_syndrome",
+                "Antiphospholipid Syndrome",
+                ["biomedical", "diseases"],
+                "抗磷脂综合征",
+            ),
+            (
+                "antithrombin_iii_deficiency",
+                "Antithrombin III Deficiency",
+                ["biomedical", "diseases"],
+                "抗凝血酶III缺乏症",
+            ),
+            (
+                "atypical_hemolytic_uremic_syndrome",
+                "Atypical Hemolytic Uremic Syndrome",
+                ["biomedical", "diseases"],
+                "非典型溶血尿毒综合征",
+            ),
+            (
+                "autoimmune_inner_ear_disease",
+                "Autoimmune Inner Ear Disease",
+                ["biomedical", "diseases"],
+                "自身免疫性内耳病",
+            ),
+            (
+                "autoimmune_lymphoproliferative_syndrome",
+                "Autoimmune Lymphoproliferative Syndrome",
+                ["biomedical", "diseases"],
+                "自身免疫性淋巴增殖综合征",
+            ),
+            (
+                "axl_receptor_tyrosine_kinase",
+                "Axl Receptor Tyrosine Kinase",
+                ["biomedical", "chemicals_and_drugs"],
+                "Axl受体酪氨酸激酶",
+            ),
+            (
+                "aurora_kinase_a",
+                "Aurora Kinase A",
+                ["biomedical", "chemicals_and_drugs"],
+                "Aurora激酶A",
+            ),
+            (
+                "aurora_kinase_b",
+                "Aurora Kinase B",
+                ["biomedical", "chemicals_and_drugs"],
+                "Aurora激酶B",
+            ),
+            (
+                "aurora_kinase_c",
+                "Aurora Kinase C",
+                ["biomedical", "chemicals_and_drugs"],
+                "Aurora激酶C",
+            ),
+            (
+                "b_cell_maturation_antigen",
+                "B-Cell Maturation Antigen",
+                ["biomedical", "chemicals_and_drugs"],
+                "B细胞成熟抗原",
             ),
         ]
         write_jsonl(
