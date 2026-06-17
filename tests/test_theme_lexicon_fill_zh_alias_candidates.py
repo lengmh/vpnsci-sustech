@@ -5944,6 +5944,226 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_041_adds_fibroma_and_fibromatosis_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("fibroadenoma", "Fibroadenoma", ["biomedical", "diseases"], "纤维腺瘤"),
+                ("fibroblast__3", "Fibroblasts", ["anatomy", "biomedical"], "成纤维细胞"),
+                ("fibroma_desmoplastic", "Fibroma, Desmoplastic", ["biomedical", "diseases"], "硬纤维瘤"),
+                ("fibroma_ossifying", "Fibroma, Ossifying", ["biomedical", "diseases"], "骨化性纤维瘤"),
+                ("fibromatosi_plantar", "Fibromatosis, Plantar", ["biomedical", "diseases"], "跖纤维瘤病"),
+            ]
+        )
+
+    def test_exact_expansion_batch_042_adds_fibrosis_and_fibula_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("fibromuscular_dysplasia", "Fibromuscular Dysplasia", ["biomedical", "diseases"], "纤维肌性发育不良"),
+                ("fibromyalgia", "Fibromyalgia", ["biomedical", "diseases"], "纤维肌痛"),
+                ("fibrosarcoma", "Fibrosarcoma", ["biomedical", "diseases"], "纤维肉瘤"),
+                ("fibrosi", "Fibrosis", ["biomedical", "diseases"], "纤维化"),
+                ("fibula_fractur", "Fibula Fractures", ["biomedical", "diseases"], "腓骨骨折"),
+            ]
+        )
+
+    def test_exact_expansion_batch_043_adds_ficolin_and_filaria_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("ficolin", "Ficolins", ["biomedical", "chemicals_and_drugs"], "纤维胶凝蛋白"),
+                ("fiducial_marker__2", "Fiducial Markers", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "基准标记物"),
+                ("figlu_test", "FIGLU Test", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "FIGLU试验"),
+                ("filaggrin_protein", "Filaggrin Proteins", ["biomedical", "chemicals_and_drugs"], "丝聚蛋白"),
+                ("filariasi", "Filariasis", ["biomedical", "diseases"], "丝虫病"),
+            ]
+        )
+
+    def test_exact_expansion_batch_044_adds_filovirus_and_finger_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("filoviridae", "Filoviridae", ["biomedical", "organisms"], "丝状病毒科"),
+                ("filoviridae_infection", "Filoviridae Infections", ["biomedical", "diseases"], "丝状病毒科感染"),
+                ("fimbriae_bacterial", "Fimbriae, Bacterial", ["anatomy", "biomedical"], "细菌菌毛"),
+                ("finger_injury", "Finger Injuries", ["biomedical", "diseases"], "手指损伤"),
+                ("finger_joint", "Finger Joint", ["anatomy", "biomedical"], "手指关节"),
+            ]
+        )
+
+    def test_exact_expansion_batch_045_adds_fish_and_flagella_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("fish_disease", "Fish Diseases", ["biomedical", "diseases"], "鱼类疾病"),
+                ("fish_oils", "Fish Oils", ["biomedical", "chemicals_and_drugs"], "鱼油"),
+                ("fissure_in_ano", "Fissure in Ano", ["biomedical", "diseases"], "肛裂"),
+                ("flagella", "Flagella", ["anatomy", "biomedical"], "鞭毛"),
+                ("flail_chest", "Flail Chest", ["biomedical", "diseases"], "连枷胸"),
+            ]
+        )
+
+    def test_exact_expansion_batch_046_adds_flavivirus_and_flavonoid_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("flavin_mononucleotide", "Flavin Mononucleotide", ["biomedical", "chemicals_and_drugs"], "黄素单核苷酸"),
+                ("flaviviridae", "Flaviviridae", ["biomedical", "organisms"], "黄病毒科"),
+                ("flaviviridae_infection", "Flaviviridae Infections", ["biomedical", "diseases"], "黄病毒科感染"),
+                ("flaviviru", "Flavivirus", ["biomedical", "organisms"], "黄病毒属"),
+                ("flavonoid", "Flavonoids", ["biomedical", "chemicals_and_drugs"], "黄酮类化合物"),
+            ]
+        )
+
+    def test_exact_expansion_batch_047_adds_fluorescence_technique_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("flow_cytometry__2", "Flow Cytometry", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "流式细胞术"),
+                ("fluorescein_angiography", "Fluorescein Angiography", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "荧光素血管造影"),
+                ("fluorescence_polarization", "Fluorescence Polarization", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "荧光偏振"),
+                ("fluorescence_resonance_energy_transfer", "Fluorescence Resonance Energy Transfer", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "荧光共振能量转移"),
+                ("fluorescent_antibody_technique", "Fluorescent Antibody Technique", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "荧光抗体技术"),
+            ]
+        )
+
+    def test_exact_expansion_batch_048_adds_fluoride_and_fluorine_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("fluoridation", "Fluoridation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "氟化处理"),
+                ("fluoride_poisoning", "Fluoride Poisoning", ["biomedical", "diseases"], "氟化物中毒"),
+                ("fluorid_topical", "Fluorides, Topical", ["biomedical", "chemicals_and_drugs"], "局部用氟化物"),
+                ("fluorine_radioisotop", "Fluorine Radioisotopes", ["biomedical", "chemicals_and_drugs"], "氟放射性同位素"),
+                ("fluorine_19_magnetic_resonance_imaging", "Fluorine-19 Magnetic Resonance Imaging", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "氟-19磁共振成像"),
+            ]
+        )
+
+    def test_exact_expansion_batch_049_adds_fluoro_drug_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("fluconazole", "Fluconazole", ["biomedical", "chemicals_and_drugs"], "氟康唑"),
+                ("fluorodeoxyglucose_f18", "Fluorodeoxyglucose F18", ["biomedical", "chemicals_and_drugs"], "氟代脱氧葡萄糖F18"),
+                ("fluoroquinolon", "Fluoroquinolones", ["biomedical", "chemicals_and_drugs"], "氟喹诺酮类"),
+                ("fluorouracil", "Fluorouracil", ["biomedical", "chemicals_and_drugs"], "氟尿嘧啶"),
+                ("fluoxetine", "Fluoxetine", ["biomedical", "chemicals_and_drugs"], "氟西汀"),
+            ]
+        )
+
+    def test_exact_expansion_batch_050_adds_more_fluoro_drug_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("fluphenazine", "Fluphenazine", ["biomedical", "chemicals_and_drugs"], "氟奋乃静"),
+                ("flurbiprofen", "Flurbiprofen", ["biomedical", "chemicals_and_drugs"], "氟比洛芬"),
+                ("flutamide", "Flutamide", ["biomedical", "chemicals_and_drugs"], "氟他胺"),
+                ("fluticasone", "Fluticasone", ["biomedical", "chemicals_and_drugs"], "氟替卡松"),
+                ("fluvoxamine", "Fluvoxamine", ["biomedical", "chemicals_and_drugs"], "氟伏沙明"),
+            ]
+        )
+
+    def test_exact_expansion_batch_051_adds_focal_and_folate_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("focal_adhesion", "Focal Adhesions", ["anatomy", "biomedical"], "黏着斑"),
+                ("focal_cortical_dysplasia", "Focal Cortical Dysplasia", ["biomedical", "diseases"], "局灶性皮质发育不良"),
+                ("focal_infection", "Focal Infection", ["biomedical", "diseases"], "局灶感染"),
+                ("focused_assessment_with_sonography_for_trauma", "Focused Assessment with Sonography for Trauma", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "创伤重点超声评估"),
+                ("folate_receptor_1", "Folate Receptor 1", ["biomedical", "chemicals_and_drugs"], "叶酸受体1"),
+            ]
+        )
+
+    def test_exact_expansion_batch_052_adds_folic_and_follicle_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("folic_acid", "Folic Acid", ["biomedical", "chemicals_and_drugs"], "叶酸"),
+                ("folic_acid_antagonist", "Folic Acid Antagonists", ["biomedical", "chemicals_and_drugs"], "叶酸拮抗剂"),
+                ("folic_acid_deficiency", "Folic Acid Deficiency", ["biomedical", "diseases"], "叶酸缺乏"),
+                ("follicle_stimulating_hormone", "Follicle Stimulating Hormone", ["biomedical", "chemicals_and_drugs"], "促卵泡激素"),
+                ("follicular_phase", "Follicular Phase", ["biomedical", "phenomena_and_processes"], "卵泡期"),
+            ]
+        )
+
+    def test_exact_expansion_batch_053_adds_food_and_foodborne_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("food_addiction", "Food Addiction", ["biomedical", "psychiatry_and_psychology"], "食物成瘾"),
+                ("food_additiv", "Food Additives", ["biomedical", "chemicals_and_drugs"], "食品添加剂"),
+                ("food_analysi", "Food Analysis", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "食品分析"),
+                ("food_drug_interaction", "Food-Drug Interactions", ["biomedical", "phenomena_and_processes"], "食物-药物相互作用"),
+                ("foodborne_disease", "Foodborne Diseases", ["biomedical", "diseases"], "食源性疾病"),
+            ]
+        )
+
+    def test_exact_expansion_batch_054_adds_foot_and_foramen_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("foot_deformity", "Foot Deformities", ["biomedical", "diseases"], "足畸形"),
+                ("foot_disease", "Foot Diseases", ["biomedical", "diseases"], "足疾病"),
+                ("foot_ulcer", "Foot Ulcer", ["biomedical", "diseases"], "足溃疡"),
+                ("foot_and_mouth_disease", "Foot-and-Mouth Disease", ["biomedical", "diseases"], "口蹄疫"),
+                ("foramen_ovale_patent", "Foramen Ovale, Patent", ["biomedical", "diseases"], "卵圆孔未闭"),
+            ]
+        )
+
+    def test_exact_expansion_batch_055_adds_forearm_and_foreign_body_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("forearm", "Forearm", ["anatomy", "biomedical"], "前臂"),
+                ("forearm_injury", "Forearm Injuries", ["biomedical", "diseases"], "前臂损伤"),
+                ("foreign_body", "Foreign Bodies", ["biomedical", "diseases"], "异物"),
+                ("foreign_body_reaction", "Foreign-Body Reaction", ["biomedical", "diseases"], "异物反应"),
+                ("forensic_imaging", "Forensic Imaging", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "法医影像学"),
+            ]
+        )
+
+    def test_exact_expansion_batch_056_adds_formate_and_fosfomycin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("formaldehyde__2", "Formaldehyde", ["biomedical", "chemicals_and_drugs"], "甲醛"),
+                ("formate_dehydrogenase", "Formate Dehydrogenases", ["biomedical", "chemicals_and_drugs"], "甲酸脱氢酶"),
+                ("formic_acid_ester", "Formic Acid Esters", ["biomedical", "chemicals_and_drugs"], "甲酸酯"),
+                ("foscarnet", "Foscarnet", ["biomedical", "chemicals_and_drugs"], "膦甲酸钠"),
+                ("fosfomycin", "Fosfomycin", ["biomedical", "chemicals_and_drugs"], "磷霉素"),
+            ]
+        )
+
+    def test_exact_expansion_batch_057_adds_fracture_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("fractional_exhaled_nitric_oxide_testing", "Fractional Exhaled Nitric Oxide Testing", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "呼出气一氧化氮分数检测"),
+                ("fracture_fixation", "Fracture Fixation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "骨折固定"),
+                ("fracture_fixation_internal", "Fracture Fixation, Internal", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "内固定"),
+                ("fractur_open", "Fractures, Open", ["biomedical", "diseases"], "开放性骨折"),
+                ("fractur_stress", "Fractures, Stress", ["biomedical", "diseases"], "应力性骨折"),
+            ]
+        )
+
+    def test_exact_expansion_batch_058_adds_fragile_and_frontotemporal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("fragile_x_syndrome", "Fragile X Syndrome", ["biomedical", "diseases"], "脆性X综合征"),
+                ("frameshift_mutation", "Frameshift Mutation", ["biomedical", "phenomena_and_processes"], "移码突变"),
+                ("friedreich_ataxia", "Friedreich Ataxia", ["biomedical", "diseases"], "Friedreich共济失调"),
+                ("frontal_lobe", "Frontal Lobe", ["anatomy", "biomedical"], "额叶"),
+                ("frontotemporal_dementia", "Frontotemporal Dementia", ["biomedical", "diseases"], "额颞叶痴呆"),
+            ]
+        )
+
+    def test_exact_expansion_batch_059_adds_fructose_and_fungal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("fructose", "Fructose", ["biomedical", "chemicals_and_drugs"], "果糖"),
+                ("fructose_intolerance", "Fructose Intolerance", ["biomedical", "diseases"], "果糖不耐受"),
+                ("fungal_protein", "Fungal Proteins", ["biomedical", "chemicals_and_drugs"], "真菌蛋白"),
+                ("fungal_vaccin", "Fungal Vaccines", ["biomedical", "chemicals_and_drugs"], "真菌疫苗"),
+                ("fungemia", "Fungemia", ["biomedical", "diseases"], "真菌血症"),
+            ]
+        )
+
+    def test_exact_expansion_batch_060_adds_fusobacterium_and_gaba_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("furosemide", "Furosemide", ["biomedical", "chemicals_and_drugs"], "呋塞米"),
+                ("fusariosi", "Fusariosis", ["biomedical", "diseases"], "镰刀菌病"),
+                ("fusobacterium_infection", "Fusobacterium Infections", ["biomedical", "diseases"], "梭杆菌感染"),
+                ("gaba_agent", "GABA Agents", ["biomedical", "chemicals_and_drugs"], "GABA能药物"),
+                ("gabaergic_neuron", "GABAergic Neurons", ["anatomy", "biomedical"], "GABA能神经元"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
