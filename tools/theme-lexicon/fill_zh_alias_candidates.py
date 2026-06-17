@@ -4595,6 +4595,381 @@ ZH_EXACT_EXPANSION_BATCH_040_ALIASES = {
         "fibrocystic breast disease": "乳腺纤维囊性病",
 }
 
+ZH_EXACT_EXPANSION_BATCH_041_ALIASES = {
+        "fibroadenoma": "纤维腺瘤",
+        "fibrobacter": "纤维杆菌属",
+        "fibroblasts": "成纤维细胞",
+        "fibrocartilage": "纤维软骨",
+        "fibroins": "丝心蛋白",
+        "fibroma": "纤维瘤",
+        "fibroma virus rabbit": "兔纤维瘤病毒",
+        "fibroma desmoplastic": "硬纤维瘤",
+        "fibroma ossifying": "骨化性纤维瘤",
+        "fibromatosis abdominal": "腹部纤维瘤病",
+        "fibromatosis gingival": "牙龈纤维瘤病",
+        "fibromatosis plantar": "跖纤维瘤病",
+        "fibromodulin": "纤维调节蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_042_ALIASES = {
+        "fibromuscular dysplasia": "纤维肌性发育不良",
+        "fibromyalgia": "纤维肌痛",
+        "fibronectin type iii domain": "纤维连接蛋白III型结构域",
+        "fibronectins": "纤维连接蛋白",
+        "fibrosarcoma": "纤维肉瘤",
+        "fibrosis": "纤维化",
+        "fibrous dysplasia of bone": "骨纤维异常增殖症",
+        "fibrous dysplasia monostotic": "单骨型纤维异常增殖症",
+        "fibrous dysplasia polyostotic": "多骨型纤维异常增殖症",
+        "fibula": "腓骨",
+        "fibula fractures": "腓骨骨折",
+        "ficain": "无花果蛋白酶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_043_ALIASES = {
+        "ficolins": "纤维胶凝蛋白",
+        "ficoll": "聚蔗糖",
+        "ficus": "榕属",
+        "ficusin": "补骨脂素",
+        "fidaxomicin": "非达霉素",
+        "fiducial markers": "基准标记物",
+        "field dependence independence": "场依存-场独立",
+        "figlu test": "FIGLU试验",
+        "figural aftereffect": "图形后效",
+        "filaggrin proteins": "丝聚蛋白",
+        "filariasis": "丝虫病",
+        "filaricides": "杀丝虫药",
+}
+
+ZH_EXACT_EXPANSION_BATCH_044_ALIASES = {
+        "filarioidea": "丝虫总科",
+        "filgrastim": "非格司亭",
+        "filipin": "菲律宾菌素",
+        "film dosimetry": "胶片剂量测定",
+        "filoviridae": "丝状病毒科",
+        "filoviridae infections": "丝状病毒科感染",
+        "filtering surgery": "滤过手术",
+        "filtration": "过滤",
+        "fimbriae proteins": "菌毛蛋白",
+        "fimbriae bacterial": "细菌菌毛",
+        "finasteride": "非那雄胺",
+        "finger injuries": "手指损伤",
+        "finger joint": "手指关节",
+        "finger phalanges": "指骨",
+        "fingers": "手指",
+        "fingolimod hydrochloride": "盐酸芬戈莫德",
+}
+
+ZH_EXACT_EXPANSION_BATCH_045_ALIASES = {
+        "finite element analysis": "有限元分析",
+        "fire ants": "火蚁",
+        "fireflies": "萤火虫",
+        "firefly luciferin": "萤火虫荧光素",
+        "firesetting behavior": "纵火行为",
+        "first aid": "急救",
+        "first generation cephalosporins": "第一代头孢菌素",
+        "fish diseases": "鱼类疾病",
+        "fish oils": "鱼油",
+        "fish proteins": "鱼蛋白",
+        "fish venoms": "鱼毒",
+        "fishes": "鱼类",
+        "fissure in ano": "肛裂",
+        "fistula": "瘘",
+        "flagella": "鞭毛",
+        "flail chest": "连枷胸",
+}
+
+ZH_EXACT_EXPANSION_BATCH_046_ALIASES = {
+        "fitness trackers": "健身追踪器",
+        "fixation ocular": "眼固视",
+        "fixatives": "固定剂",
+        "flagellin": "鞭毛蛋白",
+        "flame ionization": "火焰电离",
+        "flame retardants": "阻燃剂",
+        "flammulina": "金针菇属",
+        "flank pain": "胁腹痛",
+        "flap endonucleases": "瓣状核酸内切酶",
+        "flatfishes": "比目鱼类",
+        "flatfoot": "扁平足",
+        "flatulence": "胀气",
+        "flavin mononucleotide": "黄素单核苷酸",
+        "flavin adenine dinucleotide": "黄素腺嘌呤二核苷酸",
+}
+
+ZH_EXACT_EXPANSION_BATCH_047_ALIASES = {
+        "flavins": "黄素类",
+        "flaviviridae": "黄病毒科",
+        "flaviviridae infections": "黄病毒科感染",
+        "flavivirus": "黄病毒属",
+        "flavivirus infections": "黄病毒感染",
+        "flavobacteriaceae": "黄杆菌科",
+        "flavobacteriaceae infections": "黄杆菌科感染",
+        "flavobacterium": "黄杆菌属",
+        "flavodoxin": "黄素氧还蛋白",
+        "flavones": "黄酮",
+        "flavonoids": "黄酮类化合物",
+        "flavoproteins": "黄素蛋白",
+        "flow cytometry": "流式细胞术",
+}
+
+ZH_EXACT_EXPANSION_BATCH_048_ALIASES = {
+        "flavoxate": "黄酮哌酯",
+        "flea infestations": "蚤侵染",
+        "flecainide": "氟卡尼",
+        "fleroxacin": "氟罗沙星",
+        "flexibacter": "屈挠杆菌属",
+        "flicker fusion": "闪烁融合",
+        "flocculation": "絮凝",
+        "flocculation tests": "絮凝试验",
+        "flow injection analysis": "流动注射分析",
+        "flowmeters": "流量计",
+        "floxacillin": "氟氯西林",
+        "floxuridine": "氟尿苷",
+        "fluconazole": "氟康唑",
+        "fluoride poisoning": "氟化物中毒",
+        "fluoridation": "氟化处理",
+        "fluorides topical": "局部用氟化物",
+        "fluorine radioisotopes": "氟放射性同位素",
+        "fluorine 19 magnetic resonance imaging": "氟-19磁共振成像",
+}
+
+ZH_EXACT_EXPANSION_BATCH_049_ALIASES = {
+        "flucytosine": "氟胞嘧啶",
+        "fludrocortisone": "氟氢可的松",
+        "flufenamic acid": "氟芬那酸",
+        "fluid shifts": "体液转移",
+        "fluid therapy": "液体疗法",
+        "fluids and secretions": "体液和分泌物",
+        "flumazenil": "氟马西尼",
+        "flunarizine": "氟桂利嗪",
+        "fluorescamine": "荧光胺",
+        "fluorescein angiography": "荧光素血管造影",
+        "fluorescein 5 isothiocyanate": "异硫氰酸荧光素",
+        "fluoresceins": "荧光素类",
+        "fluorescence": "荧光",
+        "fluorodeoxyglucose f18": "氟代脱氧葡萄糖F18",
+        "fluoroquinolones": "氟喹诺酮类",
+        "fluorouracil": "氟尿嘧啶",
+        "fluoxetine": "氟西汀",
+}
+
+ZH_EXACT_EXPANSION_BATCH_050_ALIASES = {
+        "fluorescence polarization": "荧光偏振",
+        "fluorescence polarization immunoassay": "荧光偏振免疫测定",
+        "fluorescence recovery after photobleaching": "光漂白后荧光恢复",
+        "fluorescence resonance energy transfer": "荧光共振能量转移",
+        "fluorescent antibody technique": "荧光抗体技术",
+        "fluorescent antibody technique direct": "直接荧光抗体技术",
+        "fluorescent antibody technique indirect": "间接荧光抗体技术",
+        "fluorescent chemosensor compounds": "荧光化学传感器化合物",
+        "fluorescent dyes": "荧光染料",
+        "fluorescent treponemal antibody absorption test": "荧光螺旋体抗体吸收试验",
+        "fluphenazine": "氟奋乃静",
+        "flurbiprofen": "氟比洛芬",
+        "flutamide": "氟他胺",
+        "fluticasone": "氟替卡松",
+        "fluvoxamine": "氟伏沙明",
+}
+
+ZH_EXACT_EXPANSION_BATCH_051_ALIASES = {
+        "fluoride treatment": "氟化物治疗",
+        "fluorides": "氟化物",
+        "fluorine": "氟",
+        "fluorine compounds": "氟化合物",
+        "fluoroacetates": "氟乙酸盐",
+        "fluorobenzenes": "氟苯类",
+        "fluorocarbon polymers": "氟碳聚合物",
+        "fluorocarbons": "氟碳化合物",
+        "fluorodeoxyuridylate": "氟脱氧尿苷酸",
+        "fluoroimmunoassay": "荧光免疫测定",
+        "fluorometholone": "氟米龙",
+        "fluorometry": "荧光测定法",
+        "fluorophotometry": "荧光光度测定法",
+        "fluoroscopy": "透视检查",
+        "fluorosis dental": "牙氟斑",
+        "fms like tyrosine kinase 3": "FMS样酪氨酸激酶3",
+        "focal adhesions": "黏着斑",
+        "focused assessment with sonography for trauma": "创伤重点超声评估",
+}
+
+ZH_EXACT_EXPANSION_BATCH_052_ALIASES = {
+        "foam cells": "泡沫细胞",
+        "focal adhesion kinase 1": "黏着斑激酶1",
+        "focal adhesion kinase 2": "黏着斑激酶2",
+        "focal adhesion protein tyrosine kinases": "黏着斑蛋白酪氨酸激酶",
+        "focal cortical dysplasia": "局灶性皮质发育不良",
+        "focal dermal hypoplasia": "局灶性真皮发育不全",
+        "focal epithelial hyperplasia": "局灶性上皮增生",
+        "focal infection": "局灶感染",
+        "focal infection dental": "牙源性局灶感染",
+        "focal nodular hyperplasia": "局灶性结节性增生",
+        "folate receptor 1": "叶酸受体1",
+        "folate receptor 2": "叶酸受体2",
+        "folate receptors gpi anchored": "GPI锚定叶酸受体",
+        "folic acid": "叶酸",
+        "folic acid antagonists": "叶酸拮抗剂",
+        "folic acid deficiency": "叶酸缺乏",
+        "follicle stimulating hormone": "促卵泡激素",
+        "follicular phase": "卵泡期",
+}
+
+ZH_EXACT_EXPANSION_BATCH_053_ALIASES = {
+        "folic acid transporters": "叶酸转运蛋白",
+        "follicle stimulating hormone beta subunit": "促卵泡激素β亚基",
+        "follicle stimulating hormone human": "人促卵泡激素",
+        "follicular atresia": "卵泡闭锁",
+        "follicular cyst": "卵泡囊肿",
+        "follicular fluid": "卵泡液",
+        "folliculitis": "毛囊炎",
+        "follistatin": "卵泡抑素",
+        "food addiction": "食物成瘾",
+        "food additives": "食品添加剂",
+        "food analysis": "食品分析",
+        "food drug interactions": "食物-药物相互作用",
+        "foodborne diseases": "食源性疾病",
+}
+
+ZH_EXACT_EXPANSION_BATCH_054_ALIASES = {
+        "food coloring agents": "食用色素",
+        "food deprivation": "食物剥夺",
+        "food ingredients": "食品成分",
+        "food intolerance": "食物不耐受",
+        "food preservatives": "食品防腐剂",
+        "food fortified": "强化食品",
+        "food genetically modified": "转基因食品",
+        "food organic": "有机食品",
+        "food processed": "加工食品",
+        "foot": "足",
+        "foot bones": "足骨",
+        "foot deformities": "足畸形",
+        "foot diseases": "足疾病",
+        "foot injuries": "足损伤",
+        "foot joints": "足关节",
+        "foot orthoses": "足矫形器",
+        "foot ulcer": "足溃疡",
+        "foot and mouth disease": "口蹄疫",
+        "foot and mouth disease virus": "口蹄疫病毒",
+        "foramen ovale patent": "卵圆孔未闭",
+}
+
+ZH_EXACT_EXPANSION_BATCH_055_ALIASES = {
+        "foramen magnum": "枕骨大孔",
+        "foramen ovale": "卵圆孔",
+        "foraminifera": "有孔虫",
+        "foraminotomy": "椎间孔切开术",
+        "forced expiratory flow rates": "用力呼气流量",
+        "forced expiratory volume": "用力呼气量",
+        "forearm": "前臂",
+        "forearm injuries": "前臂损伤",
+        "forefoot human": "前足",
+        "forehead": "前额",
+        "foreign bodies": "异物",
+        "foreign body migration": "异物移位",
+        "foreign body reaction": "异物反应",
+        "forelimb": "前肢",
+        "forensic imaging": "法医影像学",
+        "forensic psychology": "法医心理学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_056_ALIASES = {
+        "foreskin": "包皮",
+        "forest therapy": "森林疗法",
+        "forkhead box protein l2": "叉头框蛋白L2",
+        "forkhead box protein m1": "叉头框蛋白M1",
+        "forkhead box protein o1": "叉头框蛋白O1",
+        "forkhead box protein o3": "叉头框蛋白O3",
+        "forkhead transcription factors": "叉头转录因子",
+        "form perception": "形态知觉",
+        "formaldehyde": "甲醛",
+        "formamides": "甲酰胺类",
+        "formate dehydrogenases": "甲酸脱氢酶",
+        "formate tetrahydrofolate ligase": "甲酸四氢叶酸连接酶",
+        "formates": "甲酸盐",
+        "formic acid esters": "甲酸酯",
+        "formiminoglutamic acid": "甲酰亚氨基谷氨酸",
+        "foscarnet": "膦甲酸钠",
+        "fosfomycin": "磷霉素",
+}
+
+ZH_EXACT_EXPANSION_BATCH_057_ALIASES = {
+        "formoterol fumarate": "富马酸福莫特罗",
+        "formyltetrahydrofolate dehydrogenase": "甲酰四氢叶酸脱氢酶",
+        "formyltetrahydrofolates": "甲酰四氢叶酸",
+        "fornix brain": "脑穹窿",
+        "forssman antigen": "Forssman抗原",
+        "fosinopril": "福辛普利",
+        "founder effect": "奠基者效应",
+        "four dimensional computed tomography": "四维计算机断层成像",
+        "fourier analysis": "傅里叶分析",
+        "fournier gangrene": "Fournier坏疽",
+        "fourth ventricle": "第四脑室",
+        "fovea centralis": "中央凹",
+        "foveomacular retinitis": "中心凹黄斑视网膜炎",
+        "fractional exhaled nitric oxide testing": "呼出气一氧化氮分数检测",
+        "fracture fixation": "骨折固定",
+        "fracture fixation internal": "内固定",
+        "fractures open": "开放性骨折",
+        "fractures stress": "应力性骨折",
+}
+
+ZH_EXACT_EXPANSION_BATCH_058_ALIASES = {
+        "fractures avulsion": "撕脱性骨折",
+        "fractures comminuted": "粉碎性骨折",
+        "fractures compression": "压缩性骨折",
+        "fractures malunited": "畸形愈合骨折",
+        "fractures multiple": "多发骨折",
+        "fractures spontaneous": "自发性骨折",
+        "fractures ununited": "骨折不愈合",
+        "fragile x messenger ribonucleoprotein 1": "脆性X信使核糖核蛋白1",
+        "fragile x syndrome": "脆性X综合征",
+        "frameshift mutation": "移码突变",
+        "frameshifting ribosomal": "核糖体移码",
+        "francisella": "弗朗西斯菌属",
+        "francisella tularensis": "土拉弗朗西斯菌",
+        "friedreich ataxia": "Friedreich共济失调",
+        "frontal lobe": "额叶",
+        "frontotemporal dementia": "额颞叶痴呆",
+}
+
+ZH_EXACT_EXPANSION_BATCH_059_ALIASES = {
+        "frontotemporal lobar degeneration": "额颞叶变性",
+        "frostbite": "冻伤",
+        "frozen sections": "冰冻切片",
+        "fructans": "果聚糖",
+        "fructokinases": "果糖激酶",
+        "fructosamine": "果糖胺",
+        "fructose": "果糖",
+        "fructose intolerance": "果糖不耐受",
+        "fructose metabolism inborn errors": "果糖代谢先天性缺陷",
+        "fructose bisphosphatase": "果糖二磷酸酶",
+        "fruit": "果实",
+        "fruit proteins": "水果蛋白",
+        "fungal proteins": "真菌蛋白",
+        "fungal vaccines": "真菌疫苗",
+        "fungemia": "真菌血症",
+}
+
+ZH_EXACT_EXPANSION_BATCH_060_ALIASES = {
+        "fungi": "真菌",
+        "fungicides industrial": "工业杀真菌剂",
+        "funnel chest": "漏斗胸",
+        "fura 2": "Fura-2",
+        "furans": "呋喃类",
+        "furazolidone": "呋喃唑酮",
+        "furcation defects": "根分叉病变",
+        "furin": "弗林蛋白酶",
+        "furosemide": "呋塞米",
+        "furunculosis": "疖病",
+        "fusariosis": "镰刀菌病",
+        "fusarium": "镰刀菌属",
+        "fusobacterium": "梭杆菌属",
+        "fusobacterium infections": "梭杆菌感染",
+        "fusobacterium necrophorum": "坏死梭杆菌",
+        "fusobacterium nucleatum": "具核梭杆菌",
+        "gaba agents": "GABA能药物",
+        "gabaergic neurons": "GABA能神经元",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -4637,6 +5012,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_037_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_038_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_039_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_040_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_041_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_042_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_043_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_044_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_045_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_046_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_047_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_048_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_049_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_050_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_051_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_052_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_053_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_054_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_055_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_056_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_057_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_058_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_059_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_060_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",
