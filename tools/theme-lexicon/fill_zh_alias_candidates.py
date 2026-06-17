@@ -5659,6 +5659,313 @@ ZH_EXACT_EXPANSION_BATCH_100_ALIASES = {
         "genetic speciation": "遗传物种形成",
 }
 
+ZH_EXACT_EXPANSION_BATCH_101_ALIASES = {
+        "genetic profile": "遗传谱",
+        "genetic programming": "遗传编程",
+        "genetic risk score": "遗传风险评分",
+        "genetic services": "遗传服务",
+        "genetic techniques": "遗传技术",
+        "genetic variability": "遗传变异性",
+        "genetic variation": "遗传变异",
+        "genetic vectors": "遗传载体",
+        "genotyping techniques": "基因分型技术",
+}
+
+ZH_EXACT_EXPANSION_BATCH_102_ALIASES = {
+        "genome archaeal": "古菌基因组",
+        "genome bacterial": "细菌基因组",
+        "genome chloroplast": "叶绿体基因组",
+        "genome components": "基因组组成",
+        "genome helminth": "蠕虫基因组",
+        "genome insect": "昆虫基因组",
+        "genome microbial": "微生物基因组",
+        "genome mitochondrial": "线粒体基因组",
+        "genome plant": "植物基因组",
+        "genome plastid": "质体基因组",
+        "genome protozoan": "原生动物基因组",
+        "genome size": "基因组大小",
+        "genome viral": "病毒基因组",
+        "genome wide association study": "全基因组关联研究",
+}
+
+ZH_EXACT_EXPANSION_BATCH_103_ALIASES = {
+        "genome rearrangement algorithms": "基因组重排算法",
+        "genomic imprinting": "基因组印记",
+        "genomic instability": "基因组不稳定性",
+        "genomic islands": "基因组岛",
+        "genomic library": "基因组文库",
+        "genomic medicine": "基因组医学",
+        "genomic structural variation": "基因组结构变异",
+        "genomic variations and chromosomal abnormalities": "基因组变异与染色体异常",
+}
+
+ZH_EXACT_EXPANSION_BATCH_104_ALIASES = {
+        "geniculate bodies": "膝状体",
+        "geniculate ganglion": "膝状神经节",
+        "genioplasty": "颏成形术",
+        "genistein": "染料木素",
+        "genital diseases": "生殖器疾病",
+        "genital diseases female": "女性生殖器疾病",
+        "genital diseases male": "男性生殖器疾病",
+        "genital neoplasms female": "女性生殖器肿瘤",
+        "genital neoplasms male": "男性生殖器肿瘤",
+        "genitalia": "生殖器",
+        "genitalia female": "女性生殖器",
+        "genitalia male": "男性生殖器",
+}
+
+ZH_EXACT_EXPANSION_BATCH_105_ALIASES = {
+        "genitourinary agents": "泌尿生殖系统药物",
+        "genocide": "种族灭绝",
+        "gentamicins": "庆大霉素类",
+        "gentian violet": "龙胆紫",
+        "genu valgum": "膝外翻",
+        "genu varum": "膝内翻",
+        "geographic atrophy": "地图样萎缩",
+        "geographic factors": "地理因素",
+        "geographic forwarding": "地理转发",
+        "geographic locations": "地理位置",
+        "geographic mapping": "地理制图",
+        "geographic routing": "地理路由",
+        "geographic routing protocols": "地理路由协议",
+        "geographical distribution": "地理分布",
+}
+
+ZH_EXACT_EXPANSION_BATCH_106_ALIASES = {
+        "geo satellites": "地球静止轨道卫星",
+        "geo spatial": "地理空间",
+        "geo spatial data": "地理空间数据",
+        "geodesic active contour": "测地线主动轮廓",
+        "geodetic satellites": "大地测量卫星",
+        "geoengineering": "地球工程",
+        "geologic measurements": "地质测量",
+        "geologic sediments": "地质沉积物",
+        "geological phenomena": "地质现象",
+        "geological processes": "地质过程",
+        "geomagnetic storms": "地磁暴",
+        "geomagnetism": "地磁学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_107_ALIASES = {
+        "geometric active contours": "几何主动轮廓",
+        "geometric analysis and curvature flows": "几何分析与曲率流",
+        "geometric attacks": "几何攻击",
+        "geometric continuity": "几何连续性",
+        "geometric distortion": "几何失真",
+        "geometric modeling": "几何建模",
+        "geometric transformation": "几何变换",
+        "geometrical optics": "几何光学",
+        "geometrical theory of diffraction": "几何绕射理论",
+}
+
+ZH_EXACT_EXPANSION_BATCH_108_ALIASES = {
+        "geophysical measurements": "地球物理测量",
+        "geophysical measurement techniques": "地球物理测量技术",
+        "geophysical prospecting": "地球物理勘探",
+        "geophysical signal processing": "地球物理信号处理",
+        "geoprocessing": "地理处理",
+        "geoscience and remote sensing": "地球科学与遥感",
+        "geospatial web services": "地理空间网络服务",
+        "geostationary satellite": "地球静止卫星",
+        "geostrophic flow": "地转流",
+}
+
+ZH_EXACT_EXPANSION_BATCH_109_ALIASES = {
+        "geotechnical and geomechanical engineering": "岩土与地质力学工程",
+        "geotechnical engineering": "岩土工程",
+        "geotechnical engineering and soil mechanics": "岩土工程与土力学",
+        "geotechnical engineering and soil stabilization": "岩土工程与土壤稳定",
+        "geotechnical engineering and underground structures": "岩土工程与地下结构",
+        "geotechnical structures": "岩土结构",
+        "geothermal energy": "地热能",
+}
+
+ZH_EXACT_EXPANSION_BATCH_110_ALIASES = {
+        "geriatric dentistry": "老年牙科学",
+        "geriatric psychiatry": "老年精神病学",
+        "germ layers": "胚层",
+        "germ line mutation": "生殖系突变",
+        "germinal center": "生发中心",
+        "germinoma": "生殖细胞瘤",
+        "ghrelin": "胃饥饿素",
+        "giant axonal neuropathy": "巨轴索神经病",
+}
+
+ZH_EXACT_EXPANSION_BATCH_111_ALIASES = {
+        "giant cell arteritis": "巨细胞动脉炎",
+        "giant cell tumor of bone": "骨巨细胞瘤",
+        "giant cell tumor of tendon sheath": "腱鞘巨细胞瘤",
+        "giant cell tumors": "巨细胞瘤",
+        "giant cells": "巨细胞",
+        "giant cells foreign body": "异物巨细胞",
+        "giant cells langhans": "朗格汉斯巨细胞",
+        "giant magnetoresistance": "巨磁阻",
+        "giant viruses": "巨型病毒",
+        "giardia": "贾第虫",
+        "giardia lamblia": "蓝氏贾第鞭毛虫",
+        "giardiasis": "贾第虫病",
+}
+
+ZH_EXACT_EXPANSION_BATCH_112_ALIASES = {
+        "gibberellins": "赤霉素类",
+        "gibbs distribution": "吉布斯分布",
+        "gibbs sampler": "吉布斯采样器",
+        "gibbs sampling": "吉布斯采样",
+        "gift giving": "赠礼",
+        "gigabit ethernet": "千兆以太网",
+        "gigantism": "巨人症",
+        "gilbert disease": "吉尔伯特病",
+        "gills": "鳃",
+        "gingipain cysteine endopeptidases": "牙龈蛋白酶半胱氨酸内肽酶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_113_ALIASES = {
+        "gingiva": "牙龈",
+        "gingival crevicular fluid": "龈沟液",
+        "gingival diseases": "牙龈疾病",
+        "gingival hemorrhage": "牙龈出血",
+        "gingival hyperplasia": "牙龈增生",
+        "gingival hypertrophy": "牙龈肥大",
+        "gingival neoplasms": "牙龈肿瘤",
+        "gingival overgrowth": "牙龈过度生长",
+        "gingival pocket": "牙龈袋",
+        "gingival recession": "牙龈退缩",
+        "gingival retraction techniques": "排龈技术",
+        "gingivectomy": "牙龈切除术",
+        "gingivitis": "牙龈炎",
+        "gingivitis necrotizing ulcerative": "坏死性溃疡性牙龈炎",
+        "gingivoplasty": "牙龈成形术",
+}
+
+ZH_EXACT_EXPANSION_BATCH_114_ALIASES = {
+        "ginkgo biloba": "银杏",
+        "ginkgo extract": "银杏提取物",
+        "ginkgolides": "银杏内酯",
+        "ginsenosides": "人参皂苷",
+        "gitelman syndrome": "吉特尔曼综合征",
+        "glaciers": "冰川",
+        "glaciology": "冰川学",
+        "glafenine": "格拉非宁",
+        "glanders": "鼻疽",
+        "glare": "眩光",
+        "glasgow coma scale": "格拉斯哥昏迷量表",
+        "glasgow outcome scale": "格拉斯哥预后量表",
+}
+
+ZH_EXACT_EXPANSION_BATCH_115_ALIASES = {
+        "glass ionomer cements": "玻璃离子水门汀",
+        "glatiramer acetate": "醋酸格拉替雷",
+        "glaucoma angle closure": "闭角型青光眼",
+        "glaucoma neovascular": "新生血管性青光眼",
+        "glaucoma open angle": "开角型青光眼",
+        "glenoid cavity": "关节盂",
+        "glia maturation factor": "神经胶质成熟因子",
+        "gliadin": "麦胶蛋白",
+        "glial cell line derived neurotrophic factors": "胶质细胞源性神经营养因子",
+        "glial fibrillary acidic protein": "胶质纤维酸性蛋白",
+        "gliclazide": "格列齐特",
+        "gliosarcoma": "胶质肉瘤",
+        "gliosis": "胶质增生",
+        "gliotoxin": "胶霉毒素",
+        "glipizide": "格列吡嗪",
+}
+
+ZH_EXACT_EXPANSION_BATCH_116_ALIASES = {
+        "global asymptotic stability": "全局渐近稳定性",
+        "global burden of disease": "全球疾病负担",
+        "global communication": "全球通信",
+        "global exponential stability": "全局指数稳定性",
+        "global feature": "全局特征",
+        "global health": "全球健康",
+        "global illumination": "全局照明",
+        "global longitudinal strain": "整体纵向应变",
+        "global motion estimation": "全局运动估计",
+        "global optimal solutions": "全局最优解",
+        "global optimization problems": "全局优化问题",
+        "global path planning": "全局路径规划",
+        "global software development": "全球软件开发",
+        "global software engineering": "全球软件工程",
+        "global stability": "全局稳定性",
+}
+
+ZH_EXACT_EXPANSION_BATCH_117_ALIASES = {
+        "globins": "珠蛋白",
+        "globosides": "球苷脂",
+        "globular clusters": "球状星团",
+        "globulins": "球蛋白",
+        "globus pallidus": "苍白球",
+        "globus sensation": "咽喉异物感",
+        "glomerular basement membrane": "肾小球基底膜",
+        "glomerular filtration barrier": "肾小球滤过屏障",
+        "glomerular filtration rate": "肾小球滤过率",
+        "glomerular mesangium": "肾小球系膜",
+        "glomerulonephritis membranoproliferative": "膜增生性肾小球肾炎",
+        "glomerulonephritis membranous": "膜性肾小球肾炎",
+        "glomerulosclerosis focal segmental": "局灶节段性肾小球硬化",
+}
+
+ZH_EXACT_EXPANSION_BATCH_118_ALIASES = {
+        "glomus jugulare": "颈静脉球",
+        "glomus jugulare tumor": "颈静脉球瘤",
+        "glomus tumor": "血管球瘤",
+        "glomus tympanicum": "鼓室球",
+        "glomus tympanicum tumor": "鼓室球瘤",
+        "glossalgia": "舌痛",
+        "glossectomy": "舌切除术",
+        "glossitis": "舌炎",
+        "glossitis benign migratory": "良性游走性舌炎",
+        "glossopharyngeal nerve": "舌咽神经",
+        "glossopharyngeal nerve diseases": "舌咽神经疾病",
+        "glossopharyngeal nerve injuries": "舌咽神经损伤",
+        "glossoptosis": "舌后坠",
+        "glottis": "声门",
+}
+
+ZH_EXACT_EXPANSION_BATCH_119_ALIASES = {
+        "gloves protective": "防护手套",
+        "gloves surgical": "手术手套",
+        "glow discharge devices": "辉光放电装置",
+        "glow discharges": "辉光放电",
+        "glowworm swarm optimization": "萤火虫群优化",
+        "glucagon like peptide 1": "胰高血糖素样肽-1",
+        "glucagon like peptide 1 receptor": "胰高血糖素样肽-1受体",
+        "glucagon like peptide 1 receptor agonists": "胰高血糖素样肽-1受体激动剂",
+        "glucagon like peptide 2": "胰高血糖素样肽-2",
+        "glucagon like peptide 2 receptor": "胰高血糖素样肽-2受体",
+        "glucagon like peptides": "胰高血糖素样肽",
+        "glucagonoma": "胰高血糖素瘤",
+}
+
+ZH_EXACT_EXPANSION_BATCH_120_ALIASES = {
+        "alpha globins": "α珠蛋白",
+        "alpha globulins": "α球蛋白",
+        "beta glucans": "β-葡聚糖",
+        "beta globins": "β珠蛋白",
+        "beta globulins": "β球蛋白",
+        "calcium gluconate": "葡萄糖酸钙",
+        "fetal globulins": "胎儿球蛋白",
+        "germinal center kinases": "生发中心激酶",
+        "glucan 1 3 beta glucosidase": "葡聚糖1,3-β-葡萄糖苷酶",
+        "glucan 1 4 beta glucosidase": "葡聚糖1,4-β-葡萄糖苷酶",
+        "glucans": "葡聚糖类",
+        "glucaric acid": "葡糖二酸",
+        "glucocorticoids": "糖皮质激素",
+        "glucokinase": "葡萄糖激酶",
+        "gluconates": "葡萄糖酸盐",
+        "gluconeogenesis": "糖异生",
+        "glucosamine": "氨基葡萄糖",
+        "glucose 6 phosphate": "葡萄糖-6-磷酸",
+        "glucose 6 phosphate isomerase": "葡萄糖-6-磷酸异构酶",
+        "glucose clamp technique": "葡萄糖钳夹技术",
+        "glucose dehydrogenases": "葡萄糖脱氢酶",
+        "glucose metabolism disorders": "葡萄糖代谢障碍",
+        "glucose oxidase": "葡萄糖氧化酶",
+        "glucose sensors": "葡萄糖传感器",
+        "glucose solution hypertonic": "高渗葡萄糖溶液",
+        "receptors ghrelin": "胃饥饿素受体",
+        "receptors glucocorticoid": "糖皮质激素受体",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -5761,6 +6068,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_097_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_098_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_099_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_100_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_101_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_102_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_103_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_104_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_105_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_106_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_107_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_108_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_109_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_110_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_111_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_112_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_113_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_114_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_115_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_116_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_117_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_118_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_119_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_120_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",
