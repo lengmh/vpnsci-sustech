@@ -150,48 +150,75 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-17 L5.5 compact runtime index 完成后）：
+最新已知状态（2026-06-17 zh-exact-expansion-batch-010 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`3828 / 48841 = 7.84%`
-- runtime zh aliases: `3840`
+- runtime 中文覆盖：`4338 / 48843 = 8.88%`
+- runtime zh aliases: `4353`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `3840`
-- `zh:blocked`: `11552`
+- `zh:accept`: `4353`
+- `zh:blocked`: `11530`
 - `zh:needs_review`: `0`
-- `zh:reject`: `201`
+- `zh:reject`: `193`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `48841`
-- compact loader alias keys: `138713`
+- runtime concept aliases: `48843`
+- compact loader alias keys: `139226`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
-- legacy full overlay package/tool 文件仍 byte-identical（回滚保留，不默认读取）
+- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-010 运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `0c5c1d0efbb004443f4735ad8ed1631d439683b57328f47c2cae106bd72c57b4`
+  `40fe9e3d8ec091f889b497658fa9f6074fafd6587554faaf7141a69c23ea533d`
 - compact manifest SHA-256:
-  `18227f68f3ab425f2ae45baff53652764560fe74e2cc2edddcc7822169d0b3c3`
+  `9bb64799036b8a8fd47420d67a5043037d66886a10d46bb2a5c12283f9f27c52`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact loader vs legacy loader 等价：alias_key -> concept_id 完全一致
-- 最近相关测试：`66 passed in 0.84s`
+- compact index 是 batch-010 当前运行时真源；legacy full overlay 未随 batch-007/008/009/010 更新，不再作为默认等价检查对象。
+- 最近相关测试：`70 passed in 1.02s`
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- 下一步可恢复 batch-007 中文 coverage 扩展，但仍走 exact/domain-aware 小批次；
+- batch-008 至 batch-010 中文 coverage 扩展已完成；下一步可继续 batch-011 exact/domain-aware 小批次；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
+- 最新 batch-008 至 batch-010 exact/domain-aware 小批次已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_008_ALIASES`、`ZH_EXACT_EXPANSION_BATCH_009_ALIASES`、`ZH_EXACT_EXPANSION_BATCH_010_ALIASES`；
+  - batch-008 以 A 段生物医学 exact 术语为主：显式接受 `130` 条，阻断 `3` 条 compositional side-effect；
+  - batch-009 以 CS/通信/信号处理 exact 术语为主：显式接受 `110` 条，阻断 `7` 条 compositional side-effect；`17` 条 exact 输出因 duplicate/collision 保持 blocked，不自动 merge；
+  - batch-010 以 A/B 段生物医学 exact 术语为主：显式接受 `218` 条，阻断 `2` 条 compositional side-effect；`4` 条 exact 输出因 duplicate/collision 保持 blocked，不自动 merge；
+  - runtime 中文覆盖从 `3884 / 48841 = 7.95%` 增至 `4338 / 48843 = 8.88%`；
+  - `zh:accept`: `4353`，`zh:blocked`: `11530`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `40fe9e3d8ec091f889b497658fa9f6074fafd6587554faaf7141a69c23ea533d`；
+  - compact manifest SHA-256: `9bb64799036b8a8fd47420d67a5043037d66886a10d46bb2a5c12283f9f27c52`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - 相关测试：`70 passed in 1.02s`。
+- 最新 batch-007 exact/domain-aware 小批次已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_007_ALIASES`，以心血管、线粒体、趋化因子、肿瘤/神经系统等高确定性生物医学术语为主；
+  - `zh:needs_review`: `56 + 9 side-effects -> 0`；
+  - 显式接受 `56` 条 exact/domain-aware recommendation；
+  - 显式阻断 `9` 条由 exact 词条引发的 compositional/domain-title side-effect；
+  - `Coronary Artery Disease -> 冠状动脉疾病` 因与 `coronary_disease` 翻译碰撞仍由 validator 保持 blocked，不自动 merge；
+  - runtime 中文覆盖从 `3828 / 48841 = 7.84%` 增至 `3884 / 48841 = 7.95%`；
+  - `zh:accept`: `3896`，`zh:blocked`: `11543`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；
+  - compact index SHA-256: `2f97a5aaf8d1c257317088df2b69f1ba141269e5cf99e068bb3533ff02916add`；
+  - compact manifest SHA-256: `527482326c857f206582186a98846b2cd8700ae38bd38adfc5fbbb2eb19ea87e`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - 相关测试：`67 passed in 0.89s`。
 - 最新 batch-006 exact/domain-aware 小批次已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_006_ALIASES`，以 S/Z 段高确定性
     生物医学、CS/通信/工程术语为主；
@@ -227,7 +254,7 @@ lexicons/review/
   - `block_accepted_alias_conflicts.py` 结果：`accepted_conflict_groups = 0`；
   - 两份 runtime alias JSON byte-identical。
 - 计划文件 `.idea/plans/2026-06-08-theme-concept-alias-pipeline-plan.md`
-  已同步 batch-006 最新状态；若后续继续扩展，保持两处状态同步。
+  已同步 batch-010 最新状态；若后续继续扩展，保持两处状态同步。
 - 后续扩大中文 runtime coverage 只能通过 exact glossary、domain-aware replacement
   或中文来源扩充；不要直接把 medium-confidence compositional 候选批量转 accept。
 - `zh-exact-expansion-batch-003` 已完成：runtime 中文覆盖到
@@ -556,4 +583,3 @@ uv run python tools/theme-lexicon/materialize_runtime_overlay.py `
 - Codex 每次完成一个 L1+ 任务后，检查 AGENTS.md 是否需要更新。
 - 用户可以直接编辑 AGENTS.md；Codex 读到更新后按最新规则执行。
 - 若 AGENTS.md 与 `.idea/plans/*.md` 冲突，以 AGENTS.md 为项目基线，以 `.idea/plans/*.md` 为当前任务细节。
-
