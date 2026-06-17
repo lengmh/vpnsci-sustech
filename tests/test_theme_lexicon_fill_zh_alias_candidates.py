@@ -7520,6 +7520,227 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_181_adds_high_power_and_signal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("high_electron_mobility_transistor", "High Electron Mobility Transistors", ["computer_science"], "高电子迁移率晶体管"),
+                ("high_energy_laser", "High Energy Lasers", ["computer_science"], "高能激光器"),
+                ("high_power_fiber_laser", "High Power Fiber Lasers", ["computer_science"], "高功率光纤激光器"),
+                ("high_power_microwave_generation", "High Power Microwave Generation", ["microwave_theory_and_techniques"], "高功率微波产生"),
+                ("high_signal_to_noise_ratio", "High Signal-to-noise Ratio", ["computer_science"], "高信噪比"),
+            ]
+        )
+
+    def test_exact_expansion_batch_182_adds_high_video_and_physics_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("high_definition_television", "High Definition Television", ["computer_science"], "高清电视"),
+                ("high_definition_video", "High Definition Video", ["signal_processing"], "高清视频"),
+                ("high_dimensionality", "High Dimensionality", ["computer_science"], "高维性"),
+                ("high_energy_physic_experiment", "High Energy Physics - Experiment", ["physics_high_energy"], "高能物理实验"),
+                ("high_energy_physic_lattice", "High Energy Physics - Lattice", ["physics_high_energy"], "格点高能物理"),
+            ]
+        )
+
+    def test_exact_expansion_batch_183_adds_high_frequency_and_language_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("high_frequency_jet_ventilation", "High-frequency Jet Ventilation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "高频喷射通气"),
+                ("high_intensity_interval_training", "High-intensity Interval Training", ["biomedical", "phenomena_and_processes"], "高强度间歇训练"),
+                ("high_k_dielectric_material", "High-k Dielectric Materials", ["materials_elements_and_compounds"], "高k介电材料"),
+                ("high_level_languag", "High Level Languages", ["computer_science"], "高级语言"),
+                ("high_level_petri_nets", "High-level Petri Nets", ["computer_science"], "高级Petri网"),
+            ]
+        )
+
+    def test_exact_expansion_batch_184_adds_high_order_and_resolution_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("high_order_accuracy", "High-order Accuracy", ["computer_science"], "高阶精度"),
+                ("high_order_method", "High-order Methods", ["computer_science"], "高阶方法"),
+                ("high_quality_solution", "High-quality Solutions", ["computer_science"], "高质量解"),
+                ("high_resolution_imaging", "High-resolution Imaging", ["computers_and_information_processing"], "高分辨率成像"),
+                ("high_speed_electronic", "High-speed Electronics", ["communications_technology"], "高速电子学"),
+            ]
+        )
+
+    def test_exact_expansion_batch_185_adds_higher_and_hilbert_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("higher_order_logic", "Higher Order Logic", ["computer_science"], "高阶逻辑"),
+                ("higher_order_statistic", "Higher Order Statistics", ["mathematics"], "高阶统计量"),
+                ("hilbert_space", "Hilbert Space", ["mathematics"], "希尔伯特空间"),
+                ("hilbert_transform", "Hilbert Transform", ["computer_science"], "希尔伯特变换"),
+                ("hilbert_huang_transform", "Hilbert-huang Transform", ["computer_science"], "希尔伯特-黄变换"),
+            ]
+        )
+
+    def test_exact_expansion_batch_186_adds_hip_and_hippo_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hip_contracture", "Hip Contracture", ["biomedical", "diseases"], "髋关节挛缩"),
+                ("hip_dislocation", "Hip Dislocation", ["biomedical", "diseases"], "髋关节脱位"),
+                ("hip_joint", "Hip Joint", ["anatomy", "biomedical"], "髋关节"),
+                ("hip_prosthesi", "Hip Prosthesis", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "髋关节假体"),
+                ("hippo_signaling_pathway", "Hippo Signaling Pathway", ["biomedical", "phenomena_and_processes"], "Hippo信号通路"),
+                ("hippo_pathway_signaling_and_yap_taz", "Hippo Pathway Signaling And Yap/taz", ["biochemistry_genetics_and_molecular_biology", "life_sciences"], "Hippo-YAP/TAZ信号通路"),
+            ]
+        )
+
+    def test_exact_expansion_batch_187_adds_histamine_and_histidine_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("histamine_antagonist", "Histamine Antagonists", ["biomedical", "chemicals_and_drugs"], "组胺拮抗剂"),
+                ("histamine_h1_antagonist", "Histamine H1 Antagonists", ["biomedical", "chemicals_and_drugs"], "组胺H1拮抗剂"),
+                ("histidine", "Histidine", ["biomedical", "chemicals_and_drugs"], "组氨酸"),
+                ("histidine_kinase", "Histidine Kinase", ["biomedical", "chemicals_and_drugs"], "组氨酸激酶"),
+                ("histidine_rich_glycoprotein", "Histidine-rich Glycoprotein", ["biomedical", "chemicals_and_drugs"], "富组氨酸糖蛋白"),
+            ]
+        )
+
+    def test_exact_expansion_batch_188_adds_histocompatibility_and_histone_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("histocompatibility_antigen", "Histocompatibility Antigens", ["biomedical", "chemicals_and_drugs"], "组织相容性抗原"),
+                ("histocompatibility_antigen_class_i", "Histocompatibility Antigens Class I", ["biomedical", "chemicals_and_drugs"], "I类组织相容性抗原"),
+                ("histology", "Histology", ["biomedical", "disciplines_and_occupations"], "组织学"),
+                ("histone_deacetylase_inhibitor", "Histone Deacetylase Inhibitors", ["biomedical", "chemicals_and_drugs"], "组蛋白去乙酰化酶抑制剂"),
+                ("histone_methyltransferase", "Histone Methyltransferases", ["biomedical", "chemicals_and_drugs"], "组蛋白甲基转移酶"),
+            ]
+        )
+
+    def test_exact_expansion_batch_189_adds_hiv_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hiv_antibody", "HIV Antibodies", ["biomedical", "chemicals_and_drugs"], "HIV抗体"),
+                ("hiv_core_protein_p24", "HIV Core Protein P24", ["biomedical", "chemicals_and_drugs"], "HIV核心蛋白p24"),
+                ("hiv_envelope_protein_gp120", "HIV Envelope Protein Gp120", ["biomedical", "chemicals_and_drugs"], "HIV包膜蛋白gp120"),
+                ("hiv_integrase_inhibitor", "HIV Integrase Inhibitors", ["biomedical", "chemicals_and_drugs"], "HIV整合酶抑制剂"),
+                ("hiv_reverse_transcriptase", "HIV Reverse Transcriptase", ["biomedical", "chemicals_and_drugs"], "HIV逆转录酶"),
+            ]
+        )
+
+    def test_exact_expansion_batch_190_adds_hla_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hla_antigen", "HLA Antigens", ["biomedical", "chemicals_and_drugs"], "HLA抗原"),
+                ("hla_a2_antigen", "Hla-a2 Antigen", ["biomedical", "chemicals_and_drugs"], "HLA-A2抗原"),
+                ("hla_b27_antigen", "Hla-b27 Antigen", ["biomedical", "chemicals_and_drugs"], "HLA-B27抗原"),
+                ("hla_drb1_chain", "Hla-drb1 Chains", ["biomedical", "chemicals_and_drugs"], "HLA-DRB1链"),
+                ("hla_g_antigen", "Hla-g Antigens", ["biomedical", "chemicals_and_drugs"], "HLA-G抗原"),
+            ]
+        )
+
+    def test_exact_expansion_batch_191_adds_hmg_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hmg_box_domain", "Hmg-box Domains", ["biomedical", "phenomena_and_processes"], "HMG盒结构域"),
+                ("hmga_protein", "HMGA Proteins", ["biomedical", "chemicals_and_drugs"], "HMGA蛋白"),
+                ("hmga2_protein", "Hmga2 Protein", ["biomedical", "chemicals_and_drugs"], "HMGA2蛋白"),
+                ("hmgb1_protein", "Hmgb1 Protein", ["biomedical", "chemicals_and_drugs"], "HMGB1蛋白"),
+                ("hmgn1_protein", "Hmgn1 Protein", ["biomedical", "chemicals_and_drugs"], "HMGN1蛋白"),
+            ]
+        )
+
+    def test_exact_expansion_batch_192_adds_hoarding_hodgkin_and_holography_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hoarding_disorder", "Hoarding Disorder", ["biomedical", "psychiatry_and_psychology"], "囤积障碍"),
+                ("hoare_logic", "Hoare Logic", ["computer_science"], "Hoare逻辑"),
+                ("hodgkin_disease", "Hodgkin Disease", ["biomedical", "diseases"], "霍奇金病"),
+                ("holmium_laser", "Holmium Laser", ["computer_science"], "钬激光"),
+                ("holographic_display", "Holographic Displays", ["computer_science"], "全息显示器"),
+            ]
+        )
+
+    def test_exact_expansion_batch_193_adds_home_care_and_gateway_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("home_applianc", "Home Appliances", ["computer_science"], "家用电器"),
+                ("home_automation", "Home Automation", ["consumer_electronics"], "家庭自动化"),
+                ("home_care_agency", "Home Care Agencies", ["biomedical", "health_care"], "家庭护理机构"),
+                ("home_care_servic", "Home Care Services", ["biomedical", "health_care", "qualifiers"], "家庭护理服务"),
+                ("home_gateway", "Home Gateway", ["computer_science"], "家庭网关"),
+            ]
+        )
+
+    def test_exact_expansion_batch_194_adds_home_health_and_network_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("home_health_aid", "Home Health Aides", ["biomedical", "named_groups"], "居家健康助理"),
+                ("home_health_nursing", "Home Health Nursing", ["biomedical", "disciplines_and_occupations"], "居家健康护理"),
+                ("home_infusion_therapy", "Home Infusion Therapy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "居家输液治疗"),
+                ("home_network", "Home Network", ["computer_science"], "家庭网络"),
+                ("home_nursing", "Home Nursing", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical", "health_care"], "居家护理"),
+            ]
+        )
+
+    def test_exact_expansion_batch_195_adds_homeobox_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("homeobox_a1_protein", "Homeobox A1 Protein", ["biomedical", "chemicals_and_drugs"], "同源盒A1蛋白"),
+                ("homeobox_a10_protein", "Homeobox A10 Proteins", ["biomedical", "chemicals_and_drugs"], "同源盒A10蛋白"),
+                ("homeobox_protein_nkx_2_5", "Homeobox Protein Nkx-2.5", ["biomedical", "chemicals_and_drugs"], "同源盒蛋白Nkx-2.5"),
+                ("homeodomain_protein", "Homeodomain Proteins", ["biomedical", "chemicals_and_drugs"], "同源结构域蛋白"),
+                ("homeopathy", "Homeopathy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "顺势疗法"),
+            ]
+        )
+
+    def test_exact_expansion_batch_196_adds_homologous_and_homocysteine_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("homologou_recombination", "Homologous Recombination", ["biomedical", "phenomena_and_processes"], "同源重组"),
+                ("homocysteine_s_methyltransferase", "Homocysteine S-methyltransferase", ["biomedical", "chemicals_and_drugs"], "同型半胱氨酸S-甲基转移酶"),
+                ("homocystinuria", "Homocystinuria", ["biomedical", "diseases"], "同型胱氨酸尿症"),
+                ("homogeneou_network", "Homogeneous Network", ["computer_science", "physics"], "同构网络"),
+                ("homophobia", "Homophobia", ["biomedical", "psychiatry_and_psychology"], "恐同"),
+            ]
+        )
+
+    def test_exact_expansion_batch_197_adds_hormone_and_hospital_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hormone_antagonist", "Hormone Antagonists", ["biomedical", "chemicals_and_drugs"], "激素拮抗剂"),
+                ("hormone_replacement_therapy", "Hormone Replacement Therapy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "激素替代疗法"),
+                ("hormon", "Hormones", ["biomedical", "chemicals_and_drugs"], "激素"),
+                ("hospital_administration", "Hospital Administration", ["biomedical", "disciplines_and_occupations"], "医院管理"),
+                ("hospital_bed_capacity", "Hospital Bed Capacity", ["biomedical", "health_care"], "医院床位容量"),
+            ]
+        )
+
+    def test_exact_expansion_batch_198_adds_hospital_information_and_record_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hospital_charg", "Hospital Charges", ["biomedical", "health_care"], "医院收费"),
+                ("hospital_cost", "Hospital Costs", ["biomedical", "health_care"], "医院费用"),
+                ("hospital_information_system", "Hospital Information System", ["computer_science"], "医院信息系统"),
+                ("hospital_record", "Hospital Records", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "医院病历"),
+                ("hospitalist", "Hospitalists", ["biomedical", "named_groups"], "住院医师"),
+            ]
+        )
+
+    def test_exact_expansion_batch_199_adds_host_hot_and_huffman_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("host_cell_factor_c1", "Host Cell Factor C1", ["biomedical", "chemicals_and_drugs"], "宿主细胞因子C1"),
+                ("host_parasite_interaction", "Host-parasite Interactions", ["biomedical", "phenomena_and_processes"], "宿主-寄生虫相互作用"),
+                ("hot_flash", "Hot Flashes", ["biomedical", "diseases"], "潮热"),
+                ("hough_transform", "Hough Transform", ["computer_science"], "霍夫变换"),
+                ("huffman_coding", "Huffman Coding", ["computers_and_information_processing"], "哈夫曼编码"),
+            ]
+        )
+
+    def test_exact_expansion_batch_200_adds_human_activity_and_biomedical_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("human_activity_recognition", "Human Activity Recognition", ["aerospace_and_electronic_systems"], "人体活动识别"),
+                ("human_computer_interaction", "Human Computer Interaction", ["systems_man_and_cybernetics"], "人机交互"),
+                ("human_embryonic_stem_cell", "Human Embryonic Stem Cells", ["anatomy", "biomedical"], "人胚胎干细胞"),
+                ("human_growth_hormone", "Human Growth Hormone", ["biomedical", "chemicals_and_drugs"], "人生长激素"),
+                ("human_papillomaviru_16", "Human Papillomavirus 16", ["biomedical", "organisms"], "16型人乳头瘤病毒"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
