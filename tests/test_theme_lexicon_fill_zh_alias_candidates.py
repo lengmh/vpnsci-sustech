@@ -7300,6 +7300,226 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_161_adds_hazard_head_and_display_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hazard_ratio", "Hazard Ratio", ["computer_science"], "风险比"),
+                ("hcv_ns3_4a_protease_inhibitor", "HCV Ns3-4a Protease Inhibitors", ["biomedical", "chemicals_and_drugs"], "HCV NS3/4A蛋白酶抑制剂"),
+                ("head_impulse_test", "Head Impulse Test", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "头脉冲试验"),
+                ("head_mounted_display", "Head-mounted Displays", ["systems_man_and_cybernetics"], "头戴式显示器"),
+                ("head_pose_estimation", "Head Pose Estimation", ["computer_science"], "头部姿态估计"),
+            ]
+        )
+
+    def test_exact_expansion_batch_162_adds_health_care_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("health_belief_model", "Health Belief Model", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "健康信念模型"),
+                ("health_care_cost", "Health Care Costs", ["biomedical", "health_care"], "医疗保健费用"),
+                ("health_care_evaluation_mechanism", "Health Care Evaluation Mechanisms", ["biomedical", "health_care"], "医疗保健评价机制"),
+                ("health_care_reform", "Health Care Reform", ["anthropology_education_sociology_and_social_phenomena", "biomedical"], "医疗保健改革"),
+                ("health_equity", "Health Equity", ["biomedical", "health_care"], "健康公平"),
+            ]
+        )
+
+    def test_exact_expansion_batch_163_adds_health_facility_and_service_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("health_facility_administration", "Health Facility Administration", ["biomedical", "health_care"], "卫生设施管理"),
+                ("health_impact_assessment", "Health Impact Assessment", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "健康影响评估"),
+                ("health_information_exchange", "Health Information Exchange", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "健康信息交换"),
+                ("health_record_personal", "Health Records, Personal", ["computer_science"], "个人健康记录"),
+                ("health_statu_indicator", "Health Status Indicators", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "健康状况指标"),
+            ]
+        )
+
+    def test_exact_expansion_batch_164_adds_healthcare_hearing_and_healthy_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("healthcare_associated_pneumonia", "Healthcare-associated Pneumonia", ["biomedical", "diseases"], "医疗相关性肺炎"),
+                ("healthcare_failure_mode_and_effect_analysi", "Healthcare Failure Mode And Effect Analysis", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "医疗保健失效模式与影响分析"),
+                ("healthy_life_expectancy", "Healthy Life Expectancy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "健康预期寿命"),
+                ("hearing_loss_sensorineural", "Hearing Loss, Sensorineural", ["biomedical", "diseases"], "感音神经性听力损失"),
+                ("hearing_test", "Hearing Tests", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "听力测试"),
+            ]
+        )
+
+    def test_exact_expansion_batch_165_adds_heart_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("heart_assist_devic", "Heart-assist Devices", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "心脏辅助装置"),
+                ("heart_conduction_system", "Heart Conduction System", ["anatomy", "biomedical"], "心脏传导系统"),
+                ("heart_failure_systolic", "Heart Failure, Systolic", ["biomedical", "diseases"], "收缩性心力衰竭"),
+                ("heart_lung_transplantation", "Heart-lung Transplantation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "心肺移植"),
+                ("heart_valve_prosthesi_implantation", "Heart Valve Prosthesis Implantation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "心脏瓣膜假体植入"),
+            ]
+        )
+
+    def test_exact_expansion_batch_166_adds_heat_heavy_and_hedgehog_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("heat_assisted_magnetic_recording", "Heat-assisted Magnetic Recording", ["signal_processing"], "热辅助磁记录"),
+                ("heat_shock_protein", "Heat-shock Proteins", ["biomedical", "chemicals_and_drugs"], "热休克蛋白"),
+                ("heat_stroke", "Heat Stroke", ["biomedical", "diseases"], "热射病"),
+                ("heavy_ion_radiotherapy", "Heavy Ion Radiotherapy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "重离子放射治疗"),
+                ("hedgehog_protein", "Hedgehog Proteins", ["biomedical", "chemicals_and_drugs"], "Hedgehog蛋白"),
+            ]
+        )
+
+    def test_exact_expansion_batch_167_adds_heel_helicobacter_and_helium_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("heimlich_maneuver", "Heimlich Maneuver", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "海姆立克急救法"),
+                ("helical_antenna", "Helical Antennas", ["antennas_and_propagation"], "螺旋天线"),
+                ("helicobacter_infection", "Helicobacter Infections", ["biomedical", "diseases"], "螺杆菌感染"),
+                ("helicobacter_hepaticu", "Helicobacter Hepaticus", ["biomedical", "organisms"], "肝螺杆菌"),
+                ("helioseismology", "Helioseismology", ["nuclear_and_plasma_sciences"], "日震学"),
+            ]
+        )
+
+    def test_exact_expansion_batch_168_adds_helix_helminth_and_hemagglutination_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("helix_loop_helix_motif", "Helix-loop-helix Motifs", ["biomedical", "phenomena_and_processes"], "螺旋-环-螺旋基序"),
+                ("hellp_syndrome", "Hellp Syndrome", ["biomedical", "diseases"], "HELLP综合征"),
+                ("helmholtz_equation", "Helmholtz Equation", ["computer_science"], "亥姆霍兹方程"),
+                ("helminthiasi", "Helminthiasis", ["biomedical", "diseases"], "蠕虫病"),
+                ("hemagglutination_inhibition_test", "Hemagglutination Inhibition Tests", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "血凝抑制试验"),
+            ]
+        )
+
+    def test_exact_expansion_batch_169_adds_hemagglutinin_and_hemangioma_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hemagglutinin", "Hemagglutinins", ["biomedical", "chemicals_and_drugs"], "血凝素"),
+                ("hemagglutinin_glycoprotein_influenza_viru", "Hemagglutinin Glycoproteins, Influenza Virus", ["biomedical", "chemicals_and_drugs"], "流感病毒血凝素糖蛋白"),
+                ("hemangioblastoma", "Hemangioblastoma", ["biomedical", "diseases"], "血管母细胞瘤"),
+                ("hemangioma_cavernou", "Hemangioma, Cavernous", ["biomedical", "diseases"], "海绵状血管瘤"),
+                ("hematocrit", "Hematocrit", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "血细胞比容"),
+            ]
+        )
+
+    def test_exact_expansion_batch_170_adds_hematologic_and_hematoma_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hematologic_disease", "Hematologic Diseases", ["biomedical", "diseases"], "血液病"),
+                ("hematologic_neoplasm", "Hematologic Neoplasms", ["biomedical", "diseases"], "血液系统肿瘤"),
+                ("hematoma_epidural_cranial", "Hematoma, Epidural, Cranial", ["biomedical", "diseases"], "颅内硬膜外血肿"),
+                ("hematoma_subdural_chronic", "Hematoma, Subdural, Chronic", ["biomedical", "diseases"], "慢性硬膜下血肿"),
+                ("hematopoietic_stem_cell_transplantation", "Hematopoietic Stem Cell Transplantation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "造血干细胞移植"),
+            ]
+        )
+
+    def test_exact_expansion_batch_171_adds_heme_and_hemi_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hematoxylin", "Hematoxylin", ["biomedical", "chemicals_and_drugs"], "苏木精"),
+                ("heme_binding_protein", "Heme-binding Proteins", ["biomedical", "chemicals_and_drugs"], "血红素结合蛋白"),
+                ("heme_oxygenase_1", "Heme Oxygenase-1", ["biomedical", "chemicals_and_drugs"], "血红素加氧酶-1"),
+                ("hemianopsia", "Hemianopsia", ["biomedical", "diseases"], "偏盲"),
+                ("hemifacial_spasm", "Hemifacial Spasm", ["biomedical", "diseases"], "面肌痉挛"),
+            ]
+        )
+
+    def test_exact_expansion_batch_172_adds_hemodynamic_and_hemoglobin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hemochromatosi", "Hemochromatosis", ["biomedical", "diseases"], "血色病"),
+                ("hemodiafiltration", "Hemodiafiltration", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "血液透析滤过"),
+                ("hemodynamic", "Hemodynamics", ["biomedical", "phenomena_and_processes"], "血流动力学"),
+                ("hemoglobin_sickle", "Hemoglobin, Sickle", ["biomedical", "chemicals_and_drugs"], "镰状血红蛋白"),
+                ("hemoglobinometry", "Hemoglobinometry", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "血红蛋白测定"),
+            ]
+        )
+
+    def test_exact_expansion_batch_173_adds_hemolysis_and_hemorrhagic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hemoglobinopathy", "Hemoglobinopathies", ["biomedical", "diseases"], "血红蛋白病"),
+                ("hemolysi", "Hemolysis", ["biomedical", "diseases"], "溶血"),
+                ("hemolytic_uremic_syndrome", "Hemolytic-uremic Syndrome", ["biomedical", "diseases"], "溶血性尿毒综合征"),
+                ("hemoperfusion", "Hemoperfusion", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "血液灌流"),
+                ("hemorrhagic_fever_with_renal_syndrome", "Hemorrhagic Fever With Renal Syndrome", ["biomedical", "diseases"], "肾综合征出血热"),
+            ]
+        )
+
+    def test_exact_expansion_batch_174_adds_hemostasis_and_hemt_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hemorrhagic_stroke", "Hemorrhagic Stroke", ["biomedical", "diseases"], "出血性卒中"),
+                ("hemosiderosi_pulmonary", "Hemosiderosis, Pulmonary", ["biomedical", "diseases"], "肺含铁血黄素沉着症"),
+                ("hemostatic_techniqu", "Hemostatic Techniques", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "止血技术"),
+                ("hemothorax", "Hemothorax", ["biomedical", "diseases"], "血胸"),
+                ("hemt", "Hemts", ["solid_state_circuits"], "高电子迁移率晶体管"),
+            ]
+        )
+
+    def test_exact_expansion_batch_175_adds_heparan_heparin_and_hepatic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("heparan_sulfate", "Heparan Sulfate", ["biomedical", "chemicals_and_drugs"], "硫酸乙酰肝素"),
+                ("heparin", "Heparin", ["biomedical", "chemicals_and_drugs"], "肝素"),
+                ("heparin_binding_egf_like_growth_factor", "Heparin-binding Egf-like Growth Factor", ["biomedical", "chemicals_and_drugs"], "肝素结合EGF样生长因子"),
+                ("hepatectomy", "Hepatectomy", ["engineering_in_medicine_and_biology"], "肝切除术"),
+                ("hepatic_encephalopathy", "Hepatic Encephalopathy", ["biomedical", "diseases"], "肝性脑病"),
+            ]
+        )
+
+    def test_exact_expansion_batch_176_adds_hepatitis_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hepatiti_alcoholic", "Hepatitis, Alcoholic", ["biomedical", "diseases"], "酒精性肝炎"),
+                ("hepatiti_autoimmune", "Hepatitis, Autoimmune", ["biomedical", "diseases"], "自身免疫性肝炎"),
+                ("hepatiti_b_e_antigen", "Hepatitis B E Antigens", ["biomedical", "chemicals_and_drugs"], "乙型肝炎e抗原"),
+                ("hepatiti_d_chronic", "Hepatitis D, Chronic", ["biomedical", "diseases"], "慢性丁型肝炎"),
+                ("hepatiti_viral_human", "Hepatitis, Viral, Human", ["biomedical", "diseases"], "人病毒性肝炎"),
+            ]
+        )
+
+    def test_exact_expansion_batch_177_adds_hepatocyte_and_heptose_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hepatoblastoma", "Hepatoblastoma", ["biomedical", "diseases"], "肝母细胞瘤"),
+                ("hepatocyte_nuclear_factor_4", "Hepatocyte Nuclear Factor 4", ["biomedical", "chemicals_and_drugs"], "肝细胞核因子4"),
+                ("hepatolenticular_degeneration", "Hepatolenticular Degeneration", ["biomedical", "diseases"], "肝豆状核变性"),
+                ("hepatopulmonary_syndrome", "Hepatopulmonary Syndrome", ["biomedical", "diseases"], "肝肺综合征"),
+                ("heptavalent_pneumococcal_conjugate_vaccine", "Heptavalent Pneumococcal Conjugate Vaccine", ["biomedical", "chemicals_and_drugs"], "七价肺炎球菌结合疫苗"),
+            ]
+        )
+
+    def test_exact_expansion_batch_178_adds_herbal_hereditary_and_herpes_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("herb_drug_interaction", "Herb-drug Interactions", ["biomedical", "phenomena_and_processes"], "草药-药物相互作用"),
+                ("herbal_medicine", "Herbal Medicine", ["biomedical", "disciplines_and_occupations"], "草药医学"),
+                ("herbicide_resistance", "Herbicide Resistance", ["biomedical", "phenomena_and_processes"], "除草剂抗性"),
+                ("hereditary_angioedema_type_iii", "Hereditary Angioedema Type III", ["biomedical", "diseases"], "III型遗传性血管性水肿"),
+                ("herpes_simplex", "Herpes Simplex", ["biomedical", "diseases"], "单纯疱疹"),
+            ]
+        )
+
+    def test_exact_expansion_batch_179_adds_hernia_hexokinase_and_hidden_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hernia_hiatal", "Hernia, Hiatal", ["biomedical", "diseases"], "食管裂孔疝"),
+                ("herpes_zoster_vaccine", "Herpes Zoster Vaccine", ["biomedical", "chemicals_and_drugs"], "带状疱疹疫苗"),
+                ("hexachlorophene", "Hexachlorophene", ["biomedical", "chemicals_and_drugs"], "六氯酚"),
+                ("hexokinase", "Hexokinase", ["biomedical", "chemicals_and_drugs"], "己糖激酶"),
+                ("hidden_markov_model", "Hidden Markov Models", ["systems_engineering_and_theory"], "隐马尔可夫模型"),
+            ]
+        )
+
+    def test_exact_expansion_batch_180_adds_hierarchical_and_high_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hierarchical_cluster_analysi", "Hierarchical Cluster Analysis", ["computer_science"], "层次聚类分析"),
+                ("hierarchical_reinforcement_learning", "Hierarchical Reinforcement Learning", ["computer_science"], "层次强化学习"),
+                ("high_dimensional_data", "High Dimensional Data", ["computational_and_artificial_intelligence"], "高维数据"),
+                ("high_intensity_focused_ultrasound_ablation", "High-intensity Focused Ultrasound Ablation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "高强度聚焦超声消融"),
+                ("high_performance_computing", "High Performance Computing", ["computers_and_information_processing"], "高性能计算"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
