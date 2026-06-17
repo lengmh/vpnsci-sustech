@@ -153,47 +153,67 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-18 zh-exact-expansion-batch-121-to-140 后）：
+最新已知状态（2026-06-18 zh-exact-expansion-batch-141-to-160 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`6276 / 48846 = 12.85%`
-- runtime zh aliases: `6291`
+- runtime 中文覆盖：`6636 / 48848 = 13.58%`
+- runtime zh aliases: `6651`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `6291`
-- `zh:blocked`: `11442`
+- `zh:accept`: `6651`
+- `zh:blocked`: `11454`
 - `zh:needs_review`: `0`
 - `zh:reject`: `191`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `48846`
+- runtime concept aliases: `48848`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
-- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-140 运行时以 compact index/manifest 为准）
+- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-160 运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `ae39fc20ad7f3aa46fb5049ce96c766111d693f532f540c4e6c6cff0cd65243d`
+  `8b36fc8326d3ca9baa0d0f2598141b2b57582f09cc915cd78ff415df37dbb70d`
 - compact manifest SHA-256:
-  `4f58c44992b8609211b30ac2bdfbe7be55c45217d0f888a4fc963507368e04b7`
+  `bc87c4eae0e2385315aef8e18146267f232d1135398e121502c4d05512c2acda`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact index 是 batch-140 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-140 更新，不再作为默认等价检查对象。
-- 最近相关测试：`203 passed in 1.73s`。
+- compact index 是 batch-160 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-160 更新，不再作为默认等价检查对象。
+- 最近相关测试：`223 passed in 1.75s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- batch-121 至 batch-140 中文 coverage 扩展已完成；下一步按目标继续 batch-141 至 batch-160 exact/domain-aware 小批次；
+- batch-141 至 batch-160 中文 coverage 扩展已完成；下一步按目标继续 batch-161 至 batch-180 exact/domain-aware 小批次；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
+- 最新 batch-141 至 batch-160 exact/domain-aware 小批次已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_141_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_160_ALIASES`，覆盖 graphics/grasp/Graves、green/grey/grid、ground/group/growth、GTP/guanine/guanosine、H.264/Haar/Haemophilus/hair/hand/haptic/hardware/harmonic/hash 等 exact/domain-aware 术语；
+  - 新增 `20` 个代表性回归测试，先红灯后转绿；其中修正 `Grey Relational Analysis -> 灰色关联分析` 等组合输出；
+  - grouped L3-L5：fill `records_filled = 18092`，validate `review_decisions = 367409`；
+  - 显式接受 `369` 条 exact/domain-aware recommendation；
+  - 显式阻断 `28` 条由 exact 词条引发的 compositional/domain-title side-effect；
+  - `70` 条 exact-backed 输出因 duplicate/collision 保持 blocked，不自动 merge（包括 `石墨`、`探地雷达`、`陀螺仪`、`硬件` 等重复/碰撞概念）；
+  - runtime 中文覆盖从 `6276 / 48846 = 12.85%` 增至 `6636 / 48848 = 13.58%`；
+  - `zh:accept`: `6651`，`zh:blocked`: `11454`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `8b36fc8326d3ca9baa0d0f2598141b2b57582f09cc915cd78ff415df37dbb70d`；
+  - compact manifest SHA-256: `bc87c4eae0e2385315aef8e18146267f232d1135398e121502c4d05512c2acda`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - 相关测试：`223 passed in 1.75s`。
+- batch-160 后 review：
+  - 本轮新增 `360` 个 runtime zh-covered concepts，是近期单组收益较高的一轮；
+  - side-effect 升至 `28`，主要来自新增组件在 title/research/domain 组合和手/导星/哈希等派生词中复用，已全部显式 blocked；
+  - duplicate/collision exact 输出 `70`，继续不自动 merge；
+  - 覆盖率仍未达 `15%`，下一轮可从 hard/health/heart/helicobacter/hematology 等 H 段高确定性 exact 继续。
 - 最新 batch-121 至 batch-140 exact/domain-aware 小批次已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_121_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_140_ALIASES`，以 glucose transporter、glucoside/glucuronide、glutamate/glutathione、glycine/glycogen/glyco、GPS/GPU/graft、Gram/granuloma、graph/graphene 等 exact 术语为主；
   - 新增 `21` 个代表性回归测试，先红灯后转绿；额外修正 `α葡萄糖苷酶类 -> α-葡萄糖苷酶`、`形式化语法 -> 形式文法`、`等离子体细胞肉芽肿肺 -> 肺浆细胞肉芽肿`、`受体甘氨酸 -> 甘氨酸受体`、`受体粒细胞集落刺激因子 -> 粒细胞集落刺激因子受体`；

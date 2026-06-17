@@ -7080,6 +7080,226 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_141_adds_graphics_grasp_and_graves_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("graphic_processor", "Graphics Processor", ["computer_science"], "图形处理器"),
+                ("graphite", "Graphite", ["materials_elements_and_compounds"], "石墨"),
+                ("grasp_planning", "Grasp Planning", ["computer_science"], "抓取规划"),
+                ("grating", "Gratings", ["materials_elements_and_compounds"], "光栅"),
+                ("grav_disease", "Graves Disease", ["biomedical", "diseases"], "格雷夫斯病"),
+            ]
+        )
+
+    def test_exact_expansion_batch_142_adds_gravity_gray_and_greedy_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gravitational_wav", "Gravitational Waves", ["science_general"], "引力波"),
+                ("gray_matter", "Gray Matter", ["anatomy", "biomedical"], "灰质"),
+                ("gray_platelet_syndrome", "Gray Platelet Syndrome", ["biomedical", "diseases"], "灰色血小板综合征"),
+                ("greedy_algorithm", "Greedy Algorithms", ["computational_and_artificial_intelligence"], "贪心算法"),
+                ("greedy_routing", "Greedy Routing", ["computer_science"], "贪婪路由"),
+            ]
+        )
+
+    def test_exact_expansion_batch_143_adds_green_and_greenhouse_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("green_chemistry_technology", "Green Chemistry Technology", ["biomedical", "technology_industry_and_agriculture"], "绿色化学技术"),
+                ("green_computing", "Green Computing", ["computers_and_information_processing"], "绿色计算"),
+                ("green_fluorescent_protein", "Green Fluorescent Proteins", ["biomedical", "chemicals_and_drugs"], "绿色荧光蛋白"),
+                ("green_hydrogen", "Green Hydrogen", ["materials_elements_and_compounds"], "绿氢"),
+                ("greenhouse_gase", "Greenhouse Gases", ["biomedical", "chemicals_and_drugs"], "温室气体"),
+            ]
+        )
+
+    def test_exact_expansion_batch_144_adds_grey_and_grid_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("grey_relational_analysi", "Grey Relational Analysis", ["computer_science"], "灰色关联分析"),
+                ("grey_system_theory", "Grey System Theory", ["computer_science"], "灰色系统理论"),
+                ("grid_cell", "Grid Cells", ["anatomy", "biomedical"], "网格细胞"),
+                ("grid_computing", "Grid Computing", ["computers_and_information_processing"], "网格计算"),
+                ("grid_scheduling", "Grid Scheduling", ["computer_science"], "网格调度"),
+            ]
+        )
+
+    def test_exact_expansion_batch_145_adds_ground_and_group_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("ground_moving_target_indication", "Ground Moving Target Indication", ["computer_science"], "地面运动目标指示"),
+                ("ground_penetrating_radar", "Ground Penetrating Radar", ["electromagnetic_compatibility_and_interference"], "探地雷达"),
+                ("ground_station", "Ground Stations", ["computer_science"], "地面站"),
+                ("grounded_theory", "Grounded Theory", ["biomedical", "disciplines_and_occupations"], "扎根理论"),
+                ("group_decision", "Group Decision", ["computer_science"], "群决策"),
+            ]
+        )
+
+    def test_exact_expansion_batch_146_adds_group_key_and_group_theory_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("group_i_chaperonin", "Group I Chaperonins", ["biomedical", "chemicals_and_drugs"], "I组伴侣蛋白"),
+                ("group_key_agreement", "Group Key Agreement", ["computer_science"], "群组密钥协商"),
+                ("group_signature", "Group Signature", ["computer_science"], "群签名"),
+                ("group_support_system", "Group Support Systems", ["computer_science"], "群体支持系统"),
+                ("group_theory", "Group Theory", ["mathematics"], "群论"),
+            ]
+        )
+
+    def test_exact_expansion_batch_147_adds_growth_factor_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("growth_arrest_specific_protein_6", "Growth Arrest-specific Protein 6", ["biomedical", "chemicals_and_drugs"], "生长停滞特异性蛋白6"),
+                ("growth_con", "Growth Cones", ["anatomy", "biomedical"], "生长锥"),
+                ("growth_differentiation_factor_15", "Growth Differentiation Factor 15", ["biomedical", "chemicals_and_drugs"], "生长分化因子15"),
+                ("growth_disorder", "Growth Disorders", ["biomedical", "diseases"], "生长障碍"),
+                ("growth_hormone_releasing_hormone", "Growth Hormone-releasing Hormone", ["biomedical", "chemicals_and_drugs"], "生长激素释放激素"),
+            ]
+        )
+
+    def test_exact_expansion_batch_148_adds_gtp_and_guanidine_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gtp_binding_protein", "Gtp-binding Proteins", ["biomedical", "chemicals_and_drugs"], "GTP结合蛋白"),
+                ("gtp_cyclohydrolase", "GTP Cyclohydrolase", ["biomedical", "chemicals_and_drugs"], "GTP环化水解酶"),
+                ("gtpase_activating_protein", "Gtpase-activating Proteins", ["biomedical", "chemicals_and_drugs"], "GTP酶激活蛋白"),
+                ("guanidinoacetate_n_methyltransferase", "Guanidinoacetate N-methyltransferase", ["biomedical", "chemicals_and_drugs"], "胍基乙酸N-甲基转移酶"),
+                ("guanine", "Guanine", ["biomedical", "chemicals_and_drugs"], "鸟嘌呤"),
+            ]
+        )
+
+    def test_exact_expansion_batch_149_adds_guanine_and_guanosine_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("guanine_nucleotide_exchange_factor", "Guanine Nucleotide Exchange Factors", ["biomedical", "chemicals_and_drugs"], "鸟嘌呤核苷酸交换因子"),
+                ("guanosine_diphosphate_fucose", "Guanosine Diphosphate Fucose", ["biomedical", "chemicals_and_drugs"], "鸟苷二磷酸岩藻糖"),
+                ("guanosine_monophosphate", "Guanosine Monophosphate", ["biomedical", "chemicals_and_drugs"], "鸟苷一磷酸"),
+                ("guanosine_triphosphate", "Guanosine Triphosphate", ["biomedical", "chemicals_and_drugs"], "鸟苷三磷酸"),
+                ("guanylate_cyclase", "Guanylate Cyclase", ["biomedical", "chemicals_and_drugs"], "鸟苷酸环化酶"),
+            ]
+        )
+
+    def test_exact_expansion_batch_150_adds_guidance_guideline_and_gun_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gui_testing", "Gui Testing", ["computer_science"], "GUI测试"),
+                ("guidance_and_control_system", "Guidance And Control Systems", ["engineering", "physical_sciences"], "制导与控制系统"),
+                ("guided_tissue_regeneration_periodontal", "Guided Tissue Regeneration, Periodontal", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "牙周引导组织再生"),
+                ("guideline_adherence", "Guideline Adherence", ["biomedical", "health_care"], "指南依从性"),
+                ("gunshot_detection_system", "Gunshot Detection Systems", ["aerospace_and_electronic_systems"], "枪声检测系统"),
+            ]
+        )
+
+    def test_exact_expansion_batch_151_adds_gwas_gynecology_and_gyro_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gwas", "Gwas", ["computer_science"], "全基因组关联研究"),
+                ("gynecologic_surgical_procedur", "Gynecologic Surgical Procedures", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "妇科外科手术"),
+                ("gynecology", "Gynecology", ["engineering_in_medicine_and_biology"], "妇科学"),
+                ("gyroscopes", "Gyroscopes", ["control_systems"], "陀螺仪"),
+                ("gyrotron", "Gyrotrons", ["microwave_theory_and_techniques"], "回旋管"),
+            ]
+        )
+
+    def test_exact_expansion_batch_152_adds_h264_haar_and_habitat_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("h_264_avc_encoder", "H.264/avc Encoder", ["computer_science"], "H.264/AVC编码器"),
+                ("h_infinity_control", "H Infinity Control", ["mathematics"], "H∞控制"),
+                ("haar_like_featur", "Haar-like Features", ["computer_science"], "Haar样特征"),
+                ("habenula", "Habenula", ["anatomy", "biomedical"], "缰核"),
+                ("habitat_loss", "Habitat Loss", ["environmental_degradation"], "栖息地丧失"),
+            ]
+        )
+
+    def test_exact_expansion_batch_153_adds_haemophilus_hafnium_and_hair_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("haemophilu_influenzae", "Haemophilus Influenzae", ["biomedical", "organisms"], "流感嗜血杆菌"),
+                ("haemophilu_influenzae_type_b", "Haemophilus Influenzae Type B", ["biomedical", "organisms"], "b型流感嗜血杆菌"),
+                ("hafnium_compound", "Hafnium Compounds", ["materials_elements_and_compounds"], "铪化合物"),
+                ("hair_cell_auditory_inner", "Hair Cells, Auditory, Inner", ["anatomy", "biomedical"], "内毛细胞"),
+                ("hair_follicle", "Hair Follicle", ["anatomy", "biomedical"], "毛囊"),
+            ]
+        )
+
+    def test_exact_expansion_batch_154_adds_hair_half_duplex_and_hallux_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hair_removal", "Hair Removal", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "脱毛"),
+                ("half_duplex_relay", "Half-duplex Relay", ["computer_science"], "半双工中继"),
+                ("half_life", "Half-life", ["biomedical", "phenomena_and_processes"], "半衰期"),
+                ("hall_effect_devic", "Hall Effect Devices", ["electron_devices"], "霍尔效应器件"),
+                ("hallux_valgu", "Hallux Valgus", ["biomedical", "diseases"], "拇外翻"),
+            ]
+        )
+
+    def test_exact_expansion_batch_155_adds_halogen_haloperidol_and_hamartoma_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("halogen", "Halogens", ["biomedical", "chemicals_and_drugs"], "卤素"),
+                ("halogenated_diphenyl_ether", "Halogenated Diphenyl Ethers", ["biomedical", "chemicals_and_drugs"], "卤代二苯醚"),
+                ("haloperidol", "Haloperidol", ["biomedical", "chemicals_and_drugs"], "氟哌啶醇"),
+                ("ham_radio", "Ham Radios", ["communications_technology"], "业余无线电"),
+                ("hamartoma_syndrome_multiple", "Hamartoma Syndrome, Multiple", ["biomedical", "diseases"], "多发性错构瘤综合征"),
+            ]
+        )
+
+    def test_exact_expansion_batch_156_adds_hamming_and_hand_disease_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hamiltonian_system", "Hamiltonian Systems", ["physics"], "哈密顿系统"),
+                ("hamming_distance", "Hamming Distance", ["computer_science"], "汉明距离"),
+                ("hand_arm_vibration_syndrome", "Hand-arm Vibration Syndrome", ["biomedical", "diseases"], "手臂振动综合征"),
+                ("hand_dermatose", "Hand Dermatoses", ["biomedical", "diseases"], "手部皮肤病"),
+                ("hand_foot_and_mouth_disease", "Hand, Foot And Mouth Disease", ["biomedical", "diseases"], "手足口病"),
+            ]
+        )
+
+    def test_exact_expansion_batch_157_adds_hand_gesture_and_device_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hand_gesture_recognition", "Hand Gesture Recognition", ["computer_science"], "手势识别"),
+                ("hand_held_device", "Hand Held Device", ["computer_science"], "手持设备"),
+                ("hand_posture_recognition", "Hand Posture Recognition", ["computer_science"], "手部姿态识别"),
+                ("hand_tracking", "Hand Tracking", ["computer_science"], "手部跟踪"),
+                ("hand_written_character_recognition", "Hand Written Character Recognition", ["computer_science"], "手写字符识别"),
+            ]
+        )
+
+    def test_exact_expansion_batch_158_adds_handwriting_hantavirus_and_haptic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("handwriting_recognition", "Handwriting Recognition", ["computers_and_information_processing"], "手写识别"),
+                ("handwritten_chinese_character", "Handwritten Chinese Character", ["computer_science"], "手写汉字"),
+                ("hantavirus_pulmonary_syndrome", "Hantavirus Pulmonary Syndrome", ["biomedical", "diseases"], "汉坦病毒肺综合征"),
+                ("haploinsufficiency", "Haploinsufficiency", ["biomedical", "phenomena_and_processes"], "单倍剂量不足"),
+                ("haptic_feedback", "Haptic Feedback", ["computer_science"], "触觉反馈"),
+            ]
+        )
+
+    def test_exact_expansion_batch_159_adds_haptic_and_hardware_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("haptic_rendering", "Haptic Rendering", ["computer_science"], "触觉渲染"),
+                ("hardware_acceleration", "Hardware Acceleration", ["computers_and_information_processing"], "硬件加速"),
+                ("hardware_description_languag", "Hardware Description Languages", ["computer_science"], "硬件描述语言"),
+                ("hardware_in_the_loop_simulation", "Hardware-in-the-loop Simulation", ["systems_engineering_and_theory"], "硬件在环仿真"),
+                ("hardware_software_partitioning", "Hardware/software Partitioning", ["computer_science"], "软硬件划分"),
+            ]
+        )
+
+    def test_exact_expansion_batch_160_adds_harmonic_hash_and_hashimoto_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("harmful_algal_bloom", "Harmful Algal Bloom", ["biomedical", "phenomena_and_processes"], "有害藻华"),
+                ("harmonic_distortion", "Harmonic Distortion", ["signal_processing"], "谐波失真"),
+                ("harri_corner_detection", "Harris Corner Detection", ["computer_science"], "Harris角点检测"),
+                ("hash_function", "Hash Functions", ["computer_science", "mathematics"], "哈希函数"),
+                ("hashimoto_disease", "Hashimoto Disease", ["biomedical", "diseases"], "桥本病"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
