@@ -6396,6 +6396,226 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_081_adds_gaussian_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gaussian_beam", "Gaussian Beam", ["computer_science"], "高斯光束"),
+                ("gaussian_channel", "Gaussian Channels", ["information_theory"], "高斯信道"),
+                ("gaussian_distribution", "Gaussian Distribution", ["computer_science", "mathematics"], "高斯分布"),
+                ("gaussian_filter", "Gaussian Filter", ["computer_science"], "高斯滤波器"),
+                ("gaussian_mixture_model", "Gaussian Mixture Model", ["computer_science", "mathematics"], "高斯混合模型"),
+            ]
+        )
+
+    def test_exact_expansion_batch_082_adds_gelatin_and_gemcitabine_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gb_viru_c", "GB Virus C", ["biomedical", "organisms"], "GB病毒C"),
+                ("gelatin", "Gelatin", ["biomedical", "chemicals_and_drugs"], "明胶"),
+                ("gelatin_sponge_absorbable", "Gelatin Sponge, Absorbable", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "可吸收明胶海绵"),
+                ("gemcitabine", "Gemcitabine", ["biomedical", "chemicals_and_drugs"], "吉西他滨"),
+                ("gemfibrozil", "Gemfibrozil", ["biomedical", "chemicals_and_drugs"], "吉非罗齐"),
+            ]
+        )
+
+    def test_exact_expansion_batch_083_adds_basic_gene_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gen", "Genes", ["biomedical", "phenomena_and_processes"], "基因"),
+                ("gen_abl", "Genes, Abl", ["biomedical", "phenomena_and_processes"], "Abl基因"),
+                ("gen_apc", "Genes, APC", ["biomedical", "phenomena_and_processes"], "APC基因"),
+                ("gen_archaeal", "Genes, Archaeal", ["biomedical", "phenomena_and_processes"], "古菌基因"),
+                ("gen_bacterial", "Genes, Bacterial", ["biomedical", "phenomena_and_processes"], "细菌基因"),
+            ]
+        )
+
+    def test_exact_expansion_batch_084_adds_brca_and_bcl_gene_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gen_bcl_1", "Genes, Bcl-1", ["biomedical", "phenomena_and_processes"], "Bcl-1基因"),
+                ("gen_bcl_2", "Genes, Bcl-2", ["biomedical", "phenomena_and_processes"], "Bcl-2基因"),
+                ("gen_brca1", "Genes, Brca1", ["biomedical", "phenomena_and_processes"], "BRCA1基因"),
+                ("gen_brca2", "Genes, Brca2", ["biomedical", "phenomena_and_processes"], "BRCA2基因"),
+                ("gen_chloroplast", "Genes, Chloroplast", ["biomedical", "phenomena_and_processes"], "叶绿体基因"),
+            ]
+        )
+
+    def test_exact_expansion_batch_085_adds_developmental_and_env_gene_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gen_dcc", "Genes, DCC", ["biomedical", "phenomena_and_processes"], "DCC基因"),
+                ("gen_developmental", "Genes, Developmental", ["biomedical", "phenomena_and_processes"], "发育基因"),
+                ("gen_dominant", "Genes, Dominant", ["biomedical", "phenomena_and_processes"], "显性基因"),
+                ("gen_duplicate", "Genes, Duplicate", ["biomedical", "phenomena_and_processes"], "重复基因"),
+                ("gen_env", "Genes, Env", ["biomedical", "phenomena_and_processes"], "Env基因"),
+            ]
+        )
+
+    def test_exact_expansion_batch_086_adds_erbb_and_fungal_gene_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gen_erbb_1", "Genes, Erbb-1", ["biomedical", "phenomena_and_processes"], "ERBB1基因"),
+                ("gen_erbb_2", "Genes, Erbb-2", ["biomedical", "phenomena_and_processes"], "ERBB2基因"),
+                ("gen_fms", "Genes, Fms", ["biomedical", "phenomena_and_processes"], "Fms基因"),
+                ("gen_fungal", "Genes, Fungal", ["biomedical", "phenomena_and_processes"], "真菌基因"),
+                ("gen_gag", "Genes, Gag", ["biomedical", "phenomena_and_processes"], "Gag基因"),
+            ]
+        )
+
+    def test_exact_expansion_batch_087_adds_homeobox_and_immunoglobulin_gene_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gen_homeobox", "Genes, Homeobox", ["biomedical", "phenomena_and_processes"], "同源盒基因"),
+                ("gen_immediate_early", "Genes, Immediate-early", ["biomedical", "phenomena_and_processes"], "即刻早期基因"),
+                ("gen_immunoglobulin", "Genes, Immunoglobulin", ["biomedical", "phenomena_and_processes"], "免疫球蛋白基因"),
+                ("gen_immunoglobulin_heavy_chain", "Genes, Immunoglobulin Heavy Chain", ["biomedical", "phenomena_and_processes"], "免疫球蛋白重链基因"),
+                ("gen_immunoglobulin_light_chain", "Genes, Immunoglobulin Light Chain", ["biomedical", "phenomena_and_processes"], "免疫球蛋白轻链基因"),
+            ]
+        )
+
+    def test_exact_expansion_batch_088_adds_mhc_and_mitochondrial_gene_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gen_mhc_class_i", "Genes, MHC Class I", ["biomedical", "phenomena_and_processes"], "MHC I类基因"),
+                ("gen_mhc_class_ii", "Genes, MHC Class II", ["biomedical", "phenomena_and_processes"], "MHC II类基因"),
+                ("gen_mitochondrial__2", "Genes, Mitochondrial", ["biomedical", "phenomena_and_processes"], "线粒体基因"),
+                ("gen_modifier", "Genes, Modifier", ["biomedical", "phenomena_and_processes"], "修饰基因"),
+                ("gen_myc", "Genes, Myc", ["biomedical", "phenomena_and_processes"], "Myc基因"),
+            ]
+        )
+
+    def test_exact_expansion_batch_089_adds_p53_and_ras_gene_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gen_p16", "Genes, P16", ["biomedical", "phenomena_and_processes"], "P16基因"),
+                ("gen_p53", "Genes, P53", ["biomedical", "phenomena_and_processes"], "P53基因"),
+                ("gen_plant", "Genes, Plant", ["biomedical", "phenomena_and_processes"], "植物基因"),
+                ("gen_rag_1", "Genes, Rag-1", ["biomedical", "phenomena_and_processes"], "RAG-1基因"),
+                ("gen_ras", "Genes, Ras", ["biomedical", "phenomena_and_processes"], "Ras基因"),
+            ]
+        )
+
+    def test_exact_expansion_batch_090_adds_t_cell_receptor_gene_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gen_t_cell_receptor", "Genes, T-cell Receptor", ["biomedical", "phenomena_and_processes"], "T细胞受体基因"),
+                ("gen_t_cell_receptor_alpha", "Genes, T-cell Receptor Alpha", ["biomedical", "phenomena_and_processes"], "T细胞受体α基因"),
+                ("gen_t_cell_receptor_beta", "Genes, T-cell Receptor Beta", ["biomedical", "phenomena_and_processes"], "T细胞受体β基因"),
+                ("gen_t_cell_receptor_delta", "Genes, T-cell Receptor Delta", ["biomedical", "phenomena_and_processes"], "T细胞受体δ基因"),
+                ("gen_t_cell_receptor_gamma", "Genes, T-cell Receptor Gamma", ["biomedical", "phenomena_and_processes"], "T细胞受体γ基因"),
+            ]
+        )
+
+    def test_exact_expansion_batch_091_adds_gene_therapy_and_transfer_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gene_amplification", "Gene Amplification", ["biomedical", "phenomena_and_processes"], "基因扩增"),
+                ("gene_conversion", "Gene Conversion", ["biomedical", "phenomena_and_processes"], "基因转换"),
+                ("gene_deletion", "Gene Deletion", ["biomedical", "phenomena_and_processes"], "基因缺失"),
+                ("gene_editing", "Gene Editing", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "基因编辑"),
+                ("gene_therapy_agent", "Gene Therapy Agents", ["biomedical", "chemicals_and_drugs"], "基因治疗剂"),
+            ]
+        )
+
+    def test_exact_expansion_batch_092_adds_gene_expression_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gene_expression", "Gene Expression", ["biomedical", "phenomena_and_processes"], "基因表达"),
+                ("gene_expression_profiling__2", "Gene Expression Profiling", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "基因表达谱分析"),
+                ("gene_expression_regulation", "Gene Expression Regulation", ["biomedical", "phenomena_and_processes"], "基因表达调控"),
+                ("gene_expression_regulation_bacterial", "Gene Expression Regulation, Bacterial", ["biomedical", "phenomena_and_processes"], "细菌基因表达调控"),
+                ("gene_expression_regulation_viral", "Gene Expression Regulation, Viral", ["biomedical", "phenomena_and_processes"], "病毒基因表达调控"),
+            ]
+        )
+
+    def test_exact_expansion_batch_093_adds_gene_product_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gene_product_env", "Gene Products, Env", ["biomedical", "chemicals_and_drugs"], "Env基因产物"),
+                ("gene_product_gag", "Gene Products, Gag", ["biomedical", "chemicals_and_drugs"], "Gag基因产物"),
+                ("gene_product_pol", "Gene Products, Pol", ["biomedical", "chemicals_and_drugs"], "Pol基因产物"),
+                ("gene_product_tat", "Gene Products, Tat", ["biomedical", "chemicals_and_drugs"], "Tat基因产物"),
+                ("gene_product_vif", "Gene Products, Vif", ["biomedical", "chemicals_and_drugs"], "Vif基因产物"),
+            ]
+        )
+
+    def test_exact_expansion_batch_094_adds_gene_rearrangement_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gene_rearrangement", "Gene Rearrangement", ["biomedical", "phenomena_and_processes"], "基因重排"),
+                ("gene_rearrangement_b_lymphocyte", "Gene Rearrangement, B-lymphocyte", ["biomedical", "phenomena_and_processes"], "B淋巴细胞基因重排"),
+                ("gene_rearrangement_t_lymphocyte", "Gene Rearrangement, T-lymphocyte", ["biomedical", "phenomena_and_processes"], "T淋巴细胞基因重排"),
+                ("gene_regulatory_network", "Gene Regulatory Networks", ["biomedical", "phenomena_and_processes"], "基因调控网络"),
+                ("gene_silencing", "Gene Silencing", ["biomedical", "phenomena_and_processes"], "基因沉默"),
+            ]
+        )
+
+    def test_exact_expansion_batch_095_adds_gene_targeting_and_transfer_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gene_targeting", "Gene Targeting", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "基因打靶"),
+                ("gene_transfer_horizontal", "Gene Transfer, Horizontal", ["biomedical", "phenomena_and_processes"], "水平基因转移"),
+                ("gene_transfer_techniqu", "Gene Transfer Techniques", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "基因转移技术"),
+                ("general_practice", "General Practice", ["biomedical", "disciplines_and_occupations"], "全科医学"),
+                ("general_surgery", "General Surgery", ["biomedical", "disciplines_and_occupations"], "普通外科"),
+            ]
+        )
+
+    def test_exact_expansion_batch_096_adds_gender_and_anxiety_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gender_affirming_care", "Gender-affirming Care", ["biomedical", "health_care"], "性别肯定护理"),
+                ("gender_dysphoria", "Gender Dysphoria", ["biomedical", "psychiatry_and_psychology"], "性别焦虑"),
+                ("gender_identity", "Gender Identity", ["biomedical", "psychiatry_and_psychology"], "性别认同"),
+                ("gender_role", "Gender Role", ["biomedical", "psychiatry_and_psychology"], "性别角色"),
+                ("generalized_anxiety_disorder", "Generalized Anxiety Disorder", ["biomedical", "psychiatry_and_psychology"], "广泛性焦虑障碍"),
+            ]
+        )
+
+    def test_exact_expansion_batch_097_adds_generative_ai_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("generative_adversarial_network", "Generative Adversarial Networks", ["computer_science", "mathematics"], "生成对抗网络"),
+                ("generative_ai", "Generative AI", ["computational_and_artificial_intelligence"], "生成式AI"),
+                ("generative_artificial_intelligence", "Generative Artificial Intelligence", ["biomedical", "information_science"], "生成式人工智能"),
+                ("generative_model", "Generative Model", ["computer_science"], "生成模型"),
+                ("generative_pre_trained_transformer", "Generative Pre-trained Transformer", ["computational_and_artificial_intelligence"], "生成式预训练Transformer"),
+            ]
+        )
+
+    def test_exact_expansion_batch_098_adds_genetic_algorithm_and_association_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("genetic_algorithm", "Genetic Algorithms", ["computational_and_artificial_intelligence"], "遗传算法"),
+                ("genetic_association_study__2", "Genetic Association Studies", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "遗传关联研究"),
+                ("genetic_background", "Genetic Background", ["biomedical", "phenomena_and_processes"], "遗传背景"),
+                ("genetic_carrier_screening", "Genetic Carrier Screening", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "遗传携带者筛查"),
+                ("genetic_code", "Genetic Code", ["biomedical", "phenomena_and_processes"], "遗传密码"),
+            ]
+        )
+
+    def test_exact_expansion_batch_099_adds_genetic_counseling_and_disease_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("genetic_counseling", "Genetic Counseling", ["biomedical", "disciplines_and_occupations"], "遗传咨询"),
+                ("genetic_determinism", "Genetic Determinism", ["biomedical", "psychiatry_and_psychology"], "遗传决定论"),
+                ("genetic_disease_inborn", "Genetic Diseases, Inborn", ["biomedical", "diseases"], "先天性遗传病"),
+                ("genetic_disease_x_linked", "Genetic Diseases, X-linked", ["biomedical", "diseases"], "X连锁遗传病"),
+                ("genetic_engineering__2", "Genetic Engineering", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "遗传工程"),
+            ]
+        )
+
+    def test_exact_expansion_batch_100_adds_genetic_marker_and_phenomena_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("genetic_enhancement", "Genetic Enhancement", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "遗传增强"),
+                ("genetic_heterogeneity", "Genetic Heterogeneity", ["biomedical", "phenomena_and_processes"], "遗传异质性"),
+                ("genetic_marker", "Genetic Markers", ["biomedical", "chemicals_and_drugs"], "遗传标记"),
+                ("genetic_phenomena", "Genetic Phenomena", ["biomedical", "phenomena_and_processes"], "遗传现象"),
+                ("genetic_polymorphism", "Genetic Polymorphism", ["computer_science"], "遗传多态性"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

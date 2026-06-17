@@ -5319,6 +5319,346 @@ ZH_EXACT_EXPANSION_BATCH_080_ALIASES = {
         "receptors galanin type 3": "3型甘丙肽受体",
 }
 
+ZH_EXACT_EXPANSION_BATCH_081_ALIASES = {
+        "gaussians": "高斯分布",
+        "gaussian beam": "高斯光束",
+        "gaussian broadcast channel": "高斯广播信道",
+        "gaussian channels": "高斯信道",
+        "gaussian channel": "高斯信道",
+        "gaussian components": "高斯分量",
+        "gaussian distribution": "高斯分布",
+        "gaussian filter": "高斯滤波器",
+        "gaussian filtering": "高斯滤波",
+        "gaussian function": "高斯函数",
+        "gaussian interference channels": "高斯干扰信道",
+        "gaussian kernel": "高斯核",
+        "gaussian mixture": "高斯混合",
+        "gaussian mixture model": "高斯混合模型",
+        "gaussian mixture modeling": "高斯混合建模",
+        "gaussian mixture of experts": "高斯混合专家模型",
+        "gaussian model": "高斯模型",
+        "gaussian multiple-access channels": "高斯多址信道",
+        "gaussian noise": "高斯噪声",
+        "gaussian processes": "高斯过程",
+        "gaussian pulse": "高斯脉冲",
+        "gaussian random variable": "高斯随机变量",
+        "gaussian sources": "高斯源",
+        "gaussian white noise": "高斯白噪声",
+        "gaze tracking": "视线跟踪",
+}
+
+ZH_EXACT_EXPANSION_BATCH_082_ALIASES = {
+        "gb virus a": "GB病毒A",
+        "gb virus b": "GB病毒B",
+        "gb virus c": "GB病毒C",
+        "gc rich sequence": "富GC序列",
+        "gears": "齿轮",
+        "gear manufacture": "齿轮制造",
+        "gear teeth": "齿轮齿",
+        "gear transmissions": "齿轮传动",
+        "geese": "鹅",
+        "gefarnate": "吉法酯",
+        "gelatin": "明胶",
+        "gelatin sponge absorbable": "可吸收明胶海绵",
+        "gelatinases": "明胶酶",
+        "gels": "凝胶",
+        "gelsemium": "钩吻属",
+        "gelsolin": "凝溶胶蛋白",
+        "gemcitabine": "吉西他滨",
+        "gemella": "孪生球菌属",
+        "gemfibrozil": "吉非罗齐",
+        "gemifloxacin": "吉米沙星",
+        "gemini of coiled bodies": "卷曲体Gemini",
+        "geminin": "Geminin蛋白",
+        "geminiviridae": "双生病毒科",
+        "gemtuzumab": "吉妥珠单抗",
+}
+
+ZH_EXACT_EXPANSION_BATCH_083_ALIASES = {
+        "genes": "基因",
+        "genes abl": "Abl基因",
+        "genes apc": "APC基因",
+        "genes arac": "AraC基因",
+        "genes archaeal": "古菌基因",
+        "genes bacterial": "细菌基因",
+        "genes bcl-1": "Bcl-1基因",
+        "genes bcl-2": "Bcl-2基因",
+        "genes brca1": "BRCA1基因",
+        "genes brca2": "BRCA2基因",
+        "genes cdc": "Cdc基因",
+        "genes chloroplast": "叶绿体基因",
+        "genes dcc": "DCC基因",
+        "genes developmental": "发育基因",
+        "genes dominant": "显性基因",
+        "genes duplicate": "重复基因",
+        "genes env": "Env基因",
+}
+
+ZH_EXACT_EXPANSION_BATCH_084_ALIASES = {
+        "genes erba": "ErbA基因",
+        "genes erbb": "ErbB基因",
+        "genes erbb-1": "ERBB1基因",
+        "genes erbb-2": "ERBB2基因",
+        "genes essential": "必需基因",
+        "genes fms": "Fms基因",
+        "genes fos": "Fos基因",
+        "genes fungal": "真菌基因",
+        "genes gag": "Gag基因",
+        "genes helminth": "蠕虫基因",
+        "genes homeobox": "同源盒基因",
+        "genes immediate-early": "即刻早期基因",
+        "genes immunoglobulin": "免疫球蛋白基因",
+        "genes immunoglobulin heavy chain": "免疫球蛋白重链基因",
+        "genes immunoglobulin light chain": "免疫球蛋白轻链基因",
+}
+
+ZH_EXACT_EXPANSION_BATCH_085_ALIASES = {
+        "genes insect": "昆虫基因",
+        "genes intracisternal a-particle": "内池A粒子基因",
+        "genes jun": "Jun基因",
+        "genes lethal": "致死基因",
+        "genes mating type fungal": "真菌交配型基因",
+        "genes mcc": "MCC基因",
+        "genes mdr": "MDR基因",
+        "genes mhc class i": "MHC I类基因",
+        "genes mhc class ii": "MHC II类基因",
+        "genes microbial": "微生物基因",
+        "genes mitochondrial": "线粒体基因",
+        "genes modifier": "修饰基因",
+        "genes mos": "Mos基因",
+        "genes myb": "Myb基因",
+        "genes myc": "Myc基因",
+}
+
+ZH_EXACT_EXPANSION_BATCH_086_ALIASES = {
+        "genes nef": "Nef基因",
+        "genes neoplasm": "肿瘤基因",
+        "genes neurofibromatosis 1": "神经纤维瘤病1型基因",
+        "genes neurofibromatosis 2": "神经纤维瘤病2型基因",
+        "genes overlapping": "重叠基因",
+        "genes p16": "P16基因",
+        "genes p53": "P53基因",
+        "genes plant": "植物基因",
+        "genes pol": "Pol基因",
+        "genes protozoan": "原生动物基因",
+        "genes rag-1": "RAG-1基因",
+        "genes ras": "Ras基因",
+        "genes recessive": "隐性基因",
+        "genes regulator": "调节基因",
+        "genes rel": "Rel基因",
+}
+
+ZH_EXACT_EXPANSION_BATCH_087_ALIASES = {
+        "genes reporter": "报告基因",
+        "genes retinoblastoma": "视网膜母细胞瘤基因",
+        "genes rev": "Rev基因",
+        "genes rrna": "rRNA基因",
+        "genes sis": "Sis基因",
+        "genes src": "Src基因",
+        "genes sry": "SRY基因",
+        "genes suppressor": "抑制基因",
+        "genes switch": "转换基因",
+        "genes synthetic": "合成基因",
+        "genes t-cell receptor": "T细胞受体基因",
+        "genes t-cell receptor alpha": "T细胞受体α基因",
+        "genes t-cell receptor beta": "T细胞受体β基因",
+        "genes t-cell receptor delta": "T细胞受体δ基因",
+        "genes t-cell receptor gamma": "T细胞受体γ基因",
+}
+
+ZH_EXACT_EXPANSION_BATCH_088_ALIASES = {
+        "genes tat": "Tat基因",
+        "genes transgenic suicide": "转基因自杀基因",
+        "genes tumor suppressor": "肿瘤抑制基因",
+        "genes vif": "Vif基因",
+        "genes viral": "病毒基因",
+        "genes vpr": "Vpr基因",
+        "genes vpu": "Vpu基因",
+        "genes wilms tumor": "Wilms肿瘤基因",
+        "genes x-linked": "X连锁基因",
+        "genes y-linked": "Y连锁基因",
+        "gender-affirming care": "性别肯定护理",
+        "gender-affirming procedures": "性别肯定程序",
+        "gender-affirming surgery": "性别肯定手术",
+        "gender-based violence": "基于性别的暴力",
+        "gender dysphoria": "性别焦虑",
+}
+
+ZH_EXACT_EXPANSION_BATCH_089_ALIASES = {
+        "gender equity": "性别平等",
+        "gender identity": "性别认同",
+        "gender-nonconforming persons": "性别非顺从者",
+        "gender role": "性别角色",
+        "gene amplification": "基因扩增",
+        "gene assignment": "基因定位",
+        "gene components": "基因组成",
+        "gene conversion": "基因转换",
+        "gene deletion": "基因缺失",
+        "gene dosage": "基因剂量",
+        "gene drive technology": "基因驱动技术",
+        "gene duplication": "基因重复",
+        "gene editing": "基因编辑",
+        "gene-environment interaction": "基因-环境相互作用",
+}
+
+ZH_EXACT_EXPANSION_BATCH_090_ALIASES = {
+        "gene expression": "基因表达",
+        "gene expression profiling": "基因表达谱分析",
+        "gene expression programming": "基因表达式编程",
+        "gene expression regulation": "基因表达调控",
+        "gene expression regulation archaeal": "古菌基因表达调控",
+        "gene expression regulation bacterial": "细菌基因表达调控",
+        "gene expression regulation developmental": "发育基因表达调控",
+        "gene expression regulation enzymologic": "酶学基因表达调控",
+        "gene expression regulation fungal": "真菌基因表达调控",
+        "gene expression regulation leukemic": "白血病基因表达调控",
+        "gene expression regulation neoplastic": "肿瘤性基因表达调控",
+        "gene expression regulation plant": "植物基因表达调控",
+        "gene expression regulation viral": "病毒基因表达调控",
+}
+
+ZH_EXACT_EXPANSION_BATCH_091_ALIASES = {
+        "gene flow": "基因流",
+        "gene frequency": "基因频率",
+        "gene function": "基因功能",
+        "gene fusion": "基因融合",
+        "gene knock-in techniques": "基因敲入技术",
+        "gene knockdown techniques": "基因敲低技术",
+        "gene knockout techniques": "基因敲除技术",
+        "gene library": "基因文库",
+        "gene linkage disequilibrium": "基因连锁不平衡",
+        "gene location": "基因定位",
+        "gene ontology": "基因本体",
+        "gene order": "基因顺序",
+        "gene pool": "基因库",
+}
+
+ZH_EXACT_EXPANSION_BATCH_092_ALIASES = {
+        "gene products env": "Env基因产物",
+        "gene products gag": "Gag基因产物",
+        "gene products nef": "Nef基因产物",
+        "gene products pol": "Pol基因产物",
+        "gene products rev": "Rev基因产物",
+        "gene products rex": "Rex基因产物",
+        "gene products tat": "Tat基因产物",
+        "gene products tax": "Tax基因产物",
+        "gene products vif": "Vif基因产物",
+        "gene products vpr": "Vpr基因产物",
+        "gene rearrangement": "基因重排",
+        "gene rearrangement alpha-chain t-cell antigen receptor": "T细胞抗原受体α链基因重排",
+}
+
+ZH_EXACT_EXPANSION_BATCH_093_ALIASES = {
+        "gene rearrangement b-lymphocyte": "B淋巴细胞基因重排",
+        "gene rearrangement b-lymphocyte heavy chain": "B淋巴细胞重链基因重排",
+        "gene rearrangement b-lymphocyte light chain": "B淋巴细胞轻链基因重排",
+        "gene rearrangement beta-chain t-cell antigen receptor": "T细胞抗原受体β链基因重排",
+        "gene rearrangement delta-chain t-cell antigen receptor": "T细胞抗原受体δ链基因重排",
+        "gene rearrangement gamma-chain t-cell antigen receptor": "T细胞抗原受体γ链基因重排",
+        "gene rearrangement t-lymphocyte": "T淋巴细胞基因重排",
+        "gene regulatory networks": "基因调控网络",
+        "gene regulatory network analysis": "基因调控网络分析",
+        "gene silencing": "基因沉默",
+        "gene structure": "基因结构",
+}
+
+ZH_EXACT_EXPANSION_BATCH_094_ALIASES = {
+        "gene targeting": "基因打靶",
+        "gene therapy": "基因治疗",
+        "gene therapy agents": "基因治疗剂",
+        "gene transfer horizontal": "水平基因转移",
+        "gene transfer techniques": "基因转移技术",
+        "genealogy and heraldry": "谱系学与纹章学",
+        "general adaptation syndrome": "一般适应综合征",
+        "general practice": "全科医学",
+        "general practice dental": "全科牙科",
+        "general practitioners": "全科医生",
+        "general surgery": "普通外科",
+}
+
+ZH_EXACT_EXPANSION_BATCH_095_ALIASES = {
+        "generalization psychological": "心理泛化",
+        "generalization response": "反应泛化",
+        "generalization stimulus": "刺激泛化",
+        "generalized anxiety disorder": "广泛性焦虑障碍",
+        "generalized cross validation": "广义交叉验证",
+        "generalized eigenvalue problem": "广义特征值问题",
+        "generalized gaussian": "广义高斯",
+        "generalized gaussian distribution": "广义高斯分布",
+        "generalized hough transform": "广义霍夫变换",
+        "generalized likelihood ratio test": "广义似然比检验",
+        "generalized multiprotocol label switching": "广义多协议标签交换",
+        "generalized sidelobe canceller": "广义旁瓣抵消器",
+        "generalized stochastic petri nets": "广义随机Petri网",
+}
+
+ZH_EXACT_EXPANSION_BATCH_096_ALIASES = {
+        "generative adversarial networks": "生成对抗网络",
+        "generative ai": "生成式AI",
+        "generative artificial intelligence": "生成式人工智能",
+        "generative model": "生成模型",
+        "generative pre-trained transformer": "生成式预训练Transformer",
+        "generative programming": "生成式编程",
+        "generators": "发电机",
+        "generator polynomial": "生成多项式",
+        "generic programming": "泛型编程",
+        "genetics": "遗传学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_097_ALIASES = {
+        "genetic algorithms": "遗传算法",
+        "genetic association": "遗传关联",
+        "genetic association studies": "遗传关联研究",
+        "genetic background": "遗传背景",
+        "genetics behavioral": "行为遗传学",
+        "genetic carrier screening": "遗传携带者筛查",
+        "genetic code": "遗传密码",
+        "genetic communication": "遗传通信",
+        "genetic complementation test": "遗传互补试验",
+        "genetic counseling": "遗传咨询",
+        "genetic database": "遗传数据库",
+}
+
+ZH_EXACT_EXPANSION_BATCH_098_ALIASES = {
+        "genetic determinism": "遗传决定论",
+        "genetic differentiation": "遗传分化",
+        "genetic diseases inborn": "先天性遗传病",
+        "genetic diseases x-linked": "X连锁遗传病",
+        "genetic diseases y-linked": "Y连锁遗传病",
+        "genetic diversity": "遗传多样性",
+        "genetic drift": "遗传漂变",
+        "genetic engineering": "遗传工程",
+        "genetic enhancement": "遗传增强",
+        "genetic expression": "遗传表达",
+}
+
+ZH_EXACT_EXPANSION_BATCH_099_ALIASES = {
+        "genetic fitness": "遗传适合度",
+        "genetic fuzzy systems": "遗传模糊系统",
+        "genetic heterogeneity": "遗传异质性",
+        "genetic introgression": "遗传渗入",
+        "genetic linkage": "遗传连锁",
+        "genetic load": "遗传负荷",
+        "genetic loci": "遗传位点",
+        "genetic markers": "遗传标记",
+        "genetics medical": "医学遗传学",
+        "genetics microbial": "微生物遗传学",
+        "genetic network programming": "遗传网络编程",
+}
+
+ZH_EXACT_EXPANSION_BATCH_100_ALIASES = {
+        "genetic operators": "遗传算子",
+        "genetic phenomena": "遗传现象",
+        "genetic pleiotropy": "遗传多效性",
+        "genetic polymorphism": "遗传多态性",
+        "genetics population": "群体遗传学",
+        "genetic predisposition to disease": "疾病遗传易感性",
+        "genetic privacy": "遗传隐私",
+        "genetic research": "遗传研究",
+        "genetic selection": "遗传选择",
+        "genetic speciation": "遗传物种形成",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -5401,6 +5741,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_077_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_078_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_079_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_080_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_081_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_082_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_083_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_084_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_085_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_086_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_087_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_088_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_089_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_090_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_091_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_092_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_093_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_094_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_095_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_096_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_097_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_098_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_099_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_100_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",
