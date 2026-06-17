@@ -150,48 +150,83 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-17 zh-exact-expansion-batch-010 后）：
+最新已知状态（2026-06-17 zh-exact-expansion-batch-016-to-020 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`4338 / 48843 = 8.88%`
-- runtime zh aliases: `4353`
+- runtime 中文覆盖：`4590 / 48843 = 9.40%`
+- runtime zh aliases: `4605`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `4353`
-- `zh:blocked`: `11530`
+- `zh:accept`: `4605`
+- `zh:blocked`: `11529`
 - `zh:needs_review`: `0`
 - `zh:reject`: `193`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
 - runtime concept aliases: `48843`
-- compact loader alias keys: `139226`
+- compact loader alias keys: `139478`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
-- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-010 运行时以 compact index/manifest 为准）
+- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-020 运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `40fe9e3d8ec091f889b497658fa9f6074fafd6587554faaf7141a69c23ea533d`
+  `f84f8a55a2c0d993cd43f72c04f49d98f4065ed69000f195e29a6769fd127920`
 - compact manifest SHA-256:
-  `9bb64799036b8a8fd47420d67a5043037d66886a10d46bb2a5c12283f9f27c52`
+  `dc841402f031f25080d61e6c8e9018433eb29c6e56e23d8b4d5a5e7c26b220d7`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact index 是 batch-010 当前运行时真源；legacy full overlay 未随 batch-007/008/009/010 更新，不再作为默认等价检查对象。
-- 最近相关测试：`70 passed in 1.02s`
+- compact index 是 batch-020 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-020 更新，不再作为默认等价检查对象。
+- 最近相关测试：`80 passed in 0.99s`
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- batch-008 至 batch-010 中文 coverage 扩展已完成；下一步可继续 batch-011 exact/domain-aware 小批次；
+- batch-016 至 batch-020 中文 coverage 扩展已完成；下一步建议先 review 覆盖收益与剩余高置信桶，再继续 batch-021 exact/domain-aware 小批次；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
+- 最新 batch-016 至 batch-020 exact/domain-aware 小批次已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_016_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_020_ALIASES`，以 B/C 段生物医学 exact 术语为主；
+  - 新增代表性回归测试，先红灯后转绿；
+  - grouped L3-L5：fill `records_filled = 16125`，validate `review_decisions = 365440`；
+  - 显式接受 `142` 条 exact/domain-aware recommendation；
+  - 显式阻断 `15` 条由 exact 词条引发的 compositional/domain-title side-effect；
+  - 未发现本组 exact 输出因 duplicate/collision 被 validator blocking；
+  - runtime 中文覆盖从 `4448 / 48843 = 9.11%` 增至 `4590 / 48843 = 9.40%`；
+  - `zh:accept`: `4605`，`zh:blocked`: `11529`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `f84f8a55a2c0d993cd43f72c04f49d98f4065ed69000f195e29a6769fd127920`；
+  - compact manifest SHA-256: `dc841402f031f25080d61e6c8e9018433eb29c6e56e23d8b4d5a5e7c26b220d7`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - 相关测试：`80 passed in 0.99s`。
+- batch-020 后 review：
+  - batch-016-to-020 比 batch-011-to-015 覆盖收益更高：`142` 个新增 runtime zh concepts vs `110` 个；
+  - 未引入 accepted/runtime alias conflict，说明 exact/domain-aware 策略仍可继续；
+  - side-effect 数从 `11` 增至 `15`，主要来自派生标题和组合候选，其中 `G1/G2/M/S相位...`、`脑干出血创伤性` 这类坏形态确认应保持 blocked；
+  - 后续应优先继续 exact 术语和更具体 replacement，不应把 side-effect 或 medium compositional 候选批量 accept。
+- 最新 batch-011 至 batch-015 exact/domain-aware 小批次已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_011_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_015_ALIASES`，以 B/C 段生物医学 exact 术语为主；
+  - 新增代表性回归测试，先红灯后转绿；
+  - grouped L3-L5：fill `records_filled = 15983`，validate `review_decisions = 365298`；
+  - 显式接受 `111` 条 exact/domain-aware recommendation；
+  - 显式阻断 `11` 条由 exact 词条引发的 compositional/domain-title side-effect；
+  - `7` 条 exact 输出因 duplicate/collision 保持 blocked，不自动 merge（`Bacterial Typing Techniques`、`Carpal Tunnel Syndrome`、`Cell Biology` 对应重复概念）；
+  - runtime 中文覆盖从 `4338 / 48843 = 8.88%` 增至 `4448 / 48843 = 9.11%`；
+  - `zh:accept`: `4463`，`zh:blocked`: `11529`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `4321268e5eaf32ea7a46f5e60a0db186bbfac170571262a9fe430d559febd4fd`；
+  - compact manifest SHA-256: `4cbb344aec9572257559de787695e288d682213db0c2d6c0c85562d6497b5f5f`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - 相关测试：`75 passed in 1.52s`。
 - 最新 batch-008 至 batch-010 exact/domain-aware 小批次已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_008_ALIASES`、`ZH_EXACT_EXPANSION_BATCH_009_ALIASES`、`ZH_EXACT_EXPANSION_BATCH_010_ALIASES`；
   - batch-008 以 A 段生物医学 exact 术语为主：显式接受 `130` 条，阻断 `3` 条 compositional side-effect；

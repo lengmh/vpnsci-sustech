@@ -4419,6 +4419,636 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
         for concept_id, _canonical_en, _domains, alias in cases:
             self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
 
+    def test_exact_expansion_batch_011_adds_bacterial_and_basal_terms(self) -> None:
+        cases = [
+            (
+                "bacterial_adhesion",
+                "Bacterial Adhesion",
+                ["biomedical", "phenomena_and_processes"],
+                "细菌黏附",
+            ),
+            (
+                "bacterial_outer_membrane",
+                "Bacterial Outer Membrane",
+                ["anatomy", "biomedical"],
+                "细菌外膜",
+            ),
+            (
+                "bacterial_translocation",
+                "Bacterial Translocation",
+                ["biomedical", "phenomena_and_processes"],
+                "细菌易位",
+            ),
+            (
+                "bartonella_infections",
+                "Bartonella Infections",
+                ["biomedical", "diseases"],
+                "巴尔通体感染",
+            ),
+            (
+                "basal_cell_carcinoma",
+                "Basal Cell Carcinoma",
+                ["biomedical", "diseases"],
+                "基底细胞癌",
+            ),
+            (
+                "basal_forebrain",
+                "Basal Forebrain",
+                ["anatomy", "biomedical"],
+                "基底前脑",
+            ),
+        ]
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": f"concept:{concept_id}",
+                    "canonical_en": canonical_en,
+                    "aliases_en": [],
+                    "domains": domains,
+                    "source_refs": [{"source": "openalex_topics", "label": canonical_en}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+                for concept_id, canonical_en, domains, _alias in cases
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        for concept_id, _canonical_en, _domains, alias in cases:
+            self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
+
+    def test_exact_expansion_batch_012_adds_b_syndrome_protein_and_tumor_terms(self) -> None:
+        cases = [
+            (
+                "behcet_syndrome",
+                "Behcet Syndrome",
+                ["biomedical", "diseases"],
+                "白塞综合征",
+            ),
+            (
+                "bence_jones_protein",
+                "Bence Jones Protein",
+                ["biomedical", "chemicals_and_drugs"],
+                "本周蛋白",
+            ),
+            (
+                "beta_glucosidase",
+                "beta-Glucosidase",
+                ["biomedical", "chemicals_and_drugs"],
+                "β-葡萄糖苷酶",
+            ),
+            (
+                "bile_duct_neoplasms",
+                "Bile Duct Neoplasms",
+                ["biomedical", "diseases"],
+                "胆管肿瘤",
+            ),
+            (
+                "biotinidase_deficiency",
+                "Biotinidase Deficiency",
+                ["biomedical", "diseases"],
+                "生物素酶缺乏症",
+            ),
+            (
+                "blood_brain_barrier",
+                "Blood-Brain Barrier",
+                ["anatomy", "biomedical"],
+                "血脑屏障",
+            ),
+        ]
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": f"concept:{concept_id}",
+                    "canonical_en": canonical_en,
+                    "aliases_en": [],
+                    "domains": domains,
+                    "source_refs": [{"source": "openalex_topics", "label": canonical_en}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+                for concept_id, canonical_en, domains, _alias in cases
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        for concept_id, _canonical_en, _domains, alias in cases:
+            self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
+
+    def test_exact_expansion_batch_013_adds_blood_and_bone_terms(self) -> None:
+        cases = [
+            (
+                "blood_cell_count",
+                "Blood Cell Count",
+                ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                "血细胞计数",
+            ),
+            (
+                "blood_coagulation_disorders_inherited",
+                "Blood Coagulation Disorders, Inherited",
+                ["biomedical", "diseases"],
+                "遗传性凝血障碍",
+            ),
+            (
+                "blood_retinal_barrier",
+                "Blood-Retinal Barrier",
+                ["anatomy", "biomedical"],
+                "血视网膜屏障",
+            ),
+            (
+                "blood_urea_nitrogen",
+                "Blood Urea Nitrogen",
+                ["biomedical", "chemicals_and_drugs"],
+                "血尿素氮",
+            ),
+            (
+                "bone_marrow_transplantation",
+                "Bone Marrow Transplantation",
+                ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                "骨髓移植",
+            ),
+            (
+                "bone_resorption",
+                "Bone Resorption",
+                ["biomedical", "phenomena_and_processes"],
+                "骨吸收",
+            ),
+        ]
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": f"concept:{concept_id}",
+                    "canonical_en": canonical_en,
+                    "aliases_en": [],
+                    "domains": domains,
+                    "source_refs": [{"source": "openalex_topics", "label": canonical_en}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+                for concept_id, canonical_en, domains, _alias in cases
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        for concept_id, _canonical_en, _domains, alias in cases:
+            self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
+
+    def test_exact_expansion_batch_014_adds_cardio_celiac_and_cell_terms(self) -> None:
+        cases = [
+            (
+                "cardio_renal_syndrome",
+                "Cardio-Renal Syndrome",
+                ["biomedical", "diseases"],
+                "心肾综合征",
+            ),
+            (
+                "cardiovascular_diseases",
+                "Cardiovascular Diseases",
+                ["biomedical", "diseases"],
+                "心血管疾病",
+            ),
+            (
+                "carpal_tunnel_syndrome",
+                "Carpal Tunnel Syndrome",
+                ["biomedical", "diseases"],
+                "腕管综合征",
+            ),
+            (
+                "cat_scratch_disease",
+                "Cat-Scratch Disease",
+                ["biomedical", "diseases"],
+                "猫抓病",
+            ),
+            (
+                "celiac_disease",
+                "Celiac Disease",
+                ["biomedical", "diseases"],
+                "乳糜泻",
+            ),
+            (
+                "cellular_senescence",
+                "Cellular Senescence",
+                ["biomedical", "phenomena_and_processes"],
+                "细胞衰老",
+            ),
+        ]
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": f"concept:{concept_id}",
+                    "canonical_en": canonical_en,
+                    "aliases_en": [],
+                    "domains": domains,
+                    "source_refs": [{"source": "openalex_topics", "label": canonical_en}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+                for concept_id, canonical_en, domains, _alias in cases
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        for concept_id, _canonical_en, _domains, alias in cases:
+            self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
+
+    def test_exact_expansion_batch_015_adds_cns_cerebral_and_infection_terms(self) -> None:
+        cases = [
+            (
+                "central_cord_syndrome",
+                "Central Cord Syndrome",
+                ["biomedical", "diseases"],
+                "中央脊髓综合征",
+            ),
+            (
+                "cerebral_small_vessel_diseases",
+                "Cerebral Small Vessel Diseases",
+                ["biomedical", "diseases"],
+                "脑小血管病",
+            ),
+            (
+                "chagas_disease",
+                "Chagas Disease",
+                ["biomedical", "diseases"],
+                "恰加斯病",
+            ),
+            (
+                "charcot_marie_tooth_disease",
+                "Charcot-Marie-Tooth Disease",
+                ["biomedical", "diseases"],
+                "腓骨肌萎缩症",
+            ),
+            (
+                "chemokine_receptor_d6",
+                "Chemokine Receptor D6",
+                ["biomedical", "chemicals_and_drugs"],
+                "趋化因子受体D6",
+            ),
+            (
+                "chlamydia_infections",
+                "Chlamydia Infections",
+                ["biomedical", "diseases"],
+                "衣原体感染",
+            ),
+        ]
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": f"concept:{concept_id}",
+                    "canonical_en": canonical_en,
+                    "aliases_en": [],
+                    "domains": domains,
+                    "source_refs": [{"source": "openalex_topics", "label": canonical_en}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+                for concept_id, canonical_en, domains, _alias in cases
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        for concept_id, _canonical_en, _domains, alias in cases:
+            self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
+
+    def test_exact_expansion_batch_016_adds_blood_brain_and_bone_terms(self) -> None:
+        cases = [
+            (
+                "blood_air_barrier",
+                "Blood-Air Barrier",
+                ["anatomy", "biomedical"],
+                "血气屏障",
+            ),
+            (
+                "blood_nerve_barrier",
+                "Blood-Nerve Barrier",
+                ["anatomy", "biomedical"],
+                "血神经屏障",
+            ),
+            (
+                "brain_abscess",
+                "Brain Abscess",
+                ["biomedical", "diseases"],
+                "脑脓肿",
+            ),
+            (
+                "brain_derived_neurotrophic_factor",
+                "Brain-Derived Neurotrophic Factor",
+                ["biomedical", "chemicals_and_drugs"],
+                "脑源性神经营养因子",
+            ),
+            (
+                "brain_edema",
+                "Brain Edema",
+                ["biomedical", "diseases"],
+                "脑水肿",
+            ),
+            (
+                "bone_morphogenetic_protein_2",
+                "Bone Morphogenetic Protein 2",
+                ["biomedical", "chemicals_and_drugs"],
+                "骨形态发生蛋白2",
+            ),
+        ]
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": f"concept:{concept_id}",
+                    "canonical_en": canonical_en,
+                    "aliases_en": [],
+                    "domains": domains,
+                    "source_refs": [{"source": "openalex_topics", "label": canonical_en}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+                for concept_id, canonical_en, domains, _alias in cases
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        for concept_id, _canonical_en, _domains, alias in cases:
+            self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
+
+    def test_exact_expansion_batch_017_adds_b_disease_infection_and_virus_terms(self) -> None:
+        cases = [
+            (
+                "bovine_virus_diarrhea_mucosal_disease",
+                "Bovine Virus Diarrhea-Mucosal Disease",
+                ["biomedical", "diseases"],
+                "牛病毒性腹泻-黏膜病",
+            ),
+            (
+                "breast_neoplasms",
+                "Breast Neoplasms",
+                ["biomedical", "diseases"],
+                "乳腺肿瘤",
+            ),
+            (
+                "brucellosis",
+                "Brucellosis",
+                ["biomedical", "diseases"],
+                "布鲁氏菌病",
+            ),
+            (
+                "brugada_syndrome",
+                "Brugada Syndrome",
+                ["biomedical", "diseases"],
+                "Brugada综合征",
+            ),
+            (
+                "budd_chiari_syndrome",
+                "Budd-Chiari Syndrome",
+                ["biomedical", "diseases"],
+                "Budd-Chiari综合征",
+            ),
+            (
+                "burkitt_lymphoma",
+                "Burkitt Lymphoma",
+                ["biomedical", "diseases"],
+                "伯基特淋巴瘤",
+            ),
+        ]
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": f"concept:{concept_id}",
+                    "canonical_en": canonical_en,
+                    "aliases_en": [],
+                    "domains": domains,
+                    "source_refs": [{"source": "openalex_topics", "label": canonical_en}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+                for concept_id, canonical_en, domains, _alias in cases
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        for concept_id, _canonical_en, _domains, alias in cases:
+            self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
+
+    def test_exact_expansion_batch_018_adds_c_antigen_protein_and_kinase_terms(self) -> None:
+        cases = [
+            (
+                "c_reactive_protein",
+                "C-Reactive Protein",
+                ["biomedical", "chemicals_and_drugs"],
+                "C反应蛋白",
+            ),
+            (
+                "ca_125_antigen",
+                "CA-125 Antigen",
+                ["biomedical", "chemicals_and_drugs"],
+                "CA-125抗原",
+            ),
+            (
+                "ca_19_9_antigen",
+                "CA-19-9 Antigen",
+                ["biomedical", "chemicals_and_drugs"],
+                "CA-19-9抗原",
+            ),
+            (
+                "calcium_binding_proteins",
+                "Calcium-Binding Proteins",
+                ["biomedical", "chemicals_and_drugs"],
+                "钙结合蛋白",
+            ),
+            (
+                "calcium_calmodulin_dependent_protein_kinases",
+                "Calcium-Calmodulin-Dependent Protein Kinases",
+                ["biomedical", "chemicals_and_drugs"],
+                "钙调蛋白依赖性蛋白激酶",
+            ),
+            (
+                "cancer_vaccines",
+                "Cancer Vaccines",
+                ["biomedical", "chemicals_and_drugs"],
+                "癌症疫苗",
+            ),
+        ]
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": f"concept:{concept_id}",
+                    "canonical_en": canonical_en,
+                    "aliases_en": [],
+                    "domains": domains,
+                    "source_refs": [{"source": "openalex_topics", "label": canonical_en}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+                for concept_id, canonical_en, domains, _alias in cases
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        for concept_id, _canonical_en, _domains, alias in cases:
+            self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
+
+    def test_exact_expansion_batch_019_adds_carcinoma_and_cardiac_terms(self) -> None:
+        cases = [
+            (
+                "carcinoembryonic_antigen",
+                "Carcinoembryonic Antigen",
+                ["biomedical", "chemicals_and_drugs"],
+                "癌胚抗原",
+            ),
+            (
+                "carcinoma_adenoid_cystic",
+                "Carcinoma, Adenoid Cystic",
+                ["biomedical", "diseases"],
+                "腺样囊性癌",
+            ),
+            (
+                "carcinoma_in_situ",
+                "Carcinoma in Situ",
+                ["biomedical", "diseases"],
+                "原位癌",
+            ),
+            (
+                "carcinoma_small_cell",
+                "Carcinoma, Small Cell",
+                ["biomedical", "diseases"],
+                "小细胞癌",
+            ),
+            (
+                "carcinoma_squamous_cell",
+                "Carcinoma, Squamous Cell",
+                ["biomedical", "diseases"],
+                "鳞状细胞癌",
+            ),
+            (
+                "cardiac_tamponade",
+                "Cardiac Tamponade",
+                ["biomedical", "diseases"],
+                "心脏压塞",
+            ),
+        ]
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": f"concept:{concept_id}",
+                    "canonical_en": canonical_en,
+                    "aliases_en": [],
+                    "domains": domains,
+                    "source_refs": [{"source": "openalex_topics", "label": canonical_en}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+                for concept_id, canonical_en, domains, _alias in cases
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        for concept_id, _canonical_en, _domains, alias in cases:
+            self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
+
+    def test_exact_expansion_batch_020_adds_cell_cholesterol_and_chronic_disease_terms(self) -> None:
+        cases = [
+            (
+                "cartilage_oligomeric_matrix_protein",
+                "Cartilage Oligomeric Matrix Protein",
+                ["biomedical", "chemicals_and_drugs"],
+                "软骨寡聚基质蛋白",
+            ),
+            (
+                "casein_kinase_ii",
+                "Casein Kinase II",
+                ["biomedical", "chemicals_and_drugs"],
+                "酪蛋白激酶II",
+            ),
+            (
+                "ccaat_enhancer_binding_proteins",
+                "CCAAT-Enhancer-Binding Proteins",
+                ["biomedical", "chemicals_and_drugs"],
+                "CCAAT/增强子结合蛋白",
+            ),
+            (
+                "chitinase_3_like_protein_1",
+                "Chitinase-3-Like Protein 1",
+                ["biomedical", "chemicals_and_drugs"],
+                "几丁质酶3样蛋白1",
+            ),
+            (
+                "cholesterol_ester_transfer_proteins",
+                "Cholesterol Ester Transfer Proteins",
+                ["biomedical", "chemicals_and_drugs"],
+                "胆固醇酯转运蛋白",
+            ),
+            (
+                "chronic_kidney_disease_mineral_and_bone_disorder",
+                "Chronic Kidney Disease-Mineral and Bone Disorder",
+                ["biomedical", "diseases"],
+                "慢性肾脏病-矿物质和骨异常",
+            ),
+        ]
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": f"concept:{concept_id}",
+                    "canonical_en": canonical_en,
+                    "aliases_en": [],
+                    "domains": domains,
+                    "source_refs": [{"source": "openalex_topics", "label": canonical_en}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+                for concept_id, canonical_en, domains, _alias in cases
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        for concept_id, _canonical_en, _domains, alias in cases:
+            self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
+
 
 if __name__ == "__main__":
     unittest.main()
