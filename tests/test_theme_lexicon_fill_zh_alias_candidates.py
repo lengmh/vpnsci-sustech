@@ -5512,6 +5512,438 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_031_adds_diagnosis_and_diagnostic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                (
+                    "delayed_diagnosis",
+                    "Delayed Diagnosis",
+                    ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                    "延迟诊断",
+                ),
+                (
+                    "diagnosis_computer_assisted",
+                    "Diagnosis, Computer-Assisted",
+                    ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                    "计算机辅助诊断",
+                ),
+                (
+                    "diagnosis_differential",
+                    "Diagnosis, Differential",
+                    ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                    "鉴别诊断",
+                ),
+                (
+                    "diagnostic_techniques_neurological",
+                    "Diagnostic Techniques, Neurological",
+                    ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                    "神经系统诊断技术",
+                ),
+                (
+                    "diagnostic_techniques_ophthalmological",
+                    "Diagnostic Techniques, Ophthalmological",
+                    ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                    "眼科诊断技术",
+                ),
+                (
+                    "diagnostic_tests_routine",
+                    "Diagnostic Tests, Routine",
+                    ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                    "常规诊断试验",
+                ),
+            ]
+        )
+
+    def test_exact_expansion_batch_032_adds_dna_damage_and_repair_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                (
+                    "dna_adducts",
+                    "DNA Adducts",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "DNA加合物",
+                ),
+                (
+                    "dna_breaks",
+                    "DNA Breaks",
+                    ["biomedical", "phenomena_and_processes"],
+                    "DNA断裂",
+                ),
+                (
+                    "dna_breaks_double_stranded",
+                    "DNA Breaks, Double-Stranded",
+                    ["biomedical", "phenomena_and_processes"],
+                    "DNA双链断裂",
+                ),
+                (
+                    "dna_fingerprinting",
+                    "DNA Fingerprinting",
+                    ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                    "DNA指纹分析",
+                ),
+                (
+                    "dna_methylation",
+                    "DNA Methylation",
+                    ["biomedical", "phenomena_and_processes"],
+                    "DNA甲基化",
+                ),
+                (
+                    "dna_mismatch_repair",
+                    "DNA Mismatch Repair",
+                    ["biomedical", "phenomena_and_processes"],
+                    "DNA错配修复",
+                ),
+            ]
+        )
+
+    def test_exact_expansion_batch_033_adds_dna_enzyme_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                (
+                    "dna_glycosylases",
+                    "DNA Glycosylases",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "DNA糖基化酶",
+                ),
+                (
+                    "dna_gyrase",
+                    "DNA Gyrase",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "DNA旋转酶",
+                ),
+                (
+                    "dna_helicases",
+                    "DNA Helicases",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "DNA解旋酶",
+                ),
+                (
+                    "dna_ligase_atp",
+                    "DNA Ligase ATP",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "ATP依赖性DNA连接酶",
+                ),
+                (
+                    "dna_polymerase_beta",
+                    "DNA Polymerase Beta",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "DNA聚合酶β",
+                ),
+                (
+                    "dna_topoisomerases_type_i",
+                    "DNA Topoisomerases, Type I",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "I型DNA拓扑异构酶",
+                ),
+            ]
+        )
+
+    def test_exact_expansion_batch_034_adds_drug_development_and_adverse_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                (
+                    "drug_carriers",
+                    "Drug Carriers",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "药物载体",
+                ),
+                (
+                    "drug_combinations",
+                    "Drug Combinations",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "药物组合",
+                ),
+                (
+                    "drug_development",
+                    "Drug Development",
+                    ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                    "药物开发",
+                ),
+                (
+                    "drug_discovery",
+                    "Drug Discovery",
+                    ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                    "药物发现",
+                ),
+                (
+                    "drug_eruptions",
+                    "Drug Eruptions",
+                    ["biomedical", "diseases"],
+                    "药疹",
+                ),
+                (
+                    "drug_overdose",
+                    "Drug Overdose",
+                    ["biomedical", "diseases"],
+                    "药物过量",
+                ),
+            ]
+        )
+
+    def test_exact_expansion_batch_035_adds_drug_resistance_and_therapy_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                (
+                    "drug_resistance_multiple",
+                    "Drug Resistance, Multiple",
+                    ["biomedical", "phenomena_and_processes"],
+                    "多重耐药性",
+                ),
+                (
+                    "drug_resistance_viral",
+                    "Drug Resistance, Viral",
+                    ["biomedical", "phenomena_and_processes"],
+                    "病毒耐药性",
+                ),
+                (
+                    "drug_resistant_epilepsy",
+                    "Drug Resistant Epilepsy",
+                    ["biomedical", "diseases"],
+                    "耐药性癫痫",
+                ),
+                (
+                    "drug_therapy_combination",
+                    "Drug Therapy, Combination",
+                    ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                    "联合药物治疗",
+                ),
+                (
+                    "drug_therapy_computer_assisted",
+                    "Drug Therapy, Computer-Assisted",
+                    ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                    "计算机辅助药物治疗",
+                ),
+                (
+                    "drug_tolerance",
+                    "Drug Tolerance",
+                    ["biomedical", "phenomena_and_processes"],
+                    "药物耐受性",
+                ),
+            ]
+        )
+
+    def test_exact_expansion_batch_036_adds_early_ear_and_ebolavirus_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                (
+                    "ear_diseases",
+                    "Ear Diseases",
+                    ["biomedical", "diseases"],
+                    "耳疾病",
+                ),
+                (
+                    "ear_neoplasms",
+                    "Ear Neoplasms",
+                    ["biomedical", "diseases"],
+                    "耳肿瘤",
+                ),
+                (
+                    "early_diagnosis",
+                    "Early Diagnosis",
+                    ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                    "早期诊断",
+                ),
+                (
+                    "ebola_vaccines",
+                    "Ebola Vaccines",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "埃博拉疫苗",
+                ),
+                (
+                    "ebolavirus",
+                    "Ebolavirus",
+                    ["biomedical", "organisms"],
+                    "埃博拉病毒属",
+                ),
+                (
+                    "ehlers_danlos_syndrome",
+                    "Ehlers-Danlos Syndrome",
+                    ["biomedical", "diseases"],
+                    "Ehlers-Danlos综合征",
+                ),
+            ]
+        )
+
+    def test_exact_expansion_batch_037_adds_encephalitis_and_enterovirus_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                (
+                    "encephalitis_arbovirus",
+                    "Encephalitis, Arbovirus",
+                    ["biomedical", "diseases"],
+                    "虫媒病毒性脑炎",
+                ),
+                (
+                    "encephalitis_varicella_zoster",
+                    "Encephalitis, Varicella Zoster",
+                    ["biomedical", "diseases"],
+                    "水痘-带状疱疹脑炎",
+                ),
+                (
+                    "encephalitis_virus_japanese",
+                    "Encephalitis Virus, Japanese",
+                    ["biomedical", "organisms"],
+                    "日本脑炎病毒",
+                ),
+                (
+                    "encephalitis_viruses_tick_borne",
+                    "Encephalitis Viruses, Tick-Borne",
+                    ["biomedical", "organisms"],
+                    "蜱传脑炎病毒",
+                ),
+                (
+                    "enterovirus",
+                    "Enterovirus",
+                    ["biomedical", "organisms"],
+                    "肠道病毒",
+                ),
+                (
+                    "enterovirus_infections",
+                    "Enterovirus Infections",
+                    ["biomedical", "diseases"],
+                    "肠道病毒感染",
+                ),
+            ]
+        )
+
+    def test_exact_expansion_batch_038_adds_enzyme_and_endothelial_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                (
+                    "enzyme_assays",
+                    "Enzyme Assays",
+                    ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                    "酶测定",
+                ),
+                (
+                    "enzyme_inhibitors",
+                    "Enzyme Inhibitors",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "酶抑制剂",
+                ),
+                (
+                    "enzyme_replacement_therapy",
+                    "Enzyme Replacement Therapy",
+                    ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                    "酶替代疗法",
+                ),
+                (
+                    "endothelial_cells",
+                    "Endothelial Cells",
+                    ["anatomy", "biomedical"],
+                    "内皮细胞",
+                ),
+                (
+                    "endothelial_growth_factors",
+                    "Endothelial Growth Factors",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "内皮生长因子",
+                ),
+                (
+                    "endothelin_receptor_antagonists",
+                    "Endothelin Receptor Antagonists",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "内皮素受体拮抗剂",
+                ),
+            ]
+        )
+
+    def test_exact_expansion_batch_039_adds_extracellular_and_eye_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                (
+                    "extracellular_matrix",
+                    "Extracellular Matrix",
+                    ["anatomy", "biomedical"],
+                    "细胞外基质",
+                ),
+                (
+                    "extracellular_matrix_proteins",
+                    "Extracellular Matrix Proteins",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "细胞外基质蛋白",
+                ),
+                (
+                    "extracellular_vesicles",
+                    "Extracellular Vesicles",
+                    ["anatomy", "biomedical"],
+                    "细胞外囊泡",
+                ),
+                (
+                    "eye_diseases",
+                    "Eye Diseases",
+                    ["biomedical", "diseases"],
+                    "眼病",
+                ),
+                (
+                    "eye_infections",
+                    "Eye Infections",
+                    ["biomedical", "diseases"],
+                    "眼部感染",
+                ),
+                (
+                    "eye_neoplasms",
+                    "Eye Neoplasms",
+                    ["biomedical", "diseases"],
+                    "眼肿瘤",
+                ),
+            ]
+        )
+
+    def test_exact_expansion_batch_040_adds_factor_fanconi_and_fibroblast_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                (
+                    "fabry_disease",
+                    "Fabry Disease",
+                    ["biomedical", "diseases"],
+                    "Fabry病",
+                ),
+                (
+                    "factor_v_deficiency",
+                    "Factor V Deficiency",
+                    ["biomedical", "diseases"],
+                    "V因子缺乏症",
+                ),
+                (
+                    "factor_xa_inhibitors",
+                    "Factor Xa Inhibitors",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "Xa因子抑制剂",
+                ),
+                (
+                    "fanconi_syndrome",
+                    "Fanconi Syndrome",
+                    ["biomedical", "diseases"],
+                    "Fanconi综合征",
+                ),
+                (
+                    "factitious_disorders",
+                    "Factitious Disorders",
+                    ["biomedical", "psychiatry_and_psychology"],
+                    "做作性障碍",
+                ),
+                (
+                    "fas_receptor",
+                    "Fas Receptor",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "Fas受体",
+                ),
+                (
+                    "fibroblast_growth_factors",
+                    "Fibroblast Growth Factors",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "成纤维细胞生长因子",
+                ),
+                (
+                    "receptors_fibroblast_growth_factor",
+                    "Receptors, Fibroblast Growth Factor",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "成纤维细胞生长因子受体",
+                ),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
