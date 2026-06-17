@@ -5966,6 +5966,288 @@ ZH_EXACT_EXPANSION_BATCH_120_ALIASES = {
         "receptors glucocorticoid": "糖皮质激素受体",
 }
 
+ZH_EXACT_EXPANSION_BATCH_121_ALIASES = {
+        "glucose 1 phosphate adenylyltransferase": "葡萄糖-1-磷酸腺苷酰转移酶",
+        "glucose transport proteins facilitative": "促进性葡萄糖转运蛋白",
+        "glucose transporter type 1": "葡萄糖转运蛋白1型",
+        "glucose transporter type 2": "葡萄糖转运蛋白2型",
+        "glucose transporter type 3": "葡萄糖转运蛋白3型",
+        "glucose transporter type 4": "葡萄糖转运蛋白4型",
+        "glucose transporter type 5": "葡萄糖转运蛋白5型",
+        "glucosephosphates": "葡萄糖磷酸盐类",
+        "glucosephosphate dehydrogenase": "葡萄糖-6-磷酸脱氢酶",
+        "glucosephosphate dehydrogenase deficiency": "葡萄糖-6-磷酸脱氢酶缺乏症",
+}
+
+ZH_EXACT_EXPANSION_BATCH_122_ALIASES = {
+        "glucosides": "葡萄糖苷类",
+        "glucosidases": "葡萄糖苷酶类",
+        "glucosinolates": "硫代葡萄糖苷类",
+        "glucosylceramides": "葡糖神经酰胺类",
+        "glucosylceramidase": "葡糖神经酰胺酶",
+        "glucosyltransferases": "葡糖基转移酶类",
+        "glucuronates": "葡萄糖醛酸盐类",
+        "glucuronides": "葡萄糖醛酸苷类",
+        "glucuronidase": "葡萄糖醛酸酶",
+        "glucuronosyltransferase": "葡萄糖醛酸转移酶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_123_ALIASES = {
+        "gluk2 kainate receptor": "GluK2海人酸受体",
+        "gluk3 kainate receptor": "GluK3海人酸受体",
+        "glutamate 5 semialdehyde dehydrogenase": "谷氨酸-5-半醛脱氢酶",
+        "glutamate ammonia ligase": "谷氨酸-氨连接酶",
+        "glutamate carboxypeptidase ii": "谷氨酸羧肽酶II",
+        "glutamate cysteine ligase": "谷氨酸-半胱氨酸连接酶",
+        "glutamate decarboxylase": "谷氨酸脱羧酶",
+        "glutamate dehydrogenase nadp+": "谷氨酸脱氢酶(NADP+)",
+        "glutamate synthase": "谷氨酸合酶",
+        "glutamate trna ligase": "谷氨酸-tRNA连接酶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_124_ALIASES = {
+        "glutaminase": "谷氨酰胺酶",
+        "glutamine": "谷氨酰胺",
+        "glutamyl aminopeptidase": "谷氨酰氨肽酶",
+        "glutaral": "戊二醛",
+        "glutarates": "戊二酸盐类",
+        "glutaredoxins": "谷氧还蛋白类",
+        "glutaryl coa dehydrogenase": "戊二酰辅酶A脱氢酶",
+        "glutathione disulfide": "氧化型谷胱甘肽",
+        "glutathione peroxidase": "谷胱甘肽过氧化物酶",
+        "glutathione peroxidase gpx1": "谷胱甘肽过氧化物酶GPX1",
+        "glutathione s transferase pi": "谷胱甘肽S-转移酶π",
+        "glutathione synthase": "谷胱甘肽合成酶",
+        "glutathione transferase": "谷胱甘肽转移酶",
+        "glutens": "谷蛋白类",
+}
+
+ZH_EXACT_EXPANSION_BATCH_125_ALIASES = {
+        "glutethimide": "格鲁米特",
+        "glyburide": "格列本脲",
+        "glycated proteins": "糖化蛋白",
+        "glycated serum albumin": "糖化血清白蛋白",
+        "glycated serum proteins": "糖化血清蛋白",
+        "glycation end products advanced": "晚期糖基化终产物",
+        "glycemic control": "血糖控制",
+        "glycemic index": "血糖指数",
+        "glycemic load": "血糖负荷",
+        "glyceraldehyde": "甘油醛",
+        "glyceraldehyde 3 phosphate": "甘油醛-3-磷酸",
+        "glyceraldehyde 3 phosphate dehydrogenases": "甘油醛-3-磷酸脱氢酶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_126_ALIASES = {
+        "glyceric acids": "甘油酸类",
+        "glycerides": "甘油酯类",
+        "glycerol": "甘油",
+        "glycerol 3 phosphate dehydrogenase nad+": "甘油-3-磷酸脱氢酶(NAD+)",
+        "glycerol 3 phosphate o acyltransferase": "甘油-3-磷酸O-酰基转移酶",
+        "glycerol kinase": "甘油激酶",
+        "glycerolphosphate dehydrogenase": "甘油磷酸脱氢酶",
+        "glycerophosphates": "甘油磷酸盐类",
+        "glycerophospholipids": "甘油磷脂类",
+        "glyceryl ethers": "甘油醚类",
+        "glycerylphosphorylcholine": "甘油磷酰胆碱",
+}
+
+ZH_EXACT_EXPANSION_BATCH_127_ALIASES = {
+        "glycine": "甘氨酸",
+        "glycine agents": "甘氨酸类药物",
+        "glycine decarboxylase complex": "甘氨酸脱羧酶复合物",
+        "glycine dehydrogenase": "甘氨酸脱氢酶",
+        "glycine hydroxymethyltransferase": "甘氨酸羟甲基转移酶",
+        "glycine max": "大豆",
+        "glycine n methyltransferase": "甘氨酸N-甲基转移酶",
+        "glycine plasma membrane transport proteins": "甘氨酸质膜转运蛋白",
+        "glycine transaminase": "甘氨酸转氨酶",
+        "glycine trna ligase": "甘氨酸-tRNA连接酶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_128_ALIASES = {
+        "glycobiology": "糖生物学",
+        "glycocalyx": "糖萼",
+        "glycochenodeoxycholic acid": "甘氨鹅脱氧胆酸",
+        "glycocholic acid": "甘胆酸",
+        "glycoconjugates": "糖缀合物",
+        "glycodeoxycholic acid": "甘氨脱氧胆酸",
+        "glycogen": "糖原",
+        "glycogen debranching enzyme system": "糖原脱支酶系统",
+        "glycogen phosphorylase": "糖原磷酸化酶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_129_ALIASES = {
+        "glycogen phosphorylase brain form": "脑型糖原磷酸化酶",
+        "glycogen phosphorylase liver form": "肝型糖原磷酸化酶",
+        "glycogen phosphorylase muscle form": "肌型糖原磷酸化酶",
+        "glycogen storage disease": "糖原贮积病",
+        "glycogen storage disease type i": "糖原贮积病I型",
+        "glycogen storage disease type ii": "糖原贮积病II型",
+        "glycogen storage disease type iii": "糖原贮积病III型",
+        "glycogen storage disease type iv": "糖原贮积病IV型",
+        "glycogen storage disease type v": "糖原贮积病V型",
+        "glycogen storage disease type vi": "糖原贮积病VI型",
+        "glycogen storage disease type vii": "糖原贮积病VII型",
+        "glycogen storage disease type viii": "糖原贮积病VIII型",
+}
+
+ZH_EXACT_EXPANSION_BATCH_130_ALIASES = {
+        "glycogen synthase": "糖原合酶",
+        "glycogen synthase kinases": "糖原合酶激酶",
+        "glycogen synthase kinase 3": "糖原合酶激酶3",
+        "glycogen synthase kinase 3 beta": "糖原合酶激酶3β",
+        "glycogenolysis": "糖原分解",
+        "glycols": "二醇类",
+        "glycolaldehyde dehydrogenase": "乙醇醛脱氢酶",
+        "glycolates": "乙醇酸盐类",
+        "glycolipids": "糖脂类",
+        "glycolysis": "糖酵解",
+        "glycomics": "糖组学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_131_ALIASES = {
+        "glycopeptides": "糖肽类",
+        "glycophorins": "血型糖蛋白类",
+        "glycoprotein hormones alpha subunit": "糖蛋白激素α亚基",
+        "glycopyrrolate": "格隆溴铵",
+        "glycosaminoglycans": "糖胺聚糖类",
+        "glycoside hydrolases": "糖苷水解酶",
+        "glycoside hydrolase inhibitors": "糖苷水解酶抑制剂",
+        "glycosphingolipids": "鞘糖脂类",
+        "glycosuria": "糖尿",
+        "glycosuria renal": "肾性糖尿",
+}
+
+ZH_EXACT_EXPANSION_BATCH_132_ALIASES = {
+        "glycosylphosphatidylinositols": "糖基磷脂酰肌醇类",
+        "glycosyltransferases": "糖基转移酶类",
+        "glycylglycine": "甘氨酰甘氨酸",
+        "glycyrrhetinic acid": "甘草次酸",
+        "glycyrrhiza": "甘草属",
+        "glycyrrhiza uralensis": "乌拉尔甘草",
+        "glycyrrhizic acid": "甘草酸",
+        "glymphatic system": "类淋巴系统",
+        "glyoxal": "乙二醛",
+        "glyoxylates": "乙醛酸盐类",
+        "glyoxysomes": "乙醛酸循环体",
+        "glyphosate": "草甘膦",
+}
+
+ZH_EXACT_EXPANSION_BATCH_133_ALIASES = {
+        "gps positioning": "GPS定位",
+        "gps receivers": "GPS接收机",
+        "gps satellites": "GPS卫星",
+        "gps signals": "GPS信号",
+        "gpu implementation": "GPU实现",
+        "gpu programming": "GPU编程",
+        "gradient methods": "梯度方法",
+        "gradient vector flow": "梯度向量流",
+        "graft occlusion vascular": "血管移植物闭塞",
+        "graft survival": "移植物存活",
+        "graft vs host reaction": "移植物抗宿主反应",
+}
+
+ZH_EXACT_EXPANSION_BATCH_134_ALIASES = {
+        "grain boundaries": "晶界",
+        "grain proteins": "谷物蛋白",
+        "grain size": "晶粒尺寸",
+        "gram negative aerobic bacteria": "革兰阴性需氧菌",
+        "gram negative anaerobic bacteria": "革兰阴性厌氧菌",
+        "gram negative anaerobic cocci": "革兰阴性厌氧球菌",
+        "gram negative bacterial infections": "革兰阴性菌感染",
+        "gram positive bacterial infections": "革兰阳性菌感染",
+        "gram positive cocci": "革兰阳性球菌",
+        "gram positive rods": "革兰阳性杆菌",
+        "gramicidin": "短杆菌肽",
+}
+
+ZH_EXACT_EXPANSION_BATCH_135_ALIASES = {
+        "grammar": "语法",
+        "grammar induction": "语法归纳",
+        "grammatical evolution": "语法进化",
+        "grammatical inference": "语法推断",
+        "granger causality test": "格兰杰因果检验",
+        "granisetron": "格拉司琼",
+        "granular cell tumor": "颗粒细胞瘤",
+        "granular computing": "粒计算",
+        "granular flows": "颗粒流",
+        "granular materials": "颗粒材料",
+        "granulation tissue": "肉芽组织",
+}
+
+ZH_EXACT_EXPANSION_BATCH_136_ALIASES = {
+        "granulins": "颗粒蛋白",
+        "granulocyte colony stimulating factor": "粒细胞集落刺激因子",
+        "granulocyte macrophage colony stimulating factor": "粒细胞-巨噬细胞集落刺激因子",
+        "granulocyte macrophage progenitor cells": "粒细胞-巨噬细胞祖细胞",
+        "granulocyte precursor cells": "粒细胞前体细胞",
+        "granuloma": "肉芽肿",
+        "granuloma annulare": "环状肉芽肿",
+        "granuloma foreign body": "异物性肉芽肿",
+        "granuloma giant cell": "巨细胞肉芽肿",
+}
+
+ZH_EXACT_EXPANSION_BATCH_137_ALIASES = {
+        "granuloma inguinale": "腹股沟肉芽肿",
+        "granuloma laryngeal": "喉肉芽肿",
+        "granuloma lethal midline": "致死性中线肉芽肿",
+        "granuloma plasma cell": "浆细胞肉芽肿",
+        "granuloma pyogenic": "化脓性肉芽肿",
+        "granuloma respiratory tract": "呼吸道肉芽肿",
+        "granulomatosis orofacial": "口面部肉芽肿病",
+        "granulomatosis with polyangiitis": "多血管炎性肉芽肿病",
+        "granulomatous disease chronic": "慢性肉芽肿病",
+        "granulomatous mastitis": "肉芽肿性乳腺炎",
+}
+
+ZH_EXACT_EXPANSION_BATCH_138_ALIASES = {
+        "granulosa cells": "颗粒膜细胞",
+        "granulosa cell tumor": "颗粒膜细胞瘤",
+        "granzymes": "颗粒酶类",
+        "grape seed extract": "葡萄籽提取物",
+        "graph anomaly detection": "图异常检测",
+        "graph based": "基于图的",
+        "graph based methods": "基于图的方法",
+        "graph based models": "基于图的模型",
+        "graph based representations": "基于图的表示",
+        "graph class": "图类",
+}
+
+ZH_EXACT_EXPANSION_BATCH_139_ALIASES = {
+        "graph coloring": "图着色",
+        "graph coloring problem": "图着色问题",
+        "graph convolutional networks": "图卷积网络",
+        "graph cuts": "图割",
+        "graph databases": "图数据库",
+        "graph drawing": "图绘制",
+        "graph embedding": "图嵌入",
+        "graph grammar": "图文法",
+        "graph layout": "图布局",
+        "graph matching": "图匹配",
+        "graph matching algorithms": "图匹配算法",
+}
+
+ZH_EXACT_EXPANSION_BATCH_140_ALIASES = {
+        "alpha glucosidases": "α-葡萄糖苷酶",
+        "attribute grammar": "属性文法",
+        "computational grammar": "计算语法",
+        "formal grammar": "形式文法",
+        "glucan 1 4 alpha glucosidase": "葡聚糖1,4-α-葡萄糖苷酶",
+        "glycine decarboxylase complex h protein": "甘氨酸脱羧酶复合物H蛋白",
+        "liver glycogen": "肝糖原",
+        "plasma cell granuloma pulmonary": "肺浆细胞肉芽肿",
+        "protein glutamine gamma glutamyltransferase 2": "蛋白质-谷氨酰胺γ-谷氨酰转移酶2",
+        "graph property prediction": "图性质预测",
+        "graph rewriting": "图重写",
+        "graph transformation": "图变换",
+        "graph transformation system": "图变换系统",
+        "graphene": "石墨烯",
+        "graphic cards": "显卡",
+        "graphics hardware": "图形硬件",
+        "receptors glycine": "甘氨酸受体",
+        "receptors granulocyte colony stimulating factor": "粒细胞集落刺激因子受体",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -6088,6 +6370,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_117_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_118_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_119_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_120_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_121_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_122_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_123_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_124_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_125_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_126_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_127_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_128_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_129_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_130_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_131_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_132_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_133_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_134_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_135_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_136_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_137_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_138_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_139_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_140_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",

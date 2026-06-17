@@ -6848,6 +6848,238 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_121_adds_glucose_transport_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("glucose_1_phosphate_adenylyltransferase", "Glucose-1-phosphate Adenylyltransferase", ["biomedical", "chemicals_and_drugs"], "葡萄糖-1-磷酸腺苷酰转移酶"),
+                ("glucose_transport_proteins_facilitative", "Glucose Transport Proteins, Facilitative", ["biomedical", "chemicals_and_drugs"], "促进性葡萄糖转运蛋白"),
+                ("glucose_transporter_type_1", "Glucose Transporter Type 1", ["biomedical", "chemicals_and_drugs"], "葡萄糖转运蛋白1型"),
+                ("glucose_transporter_type_4", "Glucose Transporter Type 4", ["biomedical", "chemicals_and_drugs"], "葡萄糖转运蛋白4型"),
+                ("glucosephosphate_dehydrogenase_deficiency", "Glucosephosphate Dehydrogenase Deficiency", ["biomedical", "diseases"], "葡萄糖-6-磷酸脱氢酶缺乏症"),
+            ]
+        )
+
+    def test_exact_expansion_batch_122_adds_glucoside_and_glucuronide_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("glucosides", "Glucosides", ["biomedical", "chemicals_and_drugs"], "葡萄糖苷类"),
+                ("glucosinolates", "Glucosinolates", ["biomedical", "chemicals_and_drugs"], "硫代葡萄糖苷类"),
+                ("glucosylceramidase", "Glucosylceramidase", ["biomedical", "chemicals_and_drugs"], "葡糖神经酰胺酶"),
+                ("glucuronides", "Glucuronides", ["biomedical", "chemicals_and_drugs"], "葡萄糖醛酸苷类"),
+                ("glucuronosyltransferase", "Glucuronosyltransferase", ["biomedical", "chemicals_and_drugs"], "葡萄糖醛酸转移酶"),
+            ]
+        )
+
+    def test_exact_expansion_batch_123_adds_glutamate_enzyme_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gluk2_kainate_receptor", "Gluk2 Kainate Receptor", ["biomedical", "chemicals_and_drugs"], "GluK2海人酸受体"),
+                ("glutamate_5_semialdehyde_dehydrogenase", "Glutamate-5-semialdehyde Dehydrogenase", ["biomedical", "chemicals_and_drugs"], "谷氨酸-5-半醛脱氢酶"),
+                ("glutamate_carboxypeptidase_ii", "Glutamate Carboxypeptidase II", ["biomedical", "chemicals_and_drugs"], "谷氨酸羧肽酶II"),
+                ("glutamate_decarboxylase", "Glutamate Decarboxylase", ["biomedical", "chemicals_and_drugs"], "谷氨酸脱羧酶"),
+                ("glutamate_trna_ligase", "Glutamate-trna Ligase", ["biomedical", "chemicals_and_drugs"], "谷氨酸-tRNA连接酶"),
+            ]
+        )
+
+    def test_exact_expansion_batch_124_adds_glutathione_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("glutaminase", "Glutaminase", ["biomedical", "chemicals_and_drugs"], "谷氨酰胺酶"),
+                ("glutamine", "Glutamine", ["biomedical", "chemicals_and_drugs"], "谷氨酰胺"),
+                ("glutaral", "Glutaral", ["biomedical", "chemicals_and_drugs"], "戊二醛"),
+                ("glutathione_disulfide", "Glutathione Disulfide", ["biomedical", "chemicals_and_drugs"], "氧化型谷胱甘肽"),
+                ("glutathione_peroxidase", "Glutathione Peroxidase", ["biomedical", "chemicals_and_drugs"], "谷胱甘肽过氧化物酶"),
+            ]
+        )
+
+    def test_exact_expansion_batch_125_adds_glycemic_and_glyceraldehyde_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("glyburide", "Glyburide", ["biomedical", "chemicals_and_drugs"], "格列本脲"),
+                ("glycated_serum_albumin", "Glycated Serum Albumin", ["biomedical", "chemicals_and_drugs"], "糖化血清白蛋白"),
+                ("glycation_end_products_advanced", "Glycation End Products, Advanced", ["biomedical", "chemicals_and_drugs"], "晚期糖基化终产物"),
+                ("glycemic_index", "Glycemic Index", ["biomedical", "phenomena_and_processes"], "血糖指数"),
+                ("glyceraldehyde_3_phosphate_dehydrogenases", "Glyceraldehyde-3-phosphate Dehydrogenases", ["biomedical", "chemicals_and_drugs"], "甘油醛-3-磷酸脱氢酶"),
+            ]
+        )
+
+    def test_exact_expansion_batch_126_adds_glycerol_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("glyceric_acids", "Glyceric Acids", ["biomedical", "chemicals_and_drugs"], "甘油酸类"),
+                ("glycerol", "Glycerol", ["biomedical", "chemicals_and_drugs"], "甘油"),
+                ("glycerol_kinase", "Glycerol Kinase", ["biomedical", "chemicals_and_drugs"], "甘油激酶"),
+                ("glycerophospholipids", "Glycerophospholipids", ["biomedical", "chemicals_and_drugs"], "甘油磷脂类"),
+                ("glycerylphosphorylcholine", "Glycerylphosphorylcholine", ["biomedical", "chemicals_and_drugs"], "甘油磷酰胆碱"),
+            ]
+        )
+
+    def test_exact_expansion_batch_127_adds_glycine_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("glycine", "Glycine", ["biomedical", "chemicals_and_drugs"], "甘氨酸"),
+                ("glycine_decarboxylase_complex", "Glycine Decarboxylase Complex", ["biomedical", "chemicals_and_drugs"], "甘氨酸脱羧酶复合物"),
+                ("glycine_hydroxymethyltransferase", "Glycine Hydroxymethyltransferase", ["biomedical", "chemicals_and_drugs"], "甘氨酸羟甲基转移酶"),
+                ("glycine_max", "Glycine Max", ["biomedical", "organisms"], "大豆"),
+                ("glycine_plasma_membrane_transport_proteins", "Glycine Plasma Membrane Transport Proteins", ["biomedical", "chemicals_and_drugs"], "甘氨酸质膜转运蛋白"),
+            ]
+        )
+
+    def test_exact_expansion_batch_128_adds_glycobiology_and_glycogen_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("glycobiology", "Glycobiology", ["biomedical", "disciplines_and_occupations"], "糖生物学"),
+                ("glycocalyx", "Glycocalyx", ["anatomy", "biomedical"], "糖萼"),
+                ("glycocholic_acid", "Glycocholic Acid", ["biomedical", "chemicals_and_drugs"], "甘胆酸"),
+                ("glycogen", "Glycogen", ["biomedical", "chemicals_and_drugs"], "糖原"),
+                ("glycogen_phosphorylase", "Glycogen Phosphorylase", ["biomedical", "chemicals_and_drugs"], "糖原磷酸化酶"),
+            ]
+        )
+
+    def test_exact_expansion_batch_129_adds_glycogen_storage_disease_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("glycogen_storage_disease", "Glycogen Storage Disease", ["biomedical", "diseases"], "糖原贮积病"),
+                ("glycogen_storage_disease_type_i", "Glycogen Storage Disease Type I", ["biomedical", "diseases"], "糖原贮积病I型"),
+                ("glycogen_storage_disease_type_ii", "Glycogen Storage Disease Type II", ["biomedical", "diseases"], "糖原贮积病II型"),
+                ("glycogen_storage_disease_type_v", "Glycogen Storage Disease Type V", ["biomedical", "diseases"], "糖原贮积病V型"),
+                ("glycogen_storage_disease_type_viii", "Glycogen Storage Disease Type VIII", ["biomedical", "diseases"], "糖原贮积病VIII型"),
+            ]
+        )
+
+    def test_exact_expansion_batch_130_adds_glycolysis_and_glycomics_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("glycogen_synthase_kinase_3_beta", "Glycogen Synthase Kinase 3 Beta", ["biomedical", "chemicals_and_drugs"], "糖原合酶激酶3β"),
+                ("glycogenolysis", "Glycogenolysis", ["biomedical", "phenomena_and_processes"], "糖原分解"),
+                ("glycolipids", "Glycolipids", ["biomedical", "chemicals_and_drugs"], "糖脂类"),
+                ("glycolysis", "Glycolysis", ["biomedical", "phenomena_and_processes"], "糖酵解"),
+                ("glycomics", "Glycomics", ["biomedical", "disciplines_and_occupations"], "糖组学"),
+            ]
+        )
+
+    def test_exact_expansion_batch_131_adds_glycoside_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("glycopeptides", "Glycopeptides", ["biomedical", "chemicals_and_drugs"], "糖肽类"),
+                ("glycoprotein_hormones_alpha_subunit", "Glycoprotein Hormones, Alpha Subunit", ["biomedical", "chemicals_and_drugs"], "糖蛋白激素α亚基"),
+                ("glycopyrrolate", "Glycopyrrolate", ["biomedical", "chemicals_and_drugs"], "格隆溴铵"),
+                ("glycosaminoglycans", "Glycosaminoglycans", ["biomedical", "chemicals_and_drugs"], "糖胺聚糖类"),
+                ("glycoside_hydrolase_inhibitors", "Glycoside Hydrolase Inhibitors", ["biomedical", "chemicals_and_drugs"], "糖苷水解酶抑制剂"),
+            ]
+        )
+
+    def test_exact_expansion_batch_132_adds_glycyrrhiza_and_glymphatic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("glycosyltransferases", "Glycosyltransferases", ["biomedical", "chemicals_and_drugs"], "糖基转移酶类"),
+                ("glycyrrhetinic_acid", "Glycyrrhetinic Acid", ["biomedical", "chemicals_and_drugs"], "甘草次酸"),
+                ("glycyrrhizic_acid", "Glycyrrhizic Acid", ["biomedical", "chemicals_and_drugs"], "甘草酸"),
+                ("glymphatic_system", "Glymphatic System", ["anatomy", "biomedical"], "类淋巴系统"),
+                ("glyphosate", "Glyphosate", ["biomedical", "chemicals_and_drugs"], "草甘膦"),
+            ]
+        )
+
+    def test_exact_expansion_batch_133_adds_gps_gpu_and_graft_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gps_positioning", "Gps Positioning", ["computer_science"], "GPS定位"),
+                ("gpu_programming", "Gpu Programming", ["computer_science"], "GPU编程"),
+                ("gradient_methods", "Gradient Methods", ["computer_science", "mathematics"], "梯度方法"),
+                ("graft_survival", "Graft Survival", ["biomedical", "phenomena_and_processes"], "移植物存活"),
+                ("graft_vs_host_reaction", "Graft Vs Host Reaction", ["biomedical", "phenomena_and_processes"], "移植物抗宿主反应"),
+            ]
+        )
+
+    def test_exact_expansion_batch_134_adds_grain_and_gram_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("grain_boundaries", "Grain Boundaries", ["materials_elements_and_compounds"], "晶界"),
+                ("gram_negative_aerobic_bacteria", "Gram-negative Aerobic Bacteria", ["biomedical", "organisms"], "革兰阴性需氧菌"),
+                ("gram_negative_bacterial_infections", "Gram-negative Bacterial Infections", ["biomedical", "diseases"], "革兰阴性菌感染"),
+                ("gram_positive_cocci", "Gram-positive Cocci", ["biomedical", "organisms"], "革兰阳性球菌"),
+                ("gramicidin", "Gramicidin", ["biomedical", "chemicals_and_drugs"], "短杆菌肽"),
+            ]
+        )
+
+    def test_exact_expansion_batch_135_adds_grammar_and_granular_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("grammar_induction", "Grammar Induction", ["computer_science"], "语法归纳"),
+                ("granger_causality_test", "Granger Causality Test", ["computer_science"], "格兰杰因果检验"),
+                ("granisetron", "Granisetron", ["biomedical", "chemicals_and_drugs"], "格拉司琼"),
+                ("granular_computing", "Granular Computing", ["computers_and_information_processing"], "粒计算"),
+                ("granulation_tissue", "Granulation Tissue", ["anatomy", "biomedical"], "肉芽组织"),
+            ]
+        )
+
+    def test_exact_expansion_batch_136_adds_granulocyte_and_granuloma_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("granulocyte_colony_stimulating_factor", "Granulocyte Colony-stimulating Factor", ["biomedical", "chemicals_and_drugs"], "粒细胞集落刺激因子"),
+                ("granulocyte_macrophage_colony_stimulating_factor", "Granulocyte-macrophage Colony-stimulating Factor", ["biomedical", "chemicals_and_drugs"], "粒细胞-巨噬细胞集落刺激因子"),
+                ("granulocyte_precursor_cells", "Granulocyte Precursor Cells", ["anatomy", "biomedical"], "粒细胞前体细胞"),
+                ("granuloma", "Granuloma", ["biomedical", "diseases"], "肉芽肿"),
+                ("granuloma_foreign_body", "Granuloma, Foreign-body", ["biomedical", "diseases"], "异物性肉芽肿"),
+            ]
+        )
+
+    def test_exact_expansion_batch_137_adds_granulomatosis_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("granuloma_pyogenic", "Granuloma, Pyogenic", ["biomedical", "diseases"], "化脓性肉芽肿"),
+                ("granulomatosis_orofacial", "Granulomatosis, Orofacial", ["biomedical", "diseases"], "口面部肉芽肿病"),
+                ("granulomatosis_with_polyangiitis", "Granulomatosis With Polyangiitis", ["biomedical", "diseases"], "多血管炎性肉芽肿病"),
+                ("granulomatous_disease_chronic", "Granulomatous Disease, Chronic", ["biomedical", "diseases"], "慢性肉芽肿病"),
+                ("granulomatous_mastitis", "Granulomatous Mastitis", ["biomedical", "diseases"], "肉芽肿性乳腺炎"),
+            ]
+        )
+
+    def test_exact_expansion_batch_138_adds_granulosa_and_graph_base_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("granulosa_cells", "Granulosa Cells", ["anatomy", "biomedical"], "颗粒膜细胞"),
+                ("granulosa_cell_tumor", "Granulosa Cell Tumor", ["biomedical", "diseases"], "颗粒膜细胞瘤"),
+                ("grape_seed_extract", "Grape Seed Extract", ["biomedical", "chemicals_and_drugs"], "葡萄籽提取物"),
+                ("graph_anomaly_detection", "Graph Anomaly Detection", ["computer_science"], "图异常检测"),
+                ("graph_based_representations", "Graph-based Representations", ["computer_science"], "基于图的表示"),
+            ]
+        )
+
+    def test_exact_expansion_batch_139_adds_graph_algorithm_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("graph_coloring", "Graph Coloring", ["computer_science"], "图着色"),
+                ("graph_coloring_problem", "Graph Coloring Problem", ["computer_science"], "图着色问题"),
+                ("graph_cuts", "Graph Cuts", ["computer_science"], "图割"),
+                ("graph_drawing", "Graph Drawing", ["computer_science"], "图绘制"),
+                ("graph_matching_algorithms", "Graph-matching Algorithms", ["computer_science"], "图匹配算法"),
+            ]
+        )
+
+    def test_exact_expansion_batch_140_adds_graph_transformation_and_graphene_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("graph_rewriting", "Graph Rewriting", ["computer_science"], "图重写"),
+                ("graph_transformation", "Graph Transformation", ["computer_science"], "图变换"),
+                ("graph_transformation_system", "Graph Transformation System", ["computer_science"], "图变换系统"),
+                ("graphene", "Graphene", ["materials_elements_and_compounds"], "石墨烯"),
+                ("graphics_hardware", "Graphics Hardware", ["computer_science"], "图形硬件"),
+            ]
+        )
+
+    def test_exact_expansion_batch_121_to_140_fixes_review_side_effect_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("alpha_glucosidase", "Alpha-glucosidases", ["biomedical", "chemicals_and_drugs"], "α-葡萄糖苷酶"),
+                ("formal_grammar", "Formal Grammar", ["computer_science"], "形式文法"),
+                ("glucan_1_4_alpha_glucosidase", "Glucan 1,4-alpha-glucosidase", ["biomedical", "chemicals_and_drugs"], "葡聚糖1,4-α-葡萄糖苷酶"),
+                ("plasma_cell_granuloma_pulmonary", "Plasma Cell Granuloma, Pulmonary", ["biomedical", "diseases"], "肺浆细胞肉芽肿"),
+                ("receptor_glycine", "Receptors, Glycine", ["biomedical", "chemicals_and_drugs"], "甘氨酸受体"),
+                ("receptor_granulocyte_colony_stimulating_factor", "Receptors, Granulocyte Colony-Stimulating Factor", ["biomedical", "chemicals_and_drugs"], "粒细胞集落刺激因子受体"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
