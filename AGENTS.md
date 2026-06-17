@@ -153,47 +153,67 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-18 zh-exact-expansion-batch-141-to-160 后）：
+最新已知状态（2026-06-18 zh-exact-expansion-batch-161-to-180 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`6636 / 48848 = 13.58%`
-- runtime zh aliases: `6651`
+- runtime 中文覆盖：`6959 / 48851 = 14.25%`
+- runtime zh aliases: `6974`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `6651`
-- `zh:blocked`: `11454`
+- `zh:accept`: `6974`
+- `zh:blocked`: `11467`
 - `zh:needs_review`: `0`
-- `zh:reject`: `191`
+- `zh:reject`: `186`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `48848`
+- runtime concept aliases: `48851`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
-- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-160 运行时以 compact index/manifest 为准）
+- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-180 运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `8b36fc8326d3ca9baa0d0f2598141b2b57582f09cc915cd78ff415df37dbb70d`
+  `f8843ed145acadf13de20b8c3f7267973a0c6fdf128875cbf8ced339e7c8dc4d`
 - compact manifest SHA-256:
-  `bc87c4eae0e2385315aef8e18146267f232d1135398e121502c4d05512c2acda`
+  `3f0b1ff247b44850632ac2f61e1b1cb07575fdfdf56b9a148d9f3fd94de2f080`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact index 是 batch-160 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-160 更新，不再作为默认等价检查对象。
-- 最近相关测试：`223 passed in 1.75s`。
+- compact index 是 batch-180 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-180 更新，不再作为默认等价检查对象。
+- 最近相关测试：`243 passed in 1.69s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- batch-141 至 batch-160 中文 coverage 扩展已完成；下一步按目标继续 batch-161 至 batch-180 exact/domain-aware 小批次；
+- batch-161 至 batch-180 中文 coverage 扩展已完成；下一步按目标继续 batch-181 至 batch-200 exact/domain-aware 小批次；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
+- 最新 batch-161 至 batch-180 exact/domain-aware 小批次已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_161_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_180_ALIASES`，覆盖 hazard/head、health/healthcare、hearing/heart/heat、helicobacter/helix/hematology/heme/hemodynamics、hepatitis/heparin、herpes/hernia/hidden/hierarchical/high 等 exact/domain-aware 术语；
+  - 新增 `20` 个代表性回归测试，先红灯后转绿；修正 `HCV NS3/4A蛋白酶抑制剂`、`医疗相关性肺炎`、`血红素结合蛋白` 等 exact 输出；
+  - grouped L3-L5：fill `records_filled = 18419`，validate `review_decisions = 367740`；
+  - 显式接受 `378` 条 exact/domain-aware recommendation，另接受 `6` 条 exact-backed plural/variant recommendation；
+  - 显式阻断 `45` 条由 exact 词条引发的 compositional/domain-title side-effect；
+  - `51` 条 exact-backed 输出因 duplicate/collision 保持 blocked，不自动 merge（包括 `高性能计算`、`高维数据`、`头戴式显示器`、`卫生支出` 等重复/碰撞概念）；
+  - runtime 中文覆盖从 `6636 / 48848 = 13.58%` 增至 `6959 / 48851 = 14.25%`；
+  - `zh:accept`: `6974`，`zh:blocked`: `11467`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `f8843ed145acadf13de20b8c3f7267973a0c6fdf128875cbf8ced339e7c8dc4d`；
+  - compact manifest SHA-256: `3f0b1ff247b44850632ac2f61e1b1cb07575fdfdf56b9a148d9f3fd94de2f080`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - 相关测试：`243 passed in 1.69s`。
+- batch-180 后 review：
+  - 本轮新增 `323` 个 runtime zh-covered concepts，覆盖率已到 `14.25%`，但仍未超过 `15%`；
+  - side-effect `45` 条已全部显式 blocked，主要为 helminth/health/heavy metal/hemagglutination/hernia/high 等组合派生词；
+  - duplicate/collision exact 输出 `51` 条继续不自动 merge；
+  - 下一轮应继续 batch-181 至 batch-200，优先从 high/histology/hiv/home/hormone/human 等高确定性 exact 术语推进。
 - 最新 batch-141 至 batch-160 exact/domain-aware 小批次已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_141_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_160_ALIASES`，覆盖 graphics/grasp/Graves、green/grey/grid、ground/group/growth、GTP/guanine/guanosine、H.264/Haar/Haemophilus/hair/hand/haptic/hardware/harmonic/hash 等 exact/domain-aware 术语；
   - 新增 `20` 个代表性回归测试，先红灯后转绿；其中修正 `Grey Relational Analysis -> 灰色关联分析` 等组合输出；
