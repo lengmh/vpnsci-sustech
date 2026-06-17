@@ -6616,6 +6616,238 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_101_adds_genetic_profile_and_risk_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("genetic_profile", "Genetic Profile", ["biomedical", "phenomena_and_processes"], "遗传谱"),
+                ("genetic_programming", "Genetic Programming", ["computer_science"], "遗传编程"),
+                ("genetic_risk_score", "Genetic Risk Score", ["biomedical", "diseases"], "遗传风险评分"),
+                ("genetic_services", "Genetic Services", ["biomedical", "health_care"], "遗传服务"),
+                ("genetic_techniques", "Genetic Techniques", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "遗传技术"),
+            ]
+        )
+
+    def test_exact_expansion_batch_102_adds_genome_taxon_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("genome_archaeal", "Genome, Archaeal", ["biomedical", "phenomena_and_processes"], "古菌基因组"),
+                ("genome_bacterial", "Genome, Bacterial", ["biomedical", "phenomena_and_processes"], "细菌基因组"),
+                ("genome_chloroplast", "Genome, Chloroplast", ["biomedical", "phenomena_and_processes"], "叶绿体基因组"),
+                ("genome_helminth", "Genome, Helminth", ["biomedical", "phenomena_and_processes"], "蠕虫基因组"),
+                ("genome_mitochondrial", "Genome, Mitochondrial", ["biomedical", "phenomena_and_processes"], "线粒体基因组"),
+            ]
+        )
+
+    def test_exact_expansion_batch_103_adds_genomic_medicine_and_variation_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("genomic_imprinting", "Genomic Imprinting", ["biomedical", "phenomena_and_processes"], "基因组印记"),
+                ("genomic_instability", "Genomic Instability", ["biomedical", "diseases"], "基因组不稳定性"),
+                ("genomic_islands", "Genomic Islands", ["biomedical", "phenomena_and_processes"], "基因组岛"),
+                ("genomic_library", "Genomic Library", ["biomedical", "phenomena_and_processes"], "基因组文库"),
+                ("genomic_medicine", "Genomic Medicine", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "基因组医学"),
+            ]
+        )
+
+    def test_exact_expansion_batch_104_adds_geniculate_and_genital_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("geniculate_bodies", "Geniculate Bodies", ["anatomy", "biomedical"], "膝状体"),
+                ("geniculate_ganglion", "Geniculate Ganglion", ["anatomy", "biomedical"], "膝状神经节"),
+                ("genioplasty", "Genioplasty", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "颏成形术"),
+                ("genital_diseases", "Genital Diseases", ["biomedical", "diseases"], "生殖器疾病"),
+                ("genitalia_female", "Genitalia, Female", ["anatomy", "biomedical"], "女性生殖器"),
+            ]
+        )
+
+    def test_exact_expansion_batch_105_adds_geographic_and_genu_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gentamicins", "Gentamicins", ["biomedical", "chemicals_and_drugs"], "庆大霉素类"),
+                ("gentian_violet", "Gentian Violet", ["biomedical", "chemicals_and_drugs"], "龙胆紫"),
+                ("genu_valgum", "Genu Valgum", ["biomedical", "diseases"], "膝外翻"),
+                ("geographic_atrophy", "Geographic Atrophy", ["biomedical", "diseases"], "地图样萎缩"),
+                ("geographic_routing", "Geographic Routing", ["computer_science"], "地理路由"),
+            ]
+        )
+
+    def test_exact_expansion_batch_106_adds_geology_and_geomagnetic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("geo_spatial_data", "Geo-spatial Data", ["computer_science"], "地理空间数据"),
+                ("geologic_sediments", "Geologic Sediments", ["biomedical", "phenomena_and_processes"], "地质沉积物"),
+                ("geological_phenomena", "Geological Phenomena", ["biomedical", "phenomena_and_processes"], "地质现象"),
+                ("geomagnetic_storms", "Geomagnetic Storms", ["magnetics"], "地磁暴"),
+                ("geodesic_active_contour", "Geodesic Active Contour", ["computer_science"], "测地线主动轮廓"),
+            ]
+        )
+
+    def test_exact_expansion_batch_107_adds_geometric_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("geometric_active_contours", "Geometric Active Contours", ["computer_science"], "几何主动轮廓"),
+                ("geometric_continuity", "Geometric Continuity", ["computer_science"], "几何连续性"),
+                ("geometric_distortion", "Geometric Distortion", ["computer_science"], "几何失真"),
+                ("geometric_transformation", "Geometric Transformation", ["computer_science"], "几何变换"),
+                ("geometrical_optics", "Geometrical Optics", ["lasers_and_electrooptics"], "几何光学"),
+            ]
+        )
+
+    def test_exact_expansion_batch_108_adds_geophysical_and_geospatial_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("geophysical_measurements", "Geophysical Measurements", ["instrumentation_and_measurement"], "地球物理测量"),
+                ("geophysical_signal_processing", "Geophysical Signal Processing", ["signal_processing"], "地球物理信号处理"),
+                ("geoprocessing", "Geoprocessing", ["computer_science"], "地理处理"),
+                ("geostationary_satellite", "Geostationary Satellite", ["computer_science"], "地球静止卫星"),
+                ("geostrophic_flow", "Geostrophic Flow", ["computer_science"], "地转流"),
+            ]
+        )
+
+    def test_exact_expansion_batch_109_adds_geotechnical_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("geotechnical_engineering", "Geotechnical Engineering", ["engineering_general"], "岩土工程"),
+                ("geotechnical_structures", "Geotechnical Structures", ["engineering_general"], "岩土结构"),
+                ("geotechnical_engineering_and_soil_mechanics", "Geotechnical Engineering And Soil Mechanics", ["engineering", "physical_sciences"], "岩土工程与土力学"),
+                ("geotechnical_engineering_and_underground_structures", "Geotechnical Engineering And Underground Structures", ["engineering", "physical_sciences"], "岩土工程与地下结构"),
+                ("geothermal_energy", "Geothermal Energy", ["power_engineering_and_energy"], "地热能"),
+            ]
+        )
+
+    def test_exact_expansion_batch_110_adds_geriatric_and_germ_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("geriatric_dentistry", "Geriatric Dentistry", ["biomedical", "disciplines_and_occupations"], "老年牙科学"),
+                ("geriatric_psychiatry", "Geriatric Psychiatry", ["biomedical", "disciplines_and_occupations"], "老年精神病学"),
+                ("germ_layers", "Germ Layers", ["anatomy", "biomedical"], "胚层"),
+                ("germ_line_mutation", "Germ-line Mutation", ["biomedical", "phenomena_and_processes"], "生殖系突变"),
+                ("germinoma", "Germinoma", ["biomedical", "diseases"], "生殖细胞瘤"),
+            ]
+        )
+
+    def test_exact_expansion_batch_111_adds_giant_cell_and_giardia_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("giant_axonal_neuropathy", "Giant Axonal Neuropathy", ["biomedical", "diseases"], "巨轴索神经病"),
+                ("giant_cell_arteritis", "Giant Cell Arteritis", ["biomedical", "diseases"], "巨细胞动脉炎"),
+                ("giant_cell_tumor_of_bone", "Giant Cell Tumor Of Bone", ["biomedical", "diseases"], "骨巨细胞瘤"),
+                ("giant_magnetoresistance", "Giant Magnetoresistance", ["magnetics"], "巨磁阻"),
+                ("giardiasis", "Giardiasis", ["biomedical", "diseases"], "贾第虫病"),
+            ]
+        )
+
+    def test_exact_expansion_batch_112_adds_gibbs_and_gingipain_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gibbs_distribution", "Gibbs Distribution", ["computer_science"], "吉布斯分布"),
+                ("gibbs_sampler", "Gibbs Sampler", ["computer_science"], "吉布斯采样器"),
+                ("gibbs_sampling", "Gibbs Sampling", ["computer_science"], "吉布斯采样"),
+                ("gigabit_ethernet", "Gigabit Ethernet", ["computer_science"], "千兆以太网"),
+                ("gingipain_cysteine_endopeptidases", "Gingipain Cysteine Endopeptidases", ["biomedical", "chemicals_and_drugs"], "牙龈蛋白酶半胱氨酸内肽酶"),
+            ]
+        )
+
+    def test_exact_expansion_batch_113_adds_gingival_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("gingival_crevicular_fluid", "Gingival Crevicular Fluid", ["anatomy", "biomedical"], "龈沟液"),
+                ("gingival_diseases", "Gingival Diseases", ["biomedical", "diseases"], "牙龈疾病"),
+                ("gingival_hyperplasia", "Gingival Hyperplasia", ["biomedical", "diseases"], "牙龈增生"),
+                ("gingival_retraction_techniques", "Gingival Retraction Techniques", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "排龈技术"),
+                ("gingivitis_necrotizing_ulcerative", "Gingivitis, Necrotizing Ulcerative", ["biomedical", "diseases"], "坏死性溃疡性牙龈炎"),
+            ]
+        )
+
+    def test_exact_expansion_batch_114_adds_ginkgo_and_glasgow_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("ginkgo_biloba", "Ginkgo Biloba", ["biomedical", "organisms"], "银杏"),
+                ("ginkgolides", "Ginkgolides", ["biomedical", "chemicals_and_drugs"], "银杏内酯"),
+                ("gitelman_syndrome", "Gitelman Syndrome", ["biomedical", "diseases"], "吉特尔曼综合征"),
+                ("glasgow_coma_scale", "Glasgow Coma Scale", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "格拉斯哥昏迷量表"),
+                ("glasgow_outcome_scale", "Glasgow Outcome Scale", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "格拉斯哥预后量表"),
+            ]
+        )
+
+    def test_exact_expansion_batch_115_adds_glaucoma_and_glial_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("glaucoma_angle_closure", "Glaucoma, Angle-closure", ["biomedical", "diseases"], "闭角型青光眼"),
+                ("glaucoma_neovascular", "Glaucoma, Neovascular", ["biomedical", "diseases"], "新生血管性青光眼"),
+                ("glenoid_cavity", "Glenoid Cavity", ["anatomy", "biomedical"], "关节盂"),
+                ("glial_fibrillary_acidic_protein", "Glial Fibrillary Acidic Protein", ["biomedical", "chemicals_and_drugs"], "胶质纤维酸性蛋白"),
+                ("glipizide", "Glipizide", ["biomedical", "chemicals_and_drugs"], "格列吡嗪"),
+            ]
+        )
+
+    def test_exact_expansion_batch_116_adds_global_technical_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("global_asymptotic_stability", "Global Asymptotic Stability", ["computer_science"], "全局渐近稳定性"),
+                ("global_burden_of_disease", "Global Burden Of Disease", ["biomedical", "health_care"], "全球疾病负担"),
+                ("global_illumination", "Global Illumination", ["computer_science"], "全局照明"),
+                ("global_longitudinal_strain", "Global Longitudinal Strain", ["biomedical", "phenomena_and_processes"], "整体纵向应变"),
+                ("global_optimization_problems", "Global Optimization Problems", ["computer_science"], "全局优化问题"),
+            ]
+        )
+
+    def test_exact_expansion_batch_117_adds_globus_and_glomerular_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("globus_pallidus", "Globus Pallidus", ["anatomy", "biomedical"], "苍白球"),
+                ("glomerular_basement_membrane", "Glomerular Basement Membrane", ["anatomy", "biomedical"], "肾小球基底膜"),
+                ("glomerular_filtration_rate", "Glomerular Filtration Rate", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "肾小球滤过率"),
+                ("glomerulonephritis_membranous", "Glomerulonephritis, Membranous", ["biomedical", "diseases"], "膜性肾小球肾炎"),
+                ("glomerulosclerosis_focal_segmental", "Glomerulosclerosis, Focal Segmental", ["biomedical", "diseases"], "局灶节段性肾小球硬化"),
+            ]
+        )
+
+    def test_exact_expansion_batch_118_adds_glomus_and_glossopharyngeal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("glomus_jugulare_tumor", "Glomus Jugulare Tumor", ["biomedical", "diseases"], "颈静脉球瘤"),
+                ("glomus_tympanicum_tumor", "Glomus Tympanicum Tumor", ["biomedical", "diseases"], "鼓室球瘤"),
+                ("glossitis_benign_migratory", "Glossitis, Benign Migratory", ["biomedical", "diseases"], "良性游走性舌炎"),
+                ("glossopharyngeal_nerve", "Glossopharyngeal Nerve", ["anatomy", "biomedical"], "舌咽神经"),
+                ("glossoptosis", "Glossoptosis", ["biomedical", "diseases"], "舌后坠"),
+            ]
+        )
+
+    def test_exact_expansion_batch_119_adds_glow_and_glucagon_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("glow_discharges", "Glow Discharges", ["dielectrics_and_electrical_insulation"], "辉光放电"),
+                ("glucagon_like_peptides", "Glucagon-like Peptides", ["biomedical", "chemicals_and_drugs"], "胰高血糖素样肽"),
+                ("glucagon_like_peptide_1", "Glucagon-like Peptide 1", ["biomedical", "chemicals_and_drugs"], "胰高血糖素样肽-1"),
+                ("glucagon_like_peptide_1_receptor_agonists", "Glucagon-like Peptide-1 Receptor Agonists", ["biomedical", "chemicals_and_drugs"], "胰高血糖素样肽-1受体激动剂"),
+                ("glucagonoma", "Glucagonoma", ["biomedical", "diseases"], "胰高血糖素瘤"),
+            ]
+        )
+
+    def test_exact_expansion_batch_120_adds_glucose_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("glucocorticoids", "Glucocorticoids", ["biomedical", "chemicals_and_drugs"], "糖皮质激素"),
+                ("gluconeogenesis", "Gluconeogenesis", ["biomedical", "phenomena_and_processes"], "糖异生"),
+                ("glucose_6_phosphate", "Glucose-6-phosphate", ["biomedical", "chemicals_and_drugs"], "葡萄糖-6-磷酸"),
+                ("glucose_clamp_technique", "Glucose Clamp Technique", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "葡萄糖钳夹技术"),
+                ("glucose_solution_hypertonic", "Glucose Solution, Hypertonic", ["biomedical", "chemicals_and_drugs"], "高渗葡萄糖溶液"),
+            ]
+        )
+
+    def test_exact_expansion_batch_101_to_120_fixes_review_side_effect_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("alpha_globin", "Alpha-globins", ["biomedical", "chemicals_and_drugs"], "α珠蛋白"),
+                ("beta_glucan", "Beta-glucans", ["biomedical", "chemicals_and_drugs"], "β-葡聚糖"),
+                ("calcium_gluconate", "Calcium Gluconate", ["biomedical", "chemicals_and_drugs"], "葡萄糖酸钙"),
+                ("germinal_center_kinase", "Germinal Center Kinases", ["biomedical", "chemicals_and_drugs"], "生发中心激酶"),
+                ("receptor_ghrelin", "Receptors, Ghrelin", ["biomedical", "chemicals_and_drugs"], "胃饥饿素受体"),
+                ("receptor_glucocorticoid", "Receptors, Glucocorticoid", ["biomedical", "chemicals_and_drugs"], "糖皮质激素受体"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
