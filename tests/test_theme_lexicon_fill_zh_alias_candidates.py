@@ -5049,6 +5049,469 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
         for concept_id, _canonical_en, _domains, alias in cases:
             self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
 
+    def assert_exact_alias_cases(self, cases: list[tuple[str, str, list[str], str]]) -> None:
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": f"concept:{concept_id}",
+                    "canonical_en": canonical_en,
+                    "aliases_en": [],
+                    "domains": domains,
+                    "source_refs": [{"source": "openalex_topics", "label": canonical_en}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+                for concept_id, canonical_en, domains, _alias in cases
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        for concept_id, _canonical_en, _domains, alias in cases:
+            self.assertEqual(rows[f"concept:{concept_id}"]["zh_alias_candidates"][0]["alias"], alias)
+
+    def test_exact_expansion_batch_021_adds_complement_colonic_and_community_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                (
+                    "complement_c1_inactivator_protein",
+                    "Complement C1 Inactivator Proteins",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "补体C1抑制蛋白",
+                ),
+                (
+                    "complement_factor_h",
+                    "Complement Factor H",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "补体因子H",
+                ),
+                (
+                    "complement_system_proteins",
+                    "Complement System Proteins",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "补体系统蛋白",
+                ),
+                (
+                    "colonic_neoplasms",
+                    "Colonic Neoplasms",
+                    ["biomedical", "diseases"],
+                    "结肠肿瘤",
+                ),
+                (
+                    "colorectal_neoplasms",
+                    "Colorectal Neoplasms",
+                    ["biomedical", "diseases"],
+                    "结直肠肿瘤",
+                ),
+                (
+                    "community_acquired_infections",
+                    "Community-Acquired Infections",
+                    ["biomedical", "diseases"],
+                    "社区获得性感染",
+                ),
+            ]
+        )
+
+    def test_exact_expansion_batch_022_adds_connective_corneal_and_cord_blood_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                (
+                    "connective_tissue_diseases",
+                    "Connective Tissue Diseases",
+                    ["biomedical", "diseases"],
+                    "结缔组织病",
+                ),
+                (
+                    "connective_tissue_growth_factor",
+                    "Connective Tissue Growth Factor",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "结缔组织生长因子",
+                ),
+                (
+                    "corneal_diseases",
+                    "Corneal Diseases",
+                    ["biomedical", "diseases"],
+                    "角膜疾病",
+                ),
+                (
+                    "corneal_endothelial_cell_loss",
+                    "Corneal Endothelial Cell Loss",
+                    ["biomedical", "diseases"],
+                    "角膜内皮细胞丢失",
+                ),
+                (
+                    "cord_blood_stem_cell_transplantation",
+                    "Cord Blood Stem Cell Transplantation",
+                    ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                    "脐血干细胞移植",
+                ),
+                (
+                    "copper_transport_proteins",
+                    "Copper Transport Proteins",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "铜转运蛋白",
+                ),
+                (
+                    "coronavirus_229e_human",
+                    "Coronavirus 229E, Human",
+                    ["biomedical", "organisms"],
+                    "人冠状病毒229E",
+                ),
+                (
+                    "coronavirus_bovine",
+                    "Coronavirus, Bovine",
+                    ["biomedical", "organisms"],
+                    "牛冠状病毒",
+                ),
+                (
+                    "receptor_coronavirus",
+                    "Receptors, Coronavirus",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "冠状病毒受体",
+                ),
+            ]
+        )
+
+    def test_exact_expansion_batch_023_adds_cyclic_nucleotide_and_cdk_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                (
+                    "cyclic_amp_dependent_protein_kinase_type_i",
+                    "Cyclic AMP-Dependent Protein Kinase Type I",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "I型cAMP依赖性蛋白激酶",
+                ),
+                (
+                    "cyclic_amp_response_element_binding_protein",
+                    "Cyclic AMP Response Element-Binding Protein",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "cAMP反应元件结合蛋白",
+                ),
+                (
+                    "cyclic_gmp_dependent_protein_kinases",
+                    "Cyclic GMP-Dependent Protein Kinases",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "cGMP依赖性蛋白激酶",
+                ),
+                (
+                    "cyclin_dependent_kinases",
+                    "Cyclin-Dependent Kinases",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "细胞周期蛋白依赖性激酶",
+                ),
+                (
+                    "cyclin_dependent_kinase_2",
+                    "Cyclin-Dependent Kinase 2",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "细胞周期蛋白依赖性激酶2",
+                ),
+                (
+                    "cyclin_dependent_kinase_activating_kinase",
+                    "Cyclin-Dependent Kinase-Activating Kinase",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "细胞周期蛋白依赖性激酶激活激酶",
+                ),
+            ]
+        )
+
+    def test_exact_expansion_batch_024_adds_cdk_inhibitor_and_cystadenocarcinoma_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                (
+                    "cyclin_dependent_kinase_inhibitor_p16",
+                    "Cyclin-Dependent Kinase Inhibitor p16",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "细胞周期蛋白依赖性激酶抑制剂p16",
+                ),
+                (
+                    "cyclin_dependent_kinase_inhibitor_p21",
+                    "Cyclin-Dependent Kinase Inhibitor p21",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "细胞周期蛋白依赖性激酶抑制剂p21",
+                ),
+                (
+                    "cystadenocarcinoma",
+                    "Cystadenocarcinoma",
+                    ["biomedical", "diseases"],
+                    "囊腺癌",
+                ),
+                (
+                    "cystadenocarcinoma_mucinous",
+                    "Cystadenocarcinoma, Mucinous",
+                    ["biomedical", "diseases"],
+                    "黏液性囊腺癌",
+                ),
+                (
+                    "cystadenocarcinoma_papillary",
+                    "Cystadenocarcinoma, Papillary",
+                    ["biomedical", "diseases"],
+                    "乳头状囊腺癌",
+                ),
+                (
+                    "cystadenocarcinoma_serous",
+                    "Cystadenocarcinoma, Serous",
+                    ["biomedical", "diseases"],
+                    "浆液性囊腺癌",
+                ),
+            ]
+        )
+
+    def test_exact_expansion_batch_025_adds_cytochrome_cytokine_and_cmv_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                (
+                    "cytochrome_p_450_enzyme_inhibitors",
+                    "Cytochrome P-450 Enzyme Inhibitors",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "细胞色素P450酶抑制剂",
+                ),
+                (
+                    "cytokine_induced_killer_cells",
+                    "Cytokine-Induced Killer Cells",
+                    ["anatomy", "biomedical"],
+                    "细胞因子诱导的杀伤细胞",
+                ),
+                (
+                    "cytokine_release_syndrome",
+                    "Cytokine Release Syndrome",
+                    ["biomedical", "diseases"],
+                    "细胞因子释放综合征",
+                ),
+                (
+                    "cytomegalovirus",
+                    "Cytomegalovirus",
+                    ["biomedical", "organisms"],
+                    "巨细胞病毒",
+                ),
+                (
+                    "cytomegalovirus_infections",
+                    "Cytomegalovirus Infections",
+                    ["biomedical", "diseases"],
+                    "巨细胞病毒感染",
+                ),
+                (
+                    "cytoskeletal_proteins",
+                    "Cytoskeletal Proteins",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "细胞骨架蛋白",
+                ),
+            ]
+        )
+
+    def test_exact_expansion_batch_026_adds_early_d_syndrome_and_death_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                (
+                    "dandy_walker_syndrome",
+                    "Dandy-Walker Syndrome",
+                    ["biomedical", "diseases"],
+                    "Dandy-Walker综合征",
+                ),
+                (
+                    "darier_disease",
+                    "Darier Disease",
+                    ["biomedical", "diseases"],
+                    "Darier病",
+                ),
+                (
+                    "dax_1_orphan_nuclear_receptor",
+                    "DAX-1 Orphan Nuclear Receptor",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "DAX-1孤儿核受体",
+                ),
+                (
+                    "de_lange_syndrome",
+                    "De Lange Syndrome",
+                    ["biomedical", "diseases"],
+                    "De Lange综合征",
+                ),
+                (
+                    "de_quervain_disease",
+                    "De Quervain Disease",
+                    ["biomedical", "diseases"],
+                    "De Quervain病",
+                ),
+                (
+                    "death_associated_protein_kinases",
+                    "Death-Associated Protein Kinases",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "死亡相关蛋白激酶",
+                ),
+            ]
+        )
+
+    def test_exact_expansion_batch_027_adds_delta_dendritic_and_dengue_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                (
+                    "deltaretrovirus_infections",
+                    "Deltaretrovirus Infections",
+                    ["biomedical", "diseases"],
+                    "δ逆转录病毒感染",
+                ),
+                (
+                    "demyelinating_autoimmune_diseases_cns",
+                    "Demyelinating Autoimmune Diseases, CNS",
+                    ["biomedical", "diseases"],
+                    "中枢神经系统脱髓鞘性自身免疫病",
+                ),
+                (
+                    "dendritic_cells",
+                    "Dendritic Cells",
+                    ["anatomy", "biomedical"],
+                    "树突状细胞",
+                ),
+                (
+                    "dendritic_cells_follicular",
+                    "Dendritic Cells, Follicular",
+                    ["anatomy", "biomedical"],
+                    "滤泡树突状细胞",
+                ),
+                (
+                    "dengue_vaccines",
+                    "Dengue Vaccines",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "登革热疫苗",
+                ),
+                (
+                    "dengue_virus",
+                    "Dengue Virus",
+                    ["biomedical", "organisms"],
+                    "登革病毒",
+                ),
+            ]
+        )
+
+    def test_exact_expansion_batch_028_adds_diabetes_digestive_and_diphtheria_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                (
+                    "diabetes_insipidus",
+                    "Diabetes Insipidus",
+                    ["biomedical", "diseases"],
+                    "尿崩症",
+                ),
+                (
+                    "diabetes_insipidus_nephrogenic",
+                    "Diabetes Insipidus, Nephrogenic",
+                    ["biomedical", "diseases"],
+                    "肾性尿崩症",
+                ),
+                (
+                    "digeorge_syndrome",
+                    "DiGeorge Syndrome",
+                    ["biomedical", "diseases"],
+                    "DiGeorge综合征",
+                ),
+                (
+                    "digestive_system_diseases",
+                    "Digestive System Diseases",
+                    ["biomedical", "diseases"],
+                    "消化系统疾病",
+                ),
+                (
+                    "digestive_system_neoplasms",
+                    "Digestive System Neoplasms",
+                    ["biomedical", "diseases"],
+                    "消化系统肿瘤",
+                ),
+                (
+                    "diphtheria_tetanus_pertussis_vaccine",
+                    "Diphtheria-Tetanus-Pertussis Vaccine",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "白喉-破伤风-百日咳疫苗",
+                ),
+            ]
+        )
+
+    def test_exact_expansion_batch_029_adds_dna_dopamine_and_doublecortin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                (
+                    "dna_activated_protein_kinase",
+                    "DNA-Activated Protein Kinase",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "DNA活化蛋白激酶",
+                ),
+                (
+                    "dna_bacterial",
+                    "DNA, Bacterial",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "细菌DNA",
+                ),
+                (
+                    "dna_binding_proteins",
+                    "DNA-Binding Proteins",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "DNA结合蛋白",
+                ),
+                (
+                    "dna_repair_deficiency_disorders",
+                    "DNA Repair-Deficiency Disorders",
+                    ["biomedical", "diseases"],
+                    "DNA修复缺陷病",
+                ),
+                (
+                    "dna_tumor_viruses",
+                    "DNA Tumor Viruses",
+                    ["biomedical", "organisms"],
+                    "DNA肿瘤病毒",
+                ),
+                (
+                    "dopamine_d2_receptor_antagonists",
+                    "Dopamine D2 Receptor Antagonists",
+                    ["biomedical", "chemicals_and_drugs"],
+                    "多巴胺D2受体拮抗剂",
+                ),
+            ]
+        )
+
+    def test_exact_expansion_batch_030_adds_down_drug_resistance_and_duodenal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                (
+                    "down_syndrome",
+                    "Down Syndrome",
+                    ["biomedical", "diseases"],
+                    "唐氏综合征",
+                ),
+                (
+                    "dried_blood_spot_testing",
+                    "Dried Blood Spot Testing",
+                    ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                    "干血斑检测",
+                ),
+                (
+                    "drug_resistance_bacterial",
+                    "Drug Resistance, Bacterial",
+                    ["biomedical", "phenomena_and_processes"],
+                    "细菌耐药性",
+                ),
+                (
+                    "drug_resistance_multiple_bacterial",
+                    "Drug Resistance, Multiple, Bacterial",
+                    ["biomedical", "phenomena_and_processes"],
+                    "多重细菌耐药性",
+                ),
+                (
+                    "dumping_syndrome",
+                    "Dumping Syndrome",
+                    ["biomedical", "diseases"],
+                    "倾倒综合征",
+                ),
+                (
+                    "duodenal_neoplasms",
+                    "Duodenal Neoplasms",
+                    ["biomedical", "diseases"],
+                    "十二指肠肿瘤",
+                ),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

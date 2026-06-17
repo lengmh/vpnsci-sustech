@@ -88,6 +88,9 @@ uv run pytest `
   tests/test_theme_lexicon_preserve_zh_review_decisions.py `
   tests/test_theme_lexicon_apply_zh_review_recommendations.py `
   tests/test_theme_lexicon_normalize_sources.py `
+  tests/test_theme_lexicon_materialize_runtime_overlay.py `
+  tests/test_theme_lexicon_query_alias_index.py `
+  tests/test_theme_clustering_compact_alias_index.py `
   -q
 ```
 
@@ -150,48 +153,67 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-17 zh-exact-expansion-batch-016-to-020 后）：
+最新已知状态（2026-06-17 zh-exact-expansion-batch-021-to-030 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`4590 / 48843 = 9.40%`
-- runtime zh aliases: `4605`
+- runtime 中文覆盖：`4791 / 48843 = 9.81%`
+- runtime zh aliases: `4806`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `4605`
-- `zh:blocked`: `11529`
+- `zh:accept`: `4806`
+- `zh:blocked`: `11505`
 - `zh:needs_review`: `0`
 - `zh:reject`: `193`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
 - runtime concept aliases: `48843`
-- compact loader alias keys: `139478`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
-- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-020 运行时以 compact index/manifest 为准）
+- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-030 运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `f84f8a55a2c0d993cd43f72c04f49d98f4065ed69000f195e29a6769fd127920`
+  `996622fb5985032d6099b3de949312378aa23136294d15df452a49b117529823`
 - compact manifest SHA-256:
-  `dc841402f031f25080d61e6c8e9018433eb29c6e56e23d8b4d5a5e7c26b220d7`
+  `646515baa5fb6f619e4be0df3c92387164c9792043485ef10a2d3e35e03b3a7b`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact index 是 batch-020 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-020 更新，不再作为默认等价检查对象。
-- 最近相关测试：`80 passed in 0.99s`
+- compact index 是 batch-030 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-030 更新，不再作为默认等价检查对象。
+- 最近相关测试：`90 passed in 1.06s`
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- batch-016 至 batch-020 中文 coverage 扩展已完成；下一步建议先 review 覆盖收益与剩余高置信桶，再继续 batch-021 exact/domain-aware 小批次；
+- batch-021 至 batch-030 中文 coverage 扩展已完成；下一步建议先 review 覆盖收益，再继续 batch-031 exact/domain-aware 小批次；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
+- 最新 batch-021 至 batch-030 exact/domain-aware 小批次已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_021_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_030_ALIASES`，以 C/D 段生物医学 exact 术语为主；
+  - 新增代表性回归测试，先红灯后转绿；额外修正冠状病毒相关词序，如 `人冠状病毒229E`、`牛冠状病毒`、`冠状病毒受体`；
+  - grouped L3-L5：fill `records_filled = 16304`，validate `review_decisions = 365617`；
+  - 显式接受 `201` 条 exact/domain-aware recommendation；
+  - 显式阻断 `4` 条由 exact 词条引发的 compositional/domain-title side-effect；
+  - `1` 条 exact 输出因 duplicate/collision 保持 blocked，不自动 merge（`DNA Viruses -> DNA病毒`）；
+  - runtime 中文覆盖从 `4590 / 48843 = 9.40%` 增至 `4791 / 48843 = 9.81%`；
+  - `zh:accept`: `4806`，`zh:blocked`: `11505`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `996622fb5985032d6099b3de949312378aa23136294d15df452a49b117529823`；
+  - compact manifest SHA-256: `646515baa5fb6f619e4be0df3c92387164c9792043485ef10a2d3e35e03b3a7b`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - 相关测试：`90 passed in 1.06s`。
+- batch-030 后 review：
+  - batch-021-to-030 单轮覆盖收益高于 batch-016-to-020：`201` 个新增 runtime zh concepts vs `142` 个；
+  - 10 个小 batch 合并一轮 L3-L5 的方式可继续使用，但单个 batch 仍应保持同域、小而可审；
+  - 词序 side-effect 先用更具体 exact replacement 修正，剩余 `研究`、`并发症` 等 title/domain 组合候选保持 blocked；
+  - 后续仍不应把 side-effect 或 medium compositional 候选批量 accept。
 - 最新 batch-016 至 batch-020 exact/domain-aware 小批次已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_016_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_020_ALIASES`，以 B/C 段生物医学 exact 术语为主；
   - 新增代表性回归测试，先红灯后转绿；

@@ -4037,6 +4037,238 @@ ZH_EXACT_EXPANSION_BATCH_020_ALIASES = {
         "chronic kidney disease mineral and bone disorder": "慢性肾脏病-矿物质和骨异常",
 }
 
+ZH_EXACT_EXPANSION_BATCH_021_ALIASES = {
+        "complement c1 inactivator proteins": "补体C1抑制蛋白",
+        "complement factor h": "补体因子H",
+        "complement system proteins": "补体系统蛋白",
+        "colonic neoplasms": "结肠肿瘤",
+        "colorectal neoplasms": "结直肠肿瘤",
+        "community acquired infections": "社区获得性感染",
+}
+
+ZH_EXACT_EXPANSION_BATCH_022_ALIASES = {
+        "connective tissue diseases": "结缔组织病",
+        "connective tissue growth factor": "结缔组织生长因子",
+        "corneal diseases": "角膜疾病",
+        "corneal endothelial cell loss": "角膜内皮细胞丢失",
+        "cord blood stem cell transplantation": "脐血干细胞移植",
+        "copper transport proteins": "铜转运蛋白",
+        "coronary subclavian steal syndrome": "冠状动脉-锁骨下动脉盗血综合征",
+        "coronaviridae infections": "冠状病毒科感染",
+        "coronavirus": "冠状病毒",
+        "coronavirus 229e human": "人冠状病毒229E",
+        "coronavirus 3c proteases": "冠状病毒3C蛋白酶",
+        "coronavirus bovine": "牛冠状病毒",
+        "coronavirus infections": "冠状病毒感染",
+        "coronavirus envelope proteins": "冠状病毒包膜蛋白",
+        "coronavirus m proteins": "冠状病毒M蛋白",
+        "coronavirus nl63 human": "人冠状病毒NL63",
+        "coronavirus nucleocapsid proteins": "冠状病毒核衣壳蛋白",
+        "coronavirus oc43 human": "人冠状病毒OC43",
+        "coronavirus protease inhibitors": "冠状病毒蛋白酶抑制剂",
+        "corticotropin releasing hormone": "促肾上腺皮质激素释放激素",
+        "receptors coronavirus": "冠状病毒受体",
+        "receptors corticotropin releasing hormone": "促肾上腺皮质激素释放激素受体",
+        "corynebacterium infections": "棒状杆菌感染",
+        "costello syndrome": "Costello综合征",
+        "covid 19 vaccines": "COVID-19疫苗",
+        "cowpox virus": "牛痘病毒",
+        "coxsackievirus infections": "柯萨奇病毒感染",
+}
+
+ZH_EXACT_EXPANSION_BATCH_023_ALIASES = {
+        "cyclic amp dependent protein kinases": "cAMP依赖性蛋白激酶",
+        "cyclic amp dependent protein kinase catalytic subunits": "cAMP依赖性蛋白激酶催化亚基",
+        "cyclic amp dependent protein kinase type i": "I型cAMP依赖性蛋白激酶",
+        "cyclic amp dependent protein kinase type ii": "II型cAMP依赖性蛋白激酶",
+        "cyclic amp response element binding protein": "cAMP反应元件结合蛋白",
+        "cyclic amp response element binding protein a": "cAMP反应元件结合蛋白A",
+        "cyclic gmp dependent protein kinases": "cGMP依赖性蛋白激酶",
+        "cyclic gmp dependent protein kinase type i": "I型cGMP依赖性蛋白激酶",
+        "cyclic gmp dependent protein kinase type ii": "II型cGMP依赖性蛋白激酶",
+        "cyclic nucleotide regulated protein kinases": "环核苷酸调节蛋白激酶",
+        "cyclin dependent kinases": "细胞周期蛋白依赖性激酶",
+        "cyclin dependent kinase 2": "细胞周期蛋白依赖性激酶2",
+        "cyclin dependent kinase activating kinase": "细胞周期蛋白依赖性激酶激活激酶",
+        "creatine kinase": "肌酸激酶",
+        "creatine kinase bb form": "肌酸激酶BB型",
+        "creatine kinase mb form": "肌酸激酶MB型",
+        "creatine kinase mitochondrial form": "线粒体型肌酸激酶",
+        "creatine kinase mm form": "肌酸激酶MM型",
+        "creb binding protein": "CREB结合蛋白",
+        "crispr associated proteins": "CRISPR相关蛋白",
+        "crispr associated protein 9": "CRISPR相关蛋白9",
+}
+
+ZH_EXACT_EXPANSION_BATCH_024_ALIASES = {
+        "cyclin dependent kinase 3": "细胞周期蛋白依赖性激酶3",
+        "cyclin dependent kinase 4": "细胞周期蛋白依赖性激酶4",
+        "cyclin dependent kinase 5": "细胞周期蛋白依赖性激酶5",
+        "cyclin dependent kinase 6": "细胞周期蛋白依赖性激酶6",
+        "cyclin dependent kinase 8": "细胞周期蛋白依赖性激酶8",
+        "cyclin dependent kinase 9": "细胞周期蛋白依赖性激酶9",
+        "cyclin dependent kinase inhibitor p15": "细胞周期蛋白依赖性激酶抑制剂p15",
+        "cyclin dependent kinase inhibitor p16": "细胞周期蛋白依赖性激酶抑制剂p16",
+        "cyclin dependent kinase inhibitor p18": "细胞周期蛋白依赖性激酶抑制剂p18",
+        "cyclin dependent kinase inhibitor p19": "细胞周期蛋白依赖性激酶抑制剂p19",
+        "cyclin dependent kinase inhibitor p21": "细胞周期蛋白依赖性激酶抑制剂p21",
+        "cyclin dependent kinase inhibitor p27": "细胞周期蛋白依赖性激酶抑制剂p27",
+        "cyclin dependent kinase inhibitor p57": "细胞周期蛋白依赖性激酶抑制剂p57",
+        "cyclin dependent kinase inhibitor proteins": "细胞周期蛋白依赖性激酶抑制蛋白",
+        "cystadenocarcinoma": "囊腺癌",
+        "cystadenocarcinoma mucinous": "黏液性囊腺癌",
+        "cystadenocarcinoma papillary": "乳头状囊腺癌",
+        "cystadenocarcinoma serous": "浆液性囊腺癌",
+        "cysteine proteinase inhibitors": "半胱氨酸蛋白酶抑制剂",
+        "cysteine rich protein 61": "富半胱氨酸蛋白61",
+        "cystic adenomatoid malformation of lung congenital": "先天性肺囊性腺瘤样畸形",
+        "crest syndrome": "CREST综合征",
+        "crohn disease": "克罗恩病",
+        "cronkhite canada syndrome": "Cronkhite-Canada综合征",
+        "crush syndrome": "挤压综合征",
+        "cri du chat syndrome": "猫叫综合征",
+        "crigler najjar syndrome": "Crigler-Najjar综合征",
+}
+
+ZH_EXACT_EXPANSION_BATCH_025_ALIASES = {
+        "cytochrome p 450 enzyme inducers": "细胞色素P450酶诱导剂",
+        "cytochrome p 450 enzyme inhibitors": "细胞色素P450酶抑制剂",
+        "cytokine induced killer cells": "细胞因子诱导的杀伤细胞",
+        "cytokine receptor common beta subunit": "细胞因子受体共同β亚基",
+        "cytokine receptor gp130": "细胞因子受体gp130",
+        "cytokine release syndrome": "细胞因子释放综合征",
+        "cytomegalovirus": "巨细胞病毒",
+        "cytomegalovirus infections": "巨细胞病毒感染",
+        "cytomegalovirus retinitis": "巨细胞病毒性视网膜炎",
+        "cytomegalovirus vaccines": "巨细胞病毒疫苗",
+        "cytophagaceae infections": "噬纤维菌科感染",
+        "cytoplasmic ribonucleoprotein granules": "胞质核糖核蛋白颗粒",
+        "cytoskeletal proteins": "细胞骨架蛋白",
+        "cullin proteins": "Cullin蛋白",
+        "cumulus cells": "卵丘细胞",
+        "cushing syndrome": "库欣综合征",
+        "cutaneous squamous cell carcinoma": "皮肤鳞状细胞癌",
+        "cx3c chemokine receptor 1": "CX3C趋化因子受体1",
+        "cyanobacteria": "蓝细菌",
+        "cyanobacteria toxins": "蓝细菌毒素",
+}
+
+ZH_EXACT_EXPANSION_BATCH_026_ALIASES = {
+        "dandy walker syndrome": "Dandy-Walker综合征",
+        "darier disease": "Darier病",
+        "dax 1 orphan nuclear receptor": "DAX-1孤儿核受体",
+        "de lange syndrome": "De Lange综合征",
+        "de quervain disease": "De Quervain病",
+        "dead box protein 20": "DEAD盒蛋白20",
+        "dead box protein 58": "DEAD盒蛋白58",
+        "deae cellulose": "DEAE纤维素",
+        "death associated protein kinases": "死亡相关蛋白激酶",
+        "death domain receptor signaling adaptor proteins": "死亡结构域受体信号接头蛋白",
+        "death sudden cardiac": "心源性猝死",
+        "decellularized extracellular matrix": "脱细胞细胞外基质",
+        "defective interfering viruses": "缺陷干扰病毒",
+        "defective viruses": "缺陷病毒",
+        "deleted in azoospermia 1 protein": "无精子症缺失1蛋白",
+        "developmental origins of health and disease": "健康与疾病的发育起源",
+}
+
+ZH_EXACT_EXPANSION_BATCH_027_ALIASES = {
+        "deltaretrovirus": "δ逆转录病毒",
+        "deltaretrovirus antibodies": "δ逆转录病毒抗体",
+        "deltaretrovirus antigens": "δ逆转录病毒抗原",
+        "deltaretrovirus infections": "δ逆转录病毒感染",
+        "demyelinating autoimmune diseases cns": "中枢神经系统脱髓鞘性自身免疫病",
+        "dendritic cells": "树突状细胞",
+        "dendritic cells follicular": "滤泡树突状细胞",
+        "dendritic cell sarcoma follicular": "滤泡树突状细胞肉瘤",
+        "dendritic cell sarcoma interdigitating": "交指状树突状细胞肉瘤",
+        "dengue vaccines": "登革热疫苗",
+        "dengue virus": "登革病毒",
+        "densovirus": "浓核病毒属",
+        "dent disease": "Dent病",
+        "dental enamel proteins": "牙釉质蛋白",
+        "dental pulp diseases": "牙髓疾病",
+        "dentin sialophosphoprotein": "牙本质涎磷蛋白",
+        "denys drash syndrome": "Denys-Drash综合征",
+        "deoxycytidine kinase": "脱氧胞苷激酶",
+        "deoxyribonucleoproteins": "脱氧核糖核蛋白",
+        "dependovirus": "依赖病毒属",
+        "designed ankyrin repeat proteins": "设计性锚蛋白重复蛋白",
+        "desmoid tumors": "硬纤维瘤",
+        "desmoplastic small round cell tumor": "促结缔组织增生性小圆细胞肿瘤",
+}
+
+ZH_EXACT_EXPANSION_BATCH_028_ALIASES = {
+        "diabetes insipidus": "尿崩症",
+        "diabetes insipidus nephrogenic": "肾性尿崩症",
+        "diabetes insipidus neurogenic": "神经性尿崩症",
+        "diabetes mellitus experimental": "实验性糖尿病",
+        "diabetes mellitus lipoatrophic": "脂肪萎缩性糖尿病",
+        "diacylglycerol kinase": "二酰甘油激酶",
+        "diarrhea virus 1 bovine viral": "牛病毒性腹泻病毒1型",
+        "diarrhea virus 2 bovine viral": "牛病毒性腹泻病毒2型",
+        "diarrhea viruses bovine viral": "牛病毒性腹泻病毒",
+        "digeorge syndrome": "DiGeorge综合征",
+        "digestive system diseases": "消化系统疾病",
+        "digestive system neoplasms": "消化系统肿瘤",
+        "dihydropyrimidine dehydrogenase deficiency": "二氢嘧啶脱氢酶缺乏症",
+        "diphtheria tetanus acellular pertussis vaccines": "白喉-破伤风-无细胞百日咳疫苗",
+        "diphtheria tetanus pertussis vaccine": "白喉-破伤风-百日咳疫苗",
+        "diphtheria tetanus vaccine": "白喉-破伤风疫苗",
+        "discoidin domain receptors": "盘状结构域受体",
+        "discoidin domain receptor 1": "盘状结构域受体1",
+        "discoidin domain receptor 2": "盘状结构域受体2",
+        "disease free survival": "无病生存",
+        "disease outbreaks": "疾病暴发",
+        "diverticular diseases": "憩室病",
+}
+
+ZH_EXACT_EXPANSION_BATCH_029_ALIASES = {
+        "dna activated protein kinase": "DNA活化蛋白激酶",
+        "dna bacterial": "细菌DNA",
+        "dna binding proteins": "DNA结合蛋白",
+        "dna excision repair protein ercc 5": "DNA切除修复蛋白ERCC-5",
+        "dna fungal": "真菌DNA",
+        "dna neoplasm": "肿瘤DNA",
+        "dna repair deficiency disorders": "DNA修复缺陷病",
+        "dna restriction enzymes": "DNA限制性内切酶",
+        "dna restriction modification enzymes": "DNA限制-修饰酶",
+        "dna tumor viruses": "DNA肿瘤病毒",
+        "dna virus infections": "DNA病毒感染",
+        "dna viruses": "DNA病毒",
+        "dog diseases": "犬病",
+        "donohue syndrome": "Donohue综合征",
+        "dopamine and camp regulated phosphoprotein 32": "多巴胺和cAMP调节磷蛋白32",
+        "dopamine d2 receptor antagonists": "多巴胺D2受体拮抗剂",
+        "dopamine plasma membrane transport proteins": "多巴胺质膜转运蛋白",
+        "double stranded rna viruses": "双链RNA病毒",
+        "doublecortin domain proteins": "Doublecortin结构域蛋白",
+        "doublecortin like kinases": "Doublecortin样激酶",
+        "doublecortin protein": "Doublecortin蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_030_ALIASES = {
+        "down syndrome": "唐氏综合征",
+        "dried blood spot testing": "干血斑检测",
+        "dropped head syndrome": "垂头综合征",
+        "drosophila proteins": "果蝇蛋白",
+        "drug resistance bacterial": "细菌耐药性",
+        "drug resistance fungal": "真菌耐药性",
+        "drug resistance multiple bacterial": "多重细菌耐药性",
+        "drug resistance multiple fungal": "多重真菌耐药性",
+        "drug screening assays antitumor": "抗肿瘤药物筛选试验",
+        "dual specificity phosphatase 1": "双特异性磷酸酶1",
+        "duane retraction syndrome": "Duane退缩综合征",
+        "duffy blood group system": "Duffy血型系统",
+        "dumping syndrome": "倾倒综合征",
+        "duodenal diseases": "十二指肠疾病",
+        "duodenal neoplasms": "十二指肠肿瘤",
+        "dyrk kinases": "DYRK激酶",
+        "dysplastic nevus syndrome": "发育不良痣综合征",
+        "dystrophin associated proteins": "肌营养不良蛋白相关蛋白",
+        "dystrophin associated protein complex": "肌营养不良蛋白相关蛋白复合物",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -4059,6 +4291,16 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_017_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_018_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_019_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_020_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_021_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_022_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_023_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_024_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_025_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_026_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_027_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_028_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_029_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_030_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",
