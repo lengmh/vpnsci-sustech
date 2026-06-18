@@ -11343,6 +11343,286 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_481_adds_multimorbidity_multiomics_and_multipath_channel_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multimorbidity", "Multimorbidity", ["biomedical", "health_care"], "多病共存"),
+                ("multiobjective_combinatorial_optimization", "Multiobjective Combinatorial Optimization", ["computer_science"], "多目标组合优化"),
+                ("multiobjective_model", "Multiobjective Models", ["computer_science"], "多目标模型"),
+                ("multiomic", "Multiomics", ["biomedical"], "多组学"),
+                ("multiparametric_magnetic_resonance_imaging", "Multiparametric Magnetic Resonance Imaging", ["biomedical"], "多参数磁共振成像"),
+                ("multiparty_computation", "Multiparty Computation", ["computer_science"], "多方计算"),
+                ("multipath_channel", "Multipath Channels", ["information_theory"], "多径信道"),
+                ("multipath_environment", "Multipath Environments", ["computer_science"], "多径环境"),
+            ]
+        )
+
+    def test_exact_expansion_batch_482_adds_multipath_multiphase_and_multiphysics_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multipath_error", "Multipath Error", ["computer_science"], "多径误差"),
+                ("multipath_fading", "Multipath Fading", ["computer_science"], "多径衰落"),
+                ("multipath_propagation", "Multipath Propagation", ["computer_science"], "多径传播"),
+                ("multipath_routing_algorithm", "Multipath Routing Algorithms", ["computer_science"], "多路径路由算法"),
+                ("multipath_routing_protocol", "Multipath Routing Protocols", ["computer_science"], "多路径路由协议"),
+                ("multiphase_flow", "Multiphase Flows", ["physics"], "多相流"),
+                ("multiphasic_screening", "Multiphasic Screening", ["biomedical"], "多相筛查"),
+                ("multiphysic", "Multiphysics", ["systems_engineering_and_theory"], "多物理场"),
+            ]
+        )
+
+    def test_exact_expansion_batch_483_adds_multiple_access_and_acyl_coenzyme_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multiple_access_interference", "Multiple Access Interference", ["computer_science"], "多址干扰"),
+                ("multiple_access_relay_channel", "Multiple Access Relay Channel", ["computer_science"], "多址中继信道"),
+                ("multiple_access_scheme", "Multiple Access Scheme", ["computer_science"], "多址接入方案"),
+                ("multiple_acyl_coenzyme_a_dehydrogenase_deficiency", "Multiple Acyl Coenzyme A Dehydrogenase Deficiency", ["biomedical", "diseases"], "多酰基辅酶A脱氢酶缺乏症"),
+                ("multiple_amputation_traumatic", "Multiple Amputations, Traumatic", ["biomedical", "diseases"], "多发性创伤性截肢"),
+                ("multiple_antenna", "Multiple Antenna", ["computer_science"], "多天线"),
+                ("multiple_attribute_decision_making_problem", "Multiple Attribute Decision Making Problems", ["computer_science"], "多属性决策问题"),
+                ("multiple_beam", "Multiple Beam", ["computer_science"], "多波束"),
+            ]
+        )
+
+    def test_exact_expansion_batch_484_adds_multiple_birth_carboxylase_and_endocrine_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multiple_birth_offspring", "Multiple Birth Offspring", ["biomedical", "named_groups"], "多胎后代"),
+                ("multiple_carboxylase_deficiency", "Multiple Carboxylase Deficiency", ["biomedical", "diseases"], "多羧化酶缺乏症"),
+                ("multiple_chemical_sensitivity", "Multiple Chemical Sensitivity", ["biomedical", "diseases"], "多种化学物质敏感症"),
+                ("multiple_chronic_condition", "Multiple Chronic Conditions", ["biomedical", "diseases"], "多种慢性病"),
+                ("multiple_endocrine_neoplasia", "Multiple Endocrine Neoplasia", ["biomedical", "diseases"], "多发性内分泌腺瘤病"),
+                ("multiple_endocrine_neoplasia_type_1", "Multiple Endocrine Neoplasia Type 1", ["biomedical", "diseases"], "1型多发性内分泌腺瘤病"),
+                ("multiple_endocrine_neoplasia_type_2a", "Multiple Endocrine Neoplasia Type 2a", ["biomedical", "diseases"], "2A型多发性内分泌腺瘤病"),
+                ("multiple_endocrine_neoplasia_type_2b", "Multiple Endocrine Neoplasia Type 2b", ["biomedical", "diseases"], "2B型多发性内分泌腺瘤病"),
+            ]
+        )
+
+    def test_exact_expansion_batch_485_adds_mimo_multiple_instance_and_myeloma_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multiple_hypothesi_tracking", "Multiple Hypothesis Tracking", ["computer_science"], "多假设跟踪"),
+                ("multiple_input_multiple_output_channel", "Multiple-input Multiple-output Channels", ["computer_science"], "MIMO信道"),
+                ("multiple_input_multiple_output_mimo_radar", "Multiple Input Multiple Output (mimo) Radars", ["computer_science"], "多输入多输出雷达"),
+                ("multiple_input_multiple_output_mimo_system", "Multiple-input-multiple-output (mimo) Systems", ["computer_science"], "MIMO系统"),
+                ("multiple_instance_learning_algorithm", "Multiple-instance Learning Algorithms", ["computer_science"], "多示例学习算法"),
+                ("multiple_kernel", "Multiple Kernels", ["computer_science"], "多核"),
+                ("multiple_lyapunov_function", "Multiple Lyapunov Function", ["computer_science"], "多Lyapunov函数"),
+                ("multiple_myeloma_research_and_treatment", "Multiple Myeloma Research And Treatments", ["medicine"], "多发性骨髓瘤研究与治疗"),
+            ]
+        )
+
+    def test_exact_expansion_batch_486_adds_multiple_sclerosis_signal_and_sulfatase_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multiple_receive_antenna", "Multiple Receive Antennas", ["computer_science"], "多接收天线"),
+                ("multiple_regression", "Multiple Regression", ["computer_science"], "多元回归"),
+                ("multiple_rout", "Multiple Routes", ["computer_science"], "多路径"),
+                ("multiple_sclerosi_chronic_progressive", "Multiple Sclerosis, Chronic Progressive", ["biomedical", "diseases"], "慢性进展型多发性硬化"),
+                ("multiple_sclerosi_relapsing_remitting", "Multiple Sclerosis, Relapsing-remitting", ["biomedical", "diseases"], "复发缓解型多发性硬化"),
+                ("multiple_sclerosi_research_study", "Multiple Sclerosis Research Studies", ["medicine"], "多发性硬化研究"),
+                ("multiple_signal_classification", "Multiple Signal Classification", ["computer_science"], "多重信号分类"),
+                ("multiple_sulfatase_deficiency_disease", "Multiple Sulfatase Deficiency Disease", ["biomedical", "diseases"], "多种硫酸酯酶缺乏症"),
+            ]
+        )
+
+    def test_exact_expansion_batch_487_adds_multiple_system_multiplex_and_trauma_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multiple_system_atrophy", "Multiple System Atrophy", ["biomedical", "diseases"], "多系统萎缩"),
+                ("multiple_thread", "Multiple Threads", ["computer_science"], "多线程"),
+                ("multiple_transmit_antenna", "Multiple Transmit Antennas", ["computer_science"], "多发射天线"),
+                ("multiple_trauma", "Multiple Trauma", ["biomedical", "diseases"], "多发伤"),
+                ("multiplex_polymerase_chain_reaction", "Multiplex Polymerase Chain Reaction", ["biomedical"], "多重聚合酶链反应"),
+                ("multiplex_radio_transmission", "Multiplex Radio Transmission", ["computer_science"], "多路无线电传输"),
+                ("multiplexer", "Multiplexer", ["computer_science"], "多路复用器"),
+                ("multiplexing", "Multiplexing", ["computer_science"], "多路复用"),
+            ]
+        )
+
+    def test_exact_expansion_batch_488_adds_multiplexing_and_multiplication_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multiplexing_equipment", "Multiplexing Equipment", ["computer_science"], "多路复用设备"),
+                ("multiplexing_frequency_division", "Multiplexing, Frequency Division", ["computer_science"], "频分复用"),
+                ("multiplexing_gain", "Multiplexing Gains", ["computer_science"], "复用增益"),
+                ("multiplexing_time_division", "Multiplexing, Time Division", ["computer_science"], "时分复用"),
+                ("multiplication", "Multiplication", ["computer_science"], "乘法"),
+                ("multiplicative_noise", "Multiplicative Noise", ["computer_science"], "乘性噪声"),
+                ("multiplicative_updat", "Multiplicative Updates", ["computer_science"], "乘法更新"),
+                ("multiplier", "Multiplier", ["computer_science"], "乘法器"),
+            ]
+        )
+
+    def test_exact_expansion_batch_489_adds_multipotent_and_multiprocessor_interconnect_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multiplying_circuit", "Multiplying Circuits", ["circuits_and_systems"], "乘法电路"),
+                ("multipole_matrix_element", "Multipole Matrix Elements", ["physics"], "多极矩阵元"),
+                ("multipotent_stem_cell", "Multipotent Stem Cells", ["biomedical"], "多能干细胞"),
+                ("multiprocessing_program", "Multiprocessing Programs", ["computer_science"], "多处理程序"),
+                ("multiprocessing_system", "Multiprocessing Systems", ["computer_science"], "多处理系统"),
+                ("multiprocessor_interconnection", "Multiprocessor Interconnection", ["computer_science"], "多处理器互连"),
+                ("multiprocessor_interconnection_network", "Multiprocessor Interconnection Networks", ["communications_technology"], "多处理器互连网络"),
+                ("multiprocessor_system_on_chip", "Multiprocessor System On Chips", ["computer_science"], "多处理器片上系统"),
+            ]
+        )
+
+    def test_exact_expansion_batch_490_adds_multiprotein_multiresolution_and_multisensory_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multiprotein_complexe", "Multiprotein Complexes", ["biomedical", "chemicals_and_drugs"], "多蛋白复合物"),
+                ("multiprotocol_label_switching", "Multiprotocol Label Switching", ["communications_technology"], "多协议标签交换"),
+                ("multipurpose_robot", "Multipurpose Robots", ["computer_science"], "多用途机器人"),
+                ("multiresolution_imag", "Multiresolution Images", ["computer_science"], "多分辨率图像"),
+                ("multiresolution_mr", "Multiresolution (mr)", ["computer_science"], "多分辨率"),
+                ("multisensory_perception_and_integration", "Multisensory Perception And Integration", ["psychology"], "多感觉感知与整合"),
+                ("multisignature_scheme", "Multisignature Scheme", ["computer_science"], "多重签名方案"),
+                ("multispectral_imaging", "Multispectral Imaging", ["imaging"], "多光谱成像"),
+            ]
+        )
+
+    def test_exact_expansion_batch_491_adds_multistage_multistatic_and_multitask_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multistage_interconnection_network", "Multistage Interconnection Network", ["computer_science"], "多级互连网络"),
+                ("multistatic_radar", "Multistatic Radar", ["computer_science"], "多基地雷达"),
+                ("multistorey_building", "Multistorey Building", ["computer_science"], "多层建筑"),
+                ("multitask_learning", "Multitask Learning", ["computer_science"], "多任务学习"),
+                ("multitasking", "Multitasking", ["computer_science"], "多任务处理"),
+                ("multitasking_behavior", "Multitasking Behavior", ["biomedical"], "多任务行为"),
+                ("multithreaded_processor", "Multithreaded Processors", ["computer_science"], "多线程处理器"),
+                ("multithreading", "Multithreading", ["computer_science"], "多线程"),
+            ]
+        )
+
+    def test_exact_expansion_batch_492_adds_multiuser_multivalued_and_multivariate_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multiuser_channel", "Multiuser Channels", ["information_theory"], "多用户信道"),
+                ("multiuser_detection", "Multiuser Detection", ["signal_processing"], "多用户检测"),
+                ("multiuser_scheduling", "Multiuser Scheduling", ["computer_science"], "多用户调度"),
+                ("multiuser_system", "Multiuser System", ["computer_science"], "多用户系统"),
+                ("multivalued_logic", "Multivalued Logic", ["computer_science"], "多值逻辑"),
+                ("multivariable_control", "Multivariable Control", ["computer_science"], "多变量控制"),
+                ("multivariable_control_system", "Multivariable Control Systems", ["computer_science"], "多变量控制系统"),
+                ("multivariate_analysi", "Multivariate Analysis", ["biomedical"], "多变量分析"),
+            ]
+        )
+
+    def test_exact_expansion_batch_493_adds_multivesicular_munchausen_and_municipal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multivesicular_body", "Multivesicular Bodies", ["biomedical"], "多囊泡体"),
+                ("multivibrator", "Multivibrators", ["circuits_and_systems"], "多谐振荡器"),
+                ("multiwave_mixing", "Multiwave Mixing", ["lasers_and_electrooptics"], "多波混频"),
+                ("multiwavelength", "Multiwavelength", ["computer_science"], "多波长"),
+                ("mummy", "Mummies", ["biomedical"], "木乃伊"),
+                ("munchausen_syndrome", "Munchausen Syndrome", ["biomedical"], "孟乔森综合征"),
+                ("munchausen_syndrome_by_proxy", "Munchausen Syndrome By Proxy", ["biomedical"], "代理型孟乔森综合征"),
+                ("municipal_solid_waste_management", "Municipal Solid Waste Management", ["environmental_science"], "城市固体废物管理"),
+            ]
+        )
+
+    def test_exact_expansion_batch_494_adds_muramic_murine_family_and_muon_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("muntjac", "Muntjacs", ["biomedical", "organisms"], "麂属"),
+                ("muon_collider", "Muon Colliders", ["nuclear_and_plasma_sciences"], "μ子对撞机"),
+                ("mupirocin", "Mupirocin", ["biomedical", "chemicals_and_drugs"], "莫匹罗星"),
+                ("muramic_acid", "Muramic Acids", ["biomedical", "chemicals_and_drugs"], "胞壁酸"),
+                ("muramidase", "Muramidase", ["biomedical", "chemicals_and_drugs"], "溶菌酶"),
+                ("muramoylpentapeptide_carboxypeptidase", "Muramoylpentapeptide Carboxypeptidase", ["biomedical", "chemicals_and_drugs"], "胞壁酰五肽羧肽酶"),
+                ("muridae", "Muridae", ["biomedical", "organisms"], "鼠科"),
+                ("murinae", "Murinae", ["biomedical", "organisms"], "鼠亚科"),
+            ]
+        )
+
+    def test_exact_expansion_batch_495_adds_murine_muromonab_and_muscarinic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("murine_acquired_immunodeficiency_syndrome", "Murine Acquired Immunodeficiency Syndrome", ["biomedical", "diseases"], "小鼠获得性免疫缺陷综合征"),
+                ("murine_hepatiti_viru", "Murine Hepatitis Virus", ["biomedical", "organisms"], "小鼠肝炎病毒"),
+                ("murine_pneumonia_viru", "Murine Pneumonia Virus", ["biomedical", "organisms"], "小鼠肺炎病毒"),
+                ("muromegaloviru", "Muromegalovirus", ["biomedical", "organisms"], "鼠巨细胞病毒"),
+                ("muromonab_cd3", "Muromonab-cd3", ["biomedical", "chemicals_and_drugs"], "莫罗单抗-CD3"),
+                ("muscarine", "Muscarine", ["biomedical", "chemicals_and_drugs"], "毒蕈碱"),
+                ("muscarinic_agonist", "Muscarinic Agonists", ["biomedical", "chemicals_and_drugs"], "毒蕈碱受体激动剂"),
+                ("muscarinic_antagonist", "Muscarinic Antagonists", ["biomedical", "chemicals_and_drugs"], "毒蕈碱受体拮抗剂"),
+            ]
+        )
+
+    def test_exact_expansion_batch_496_adds_muscle_cell_fatigue_and_fiber_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("muscimol", "Muscimol", ["biomedical", "chemicals_and_drugs"], "蝇蕈醇"),
+                ("muscle_cell", "Muscle Cells", ["biomedical"], "肌细胞"),
+                ("muscle_cramp", "Muscle Cramp", ["biomedical", "diseases"], "肌肉痉挛"),
+                ("muscle_denervation", "Muscle Denervation", ["biomedical"], "肌肉去神经支配"),
+                ("muscle_development", "Muscle Development", ["biomedical"], "肌肉发育"),
+                ("muscle_fatigue", "Muscle Fatigue", ["biomedical"], "肌肉疲劳"),
+                ("muscle_fiber_fast_twitch", "Muscle Fibers, Fast-twitch", ["biomedical"], "快肌纤维"),
+                ("muscle_fiber_skeletal", "Muscle Fibers, Skeletal", ["biomedical"], "骨骼肌纤维"),
+            ]
+        )
+
+    def test_exact_expansion_batch_497_adds_muscle_tone_neoplasm_and_smooth_muscle_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("muscle_fiber_slow_twitch", "Muscle Fibers, Slow-twitch", ["biomedical"], "慢肌纤维"),
+                ("muscle_hypertonia", "Muscle Hypertonia", ["biomedical", "diseases"], "肌张力增高"),
+                ("muscle_hypotonia", "Muscle Hypotonia", ["biomedical", "diseases"], "肌张力减退"),
+                ("muscle_neoplasm", "Muscle Neoplasms", ["biomedical", "diseases"], "肌肉肿瘤"),
+                ("muscle_protein", "Muscle Proteins", ["biomedical", "chemicals_and_drugs"], "肌肉蛋白"),
+                ("muscle_relaxation", "Muscle Relaxation", ["biomedical"], "肌肉松弛"),
+                ("muscle_skeletal", "Muscle, Skeletal", ["biomedical"], "骨骼肌"),
+                ("muscle_smooth_vascular", "Muscle, Smooth, Vascular", ["biomedical"], "血管平滑肌"),
+            ]
+        )
+
+    def test_exact_expansion_batch_498_adds_muscle_spasticity_strength_and_atrophy_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("muscle_spasticity", "Muscle Spasticity", ["biomedical", "diseases"], "肌痉挛状态"),
+                ("muscle_spindl", "Muscle Spindles", ["biomedical"], "肌梭"),
+                ("muscle_strength_dynamometer", "Muscle Strength Dynamometer", ["biomedical"], "肌力测力计"),
+                ("muscle_stretching_exercise", "Muscle Stretching Exercises", ["biomedical"], "肌肉拉伸运动"),
+                ("muscle_striated", "Muscle, Striated", ["biomedical"], "横纹肌"),
+                ("muscle_tonu", "Muscle Tonus", ["biomedical"], "肌张力"),
+                ("muscular_atrophy", "Muscular Atrophy", ["biomedical", "diseases"], "肌萎缩"),
+                ("muscular_atrophy_spinal", "Muscular Atrophy, Spinal", ["biomedical", "diseases"], "脊髓性肌萎缩"),
+            ]
+        )
+
+    def test_exact_expansion_batch_499_adds_muscular_dystrophy_subtype_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("muscular_disorder_atrophic", "Muscular Disorders, Atrophic", ["biomedical", "diseases"], "萎缩性肌病"),
+                ("muscular_dystrophy", "Muscular Dystrophy", ["biomedical", "diseases"], "肌营养不良"),
+                ("muscular_dystrophy__2", "Muscular Dystrophies", ["biomedical", "diseases"], "肌营养不良"),
+                ("muscular_dystrophy_animal", "Muscular Dystrophy, Animal", ["biomedical", "diseases"], "动物肌营养不良"),
+                ("muscular_dystrophy_duchenne", "Muscular Dystrophy, Duchenne", ["biomedical", "diseases"], "杜氏肌营养不良"),
+                ("muscular_dystrophy_emery_dreifuss", "Muscular Dystrophy, Emery-dreifuss", ["biomedical", "diseases"], "埃默里-德雷福斯肌营养不良"),
+                ("muscular_dystrophy_facioscapulohumeral", "Muscular Dystrophy, Facioscapulohumeral", ["biomedical", "diseases"], "面肩肱型肌营养不良"),
+                ("muscular_dystrophy_limb_girdle", "Muscular Dystrophies, Limb-girdle", ["biomedical", "diseases"], "肢带型肌营养不良"),
+            ]
+        )
+
+    def test_exact_expansion_batch_500_adds_oculopharyngeal_musculoskeletal_and_music_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("muscular_dystrophy_oculopharyngeal", "Muscular Dystrophy, Oculopharyngeal", ["biomedical", "diseases"], "眼咽型肌营养不良"),
+                ("musculocutaneou_nerve", "Musculocutaneous Nerve", ["biomedical"], "肌皮神经"),
+                ("musculoskeletal_manipulation", "Musculoskeletal Manipulations", ["biomedical"], "肌肉骨骼手法治疗"),
+                ("musculoskeletal_physiological_phenomena", "Musculoskeletal Physiological Phenomena", ["biomedical"], "肌肉骨骼生理现象"),
+                ("musculoskeletal_system", "Musculoskeletal System", ["biomedical"], "肌肉骨骼系统"),
+                ("mushroom_body", "Mushroom Bodies", ["biomedical"], "蘑菇体"),
+                ("mushroom_poisoning", "Mushroom Poisoning", ["biomedical", "diseases"], "蘑菇中毒"),
+                ("music_information_retrieval", "Music Information Retrieval", ["computer_science"], "音乐信息检索"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
