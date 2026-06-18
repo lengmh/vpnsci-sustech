@@ -14833,6 +14833,225 @@ ZH_EXACT_EXPANSION_BATCH_640_ALIASES = {
         "no-show patients": "失约患者",
 }
 
+ZH_EXACT_EXPANSION_BATCH_641_ALIASES = {
+        "nobelium": "锘元素",
+        "noble gases": "稀有气体",
+        "noc architectures": "NoC架构",
+        "noc design": "NoC设计",
+        "nocardia": "诺卡菌属",
+        "nocardia asteroides": "星形诺卡菌",
+        "nocardia infections": "诺卡菌感染",
+        "nocardiaceae": "诺卡菌科",
+}
+
+ZH_EXACT_EXPANSION_BATCH_642_ALIASES = {
+        "nocebo effect": "反安慰剂效应",
+        "nociceptin": "伤害感受肽",
+        "nociceptin receptor": "伤害感受肽受体",
+        "nociception": "伤害感受",
+        "nociceptive pain": "伤害感受性疼痛",
+        "nociceptors": "伤害感受器",
+        "nociplastic pain": "伤害可塑性疼痛",
+        "nocodazole": "诺考达唑",
+}
+
+ZH_EXACT_EXPANSION_BATCH_643_ALIASES = {
+        "nocturia": "夜尿症",
+        "nocturnal enuresis": "夜间遗尿",
+        "nocturnal myoclonus syndrome": "夜间肌阵挛综合征",
+        "nocturnal paroxysmal dystonia": "夜间阵发性肌张力障碍",
+        "nod1 signaling adaptor protein": "NOD1信号接头蛋白",
+        "nod2 signaling adaptor protein": "NOD2信号接头蛋白",
+        "nod signaling adaptor proteins": "NOD信号接头蛋白",
+        "nodal protein": "Nodal蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_644_ALIASES = {
+        "nodal signaling ligands": "Nodal信号配体",
+        "nodaviridae": "诺达病毒科",
+        "nodding syndrome": "点头综合征",
+        "node capture attack": "节点捕获攻击",
+        "node-disjoint": "节点不相交",
+        "node-disjoint paths": "节点不相交路径",
+        "nodose ganglion": "结状神经节",
+        "nogalamycin": "诺加霉素",
+}
+
+ZH_EXACT_EXPANSION_BATCH_645_ALIASES = {
+        "noggin protein": "Noggin蛋白",
+        "nogo proteins": "Nogo蛋白",
+        "nogo receptors": "Nogo受体",
+        "nogo receptor 1": "Nogo受体1",
+        "nogo receptor 2": "Nogo受体2",
+        "noise covariance matrix": "噪声协方差矩阵",
+        "noise figure": "噪声系数",
+        "noise removal": "去噪",
+}
+
+ZH_EXACT_EXPANSION_BATCH_646_ALIASES = {
+        "noise shaping": "噪声整形",
+        "noise subspace": "噪声子空间",
+        "noisy environment": "噪声环境",
+        "noisy image": "噪声图像",
+        "noisy pixels": "噪声像素",
+        "noisy speech": "噪声语音",
+        "noisy speech signals": "噪声语音信号",
+}
+
+ZH_EXACT_EXPANSION_BATCH_647_ALIASES = {
+        "nomenclature": "命名法",
+        "nomifensine": "诺米芬辛",
+        "nomograms": "列线图",
+        "non-additive measure": "非加性测度",
+        "non-alcoholic fatty liver disease": "非酒精性脂肪性肝病",
+        "non-coherent": "非相干",
+        "non-coherent receivers": "非相干接收机",
+        "non-destructive testing techniques": "无损检测技术",
+}
+
+ZH_EXACT_EXPANSION_BATCH_648_ALIASES = {
+        "non-determinism": "非确定性",
+        "non-dominated sorting": "非支配排序",
+        "non-dominated sorting genetic algorithms": "非支配排序遗传算法",
+        "non-erosive reflux disease": "非糜烂性反流病",
+        "non-fibrillar collagens": "非纤维胶原",
+        "non-filarial lymphedema": "非丝虫性淋巴水肿",
+        "non-fragile": "非脆弱",
+        "non-functional requirements": "非功能性需求",
+}
+
+ZH_EXACT_EXPANSION_BATCH_649_ALIASES = {
+        "non-fungible tokens": "非同质化代币",
+        "non-governmental organizations": "非政府组织",
+        "non-hermitian systems": "非厄米系统",
+        "non-holonomic mobile robots": "非完整移动机器人",
+        "non-homogeneous poisson process": "非齐次泊松过程",
+        "non-invasive vital sign monitoring": "非侵入式生命体征监测",
+        "non-linear observer": "非线性观测器",
+        "non-local means": "非局部均值",
+}
+
+ZH_EXACT_EXPANSION_BATCH_650_ALIASES = {
+        "non-muscle invasive bladder neoplasms": "非肌层浸润性膀胱肿瘤",
+        "non-neuronal cholinergic system": "非神经元胆碱能系统",
+        "non-nutritive sweeteners": "非营养性甜味剂",
+        "non-parametric bayesian": "非参数贝叶斯",
+        "non-player character": "非玩家角色",
+        "non-radiographic axial spondyloarthritis": "非放射学中轴型脊柱关节炎",
+        "non-regenerative": "非再生",
+        "non-rigid registration": "非刚性配准",
+}
+
+ZH_EXACT_EXPANSION_BATCH_651_ALIASES = {
+        "non-smokers": "非吸烟者",
+        "non-st elevated myocardial infarction": "非ST段抬高型心肌梗死",
+        "non-stationary environment": "非平稳环境",
+        "non-uniform rational b-splines": "非均匀有理B样条",
+        "non-volatile": "非易失性",
+        "non-volatile memories": "非易失性存储器",
+        "nonachlazine": "诺那拉嗪",
+        "nonagenarians": "九旬老人",
+}
+
+ZH_EXACT_EXPANSION_BATCH_652_ALIASES = {
+        "noncoherent detection": "非相干检测",
+        "noncommunicable diseases": "非传染性疾病",
+        "noncommutative and quantum gravity theories": "非交换与量子引力理论",
+        "nonconvex": "非凸",
+        "nondeterministic automata": "非确定性自动机",
+        "nondeterministic finite automaton": "非确定性有限自动机",
+        "nondisjunction, genetic": "遗传不分离",
+        "nondominated solutions": "非支配解",
+}
+
+ZH_EXACT_EXPANSION_BATCH_653_ALIASES = {
+        "nonequilibrium statistical mechanics": "非平衡统计力学",
+        "nonequilibrium systems": "非平衡系统",
+        "nonexpansive mapping": "非扩张映射",
+        "nonfungible tokens": "非同质化代币",
+        "nonheme iron proteins": "非血红素铁蛋白",
+        "nonholonomic system": "非完整系统",
+        "nonhomogeneous media": "非均匀介质",
+        "noninvasive prenatal testing": "无创产前检测",
+}
+
+ZH_EXACT_EXPANSION_BATCH_654_ALIASES = {
+        "noninvasive treatment": "无创治疗",
+        "noninvasive ventilation": "无创通气",
+        "nonlinear control laws": "非线性控制律",
+        "nonlinear dimensionality reduction": "非线性降维",
+        "nonlinear dynamical systems": "非线性动力系统",
+        "nonlinear manifolds": "非线性流形",
+        "nonlinear ordinary differential equation": "非线性常微分方程",
+        "nonlinear perturbations": "非线性扰动",
+}
+
+ZH_EXACT_EXPANSION_BATCH_655_ALIASES = {
+        "nonlinear schrodinger equation": "非线性薛定谔方程",
+        "nonlinear waves and solitons": "非线性波与孤子",
+        "nonlocal and gradient elasticity in micro/nano structures": "微纳结构中的非局部与梯度弹性",
+        "nonmelanoma skin cancer studies": "非黑色素瘤皮肤癌研究",
+        "nonmuscle myosin type iia": "非肌肉肌球蛋白IIA型",
+        "nonmuscle myosin type iib": "非肌肉肌球蛋白IIB型",
+        "nonnegative integers": "非负整数",
+        "nonodontogenic cysts": "非牙源性囊肿",
+}
+
+ZH_EXACT_EXPANSION_BATCH_656_ALIASES = {
+        "nonoxynol": "壬苯醇醚",
+        "nonparametric statistics": "非参数统计",
+        "nonperturbative methods": "非微扰方法",
+        "nonprescription drugs": "非处方药",
+        "nonprofit sector and volunteering": "非营利部门与志愿服务",
+        "nonrigid image registration": "非刚性图像配准",
+        "nonsense mediated mrna decay": "无义介导的mRNA降解",
+        "nonstationary data": "非平稳数据",
+}
+
+ZH_EXACT_EXPANSION_BATCH_657_ALIASES = {
+        "nonstationary noise": "非平稳噪声",
+        "nonsteroidal anti-androgens": "非甾体抗雄激素",
+        "nonsubsampled contourlet transforms": "非下采样轮廓波变换",
+        "nontherapeutic human experimentation": "非治疗性人体实验",
+        "nontuberculous mycobacteria": "非结核分枝杆菌",
+        "nonuniform electric fields": "非均匀电场",
+        "nonuniform sampling": "非均匀采样",
+        "nonuniformity correction": "非均匀性校正",
+}
+
+ZH_EXACT_EXPANSION_BATCH_658_ALIASES = {
+        "nonverbal behavior": "非言语行为",
+        "nonverbal communication": "非言语交流",
+        "nonvolatile memory": "非易失性存储器",
+        "nonvolatile storage": "非易失性存储",
+        "nonvolatility": "非易失性",
+        "noonan syndrome": "努南综合征",
+        "nootropic agents": "益智药",
+        "norandrostanes": "去甲雄烷类",
+}
+
+ZH_EXACT_EXPANSION_BATCH_659_ALIASES = {
+        "norbornanes": "降冰片烷类",
+        "nordazepam": "去甲地西泮",
+        "nordic walking": "北欧式健走",
+        "norepinephrine": "去甲肾上腺素",
+        "norepinephrine plasma membrane transport proteins": "去甲肾上腺素质膜转运蛋白",
+        "norethindrone": "炔诺酮",
+        "norethindrone acetate": "醋酸炔诺酮",
+        "norfloxacin": "诺氟沙星",
+}
+
+ZH_EXACT_EXPANSION_BATCH_660_ALIASES = {
+        "norgestrel": "诺孕酯",
+        "nortriptyline": "去甲替林",
+        "norwalk virus": "诺瓦克病毒",
+        "norway": "挪威",
+        "nose diseases": "鼻部疾病",
+        "nose deformities, acquired": "获得性鼻畸形",
+        "nosocomial infections in icu": "ICU医院感染",
+        "notch filters": "陷波滤波器",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -15475,6 +15694,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_637_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_638_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_639_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_640_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_641_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_642_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_643_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_644_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_645_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_646_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_647_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_648_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_649_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_650_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_651_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_652_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_653_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_654_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_655_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_656_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_657_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_658_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_659_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_660_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",

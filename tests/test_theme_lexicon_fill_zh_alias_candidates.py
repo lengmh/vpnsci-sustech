@@ -13579,6 +13579,286 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_641_adds_noc_and_nocardia_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nobelium", "Nobelium", ["biomedical", "chemicals_and_drugs"], "锘元素"),
+                ("noble_gase", "Noble Gases", ["biomedical", "chemicals_and_drugs"], "稀有气体"),
+                ("noc_architectur", "Noc Architectures", ["computer_science"], "NoC架构"),
+                ("noc_design", "Noc Design", ["computer_science"], "NoC设计"),
+                ("nocardia", "Nocardia", ["biomedical", "organisms"], "诺卡菌属"),
+                ("nocardia_asteroid", "Nocardia Asteroides", ["biomedical", "organisms"], "星形诺卡菌"),
+                ("nocardia_infection", "Nocardia Infections", ["biomedical", "diseases"], "诺卡菌感染"),
+                ("nocardiaceae", "Nocardiaceae", ["biomedical", "organisms"], "诺卡菌科"),
+            ]
+        )
+
+    def test_exact_expansion_batch_642_adds_nociception_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nocebo_effect", "Nocebo Effect", ["biomedical", "health_care"], "反安慰剂效应"),
+                ("nociceptin", "Nociceptin", ["biomedical", "chemicals_and_drugs"], "伤害感受肽"),
+                ("nociceptin_receptor", "Nociceptin Receptor", ["biomedical", "chemicals_and_drugs"], "伤害感受肽受体"),
+                ("nociception", "Nociception", ["biomedical", "psychiatry_and_psychology"], "伤害感受"),
+                ("nociceptive_pain", "Nociceptive Pain", ["biomedical", "diseases"], "伤害感受性疼痛"),
+                ("nociceptor", "Nociceptors", ["anatomy", "biomedical"], "伤害感受器"),
+                ("nociplastic_pain", "Nociplastic Pain", ["biomedical", "diseases"], "伤害可塑性疼痛"),
+                ("nocodazole", "Nocodazole", ["biomedical", "chemicals_and_drugs"], "诺考达唑"),
+            ]
+        )
+
+    def test_exact_expansion_batch_643_adds_nocturnal_and_nod_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nocturia", "Nocturia", ["biomedical", "diseases"], "夜尿症"),
+                ("nocturnal_enuresi", "Nocturnal Enuresis", ["biomedical", "diseases"], "夜间遗尿"),
+                ("nocturnal_myoclonu_syndrome", "Nocturnal Myoclonus Syndrome", ["biomedical", "diseases"], "夜间肌阵挛综合征"),
+                ("nocturnal_paroxysmal_dystonia", "Nocturnal Paroxysmal Dystonia", ["biomedical", "diseases"], "夜间阵发性肌张力障碍"),
+                ("nod1_signaling_adaptor_protein", "Nod1 Signaling Adaptor Protein", ["biomedical", "chemicals_and_drugs"], "NOD1信号接头蛋白"),
+                ("nod2_signaling_adaptor_protein", "Nod2 Signaling Adaptor Protein", ["biomedical", "chemicals_and_drugs"], "NOD2信号接头蛋白"),
+                ("nod_signaling_adaptor_protein", "Nod Signaling Adaptor Proteins", ["biomedical", "chemicals_and_drugs"], "NOD信号接头蛋白"),
+                ("nodal_protein", "Nodal Protein", ["biomedical", "chemicals_and_drugs"], "Nodal蛋白"),
+            ]
+        )
+
+    def test_exact_expansion_batch_644_adds_nodal_node_and_nogo_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nodal_signaling_ligand", "Nodal Signaling Ligands", ["biomedical", "chemicals_and_drugs"], "Nodal信号配体"),
+                ("nodaviridae", "Nodaviridae", ["biomedical", "organisms"], "诺达病毒科"),
+                ("nodding_syndrome", "Nodding Syndrome", ["biomedical", "diseases"], "点头综合征"),
+                ("node_capture_attack", "Node Capture Attack", ["computer_science"], "节点捕获攻击"),
+                ("node_disjoint", "Node-disjoint", ["computer_science"], "节点不相交"),
+                ("node_disjoint_path", "Node-disjoint Paths", ["computer_science"], "节点不相交路径"),
+                ("nodose_ganglion", "Nodose Ganglion", ["anatomy", "biomedical"], "结状神经节"),
+                ("nogalamycin", "Nogalamycin", ["biomedical", "chemicals_and_drugs"], "诺加霉素"),
+            ]
+        )
+
+    def test_exact_expansion_batch_645_adds_noggin_nogo_and_noise_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("noggin_protein", "Noggin Protein", ["biomedical", "chemicals_and_drugs"], "Noggin蛋白"),
+                ("nogo_protein", "Nogo Proteins", ["biomedical", "chemicals_and_drugs"], "Nogo蛋白"),
+                ("nogo_receptor", "Nogo Receptors", ["biomedical", "chemicals_and_drugs"], "Nogo受体"),
+                ("nogo_receptor_1", "Nogo Receptor 1", ["biomedical", "chemicals_and_drugs"], "Nogo受体1"),
+                ("nogo_receptor_2", "Nogo Receptor 2", ["biomedical", "chemicals_and_drugs"], "Nogo受体2"),
+                ("noise_covariance_matrix", "Noise Covariance Matrix", ["computer_science"], "噪声协方差矩阵"),
+                ("noise_figure", "Noise Figure", ["instrumentation_and_measurement"], "噪声系数"),
+                ("noise_removal", "Noise Removal", ["computer_science"], "去噪"),
+            ]
+        )
+
+    def test_exact_expansion_batch_646_adds_noise_shaping_and_noisy_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("noise_shaping", "Noise Shaping", ["instrumentation_and_measurement"], "噪声整形"),
+                ("noise_shaping__2", "Noise Shaping", ["computer_science"], "噪声整形"),
+                ("noise_subspace", "Noise Subspace", ["computer_science"], "噪声子空间"),
+                ("noisy_environment", "Noisy Environment", ["computer_science"], "噪声环境"),
+                ("noisy_image", "Noisy Image", ["computer_science"], "噪声图像"),
+                ("noisy_pixel", "Noisy Pixels", ["computer_science"], "噪声像素"),
+                ("noisy_speech", "Noisy Speech", ["computer_science"], "噪声语音"),
+                ("noisy_speech_signal", "Noisy Speech Signals", ["computer_science"], "噪声语音信号"),
+            ]
+        )
+
+    def test_exact_expansion_batch_647_adds_nomenclature_and_non_basic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nomenclature", "Nomenclature", ["computer_science"], "命名法"),
+                ("nomifensine", "Nomifensine", ["biomedical", "chemicals_and_drugs"], "诺米芬辛"),
+                ("nomogram", "Nomograms", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "列线图"),
+                ("non_additive_measure", "Non-additive Measure", ["computer_science"], "非加性测度"),
+                ("non_alcoholic_fatty_liver_disease", "Non-alcoholic Fatty Liver Disease", ["biomedical", "diseases"], "非酒精性脂肪性肝病"),
+                ("non_coherent", "Non-coherent", ["computer_science"], "非相干"),
+                ("non_coherent_receiver", "Non-coherent Receivers", ["computer_science"], "非相干接收机"),
+                ("non_destructive_testing_techniqu", "Non-destructive Testing Techniques", ["engineering", "physical_sciences"], "无损检测技术"),
+            ]
+        )
+
+    def test_exact_expansion_batch_648_adds_non_dominated_and_non_filarial_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("non_determinism", "Non-determinism", ["computer_science"], "非确定性"),
+                ("non_dominated_sorting", "Non-dominated Sorting", ["computer_science"], "非支配排序"),
+                ("non_dominated_sorting_genetic_algorithm", "Non-dominated Sorting Genetic Algorithms", ["computer_science"], "非支配排序遗传算法"),
+                ("non_erosive_reflux_disease", "Non-erosive Reflux Disease", ["biomedical", "diseases"], "非糜烂性反流病"),
+                ("non_fibrillar_collagen", "Non-fibrillar Collagens", ["biomedical", "chemicals_and_drugs"], "非纤维胶原"),
+                ("non_filarial_lymphedema", "Non-filarial Lymphedema", ["biomedical", "diseases"], "非丝虫性淋巴水肿"),
+                ("non_fragile", "Non-fragile", ["computer_science"], "非脆弱"),
+                ("non_functional_requirement", "Non-functional Requirements", ["computer_science"], "非功能性需求"),
+            ]
+        )
+
+    def test_exact_expansion_batch_649_adds_non_fungible_and_noninvasive_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("non_fungible_token", "Non-fungible Tokens", ["anthropology_education_sociology_and_social_phenomena", "biomedical"], "非同质化代币"),
+                ("non_governmental_organization", "Non-governmental Organizations", ["engineering_management"], "非政府组织"),
+                ("non_hermitian_system", "Non-hermitian Systems", ["physics"], "非厄米系统"),
+                ("non_holonomic_mobile_robot", "Non-holonomic Mobile Robots", ["computer_science"], "非完整移动机器人"),
+                ("non_homogeneou_poisson_process", "Non-homogeneous Poisson Process", ["computer_science"], "非齐次泊松过程"),
+                ("non_invasive_vital_sign_monitoring", "Non-invasive Vital Sign Monitoring", ["engineering", "physical_sciences"], "非侵入式生命体征监测"),
+                ("non_linear_observer", "Non-linear Observer", ["computer_science"], "非线性观测器"),
+                ("non_local_mean", "Non-local Means", ["computer_science"], "非局部均值"),
+            ]
+        )
+
+    def test_exact_expansion_batch_650_adds_non_melanoma_and_non_player_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("non_muscle_invasive_bladder_neoplasm", "Non-muscle Invasive Bladder Neoplasms", ["biomedical", "diseases"], "非肌层浸润性膀胱肿瘤"),
+                ("non_neuronal_cholinergic_system", "Non-neuronal Cholinergic System", ["biomedical", "phenomena_and_processes"], "非神经元胆碱能系统"),
+                ("non_nutritive_sweetener", "Non-nutritive Sweeteners", ["biomedical", "chemicals_and_drugs"], "非营养性甜味剂"),
+                ("non_parametric_bayesian", "Non-parametric Bayesian", ["computer_science"], "非参数贝叶斯"),
+                ("non_player_character", "Non-player Character", ["computer_science"], "非玩家角色"),
+                ("non_radiographic_axial_spondyloarthriti", "Non-radiographic Axial Spondyloarthritis", ["biomedical", "diseases"], "非放射学中轴型脊柱关节炎"),
+                ("non_regenerative", "Non-regenerative", ["computer_science"], "非再生"),
+                ("non_rigid_registration", "Non-rigid Registration", ["computer_science"], "非刚性配准"),
+            ]
+        )
+
+    def test_exact_expansion_batch_651_adds_non_smoker_and_nonvolatile_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("non_smoker", "Non-smokers", ["biomedical", "named_groups"], "非吸烟者"),
+                ("non_st_elevated_myocardial_infarction", "Non-st Elevated Myocardial Infarction", ["biomedical", "diseases"], "非ST段抬高型心肌梗死"),
+                ("non_stationary_environment", "Non-stationary Environment", ["computer_science"], "非平稳环境"),
+                ("non_uniform_rational_b_splin", "Non-uniform Rational B-splines", ["computer_science"], "非均匀有理B样条"),
+                ("non_volatile", "Non-volatile", ["computer_science"], "非易失性"),
+                ("non_volatile_memory", "Non-volatile Memories", ["computer_science"], "非易失性存储器"),
+                ("nonachlazine", "Nonachlazine", ["biomedical", "chemicals_and_drugs"], "诺那拉嗪"),
+                ("nonagenarian", "Nonagenarians", ["biomedical", "named_groups"], "九旬老人"),
+            ]
+        )
+
+    def test_exact_expansion_batch_652_adds_noncommunicable_and_nondeterministic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("noncoherent_detection", "Noncoherent Detection", ["computer_science"], "非相干检测"),
+                ("noncommunicable_disease", "Noncommunicable Diseases", ["biomedical", "diseases"], "非传染性疾病"),
+                ("noncommutative_and_quantum_gravity_theory", "Noncommutative And Quantum Gravity Theories", ["physical_sciences", "physics_and_astronomy"], "非交换与量子引力理论"),
+                ("nonconvex", "Nonconvex", ["computer_science"], "非凸"),
+                ("nondeterministic_automata", "Nondeterministic Automata", ["computer_science"], "非确定性自动机"),
+                ("nondeterministic_finite_automaton", "Nondeterministic Finite Automaton", ["computer_science"], "非确定性有限自动机"),
+                ("nondisjunction_genetic", "Nondisjunction, Genetic", ["biomedical", "diseases"], "遗传不分离"),
+                ("nondominated_solution", "Nondominated Solutions", ["computer_science"], "非支配解"),
+            ]
+        )
+
+    def test_exact_expansion_batch_653_adds_nonequilibrium_and_noninvasive_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nonequilibrium_statistical_mechanic", "Nonequilibrium Statistical Mechanics", ["physics"], "非平衡统计力学"),
+                ("nonequilibrium_system", "Nonequilibrium Systems", ["physics"], "非平衡系统"),
+                ("nonexpansive_mapping", "Nonexpansive Mapping", ["computer_science"], "非扩张映射"),
+                ("nonfungible_token", "Nonfungible Tokens", ["computers_and_information_processing"], "非同质化代币"),
+                ("nonheme_iron_protein", "Nonheme Iron Proteins", ["biomedical", "chemicals_and_drugs"], "非血红素铁蛋白"),
+                ("nonholonomic_system", "Nonholonomic System", ["computer_science"], "非完整系统"),
+                ("nonhomogeneou_media", "Nonhomogeneous Media", ["materials_elements_and_compounds"], "非均匀介质"),
+                ("noninvasive_prenatal_testing", "Noninvasive Prenatal Testing", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "无创产前检测"),
+            ]
+        )
+
+    def test_exact_expansion_batch_654_adds_noninvasive_and_nonlinear_missing_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("noninvasive_treatment", "Noninvasive Treatment", ["engineering_in_medicine_and_biology"], "无创治疗"),
+                ("noninvasive_ventilation", "Noninvasive Ventilation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "无创通气"),
+                ("nonlinear_control_laws", "Nonlinear Control Laws", ["computer_science"], "非线性控制律"),
+                ("nonlinear_dimensionality_reduction", "Nonlinear Dimensionality Reduction", ["computer_science"], "非线性降维"),
+                ("nonlinear_dynamical_system", "Nonlinear Dynamical Systems", ["mathematics"], "非线性动力系统"),
+                ("nonlinear_manifold", "Nonlinear Manifolds", ["computer_science"], "非线性流形"),
+                ("nonlinear_ordinary_differential_equation", "Nonlinear Ordinary Differential Equation", ["computer_science"], "非线性常微分方程"),
+                ("nonlinear_perturbation", "Nonlinear Perturbations", ["computer_science"], "非线性扰动"),
+            ]
+        )
+
+    def test_exact_expansion_batch_655_adds_nonlinear_physics_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nonlinear_schrodinger_equation", "Nonlinear Schrodinger Equation", ["computer_science"], "非线性薛定谔方程"),
+                ("nonlinear_wav_and_soliton", "Nonlinear Waves And Solitons", ["physical_sciences", "physics_and_astronomy"], "非线性波与孤子"),
+                ("nonlocal_and_gradient_elasticity_in_micro_nano_structur", "Nonlocal And Gradient Elasticity In Micro/nano Structures", ["materials_science", "physical_sciences"], "微纳结构中的非局部与梯度弹性"),
+                ("nonmelanoma_skin_cancer_study", "Nonmelanoma Skin Cancer Studies", ["health_sciences", "medicine"], "非黑色素瘤皮肤癌研究"),
+                ("nonmuscle_myosin_type_iia", "Nonmuscle Myosin Type IIA", ["biomedical", "chemicals_and_drugs"], "非肌肉肌球蛋白IIA型"),
+                ("nonmuscle_myosin_type_iib", "Nonmuscle Myosin Type IIB", ["biomedical", "chemicals_and_drugs"], "非肌肉肌球蛋白IIB型"),
+                ("nonnegative_integer", "Nonnegative Integers", ["computer_science"], "非负整数"),
+                ("nonodontogenic_cyst", "Nonodontogenic Cysts", ["biomedical", "diseases"], "非牙源性囊肿"),
+            ]
+        )
+
+    def test_exact_expansion_batch_656_adds_nonparametric_and_nonstationary_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nonoxynol", "Nonoxynol", ["biomedical", "chemicals_and_drugs"], "壬苯醇醚"),
+                ("nonparametric_statistic", "Nonparametric Statistics", ["mathematics"], "非参数统计"),
+                ("nonperturbative_method", "Nonperturbative Methods", ["physics"], "非微扰方法"),
+                ("nonprescription_drug", "Nonprescription Drugs", ["biomedical", "chemicals_and_drugs"], "非处方药"),
+                ("nonprofit_sector_and_volunteering", "Nonprofit Sector And Volunteering", ["social_sciences"], "非营利部门与志愿服务"),
+                ("nonrigid_image_registration", "Nonrigid Image Registration", ["computer_science"], "非刚性图像配准"),
+                ("nonsense_mediated_mrna_decay", "Nonsense Mediated Mrna Decay", ["biomedical", "phenomena_and_processes"], "无义介导的mRNA降解"),
+                ("nonstationary_data", "Nonstationary Data", ["computer_science"], "非平稳数据"),
+            ]
+        )
+
+    def test_exact_expansion_batch_657_adds_nonstationary_to_nonverbal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nonstationary_noise", "Nonstationary Noise", ["computer_science"], "非平稳噪声"),
+                ("nonsteroidal_anti_androgen", "Nonsteroidal Anti-androgens", ["biomedical", "chemicals_and_drugs"], "非甾体抗雄激素"),
+                ("nonsubsampled_contourlet_transform", "Nonsubsampled Contourlet Transforms", ["computer_science"], "非下采样轮廓波变换"),
+                ("nontherapeutic_human_experimentation", "Nontherapeutic Human Experimentation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "非治疗性人体实验"),
+                ("nontuberculou_mycobacteria", "Nontuberculous Mycobacteria", ["biomedical", "organisms"], "非结核分枝杆菌"),
+                ("nonuniform_electric_field", "Nonuniform Electric Fields", ["dielectrics_and_electrical_insulation"], "非均匀电场"),
+                ("nonuniform_sampling", "Nonuniform Sampling", ["mathematics"], "非均匀采样"),
+                ("nonuniformity_correction", "Nonuniformity Correction", ["computer_science"], "非均匀性校正"),
+            ]
+        )
+
+    def test_exact_expansion_batch_658_adds_nonverbal_and_nor_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nonverbal_behavior", "Nonverbal Behavior", ["computer_science"], "非言语行为"),
+                ("nonverbal_communication", "Nonverbal Communication", ["biomedical", "psychiatry_and_psychology"], "非言语交流"),
+                ("nonvolatile_memory", "Nonvolatile Memory", ["computers_and_information_processing"], "非易失性存储器"),
+                ("nonvolatile_storage", "Nonvolatile Storage", ["computer_science"], "非易失性存储"),
+                ("nonvolatility", "Nonvolatility", ["computer_science"], "非易失性"),
+                ("noonan_syndrome", "Noonan Syndrome", ["biomedical", "diseases"], "努南综合征"),
+                ("nootropic_agent", "Nootropic Agents", ["biomedical", "chemicals_and_drugs"], "益智药"),
+                ("norandrostan", "Norandrostanes", ["biomedical", "chemicals_and_drugs"], "去甲雄烷类"),
+            ]
+        )
+
+    def test_exact_expansion_batch_659_adds_norbornane_to_norfloxacin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("norbornan", "Norbornanes", ["biomedical", "chemicals_and_drugs"], "降冰片烷类"),
+                ("nordazepam", "Nordazepam", ["biomedical", "chemicals_and_drugs"], "去甲地西泮"),
+                ("nordic_walking", "Nordic Walking", ["biomedical", "phenomena_and_processes"], "北欧式健走"),
+                ("norepinephrine", "Norepinephrine", ["biomedical", "chemicals_and_drugs"], "去甲肾上腺素"),
+                ("norepinephrine_plasma_membrane_transport_protein", "Norepinephrine Plasma Membrane Transport Proteins", ["biomedical", "chemicals_and_drugs"], "去甲肾上腺素质膜转运蛋白"),
+                ("norethindrone", "Norethindrone", ["biomedical", "chemicals_and_drugs"], "炔诺酮"),
+                ("norethindrone_acetate", "Norethindrone Acetate", ["biomedical", "chemicals_and_drugs"], "醋酸炔诺酮"),
+                ("norfloxacin", "Norfloxacin", ["biomedical", "chemicals_and_drugs"], "诺氟沙星"),
+            ]
+        )
+
+    def test_exact_expansion_batch_660_adds_norgestrel_to_notch_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("norgestrel", "Norgestrel", ["biomedical", "chemicals_and_drugs"], "诺孕酯"),
+                ("nortriptyline", "Nortriptyline", ["biomedical", "chemicals_and_drugs"], "去甲替林"),
+                ("norwalk_viru", "Norwalk Virus", ["biomedical", "organisms"], "诺瓦克病毒"),
+                ("norway", "Norway", ["biomedical", "geographicals"], "挪威"),
+                ("nose_disease", "Nose Diseases", ["biomedical", "diseases"], "鼻部疾病"),
+                ("nose_deformity_acquired", "Nose Deformities, Acquired", ["biomedical", "diseases"], "获得性鼻畸形"),
+                ("nosocomial_infection_in_icu", "Nosocomial Infections In ICU", ["health_sciences", "medicine"], "ICU医院感染"),
+                ("notch_filter", "Notch Filters", ["circuits_and_systems"], "陷波滤波器"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
