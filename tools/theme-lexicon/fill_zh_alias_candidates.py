@@ -8276,6 +8276,339 @@ ZH_EXACT_EXPANSION_BATCH_220_ALIASES = {
         "hypoxia ischemia brain": "脑缺氧缺血",
 }
 
+ZH_EXACT_EXPANSION_BATCH_221_ALIASES = {
+        "automatic image annotation": "自动图像标注",
+        "image acquisition": "图像采集",
+        "image analysis": "图像分析",
+        "image and object detection techniques": "图像与目标检测技术",
+        "image annotation": "图像标注",
+        "image binarization": "图像二值化",
+        "image classification": "图像分类",
+        "image coding": "图像编码",
+        "image compression": "图像压缩",
+        "image compression algorithm": "图像压缩算法",
+        "image compression algorithms": "图像压缩算法",
+        "image databases": "图像数据库",
+        "image display": "图像显示",
+        "image encryption": "图像加密",
+        "image matching": "图像匹配",
+        "image mosaicing": "图像拼接",
+}
+
+ZH_EXACT_EXPANSION_BATCH_222_ALIASES = {
+        "image deblurring": "图像去模糊",
+        "image dehazing": "图像去雾",
+        "image denoising": "图像去噪",
+        "image denoising algorithm": "图像去噪算法",
+        "image denoising algorithms": "图像去噪算法",
+        "image edge detection": "图像边缘检测",
+        "image enhancement": "图像增强",
+        "image enhancement algorithm": "图像增强算法",
+        "image enhancement algorithms": "图像增强算法",
+        "image feature extraction": "图像特征提取",
+        "image filtering": "图像滤波",
+        "image fusion": "图像融合",
+        "image matching algorithms": "图像匹配算法",
+        "image restoration": "图像复原",
+        "image restoration algorithm": "图像复原算法",
+        "image restoration algorithms": "图像复原算法",
+        "image texture": "图像纹理",
+        "image texture analysis": "图像纹理分析",
+}
+
+ZH_EXACT_EXPANSION_BATCH_223_ALIASES = {
+        "image guided biopsy": "图像引导活检",
+        "image guided radiation therapy": "图像引导放射治疗",
+        "image hashing": "图像哈希",
+        "image interpretation computer assisted": "计算机辅助图像解释",
+        "image processing": "图像处理",
+        "image processing algorithms": "图像处理算法",
+        "image processing and 3d reconstruction": "图像处理与三维重建",
+        "image processing computer assisted": "计算机辅助图像处理",
+        "image processing techniques": "图像处理技术",
+        "image processing methods": "图像处理方法",
+        "medical image processing": "医学图像处理",
+        "morphological image processing": "形态学图像处理",
+        "digital image processing": "数字图像处理",
+        "image morphology": "图像形态学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_224_ALIASES = {
+        "image quality": "图像质量",
+        "image quality assessment": "图像质量评估",
+        "image reconstruction": "图像重建",
+        "image reconstruction algorithm": "图像重建算法",
+        "image reconstruction algorithms": "图像重建算法",
+        "image registration": "图像配准",
+        "image registration techniques": "图像配准技术",
+        "image retrieval": "图像检索",
+        "image retrieval system": "图像检索系统",
+        "image retrieval systems": "图像检索系统",
+        "image segmentation": "图像分割",
+        "image segmentation algorithm": "图像分割算法",
+        "image segmentation algorithms": "图像分割算法",
+        "image segmentation methods": "图像分割方法",
+        "image segmentation techniques": "图像分割技术",
+}
+
+ZH_EXACT_EXPANSION_BATCH_225_ALIASES = {
+        "image sensor": "图像传感器",
+        "image sensors": "图像传感器",
+        "image sequence analysis": "图像序列分析",
+        "image sequences": "图像序列",
+        "image steganography": "图像隐写",
+        "image super resolution": "图像超分辨率",
+        "image super-resolution": "图像超分辨率",
+        "image understanding": "图像理解",
+        "image watermarking": "图像水印",
+        "image watermarking algorithm": "图像水印算法",
+        "image watermarking algorithms": "图像水印算法",
+        "imaging": "成像",
+        "imaging agents": "成像剂",
+        "imaging modalities": "成像模态",
+        "imaging systems": "成像系统",
+}
+
+ZH_EXACT_EXPANSION_BATCH_226_ALIASES = {
+        "imaging three dimensional": "三维成像",
+        "immune adherence reaction": "免疫黏附反应",
+        "immune checkpoint blockade": "免疫检查点阻断",
+        "immune checkpoint inhibitor": "免疫检查点抑制剂",
+        "immune checkpoint inhibitors": "免疫检查点抑制剂",
+        "immune checkpoint proteins": "免疫检查点蛋白",
+        "immune checkpoints": "免疫检查点",
+        "immune complex diseases": "免疫复合物疾病",
+        "immune complexes": "免疫复合物",
+        "immune evasion": "免疫逃逸",
+        "immune reconstitution inflammatory syndrome": "免疫重建炎症综合征",
+        "immune response": "免疫应答",
+        "immune system": "免疫系统",
+        "immune tolerance": "免疫耐受",
+        "immune monitoring": "免疫监测",
+}
+
+ZH_EXACT_EXPANSION_BATCH_227_ALIASES = {
+        "immunity active": "主动免疫",
+        "immunity cellular": "细胞免疫",
+        "immunity herd": "群体免疫",
+        "immunity humoral": "体液免疫",
+        "immunity innate": "先天免疫",
+        "immunity mucosal": "黏膜免疫",
+        "immunity testing": "抗扰度测试",
+        "immunization": "免疫接种",
+        "immunization passive": "被动免疫",
+        "immunization programs": "免疫接种计划",
+        "immunization schedule": "免疫接种程序",
+        "immunoblotting": "免疫印迹",
+        "immunoassay": "免疫测定",
+        "immunoassays": "免疫测定",
+}
+
+ZH_EXACT_EXPANSION_BATCH_228_ALIASES = {
+        "immunodeficiency virus bovine": "牛免疫缺陷病毒",
+        "immunodiffusion": "免疫扩散",
+        "immunodominant epitopes": "免疫优势表位",
+        "immunoelectrophoresis": "免疫电泳",
+        "immunoelectrophoresis two dimensional": "二维免疫电泳",
+        "immunoenzyme techniques": "免疫酶技术",
+        "immunofluorescence": "免疫荧光",
+        "immunogenicity": "免疫原性",
+        "immunogenicity vaccine": "疫苗免疫原性",
+        "immunogenetics": "免疫遗传学",
+        "immunoglobulin allotypes": "免疫球蛋白同种异型",
+        "immunoglobulin idiotypes": "免疫球蛋白独特型",
+        "immunogold labeling": "免疫金标记",
+        "immunologic factors": "免疫因子",
+}
+
+ZH_EXACT_EXPANSION_BATCH_229_ALIASES = {
+        "immunoglobulin a": "免疫球蛋白A",
+        "immunoglobulin a secretory": "分泌型免疫球蛋白A",
+        "immunoglobulin class switching": "免疫球蛋白类别转换",
+        "immunoglobulin e": "免疫球蛋白E",
+        "immunoglobulin fab fragments": "免疫球蛋白Fab片段",
+        "immunoglobulin fc fragments": "免疫球蛋白Fc片段",
+        "immunoglobulin g": "免疫球蛋白G",
+        "immunoglobulin g4 related disease": "IgG4相关疾病",
+        "immunoglobulin heavy chain": "免疫球蛋白重链",
+        "immunoglobulin heavy chains": "免疫球蛋白重链",
+        "immunoglobulin isotypes": "免疫球蛋白同种型",
+        "immunoglobulin j chains": "免疫球蛋白J链",
+}
+
+ZH_EXACT_EXPANSION_BATCH_230_ALIASES = {
+        "immunoglobulin kappa chain": "免疫球蛋白κ链",
+        "immunoglobulin kappa chains": "免疫球蛋白κ链",
+        "immunoglobulin lambda chains": "免疫球蛋白λ链",
+        "immunoglobulin light chain amyloidosis": "免疫球蛋白轻链淀粉样变性",
+        "immunoglobulin light chains": "免疫球蛋白轻链",
+        "immunoglobulin m": "免疫球蛋白M",
+        "immunoglobulin variable region": "免疫球蛋白可变区",
+        "immunoglobulin variable regions": "免疫球蛋白可变区",
+        "immunohistochemistry": "免疫组织化学",
+        "immunohistochemical staining": "免疫组织化学染色",
+        "immunoperoxidase techniques": "免疫过氧化物酶技术",
+}
+
+ZH_EXACT_EXPANSION_BATCH_231_ALIASES = {
+        "cytotoxicity immunologic": "免疫细胞毒性",
+        "immunologic cytotoxicity": "免疫细胞毒性",
+        "immunologic deficiency syndromes": "免疫缺陷综合征",
+        "immunologic memory": "免疫记忆",
+        "immunologic surveillance": "免疫监视",
+        "immunologic techniques": "免疫学技术",
+        "immunologic tolerance": "免疫耐受",
+        "immunological synapse": "免疫突触",
+        "immunological synapses": "免疫突触",
+        "immunology": "免疫学",
+        "immunomagnetic separation": "免疫磁分离",
+        "immunomodulation": "免疫调节",
+        "immunophenotyping": "免疫表型分析",
+        "monitoring immunologic": "免疫监测",
+}
+
+ZH_EXACT_EXPANSION_BATCH_232_ALIASES = {
+        "defibrillators implantable": "植入式心律转复除颤器",
+        "electrodes implanted": "植入电极",
+        "immunosenescence": "免疫衰老",
+        "immunosorbent techniques": "免疫吸附技术",
+        "immunosuppression": "免疫抑制",
+        "immunosuppressive agents": "免疫抑制剂",
+        "immunotherapy": "免疫治疗",
+        "immunotherapy adoptive": "过继免疫治疗",
+        "implant capsular contracture": "植入物包膜挛缩",
+        "implantable cardioverter defibrillators": "植入式心律转复除颤器",
+        "implantable medical devices": "植入式医疗器械",
+        "implantable neurostimulators": "植入式神经刺激器",
+        "implanted electrodes": "植入电极",
+        "implants experimental": "实验性植入物",
+}
+
+ZH_EXACT_EXPANSION_BATCH_233_ALIASES = {
+        "infection control": "感染控制",
+        "infection control dental": "牙科感染控制",
+        "disease transmission infectious": "传染病传播",
+        "infectious anemia virus equine": "马传染性贫血病毒",
+        "infectious bovine rhinotracheitis": "牛传染性鼻气管炎",
+        "infectious disease incubation period": "传染病潜伏期",
+        "infectious disease transmission": "传染病传播",
+        "infectious disease transmission patient to professional": "患者向医务人员的传染病传播",
+        "infectious disease transmission professional to patient": "医务人员向患者的传染病传播",
+        "infectious disease transmission vertical": "传染病垂直传播",
+        "infectious diseases": "传染病",
+        "infectious mononucleosis": "传染性单核细胞增多症",
+        "infectious pancreatic necrosis virus": "传染性胰腺坏死病毒",
+        "infections": "感染",
+        "cross infection": "交叉感染",
+}
+
+ZH_EXACT_EXPANSION_BATCH_234_ALIASES = {
+        "inflammation": "炎症",
+        "inflammation mediators": "炎症介质",
+        "inflammatory breast neoplasms": "炎性乳腺肿瘤",
+        "inflammatory bowel diseases": "炎症性肠病",
+        "influenza a virus h1n1 subtype": "H1N1亚型甲型流感病毒",
+        "influenza a virus h3n2 subtype": "H3N2亚型甲型流感病毒",
+        "influenza b virus": "乙型流感病毒",
+        "influenza human": "人流感",
+        "influenza in birds": "禽流感",
+        "influenza pandemic 1918 1919": "1918-1919年流感大流行",
+        "influenza vaccines": "流感疫苗",
+}
+
+ZH_EXACT_EXPANSION_BATCH_235_ALIASES = {
+        "infrared detectors": "红外探测器",
+        "infrared imagery": "红外影像",
+        "infrared imaging": "红外成像",
+        "infrared rays": "红外线",
+        "infrared spectroscopy": "红外光谱",
+        "infrared thermography": "红外热成像",
+        "infrastructure as a service iaas": "基础设施即服务",
+        "infrastructure management": "基础设施管理",
+        "infrastructure planning": "基础设施规划",
+        "infrastructure security": "基础设施安全",
+        "infratentorial neoplasms": "幕下肿瘤",
+}
+
+ZH_EXACT_EXPANSION_BATCH_236_ALIASES = {
+        "inhibin beta subunits": "抑制素β亚基",
+        "inhibitory concentration 50": "半数抑制浓度",
+        "inhibitory postsynaptic potentials": "抑制性突触后电位",
+        "inhibitory receptors": "抑制性受体",
+        "inhibitor proteins": "抑制蛋白",
+        "injury severity score": "损伤严重度评分",
+        "injury severity scores": "损伤严重度评分",
+        "insulin": "胰岛素",
+        "insulin analogs": "胰岛素类似物",
+        "insulin aspart": "门冬胰岛素",
+        "insulin glargine": "甘精胰岛素",
+        "insulin lispro": "赖脯胰岛素",
+}
+
+ZH_EXACT_EXPANSION_BATCH_237_ALIASES = {
+        "insulin infusion systems": "胰岛素输注系统",
+        "insulin like growth factor binding protein 3": "胰岛素样生长因子结合蛋白3",
+        "insulin like growth factor i": "胰岛素样生长因子I",
+        "insulin like growth factor ii": "胰岛素样生长因子II",
+        "insulin like growth factor binding proteins": "胰岛素样生长因子结合蛋白",
+        "insulin receptor substrate proteins": "胰岛素受体底物蛋白",
+        "insulin receptors": "胰岛素受体",
+        "insulin resistance": "胰岛素抵抗",
+        "insulin secreting cells": "胰岛素分泌细胞",
+        "insulinoma": "胰岛素瘤",
+        "receptor insulin": "胰岛素受体",
+}
+
+ZH_EXACT_EXPANSION_BATCH_238_ALIASES = {
+        "internet addiction disorder": "互联网成瘾障碍",
+        "internet of medical things": "医疗物联网",
+        "internet of things": "物联网",
+        "internet protocol": "互联网协议",
+        "internet protocol version 6": "互联网协议第6版",
+        "internet service provider": "互联网服务提供商",
+        "internet service providers": "互联网服务提供商",
+        "internet services": "互联网服务",
+        "internet worm": "互联网蠕虫",
+        "internet worms": "互联网蠕虫",
+        "internet security": "互联网安全",
+        "internet technology": "互联网技术",
+}
+
+ZH_EXACT_EXPANSION_BATCH_239_ALIASES = {
+        "intracellular calcium": "细胞内钙",
+        "intracellular calcium sensing proteins": "细胞内钙感知蛋白",
+        "intracellular fluid": "细胞内液",
+        "intracellular membranes": "细胞内膜",
+        "intracellular signaling": "细胞内信号传导",
+        "intracellular signaling peptides and proteins": "细胞内信号传导肽与蛋白质",
+        "intracranial aneurysm": "颅内动脉瘤",
+        "intracranial arteriovenous malformations": "颅内动静脉畸形",
+        "intracranial hemorrhage hypertensive": "高血压性颅内出血",
+        "intracranial hypertension": "颅内高压",
+        "intracranial neoplasms": "颅内肿瘤",
+        "intractable pain": "顽固性疼痛",
+        "intramedullary spinal cord neoplasms": "髓内脊髓肿瘤",
+        "spinal cord neoplasms": "脊髓肿瘤",
+}
+
+ZH_EXACT_EXPANSION_BATCH_240_ALIASES = {
+        "ionic liquids": "离子液体",
+        "ionic liquids properties and applications": "离子液体性质与应用",
+        "ionic strength": "离子强度",
+        "ionizing radiation": "电离辐射",
+        "ionizing radiation sensors": "电离辐射传感器",
+        "isotachophoresis": "等速电泳",
+        "isotonic solutions": "等渗溶液",
+        "isotope labeling": "同位素标记",
+        "isotope ratio": "同位素比值",
+        "isotopes": "同位素",
+        "isotretinoin": "异维A酸",
+        "iron isotopes": "铁同位素",
+        "osmolar concentration": "渗透浓度",
+        "radiation ionizing": "电离辐射",
+        "stable isotopes": "稳定同位素",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -8498,6 +8831,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_217_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_218_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_219_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_220_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_221_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_222_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_223_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_224_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_225_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_226_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_227_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_228_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_229_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_230_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_231_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_232_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_233_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_234_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_235_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_236_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_237_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_238_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_239_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_240_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",
