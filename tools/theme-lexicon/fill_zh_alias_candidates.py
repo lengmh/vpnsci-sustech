@@ -15492,6 +15492,226 @@ ZH_EXACT_EXPANSION_BATCH_700_ALIASES = {
         "occupational therapy department, hospital": "医院职业治疗科",
 }
 
+ZH_EXACT_EXPANSION_BATCH_701_ALIASES = {
+        "occupational therapy practice and research": "职业治疗实践与研究",
+        "ocdma": "光码分多址",
+        "oceans": "海洋",
+        "ocean acidification": "海洋酸化",
+        "ocean acidification effects and responses": "海洋酸化效应与响应",
+        "oceans and seas": "海洋和海域",
+        "ocean circulation": "海洋环流",
+        "ocean currents": "海流",
+}
+
+ZH_EXACT_EXPANSION_BATCH_702_ALIASES = {
+        "ocean dynamics": "海洋动力学",
+        "ocean salinity": "海洋盐度",
+        "ocean temperature": "海洋温度",
+        "ocean thermal energy conversion": "海洋热能转换",
+        "ocean tide": "海潮",
+        "ocean waves and remote sensing": "海浪与遥感",
+        "oceania": "大洋洲",
+        "oceanians": "大洋洲人",
+}
+
+ZH_EXACT_EXPANSION_BATCH_703_ALIASES = {
+        "oceanic crust": "洋壳",
+        "oceanic current": "海流",
+        "oceanic engineering and marine technology": "海洋工程与海洋技术",
+        "oceanographic and atmospheric processes": "海洋与大气过程",
+        "oceanographic instruments": "海洋仪器",
+        "oceanographic techniques": "海洋学技术",
+        "oceanography": "海洋学",
+        "ochratoxins": "赭曲霉毒素类",
+}
+
+ZH_EXACT_EXPANSION_BATCH_704_ALIASES = {
+        "ochrobactrum": "苍白杆菌属",
+        "ochrobactrum anthropi": "人苍白杆菌",
+        "ochronosis": "褐黄病",
+        "ocimum": "罗勒属",
+        "ocimum basilicum": "罗勒",
+        "ocimum sanctum": "圣罗勒",
+        "ocl": "对象约束语言",
+        "ocr": "光学字符识别",
+}
+
+ZH_EXACT_EXPANSION_BATCH_705_ALIASES = {
+        "octamer transcription factors": "八聚体转录因子",
+        "octamer transcription factor-1": "八聚体转录因子1",
+        "octamer transcription factor-2": "八聚体转录因子2",
+        "octamer transcription factor-3": "八聚体转录因子3",
+        "octamer transcription factor-6": "八聚体转录因子6",
+        "octanes": "辛烷类",
+        "octanols": "辛醇类",
+        "octogenarians": "八旬老人",
+}
+
+ZH_EXACT_EXPANSION_BATCH_706_ALIASES = {
+        "octopamine": "章鱼胺",
+        "octrees": "八叉树",
+        "octreotide": "奥曲肽",
+        "ocular absorption": "眼吸收",
+        "ocular dominance": "眼优势",
+        "ocular hypertension": "高眼压",
+        "ocular hypotension": "低眼压",
+        "ocular motility disorders": "眼球运动障碍",
+}
+
+ZH_EXACT_EXPANSION_BATCH_707_ALIASES = {
+        "ocular physiological phenomena": "眼生理现象",
+        "oculocerebrorenal syndrome": "眼脑肾综合征",
+        "oculomotor muscles": "动眼肌",
+        "oculomotor nerve": "动眼神经",
+        "oculomotor nerve diseases": "动眼神经疾病",
+        "oculomotor nerve injuries": "动眼神经损伤",
+        "oculomotor nuclear complex": "动眼神经核复合体",
+        "odds ratio": "优势比",
+}
+
+ZH_EXACT_EXPANSION_BATCH_708_ALIASES = {
+        "ode": "常微分方程",
+        "odometers": "里程表",
+        "odometry": "里程计",
+        "odonata": "蜻蜓目",
+        "odontoblasts": "成牙本质细胞",
+        "odontodysplasia": "牙发育不良",
+        "odontogenesis": "牙发生",
+        "odontogenic cysts": "牙源性囊肿",
+}
+
+ZH_EXACT_EXPANSION_BATCH_709_ALIASES = {
+        "odontogenic cyst, calcifying": "钙化性牙源性囊肿",
+        "odontogenic tumors": "牙源性肿瘤",
+        "odontogenic tumor, squamous": "鳞状牙源性肿瘤",
+        "odontoid process": "齿突",
+        "odontoma": "牙瘤",
+        "odontometry": "牙测量",
+        "odor and emission control technologies": "气味与排放控制技术",
+        "odorants": "气味物质",
+}
+
+ZH_EXACT_EXPANSION_BATCH_710_ALIASES = {
+        "oedipus complex": "俄狄浦斯情结",
+        "ofdm modulation": "正交频分复用调制",
+        "ofdm signal": "正交频分复用信号",
+        "ofdm systems": "正交频分复用系统",
+        "ofdm transmission": "正交频分复用传输",
+        "ofdma": "正交频分多址",
+        "ofdma systems": "正交频分多址系统",
+        "ofdma uplinks": "正交频分多址上行链路",
+}
+
+ZH_EXACT_EXPANSION_BATCH_711_ALIASES = {
+        "ofets": "有机场效应晶体管",
+        "off-chip memories": "片外存储器",
+        "off-label use": "超说明书用药",
+        "off-line algorithm": "离线算法",
+        "off-line handwritten": "离线手写",
+        "off-road motor vehicles": "越野机动车",
+        "office automation": "办公自动化",
+        "office buildings": "办公楼",
+}
+
+ZH_EXACT_EXPANSION_BATCH_712_ALIASES = {
+        "office management": "办公室管理",
+        "office nursing": "诊所护理",
+        "office visits": "门诊就诊",
+        "office workers": "办公室工作人员",
+        "offline password guessing attack": "离线密码猜测攻击",
+        "offset frequencies": "偏移频率",
+        "offset printing": "胶版印刷",
+        "offshore engineering and technologies": "近海工程技术",
+}
+
+ZH_EXACT_EXPANSION_BATCH_713_ALIASES = {
+        "offshore installations": "海上设施",
+        "ofloxacin": "氧氟沙星",
+        "ohio": "俄亥俄州",
+        "ohmic contacts": "欧姆接触",
+        "oil and gas fields": "油气田",
+        "oil and gas industry": "油气行业",
+        "oil and gas production techniques": "油气生产技术",
+        "oil drilling": "石油钻井",
+}
+
+ZH_EXACT_EXPANSION_BATCH_714_ALIASES = {
+        "oil filled cables": "充油电缆",
+        "oil, gas, and environmental issues": "油气与环境问题",
+        "oil insulation": "油绝缘",
+        "oil palm production and sustainability": "油棕生产与可持续性",
+        "oil pollution": "石油污染",
+        "oil recoveries": "采油",
+        "oil refineries": "炼油厂",
+        "oil spill detection and mitigation": "溢油检测与缓解",
+}
+
+ZH_EXACT_EXPANSION_BATCH_715_ALIASES = {
+        "oils": "油类",
+        "oils, volatile": "挥发油",
+        "ointments": "软膏",
+        "ointment bases": "软膏基质",
+        "okadaic acid": "冈田酸",
+        "oklahoma": "俄克拉荷马州",
+        "olanzapine": "奥氮平",
+        "olap": "联机分析处理",
+}
+
+ZH_EXACT_EXPANSION_BATCH_716_ALIASES = {
+        "olap queries": "OLAP查询",
+        "old age assistance": "老年援助",
+        "older adults driving studies": "老年人驾驶研究",
+        "oleandomycin": "竹桃霉素",
+        "oleanolic acid": "齐墩果酸",
+        "olecranon fracture": "鹰嘴骨折",
+        "olecranon process": "鹰嘴",
+        "oled displays": "OLED显示器",
+}
+
+ZH_EXACT_EXPANSION_BATCH_717_ALIASES = {
+        "oleic acids": "油酸",
+        "olfaction disorders": "嗅觉障碍",
+        "olfactometry": "嗅觉测量",
+        "olfactory and sensory function studies": "嗅觉与感觉功能研究",
+        "olfactory bulb": "嗅球",
+        "olfactory cortex": "嗅皮层",
+        "olfactory marker protein": "嗅觉标志蛋白",
+        "olfactory mucosa": "嗅黏膜",
+}
+
+ZH_EXACT_EXPANSION_BATCH_718_ALIASES = {
+        "olfactory nerve": "嗅神经",
+        "olfactory nerve diseases": "嗅神经疾病",
+        "olfactory nerve injuries": "嗅神经损伤",
+        "olfactory pathways": "嗅觉通路",
+        "olfactory perception": "嗅觉感知",
+        "olfactory receptor neurons": "嗅觉受体神经元",
+        "olfactory training": "嗅觉训练",
+        "olfactory tubercle": "嗅结节",
+}
+
+ZH_EXACT_EXPANSION_BATCH_719_ALIASES = {
+        "oligo-1,6-glucosidase": "寡-1,6-葡萄糖苷酶",
+        "oligoclonal bands": "寡克隆带",
+        "oligodendrocyte-myelin glycoprotein": "少突胶质细胞髓鞘糖蛋白",
+        "oligodendrocyte precursor cells": "少突胶质前体细胞",
+        "oligodendrocyte transcription factor 2": "少突胶质细胞转录因子2",
+        "oligodendroglia": "少突胶质细胞",
+        "oligodendroglioma": "少突胶质细胞瘤",
+        "oligodeoxyribonucleotides": "寡脱氧核糖核苷酸",
+}
+
+ZH_EXACT_EXPANSION_BATCH_720_ALIASES = {
+        "oligonucleotides": "寡核苷酸",
+        "oligonucleotide array sequence analysis": "寡核苷酸阵列序列分析",
+        "oligonucleotide probes": "寡核苷酸探针",
+        "oligopeptides": "寡肽",
+        "oligopoly": "寡头垄断",
+        "oligoribonucleotides": "寡核糖核苷酸",
+        "oligosaccharides": "寡糖",
+        "oligospermia": "少精子症",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -16194,6 +16414,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_697_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_698_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_699_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_700_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_701_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_702_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_703_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_704_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_705_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_706_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_707_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_708_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_709_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_710_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_711_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_712_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_713_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_714_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_715_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_716_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_717_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_718_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_719_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_720_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",

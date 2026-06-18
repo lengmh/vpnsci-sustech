@@ -153,48 +153,68 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-18 zh-exact-expansion-batch-681-to-700 后）：
+最新已知状态（2026-06-18 zh-exact-expansion-batch-701-to-720 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`12021 / 48895 = 24.59%`
-- runtime zh aliases: `12034`
+- runtime 中文覆盖：`12154 / 48897 = 24.86%`
+- runtime zh aliases: `12167`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `12034`
-- `zh:blocked`: `11622`
+- `zh:accept`: `12167`
+- `zh:blocked`: `11649`
 - `zh:needs_review`: `0`
 - `zh:reject`: `151`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `48895`
+- runtime concept aliases: `48897`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
-- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-700 运行时以 compact index/manifest 为准）
+- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-720 运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `222afd7a66965029dea3efc1dccadf58cd2de014d750a5983fc97212dae81b3e`
+  `b35ae86992dbc023fb07408a177d52b61544b765d1d8d64b887fcdcd74e147f5`
 - compact manifest SHA-256:
-  `f07f74335e5b6ec59787eea0c9895cbc04b2f60c8914dcbd56e4f6f7ce60e446`
+  `e6317889a9461d8ce4dad580c5b32f4e4b044e677e5022ca276b9f3ec2766fa3`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact index 是 batch-700 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-700 更新，不再作为默认等价检查对象。
-- 最近相关测试：`763 passed in 5.56s`。
+- compact index 是 batch-720 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-720 更新，不再作为默认等价检查对象。
+- 最近相关测试：`783 passed in 4.95s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- batch-681 至 batch-700 中文 coverage 扩展已完成，runtime 中文覆盖已到 `24.59%`；用户当前目标是继续 20-batch 分组推进到 `>25%`，尚未达成；
+- batch-701 至 batch-720 中文 coverage 扩展已完成，runtime 中文覆盖已到 `24.86%`；用户当前目标是继续 20-batch 分组推进到 `>25%`，尚未达成；
 - post-20% 质量复盘和窄 L6 treemap/text fallback 修复已完成；当前主线回到 exact/domain-aware 中文 alias 覆盖扩展；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
+- 最新 batch-701 至 batch-720 exact/domain-aware 小批次已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_701_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_720_ALIASES`，覆盖 occupational therapy practice、OCDMA、ocean/oceanographic、Ochrobactrum/Ocimum/OCR、octamer/octane/octanol、ocular/oculomotor、odonto/Odontogenic、OFDM/OFDMA、office/offshore/oil、OLAP/OLED、olfactory、oligodendrocyte/oligonucleotide 等 exact/domain-aware 术语；
+  - 新增 `20` 个代表性回归测试，先红灯后转绿；
+  - grouped L3-L5：fill `records_filled = 23766`，validate `review_decisions = 373080`；
+  - 显式接受 `135` 条 recommendation，其中 `MIMO-OFDMA -> 多输入多输出正交频分多址` 作为 exact-backed engineering variant 接受；
+  - 显式阻断 `5` 条由 octanol/oils/odorant exact 组件引发的 compositional/word-order side-effect：`1辛醇类`、`燃料油类`、`工业油类`、`植物油类`、`受体气味物质`；
+  - duplicate/collision exact 输出继续保持 blocked，不自动 merge；
+  - runtime 中文覆盖从 `12021 / 48895 = 24.59%` 增至 `12154 / 48897 = 24.86%`；
+  - `zh:accept`: `12167`，`zh:blocked`: `11649`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `b35ae86992dbc023fb07408a177d52b61544b765d1d8d64b887fcdcd74e147f5`；
+  - compact manifest SHA-256: `e6317889a9461d8ce4dad580c5b32f4e4b044e677e5022ca276b9f3ec2766fa3`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - query smoke 已确认 `光码分多址` 可命中 `concept:ocdma`；
+  - 相关测试：`783 passed in 4.95s`。
+- batch-720 后 review：
+  - 本轮新增 `133` 个 runtime zh-covered concepts，覆盖率增至 `24.86%`，仍未达到 `>25%`；
+  - side-effect `5` 条已显式 blocked，后续如需 `燃料油`、`植物油`、`气味受体` 等应通过更具体 exact/domain-specific replacement 重开；
+  - 下一轮应继续 batch-721 至 batch-740，优先从 oncology/online/open/operation/optical 等高确定性 exact 术语推进。
 - 最新 batch-681 至 batch-700 exact/domain-aware 小批次已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_681_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_700_ALIASES`，覆盖 NURBS、nurse/nursing、nutrition/nutritional、obesity/object/object-oriented、observation/obstacle/obstetric/occupational 等 exact/domain-aware 术语；
   - 新增 `20` 个代表性回归测试，先红灯后转绿；修正 `护士新生儿 -> 新生儿护士`、`护理评估研究 -> 护理评价研究`、`面向目标* -> 面向对象*`、`产科学外科操作 -> 产科手术`、`职业损伤 -> 职业伤害` 等坏形态；
