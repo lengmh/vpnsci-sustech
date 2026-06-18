@@ -12183,6 +12183,286 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_541_adds_nasal_mucosa_obstruction_and_polyp_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nasal_decongestant", "Nasal Decongestants", ["biomedical", "chemicals_and_drugs"], "鼻减充血剂"),
+                ("nasal_lavage", "Nasal Lavage", ["biomedical"], "鼻腔灌洗"),
+                ("nasal_lavage_fluid", "Nasal Lavage Fluid", ["biomedical"], "鼻腔灌洗液"),
+                ("nasal_mucosa", "Nasal Mucosa", ["biomedical"], "鼻黏膜"),
+                ("nasal_obstruction", "Nasal Obstruction", ["biomedical", "diseases"], "鼻阻塞"),
+                ("nasal_polyp", "Nasal Polyps", ["biomedical", "diseases"], "鼻息肉"),
+                ("nasal_provocation_test", "Nasal Provocation Tests", ["biomedical"], "鼻激发试验"),
+                ("nasal_septal_perforation", "Nasal Septal Perforation", ["biomedical", "diseases"], "鼻中隔穿孔"),
+            ]
+        )
+
+    def test_exact_expansion_batch_542_adds_nasal_septum_nash_and_nasolacrimal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nasal_septum", "Nasal Septum", ["biomedical"], "鼻中隔"),
+                ("nasal_spray", "Nasal Sprays", ["biomedical", "chemicals_and_drugs"], "鼻喷雾剂"),
+                ("nasal_surgical_procedur", "Nasal Surgical Procedures", ["biomedical"], "鼻部外科手术"),
+                ("nash_bargaining_solution", "Nash Bargaining Solution", ["computer_science"], "纳什讨价还价解"),
+                ("nash_equilibria", "Nash Equilibria", ["computer_science"], "纳什均衡"),
+                ("nasoalveolar_molding", "Nasoalveolar Molding", ["biomedical"], "鼻牙槽塑形"),
+                ("nasolabial_fold", "Nasolabial Fold", ["biomedical"], "鼻唇沟"),
+                ("nasolacrimal_duct", "Nasolacrimal Duct", ["biomedical"], "鼻泪管"),
+            ]
+        )
+
+    def test_exact_expansion_batch_543_adds_nasopharyngeal_and_natal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nasolacrimal_duct_obstruction_treatment", "Nasolacrimal Duct Obstruction Treatments", ["medicine"], "鼻泪管阻塞治疗"),
+                ("nasopharyngeal_carcinoma", "Nasopharyngeal Carcinoma", ["biomedical", "diseases"], "鼻咽癌"),
+                ("nasopharyngeal_disease", "Nasopharyngeal Diseases", ["biomedical", "diseases"], "鼻咽疾病"),
+                ("nasopharyngeal_neoplasm", "Nasopharyngeal Neoplasms", ["biomedical", "diseases"], "鼻咽肿瘤"),
+                ("nasopharyngiti", "Nasopharyngitis", ["biomedical", "diseases"], "鼻咽炎"),
+                ("nasturtium", "Nasturtium", ["biomedical", "organisms"], "旱金莲属"),
+                ("natal_teeth", "Natal Teeth", ["biomedical"], "出生牙"),
+                ("natalizumab", "Natalizumab", ["biomedical", "chemicals_and_drugs"], "那他珠单抗"),
+            ]
+        )
+
+    def test_exact_expansion_batch_544_adds_natamycin_nateglinide_and_natriuretic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("natamycin", "Natamycin", ["biomedical", "chemicals_and_drugs"], "那他霉素"),
+                ("nateglinide", "Nateglinide", ["biomedical", "chemicals_and_drugs"], "那格列奈"),
+                ("native_polyacrylamide_gel_electrophoresi", "Native Polyacrylamide Gel Electrophoresis", ["biomedical"], "非变性聚丙烯酰胺凝胶电泳"),
+                ("natriuresi", "Natriuresis", ["biomedical"], "利钠"),
+                ("natriuretic_agent", "Natriuretic Agents", ["biomedical", "chemicals_and_drugs"], "利钠剂"),
+                ("natriuretic_peptid", "Natriuretic Peptides", ["biomedical", "chemicals_and_drugs"], "利钠肽"),
+                ("natriuretic_peptide_brain", "Natriuretic Peptide, Brain", ["biomedical", "chemicals_and_drugs"], "脑钠肽"),
+                ("natriuretic_peptide_c_type", "Natriuretic Peptide, C-type", ["biomedical", "chemicals_and_drugs"], "C型利钠肽"),
+            ]
+        )
+
+    def test_exact_expansion_batch_545_adds_natural_cytotoxicity_language_and_surgery_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("natural_childbirth", "Natural Childbirth", ["biomedical"], "自然分娩"),
+                ("natural_cytotoxicity_triggering_receptor_1", "Natural Cytotoxicity Triggering Receptor 1", ["biomedical", "chemicals_and_drugs"], "自然细胞毒性触发受体1"),
+                ("natural_cytotoxicity_triggering_receptor_2", "Natural Cytotoxicity Triggering Receptor 2", ["biomedical", "chemicals_and_drugs"], "自然细胞毒性触发受体2"),
+                ("natural_cytotoxicity_triggering_receptor_3", "Natural Cytotoxicity Triggering Receptor 3", ["biomedical", "chemicals_and_drugs"], "自然细胞毒性触发受体3"),
+                ("natural_deduction", "Natural Deduction", ["computer_science"], "自然演绎"),
+                ("natural_disaster", "Natural Disasters", ["biomedical"], "自然灾害"),
+                ("natural_killer_t_cell", "Natural Killer T-cells", ["biomedical"], "自然杀伤T细胞"),
+                ("natural_language_understanding", "Natural Language Understanding", ["computer_science"], "自然语言理解"),
+            ]
+        )
+
+    def test_exact_expansion_batch_546_adds_natural_product_resource_and_nausea_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("natural_orifice_endoscopic_surgery", "Natural Orifice Endoscopic Surgery", ["biomedical"], "经自然腔道内镜手术"),
+                ("natural_product_bioactivity_and_synthesi", "Natural Product Bioactivities And Synthesis", ["life_sciences"], "天然产物生物活性与合成"),
+                ("natural_resistance_associated_macrophage_protein_1", "Natural Resistance-associated Macrophage Protein 1", ["biomedical", "chemicals_and_drugs"], "自然抗性相关巨噬细胞蛋白1"),
+                ("natural_science_disciplin", "Natural Science Disciplines", ["biomedical"], "自然科学学科"),
+                ("natural_spring", "Natural Springs", ["biomedical"], "天然泉"),
+                ("naturopathy", "Naturopathy", ["biomedical"], "自然疗法"),
+                ("nausea_and_vomiting_management", "Nausea And Vomiting Management", ["medicine"], "恶心呕吐管理"),
+                ("nautilu", "Nautilus", ["biomedical", "organisms"], "鹦鹉螺属"),
+            ]
+        )
+
+    def test_exact_expansion_batch_547_adds_nav_voltage_gated_sodium_channel_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nav1_1_voltage_gated_sodium_channel", "Nav1.1 Voltage-gated Sodium Channel", ["biomedical", "chemicals_and_drugs"], "Nav1.1电压门控钠通道"),
+                ("nav1_2_voltage_gated_sodium_channel", "Nav1.2 Voltage-gated Sodium Channel", ["biomedical", "chemicals_and_drugs"], "Nav1.2电压门控钠通道"),
+                ("nav1_3_voltage_gated_sodium_channel", "Nav1.3 Voltage-gated Sodium Channel", ["biomedical", "chemicals_and_drugs"], "Nav1.3电压门控钠通道"),
+                ("nav1_4_voltage_gated_sodium_channel", "Nav1.4 Voltage-gated Sodium Channel", ["biomedical", "chemicals_and_drugs"], "Nav1.4电压门控钠通道"),
+                ("nav1_5_voltage_gated_sodium_channel", "Nav1.5 Voltage-gated Sodium Channel", ["biomedical", "chemicals_and_drugs"], "Nav1.5电压门控钠通道"),
+                ("nav1_6_voltage_gated_sodium_channel", "Nav1.6 Voltage-gated Sodium Channel", ["biomedical", "chemicals_and_drugs"], "Nav1.6电压门控钠通道"),
+                ("nav1_7_voltage_gated_sodium_channel", "Nav1.7 Voltage-gated Sodium Channel", ["biomedical", "chemicals_and_drugs"], "Nav1.7电压门控钠通道"),
+                ("nav1_8_voltage_gated_sodium_channel", "Nav1.8 Voltage-gated Sodium Channel", ["biomedical", "chemicals_and_drugs"], "Nav1.8电压门控钠通道"),
+            ]
+        )
+
+    def test_exact_expansion_batch_548_adds_navigation_neanderthal_and_near_drowning_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nav1_9_voltage_gated_sodium_channel", "Nav1.9 Voltage-gated Sodium Channel", ["biomedical", "chemicals_and_drugs"], "Nav1.9电压门控钠通道"),
+                ("navajo_people", "Navajo People", ["biomedical", "named_groups"], "纳瓦霍人"),
+                ("naval_medicine", "Naval Medicine", ["biomedical"], "海军医学"),
+                ("navier_stok_equation_solution", "Navier-stokes Equation Solutions", ["mathematics"], "纳维-斯托克斯方程解"),
+                ("nc_machining", "Nc Machining", ["computer_science"], "数控加工"),
+                ("nd_yag", "Nd: Yag", ["computer_science"], "掺钕钇铝石榴石"),
+                ("nd_yag_laser", "Nd:yag Laser", ["computer_science"], "Nd:YAG激光器"),
+                ("neanderthal", "Neanderthals", ["biomedical", "organisms"], "尼安德特人"),
+            ]
+        )
+
+    def test_exact_expansion_batch_549_adds_near_field_near_infrared_and_nebivolol_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("near_drowning", "Near Drowning", ["biomedical", "diseases"], "近乎溺水"),
+                ("near_field_communication", "Near Field Communication", ["computer_science"], "近场通信"),
+                ("near_field_optical_microscopy", "Near-field Optical Microscopy", ["engineering"], "近场光学显微镜"),
+                ("near_field_radiation_pattern", "Near-field Radiation Pattern", ["antennas_and_propagation"], "近场辐射方向图"),
+                ("near_field_scanning_optical_microscopy", "Near Field Scanning Optical Microscopy", ["computer_science"], "近场扫描光学显微镜"),
+                ("near_infrared_imaging", "Near-infrared Imaging", ["computer_science"], "近红外成像"),
+                ("near_miss_healthcare", "Near Miss, Healthcare", ["biomedical"], "医疗险些事件"),
+                ("near_optimal_solution", "Near-optimal Solutions", ["computer_science"], "近似最优解"),
+            ]
+        )
+
+    def test_exact_expansion_batch_550_adds_nebivolol_necator_and_neck_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nebivolol", "Nebivolol", ["biomedical", "chemicals_and_drugs"], "奈必洛尔"),
+                ("nebramycin", "Nebramycin", ["biomedical", "chemicals_and_drugs"], "奈布霉素"),
+                ("nebraska", "Nebraska", ["biomedical"], "内布拉斯加州"),
+                ("nebulizer_and_vaporizer", "Nebulizers And Vaporizers", ["biomedical"], "雾化器和汽化器"),
+                ("necator", "Necator", ["biomedical", "organisms"], "美洲钩虫属"),
+                ("necator_americanu", "Necator Americanus", ["biomedical", "organisms"], "美洲钩虫"),
+                ("necatoriasi", "Necatoriasis", ["biomedical", "diseases"], "美洲钩虫病"),
+                ("neck", "Neck", ["biomedical"], "颈部"),
+            ]
+        )
+
+    def test_exact_expansion_batch_551_adds_neck_and_necrobiotic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neck_dissection", "Neck Dissection", ["biomedical"], "颈清扫术"),
+                ("neck_injury", "Neck Injuries", ["biomedical", "diseases"], "颈部损伤"),
+                ("neck_muscl", "Neck Muscles", ["biomedical"], "颈肌"),
+                ("neck_pain", "Neck Pain", ["biomedical", "diseases"], "颈痛"),
+                ("necrobiosi_lipoidica", "Necrobiosis Lipoidica", ["biomedical", "diseases"], "类脂质渐进性坏死"),
+                ("necrobiotic_xanthogranuloma", "Necrobiotic Xanthogranuloma", ["biomedical", "diseases"], "坏死性黄色肉芽肿"),
+                ("necrolytic_migratory_erythema", "Necrolytic Migratory Erythema", ["biomedical", "diseases"], "坏死性游走性红斑"),
+                ("necroptosi", "Necroptosis", ["biomedical"], "程序性坏死"),
+            ]
+        )
+
+    def test_exact_expansion_batch_552_adds_nectin_needles_and_needlestick_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nectin", "Nectins", ["biomedical", "chemicals_and_drugs"], "连接素"),
+                ("nedocromil", "Nedocromil", ["biomedical", "chemicals_and_drugs"], "奈多罗米"),
+                ("need_assessment", "Needs Assessment", ["biomedical"], "需求评估"),
+                ("needl", "Needles", ["industry_applications"], "针具"),
+                ("needle_exchange_program", "Needle-exchange Programs", ["biomedical"], "针具交换项目"),
+                ("needle_insertion", "Needle Insertion", ["computer_science"], "进针"),
+                ("needle_sharing", "Needle Sharing", ["biomedical"], "共用针具"),
+                ("needlestick_injury", "Needlestick Injuries", ["biomedical", "diseases"], "针刺伤"),
+            ]
+        )
+
+    def test_exact_expansion_batch_553_adds_nefopam_negative_and_negativism_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nef_gene_product_human_immunodeficiency_viru", "Nef Gene Products, Human Immunodeficiency Virus", ["biomedical", "chemicals_and_drugs"], "HIV Nef基因产物"),
+                ("nefopam", "Nefopam", ["biomedical", "chemicals_and_drugs"], "奈福泮"),
+                ("negative_permittivity", "Negative Permittivity", ["computer_science"], "负介电常数"),
+                ("negative_pressure_wound_therapy", "Negative-pressure Wound Therapy", ["biomedical"], "负压创面治疗"),
+                ("negative_result", "Negative Results", ["biomedical"], "阴性结果"),
+                ("negative_sense_rna_viruse", "Negative-sense RNA Viruses", ["biomedical", "organisms"], "负链RNA病毒"),
+                ("negative_staining", "Negative Staining", ["biomedical"], "负染色"),
+                ("negativism", "Negativism", ["biomedical"], "违拗症"),
+            ]
+        )
+
+    def test_exact_expansion_batch_554_adds_neglected_neighborhood_and_neisseria_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neglected_disease", "Neglected Diseases", ["biomedical", "diseases"], "被忽视疾病"),
+                ("negotiating", "Negotiating", ["biomedical"], "谈判"),
+                ("neighborhood_characteristic", "Neighborhood Characteristics", ["biomedical"], "邻里特征"),
+                ("neighborhood_graph", "Neighborhood Graphs", ["computer_science"], "邻域图"),
+                ("neighborhood_structure", "Neighborhood Structure", ["computer_science"], "邻域结构"),
+                ("neisseria", "Neisseria", ["biomedical", "organisms"], "奈瑟菌属"),
+                ("neisseria_cinerea", "Neisseria Cinerea", ["biomedical", "organisms"], "灰色奈瑟菌"),
+                ("neisseria_elongata", "Neisseria Elongata", ["biomedical", "organisms"], "延长奈瑟菌"),
+            ]
+        )
+
+    def test_exact_expansion_batch_555_adds_neisseria_gonorrhoeae_and_meningitidis_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neisseria_gonorrhoeae", "Neisseria Gonorrhoeae", ["biomedical", "organisms"], "淋病奈瑟菌"),
+                ("neisseria_lactamica", "Neisseria Lactamica", ["biomedical", "organisms"], "乳糖奈瑟菌"),
+                ("neisseria_meningitidi", "Neisseria Meningitidis", ["biomedical", "organisms"], "脑膜炎奈瑟菌"),
+                ("neisseria_meningitidi_serogroup_a", "Neisseria Meningitidis, Serogroup A", ["biomedical", "organisms"], "A群脑膜炎奈瑟菌"),
+                ("neisseria_meningitidi_serogroup_b", "Neisseria Meningitidis, Serogroup B", ["biomedical", "organisms"], "B群脑膜炎奈瑟菌"),
+                ("neisseria_meningitidi_serogroup_c", "Neisseria Meningitidis, Serogroup C", ["biomedical", "organisms"], "C群脑膜炎奈瑟菌"),
+                ("neisseria_meningitidi_serogroup_w_135", "Neisseria Meningitidis, Serogroup W-135", ["biomedical", "organisms"], "W-135群脑膜炎奈瑟菌"),
+                ("neisseria_meningitidi_serogroup_y", "Neisseria Meningitidis, Serogroup Y", ["biomedical", "organisms"], "Y群脑膜炎奈瑟菌"),
+            ]
+        )
+
+    def test_exact_expansion_batch_556_adds_neisseriaceae_nelfinavir_and_nelumbo_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neisseria_mucosa", "Neisseria Mucosa", ["biomedical", "organisms"], "黏膜奈瑟菌"),
+                ("neisseria_sicca", "Neisseria Sicca", ["biomedical", "organisms"], "干燥奈瑟菌"),
+                ("neisseriaceae", "Neisseriaceae", ["biomedical", "organisms"], "奈瑟菌科"),
+                ("neisseriaceae_infection", "Neisseriaceae Infections", ["biomedical", "diseases"], "奈瑟菌科感染"),
+                ("nelfinavir", "Nelfinavir", ["biomedical", "chemicals_and_drugs"], "奈非那韦"),
+                ("nelson_syndrome", "Nelson Syndrome", ["biomedical", "diseases"], "纳尔逊综合征"),
+                ("nelumbo", "Nelumbo", ["biomedical", "organisms"], "莲属"),
+                ("nelumbonaceae", "Nelumbonaceae", ["biomedical", "organisms"], "莲科"),
+            ]
+        )
+
+    def test_exact_expansion_batch_557_adds_nematoda_neoadjuvant_and_neodymium_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nematocera", "Nematocera", ["biomedical", "organisms"], "长角亚目"),
+                ("nematocyst", "Nematocyst", ["biomedical"], "刺丝囊"),
+                ("nematoda", "Nematoda", ["biomedical", "organisms"], "线虫动物门"),
+                ("nematode_infection", "Nematode Infections", ["biomedical", "diseases"], "线虫感染"),
+                ("neoadjuvant_therapy", "Neoadjuvant Therapy", ["biomedical"], "新辅助治疗"),
+                ("neocortex", "Neocortex", ["biomedical"], "新皮层"),
+                ("neodymium", "Neodymium", ["materials_elements_and_compounds"], "钕元素"),
+                ("neodymium_alloy", "Neodymium Alloys", ["materials_elements_and_compounds"], "钕合金"),
+            ]
+        )
+
+    def test_exact_expansion_batch_558_adds_neodymium_neonatal_and_neomycin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neodymium_compound", "Neodymium Compounds", ["materials_elements_and_compounds"], "钕化合物"),
+                ("neodymium_laser", "Neodymium Lasers", ["computer_science"], "钕激光器"),
+                ("neointima", "Neointima", ["biomedical", "diseases"], "新生内膜"),
+                ("neomycin", "Neomycin", ["biomedical", "chemicals_and_drugs"], "新霉素"),
+                ("neon", "Neon", ["materials_elements_and_compounds"], "氖元素"),
+                ("neonatal_abstinence_syndrome", "Neonatal Abstinence Syndrome", ["biomedical", "diseases"], "新生儿戒断综合征"),
+                ("neonatal_and_maternal_infection", "Neonatal And Maternal Infections", ["medicine"], "新生儿和母体感染"),
+                ("neonatal_brachial_plexu_palsy", "Neonatal Brachial Plexus Palsy", ["biomedical", "diseases"], "新生儿臂丛神经麻痹"),
+            ]
+        )
+
+    def test_exact_expansion_batch_559_adds_neonatal_neonicotinoid_and_neoplasm_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neonatal_screening", "Neonatal Screening", ["biomedical"], "新生儿筛查"),
+                ("neonatal_sepsi", "Neonatal Sepsis", ["biomedical", "diseases"], "新生儿败血症"),
+                ("neonatologist", "Neonatologists", ["biomedical"], "新生儿科医师"),
+                ("neonatology", "Neonatology", ["engineering_in_medicine_and_biology"], "新生儿学"),
+                ("neonicotinoid", "Neonicotinoids", ["biomedical", "chemicals_and_drugs"], "新烟碱类"),
+                ("neoplasm_adipose_tissue", "Neoplasms, Adipose Tissue", ["biomedical", "diseases"], "脂肪组织肿瘤"),
+                ("neoplasm_adnexal_and_skin_appendage", "Neoplasms, Adnexal And Skin Appendage", ["biomedical", "diseases"], "附属器和皮肤附件肿瘤"),
+                ("neoplasm_basal_cell", "Neoplasms, Basal Cell", ["biomedical", "diseases"], "基底细胞肿瘤"),
+            ]
+        )
+
+    def test_exact_expansion_batch_560_adds_neoplasm_complex_connective_and_germ_cell_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neoplasm_complex_and_mixed", "Neoplasms, Complex And Mixed", ["biomedical", "diseases"], "复杂和混合性肿瘤"),
+                ("neoplasm_connective_and_soft_tissue", "Neoplasms, Connective And Soft Tissue", ["biomedical", "diseases"], "结缔组织和软组织肿瘤"),
+                ("neoplasm_connective_tissue", "Neoplasms, Connective Tissue", ["biomedical", "diseases"], "结缔组织肿瘤"),
+                ("neoplasm_cystic_mucinou_and_serou", "Neoplasms, Cystic, Mucinous, And Serous", ["biomedical", "diseases"], "囊性黏液性和浆液性肿瘤"),
+                ("neoplasm_experimental", "Neoplasms, Experimental", ["biomedical", "diseases"], "实验性肿瘤"),
+                ("neoplasm_fibroepithelial", "Neoplasms, Fibroepithelial", ["biomedical", "diseases"], "纤维上皮性肿瘤"),
+                ("neoplasm_fibrou_tissue", "Neoplasms, Fibrous Tissue", ["biomedical", "diseases"], "纤维组织肿瘤"),
+                ("neoplasm_germ_cell_and_embryonal", "Neoplasms, Germ Cell And Embryonal", ["biomedical", "diseases"], "生殖细胞和胚胎性肿瘤"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
