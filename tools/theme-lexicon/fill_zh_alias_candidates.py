@@ -13752,6 +13752,226 @@ ZH_EXACT_EXPANSION_BATCH_540_ALIASES = {
         "nasal cavity": "鼻腔",
 }
 
+ZH_EXACT_EXPANSION_BATCH_541_ALIASES = {
+        "nasal decongestants": "鼻减充血剂",
+        "nasal lavage": "鼻腔灌洗",
+        "nasal lavage fluid": "鼻腔灌洗液",
+        "nasal mucosa": "鼻黏膜",
+        "nasal obstruction": "鼻阻塞",
+        "nasal polyps": "鼻息肉",
+        "nasal provocation tests": "鼻激发试验",
+        "nasal septal perforation": "鼻中隔穿孔",
+}
+
+ZH_EXACT_EXPANSION_BATCH_542_ALIASES = {
+        "nasal septum": "鼻中隔",
+        "nasal sprays": "鼻喷雾剂",
+        "nasal surgical procedures": "鼻部外科手术",
+        "nash bargaining solution": "纳什讨价还价解",
+        "nash equilibria": "纳什均衡",
+        "nasoalveolar molding": "鼻牙槽塑形",
+        "nasolabial fold": "鼻唇沟",
+        "nasolacrimal duct": "鼻泪管",
+}
+
+ZH_EXACT_EXPANSION_BATCH_543_ALIASES = {
+        "nasolacrimal duct obstruction treatments": "鼻泪管阻塞治疗",
+        "nasopharyngeal carcinoma": "鼻咽癌",
+        "nasopharyngeal diseases": "鼻咽疾病",
+        "nasopharyngeal neoplasms": "鼻咽肿瘤",
+        "nasopharyngitis": "鼻咽炎",
+        "nasturtium": "旱金莲属",
+        "natal teeth": "出生牙",
+        "natalizumab": "那他珠单抗",
+}
+
+ZH_EXACT_EXPANSION_BATCH_544_ALIASES = {
+        "natamycin": "那他霉素",
+        "nateglinide": "那格列奈",
+        "native polyacrylamide gel electrophoresis": "非变性聚丙烯酰胺凝胶电泳",
+        "natriuresis": "利钠",
+        "natriuretic agents": "利钠剂",
+        "natriuretic peptides": "利钠肽",
+        "natriuretic peptide, brain": "脑钠肽",
+        "natriuretic peptide, c-type": "C型利钠肽",
+}
+
+ZH_EXACT_EXPANSION_BATCH_545_ALIASES = {
+        "natural childbirth": "自然分娩",
+        "natural cytotoxicity triggering receptor 1": "自然细胞毒性触发受体1",
+        "natural cytotoxicity triggering receptor 2": "自然细胞毒性触发受体2",
+        "natural cytotoxicity triggering receptor 3": "自然细胞毒性触发受体3",
+        "natural deduction": "自然演绎",
+        "natural disasters": "自然灾害",
+        "natural killer t-cells": "自然杀伤T细胞",
+        "natural language understanding": "自然语言理解",
+}
+
+ZH_EXACT_EXPANSION_BATCH_546_ALIASES = {
+        "natural orifice endoscopic surgery": "经自然腔道内镜手术",
+        "natural product bioactivities and synthesis": "天然产物生物活性与合成",
+        "natural resistance-associated macrophage protein 1": "自然抗性相关巨噬细胞蛋白1",
+        "natural science disciplines": "自然科学学科",
+        "natural springs": "天然泉",
+        "naturopathy": "自然疗法",
+        "nausea and vomiting management": "恶心呕吐管理",
+        "nautilus": "鹦鹉螺属",
+}
+
+ZH_EXACT_EXPANSION_BATCH_547_ALIASES = {
+        "nav1.1 voltage-gated sodium channel": "Nav1.1电压门控钠通道",
+        "nav1.2 voltage-gated sodium channel": "Nav1.2电压门控钠通道",
+        "nav1.3 voltage-gated sodium channel": "Nav1.3电压门控钠通道",
+        "nav1.4 voltage-gated sodium channel": "Nav1.4电压门控钠通道",
+        "nav1.5 voltage-gated sodium channel": "Nav1.5电压门控钠通道",
+        "nav1.6 voltage-gated sodium channel": "Nav1.6电压门控钠通道",
+        "nav1.7 voltage-gated sodium channel": "Nav1.7电压门控钠通道",
+        "nav1.8 voltage-gated sodium channel": "Nav1.8电压门控钠通道",
+}
+
+ZH_EXACT_EXPANSION_BATCH_548_ALIASES = {
+        "nav1.9 voltage-gated sodium channel": "Nav1.9电压门控钠通道",
+        "navajo people": "纳瓦霍人",
+        "naval medicine": "海军医学",
+        "navier-stokes equation solutions": "纳维-斯托克斯方程解",
+        "nc machining": "数控加工",
+        "nd yag": "掺钕钇铝石榴石",
+        "nd:yag laser": "Nd:YAG激光器",
+        "neanderthals": "尼安德特人",
+}
+
+ZH_EXACT_EXPANSION_BATCH_549_ALIASES = {
+        "near drowning": "近乎溺水",
+        "near field communication": "近场通信",
+        "near-field optical microscopy": "近场光学显微镜",
+        "near-field radiation pattern": "近场辐射方向图",
+        "near field scanning optical microscopy": "近场扫描光学显微镜",
+        "near-infrared imaging": "近红外成像",
+        "near miss, healthcare": "医疗险些事件",
+        "near-optimal solutions": "近似最优解",
+}
+
+ZH_EXACT_EXPANSION_BATCH_550_ALIASES = {
+        "nebivolol": "奈必洛尔",
+        "nebramycin": "奈布霉素",
+        "nebraska": "内布拉斯加州",
+        "nebulizers and vaporizers": "雾化器和汽化器",
+        "necator": "美洲钩虫属",
+        "necator americanus": "美洲钩虫",
+        "necatoriasis": "美洲钩虫病",
+        "neck": "颈部",
+}
+
+ZH_EXACT_EXPANSION_BATCH_551_ALIASES = {
+        "neck dissection": "颈清扫术",
+        "neck injuries": "颈部损伤",
+        "neck muscles": "颈肌",
+        "neck pain": "颈痛",
+        "necrobiosis lipoidica": "类脂质渐进性坏死",
+        "necrobiotic xanthogranuloma": "坏死性黄色肉芽肿",
+        "necrolytic migratory erythema": "坏死性游走性红斑",
+        "necroptosis": "程序性坏死",
+}
+
+ZH_EXACT_EXPANSION_BATCH_552_ALIASES = {
+        "nectins": "连接素",
+        "nedocromil": "奈多罗米",
+        "needs assessment": "需求评估",
+        "needles": "针具",
+        "needle-exchange programs": "针具交换项目",
+        "needle insertion": "进针",
+        "needle sharing": "共用针具",
+        "needlestick injuries": "针刺伤",
+}
+
+ZH_EXACT_EXPANSION_BATCH_553_ALIASES = {
+        "nef gene products, human immunodeficiency virus": "HIV Nef基因产物",
+        "nefopam": "奈福泮",
+        "negative permittivity": "负介电常数",
+        "negative-pressure wound therapy": "负压创面治疗",
+        "negative results": "阴性结果",
+        "negative-sense rna viruses": "负链RNA病毒",
+        "negative staining": "负染色",
+        "negativism": "违拗症",
+}
+
+ZH_EXACT_EXPANSION_BATCH_554_ALIASES = {
+        "neglected diseases": "被忽视疾病",
+        "negotiating": "谈判",
+        "neighborhood characteristics": "邻里特征",
+        "neighborhood graphs": "邻域图",
+        "neighborhood structure": "邻域结构",
+        "neisseria": "奈瑟菌属",
+        "neisseria cinerea": "灰色奈瑟菌",
+        "neisseria elongata": "延长奈瑟菌",
+}
+
+ZH_EXACT_EXPANSION_BATCH_555_ALIASES = {
+        "neisseria gonorrhoeae": "淋病奈瑟菌",
+        "neisseria lactamica": "乳糖奈瑟菌",
+        "neisseria meningitidis": "脑膜炎奈瑟菌",
+        "neisseria meningitidis, serogroup a": "A群脑膜炎奈瑟菌",
+        "neisseria meningitidis, serogroup b": "B群脑膜炎奈瑟菌",
+        "neisseria meningitidis, serogroup c": "C群脑膜炎奈瑟菌",
+        "neisseria meningitidis, serogroup w-135": "W-135群脑膜炎奈瑟菌",
+        "neisseria meningitidis, serogroup y": "Y群脑膜炎奈瑟菌",
+}
+
+ZH_EXACT_EXPANSION_BATCH_556_ALIASES = {
+        "neisseria mucosa": "黏膜奈瑟菌",
+        "neisseria sicca": "干燥奈瑟菌",
+        "neisseriaceae": "奈瑟菌科",
+        "neisseriaceae infections": "奈瑟菌科感染",
+        "nelfinavir": "奈非那韦",
+        "nelson syndrome": "纳尔逊综合征",
+        "nelumbo": "莲属",
+        "nelumbonaceae": "莲科",
+}
+
+ZH_EXACT_EXPANSION_BATCH_557_ALIASES = {
+        "nematocera": "长角亚目",
+        "nematocyst": "刺丝囊",
+        "nematoda": "线虫动物门",
+        "nematode infections": "线虫感染",
+        "neoadjuvant therapy": "新辅助治疗",
+        "neocortex": "新皮层",
+        "neodymium": "钕元素",
+        "neodymium alloys": "钕合金",
+}
+
+ZH_EXACT_EXPANSION_BATCH_558_ALIASES = {
+        "neodymium compounds": "钕化合物",
+        "neodymium lasers": "钕激光器",
+        "neointima": "新生内膜",
+        "neomycin": "新霉素",
+        "neon": "氖元素",
+        "neonatal abstinence syndrome": "新生儿戒断综合征",
+        "neonatal and maternal infections": "新生儿和母体感染",
+        "neonatal brachial plexus palsy": "新生儿臂丛神经麻痹",
+}
+
+ZH_EXACT_EXPANSION_BATCH_559_ALIASES = {
+        "neonatal screening": "新生儿筛查",
+        "neonatal sepsis": "新生儿败血症",
+        "neonatologists": "新生儿科医师",
+        "neonatology": "新生儿学",
+        "neonicotinoids": "新烟碱类",
+        "neoplasms, adipose tissue": "脂肪组织肿瘤",
+        "neoplasms, adnexal and skin appendage": "附属器和皮肤附件肿瘤",
+        "neoplasms, basal cell": "基底细胞肿瘤",
+}
+
+ZH_EXACT_EXPANSION_BATCH_560_ALIASES = {
+        "neoplasms, complex and mixed": "复杂和混合性肿瘤",
+        "neoplasms, connective and soft tissue": "结缔组织和软组织肿瘤",
+        "neoplasms, connective tissue": "结缔组织肿瘤",
+        "neoplasms, cystic, mucinous, and serous": "囊性黏液性和浆液性肿瘤",
+        "neoplasms, experimental": "实验性肿瘤",
+        "neoplasms, fibroepithelial": "纤维上皮性肿瘤",
+        "neoplasms, fibrous tissue": "纤维组织肿瘤",
+        "neoplasms, germ cell and embryonal": "生殖细胞和胚胎性肿瘤",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -14294,6 +14514,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_537_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_538_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_539_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_540_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_541_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_542_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_543_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_544_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_545_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_546_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_547_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_548_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_549_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_550_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_551_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_552_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_553_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_554_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_555_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_556_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_557_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_558_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_559_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_560_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",
