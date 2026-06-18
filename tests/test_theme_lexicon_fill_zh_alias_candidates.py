@@ -13303,6 +13303,282 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_621_adds_nicotinamide_enzyme_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nicotinamidase", "Nicotinamidase", ["biomedical", "chemicals_and_drugs"], "烟酰胺酶"),
+                ("nicotinamide_mononucleotide", "Nicotinamide Mononucleotide", ["biomedical", "chemicals_and_drugs"], "烟酰胺单核苷酸"),
+                ("nicotinamide_n_methyltransferase", "Nicotinamide N-methyltransferase", ["biomedical", "chemicals_and_drugs"], "烟酰胺N-甲基转移酶"),
+                ("nicotinamide_phosphoribosyltransferase", "Nicotinamide Phosphoribosyltransferase", ["biomedical", "chemicals_and_drugs"], "烟酰胺磷酸核糖转移酶"),
+                ("nicotinamide_nucleotide_adenylyltransferase", "Nicotinamide-nucleotide Adenylyltransferase", ["biomedical", "chemicals_and_drugs"], "烟酰胺核苷酸腺苷酰转移酶"),
+                ("nicotinate_nucleotide_diphosphorylase_carboxylating", "Nicotinate-nucleotide Diphosphorylase (carboxylating)", ["biomedical", "chemicals_and_drugs"], "烟酸核苷酸二磷酸化酶(羧化)"),
+                ("nicotine", "Nicotine", ["biomedical", "chemicals_and_drugs"], "尼古丁"),
+                ("nicotine_chewing_gum", "Nicotine Chewing Gum", ["biomedical", "chemicals_and_drugs"], "尼古丁口香糖"),
+            ]
+        )
+
+    def test_exact_expansion_batch_622_adds_nicotine_receptor_and_nidovirales_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nicotine_replacement_therapy", "Nicotine Replacement Therapy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "尼古丁替代疗法"),
+                ("nicotinic_acetylcholine_receptor_study", "Nicotinic Acetylcholine Receptors Study", ["biochemistry_genetics_and_molecular_biology", "life_sciences"], "烟碱型乙酰胆碱受体研究"),
+                ("nicotinic_agonist", "Nicotinic Agonists", ["biomedical", "chemicals_and_drugs"], "烟碱受体激动剂"),
+                ("nicotinic_antagonist", "Nicotinic Antagonists", ["biomedical", "chemicals_and_drugs"], "烟碱受体拮抗剂"),
+                ("nicotinyl_alcohol", "Nicotinyl Alcohol", ["biomedical", "chemicals_and_drugs"], "烟醇"),
+                ("nictitating_membrane", "Nictitating Membrane", ["anatomy", "biomedical"], "瞬膜"),
+                ("nidoviral", "Nidovirales", ["biomedical", "organisms"], "套式病毒目"),
+                ("nidoviral_infection", "Nidovirales Infections", ["biomedical", "diseases"], "套式病毒目感染"),
+            ]
+        )
+
+    def test_exact_expansion_batch_623_adds_niemann_pick_and_nifedipine_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("niemann_pick_c1_protein", "Niemann-pick C1 Protein", ["biomedical", "chemicals_and_drugs"], "尼曼-匹克C1蛋白"),
+                ("niemann_pick_disease_type_a", "Niemann-pick Disease, Type A", ["biomedical", "diseases"], "A型尼曼-匹克病"),
+                ("niemann_pick_disease_type_b", "Niemann-pick Disease, Type B", ["biomedical", "diseases"], "B型尼曼-匹克病"),
+                ("niemann_pick_disease_type_c", "Niemann-pick Disease, Type C", ["biomedical", "diseases"], "C型尼曼-匹克病"),
+                ("niemann_pick_disease", "Niemann-pick Diseases", ["biomedical", "diseases"], "尼曼-匹克病"),
+                ("nietzsche_schopenhauer_and_hegel", "Nietzsche, Schopenhauer, And Hegel", ["arts_and_humanities", "social_sciences"], "尼采、叔本华与黑格尔"),
+                ("nifedipine", "Nifedipine", ["biomedical", "chemicals_and_drugs"], "硝苯地平"),
+                ("niflumic_acid", "Niflumic Acid", ["biomedical", "chemicals_and_drugs"], "尼氟灭酸"),
+            ]
+        )
+
+    def test_exact_expansion_batch_624_adds_nifuratel_nigella_and_night_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nifuratel", "Nifuratel", ["biomedical", "chemicals_and_drugs"], "硝呋太尔"),
+                ("nifurtimox", "Nifurtimox", ["biomedical", "chemicals_and_drugs"], "硝呋替莫"),
+                ("nigella", "Nigella", ["biomedical", "organisms"], "黑种草属"),
+                ("nigella_damascena", "Nigella Damascena", ["biomedical", "organisms"], "大马士革黑种草"),
+                ("nigella_sativa", "Nigella Sativa", ["biomedical", "organisms"], "黑种草"),
+                ("nigella_sativa_pharmacological_application", "Nigella Sativa Pharmacological Applications", ["health_sciences", "medicine"], "黑种草药理应用"),
+                ("niger", "Niger", ["biomedical", "geographicals"], "尼日尔"),
+                ("nigeria", "Nigeria", ["biomedical", "geographicals"], "尼日利亚"),
+            ]
+        )
+
+    def test_exact_expansion_batch_625_adds_nigericin_night_and_nih_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nigericin", "Nigericin", ["biomedical", "chemicals_and_drugs"], "尼日利亚菌素"),
+                ("night_blindness", "Night Blindness", ["biomedical", "diseases"], "夜盲症"),
+                ("night_care", "Night Care", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "夜间护理"),
+                ("night_eating_syndrome", "Night Eating Syndrome", ["biomedical", "psychiatry_and_psychology"], "夜食综合征"),
+                ("night_terror", "Night Terrors", ["biomedical", "diseases"], "夜惊"),
+                ("night_vision", "Night Vision", ["imaging"], "夜视"),
+                ("night_vision__2", "Night Vision", ["biomedical", "psychiatry_and_psychology"], "夜视"),
+                ("nih_3t3_cell", "NIH 3T3 Cells", ["anatomy", "biomedical"], "NIH 3T3细胞"),
+            ]
+        )
+
+    def test_exact_expansion_batch_626_adds_nijmegen_nima_and_nimaviridae_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("night_time_city_culture", "Night-time City Culture", ["social_sciences"], "夜间城市文化"),
+                ("nijmegen_breakage_syndrome", "Nijmegen Breakage Syndrome", ["biomedical", "diseases"], "奈梅亨断裂综合征"),
+                ("nikethamide", "Nikethamide", ["biomedical", "chemicals_and_drugs"], "尼可刹米"),
+                ("nima_interacting_peptidylprolyl_isomerase", "Nima-interacting Peptidylprolyl Isomerase", ["biomedical", "chemicals_and_drugs"], "NIMA相互作用肽基脯氨酰异构酶"),
+                ("nima_related_kinase_1", "Nima-related Kinase 1", ["biomedical", "chemicals_and_drugs"], "NIMA相关激酶1"),
+                ("nima_related_kinase", "Nima-related Kinases", ["biomedical", "chemicals_and_drugs"], "NIMA相关激酶"),
+                ("nimaviridae", "Nimaviridae", ["biomedical", "organisms"], "尼玛病毒科"),
+                ("nimodipine", "Nimodipine", ["biomedical", "chemicals_and_drugs"], "尼莫地平"),
+            ]
+        )
+
+    def test_exact_expansion_batch_627_adds_nimorazole_niobium_and_nipah_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nimorazole", "Nimorazole", ["biomedical", "chemicals_and_drugs"], "尼莫唑"),
+                ("nimustine", "Nimustine", ["biomedical", "chemicals_and_drugs"], "尼莫司汀"),
+                ("ninhydrin", "Ninhydrin", ["biomedical", "chemicals_and_drugs"], "茚三酮"),
+                ("nintendo_wii", "Nintendo Wii", ["computer_science"], "任天堂Wii"),
+                ("niobium", "Niobium", ["materials_elements_and_compounds"], "铌元素"),
+                ("niobium__2", "Niobium", ["biomedical", "chemicals_and_drugs"], "铌元素"),
+                ("niobium_alloy", "Niobium Alloys", ["materials_elements_and_compounds"], "铌合金"),
+                ("niobium_compound", "Niobium Compounds", ["materials_elements_and_compounds"], "铌化合物"),
+            ]
+        )
+
+    def test_exact_expansion_batch_628_adds_niobium_tin_nipple_and_nissl_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("niobium_tin", "Niobium-tin", ["materials_elements_and_compounds"], "铌锡"),
+                ("niobium_tin__2", "Niobium-tin", ["superconductivity"], "铌锡"),
+                ("nipah_viru", "Nipah Virus", ["biomedical", "organisms"], "尼帕病毒"),
+                ("nipple_aspirate_fluid", "Nipple Aspirate Fluid", ["anatomy", "biomedical"], "乳头抽吸液"),
+                ("nipple_discharge", "Nipple Discharge", ["anatomy", "biomedical"], "乳头溢液"),
+                ("nippl", "Nipples", ["anatomy", "biomedical"], "乳头"),
+                ("nippostrongylu", "Nippostrongylus", ["biomedical", "organisms"], "尼普圆线虫属"),
+                ("niridazole", "Niridazole", ["biomedical", "chemicals_and_drugs"], "尼立达唑"),
+            ]
+        )
+
+    def test_exact_expansion_batch_629_adds_nisin_nitrate_reductase_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nisin", "Nisin", ["biomedical", "chemicals_and_drugs"], "乳酸链球菌素"),
+                ("nisoldipine", "Nisoldipine", ["biomedical", "chemicals_and_drugs"], "尼索地平"),
+                ("nissl_body", "Nissl Bodies", ["anatomy", "biomedical"], "尼氏体"),
+                ("nitella", "Nitella", ["biomedical", "organisms"], "丽藻属"),
+                ("nitrate_reductase_nad_p_h", "Nitrate Reductase (nad(p)h)", ["biomedical", "chemicals_and_drugs"], "硝酸还原酶(NAD(P)H)"),
+                ("nitrate_reductase_nadh", "Nitrate Reductase (nadh)", ["biomedical", "chemicals_and_drugs"], "硝酸还原酶(NADH)"),
+                ("nitrate_reductase_nadph", "Nitrate Reductase (nadph)", ["biomedical", "chemicals_and_drugs"], "硝酸还原酶(NADPH)"),
+                ("nitrate_reductase", "Nitrate Reductases", ["biomedical", "chemicals_and_drugs"], "硝酸还原酶"),
+            ]
+        )
+
+    def test_exact_expansion_batch_630_adds_nitrate_nitric_acid_and_nitric_oxide_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nitrate_transporter", "Nitrate Transporters", ["biomedical", "chemicals_and_drugs"], "硝酸盐转运蛋白"),
+                ("nitrat", "Nitrates", ["biomedical", "chemicals_and_drugs"], "硝酸盐"),
+                ("nitrazepam", "Nitrazepam", ["biomedical", "chemicals_and_drugs"], "硝西泮"),
+                ("nitrendipine", "Nitrendipine", ["biomedical", "chemicals_and_drugs"], "尼群地平"),
+                ("nitrergic_neuron", "Nitrergic Neurons", ["anatomy", "biomedical"], "硝能神经元"),
+                ("nitric_acid", "Nitric Acid", ["biomedical", "chemicals_and_drugs"], "硝酸"),
+                ("nitric_oxide", "Nitric Oxide", ["biomedical", "chemicals_and_drugs"], "一氧化氮"),
+                ("nitric_oxide_and_endothelin_effect", "Nitric Oxide And Endothelin Effects", ["health_sciences", "medicine"], "一氧化氮与内皮素效应"),
+            ]
+        )
+
+    def test_exact_expansion_batch_631_adds_nitric_oxide_synthase_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nitric_oxide_donor", "Nitric Oxide Donors", ["biomedical", "chemicals_and_drugs"], "一氧化氮供体"),
+                ("nitric_oxide_synthase", "Nitric Oxide Synthase", ["biomedical", "chemicals_and_drugs"], "一氧化氮合酶"),
+                ("nitric_oxide_synthase_type_i", "Nitric Oxide Synthase Type I", ["biomedical", "chemicals_and_drugs"], "I型一氧化氮合酶"),
+                ("nitric_oxide_synthase_type_ii", "Nitric Oxide Synthase Type II", ["biomedical", "chemicals_and_drugs"], "II型一氧化氮合酶"),
+                ("nitric_oxide_synthase_type_iii", "Nitric Oxide Synthase Type III", ["biomedical", "chemicals_and_drugs"], "III型一氧化氮合酶"),
+                ("nitrification", "Nitrification", ["biomedical", "phenomena_and_processes"], "硝化作用"),
+                ("nitril", "Nitriles", ["biomedical", "chemicals_and_drugs"], "腈类"),
+                ("nitrilotriacetic_acid", "Nitrilotriacetic Acid", ["biomedical", "chemicals_and_drugs"], "次氮基三乙酸"),
+            ]
+        )
+
+    def test_exact_expansion_batch_632_adds_nitrite_and_nitro_compound_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nitrite_reductase_nad_p_h", "Nitrite Reductase (nad(p)h)", ["biomedical", "chemicals_and_drugs"], "亚硝酸还原酶(NAD(P)H)"),
+                ("nitrite_reductase", "Nitrite Reductases", ["biomedical", "chemicals_and_drugs"], "亚硝酸还原酶"),
+                ("nitrit", "Nitrites", ["biomedical", "chemicals_and_drugs"], "亚硝酸盐"),
+                ("nitro_compound", "Nitro Compounds", ["biomedical", "chemicals_and_drugs"], "硝基化合物"),
+                ("nitroanisole_o_demethylase", "Nitroanisole O-demethylase", ["biomedical", "chemicals_and_drugs"], "硝基苯甲醚O-去甲基化酶"),
+                ("nitroarginine", "Nitroarginine", ["biomedical", "chemicals_and_drugs"], "硝基精氨酸"),
+                ("nitrobacter", "Nitrobacter", ["biomedical", "organisms"], "硝化杆菌属"),
+                ("nitrobenzen", "Nitrobenzenes", ["biomedical", "chemicals_and_drugs"], "硝基苯类"),
+            ]
+        )
+
+    def test_exact_expansion_batch_633_adds_nitrobenzoate_nitrofuran_and_nitrogen_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nitrobenzoat", "Nitrobenzoates", ["biomedical", "chemicals_and_drugs"], "硝基苯甲酸盐"),
+                ("nitroblue_tetrazolium", "Nitroblue Tetrazolium", ["biomedical", "chemicals_and_drugs"], "氮蓝四唑"),
+                ("nitrofuran", "Nitrofurans", ["biomedical", "chemicals_and_drugs"], "硝基呋喃类"),
+                ("nitrofurantoin", "Nitrofurantoin", ["biomedical", "chemicals_and_drugs"], "呋喃妥因"),
+                ("nitrofurazone", "Nitrofurazone", ["biomedical", "chemicals_and_drugs"], "呋喃西林"),
+                ("nitrogen__2", "Nitrogen", ["biomedical", "chemicals_and_drugs"], "氮元素"),
+                ("nitrogen", "Nitrogen", ["materials_elements_and_compounds"], "氮元素"),
+                ("nitrogen_and_sulfur_effect_on_brassica", "Nitrogen And Sulfur Effects On Brassica", ["biochemistry_genetics_and_molecular_biology", "life_sciences"], "氮和硫对芸薹属的影响"),
+            ]
+        )
+
+    def test_exact_expansion_batch_634_adds_nitrogen_compound_cycle_and_fixation_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nitrogen_compound", "Nitrogen Compounds", ["materials_elements_and_compounds"], "氮化合物"),
+                ("nitrogen_compound__2", "Nitrogen Compounds", ["biomedical", "chemicals_and_drugs"], "氮化合物"),
+                ("nitrogen_cycle", "Nitrogen Cycle", ["biomedical", "phenomena_and_processes"], "氮循环"),
+                ("nitrogen_dioxide", "Nitrogen Dioxide", ["biomedical", "chemicals_and_drugs"], "二氧化氮"),
+                ("nitrogen_fixation", "Nitrogen Fixation", ["biomedical", "phenomena_and_processes"], "固氮"),
+                ("nitrogen_isotop", "Nitrogen Isotopes", ["biomedical", "chemicals_and_drugs"], "氮同位素"),
+                ("nitrogen_mustard_compound", "Nitrogen Mustard Compounds", ["biomedical", "chemicals_and_drugs"], "氮芥类化合物"),
+                ("nitrogen_oxid", "Nitrogen Oxides", ["biomedical", "chemicals_and_drugs"], "氮氧化物"),
+            ]
+        )
+
+    def test_exact_expansion_batch_635_adds_nitrogen_radioisotope_and_nitrogenase_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nitrogen_radioisotop", "Nitrogen Radioisotopes", ["biomedical", "chemicals_and_drugs"], "氮放射性同位素"),
+                ("nitrogen_fixing_bacteria", "Nitrogen-fixing Bacteria", ["biomedical", "organisms"], "固氮细菌"),
+                ("nitrogenase", "Nitrogenase", ["biomedical", "chemicals_and_drugs"], "固氮酶"),
+                ("nitrogenou_group_transferase", "Nitrogenous Group Transferases", ["biomedical", "chemicals_and_drugs"], "含氮基团转移酶"),
+            ]
+        )
+
+    def test_exact_expansion_batch_636_adds_nitroglycerin_and_nitrophenol_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nitroglycerin", "Nitroglycerin", ["biomedical", "chemicals_and_drugs"], "硝酸甘油"),
+                ("nitrohydroxyiodophenylacetate", "Nitrohydroxyiodophenylacetate", ["biomedical", "chemicals_and_drugs"], "硝基羟基碘苯乙酸"),
+                ("nitroimidazol", "Nitroimidazoles", ["biomedical", "chemicals_and_drugs"], "硝基咪唑类"),
+                ("nitromifene", "Nitromifene", ["biomedical", "chemicals_and_drugs"], "硝米芬"),
+                ("nitroparaffin", "Nitroparaffins", ["biomedical", "chemicals_and_drugs"], "硝基石蜡"),
+                ("nitrophenol", "Nitrophenols", ["biomedical", "chemicals_and_drugs"], "硝基酚类"),
+                ("nitrophenylgalactosid", "Nitrophenylgalactosides", ["biomedical", "chemicals_and_drugs"], "硝基苯基半乳糖苷"),
+                ("nitroprusside", "Nitroprusside", ["biomedical", "chemicals_and_drugs"], "硝普化物"),
+            ]
+        )
+
+    def test_exact_expansion_batch_637_adds_nitroquinoline_and_nitroso_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nitroquinolin", "Nitroquinolines", ["biomedical", "chemicals_and_drugs"], "硝基喹啉类"),
+                ("nitroreductase", "Nitroreductases", ["biomedical", "chemicals_and_drugs"], "硝基还原酶"),
+                ("nitrosamin", "Nitrosamines", ["biomedical", "chemicals_and_drugs"], "亚硝胺类"),
+                ("nitrosation", "Nitrosation", ["biomedical", "phenomena_and_processes"], "亚硝化作用"),
+                ("nitrosative_stress", "Nitrosative Stress", ["biomedical", "phenomena_and_processes"], "亚硝化应激"),
+                ("nitroso_compound", "Nitroso Compounds", ["biomedical", "chemicals_and_drugs"], "亚硝基化合物"),
+                ("nitrosoguanidin", "Nitrosoguanidines", ["biomedical", "chemicals_and_drugs"], "亚硝基胍类"),
+                ("nitrosomethylurethane", "Nitrosomethylurethane", ["biomedical", "chemicals_and_drugs"], "N-亚硝基-N-甲基氨基甲酸乙酯"),
+            ]
+        )
+
+    def test_exact_expansion_batch_638_adds_nitrosomonas_nitrous_and_nitrovin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nitrosomonadaceae", "Nitrosomonadaceae", ["biomedical", "organisms"], "亚硝化单胞菌科"),
+                ("nitrosomona", "Nitrosomonas", ["biomedical", "organisms"], "亚硝化单胞菌属"),
+                ("nitrosomona_europaea", "Nitrosomonas Europaea", ["biomedical", "organisms"], "欧洲亚硝化单胞菌"),
+                ("nitrosourea_compound", "Nitrosourea Compounds", ["biomedical", "chemicals_and_drugs"], "亚硝基脲类化合物"),
+                ("nitrospirae", "Nitrospirae", ["computer_science"], "硝化螺旋菌门"),
+                ("nitrou_acid", "Nitrous Acid", ["biomedical", "chemicals_and_drugs"], "亚硝酸"),
+                ("nitrou_oxide", "Nitrous Oxide", ["biomedical", "chemicals_and_drugs"], "一氧化二氮"),
+                ("nitrovin", "Nitrovin", ["biomedical", "chemicals_and_drugs"], "硝呋烯腙"),
+            ]
+        )
+
+    def test_exact_expansion_batch_639_adds_nitroxinil_nk_cell_and_nlms_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nitroxinil", "Nitroxinil", ["biomedical", "chemicals_and_drugs"], "硝碘酚腈"),
+                ("nivolumab", "Nivolumab", ["biomedical", "chemicals_and_drugs"], "纳武利尤单抗"),
+                ("nizatidine", "Nizatidine", ["biomedical", "chemicals_and_drugs"], "尼扎替丁"),
+                ("nk_cell_lectin_like_receptor_subfamily_a", "NK Cell Lectin-like Receptor Subfamily A", ["biomedical", "chemicals_and_drugs"], "NK细胞凝集素样受体A亚家族"),
+                ("nk_cell_lectin_like_receptor_subfamily_b", "NK Cell Lectin-like Receptor Subfamily B", ["biomedical", "chemicals_and_drugs"], "NK细胞凝集素样受体B亚家族"),
+                ("nk_cell_lectin_like_receptor_subfamily_c", "NK Cell Lectin-like Receptor Subfamily C", ["biomedical", "chemicals_and_drugs"], "NK细胞凝集素样受体C亚家族"),
+                ("nk_cell_lectin_like_receptor_subfamily_d", "NK Cell Lectin-like Receptor Subfamily D", ["biomedical", "chemicals_and_drugs"], "NK细胞凝集素样受体D亚家族"),
+                ("nlms", "Nlms", ["computer_science"], "归一化LMS"),
+            ]
+        )
+
+    def test_exact_expansion_batch_640_adds_nlr_nmr_and_no_reflow_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nlms_algorithm", "Nlms Algorithm", ["computer_science"], "归一化LMS算法"),
+                ("nlr_family_pyrin_domain_containing_3_protein", "NLR Family, Pyrin Domain-containing 3 Protein", ["biomedical", "chemicals_and_drugs"], "NLR家族含PYRIN结构域蛋白3"),
+                ("nlr_protein", "NLR Proteins", ["biomedical", "chemicals_and_drugs"], "NLR蛋白"),
+                ("nm23_nucleoside_diphosphate_kinase", "NM23 Nucleoside Diphosphate Kinases", ["biomedical", "chemicals_and_drugs"], "NM23核苷二磷酸激酶"),
+                ("nmr_spectroscopy_and_application", "NMR Spectroscopy And Applications", ["physical_sciences", "physics_and_astronomy"], "NMR光谱及应用"),
+                ("no_observed_adverse_effect_level", "No-observed-adverse-effect Level", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "未观察到有害作用水平"),
+                ("no_reflow_phenomenon", "No-reflow Phenomenon", ["biomedical", "diseases"], "无复流现象"),
+                ("no_show_patient", "No-show Patients", ["biomedical", "psychiatry_and_psychology"], "失约患者"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

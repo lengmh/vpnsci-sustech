@@ -14622,6 +14622,217 @@ ZH_EXACT_EXPANSION_BATCH_620_ALIASES = {
         "nicotiana": "烟草属",
 }
 
+ZH_EXACT_EXPANSION_BATCH_621_ALIASES = {
+        "nicotinamidase": "烟酰胺酶",
+        "nicotinamide mononucleotide": "烟酰胺单核苷酸",
+        "nicotinamide n-methyltransferase": "烟酰胺N-甲基转移酶",
+        "nicotinamide phosphoribosyltransferase": "烟酰胺磷酸核糖转移酶",
+        "nicotinamide-nucleotide adenylyltransferase": "烟酰胺核苷酸腺苷酰转移酶",
+        "nicotinate-nucleotide diphosphorylase (carboxylating)": "烟酸核苷酸二磷酸化酶(羧化)",
+        "nicotine": "尼古丁",
+        "nicotine chewing gum": "尼古丁口香糖",
+}
+
+ZH_EXACT_EXPANSION_BATCH_622_ALIASES = {
+        "nicotine replacement therapy": "尼古丁替代疗法",
+        "nicotinic acetylcholine receptors study": "烟碱型乙酰胆碱受体研究",
+        "nicotinic agonists": "烟碱受体激动剂",
+        "nicotinic antagonists": "烟碱受体拮抗剂",
+        "nicotinyl alcohol": "烟醇",
+        "nictitating membrane": "瞬膜",
+        "nidovirales": "套式病毒目",
+        "nidovirales infections": "套式病毒目感染",
+}
+
+ZH_EXACT_EXPANSION_BATCH_623_ALIASES = {
+        "niemann-pick c1 protein": "尼曼-匹克C1蛋白",
+        "niemann-pick disease, type a": "A型尼曼-匹克病",
+        "niemann-pick disease, type b": "B型尼曼-匹克病",
+        "niemann-pick disease, type c": "C型尼曼-匹克病",
+        "niemann-pick diseases": "尼曼-匹克病",
+        "nietzsche, schopenhauer, and hegel": "尼采、叔本华与黑格尔",
+        "nifedipine": "硝苯地平",
+        "niflumic acid": "尼氟灭酸",
+}
+
+ZH_EXACT_EXPANSION_BATCH_624_ALIASES = {
+        "nifuratel": "硝呋太尔",
+        "nifurtimox": "硝呋替莫",
+        "nigella": "黑种草属",
+        "nigella damascena": "大马士革黑种草",
+        "nigella sativa": "黑种草",
+        "nigella sativa pharmacological applications": "黑种草药理应用",
+        "niger": "尼日尔",
+        "nigeria": "尼日利亚",
+}
+
+ZH_EXACT_EXPANSION_BATCH_625_ALIASES = {
+        "nigericin": "尼日利亚菌素",
+        "night blindness": "夜盲症",
+        "night care": "夜间护理",
+        "night eating syndrome": "夜食综合征",
+        "night terrors": "夜惊",
+        "night vision": "夜视",
+        "nih 3t3 cells": "NIH 3T3细胞",
+}
+
+ZH_EXACT_EXPANSION_BATCH_626_ALIASES = {
+        "night-time city culture": "夜间城市文化",
+        "nijmegen breakage syndrome": "奈梅亨断裂综合征",
+        "nikethamide": "尼可刹米",
+        "nima-interacting peptidylprolyl isomerase": "NIMA相互作用肽基脯氨酰异构酶",
+        "nima-related kinase 1": "NIMA相关激酶1",
+        "nima-related kinases": "NIMA相关激酶",
+        "nimaviridae": "尼玛病毒科",
+        "nimodipine": "尼莫地平",
+}
+
+ZH_EXACT_EXPANSION_BATCH_627_ALIASES = {
+        "nimorazole": "尼莫唑",
+        "nimustine": "尼莫司汀",
+        "ninhydrin": "茚三酮",
+        "nintendo wii": "任天堂Wii",
+        "niobium": "铌元素",
+        "niobium alloys": "铌合金",
+        "niobium compounds": "铌化合物",
+}
+
+ZH_EXACT_EXPANSION_BATCH_628_ALIASES = {
+        "niobium-tin": "铌锡",
+        "nipah virus": "尼帕病毒",
+        "nipple aspirate fluid": "乳头抽吸液",
+        "nipple discharge": "乳头溢液",
+        "nipples": "乳头",
+        "nippostrongylus": "尼普圆线虫属",
+        "niridazole": "尼立达唑",
+}
+
+ZH_EXACT_EXPANSION_BATCH_629_ALIASES = {
+        "nisin": "乳酸链球菌素",
+        "nisoldipine": "尼索地平",
+        "nissl bodies": "尼氏体",
+        "nitella": "丽藻属",
+        "nitrate reductase (nad(p)h)": "硝酸还原酶(NAD(P)H)",
+        "nitrate reductase (nadh)": "硝酸还原酶(NADH)",
+        "nitrate reductase (nadph)": "硝酸还原酶(NADPH)",
+        "nitrate reductases": "硝酸还原酶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_630_ALIASES = {
+        "nitrate transporters": "硝酸盐转运蛋白",
+        "nitrates": "硝酸盐",
+        "nitrazepam": "硝西泮",
+        "nitrendipine": "尼群地平",
+        "nitrergic neurons": "硝能神经元",
+        "nitric acid": "硝酸",
+        "nitric oxide": "一氧化氮",
+        "nitric oxide and endothelin effects": "一氧化氮与内皮素效应",
+}
+
+ZH_EXACT_EXPANSION_BATCH_631_ALIASES = {
+        "nitric oxide donors": "一氧化氮供体",
+        "nitric oxide synthase": "一氧化氮合酶",
+        "nitric oxide synthase type i": "I型一氧化氮合酶",
+        "nitric oxide synthase type ii": "II型一氧化氮合酶",
+        "nitric oxide synthase type iii": "III型一氧化氮合酶",
+        "nitrification": "硝化作用",
+        "nitriles": "腈类",
+        "nitrilotriacetic acid": "次氮基三乙酸",
+}
+
+ZH_EXACT_EXPANSION_BATCH_632_ALIASES = {
+        "nitrite reductase (nad(p)h)": "亚硝酸还原酶(NAD(P)H)",
+        "nitrite reductases": "亚硝酸还原酶",
+        "nitrites": "亚硝酸盐",
+        "nitro compounds": "硝基化合物",
+        "nitroanisole o-demethylase": "硝基苯甲醚O-去甲基化酶",
+        "nitroarginine": "硝基精氨酸",
+        "nitrobacter": "硝化杆菌属",
+        "nitrobenzenes": "硝基苯类",
+}
+
+ZH_EXACT_EXPANSION_BATCH_633_ALIASES = {
+        "nitrobenzoates": "硝基苯甲酸盐",
+        "nitroblue tetrazolium": "氮蓝四唑",
+        "nitrofurans": "硝基呋喃类",
+        "nitrofurantoin": "呋喃妥因",
+        "nitrofurazone": "呋喃西林",
+        "nitrogen": "氮元素",
+        "nitrogen and sulfur effects on brassica": "氮和硫对芸薹属的影响",
+}
+
+ZH_EXACT_EXPANSION_BATCH_634_ALIASES = {
+        "nitrogen compounds": "氮化合物",
+        "nitrogen cycle": "氮循环",
+        "nitrogen dioxide": "二氧化氮",
+        "nitrogen fixation": "固氮",
+        "nitrogen isotopes": "氮同位素",
+        "nitrogen mustard compounds": "氮芥类化合物",
+        "nitrogen oxides": "氮氧化物",
+}
+
+ZH_EXACT_EXPANSION_BATCH_635_ALIASES = {
+        "nitrogen radioisotopes": "氮放射性同位素",
+        "nitrogen-fixing bacteria": "固氮细菌",
+        "nitrogenase": "固氮酶",
+        "nitrogenous group transferases": "含氮基团转移酶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_636_ALIASES = {
+        "nitroglycerin": "硝酸甘油",
+        "nitrohydroxyiodophenylacetate": "硝基羟基碘苯乙酸",
+        "nitroimidazoles": "硝基咪唑类",
+        "nitromifene": "硝米芬",
+        "nitroparaffins": "硝基石蜡",
+        "nitrophenols": "硝基酚类",
+        "nitrophenylgalactosides": "硝基苯基半乳糖苷",
+        "nitroprusside": "硝普化物",
+}
+
+ZH_EXACT_EXPANSION_BATCH_637_ALIASES = {
+        "nitroquinolines": "硝基喹啉类",
+        "nitroreductases": "硝基还原酶",
+        "nitrosamines": "亚硝胺类",
+        "nitrosation": "亚硝化作用",
+        "nitrosative stress": "亚硝化应激",
+        "nitroso compounds": "亚硝基化合物",
+        "nitrosoguanidines": "亚硝基胍类",
+        "nitrosomethylurethane": "N-亚硝基-N-甲基氨基甲酸乙酯",
+}
+
+ZH_EXACT_EXPANSION_BATCH_638_ALIASES = {
+        "nitrosomonadaceae": "亚硝化单胞菌科",
+        "nitrosomonas": "亚硝化单胞菌属",
+        "nitrosomonas europaea": "欧洲亚硝化单胞菌",
+        "nitrosourea compounds": "亚硝基脲类化合物",
+        "nitrospirae": "硝化螺旋菌门",
+        "nitrous acid": "亚硝酸",
+        "nitrous oxide": "一氧化二氮",
+        "nitrovin": "硝呋烯腙",
+}
+
+ZH_EXACT_EXPANSION_BATCH_639_ALIASES = {
+        "nitroxinil": "硝碘酚腈",
+        "nivolumab": "纳武利尤单抗",
+        "nizatidine": "尼扎替丁",
+        "nk cell lectin-like receptor subfamily a": "NK细胞凝集素样受体A亚家族",
+        "nk cell lectin-like receptor subfamily b": "NK细胞凝集素样受体B亚家族",
+        "nk cell lectin-like receptor subfamily c": "NK细胞凝集素样受体C亚家族",
+        "nk cell lectin-like receptor subfamily d": "NK细胞凝集素样受体D亚家族",
+        "nlms": "归一化LMS",
+}
+
+ZH_EXACT_EXPANSION_BATCH_640_ALIASES = {
+        "nlms algorithm": "归一化LMS算法",
+        "nlr family, pyrin domain-containing 3 protein": "NLR家族含PYRIN结构域蛋白3",
+        "nlr proteins": "NLR蛋白",
+        "nm23 nucleoside diphosphate kinases": "NM23核苷二磷酸激酶",
+        "nmr spectroscopy and applications": "NMR光谱及应用",
+        "no-observed-adverse-effect level": "未观察到有害作用水平",
+        "no-reflow phenomenon": "无复流现象",
+        "no-show patients": "失约患者",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -15244,6 +15455,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_617_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_618_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_619_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_620_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_621_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_622_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_623_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_624_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_625_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_626_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_627_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_628_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_629_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_630_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_631_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_632_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_633_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_634_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_635_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_636_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_637_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_638_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_639_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_640_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",
