@@ -15052,6 +15052,226 @@ ZH_EXACT_EXPANSION_BATCH_660_ALIASES = {
         "notch filters": "陷波滤波器",
 }
 
+ZH_EXACT_EXPANSION_BATCH_661_ALIASES = {
+        "norm-bounded uncertainty": "范数有界不确定性",
+        "normal basis": "正规基",
+        "normal behavior": "正常行为",
+        "normalized cross correlation": "归一化互相关",
+        "normalized cuts": "归一化割",
+        "normalized difference vegetation index": "归一化差异植被指数",
+        "normalized difference water index": "归一化差异水体指数",
+        "normalized least mean square": "归一化最小均方",
+}
+
+ZH_EXACT_EXPANSION_BATCH_662_ALIASES = {
+        "normalized mutual information": "归一化互信息",
+        "normetanephrine": "去甲变肾上腺素",
+        "norovirus": "诺如病毒",
+        "norfenfluramine": "去甲芬氟拉明",
+        "norgestrienone": "诺孕三烯酮",
+        "norleucine": "正亮氨酸",
+        "north african history and literature": "北非历史与文学",
+        "north african people": "北非人群",
+}
+
+ZH_EXACT_EXPANSION_BATCH_663_ALIASES = {
+        "north america": "北美",
+        "north american people": "北美人群",
+        "north asian people": "北亚人群",
+        "north carolina": "北卡罗来纳州",
+        "north dakota": "北达科他州",
+        "north pole": "北极",
+        "north sea": "北海",
+        "northern ireland": "北爱尔兰",
+}
+
+ZH_EXACT_EXPANSION_BATCH_664_ALIASES = {
+        "northern territory": "北领地",
+        "northwest territories": "西北地区",
+        "northwestern united states": "美国西北部",
+        "nortropanes": "去甲托烷类",
+        "norwood procedures": "诺伍德手术",
+        "noscapine": "那可汀",
+        "nose": "鼻部",
+        "nose neoplasms": "鼻肿瘤",
+}
+
+ZH_EXACT_EXPANSION_BATCH_665_ALIASES = {
+        "nosema": "微孢子虫属",
+        "nosql": "NoSQL技术",
+        "nosql databases": "NoSQL数据库",
+        "nostalgia and consumer behavior": "怀旧与消费者行为",
+        "nostoc": "念珠藻属",
+        "nostoc commune": "普通念珠藻",
+        "notochord": "脊索",
+        "nuchal cord": "脐带绕颈",
+}
+
+ZH_EXACT_EXPANSION_BATCH_666_ALIASES = {
+        "nuchal translucency measurement": "颈项透明层测量",
+        "nuclear and plasma sciences": "核与等离子体科学",
+        "nuclear astrophysics": "核天体物理学",
+        "nuclear bodies": "核体",
+        "nuclear cap-binding protein complex": "核帽结合蛋白复合体",
+        "nuclear data analysis & compilation": "核数据分析与汇编",
+        "nuclear density functional theory": "核密度泛函理论",
+        "nuclear electronics": "核电子学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_667_ALIASES = {
+        "nuclear energy": "核能",
+        "nuclear engineering": "核工程",
+        "nuclear engineering thermal-hydraulics": "核工程热工水力学",
+        "nuclear envelope": "核膜",
+        "nuclear experiment": "核实验",
+        "nuclear explosions": "核爆炸",
+        "nuclear export signals": "核输出信号",
+        "nuclear factor 45 protein": "核因子45蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_668_ALIASES = {
+        "nuclear factor 90 proteins": "核因子90蛋白",
+        "nuclear facility regulation": "核设施监管",
+        "nuclear family": "核心家庭",
+        "nuclear fission": "核裂变",
+        "nuclear fusion": "核聚变",
+        "nuclear imaging": "核成像",
+        "nuclear issues and defense": "核问题与防务",
+        "nuclear lamina": "核纤层",
+}
+
+ZH_EXACT_EXPANSION_BATCH_669_ALIASES = {
+        "nuclear localization signals": "核定位信号",
+        "nuclear magnetic resonance": "核磁共振",
+        "nuclear magnetic resonance, biomolecular": "生物分子核磁共振",
+        "nuclear many-body theory": "核多体理论",
+        "nuclear materials and properties": "核材料与性能",
+        "nuclear materials and radiation effects": "核材料与辐射效应",
+        "nuclear matrix": "核基质",
+        "nuclear medicine department, hospital": "医院核医学科",
+}
+
+ZH_EXACT_EXPANSION_BATCH_670_ALIASES = {
+        "nuclear microscopy": "核显微术",
+        "nuclear pharmacy": "核药学",
+        "nuclear phase transformations": "核相变",
+        "nuclear physics": "核物理学",
+        "nuclear plant": "核电站",
+        "nuclear pore": "核孔",
+        "nuclear pore complex proteins": "核孔复合体蛋白",
+        "nuclear reactors": "核反应堆",
+}
+
+ZH_EXACT_EXPANSION_BATCH_671_ALIASES = {
+        "nuclear reactor accidents": "核反应堆事故",
+        "nuclear reactor physics and engineering": "核反应堆物理与工程",
+        "nuclear receptors and signaling": "核受体与信号传导",
+        "nuclear receptor co-repressor 1": "核受体共抑制因子1",
+        "nuclear receptor co-repressor 2": "核受体共抑制因子2",
+        "nuclear receptor coactivators": "核受体共激活因子",
+        "nuclear receptor coactivator 1": "核受体共激活因子1",
+        "nuclear receptor coactivator 2": "核受体共激活因子2",
+}
+
+ZH_EXACT_EXPANSION_BATCH_672_ALIASES = {
+        "nuclear receptor coactivator 3": "核受体共激活因子3",
+        "nuclear receptor interacting protein 1": "核受体相互作用蛋白1",
+        "nuclear receptor subfamily 1, group d, member 1": "核受体亚家族1D组成员1",
+        "nuclear receptor subfamily 1, group f, member 1": "核受体亚家族1F组成员1",
+        "nuclear receptor subfamily 1, group f, member 2": "核受体亚家族1F组成员2",
+        "nuclear receptor subfamily 1, group f, member 3": "核受体亚家族1F组成员3",
+        "nuclear receptor subfamily 2, group c, member 1": "核受体亚家族2C组成员1",
+        "nuclear receptor subfamily 2, group c, member 2": "核受体亚家族2C组成员2",
+}
+
+ZH_EXACT_EXPANSION_BATCH_673_ALIASES = {
+        "nuclear receptor subfamily 4, group a, member 1": "核受体亚家族4A组成员1",
+        "nuclear receptor subfamily 4, group a, member 2": "核受体亚家族4A组成员2",
+        "nuclear receptor subfamily 4, group a, member 3": "核受体亚家族4A组成员3",
+        "nuclear receptor subfamily 6, group a, member 1": "核受体亚家族6A组成员1",
+        "nuclear speckles": "核斑",
+        "nuclear structure and function": "核结构与功能",
+        "nuclear transfer techniques": "核移植技术",
+        "nuclear warfare": "核战争",
+}
+
+ZH_EXACT_EXPANSION_BATCH_674_ALIASES = {
+        "nuclear weapons": "核武器",
+        "nuclease protection assays": "核酸酶保护实验",
+        "nucleic acid amplification techniques": "核酸扩增技术",
+        "nucleic acid-based vaccines": "核酸疫苗",
+        "nucleic acid conformation": "核酸构象",
+        "nucleic acid denaturation": "核酸变性",
+        "nucleic acid heteroduplexes": "核酸异源双链",
+        "nucleic acids, nucleotides, and nucleosides": "核酸、核苷酸和核苷",
+}
+
+ZH_EXACT_EXPANSION_BATCH_675_ALIASES = {
+        "nucleic acid precursors": "核酸前体",
+        "nucleic acid probes": "核酸探针",
+        "nucleic acid renaturation": "核酸复性",
+        "nucleobase transport proteins": "核碱基转运蛋白",
+        "nucleocapsid": "核衣壳",
+        "nucleocapsid proteins": "核衣壳蛋白",
+        "nucleocytoplasmic transport proteins": "核质转运蛋白",
+        "nucleolin": "核仁素",
+}
+
+ZH_EXACT_EXPANSION_BATCH_676_ALIASES = {
+        "nucleolus organizer region": "核仁组织区",
+        "nucleons": "核子",
+        "nucleophosmin": "核磷蛋白",
+        "nucleoproteins": "核蛋白",
+        "nucleosides": "核苷",
+        "nucleoside deaminases": "核苷脱氨酶",
+        "nucleoside-diphosphate kinase": "核苷二磷酸激酶",
+        "nucleoside diphosphate sugars": "核苷二磷酸糖",
+}
+
+ZH_EXACT_EXPANSION_BATCH_677_ALIASES = {
+        "nucleoside-phosphate kinase": "核苷磷酸激酶",
+        "nucleoside transport proteins": "核苷转运蛋白",
+        "nucleoside-triphosphatase": "核苷三磷酸酶",
+        "nucleosomes": "核小体",
+        "nucleosome assembly protein 1": "核小体组装蛋白1",
+        "nucleotides, cyclic": "环核苷酸",
+        "nucleotidases": "核苷酸酶",
+        "nucleotide deaminases": "核苷酸脱氨酶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_678_ALIASES = {
+        "nucleotide motifs": "核苷酸基序",
+        "nucleotide transport proteins": "核苷酸转运蛋白",
+        "nucleotidyltransferases": "核苷酸转移酶",
+        "nucleus accumbens": "伏隔核",
+        "nucleus pulposus": "髓核",
+        "nudix hydrolases": "Nudix水解酶",
+        "null space": "零空间",
+        "null value": "空值",
+}
+
+ZH_EXACT_EXPANSION_BATCH_679_ALIASES = {
+        "numbers needed to treat": "需治数",
+        "number of clusters": "聚类数",
+        "number of hops": "跳数",
+        "number of state": "状态数",
+        "number of threads": "线程数",
+        "number of vehicles": "车辆数",
+        "numerical analysis, computer-assisted": "计算机辅助数值分析",
+        "numerical control": "数控",
+}
+
+ZH_EXACT_EXPANSION_BATCH_680_ALIASES = {
+        "numerical control systems": "数控系统",
+        "numerical experiments": "数值实验",
+        "numerical integration": "数值积分",
+        "numerical integration methods": "数值积分方法",
+        "numerical methods for differential equations": "微分方程数值方法",
+        "numerical models": "数值模型",
+        "numerical scheme": "数值格式",
+        "numerical solution": "数值解",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -15714,6 +15934,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_657_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_658_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_659_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_660_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_661_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_662_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_663_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_664_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_665_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_666_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_667_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_668_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_669_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_670_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_671_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_672_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_673_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_674_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_675_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_676_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_677_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_678_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_679_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_680_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",

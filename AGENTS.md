@@ -153,48 +153,68 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-18 zh-exact-expansion-batch-641-to-660 后）：
+最新已知状态（2026-06-18 zh-exact-expansion-batch-661-to-680 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`11783 / 48890 = 24.10%`
-- runtime zh aliases: `11796`
+- runtime 中文覆盖：`11914 / 48891 = 24.37%`
+- runtime zh aliases: `11927`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `11796`
-- `zh:blocked`: `11625`
+- `zh:accept`: `11927`
+- `zh:blocked`: `11620`
 - `zh:needs_review`: `0`
 - `zh:reject`: `151`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `48890`
+- runtime concept aliases: `48891`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
-- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-660 运行时以 compact index/manifest 为准）
+- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-680 运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `9f4c87ec3c27b6f495f62e3104249383ed1ab04db27f7bff22cc241500a463e5`
+  `fca124bef5c5d4d455e865ca9df8358bf79d9d61cd176e723ce70c28858b55ab`
 - compact manifest SHA-256:
-  `a4b52e555b401fff1e9abd403fa3c2a808bfc8918d8973aeea1529a21222cc10`
+  `7875059787235bc7ee6f6723e4717cd51839a1dda41b5232125cb20a94596c80`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact index 是 batch-660 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-660 更新，不再作为默认等价检查对象。
-- 最近相关测试：`723 passed in 3.85s`。
+- compact index 是 batch-680 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-680 更新，不再作为默认等价检查对象。
+- 最近相关测试：`743 passed in 5.32s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- batch-641 至 batch-660 中文 coverage 扩展已完成，runtime 中文覆盖已到 `24.10%`；用户当前目标是继续 20-batch 分组推进到 `>25%`，尚未达成；
+- batch-661 至 batch-680 中文 coverage 扩展已完成，runtime 中文覆盖已到 `24.37%`；用户当前目标是继续 20-batch 分组推进到 `>25%`，尚未达成；
 - post-20% 质量复盘和窄 L6 treemap/text fallback 修复已完成；当前主线回到 exact/domain-aware 中文 alias 覆盖扩展；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
+- 最新 batch-661 至 batch-680 exact/domain-aware 小批次已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_661_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_680_ALIASES`，覆盖 normalized/Nor/North/Nose/NoSQL/Nuchal、nuclear/nucleic/nucleotide、number/numerical 等 exact/domain-aware 术语；
+  - 新增 `20` 个代表性回归测试，先红灯后转绿；其中修正 `Nuclear Family -> 核心家庭`、`Nuclear Structure And Function -> 核结构与功能`、`Number Of Hops -> 跳数`、`Numerical Control Systems -> 数控系统` 等坏形态或词序；
+  - grouped L3-L5：fill `records_filled = 23496`，validate `review_decisions = 372811`；
+  - 显式接受 `132` 条 exact/domain-aware recommendation；
+  - 显式阻断 `5` 条由 exact 组件引发的 side-effect：`5核苷酸酶`、`核物理学与应用`、`核物理学研究`、`核苷Q`、`RNA核苷酸转移酶`；
+  - duplicate/collision exact 输出继续不自动 merge；
+  - runtime 中文覆盖从 `11783 / 48890 = 24.10%` 增至 `11914 / 48891 = 24.37%`；
+  - `zh:accept`: `11927`，`zh:blocked`: `11620`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `fca124bef5c5d4d455e865ca9df8358bf79d9d61cd176e723ce70c28858b55ab`；
+  - compact manifest SHA-256: `7875059787235bc7ee6f6723e4717cd51839a1dda41b5232125cb20a94596c80`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - query smoke 已确认 `核受体与信号传导` 可命中；
+  - 相关测试：`743 passed in 5.32s`。
+- batch-680 后 review：
+  - 本轮新增 `131` 个 runtime zh-covered concepts，覆盖率增至 `24.37%`，仍未达到 `>25%`；
+  - side-effect `5` 条已显式 blocked，其中 `核物理学与应用`、`核物理学研究`、`核苷Q` 后续可通过独立 exact/domain-specific review 重开；
+  - 下一轮应继续 batch-681 至 batch-700，优先从 NURBS/Nursing/Nutrition/Obesity/Object 等高确定性 exact 术语推进。
 - post-20% 复盘要点：
   - 质量审计 artifact:
     `F:\AI playground\TempFiles\theme_alias_post20_quality_review.json`；
