@@ -15712,6 +15712,226 @@ ZH_EXACT_EXPANSION_BATCH_720_ALIASES = {
         "oligospermia": "少精子症",
 }
 
+ZH_EXACT_EXPANSION_BATCH_721_ALIASES = {
+        "oliguria": "少尿",
+        "olivary degeneration": "橄榄体变性",
+        "olivary nucleus": "橄榄核",
+        "olive oil": "橄榄油",
+        "olivomycins": "橄榄霉素类",
+        "olivopontocerebellar atrophies": "橄榄体脑桥小脑萎缩症",
+        "olmesartan medoxomil": "奥美沙坦酯",
+        "olopatadine hydrochloride": "盐酸奥洛他定",
+}
+
+ZH_EXACT_EXPANSION_BATCH_722_ALIASES = {
+        "olsr": "优化链路状态路由",
+        "olsr protocols": "OLSR协议",
+        "omalizumab": "奥马珠单抗",
+        "oman": "阿曼",
+        "omasum": "瓣胃",
+        "omentum": "网膜",
+        "omeprazole": "奥美拉唑",
+        "omni-directional antenna": "全向天线",
+}
+
+ZH_EXACT_EXPANSION_BATCH_723_ALIASES = {
+        "omnidirectional antennas": "全向天线",
+        "omnidirectional mobile robot": "全向移动机器人",
+        "omnidirectional radiation pattern": "全向辐射方向图",
+        "omphalocele": "脐膨出",
+        "on board unit": "车载单元",
+        "on-body": "体表",
+        "on-chip cache": "片上缓存",
+        "on chip interconnect": "片上互连",
+}
+
+ZH_EXACT_EXPANSION_BATCH_724_ALIASES = {
+        "on-chip interconnection network": "片上互连网络",
+        "on chip memory": "片上存储器",
+        "on-chip networks": "片上网络",
+        "on-demand routing protocol": "按需路由协议",
+        "on-line algorithm": "在线算法",
+        "on-line communities": "在线社区",
+        "on-line education": "在线教育",
+        "on-line learning": "在线学习",
+}
+
+ZH_EXACT_EXPANSION_BATCH_725_ALIASES = {
+        "on-line setting": "在线环境",
+        "on-line social networks": "在线社交网络",
+        "on the job training": "在职培训",
+        "onagraceae": "柳叶菜科",
+        "onchocerca": "盘尾丝虫属",
+        "onchocerca volvulus": "旋盘尾丝虫",
+        "onchocerciasis": "盘尾丝虫病",
+        "onchocerciasis, ocular": "眼盘尾丝虫病",
+}
+
+ZH_EXACT_EXPANSION_BATCH_726_ALIASES = {
+        "onco-anesthesia": "肿瘤麻醉",
+        "oncogene addiction": "癌基因成瘾",
+        "oncogene fusion": "癌基因融合",
+        "oncogene proteins": "癌基因蛋白",
+        "oncogene proteins, fusion": "融合癌基因蛋白",
+        "oncogene protein gp140(v-fms)": "癌基因蛋白gp140(v-fms)",
+        "oncogene protein p21(ras)": "癌基因蛋白p21(ras)",
+        "oncogene protein p55(v-myc)": "癌基因蛋白p55(v-myc)",
+}
+
+ZH_EXACT_EXPANSION_BATCH_727_ALIASES = {
+        "oncogene protein p65(gag-jun)": "癌基因蛋白p65(gag-jun)",
+        "oncogene protein pp60(v-src)": "癌基因蛋白pp60(v-src)",
+        "oncogene protein tpr-met": "癌基因蛋白Tpr-met",
+        "oncogene proteins v-abl": "V-abl癌基因蛋白",
+        "oncogene protein v-akt": "V-akt癌基因蛋白",
+        "oncogene protein v-cbl": "V-cbl癌基因蛋白",
+        "oncogene protein v-crk": "V-crk癌基因蛋白",
+        "oncogene proteins v-erba": "V-erba癌基因蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_728_ALIASES = {
+        "oncogene proteins v-erbb": "V-erbb癌基因蛋白",
+        "oncogene proteins v-fos": "V-fos癌基因蛋白",
+        "oncogene protein v-maf": "V-maf癌基因蛋白",
+        "oncogene proteins v-mos": "V-mos癌基因蛋白",
+        "oncogene proteins v-myb": "V-myb癌基因蛋白",
+        "oncogene proteins v-raf": "V-raf癌基因蛋白",
+        "oncogene proteins v-rel": "V-rel癌基因蛋白",
+        "oncogene proteins v-sis": "V-sis癌基因蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_729_ALIASES = {
+        "oncogene proteins, viral": "病毒癌基因蛋白",
+        "oncogenic viruses": "致癌病毒",
+        "oncologists": "肿瘤科医生",
+        "oncology": "肿瘤学",
+        "oncology nursing": "肿瘤护理",
+        "oncology service, hospital": "医院肿瘤科",
+        "oncolytic virotherapy": "溶瘤病毒疗法",
+        "oncolytic viruses": "溶瘤病毒",
+}
+
+ZH_EXACT_EXPANSION_BATCH_730_ALIASES = {
+        "oncorhynchus": "大麻哈鱼属",
+        "oncorhynchus keta": "大麻哈鱼",
+        "oncorhynchus kisutch": "银大麻哈鱼",
+        "oncorhynchus mykiss": "虹鳟",
+        "oncostatin m": "抑瘤素M",
+        "oncostatin m receptor beta subunit": "抑瘤素M受体β亚基",
+        "ondansetron": "昂丹司琼",
+        "one dimensional": "一维",
+}
+
+ZH_EXACT_EXPANSION_BATCH_731_ALIASES = {
+        "one-carbon group transferases": "一碳基团转移酶",
+        "one health": "同一健康",
+        "one-lung ventilation": "单肺通气",
+        "one shot learning": "单样本学习",
+        "one-time passwords": "一次性密码",
+        "one-way hash function": "单向哈希函数",
+        "onecut transcription factors": "Onecut转录因子",
+        "onions": "洋葱",
+}
+
+ZH_EXACT_EXPANSION_BATCH_732_ALIASES = {
+        "onion routing": "洋葱路由",
+        "onium compounds": "鎓化合物",
+        "online and blended learning": "在线与混合式学习",
+        "online auction": "在线拍卖",
+        "online banking": "网上银行",
+        "online conferencing": "在线会议",
+        "online consumers": "在线消费者",
+        "online course": "在线课程",
+}
+
+ZH_EXACT_EXPANSION_BATCH_733_ALIASES = {
+        "online environments": "在线环境",
+        "online learning algorithms": "在线学习算法",
+        "online learning and analytics": "在线学习与分析",
+        "online learning environment": "在线学习环境",
+        "online learning methods and innovations": "在线学习方法与创新",
+        "online privacy": "在线隐私",
+        "online problems": "在线问题",
+        "online products": "在线产品",
+}
+
+ZH_EXACT_EXPANSION_BATCH_734_ALIASES = {
+        "online scheduling": "在线调度",
+        "online searching": "在线搜索",
+        "online services": "在线服务",
+        "online shopping": "网上购物",
+        "online social networkings": "在线社交网络",
+        "online social networking": "在线社交网络",
+        "online system": "在线系统",
+        "online systems": "在线系统",
+}
+
+ZH_EXACT_EXPANSION_BATCH_735_ALIASES = {
+        "online teaching": "在线教学",
+        "online transaction processing": "联机事务处理",
+        "online versions": "在线版本",
+        "only child": "独生子女",
+        "ontario": "安大略省",
+        "ontologies": "本体",
+        "ontology alignment": "本体对齐",
+        "ontology-based data access": "基于本体的数据访问",
+}
+
+ZH_EXACT_EXPANSION_BATCH_736_ALIASES = {
+        "ontology building": "本体构建",
+        "ontology concepts": "本体概念",
+        "ontology construction": "本体构建",
+        "ontology design": "本体设计",
+        "ontology development": "本体开发",
+        "ontology evaluation": "本体评估",
+        "ontology evolution": "本体演化",
+        "ontology integration": "本体集成",
+}
+
+ZH_EXACT_EXPANSION_BATCH_737_ALIASES = {
+        "ontology language": "本体语言",
+        "ontology learning": "本体学习",
+        "ontology merging": "本体合并",
+        "ontology modeling": "本体建模",
+        "ontology pattern": "本体模式",
+        "ontology technology": "本体技术",
+        "onycholysis": "甲剥离症",
+        "onychomycosis": "甲真菌病",
+}
+
+ZH_EXACT_EXPANSION_BATCH_738_ALIASES = {
+        "oocysts": "卵囊",
+        "oocytes": "卵母细胞",
+        "oocyte donation": "卵母细胞捐献",
+        "oocyte retrieval": "取卵",
+        "ood detection": "分布外检测",
+        "ood generalization": "分布外泛化",
+        "oogenesis": "卵子发生",
+        "oogonia": "卵原细胞",
+}
+
+ZH_EXACT_EXPANSION_BATCH_739_ALIASES = {
+        "oogonial stem cells": "卵原干细胞",
+        "oomycetes": "卵菌",
+        "oophoritis": "卵巢炎",
+        "open abdomen techniques": "开放腹腔技术",
+        "open access": "开放获取",
+        "open access publishing": "开放获取出版",
+        "open banking": "开放银行",
+        "open data": "开放数据",
+}
+
+ZH_EXACT_EXPANSION_BATCH_740_ALIASES = {
+        "open education and e-learning": "开放教育与电子学习",
+        "open educational resources": "开放教育资源",
+        "open field test": "旷场实验",
+        "open fracture reduction": "开放复位",
+        "open loop control": "开环控制",
+        "open loop systems": "开环系统",
+        "open ran": "开放式无线接入网",
+        "open reading frames": "开放阅读框",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -16434,6 +16654,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_717_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_718_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_719_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_720_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_721_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_722_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_723_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_724_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_725_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_726_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_727_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_728_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_729_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_730_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_731_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_732_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_733_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_734_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_735_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_736_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_737_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_738_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_739_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_740_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",

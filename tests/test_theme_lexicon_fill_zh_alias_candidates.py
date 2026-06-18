@@ -14699,6 +14699,286 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_721_adds_olive_and_olmesartan_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("oliguria", "Oliguria", ["biomedical", "diseases"], "少尿"),
+                ("olivary_degeneration", "Olivary Degeneration", ["biomedical", "diseases"], "橄榄体变性"),
+                ("olivary_nucleu", "Olivary Nucleus", ["anatomy", "biomedical"], "橄榄核"),
+                ("olive_oil", "Olive Oil", ["biomedical", "chemicals_and_drugs"], "橄榄油"),
+                ("olivomycin", "Olivomycins", ["biomedical", "chemicals_and_drugs"], "橄榄霉素类"),
+                ("olivopontocerebellar_atrophy", "Olivopontocerebellar Atrophies", ["biomedical", "diseases"], "橄榄体脑桥小脑萎缩症"),
+                ("olmesartan_medoxomil", "Olmesartan Medoxomil", ["biomedical", "chemicals_and_drugs"], "奥美沙坦酯"),
+                ("olopatadine_hydrochloride", "Olopatadine Hydrochloride", ["biomedical", "chemicals_and_drugs"], "盐酸奥洛他定"),
+            ]
+        )
+
+    def test_exact_expansion_batch_722_adds_olsr_and_omni_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("olsr", "Olsr", ["computer_science"], "优化链路状态路由"),
+                ("olsr_protocol", "Olsr Protocols", ["computer_science"], "OLSR协议"),
+                ("omalizumab", "Omalizumab", ["biomedical", "chemicals_and_drugs"], "奥马珠单抗"),
+                ("oman", "Oman", ["biomedical", "geographicals"], "阿曼"),
+                ("omasum", "Omasum", ["anatomy", "biomedical"], "瓣胃"),
+                ("omentum", "Omentum", ["anatomy", "biomedical"], "网膜"),
+                ("omeprazole", "Omeprazole", ["biomedical", "chemicals_and_drugs"], "奥美拉唑"),
+                ("omni_directional_antenna", "Omni-directional Antenna", ["computer_science"], "全向天线"),
+            ]
+        )
+
+    def test_exact_expansion_batch_723_adds_omnidirectional_and_on_chip_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("omnidirectional_antenna", "Omnidirectional Antennas", ["antennas_and_propagation"], "全向天线"),
+                ("omnidirectional_mobile_robot", "Omnidirectional Mobile Robot", ["computer_science"], "全向移动机器人"),
+                ("omnidirectional_radiation_pattern", "Omnidirectional Radiation Pattern", ["computer_science"], "全向辐射方向图"),
+                ("omphalocele", "Omphalocele", ["biomedical", "diseases"], "脐膨出"),
+                ("on_board_unit", "On Board Unit", ["communications_technology"], "车载单元"),
+                ("on_body", "On-body", ["computer_science"], "体表"),
+                ("on_chip_cache", "On-chip Cache", ["computer_science"], "片上缓存"),
+                ("on_chip_interconnect", "On Chip Interconnect", ["computer_science"], "片上互连"),
+            ]
+        )
+
+    def test_exact_expansion_batch_724_adds_online_learning_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("on_chip_interconnection_network", "On-chip Interconnection Network", ["computer_science"], "片上互连网络"),
+                ("on_chip_memory", "On Chip Memory", ["computer_science"], "片上存储器"),
+                ("on_chip_network", "On-chip Networks", ["computer_science"], "片上网络"),
+                ("on_demand_routing_protocol", "On-demand Routing Protocol", ["computer_science"], "按需路由协议"),
+                ("on_line_algorithm", "On-line Algorithm", ["computer_science"], "在线算法"),
+                ("on_line_community", "On-line Communities", ["computer_science"], "在线社区"),
+                ("on_line_education", "On-line Education", ["computer_science"], "在线教育"),
+                ("on_line_learning", "On-line Learning", ["computer_science"], "在线学习"),
+            ]
+        )
+
+    def test_exact_expansion_batch_725_adds_onchocerca_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("on_line_setting", "On-line Setting", ["computer_science"], "在线环境"),
+                ("on_line_social_network", "On-line Social Networks", ["computer_science"], "在线社交网络"),
+                ("on_the_job_training", "On The Job Training", ["education"], "在职培训"),
+                ("onagraceae", "Onagraceae", ["biomedical", "organisms"], "柳叶菜科"),
+                ("onchocerca", "Onchocerca", ["biomedical", "organisms"], "盘尾丝虫属"),
+                ("onchocerca_volvulu", "Onchocerca Volvulus", ["biomedical", "organisms"], "旋盘尾丝虫"),
+                ("onchocerciasi", "Onchocerciasis", ["biomedical", "diseases"], "盘尾丝虫病"),
+                ("onchocerciasi_ocular", "Onchocerciasis, Ocular", ["biomedical", "diseases"], "眼盘尾丝虫病"),
+            ]
+        )
+
+    def test_exact_expansion_batch_726_adds_oncogene_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("onco_anesthesia", "Onco-anesthesia", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "肿瘤麻醉"),
+                ("oncogene_addiction", "Oncogene Addiction", ["biomedical", "diseases"], "癌基因成瘾"),
+                ("oncogene_fusion", "Oncogene Fusion", ["biomedical", "phenomena_and_processes"], "癌基因融合"),
+                ("oncogene_protein", "Oncogene Proteins", ["biomedical", "chemicals_and_drugs"], "癌基因蛋白"),
+                ("oncogene_protein_fusion", "Oncogene Proteins, Fusion", ["computer_science"], "融合癌基因蛋白"),
+                ("oncogene_protein_gp140_v_fms", "Oncogene Protein Gp140(v-fms)", ["biomedical", "chemicals_and_drugs"], "癌基因蛋白gp140(v-fms)"),
+                ("oncogene_protein_p21_ras", "Oncogene Protein P21(ras)", ["biomedical", "chemicals_and_drugs"], "癌基因蛋白p21(ras)"),
+                ("oncogene_protein_p55_v_myc", "Oncogene Protein P55(v-myc)", ["biomedical", "chemicals_and_drugs"], "癌基因蛋白p55(v-myc)"),
+            ]
+        )
+
+    def test_exact_expansion_batch_727_adds_v_oncogene_protein_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("oncogene_protein_p65_gag_jun", "Oncogene Protein P65(gag-jun)", ["biomedical", "chemicals_and_drugs"], "癌基因蛋白p65(gag-jun)"),
+                ("oncogene_protein_pp60_v_src", "Oncogene Protein Pp60(v-src)", ["biomedical", "chemicals_and_drugs"], "癌基因蛋白pp60(v-src)"),
+                ("oncogene_protein_tpr_met", "Oncogene Protein Tpr-met", ["biomedical", "chemicals_and_drugs"], "癌基因蛋白Tpr-met"),
+                ("oncogene_protein_v_abl", "Oncogene Proteins V-abl", ["biomedical", "chemicals_and_drugs"], "V-abl癌基因蛋白"),
+                ("oncogene_protein_v_akt", "Oncogene Protein V-akt", ["biomedical", "chemicals_and_drugs"], "V-akt癌基因蛋白"),
+                ("oncogene_protein_v_cbl", "Oncogene Protein V-cbl", ["biomedical", "chemicals_and_drugs"], "V-cbl癌基因蛋白"),
+                ("oncogene_protein_v_crk", "Oncogene Protein V-crk", ["biomedical", "chemicals_and_drugs"], "V-crk癌基因蛋白"),
+                ("oncogene_protein_v_erba", "Oncogene Proteins V-erba", ["biomedical", "chemicals_and_drugs"], "V-erba癌基因蛋白"),
+            ]
+        )
+
+    def test_exact_expansion_batch_728_adds_more_v_oncogene_protein_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("oncogene_protein_v_erbb", "Oncogene Proteins V-erbb", ["biomedical", "chemicals_and_drugs"], "V-erbb癌基因蛋白"),
+                ("oncogene_protein_v_fos", "Oncogene Proteins V-fos", ["biomedical", "chemicals_and_drugs"], "V-fos癌基因蛋白"),
+                ("oncogene_protein_v_maf", "Oncogene Protein V-maf", ["biomedical", "chemicals_and_drugs"], "V-maf癌基因蛋白"),
+                ("oncogene_protein_v_mos", "Oncogene Proteins V-mos", ["biomedical", "chemicals_and_drugs"], "V-mos癌基因蛋白"),
+                ("oncogene_protein_v_myb", "Oncogene Proteins V-myb", ["biomedical", "chemicals_and_drugs"], "V-myb癌基因蛋白"),
+                ("oncogene_protein_v_raf", "Oncogene Proteins V-raf", ["biomedical", "chemicals_and_drugs"], "V-raf癌基因蛋白"),
+                ("oncogene_protein_v_rel", "Oncogene Proteins V-rel", ["biomedical", "chemicals_and_drugs"], "V-rel癌基因蛋白"),
+                ("oncogene_protein_v_sis", "Oncogene Proteins V-sis", ["biomedical", "chemicals_and_drugs"], "V-sis癌基因蛋白"),
+            ]
+        )
+
+    def test_exact_expansion_batch_729_adds_oncology_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("oncogene_protein_viral", "Oncogene Proteins, Viral", ["biomedical", "chemicals_and_drugs"], "病毒癌基因蛋白"),
+                ("oncogenic_viruse", "Oncogenic Viruses", ["biomedical", "organisms"], "致癌病毒"),
+                ("oncologist", "Oncologists", ["biomedical", "named_groups"], "肿瘤科医生"),
+                ("oncology", "Oncology", ["engineering_in_medicine_and_biology"], "肿瘤学"),
+                ("oncology_nursing", "Oncology Nursing", ["biomedical", "disciplines_and_occupations"], "肿瘤护理"),
+                ("oncology_service_hospital", "Oncology Service, Hospital", ["biomedical", "health_care"], "医院肿瘤科"),
+                ("oncolytic_virotherapy", "Oncolytic Virotherapy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "溶瘤病毒疗法"),
+                ("oncolytic_viruse", "Oncolytic Viruses", ["biomedical", "organisms"], "溶瘤病毒"),
+            ]
+        )
+
+    def test_exact_expansion_batch_730_adds_oncorhynchus_and_one_dimensional_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("oncorhynchu", "Oncorhynchus", ["biomedical", "organisms"], "大麻哈鱼属"),
+                ("oncorhynchu_keta", "Oncorhynchus Keta", ["biomedical", "organisms"], "大麻哈鱼"),
+                ("oncorhynchu_kisutch", "Oncorhynchus Kisutch", ["biomedical", "organisms"], "银大麻哈鱼"),
+                ("oncorhynchu_mykiss", "Oncorhynchus Mykiss", ["biomedical", "organisms"], "虹鳟"),
+                ("oncostatin_m", "Oncostatin M", ["biomedical", "chemicals_and_drugs"], "抑瘤素M"),
+                ("oncostatin_m_receptor_beta_subunit", "Oncostatin M Receptor Beta Subunit", ["biomedical", "chemicals_and_drugs"], "抑瘤素M受体β亚基"),
+                ("ondansetron", "Ondansetron", ["biomedical", "chemicals_and_drugs"], "昂丹司琼"),
+                ("one_dimensional", "One Dimensional", ["computer_science"], "一维"),
+            ]
+        )
+
+    def test_exact_expansion_batch_731_adds_one_health_and_onion_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("one_carbon_group_transferase", "One-carbon Group Transferases", ["biomedical", "chemicals_and_drugs"], "一碳基团转移酶"),
+                ("one_health", "One Health", ["biomedical", "health_care"], "同一健康"),
+                ("one_lung_ventilation", "One-lung Ventilation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "单肺通气"),
+                ("one_shot_learning", "One Shot Learning", ["computational_and_artificial_intelligence"], "单样本学习"),
+                ("one_time_password", "One-time Passwords", ["computer_science"], "一次性密码"),
+                ("one_way_hash_function", "One-way Hash Function", ["computer_science"], "单向哈希函数"),
+                ("onecut_transcription_factor", "Onecut Transcription Factors", ["biomedical", "chemicals_and_drugs"], "Onecut转录因子"),
+                ("onion", "Onions", ["biomedical", "organisms"], "洋葱"),
+            ]
+        )
+
+    def test_exact_expansion_batch_732_adds_online_service_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("onion_routing", "Onion Routing", ["computer_science"], "洋葱路由"),
+                ("onium_compound", "Onium Compounds", ["biomedical", "chemicals_and_drugs"], "鎓化合物"),
+                ("online_and_blended_learning", "Online And Blended Learning", ["social_sciences"], "在线与混合式学习"),
+                ("online_auction", "Online Auction", ["computer_science"], "在线拍卖"),
+                ("online_banking", "Online Banking", ["professional_communication"], "网上银行"),
+                ("online_conferencing", "Online Conferencing", ["computer_science"], "在线会议"),
+                ("online_consumer", "Online Consumers", ["computer_science"], "在线消费者"),
+                ("online_course", "Online Course", ["computer_science"], "在线课程"),
+            ]
+        )
+
+    def test_exact_expansion_batch_733_adds_online_learning_analytics_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("online_environment", "Online Environments", ["computer_science"], "在线环境"),
+                ("online_learning_algorithm", "Online Learning Algorithms", ["computer_science"], "在线学习算法"),
+                ("online_learning_and_analytic", "Online Learning And Analytics", ["computer_science", "physical_sciences"], "在线学习与分析"),
+                ("online_learning_environment", "Online Learning Environment", ["computer_science"], "在线学习环境"),
+                ("online_learning_method_and_innovation", "Online Learning Methods And Innovations", ["social_sciences"], "在线学习方法与创新"),
+                ("online_privacy", "Online Privacy", ["computer_science"], "在线隐私"),
+                ("online_problem", "Online Problems", ["computer_science"], "在线问题"),
+                ("online_product", "Online Products", ["computer_science"], "在线产品"),
+            ]
+        )
+
+    def test_exact_expansion_batch_734_adds_online_system_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("online_scheduling", "Online Scheduling", ["computer_science"], "在线调度"),
+                ("online_searching", "Online Searching", ["computer_science"], "在线搜索"),
+                ("online_servic", "Online Services", ["professional_communication"], "在线服务"),
+                ("online_shopping", "Online Shopping", ["computer_science"], "网上购物"),
+                ("online_social_networking", "Online Social Networkings", ["computer_science"], "在线社交网络"),
+                ("online_social_networking__2", "Online Social Networking", ["biomedical", "information_science"], "在线社交网络"),
+                ("online_system", "Online System", ["computer_science"], "在线系统"),
+                ("online_system__2", "Online Systems", ["biomedical", "information_science"], "在线系统"),
+            ]
+        )
+
+    def test_exact_expansion_batch_735_adds_ontology_start_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("online_teaching", "Online Teaching", ["computer_science"], "在线教学"),
+                ("online_transaction_processing", "Online Transaction Processing", ["computer_science"], "联机事务处理"),
+                ("online_version", "Online Versions", ["computer_science"], "在线版本"),
+                ("only_child", "Only Child", ["biomedical", "psychiatry_and_psychology"], "独生子女"),
+                ("ontario", "Ontario", ["biomedical", "geographicals"], "安大略省"),
+                ("ontology", "Ontologies", ["computer_science"], "本体"),
+                ("ontology_alignment", "Ontology Alignment", ["computer_science"], "本体对齐"),
+                ("ontology_based_data_access", "Ontology-based Data Access", ["computer_science"], "基于本体的数据访问"),
+            ]
+        )
+
+    def test_exact_expansion_batch_736_adds_ontology_engineering_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("ontology_building", "Ontology Building", ["computer_science"], "本体构建"),
+                ("ontology_concept", "Ontology Concepts", ["computer_science"], "本体概念"),
+                ("ontology_construction", "Ontology Construction", ["computer_science"], "本体构建"),
+                ("ontology_design", "Ontology Design", ["computer_science"], "本体设计"),
+                ("ontology_development", "Ontology Development", ["computer_science"], "本体开发"),
+                ("ontology_evaluation", "Ontology Evaluation", ["computer_science"], "本体评估"),
+                ("ontology_evolution", "Ontology Evolution", ["computer_science"], "本体演化"),
+                ("ontology_integration", "Ontology Integration", ["computer_science"], "本体集成"),
+            ]
+        )
+
+    def test_exact_expansion_batch_737_adds_ontology_and_nail_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("ontology_language", "Ontology Language", ["computer_science"], "本体语言"),
+                ("ontology_learning", "Ontology Learning", ["computer_science"], "本体学习"),
+                ("ontology_merging", "Ontology Merging", ["computer_science"], "本体合并"),
+                ("ontology_modeling", "Ontology Modeling", ["computer_science"], "本体建模"),
+                ("ontology_pattern", "Ontology Pattern", ["computer_science"], "本体模式"),
+                ("ontology_technology", "Ontology Technology", ["computer_science"], "本体技术"),
+                ("onycholysi", "Onycholysis", ["biomedical", "diseases"], "甲剥离症"),
+                ("onychomycosi", "Onychomycosis", ["biomedical", "diseases"], "甲真菌病"),
+            ]
+        )
+
+    def test_exact_expansion_batch_738_adds_oocyte_and_ood_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("oocyst", "Oocysts", ["anatomy", "biomedical"], "卵囊"),
+                ("oocyt", "Oocytes", ["anatomy", "biomedical"], "卵母细胞"),
+                ("oocyte_donation", "Oocyte Donation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "卵母细胞捐献"),
+                ("oocyte_retrieval", "Oocyte Retrieval", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "取卵"),
+                ("ood_detection", "Ood Detection", ["computer_science"], "分布外检测"),
+                ("ood_generalization", "Ood Generalization", ["computer_science"], "分布外泛化"),
+                ("oogenesi", "Oogenesis", ["biomedical", "phenomena_and_processes"], "卵子发生"),
+                ("oogonia", "Oogonia", ["anatomy", "biomedical"], "卵原细胞"),
+            ]
+        )
+
+    def test_exact_expansion_batch_739_adds_oogonial_and_open_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("oogonial_stem_cell", "Oogonial Stem Cells", ["anatomy", "biomedical"], "卵原干细胞"),
+                ("oomycet", "Oomycetes", ["biomedical", "organisms"], "卵菌"),
+                ("oophoriti", "Oophoritis", ["biomedical", "diseases"], "卵巢炎"),
+                ("open_abdomen_techniqu", "Open Abdomen Techniques", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "开放腹腔技术"),
+                ("open_access", "Open Access", ["computers_and_information_processing"], "开放获取"),
+                ("open_access_publishing", "Open Access Publishing", ["biomedical", "information_science"], "开放获取出版"),
+                ("open_banking", "Open Banking", ["computers_and_information_processing"], "开放银行"),
+                ("open_data", "Open Data", ["computers_and_information_processing"], "开放数据"),
+            ]
+        )
+
+    def test_exact_expansion_batch_740_adds_open_education_and_loop_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("open_education_and_e_learning", "Open Education And E-learning", ["computer_science", "physical_sciences"], "开放教育与电子学习"),
+                ("open_educational_resourc", "Open Educational Resources", ["computers_and_information_processing"], "开放教育资源"),
+                ("open_field_test", "Open Field Test", ["biomedical", "psychiatry_and_psychology"], "旷场实验"),
+                ("open_fracture_reduction", "Open Fracture Reduction", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "开放复位"),
+                ("open_loop_control", "Open Loop Control", ["computer_science"], "开环控制"),
+                ("open_loop_system", "Open Loop Systems", ["control_systems"], "开环系统"),
+                ("open_ran", "Open RAN", ["communications_technology"], "开放式无线接入网"),
+                ("open_reading_fram", "Open Reading Frames", ["biomedical", "phenomena_and_processes"], "开放阅读框"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
