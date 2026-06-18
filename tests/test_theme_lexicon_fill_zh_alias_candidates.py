@@ -12743,6 +12743,286 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_581_adds_network_pharmacology_protocol_and_routing_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("network_pharmacology", "Network Pharmacology", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "网络药理学"),
+                ("network_phase_transition", "Network Phase Transitions", ["physics"], "网络相变"),
+                ("network_protocol", "Network Protocols", ["computer_science"], "网络协议"),
+                ("network_reconnaissance", "Network Reconnaissance", ["industry_applications"], "网络侦察"),
+                ("network_routing", "Network Routing", ["computer_science"], "网络路由"),
+                ("network_search", "Network Searches", ["physics"], "网络搜索"),
+                ("network_security__2", "Network Security", ["computer_science"], "网络安全"),
+                ("network_selection", "Network Selection", ["computer_science"], "网络选择"),
+            ]
+        )
+
+    def test_exact_expansion_batch_582_adds_network_server_service_and_slicing_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("network_security_and_intrusion_detection", "Network Security And Intrusion Detection", ["computer_science", "physical_sciences"], "网络安全与入侵检测"),
+                ("network_server", "Network Servers", ["communications_technology"], "网络服务器"),
+                ("network_server__2", "Network Servers", ["computers_and_information_processing"], "网络服务器"),
+                ("network_servic", "Network Services", ["computer_science"], "网络服务"),
+                ("network_slicing", "Network Slicing", ["communications_technology"], "网络切片"),
+                ("network_stability", "Network Stability", ["physics"], "网络稳定性"),
+                ("network_strategy", "Network Strategy", ["computer_science"], "网络策略"),
+                ("network_structure", "Network Structure", ["physics"], "网络结构"),
+            ]
+        )
+
+    def test_exact_expansion_batch_583_adds_network_survivability_theory_and_traffic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("network_survivability", "Network Survivability", ["computer_science"], "网络生存性"),
+                ("network_synthesi", "Network Synthesis", ["computers_and_information_processing"], "网络综合"),
+                ("network_system", "Network Systems", ["systems_engineering_and_theory"], "网络系统"),
+                ("network_theory_graph", "Network Theory (graphs)", ["computers_and_information_processing"], "网络理论"),
+                ("network_time_synchronization_technology", "Network Time Synchronization Technologies", ["computer_science", "physical_sciences"], "网络时间同步技术"),
+                ("network_topology", "Network Topology", ["communications_technology", "computer_science"], "网络拓扑"),
+                ("network_traffic", "Network Traffic", ["computer_science"], "网络流量"),
+                ("network_traffic_and_congestion_control", "Network Traffic And Congestion Control", ["computer_science", "physical_sciences"], "网络流量与拥塞控制"),
+            ]
+        )
+
+    def test_exact_expansion_batch_584_adds_network_classification_virtualization_and_networked_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("network_traffic_classification", "Network Traffic Classification", ["computer_science"], "网络流量分类"),
+                ("network_utility_maximization", "Network Utility Maximization", ["computer_science"], "网络效用最大化"),
+                ("network_virtualization", "Network Virtualization", ["computer_science"], "网络虚拟化"),
+                ("network_visualization", "Network Visualization", ["computer_science"], "网络可视化"),
+                ("network_induced_delay", "Network-induced Delay", ["computer_science"], "网络诱导时延"),
+                ("network_on_chip_architectur", "Network-on-chip Architectures", ["computer_science"], "片上网络架构"),
+                ("networked_control", "Networked Control", ["computer_science"], "网络化控制"),
+                ("networked_control_system__2", "Networked Control System", ["computer_science"], "网络化控制系统"),
+            ]
+        )
+
+    def test_exact_expansion_batch_585_adds_networked_system_and_neural_overview_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("networked_control_system_ncs", "Networked Control System (ncs)", ["computer_science"], "网络化控制系统"),
+                ("networked_control_system", "Networked Control Systems", ["control_systems"], "网络化控制系统"),
+                ("networked_system", "Networked Systems", ["computer_science"], "网络化系统"),
+                ("networking_and_internet_architecture", "Networking And Internet Architecture", ["computer_science"], "网络与互联网架构"),
+                ("network_and_random_structur", "Networks & Random Structures", ["physics"], "网络与随机结构"),
+                ("network_analysi_tool", "Networks Analysis Tools", ["physics"], "网络分析工具"),
+                ("neurabin", "Neurabins", ["biomedical", "chemicals_and_drugs"], "神经结合蛋白"),
+                ("neural_and_behavioral_psychology_study", "Neural And Behavioral Psychology Studies", ["life_sciences", "neuroscience"], "神经与行为心理学研究"),
+            ]
+        )
+
+    def test_exact_expansion_batch_586_adds_neural_computing_adhesion_and_circuit_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neural_and_evolutionary_computing", "Neural And Evolutionary Computing", ["computer_science"], "神经与进化计算"),
+                ("neural_architecture_search", "Neural Architecture Search", ["computational_and_artificial_intelligence"], "神经架构搜索"),
+                ("neural_cell_adhesion_molecule_l1", "Neural Cell Adhesion Molecule L1", ["biomedical", "chemicals_and_drugs"], "L1神经细胞黏附分子"),
+                ("neural_cell_adhesion_molecul", "Neural Cell Adhesion Molecules", ["biomedical", "chemicals_and_drugs"], "神经细胞黏附分子"),
+                ("neural_circuit", "Neural Circuits", ["circuits_and_systems"], "神经回路"),
+                ("neural_circuit__2", "Neural Circuits", ["engineering_in_medicine_and_biology"], "神经回路"),
+                ("neural_conduction", "Neural Conduction", ["biomedical", "phenomena_and_processes"], "神经传导"),
+                ("neural_crest", "Neural Crest", ["anatomy", "biomedical"], "神经嵴"),
+            ]
+        )
+
+    def test_exact_expansion_batch_587_adds_neural_engineering_translation_and_microtechnology_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neural_dynamic_and_brain_function", "Neural Dynamics And Brain Function", ["life_sciences", "neuroscience"], "神经动力学与脑功能"),
+                ("neural_engineering", "Neural Engineering", ["engineering_in_medicine_and_biology"], "神经工程"),
+                ("neural_fine_tuning", "Neural Fine-tuning", ["computer_science"], "神经微调"),
+                ("neural_implant", "Neural Implants", ["engineering_in_medicine_and_biology"], "神经植入物"),
+                ("neural_inhibition", "Neural Inhibition", ["biomedical", "phenomena_and_processes"], "神经抑制"),
+                ("neural_machine_translation", "Neural Machine Translation", ["systems_man_and_cybernetics"], "神经机器翻译"),
+                ("neural_microtechnology", "Neural Microtechnology", ["engineering_in_medicine_and_biology"], "神经微技术"),
+                ("neural_nanotechnology", "Neural Nanotechnology", ["engineering_in_medicine_and_biology"], "神经纳米技术"),
+            ]
+        )
+
+    def test_exact_expansion_batch_588_adds_neural_network_compression_and_hardware_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neural_network_compression", "Neural Network Compression", ["computational_and_artificial_intelligence"], "神经网络压缩"),
+                ("neural_network_compression__2", "Neural Network Compression", ["computers_and_information_processing"], "神经网络压缩"),
+                ("neural_network_hardware", "Neural Network Hardware", ["computational_and_artificial_intelligence"], "神经网络硬件"),
+                ("neural_network_simulation", "Neural Network Simulations", ["physics"], "神经网络仿真"),
+                ("neural_network", "Neural Networks", ["computational_and_artificial_intelligence"], "神经网络"),
+                ("neural_network_and_application", "Neural Networks And Applications", ["computer_science", "physical_sciences"], "神经网络与应用"),
+                ("neural_network_and_reservoir_computing", "Neural Networks And Reservoir Computing", ["computer_science", "physical_sciences"], "神经网络与储备池计算"),
+                ("neural_network_stability_and_synchronization", "Neural Networks Stability And Synchronization", ["computer_science", "physical_sciences"], "神经网络稳定性与同步"),
+            ]
+        )
+
+    def test_exact_expansion_batch_589_adds_neural_network_computer_pathway_and_prosthesis_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neural_network_computer", "Neural Networks, Computer", ["biomedical", "phenomena_and_processes"], "计算机神经网络"),
+                ("neural_pathway", "Neural Pathways", ["anatomy", "biomedical"], "神经通路"),
+                ("neural_plate", "Neural Plate", ["anatomy", "biomedical"], "神经板"),
+                ("neural_prosthese", "Neural Prostheses", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "神经假体"),
+                ("neural_prosthesi", "Neural Prosthesis", ["engineering_in_medicine_and_biology"], "神经假体"),
+                ("neural_radiance_field", "Neural Radiance Field", ["computers_and_information_processing"], "神经辐射场"),
+                ("neural_radiance_field__2", "Neural Radiance Fields", ["computer_science"], "神经辐射场"),
+                ("neural_stem_cell", "Neural Stem Cells", ["anatomy", "biomedical"], "神经干细胞"),
+            ]
+        )
+
+    def test_exact_expansion_batch_590_adds_neural_style_tube_and_neuralgia_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neural_style_transfer", "Neural Style Transfer", ["computers_and_information_processing"], "神经风格迁移"),
+                ("neural_tube", "Neural Tube", ["anatomy", "biomedical"], "神经管"),
+                ("neural_tube_defect", "Neural Tube Defects", ["biomedical", "diseases"], "神经管缺陷"),
+                ("neural_symbolic_integration", "Neural-symbolic Integration", ["computer_science"], "神经符号集成"),
+                ("neuralgia", "Neuralgia", ["biomedical", "diseases"], "神经痛"),
+                ("neuralgia_postherpetic", "Neuralgia, Postherpetic", ["biomedical", "diseases"], "带状疱疹后神经痛"),
+                ("neuraminic_acid", "Neuraminic Acids", ["biomedical", "chemicals_and_drugs"], "神经氨酸"),
+                ("neuraminidase", "Neuraminidase", ["biomedical", "chemicals_and_drugs"], "神经氨酸酶"),
+            ]
+        )
+
+    def test_exact_expansion_batch_591_adds_neurasthenia_neuregulin_and_neuritis_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neurasthenia", "Neurasthenia", ["biomedical", "psychiatry_and_psychology"], "神经衰弱"),
+                ("neuregulin_1", "Neuregulin-1", ["biomedical", "chemicals_and_drugs"], "神经调节蛋白1"),
+                ("neuregulin", "Neuregulins", ["biomedical", "chemicals_and_drugs"], "神经调节蛋白"),
+                ("neurexin", "Neurexins", ["biomedical", "chemicals_and_drugs"], "神经连接蛋白"),
+                ("neurilemma", "Neurilemma", ["anatomy", "biomedical"], "神经膜"),
+                ("neurilemmoma", "Neurilemmoma", ["biomedical", "diseases"], "神经鞘瘤"),
+                ("neurit", "Neurites", ["anatomy", "biomedical"], "神经突"),
+                ("neuriti", "Neuritis", ["biomedical", "diseases"], "神经炎"),
+            ]
+        )
+
+    def test_exact_expansion_batch_592_adds_neuro_fuzzy_and_neuroanatomy_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neuriti_autoimmune_experimental", "Neuritis, Autoimmune, Experimental", ["biomedical", "diseases"], "实验性自身免疫性神经炎"),
+                ("neuro_fuzzy", "Neuro-fuzzy", ["computer_science"], "神经模糊"),
+                ("neuro_fuzzy_controller", "Neuro-fuzzy Controller", ["computer_science"], "神经模糊控制器"),
+                ("neuro_fuzzy_model", "Neuro-fuzzy Model", ["computer_science"], "神经模糊模型"),
+                ("neuro_fuzzy_network", "Neuro-fuzzy Network", ["computer_science"], "神经模糊网络"),
+                ("neuro_oncological_ventral_antigen", "Neuro-oncological Ventral Antigen", ["biomedical", "chemicals_and_drugs"], "神经肿瘤腹侧抗原"),
+                ("neuroacanthocytosi", "Neuroacanthocytosis", ["biomedical", "diseases"], "神经棘红细胞增多症"),
+                ("neuroanatomy", "Neuroanatomy", ["biomedical", "disciplines_and_occupations"], "神经解剖学"),
+            ]
+        )
+
+    def test_exact_expansion_batch_593_adds_neuroanesthesia_neuroblastoma_and_neurochemistry_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neuroanatomical_tract_tracing_techniqu", "Neuroanatomical Tract-tracing Techniques", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "神经解剖束追踪技术"),
+                ("neuroanesthesia", "Neuroanesthesia", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "神经麻醉"),
+                ("neuroaspergillosi", "Neuroaspergillosis", ["biomedical", "diseases"], "神经曲霉病"),
+                ("neuroaxonal_dystrophy", "Neuroaxonal Dystrophies", ["biomedical", "diseases"], "神经轴索营养不良"),
+                ("neurobehavioral_manifestation", "Neurobehavioral Manifestations", ["biomedical", "diseases"], "神经行为表现"),
+                ("neurobiology", "Neurobiology", ["biomedical", "disciplines_and_occupations"], "神经生物学"),
+                ("neuroblastoma", "Neuroblastoma", ["biomedical", "diseases"], "神经母细胞瘤"),
+                ("neurochemistry", "Neurochemistry", ["biomedical", "disciplines_and_occupations"], "神经化学"),
+            ]
+        )
+
+    def test_exact_expansion_batch_594_adds_neurocognitive_neurodegenerative_and_neurodevelopment_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neurocognitive_disorder", "Neurocognitive Disorders", ["biomedical", "psychiatry_and_psychology"], "神经认知障碍"),
+                ("neurocontroller", "Neurocontrollers", ["systems_man_and_cybernetics"], "神经控制器"),
+                ("neurocutaneou_syndrom", "Neurocutaneous Syndromes", ["biomedical", "diseases"], "神经皮肤综合征"),
+                ("neurocysticercosi", "Neurocysticercosis", ["biomedical", "diseases"], "神经囊尾蚴病"),
+                ("neurocytoma", "Neurocytoma", ["biomedical", "diseases"], "神经细胞瘤"),
+                ("neurodegenerative_disease", "Neurodegenerative Diseases", ["biomedical", "diseases"], "神经退行性疾病"),
+                ("neurodermatiti", "Neurodermatitis", ["biomedical", "diseases"], "神经性皮炎"),
+                ("neurodevelopment", "Neurodevelopment", ["biomedical", "phenomena_and_processes"], "神经发育"),
+            ]
+        )
+
+    def test_exact_expansion_batch_595_adds_neurodevelopmental_and_neuroendocrine_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neurodevelopmental_disorder", "Neurodevelopmental Disorders", ["biomedical", "psychiatry_and_psychology"], "神经发育障碍"),
+                ("neuroectodermal_tumor_melanotic", "Neuroectodermal Tumor, Melanotic", ["biomedical", "diseases"], "黑色素性神经外胚层肿瘤"),
+                ("neuroectodermal_tumor", "Neuroectodermal Tumors", ["biomedical", "diseases"], "神经外胚层肿瘤"),
+                ("neuroeffector_junction", "Neuroeffector Junction", ["anatomy", "biomedical"], "神经效应接头"),
+                ("neuroendocrine_cell", "Neuroendocrine Cells", ["anatomy", "biomedical"], "神经内分泌细胞"),
+                ("neuroendocrine_regulation_and_behavior", "Neuroendocrine Regulation And Behavior", ["psychology", "social_sciences"], "神经内分泌调节与行为"),
+                ("neuroendocrine_tumor", "Neuroendocrine Tumors", ["biomedical", "diseases"], "神经内分泌肿瘤"),
+                ("neuroendocrinology", "Neuroendocrinology", ["biomedical", "disciplines_and_occupations"], "神经内分泌学"),
+            ]
+        )
+
+    def test_exact_expansion_batch_596_adds_neuroendoscopy_neurofeedback_and_neurofibroma_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neuroendoscop", "Neuroendoscopes", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "神经内镜"),
+                ("neuroendoscopy", "Neuroendoscopy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "神经内镜检查"),
+                ("neuroepithelial_body", "Neuroepithelial Bodies", ["anatomy", "biomedical"], "神经上皮小体"),
+                ("neuroepithelial_cell", "Neuroepithelial Cells", ["anatomy", "biomedical"], "神经上皮细胞"),
+                ("neurofeedback", "Neurofeedback", ["circuits_and_systems"], "神经反馈"),
+                ("neurofibrillary_tangl", "Neurofibrillary Tangles", ["anatomy", "biomedical"], "神经原纤维缠结"),
+                ("neurofibril", "Neurofibrils", ["anatomy", "biomedical"], "神经原纤维"),
+                ("neurofibroma", "Neurofibroma", ["biomedical", "diseases"], "神经纤维瘤"),
+            ]
+        )
+
+    def test_exact_expansion_batch_597_adds_neurofibromatosis_and_neurofilament_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neurofibroma_plexiform", "Neurofibroma, Plexiform", ["biomedical", "diseases"], "丛状神经纤维瘤"),
+                ("neurofibromatose", "Neurofibromatoses", ["biomedical", "diseases"], "神经纤维瘤病"),
+                ("neurofibromatosi_1", "Neurofibromatosis 1", ["biomedical", "diseases"], "1型神经纤维瘤病"),
+                ("neurofibromatosi_2", "Neurofibromatosis 2", ["biomedical", "diseases"], "2型神经纤维瘤病"),
+                ("neurofibromin_1", "Neurofibromin 1", ["biomedical", "chemicals_and_drugs"], "神经纤维瘤蛋白1"),
+                ("neurofibromin_2", "Neurofibromin 2", ["biomedical", "chemicals_and_drugs"], "神经纤维瘤蛋白2"),
+                ("neurofibrosarcoma", "Neurofibrosarcoma", ["biomedical", "diseases"], "神经纤维肉瘤"),
+                ("neurofilament_protein", "Neurofilament Proteins", ["biomedical", "chemicals_and_drugs"], "神经丝蛋白"),
+            ]
+        )
+
+    def test_exact_expansion_batch_598_adds_neurogenesis_neuroglia_and_neuroinflammation_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neurogenesi", "Neurogenesis", ["biomedical", "phenomena_and_processes"], "神经发生"),
+                ("neurogenesi_and_neuroplasticity_mechanism", "Neurogenesis And Neuroplasticity Mechanisms", ["life_sciences", "neuroscience"], "神经发生与神经可塑性机制"),
+                ("neurogenic_bowel", "Neurogenic Bowel", ["biomedical", "diseases"], "神经源性肠道"),
+                ("neurogenic_inflammation", "Neurogenic Inflammation", ["biomedical", "diseases"], "神经源性炎症"),
+                ("neuroglia", "Neuroglia", ["anatomy", "biomedical"], "神经胶质"),
+                ("neuroglobin", "Neuroglobin", ["biomedical", "chemicals_and_drugs"], "神经珠蛋白"),
+                ("neuroimaging__2", "Neuroimaging", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "神经影像学"),
+                ("neuroinflammatory_disease", "Neuroinflammatory Diseases", ["biomedical", "diseases"], "神经炎症性疾病"),
+            ]
+        )
+
+    def test_exact_expansion_batch_599_adds_neuroinformatics_neurokinin_and_neuroligin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neuroinformatic", "Neuroinformatics", ["engineering_in_medicine_and_biology"], "神经信息学"),
+                ("neurokinin_a", "Neurokinin A", ["biomedical", "chemicals_and_drugs"], "神经激肽A"),
+                ("neurokinin_b", "Neurokinin B", ["biomedical", "chemicals_and_drugs"], "神经激肽B"),
+                ("neurokinin_1_receptor_antagonist", "Neurokinin-1 Receptor Antagonists", ["biomedical", "chemicals_and_drugs"], "神经激肽1受体拮抗剂"),
+                ("neuroleptanalgesia", "Neuroleptanalgesia", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "神经安定镇痛"),
+                ("neuroleptic_malignant_syndrome", "Neuroleptic Malignant Syndrome", ["biomedical", "diseases"], "神经阻滞剂恶性综合征"),
+                ("neuroligin", "Neuroligins", ["biomedical", "chemicals_and_drugs"], "神经连接蛋白"),
+                ("neurolinguistic_programming", "Neurolinguistic Programming", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "神经语言程序学"),
+            ]
+        )
+
+    def test_exact_expansion_batch_600_adds_neurologic_neurology_and_neuroma_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neurologic_examination", "Neurologic Examination", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "神经系统检查"),
+                ("neurologic_manifestation", "Neurologic Manifestations", ["biomedical", "diseases"], "神经系统表现"),
+                ("neurological_disorder_and_treatment", "Neurological Disorders And Treatments", ["health_sciences", "life_sciences", "medicine", "neuroscience"], "神经系统疾病与治疗"),
+                ("neurological_rehabilitation", "Neurological Rehabilitation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "神经康复"),
+                ("neurologist", "Neurologists", ["biomedical", "named_groups"], "神经科医师"),
+                ("neurology", "Neurology", ["engineering_in_medicine_and_biology"], "神经病学"),
+                ("neuroma", "Neuroma", ["biomedical", "diseases"], "神经瘤"),
+                ("neuroma_acoustic", "Neuroma, Acoustic", ["biomedical", "diseases"], "听神经瘤"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
