@@ -14139,6 +14139,286 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_681_adds_nurbs_and_nurse_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nurb", "Nurbs", ["computer_science"], "非均匀有理B样条"),
+                ("nurb_curv", "Nurbs Curves", ["computer_science"], "NURBS曲线"),
+                ("nurb_surface", "Nurbs Surface", ["computer_science"], "NURBS曲面"),
+                ("nurse_administrator", "Nurse Administrators", ["biomedical", "named_groups"], "护理管理人员"),
+                ("nurse_anesthetist", "Nurse Anesthetists", ["biomedical", "named_groups"], "护士麻醉师"),
+                ("nurse_clinician", "Nurse Clinicians", ["biomedical", "named_groups"], "临床护士"),
+                ("nurse_community_health", "Nurses, Community Health", ["biomedical", "named_groups"], "社区卫生护士"),
+                ("nurse_midwiv", "Nurse Midwives", ["biomedical", "named_groups"], "助产士"),
+            ]
+        )
+
+    def test_exact_expansion_batch_682_adds_nurse_role_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nurse_neonatal", "Nurses, Neonatal", ["biomedical", "named_groups"], "新生儿护士"),
+                ("nurse_patient_relation", "Nurse-patient Relations", ["biomedical", "psychiatry_and_psychology"], "护患关系"),
+                ("nurse_pediatric", "Nurses, Pediatric", ["biomedical", "named_groups"], "儿科护士"),
+                ("nurse_practitioner", "Nurse Practitioners", ["biomedical", "named_groups"], "执业护士"),
+                ("nurse_public_health", "Nurses, Public Health", ["biomedical", "named_groups"], "公共卫生护士"),
+                ("nurse_s_role", "Nurse's Role", ["biomedical", "psychiatry_and_psychology"], "护士角色"),
+                ("nurse_specialist", "Nurse Specialists", ["biomedical", "named_groups"], "专科护士"),
+                ("nursery_hospital", "Nurseries, Hospital", ["biomedical", "health_care"], "医院育婴室"),
+            ]
+        )
+
+    def test_exact_expansion_batch_683_adds_nursing_care_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nursing_assistant", "Nursing Assistants", ["biomedical", "named_groups"], "护理助理"),
+                ("nursing_audit", "Nursing Audit", ["biomedical", "health_care"], "护理审计"),
+                ("nursing_care", "Nursing Care", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "护理照护"),
+                ("nursing_care_and_research", "Nursing Care And Research", ["health_professions", "health_sciences"], "护理照护与研究"),
+                ("nursing_diagnosi", "Nursing Diagnosis", ["biomedical", "health_care"], "护理诊断"),
+                ("nursing_diagnosi_and_documentation", "Nursing Diagnosis And Documentation", ["health_sciences", "nursing"], "护理诊断与文书记录"),
+                ("nursing_education_and_management", "Nursing Education And Management", ["health_sciences", "nursing"], "护理教育与管理"),
+                ("nursing_education_practice_and_leadership", "Nursing Education, Practice, And Leadership", ["health_sciences", "nursing"], "护理教育、实践与领导力"),
+            ]
+        )
+
+    def test_exact_expansion_batch_684_adds_nursing_education_to_process_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nursing_education_research", "Nursing Education Research", ["biomedical", "disciplines_and_occupations"], "护理教育研究"),
+                ("nursing_evaluation_research", "Nursing Evaluation Research", ["biomedical", "disciplines_and_occupations"], "护理评价研究"),
+                ("nursing_faculty_practice", "Nursing Faculty Practice", ["biomedical", "health_care"], "护理教师实践"),
+                ("nursing_home_resident", "Nursing Home Residents", ["biomedical", "named_groups"], "养老院居民"),
+                ("nursing_informatic", "Nursing Informatics", ["biomedical", "information_science"], "护理信息学"),
+                ("nursing_practical", "Nursing, Practical", ["biomedical", "disciplines_and_occupations"], "实用护理"),
+                ("nursing_private_duty", "Nursing, Private Duty", ["biomedical", "health_care"], "私人护理"),
+                ("nursing_process", "Nursing Process", ["biomedical", "health_care"], "护理程序"),
+            ]
+        )
+
+    def test_exact_expansion_batch_685_adds_nursing_record_to_station_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nursing_record", "Nursing Records", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "护理记录"),
+                ("nursing_research", "Nursing Research", ["biomedical", "disciplines_and_occupations"], "护理研究"),
+                ("nursing_rol_and_practic", "Nursing Roles And Practices", ["health_professions", "health_sciences"], "护理角色与实践"),
+                ("nursing_servic", "Nursing Services", ["biomedical", "health_care"], "护理服务"),
+                ("nursing_service_hospital", "Nursing Service, Hospital", ["biomedical", "health_care"], "医院护理服务"),
+                ("nursing_staff", "Nursing Staff", ["biomedical", "named_groups"], "护理人员"),
+                ("nursing_staff_hospital", "Nursing Staff, Hospital", ["biomedical", "named_groups"], "医院护理人员"),
+                ("nursing_station", "Nursing Stations", ["biomedical", "health_care"], "护士站"),
+            ]
+        )
+
+    def test_exact_expansion_batch_686_adds_nursing_and_nutrition_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nursing_supervisory", "Nursing, Supervisory", ["biomedical", "health_care"], "护理监督"),
+                ("nursing_team", "Nursing, Team", ["biomedical", "health_care"], "护理团队"),
+                ("nursing_theory", "Nursing Theory", ["biomedical", "disciplines_and_occupations"], "护理理论"),
+                ("nut_and_peanut_hypersensitivity", "Nut And Peanut Hypersensitivity", ["biomedical", "diseases"], "坚果和花生超敏反应"),
+                ("nut_hypersensitivity", "Nut Hypersensitivity", ["biomedical", "diseases"], "坚果超敏反应"),
+                ("nut_protein", "Nut Proteins", ["biomedical", "chemicals_and_drugs"], "坚果蛋白"),
+                ("nutrigenomic", "Nutrigenomics", ["biomedical", "disciplines_and_occupations"], "营养基因组学"),
+                ("nutrition_and_health_in_aging", "Nutrition And Health In Aging", ["health_sciences", "medicine"], "老龄化中的营养与健康"),
+            ]
+        )
+
+    def test_exact_expansion_batch_687_adds_nutrition_study_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nutrition_and_health_study", "Nutrition And Health Studies", ["health_sciences", "medicine"], "营养与健康研究"),
+                ("nutrition_assessment", "Nutrition Assessment", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "营养评估"),
+                ("nutrition_disorder", "Nutrition Disorders", ["biomedical", "diseases"], "营养障碍"),
+                ("nutrition_genetic_and_disease", "Nutrition, Genetics, And Disease", ["biochemistry_genetics_and_molecular_biology", "life_sciences"], "营养、遗传与疾病"),
+                ("nutrition_health_and_food_behavior", "Nutrition, Health And Food Behavior", ["health_sciences", "nursing"], "营养、健康与食物行为"),
+                ("nutrition_health_and_society_study", "Nutrition, Health, And Society Studies", ["agricultural_and_biological_sciences", "life_sciences"], "营养、健康与社会研究"),
+                ("nutrition_policy", "Nutrition Policy", ["anthropology_education_sociology_and_social_phenomena", "biomedical"], "营养政策"),
+                ("nutrition_survey", "Nutrition Surveys", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "营养调查"),
+            ]
+        )
+
+    def test_exact_expansion_batch_688_adds_nutritional_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nutrition_therapy", "Nutrition Therapy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "营养治疗"),
+                ("nutritional_and_metabolic_disease", "Nutritional And Metabolic Diseases", ["biomedical", "diseases"], "营养与代谢性疾病"),
+                ("nutritional_physiological_phenomena", "Nutritional Physiological Phenomena", ["biomedical", "phenomena_and_processes"], "营养生理现象"),
+                ("nutritional_requirement", "Nutritional Requirements", ["biomedical", "phenomena_and_processes"], "营养需求"),
+                ("nutritional_scienc", "Nutritional Sciences", ["biomedical", "disciplines_and_occupations"], "营养科学"),
+                ("nutritional_statu", "Nutritional Status", ["biomedical", "phenomena_and_processes"], "营养状况"),
+                ("nutritional_study_and_diet", "Nutritional Studies And Diet", ["health_sciences", "medicine"], "营养研究与饮食"),
+                ("nutritional_support", "Nutritional Support", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "营养支持"),
+            ]
+        )
+
+    def test_exact_expansion_batch_689_adds_nutritive_and_nystagmus_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nutritionist", "Nutritionists", ["biomedical", "named_groups"], "营养师"),
+                ("nutritive_sweetener", "Nutritive Sweeteners", ["biomedical", "chemicals_and_drugs"], "营养性甜味剂"),
+                ("nutritive_value", "Nutritive Value", ["biomedical", "phenomena_and_processes"], "营养价值"),
+                ("nuts", "Nuts", ["anatomy", "biomedical"], "坚果"),
+                ("nuts_composition_and_effect", "Nuts Composition And Effects", ["health_sciences", "nursing"], "坚果组成与作用"),
+                ("nylon", "Nylons", ["biomedical", "chemicals_and_drugs"], "尼龙类"),
+                ("nystagmu_congenital", "Nystagmus, Congenital", ["biomedical", "diseases"], "先天性眼球震颤"),
+                ("nystatin", "Nystatin", ["biomedical", "chemicals_and_drugs"], "制霉菌素"),
+            ]
+        )
+
+    def test_exact_expansion_batch_690_adds_o_antigen_and_obesity_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("o_6_methylguanine_dna_methyltransferase", "O(6)-methylguanine-dna Methyltransferase", ["biomedical", "chemicals_and_drugs"], "O6-甲基鸟嘌呤DNA甲基转移酶"),
+                ("o_antigen", "O Antigens", ["biomedical", "chemicals_and_drugs"], "O抗原"),
+                ("o_nyong_nyong_viru", "O'nyong-nyong Virus", ["biomedical", "organisms"], "奥尼昂尼昂病毒"),
+                ("o_phthalaldehyde", "O-phthalaldehyde", ["biomedical", "chemicals_and_drugs"], "邻苯二甲醛"),
+                ("obesity_abdominal", "Obesity, Abdominal", ["biomedical", "diseases"], "腹型肥胖"),
+                ("obesity_hypoventilation_syndrome", "Obesity Hypoventilation Syndrome", ["biomedical", "diseases"], "肥胖低通气综合征"),
+                ("obesity_morbid", "Obesity, Morbid", ["biomedical", "diseases"], "病态肥胖"),
+                ("obesity_paradox", "Obesity Paradox", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "肥胖悖论"),
+            ]
+        )
+
+    def test_exact_expansion_batch_691_adds_obfuscation_and_object_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("obfuscation", "Obfuscation", ["computer_science"], "混淆"),
+                ("obidoxime_chloride", "Obidoxime Chloride", ["biomedical", "chemicals_and_drugs"], "氯解磷定"),
+                ("object_appearance", "Object Appearance", ["computer_science"], "目标外观"),
+                ("object_attachment", "Object Attachment", ["biomedical", "psychiatry_and_psychology"], "客体依恋"),
+                ("object_classification", "Object Classification", ["computer_science"], "目标分类"),
+                ("object_constraint_language", "Object Constraint Language", ["computer_science"], "对象约束语言"),
+                ("object_contour", "Object Contour", ["computer_science"], "目标轮廓"),
+                ("object_detection_algorithm", "Object Detection Algorithms", ["computer_science"], "目标检测算法"),
+            ]
+        )
+
+    def test_exact_expansion_batch_692_adds_object_detection_and_oriented_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("object_detection_method", "Object Detection Method", ["computer_science"], "目标检测方法"),
+                ("object_detection_system", "Object Detection Systems", ["computer_science"], "目标检测系统"),
+                ("object_localization", "Object Localization", ["computer_science"], "目标定位"),
+                ("object_location", "Object Location", ["computer_science"], "目标定位"),
+                ("object_oriented_approach", "Object Oriented Approach", ["computer_science"], "面向对象方法"),
+                ("object_oriented_database", "Object Oriented Databases", ["professional_communication"], "面向对象数据库"),
+                ("object_oriented_design", "Object Oriented Design", ["computer_science"], "面向对象设计"),
+                ("object_oriented_languag", "Object-oriented Languages", ["computer_science"], "面向对象语言"),
+            ]
+        )
+
+    def test_exact_expansion_batch_693_adds_object_oriented_programming_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("object_oriented_method", "Object Oriented Methods", ["computers_and_information_processing"], "面向对象方法"),
+                ("object_oriented_modeling", "Object Oriented Modeling", ["systems_engineering_and_theory"], "面向对象建模"),
+                ("object_oriented_programming", "Object Oriented Programming", ["computers_and_information_processing"], "面向对象编程"),
+                ("object_oriented_programming_languag", "Object-oriented Programming Languages", ["computer_science"], "面向对象编程语言"),
+                ("object_oriented_software", "Object Oriented Software", ["computer_science"], "面向对象软件"),
+                ("object_oriented_system", "Object-oriented System", ["computer_science"], "面向对象系统"),
+                ("object_pose", "Object Pose", ["computer_science"], "目标姿态"),
+                ("object_recognition", "Object Recognition", ["computers_and_information_processing"], "目标识别"),
+            ]
+        )
+
+    def test_exact_expansion_batch_694_adds_object_tracking_and_observation_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("object_segmentation", "Object Segmentation", ["computers_and_information_processing"], "目标分割"),
+                ("object_tracking", "Object Tracking", ["computer_science"], "目标跟踪"),
+                ("object_tracking_algorithm", "Object Tracking Algorithm", ["computer_science"], "目标跟踪算法"),
+                ("objective_function_of", "Objective Function (of)", ["computer_science"], "目标函数"),
+                ("objective_space", "Objective Space", ["computer_science"], "目标空间"),
+                ("observability", "Observability", ["computer_science"], "可观测性"),
+                ("observability_analysi", "Observability Analysis", ["computer_science"], "可观测性分析"),
+                ("observation", "Observation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "观察"),
+            ]
+        )
+
+    def test_exact_expansion_batch_695_adds_observational_and_obsessive_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("observation_model", "Observation Model", ["computer_science"], "观测模型"),
+                ("observational_study", "Observational Study", ["biomedical", "publication_characteristics"], "观察性研究"),
+                ("observational_study_as_topic", "Observational Studies As Topic", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "观察性研究主题"),
+                ("observatory", "Observatories", ["science_general"], "天文台"),
+                ("observer", "Observers", ["computer_science", "mathematics"], "观察者"),
+                ("observer_design", "Observer Design", ["computer_science"], "观测器设计"),
+                ("obsessive_behavior", "Obsessive Behavior", ["biomedical", "psychiatry_and_psychology"], "强迫行为"),
+                ("obsessive_compulsive_disorder", "Obsessive-compulsive Disorder", ["biomedical", "psychiatry_and_psychology"], "强迫症"),
+            ]
+        )
+
+    def test_exact_expansion_batch_696_adds_obstacle_and_obstetric_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("obsessive_compulsive_spectrum_disorder", "Obsessive-compulsive Spectrum Disorders", ["psychology", "social_sciences"], "强迫谱系障碍"),
+                ("obstacle_avoidance", "Obstacle Avoidance", ["computer_science"], "避障"),
+                ("obstacle_avoidance_algorithm", "Obstacle Avoidance Algorithms", ["computer_science"], "避障算法"),
+                ("obstacle_detection", "Obstacle Detection", ["computer_science"], "障碍物检测"),
+                ("obstetric_and_gynecology_department_hospital", "Obstetrics And Gynecology Department, Hospital", ["biomedical", "health_care"], "医院妇产科"),
+                ("obstetric_labor_complication", "Obstetric Labor Complications", ["biomedical", "diseases"], "产程并发症"),
+                ("obstetric_labor_premature", "Obstetric Labor, Premature", ["biomedical", "diseases"], "早产"),
+                ("obstetric_nursing", "Obstetric Nursing", ["biomedical", "disciplines_and_occupations"], "产科护理"),
+            ]
+        )
+
+    def test_exact_expansion_batch_697_adds_obstetric_to_occludin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("obstetric_surgical_procedur", "Obstetric Surgical Procedures", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "产科手术"),
+                ("obstetrical_forcep", "Obstetrical Forceps", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "产钳"),
+                ("obstetrician", "Obstetricians", ["biomedical", "named_groups"], "产科医生"),
+                ("obstructive_sleep_apnea_research", "Obstructive Sleep Apnea Research", ["health_sciences", "medicine"], "阻塞性睡眠呼吸暂停研究"),
+                ("obturator_nerve", "Obturator Nerve", ["anatomy", "biomedical"], "闭孔神经"),
+                ("occipital_bone", "Occipital Bone", ["anatomy", "biomedical"], "枕骨"),
+                ("occipital_lobe", "Occipital Lobe", ["anatomy", "biomedical"], "枕叶"),
+                ("occludin", "Occludin", ["biomedical", "chemicals_and_drugs"], "闭合蛋白"),
+            ]
+        )
+
+    def test_exact_expansion_batch_698_adds_occlusion_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("occlusal_adjustment", "Occlusal Adjustment", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "咬合调整"),
+                ("occlusal_splint", "Occlusal Splints", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "咬合夹板"),
+                ("occlusion_body_matrix_protein", "Occlusion Body Matrix Proteins", ["biomedical", "chemicals_and_drugs"], "包涵体基质蛋白"),
+                ("occlusion_body_viral", "Occlusion Bodies, Viral", ["anatomy", "biomedical"], "病毒包涵体"),
+                ("occlusion_handling", "Occlusion Handling", ["computer_science"], "遮挡处理"),
+                ("occlusive_dressing", "Occlusive Dressings", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "封闭敷料"),
+                ("occult_blood", "Occult Blood", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "潜血"),
+                ("occultism", "Occultism", ["biomedical", "humanities"], "神秘主义"),
+            ]
+        )
+
+    def test_exact_expansion_batch_699_adds_occupational_health_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("occupation", "Occupations", ["biomedical", "health_care"], "职业"),
+                ("occupational_disease", "Occupational Diseases", ["biomedical", "diseases"], "职业病"),
+                ("occupational_exposure", "Occupational Exposure", ["biomedical", "health_care"], "职业暴露"),
+                ("occupational_group", "Occupational Groups", ["biomedical", "named_groups"], "职业群体"),
+                ("occupational_health_and_safety_in_workplac", "Occupational Health And Safety In Workplaces", ["health_professions", "health_sciences"], "工作场所职业健康与安全"),
+                ("occupational_health_and_safety_management", "Occupational Health And Safety Management", ["health_professions", "health_sciences"], "职业健康与安全管理"),
+                ("occupational_health_nursing", "Occupational Health Nursing", ["biomedical", "disciplines_and_occupations"], "职业健康护理"),
+                ("occupational_health_physician", "Occupational Health Physicians", ["biomedical", "named_groups"], "职业健康医师"),
+            ]
+        )
+
+    def test_exact_expansion_batch_700_adds_occupational_service_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("occupational_health_servic", "Occupational Health Services", ["biomedical", "health_care"], "职业健康服务"),
+                ("occupational_injury", "Occupational Injuries", ["biomedical", "diseases"], "职业伤害"),
+                ("occupational_medicine", "Occupational Medicine", ["engineering_in_medicine_and_biology"], "职业医学"),
+                ("occupational_safety", "Occupational Safety", ["industry_applications"], "职业安全"),
+                ("occupational_stress", "Occupational Stress", ["biomedical", "diseases"], "职业压力"),
+                ("occupational_therapist", "Occupational Therapists", ["biomedical", "named_groups"], "职业治疗师"),
+                ("occupational_therapy", "Occupational Therapy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "职业治疗"),
+                ("occupational_therapy_department_hospital", "Occupational Therapy Department, Hospital", ["biomedical", "health_care"], "医院职业治疗科"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

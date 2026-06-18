@@ -15272,6 +15272,226 @@ ZH_EXACT_EXPANSION_BATCH_680_ALIASES = {
         "numerical solution": "数值解",
 }
 
+ZH_EXACT_EXPANSION_BATCH_681_ALIASES = {
+        "nurbs": "非均匀有理B样条",
+        "nurbs curves": "NURBS曲线",
+        "nurbs surface": "NURBS曲面",
+        "nurse administrators": "护理管理人员",
+        "nurse anesthetists": "护士麻醉师",
+        "nurse clinicians": "临床护士",
+        "nurses, community health": "社区卫生护士",
+        "nurse midwives": "助产士",
+}
+
+ZH_EXACT_EXPANSION_BATCH_682_ALIASES = {
+        "nurses, neonatal": "新生儿护士",
+        "nurse-patient relations": "护患关系",
+        "nurses, pediatric": "儿科护士",
+        "nurse practitioners": "执业护士",
+        "nurses, public health": "公共卫生护士",
+        "nurse's role": "护士角色",
+        "nurse specialists": "专科护士",
+        "nurseries, hospital": "医院育婴室",
+}
+
+ZH_EXACT_EXPANSION_BATCH_683_ALIASES = {
+        "nursing assistants": "护理助理",
+        "nursing audit": "护理审计",
+        "nursing care": "护理照护",
+        "nursing care and research": "护理照护与研究",
+        "nursing diagnosis": "护理诊断",
+        "nursing diagnosis and documentation": "护理诊断与文书记录",
+        "nursing education and management": "护理教育与管理",
+        "nursing education, practice, and leadership": "护理教育、实践与领导力",
+}
+
+ZH_EXACT_EXPANSION_BATCH_684_ALIASES = {
+        "nursing education research": "护理教育研究",
+        "nursing evaluation research": "护理评价研究",
+        "nursing faculty practice": "护理教师实践",
+        "nursing home residents": "养老院居民",
+        "nursing informatics": "护理信息学",
+        "nursing, practical": "实用护理",
+        "nursing, private duty": "私人护理",
+        "nursing process": "护理程序",
+}
+
+ZH_EXACT_EXPANSION_BATCH_685_ALIASES = {
+        "nursing records": "护理记录",
+        "nursing research": "护理研究",
+        "nursing roles and practices": "护理角色与实践",
+        "nursing services": "护理服务",
+        "nursing service, hospital": "医院护理服务",
+        "nursing staff": "护理人员",
+        "nursing staff, hospital": "医院护理人员",
+        "nursing stations": "护士站",
+}
+
+ZH_EXACT_EXPANSION_BATCH_686_ALIASES = {
+        "nursing, supervisory": "护理监督",
+        "nursing, team": "护理团队",
+        "nursing theory": "护理理论",
+        "nut and peanut hypersensitivity": "坚果和花生超敏反应",
+        "nut hypersensitivity": "坚果超敏反应",
+        "nut proteins": "坚果蛋白",
+        "nutrigenomics": "营养基因组学",
+        "nutrition and health in aging": "老龄化中的营养与健康",
+}
+
+ZH_EXACT_EXPANSION_BATCH_687_ALIASES = {
+        "nutrition and health studies": "营养与健康研究",
+        "nutrition assessment": "营养评估",
+        "nutrition disorders": "营养障碍",
+        "nutrition, genetics, and disease": "营养、遗传与疾病",
+        "nutrition, health and food behavior": "营养、健康与食物行为",
+        "nutrition, health, and society studies": "营养、健康与社会研究",
+        "nutrition policy": "营养政策",
+        "nutrition surveys": "营养调查",
+}
+
+ZH_EXACT_EXPANSION_BATCH_688_ALIASES = {
+        "nutrition therapy": "营养治疗",
+        "nutritional and metabolic diseases": "营养与代谢性疾病",
+        "nutritional physiological phenomena": "营养生理现象",
+        "nutritional requirements": "营养需求",
+        "nutritional sciences": "营养科学",
+        "nutritional status": "营养状况",
+        "nutritional studies and diet": "营养研究与饮食",
+        "nutritional support": "营养支持",
+}
+
+ZH_EXACT_EXPANSION_BATCH_689_ALIASES = {
+        "nutritionists": "营养师",
+        "nutritive sweeteners": "营养性甜味剂",
+        "nutritive value": "营养价值",
+        "nuts": "坚果",
+        "nuts composition and effects": "坚果组成与作用",
+        "nylons": "尼龙类",
+        "nystagmus, congenital": "先天性眼球震颤",
+        "nystatin": "制霉菌素",
+}
+
+ZH_EXACT_EXPANSION_BATCH_690_ALIASES = {
+        "o(6)-methylguanine-dna methyltransferase": "O6-甲基鸟嘌呤DNA甲基转移酶",
+        "o antigens": "O抗原",
+        "o'nyong-nyong virus": "奥尼昂尼昂病毒",
+        "o-phthalaldehyde": "邻苯二甲醛",
+        "obesity, abdominal": "腹型肥胖",
+        "obesity hypoventilation syndrome": "肥胖低通气综合征",
+        "obesity, morbid": "病态肥胖",
+        "obesity paradox": "肥胖悖论",
+}
+
+ZH_EXACT_EXPANSION_BATCH_691_ALIASES = {
+        "obfuscation": "混淆",
+        "obidoxime chloride": "氯解磷定",
+        "object appearance": "目标外观",
+        "object attachment": "客体依恋",
+        "object classification": "目标分类",
+        "object constraint language": "对象约束语言",
+        "object contour": "目标轮廓",
+        "object detection algorithms": "目标检测算法",
+}
+
+ZH_EXACT_EXPANSION_BATCH_692_ALIASES = {
+        "object detection method": "目标检测方法",
+        "object detection systems": "目标检测系统",
+        "object localization": "目标定位",
+        "object location": "目标定位",
+        "object oriented approach": "面向对象方法",
+        "object oriented databases": "面向对象数据库",
+        "object oriented design": "面向对象设计",
+        "object-oriented languages": "面向对象语言",
+}
+
+ZH_EXACT_EXPANSION_BATCH_693_ALIASES = {
+        "object oriented methods": "面向对象方法",
+        "object oriented modeling": "面向对象建模",
+        "object oriented programming": "面向对象编程",
+        "object-oriented programming languages": "面向对象编程语言",
+        "object oriented software": "面向对象软件",
+        "object-oriented system": "面向对象系统",
+        "object pose": "目标姿态",
+        "object recognition": "目标识别",
+}
+
+ZH_EXACT_EXPANSION_BATCH_694_ALIASES = {
+        "object segmentation": "目标分割",
+        "object tracking": "目标跟踪",
+        "object tracking algorithm": "目标跟踪算法",
+        "objective function (of)": "目标函数",
+        "objective space": "目标空间",
+        "observability": "可观测性",
+        "observability analysis": "可观测性分析",
+        "observation": "观察",
+}
+
+ZH_EXACT_EXPANSION_BATCH_695_ALIASES = {
+        "observation model": "观测模型",
+        "observational study": "观察性研究",
+        "observational studies as topic": "观察性研究主题",
+        "observatories": "天文台",
+        "observers": "观察者",
+        "observer design": "观测器设计",
+        "obsessive behavior": "强迫行为",
+        "obsessive-compulsive disorder": "强迫症",
+}
+
+ZH_EXACT_EXPANSION_BATCH_696_ALIASES = {
+        "obsessive-compulsive spectrum disorders": "强迫谱系障碍",
+        "obstacle avoidance": "避障",
+        "obstacle avoidance algorithms": "避障算法",
+        "obstacle detection": "障碍物检测",
+        "obstetrics and gynecology department, hospital": "医院妇产科",
+        "obstetric labor complications": "产程并发症",
+        "obstetric labor, premature": "早产",
+        "obstetric nursing": "产科护理",
+}
+
+ZH_EXACT_EXPANSION_BATCH_697_ALIASES = {
+        "obstetric surgical procedures": "产科手术",
+        "obstetrical forceps": "产钳",
+        "obstetricians": "产科医生",
+        "obstructive sleep apnea research": "阻塞性睡眠呼吸暂停研究",
+        "obturator nerve": "闭孔神经",
+        "occipital bone": "枕骨",
+        "occipital lobe": "枕叶",
+        "occludin": "闭合蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_698_ALIASES = {
+        "occlusal adjustment": "咬合调整",
+        "occlusal splints": "咬合夹板",
+        "occlusion body matrix proteins": "包涵体基质蛋白",
+        "occlusion bodies, viral": "病毒包涵体",
+        "occlusion handling": "遮挡处理",
+        "occlusive dressings": "封闭敷料",
+        "occult blood": "潜血",
+        "occultism": "神秘主义",
+}
+
+ZH_EXACT_EXPANSION_BATCH_699_ALIASES = {
+        "occupations": "职业",
+        "occupational diseases": "职业病",
+        "occupational exposure": "职业暴露",
+        "occupational groups": "职业群体",
+        "occupational health and safety in workplaces": "工作场所职业健康与安全",
+        "occupational health and safety management": "职业健康与安全管理",
+        "occupational health nursing": "职业健康护理",
+        "occupational health physicians": "职业健康医师",
+}
+
+ZH_EXACT_EXPANSION_BATCH_700_ALIASES = {
+        "occupational health services": "职业健康服务",
+        "occupational injuries": "职业伤害",
+        "occupational medicine": "职业医学",
+        "occupational safety": "职业安全",
+        "occupational stress": "职业压力",
+        "occupational therapists": "职业治疗师",
+        "occupational therapy": "职业治疗",
+        "occupational therapy department, hospital": "医院职业治疗科",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -15954,6 +16174,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_677_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_678_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_679_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_680_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_681_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_682_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_683_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_684_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_685_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_686_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_687_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_688_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_689_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_690_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_691_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_692_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_693_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_694_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_695_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_696_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_697_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_698_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_699_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_700_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",
