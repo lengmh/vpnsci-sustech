@@ -9688,6 +9688,323 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_361_adds_mast_cell_and_mastectomy_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mast_cell", "Mast Cells", ["anatomy", "biomedical"], "肥大细胞"),
+                ("mast_cell_activation_disorder", "Mast Cell Activation Disorders", ["biomedical", "diseases"], "肥大细胞活化障碍"),
+                ("mast_cell_sarcoma", "Mast-cell Sarcoma", ["biomedical", "diseases"], "肥大细胞肉瘤"),
+                ("mastectomy_modified_radical", "Mastectomy, Modified Radical", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "改良根治性乳房切除术"),
+                ("mastectomy_segmental", "Mastectomy, Segmental", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "节段性乳房切除术"),
+                ("mastication", "Mastication", ["biomedical", "phenomena_and_processes"], "咀嚼"),
+                ("masticatory_muscl", "Masticatory Muscles", ["anatomy", "biomedical"], "咀嚼肌"),
+                ("mastocytosi_systemic", "Mastocytosis, Systemic", ["biomedical", "diseases"], "系统性肥大细胞增多症"),
+                ("mastoiditi", "Mastoiditis", ["biomedical", "diseases"], "乳突炎"),
+            ]
+        )
+
+    def test_exact_expansion_batch_362_adds_matching_and_material_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("master_slave_system", "Master-slave Systems", ["computer_science"], "主从系统"),
+                ("match_score", "Match Score", ["computer_science"], "匹配分数"),
+                ("matched_filter", "Matched Filters", ["signal_processing"], "匹配滤波器"),
+                ("matched_pair_analysi", "Matched-pair Analysis", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "配对分析"),
+                ("matching_algorithm", "Matching Algorithm", ["computer_science"], "匹配算法"),
+                ("matching_pursuit_algorithm", "Matching Pursuit Algorithms", ["computer_science", "mathematics"], "匹配追踪算法"),
+                ("material_property", "Material Properties", ["materials_elements_and_compounds"], "材料性能"),
+                ("material_removal_rate", "Material Removal Rate", ["computer_science"], "材料去除率"),
+                ("material_safety_data_sheet", "Material Safety Data Sheets", ["biomedical", "health_care"], "化学品安全技术说明书"),
+                ("materialized_view", "Materialized View", ["computer_science"], "物化视图"),
+            ]
+        )
+
+    def test_exact_expansion_batch_363_adds_materials_management_and_testing_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("material_handling", "Materials Handling", ["materials_elements_and_compounds"], "物料搬运"),
+                ("material_handling_equipment", "Materials Handling Equipment", ["materials_elements_and_compounds"], "物料搬运设备"),
+                ("material_management_hospital", "Materials Management, Hospital", ["biomedical", "health_care"], "医院物资管理"),
+                ("material_preparation", "Materials Preparation", ["materials_elements_and_compounds"], "材料制备"),
+                ("material_processing", "Materials Processing", ["industry_applications"], "材料加工"),
+                ("material_reliability", "Materials Reliability", ["reliability"], "材料可靠性"),
+                ("material_requirement_planning", "Materials Requirements Planning", ["engineering_general"], "物料需求计划"),
+                ("material_science", "Materials Science", ["physics_condensed_matter"], "材料科学"),
+                ("material_science_and_technology", "Materials Science And Technology", ["materials_elements_and_compounds"], "材料科学与技术"),
+                ("material_testing", "Materials Testing", ["materials_elements_and_compounds"], "材料测试"),
+            ]
+        )
+
+    def test_exact_expansion_batch_364_adds_maternal_health_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("maternal_age", "Maternal Age", ["biomedical", "phenomena_and_processes"], "母亲年龄"),
+                ("maternal_behavior", "Maternal Behavior", ["biomedical", "psychiatry_and_psychology"], "母性行为"),
+                ("maternal_death", "Maternal Death", ["biomedical", "diseases"], "孕产妇死亡"),
+                ("maternal_health", "Maternal Health", ["biomedical", "health_care"], "孕产妇健康"),
+                ("maternal_health_servic", "Maternal Health Services", ["biomedical", "health_care"], "孕产妇保健服务"),
+                ("maternal_inheritance", "Maternal Inheritance", ["biomedical", "phenomena_and_processes"], "母系遗传"),
+                ("maternal_mortality", "Maternal Mortality", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "孕产妇死亡率"),
+                ("maternal_child_health_servic", "Maternal-child Health Services", ["biomedical", "health_care"], "妇幼保健服务"),
+                ("maternal_fetal_exchange", "Maternal-fetal Exchange", ["biomedical", "phenomena_and_processes"], "母胎交换"),
+            ]
+        )
+
+    def test_exact_expansion_batch_365_adds_mathematical_analysis_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mathematical_analysi", "Mathematical Analysis", ["mathematics"], "数学分析"),
+                ("mathematical_and_computational_method", "Mathematical And Computational Methods", ["mathematics", "physical_sciences"], "数学与计算方法"),
+                ("mathematical_control_system_and_analysi", "Mathematical Control Systems And Analysis", ["computer_science", "physical_sciences"], "数学控制系统与分析"),
+                ("mathematical_finance", "Mathematical Finance", ["quantitative_finance"], "金融数学"),
+                ("mathematical_inequality_and_application", "Mathematical Inequalities And Applications", ["mathematics", "physical_sciences"], "数学不等式与应用"),
+                ("mathematical_model", "Mathematical Models", ["systems_engineering_and_theory"], "数学模型"),
+                ("mathematical_physic", "Mathematical Physics", ["mathematical_physics"], "数学物理"),
+                ("mathematical_programming", "Mathematical Programming", ["mathematics"], "数学规划"),
+                ("mathematic_education_and_teaching_techniqu", "Mathematics Education And Teaching Techniques", ["social_sciences"], "数学教育与教学技术"),
+            ]
+        )
+
+    def test_exact_expansion_batch_366_adds_matlab_and_matrix_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("matlab", "MATLAB", ["computers_and_information_processing"], "MATLAB软件"),
+                ("matlab_environment", "Matlab Environment", ["computer_science"], "MATLAB环境"),
+                ("matlab_simulation", "Matlab Simulation", ["computer_science"], "MATLAB仿真"),
+                ("matlab_simulink", "Matlab-simulink", ["computer_science"], "MATLAB/Simulink软件"),
+                ("matrix_algebra", "Matrix Algebra", ["computer_science"], "矩阵代数"),
+                ("matrix_attachment_region", "Matrix Attachment Regions", ["biomedical", "phenomena_and_processes"], "基质附着区"),
+                ("matrix_converter", "Matrix Converters", ["power_electronics"], "矩阵变换器"),
+                ("matrix_factorization", "Matrix Factorization", ["computer_science"], "矩阵分解"),
+                ("matrix_gla_protein", "Matrix Gla Protein", ["biomedical", "chemicals_and_drugs"], "基质Gla蛋白"),
+                ("matrix_theory", "Matrix Theory", ["computer_science"], "矩阵理论"),
+            ]
+        )
+
+    def test_exact_expansion_batch_367_adds_matrix_metalloproteinase_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("matrix_metalloproteinase_1", "Matrix Metalloproteinase 1", ["biomedical", "chemicals_and_drugs"], "基质金属蛋白酶1"),
+                ("matrix_metalloproteinase_2", "Matrix Metalloproteinase 2", ["biomedical", "chemicals_and_drugs"], "基质金属蛋白酶2"),
+                ("matrix_metalloproteinase_3", "Matrix Metalloproteinase 3", ["biomedical", "chemicals_and_drugs"], "基质金属蛋白酶3"),
+                ("matrix_metalloproteinase_9", "Matrix Metalloproteinase 9", ["biomedical", "chemicals_and_drugs"], "基质金属蛋白酶9"),
+                ("matrix_metalloproteinase_13", "Matrix Metalloproteinase 13", ["biomedical", "chemicals_and_drugs"], "基质金属蛋白酶13"),
+                ("matrix_metalloproteinase_inhibitor", "Matrix Metalloproteinase Inhibitors", ["biomedical", "chemicals_and_drugs"], "基质金属蛋白酶抑制剂"),
+                ("matrix_metalloproteinase_membrane_associated", "Matrix Metalloproteinases, Membrane-associated", ["biomedical", "chemicals_and_drugs"], "膜相关基质金属蛋白酶"),
+                ("matrix_metalloproteinase_secreted", "Matrix Metalloproteinases, Secreted", ["biomedical", "chemicals_and_drugs"], "分泌型基质金属蛋白酶"),
+            ]
+        )
+
+    def test_exact_expansion_batch_368_adds_maxillary_and_maximal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("maxillary_artery", "Maxillary Artery", ["anatomy", "biomedical"], "上颌动脉"),
+                ("maxillary_fractur", "Maxillary Fractures", ["biomedical", "diseases"], "上颌骨骨折"),
+                ("maxillary_nerve", "Maxillary Nerve", ["anatomy", "biomedical"], "上颌神经"),
+                ("maxillary_sinu", "Maxillary Sinus", ["anatomy", "biomedical"], "上颌窦"),
+                ("maxillary_sinusiti", "Maxillary Sinusitis", ["biomedical", "diseases"], "上颌窦炎"),
+                ("maxillofacial_injury", "Maxillofacial Injuries", ["biomedical", "diseases"], "颌面损伤"),
+                ("maxillofacial_prosthesi", "Maxillofacial Prosthesis", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "颌面假体"),
+                ("maximal_frequent_itemset", "Maximal Frequent Itemsets", ["computer_science"], "最大频繁项集"),
+                ("maximal_ratio_combining", "Maximal Ratio Combining", ["computer_science"], "最大比合并"),
+                ("maximal_voluntary_ventilation", "Maximal Voluntary Ventilation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "最大自主通气量"),
+            ]
+        )
+
+    def test_exact_expansion_batch_369_adds_maximum_likelihood_and_power_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("maximum_a_posteriori_estimation", "Maximum A Posteriori Estimation", ["mathematics"], "最大后验估计"),
+                ("maximum_entropy_model", "Maximum Entropy Model", ["computer_science"], "最大熵模型"),
+                ("maximum_likelihood_decoding", "Maximum Likelihood Decoding", ["information_theory"], "最大似然译码"),
+                ("maximum_likelihood_detection", "Maximum Likelihood Detection", ["computer_science", "mathematics"], "最大似然检测"),
+                ("maximum_likelihood_estimation", "Maximum Likelihood Estimation", ["computer_science", "mathematics"], "最大似然估计"),
+                ("maximum_likelihood_method", "Maximum Likelihood Method", ["computer_science"], "最大似然法"),
+                ("maximum_power_point_tracking", "Maximum Power Point Tracking", ["computer_science"], "最大功率点跟踪"),
+                ("maximum_tolerated_dose", "Maximum Tolerated Dose", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "最大耐受剂量"),
+                ("maxwell_equation", "Maxwell Equations", ["computer_science", "mathematics"], "麦克斯韦方程"),
+                ("maxwell_boltzmann_distribution", "Maxwell-boltzmann Distribution", ["mathematics"], "麦克斯韦-玻尔兹曼分布"),
+            ]
+        )
+
+    def test_exact_expansion_batch_370_adds_mean_and_measurement_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mean_absolute_error", "Mean Absolute Error", ["computer_science"], "平均绝对误差"),
+                ("mean_diffusivity", "Mean Diffusivity", ["computer_science"], "平均弥散率"),
+                ("mean_field_theory", "Mean Field Theory", ["mathematics"], "平均场理论"),
+                ("mean_filter", "Mean Filter", ["computer_science"], "均值滤波器"),
+                ("mean_opinion_score", "Mean Opinion Score", ["computer_science"], "平均意见得分"),
+                ("mean_platelet_volume", "Mean Platelet Volume", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "平均血小板体积"),
+                ("mean_shift_tracking", "Mean Shift Tracking", ["computer_science"], "均值漂移跟踪"),
+                ("mean_shift_segmentation", "Mean-shift Segmentation", ["computer_science"], "均值漂移分割"),
+                ("measl_mump_rubella_vaccine", "Measles-mumps-rubella Vaccine", ["biomedical", "chemicals_and_drugs"], "麻疹-腮腺炎-风疹疫苗"),
+                ("measurement_uncertainty", "Measurement Uncertainty", ["instrumentation_and_measurement"], "测量不确定度"),
+            ]
+        )
+
+    def test_exact_expansion_batch_371_adds_mechanical_engineering_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mechanical_behavior_of_composit", "Mechanical Behavior Of Composites", ["engineering", "physical_sciences"], "复合材料力学行为"),
+                ("mechanical_circulatory_support_devic", "Mechanical Circulatory Support Devices", ["engineering", "physical_sciences"], "机械循环辅助装置"),
+                ("mechanical_design", "Mechanical Design", ["computer_science"], "机械设计"),
+                ("mechanical_energy", "Mechanical Energy", ["engineering_general"], "机械能"),
+                ("mechanical_engineering", "Mechanical Engineering", ["engineering_general"], "机械工程"),
+                ("mechanical_failure_analysi_and_simulation", "Mechanical Failure Analysis And Simulation", ["engineering", "physical_sciences"], "机械失效分析与仿真"),
+                ("mechanical_power_transmission", "Mechanical Power Transmission", ["engineering_general"], "机械传动"),
+                ("mechanical_sensor", "Mechanical Sensors", ["sensors"], "机械传感器"),
+                ("mechanical_stress_and_fatigue_analysi", "Mechanical Stress And Fatigue Analysis", ["engineering", "physical_sciences"], "机械应力与疲劳分析"),
+                ("mechanical_vibration", "Mechanical Vibrations", ["computer_science"], "机械振动"),
+            ]
+        )
+
+    def test_exact_expansion_batch_372_adds_mechanics_mechatronics_and_media_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mechanic_and_biomechanic_study", "Mechanics And Biomechanics Studies", ["engineering", "physical_sciences"], "力学与生物力学研究"),
+                ("mechanism_design", "Mechanism Design", ["computer_science"], "机制设计"),
+                ("mechanistic_target_of_rapamycin_complex_1", "Mechanistic Target Of Rapamycin Complex 1", ["biomedical", "chemicals_and_drugs"], "雷帕霉素机制靶蛋白复合物1"),
+                ("mechanistic_target_of_rapamycin_complex_2", "Mechanistic Target Of Rapamycin Complex 2", ["biomedical", "chemicals_and_drugs"], "雷帕霉素机制靶蛋白复合物2"),
+                ("mechanobiology", "Mechanobiology", ["engineering_in_medicine_and_biology"], "机械生物学"),
+                ("mechanoreceptor", "Mechanoreceptors", ["anatomy", "biomedical"], "机械感受器"),
+                ("mechanotransduction_cellular", "Mechanotransduction, Cellular", ["biomedical", "phenomena_and_processes"], "细胞机械转导"),
+                ("mechatronic_system", "Mechatronic Systems", ["computer_science"], "机电一体化系统"),
+                ("media_access_control", "Media Access Control", ["computer_science"], "媒体访问控制"),
+                ("media_independent_handover", "Media Independent Handover", ["computer_science"], "媒体无关切换"),
+            ]
+        )
+
+    def test_exact_expansion_batch_373_adds_medial_median_and_mediastinal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("medial_axis", "Medial Axis", ["computer_science"], "中轴"),
+                ("medial_collateral_ligament_knee", "Medial Collateral Ligament, Knee", ["anatomy", "biomedical"], "膝内侧副韧带"),
+                ("medial_forebrain_bundle", "Medial Forebrain Bundle", ["anatomy", "biomedical"], "内侧前脑束"),
+                ("median_arcuate_ligament_syndrome", "Median Arcuate Ligament Syndrome", ["biomedical", "diseases"], "中弓韧带综合征"),
+                ("median_filter", "Median Filter", ["computer_science"], "中值滤波器"),
+                ("median_nerve", "Median Nerve", ["anatomy", "biomedical"], "正中神经"),
+                ("mediastinal_emphysema", "Mediastinal Emphysema", ["biomedical", "diseases"], "纵隔气肿"),
+                ("mediastinal_neoplasm", "Mediastinal Neoplasms", ["biomedical", "diseases"], "纵隔肿瘤"),
+                ("mediation_analysi", "Mediation Analysis", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "中介分析"),
+                ("mediator_complex_subunit_1", "Mediator Complex Subunit 1", ["biomedical", "chemicals_and_drugs"], "中介复合体亚基1"),
+            ]
+        )
+
+    def test_exact_expansion_batch_374_adds_medical_device_and_database_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("medicaid", "Medicaid", ["biomedical", "health_care"], "医疗补助"),
+                ("medical_and_biological_scienc", "Medical And Biological Sciences", ["health_sciences", "medicine"], "医学与生物科学"),
+                ("medical_assistance", "Medical Assistance", ["biomedical", "health_care"], "医疗援助"),
+                ("medical_audit", "Medical Audit", ["biomedical", "health_care"], "医疗审计"),
+                ("medical_control_system", "Medical Control Systems", ["control_systems"], "医疗控制系统"),
+                ("medical_countermeasur", "Medical Countermeasures", ["biomedical", "health_care"], "医疗对策"),
+                ("medical_database", "Medical Database", ["computer_science"], "医疗数据库"),
+                ("medical_device_sterilization_and_disinfection", "Medical Device Sterilization And Disinfection", ["immunology_and_microbiology", "life_sciences"], "医疗器械灭菌与消毒"),
+                ("medical_diagnostic_imaging", "Medical Diagnostic Imaging", ["imaging"], "医学诊断成像"),
+                ("medical_expert_system", "Medical Expert Systems", ["engineering_in_medicine_and_biology"], "医疗专家系统"),
+            ]
+        )
+
+    def test_exact_expansion_batch_375_adds_medical_imaging_and_record_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("medical_history_taking", "Medical History Taking", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "病史采集"),
+                ("medical_identity_theft", "Medical Identity Theft", ["anthropology_education_sociology_and_social_phenomena", "biomedical"], "医疗身份盗窃"),
+                ("medical_image_registration", "Medical Image Registration", ["computer_science"], "医学图像配准"),
+                ("medical_image_segmentation_techniqu", "Medical Image Segmentation Techniques", ["computer_science", "physical_sciences"], "医学图像分割技术"),
+                ("medical_informatic", "Medical Informatics", ["biomedical", "information_science"], "医学信息学"),
+                ("medical_information_system", "Medical Information Systems", ["engineering_in_medicine_and_biology"], "医疗信息系统"),
+                ("medical_laboratory_science", "Medical Laboratory Science", ["biomedical", "disciplines_and_occupations"], "医学检验学"),
+                ("medical_order_entry_system", "Medical Order Entry Systems", ["biomedical", "information_science"], "医嘱录入系统"),
+                ("medical_record_linkage", "Medical Record Linkage", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "医疗记录链接"),
+                ("medical_record_system_computerized", "Medical Records Systems, Computerized", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "计算机化病历系统"),
+            ]
+        )
+
+    def test_exact_expansion_batch_376_adds_medical_staff_and_medication_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("medical_saving_account", "Medical Savings Accounts", ["biomedical", "health_care"], "医疗储蓄账户"),
+                ("medical_staff", "Medical Staff", ["biomedical", "named_groups"], "医务人员"),
+                ("medical_subject_heading", "Medical Subject Headings", ["biomedical", "information_science"], "医学主题词"),
+                ("medical_tourism", "Medical Tourism", ["biomedical", "health_care"], "医疗旅游"),
+                ("medical_waste_disposal", "Medical Waste Disposal", ["biomedical", "chemicals_and_drugs"], "医疗废物处置"),
+                ("medically_underserved_area", "Medically Underserved Area", ["biomedical", "health_care"], "医疗服务不足地区"),
+                ("medically_uninsured", "Medically Uninsured", ["biomedical", "named_groups"], "无医疗保险者"),
+                ("medication_adherence", "Medication Adherence", ["biomedical", "psychiatry_and_psychology"], "用药依从性"),
+                ("medication_reconciliation", "Medication Reconciliation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "用药核对"),
+                ("medication_therapy_management", "Medication Therapy Management", ["biomedical", "health_care"], "药物治疗管理"),
+            ]
+        )
+
+    def test_exact_expansion_batch_377_adds_medicinal_plant_and_medicine_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("medicinal_plant_research", "Medicinal Plant Research", ["agricultural_and_biological_sciences", "life_sciences"], "药用植物研究"),
+                ("medicinal_plant_and_bioactive_compound", "Medicinal Plants And Bioactive Compounds", ["biochemistry_genetics_and_molecular_biology", "life_sciences"], "药用植物与生物活性化合物"),
+                ("medicine", "Medicine", ["biomedical", "disciplines_and_occupations"], "医学"),
+                ("medicine_chest", "Medicine Chests", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "药箱"),
+                ("medicine_african_traditional", "Medicine, African Traditional", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "非洲传统医学"),
+                ("medicine_chinese_traditional", "Medicine, Chinese Traditional", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "中医"),
+                ("medicine_east_asian_traditional", "Medicine, East Asian Traditional", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "东亚传统医学"),
+                ("medicine_kampo", "Medicine, Kampo", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "汉方医学"),
+                ("medicine_tibetan_traditional", "Medicine, Tibetan Traditional", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "藏医"),
+                ("medicine_traditional", "Medicine, Traditional", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "传统医学"),
+            ]
+        )
+
+    def test_exact_expansion_batch_378_adds_meiotic_and_melanin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("meibomian_gland_dysfunction", "Meibomian Gland Dysfunction", ["biomedical", "diseases"], "睑板腺功能障碍"),
+                ("meibomian_gland", "Meibomian Glands", ["anatomy", "biomedical"], "睑板腺"),
+                ("meige_syndrome", "Meige Syndrome", ["biomedical", "diseases"], "Meige综合征"),
+                ("meiosi", "Meiosis", ["biomedical", "phenomena_and_processes"], "减数分裂"),
+                ("meiotic_recombination_protein_spo11", "Meiotic Recombination Protein Spo11", ["biomedical", "chemicals_and_drugs"], "减数分裂重组蛋白Spo11"),
+                ("mel_frequency_cepstral_coefficient", "Mel-frequency Cepstral Coefficients", ["computer_science"], "梅尔频率倒谱系数"),
+                ("melanocyte_stimulating_hormon", "Melanocyte-stimulating Hormones", ["biomedical", "chemicals_and_drugs"], "促黑素"),
+                ("melanoma_specific_antigen", "Melanoma-specific Antigens", ["biomedical", "chemicals_and_drugs"], "黑色素瘤特异性抗原"),
+                ("melatonin", "Melatonin", ["biomedical", "chemicals_and_drugs"], "褪黑素"),
+                ("melioidosi", "Melioidosis", ["biomedical", "diseases"], "类鼻疽"),
+            ]
+        )
+
+    def test_exact_expansion_batch_379_adds_membrane_and_memetic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("memantine", "Memantine", ["biomedical", "chemicals_and_drugs"], "美金刚"),
+                ("membership_function", "Membership Function", ["computer_science"], "隶属函数"),
+                ("membrane_cofactor_protein", "Membrane Cofactor Protein", ["biomedical", "chemicals_and_drugs"], "膜辅因子蛋白"),
+                ("membrane_fluidity", "Membrane Fluidity", ["biomedical", "phenomena_and_processes"], "膜流动性"),
+                ("membrane_fusion", "Membrane Fusion", ["biomedical", "phenomena_and_processes"], "膜融合"),
+                ("membrane_potential_mitochondrial", "Membrane Potential, Mitochondrial", ["biomedical", "phenomena_and_processes"], "线粒体膜电位"),
+                ("membrane_transport_protein", "Membrane Transport Proteins", ["biomedical", "chemicals_and_drugs"], "膜转运蛋白"),
+                ("membrane_based_ion_separation_techniqu", "Membrane-based Ion Separation Techniques", ["engineering", "physical_sciences"], "膜基离子分离技术"),
+                ("membran_artificial", "Membranes, Artificial", ["biomedical", "chemicals_and_drugs"], "人工膜"),
+                ("memetic_algorithm", "Memetic Algorithm", ["computer_science"], "模因算法"),
+            ]
+        )
+
+    def test_exact_expansion_batch_380_adds_memory_and_mems_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("memory_access", "Memory Access", ["computer_science"], "内存访问"),
+                ("memory_allocation", "Memory Allocation", ["computer_science"], "内存分配"),
+                ("memory_and_learning_test", "Memory And Learning Tests", ["biomedical", "psychiatry_and_psychology"], "记忆与学习测试"),
+                ("memory_architecture", "Memory Architecture", ["computer_science"], "存储架构"),
+                ("memory_consolidation", "Memory Consolidation", ["biomedical", "psychiatry_and_psychology"], "记忆巩固"),
+                ("memory_controller", "Memory Controller", ["computer_science"], "内存控制器"),
+                ("memory_disorder", "Memory Disorders", ["biomedical", "diseases"], "记忆障碍"),
+                ("memory_hierarchy", "Memory Hierarchy", ["computer_science"], "存储层次结构"),
+                ("memory_management", "Memory Management", ["computer_science"], "内存管理"),
+                ("memory_episodic", "Memory, Episodic", ["biomedical", "psychiatry_and_psychology"], "情景记忆"),
+                ("memristor", "Memristors", ["components_packaging_and_manufacturing_technology"], "忆阻器"),
+                ("mems_gyroscope", "Mems Gyroscope", ["computer_science"], "MEMS陀螺仪"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
