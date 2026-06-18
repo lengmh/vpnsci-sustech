@@ -8636,6 +8636,266 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_281_adds_least_lectin_and_left_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("least_significant_bit", "Least Significant Bits", ["computer_science"], "最低有效位"),
+                ("least_square_support_vector_machine", "Least Square Support Vector Machine", ["computer_science"], "最小二乘支持向量机"),
+                ("least_squar_approximation", "Least Squares Approximations", ["computer_science", "mathematics"], "最小二乘近似"),
+                ("leave_one_out", "Leave-one-out", ["computer_science"], "留一法"),
+                ("lecithin", "Lecithins", ["biomedical", "chemicals_and_drugs"], "卵磷脂类"),
+                ("lectin_c_type", "Lectins, C-type", ["biomedical", "chemicals_and_drugs"], "C型凝集素"),
+                ("left_atrial_appendage_closure", "Left Atrial Appendage Closure", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "左心耳封堵术"),
+            ]
+        )
+
+    def test_exact_expansion_batch_282_adds_leg_legacy_and_leiomyoma_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("leg_injury", "Leg Injuries", ["biomedical", "diseases"], "腿损伤"),
+                ("leg_length_inequality", "Leg Length Inequality", ["biomedical", "diseases"], "下肢长度不等"),
+                ("legacy_code", "Legacy Code", ["computer_science"], "遗留代码"),
+                ("legacy_system", "Legacy System", ["computer_science"], "遗留系统"),
+                ("leigh_disease", "Leigh Disease", ["biomedical", "diseases"], "Leigh病"),
+                ("leiomyoma", "Leiomyoma", ["biomedical", "diseases"], "平滑肌瘤"),
+                ("leiomyosarcoma", "Leiomyosarcoma", ["biomedical", "diseases"], "平滑肌肉瘤"),
+            ]
+        )
+
+    def test_exact_expansion_batch_283_adds_leishmania_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("leishmania", "Leishmania", ["biomedical", "organisms"], "利什曼原虫属"),
+                ("leishmania_donovani", "Leishmania Donovani", ["biomedical", "organisms"], "杜氏利什曼原虫"),
+                ("leishmania_major", "Leishmania Major", ["biomedical", "organisms"], "硕大利什曼原虫"),
+                ("leishmaniasi", "Leishmaniasis", ["biomedical", "diseases"], "利什曼病"),
+                ("leishmaniasi_cutaneou", "Leishmaniasis, Cutaneous", ["biomedical", "diseases"], "皮肤利什曼病"),
+                ("leishmaniasi_mucocutaneou", "Leishmaniasis, Mucocutaneous", ["biomedical", "diseases"], "黏膜皮肤利什曼病"),
+                ("leishmaniasi_visceral", "Leishmaniasis, Visceral", ["biomedical", "diseases"], "内脏利什曼病"),
+            ]
+        )
+
+    def test_exact_expansion_batch_284_adds_lens_and_lentivirus_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lemierre_syndrome", "Lemierre Syndrome", ["biomedical", "diseases"], "Lemierre综合征"),
+                ("lenalidomide", "Lenalidomide", ["biomedical", "chemicals_and_drugs"], "来那度胺"),
+                ("length_of_stay", "Length Of Stay", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "住院时间"),
+                ("lennox_gastaut_syndrome", "Lennox Gastaut Syndrome", ["biomedical", "diseases"], "Lennox-Gastaut综合征"),
+                ("lens_crystalline", "Lens, Crystalline", ["anatomy", "biomedical"], "晶状体"),
+                ("lens_implantation_intraocular", "Lens Implantation, Intraocular", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "人工晶状体植入术"),
+                ("lentiviru", "Lentivirus", ["biomedical", "organisms"], "慢病毒属"),
+            ]
+        )
+
+    def test_exact_expansion_batch_285_adds_leprosy_leptin_and_leptospira_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("leo_satellite_network", "Leo Satellite Networks", ["computer_science"], "低轨卫星网络"),
+                ("leprosy", "Leprosy", ["biomedical", "diseases"], "麻风"),
+                ("leprosy_lepromatou", "Leprosy, Lepromatous", ["biomedical", "diseases"], "瘤型麻风"),
+                ("leptin", "Leptin", ["biomedical", "chemicals_and_drugs"], "瘦素"),
+                ("lepton", "Leptons", ["physics"], "轻子"),
+                ("leptospira_interrogan", "Leptospira Interrogans", ["biomedical", "organisms"], "问号钩端螺旋体"),
+                ("leptospirosi", "Leptospirosis", ["biomedical", "diseases"], "钩端螺旋体病"),
+            ]
+        )
+
+    def test_exact_expansion_batch_286_adds_leucine_and_lesch_nyhan_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("leriche_syndrome", "Leriche Syndrome", ["biomedical", "diseases"], "Leriche综合征"),
+                ("lesch_nyhan_syndrome", "Lesch-nyhan Syndrome", ["biomedical", "diseases"], "Lesch-Nyhan综合征"),
+                ("lethal_dose_50", "Lethal Dose 50", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "半数致死量"),
+                ("leucine", "Leucine", ["biomedical", "chemicals_and_drugs"], "亮氨酸"),
+                ("leucine_zipper", "Leucine Zippers", ["biomedical", "phenomena_and_processes"], "亮氨酸拉链"),
+                ("leucine_rich_repeat_protein", "Leucine-rich Repeat Proteins", ["biomedical", "chemicals_and_drugs"], "富亮氨酸重复蛋白"),
+                ("leucyl_aminopeptidase", "Leucyl Aminopeptidase", ["biomedical", "chemicals_and_drugs"], "亮氨酰氨肽酶"),
+            ]
+        )
+
+    def test_exact_expansion_batch_287_adds_leukemia_factor_and_virus_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("leukapheresi", "Leukapheresis", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "白细胞单采术"),
+                ("leukemia_inhibitory_factor", "Leukemia Inhibitory Factor", ["biomedical", "chemicals_and_drugs"], "白血病抑制因子"),
+                ("leukemia_l1210", "Leukemia L1210", ["biomedical", "diseases"], "L1210白血病"),
+                ("leukemia_viru_bovine", "Leukemia Virus, Bovine", ["biomedical", "organisms"], "牛白血病病毒"),
+                ("leukemia_viru_feline", "Leukemia Virus, Feline", ["biomedical", "organisms"], "猫白血病病毒"),
+                ("leukemia_basophilic_acute", "Leukemia, Basophilic, Acute", ["biomedical", "diseases"], "急性嗜碱性白血病"),
+                ("leukemia_erythroblastic_acute", "Leukemia, Erythroblastic, Acute", ["biomedical", "diseases"], "急性红白血病"),
+            ]
+        )
+
+    def test_exact_expansion_batch_288_adds_leukemia_subtype_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("leukemia_hairy_cell", "Leukemia, Hairy Cell", ["biomedical", "diseases"], "毛细胞白血病"),
+                ("leukemia_large_granular_lymphocytic", "Leukemia, Large Granular Lymphocytic", ["biomedical", "diseases"], "大颗粒淋巴细胞白血病"),
+                ("leukemia_lymphocytic_chronic_b_cell", "Leukemia, Lymphocytic, Chronic, B-cell", ["biomedical", "diseases"], "B细胞慢性淋巴细胞白血病"),
+                ("leukemia_megakaryoblastic_acute", "Leukemia, Megakaryoblastic, Acute", ["biomedical", "diseases"], "急性巨核细胞白血病"),
+                ("leukemia_myeloid_acute", "Leukemia, Myeloid, Acute", ["biomedical", "diseases"], "急性髓系白血病"),
+                ("leukemia_promyelocytic_acute", "Leukemia, Promyelocytic, Acute", ["biomedical", "diseases"], "急性早幼粒细胞白血病"),
+                ("leukemia_lymphoma_adult_t_cell", "Leukemia-lymphoma, Adult T-cell", ["biomedical", "diseases"], "成人T细胞白血病淋巴瘤"),
+            ]
+        )
+
+    def test_exact_expansion_batch_289_adds_leukocyte_and_leukoplakia_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("leukemoid_reaction", "Leukemoid Reaction", ["biomedical", "diseases"], "类白血病反应"),
+                ("leukoaraiosi", "Leukoaraiosis", ["biomedical", "diseases"], "脑白质疏松"),
+                ("leukocyte_elastase", "Leukocyte Elastase", ["biomedical", "chemicals_and_drugs"], "白细胞弹性蛋白酶"),
+                ("leukocyte_rolling", "Leukocyte Rolling", ["biomedical", "phenomena_and_processes"], "白细胞滚动"),
+                ("leukocyte_adhesion_deficiency_syndrome", "Leukocyte-adhesion Deficiency Syndrome", ["biomedical", "diseases"], "白细胞黏附缺陷综合征"),
+                ("leukodystrophy_metachromatic", "Leukodystrophy, Metachromatic", ["biomedical", "diseases"], "异染性脑白质营养不良"),
+                ("leukoplakia_oral", "Leukoplakia, Oral", ["biomedical", "diseases"], "口腔白斑"),
+            ]
+        )
+
+    def test_exact_expansion_batch_290_adds_leukotriene_and_levodopa_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("leukopoiesi", "Leukopoiesis", ["biomedical", "phenomena_and_processes"], "白细胞生成"),
+                ("leukotriene_a4", "Leukotriene A4", ["biomedical", "chemicals_and_drugs"], "白三烯A4"),
+                ("leukotriene_antagonist", "Leukotriene Antagonists", ["biomedical", "chemicals_and_drugs"], "白三烯拮抗剂"),
+                ("leukotrien", "Leukotrienes", ["biomedical", "chemicals_and_drugs"], "白三烯类"),
+                ("leuprolide", "Leuprolide", ["biomedical", "chemicals_and_drugs"], "亮丙瑞林"),
+                ("levodopa", "Levodopa", ["biomedical", "chemicals_and_drugs"], "左旋多巴"),
+                ("levofloxacin", "Levofloxacin", ["biomedical", "chemicals_and_drugs"], "左氧氟沙星"),
+            ]
+        )
+
+    def test_exact_expansion_batch_291_adds_lewis_lexical_and_leydig_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lewi_acid", "Lewis Acids", ["biomedical", "chemicals_and_drugs"], "路易斯酸"),
+                ("lewi_base", "Lewis Bases", ["biomedical", "chemicals_and_drugs"], "路易斯碱"),
+                ("lewy_body_disease", "Lewy Body Disease", ["biomedical", "diseases"], "路易体病"),
+                ("lexical_database", "Lexical Database", ["computer_science"], "词汇数据库"),
+                ("lexical_semantic", "Lexical Semantics", ["computer_science"], "词汇语义学"),
+                ("leydig_cell_tumor", "Leydig Cell Tumor", ["biomedical", "diseases"], "Leydig细胞瘤"),
+                ("li_fraumeni_syndrome", "Li-fraumeni Syndrome", ["biomedical", "diseases"], "Li-Fraumeni综合征"),
+            ]
+        )
+
+    def test_exact_expansion_batch_292_adds_library_license_lidar_and_lichen_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("library_digital", "Libraries, Digital", ["biomedical", "technology_industry_and_agriculture"], "数字图书馆"),
+                ("library_medical", "Libraries, Medical", ["biomedical", "technology_industry_and_agriculture"], "医学图书馆"),
+                ("library_automation", "Library Automation", ["biomedical", "information_science"], "图书馆自动化"),
+                ("license_plate_recognition", "License Plate Recognition", ["computers_and_information_processing"], "车牌识别"),
+                ("lichen_planu", "Lichen Planus", ["biomedical", "diseases"], "扁平苔藓"),
+                ("lidar_system", "Lidar Systems", ["computer_science"], "激光雷达系统"),
+                ("lidocaine", "Lidocaine", ["biomedical", "chemicals_and_drugs"], "利多卡因"),
+            ]
+        )
+
+    def test_exact_expansion_batch_293_adds_life_ligament_and_ligase_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lie_group", "Lie Groups", ["mathematics"], "李群"),
+                ("life_cycle_assessment", "Life Cycle Assessment", ["engineering_management"], "生命周期评价"),
+                ("life_expectancy", "Life Expectancy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "预期寿命"),
+                ("life_support_system", "Life Support Systems", ["biomedical", "health_care"], "生命支持系统"),
+                ("ligament_articular", "Ligaments, Articular", ["anatomy", "biomedical"], "关节韧带"),
+                ("ligand_gated_ion_channel", "Ligand-gated Ion Channels", ["biomedical", "chemicals_and_drugs"], "配体门控离子通道"),
+                ("ligase_chain_reaction", "Ligase Chain Reaction", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "连接酶链反应"),
+            ]
+        )
+
+    def test_exact_expansion_batch_294_adds_light_and_lighting_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("light_amplifier", "Light Amplifiers", ["computer_science"], "光放大器"),
+                ("light_detection_and_ranging", "Light Detection And Ranging", ["computer_science"], "激光雷达"),
+                ("light_emitting_diod", "Light Emitting Diodes", ["components_packaging_and_manufacturing_technology"], "发光二极管"),
+                ("light_field", "Light Fields", ["lasers_and_electrooptics"], "光场"),
+                ("light_modulation", "Light Modulation", ["computer_science"], "光调制"),
+                ("light_sourc", "Light Sources", ["lasers_and_electrooptics"], "光源"),
+                ("light_harvesting_protein_complexe", "Light-harvesting Protein Complexes", ["biomedical", "chemicals_and_drugs"], "捕光蛋白复合物"),
+            ]
+        )
+
+    def test_exact_expansion_batch_295_adds_limb_limit_and_lincosamide_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("likelihood_function", "Likelihood Functions", ["computer_science"], "似然函数"),
+                ("limb_buds", "Limb Buds", ["anatomy", "biomedical"], "肢芽"),
+                ("limbal_stem_cell_deficiency", "Limbal Stem Cell Deficiency", ["biomedical", "diseases"], "角膜缘干细胞缺乏"),
+                ("limbic_system", "Limbic System", ["anatomy", "biomedical"], "边缘系统"),
+                ("limit_of_detection", "Limit Of Detection", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "检出限"),
+                ("lincomycin", "Lincomycin", ["biomedical", "chemicals_and_drugs"], "林可霉素"),
+                ("lindblad_equation", "Lindblad Equation", ["physics"], "Lindblad方程"),
+            ]
+        )
+
+    def test_exact_expansion_batch_296_adds_linear_system_and_coding_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("line_of_sight_propagation", "Line-of-sight Propagation", ["electromagnetic_compatibility_and_interference"], "视距传播"),
+                ("linear_accelerator", "Linear Accelerators", ["nuclear_and_plasma_sciences"], "直线加速器"),
+                ("linear_antenna_array", "Linear Antenna Arrays", ["antennas_and_propagation"], "线性天线阵列"),
+                ("linear_canonical_transform", "Linear Canonical Transform", ["computer_science"], "线性正则变换"),
+                ("linear_cryptanalysi", "Linear Cryptanalysis", ["computer_science"], "线性密码分析"),
+                ("linear_discriminant_analysi", "Linear Discriminant Analysis", ["computer_science", "mathematics"], "线性判别分析"),
+                ("linear_feedback_control_system", "Linear Feedback Control Systems", ["control_systems"], "线性反馈控制系统"),
+            ]
+        )
+
+    def test_exact_expansion_batch_297_adds_linear_programming_and_lingual_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("linear_minimum_mean_squared_error", "Linear Minimum Mean-squared Errors", ["computer_science"], "线性最小均方误差"),
+                ("linear_predictive_coding", "Linear Predictive Coding", ["computational_and_artificial_intelligence"], "线性预测编码"),
+                ("linear_programming", "Linear Programming", ["mathematics"], "线性规划"),
+                ("linear_spectral_unmixing", "Linear Spectral Unmixing", ["computer_science"], "线性光谱解混"),
+                ("linear_time_invariant_system", "Linear Time-invariant System", ["computer_science"], "线性时不变系统"),
+                ("linezolid", "Linezolid", ["biomedical", "chemicals_and_drugs"], "利奈唑胺"),
+                ("lingual_nerve", "Lingual Nerve", ["anatomy", "biomedical"], "舌神经"),
+            ]
+        )
+
+    def test_exact_expansion_batch_298_adds_link_linoleic_and_lip_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("link_prediction", "Link Prediction", ["computer_science"], "链接预测"),
+                ("linkage_disequilibrium", "Linkage Disequilibrium", ["biomedical", "phenomena_and_processes"], "连锁不平衡"),
+                ("linked_open_data", "Linked Open Data", ["computer_science"], "开放关联数据"),
+                ("linoleic_acid", "Linoleic Acids", ["biomedical", "chemicals_and_drugs"], "亚油酸"),
+                ("linolenic_acid", "Linolenic Acids", ["biomedical", "chemicals_and_drugs"], "亚麻酸"),
+                ("lip_disease", "Lip Diseases", ["biomedical", "diseases"], "唇疾病"),
+                ("lipase", "Lipase", ["biomedical", "chemicals_and_drugs"], "脂肪酶"),
+            ]
+        )
+
+    def test_exact_expansion_batch_299_adds_lipid_and_lipodystrophy_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lipedema", "Lipedema", ["biomedical", "diseases"], "脂肪水肿"),
+                ("lipid_bilayer", "Lipid Bilayers", ["biomedical", "chemicals_and_drugs"], "脂质双层"),
+                ("lipid_droplet", "Lipid Droplets", ["anatomy", "biomedical"], "脂滴"),
+                ("lipid_peroxidation", "Lipid Peroxidation", ["biomedical", "phenomena_and_processes"], "脂质过氧化"),
+                ("lipidomic", "Lipidomics", ["biomedical", "disciplines_and_occupations"], "脂质组学"),
+                ("lipoblastoma", "Lipoblastoma", ["biomedical", "diseases"], "脂肪母细胞瘤"),
+                ("lipodystrophy", "Lipodystrophy", ["biomedical", "diseases"], "脂肪营养不良"),
+            ]
+        )
+
+    def test_exact_expansion_batch_300_adds_lipoprotein_liquid_and_liposarcoma_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lipopolysaccharide_binding_protein", "Lipopolysaccharide-binding Protein", ["biomedical", "chemicals_and_drugs"], "脂多糖结合蛋白"),
+                ("lipopolysaccharid", "Lipopolysaccharides", ["biomedical", "chemicals_and_drugs"], "脂多糖"),
+                ("lipoprotein_lipase", "Lipoprotein Lipase", ["biomedical", "chemicals_and_drugs"], "脂蛋白脂肪酶"),
+                ("liposarcoma", "Liposarcoma", ["biomedical", "diseases"], "脂肪肉瘤"),
+                ("liposom", "Liposomes", ["biomedical", "chemicals_and_drugs"], "脂质体"),
+                ("liquid_biopsy", "Liquid Biopsy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "液体活检"),
+                ("liquid_chromatography_mass_spectrometry", "Liquid Chromatography-mass Spectrometry", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "液相色谱-质谱法"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
