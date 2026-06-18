@@ -7961,6 +7961,226 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_221_adds_image_acquisition_and_compression_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("image_acquisition", "Image Acquisition", ["computer_science"], "图像采集"),
+                ("image_and_object_detection_techniqu", "Image And Object Detection Techniques", ["computer_science", "physical_sciences"], "图像与目标检测技术"),
+                ("image_annotation", "Image Annotation", ["computer_science"], "图像标注"),
+                ("image_binarization", "Image Binarization", ["computer_science"], "图像二值化"),
+                ("image_compression_algorithm", "Image Compression Algorithms", ["computer_science"], "图像压缩算法"),
+            ]
+        )
+
+    def test_exact_expansion_batch_222_adds_image_denoising_and_enhancement_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("image_deblurring", "Image Deblurring", ["computer_science"], "图像去模糊"),
+                ("image_dehazing", "Image Dehazing", ["computers_and_information_processing"], "图像去雾"),
+                ("image_denoising_algorithm", "Image Denoising Algorithm", ["computer_science"], "图像去噪算法"),
+                ("image_edge_detection", "Image Edge Detection", ["computers_and_information_processing"], "图像边缘检测"),
+                ("image_fusion", "Image Fusion", ["computers_and_information_processing"], "图像融合"),
+            ]
+        )
+
+    def test_exact_expansion_batch_223_adds_guided_matching_and_processing_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("image_guided_biopsy", "Image-guided Biopsy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "图像引导活检"),
+                ("image_guided_radiation_therapy", "Image-guided Radiation Therapy", ["computer_science"], "图像引导放射治疗"),
+                ("image_hashing", "Image Hashing", ["computer_science"], "图像哈希"),
+                ("image_interpretation_computer_assisted", "Image Interpretation, Computer-assisted", ["computer_science"], "计算机辅助图像解释"),
+                ("image_processing_and_3d_reconstruction", "Image Processing And 3D Reconstruction", ["computer_science", "physical_sciences"], "图像处理与三维重建"),
+            ]
+        )
+
+    def test_exact_expansion_batch_224_adds_image_quality_registration_and_retrieval_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("image_quality_assessment", "Image Quality Assessment", ["computer_science"], "图像质量评估"),
+                ("image_reconstruction_algorithm", "Image Reconstruction Algorithm", ["computer_science"], "图像重建算法"),
+                ("image_registration_techniqu", "Image Registration Techniques", ["computer_science"], "图像配准技术"),
+                ("image_retrieval_system", "Image Retrieval Systems", ["computer_science"], "图像检索系统"),
+                ("image_segmentation_algorithm", "Image Segmentation Algorithm", ["computer_science"], "图像分割算法"),
+            ]
+        )
+
+    def test_exact_expansion_batch_225_adds_image_sequence_and_watermarking_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("image_sensor", "Image Sensors", ["imaging"], "图像传感器"),
+                ("image_sequence_analysi", "Image Sequence Analysis", ["computers_and_information_processing"], "图像序列分析"),
+                ("image_steganography", "Image Steganography", ["computer_science"], "图像隐写"),
+                ("image_super_resolution", "Image Super-resolution", ["computer_science"], "图像超分辨率"),
+                ("image_watermarking_algorithm", "Image Watermarking Algorithm", ["computer_science"], "图像水印算法"),
+            ]
+        )
+
+    def test_exact_expansion_batch_226_adds_imaging_and_immune_checkpoint_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("imaging_three_dimensional", "Imaging, Three-dimensional", ["computer_science"], "三维成像"),
+                ("immune_adherence_reaction", "Immune Adherence Reaction", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "免疫黏附反应"),
+                ("immune_checkpoint_inhibitor", "Immune Checkpoint Inhibitors", ["biomedical", "chemicals_and_drugs"], "免疫检查点抑制剂"),
+                ("immune_evasion", "Immune Evasion", ["biomedical", "phenomena_and_processes"], "免疫逃逸"),
+                ("immune_reconstitution_inflammatory_syndrome", "Immune Reconstitution Inflammatory Syndrome", ["biomedical", "diseases"], "免疫重建炎症综合征"),
+            ]
+        )
+
+    def test_exact_expansion_batch_227_adds_immunity_and_immunization_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("immunity_cellular", "Immunity, Cellular", ["biomedical", "phenomena_and_processes"], "细胞免疫"),
+                ("immunity_herd", "Immunity, Herd", ["biomedical", "phenomena_and_processes"], "群体免疫"),
+                ("immunity_testing", "Immunity Testing", ["electromagnetic_compatibility_and_interference"], "抗扰度测试"),
+                ("immunization_passive", "Immunization, Passive", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "被动免疫"),
+                ("immunoblotting", "Immunoblotting", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "免疫印迹"),
+            ]
+        )
+
+    def test_exact_expansion_batch_228_adds_immunodiffusion_and_immunofluorescence_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("immunodeficiency_viru_bovine", "Immunodeficiency Virus, Bovine", ["biomedical", "organisms"], "牛免疫缺陷病毒"),
+                ("immunodiffusion", "Immunodiffusion", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "免疫扩散"),
+                ("immunodominant_epitop", "Immunodominant Epitopes", ["biomedical", "chemicals_and_drugs"], "免疫优势表位"),
+                ("immunoelectrophoresi_two_dimensional", "Immunoelectrophoresis, Two-dimensional", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "二维免疫电泳"),
+                ("immunogenicity_vaccine", "Immunogenicity, Vaccine", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "疫苗免疫原性"),
+            ]
+        )
+
+    def test_exact_expansion_batch_229_adds_immunoglobulin_core_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("immunoglobulin_a_secretory", "Immunoglobulin A, Secretory", ["biomedical", "chemicals_and_drugs"], "分泌型免疫球蛋白A"),
+                ("immunoglobulin_class_switching", "Immunoglobulin Class Switching", ["biomedical", "phenomena_and_processes"], "免疫球蛋白类别转换"),
+                ("immunoglobulin_fab_fragment", "Immunoglobulin Fab Fragments", ["biomedical", "chemicals_and_drugs"], "免疫球蛋白Fab片段"),
+                ("immunoglobulin_g4_related_disease", "Immunoglobulin G4-related Disease", ["biomedical", "diseases"], "IgG4相关疾病"),
+                ("immunoglobulin_heavy_chain", "Immunoglobulin Heavy Chains", ["biomedical", "chemicals_and_drugs"], "免疫球蛋白重链"),
+            ]
+        )
+
+    def test_exact_expansion_batch_230_adds_immunoglobulin_chain_and_histochemistry_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("immunoglobulin_kappa_chain", "Immunoglobulin Kappa-chains", ["biomedical", "chemicals_and_drugs"], "免疫球蛋白κ链"),
+                ("immunoglobulin_light_chain_amyloidosi", "Immunoglobulin Light-chain Amyloidosis", ["biomedical", "diseases"], "免疫球蛋白轻链淀粉样变性"),
+                ("immunoglobulin_m", "Immunoglobulin M", ["biomedical", "chemicals_and_drugs"], "免疫球蛋白M"),
+                ("immunoglobulin_variable_region", "Immunoglobulin Variable Region", ["biomedical", "chemicals_and_drugs"], "免疫球蛋白可变区"),
+                ("immunohistochemistry", "Immunohistochemistry", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "免疫组织化学"),
+            ]
+        )
+
+    def test_exact_expansion_batch_231_adds_immunologic_and_immunomodulation_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("immunologic_deficiency_syndrom", "Immunologic Deficiency Syndromes", ["biomedical", "diseases"], "免疫缺陷综合征"),
+                ("immunologic_memory", "Immunologic Memory", ["biomedical", "phenomena_and_processes"], "免疫记忆"),
+                ("immunological_synapse", "Immunological Synapses", ["anatomy", "biomedical"], "免疫突触"),
+                ("immunomagnetic_separation", "Immunomagnetic Separation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "免疫磁分离"),
+                ("immunophenotyping", "Immunophenotyping", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "免疫表型分析"),
+            ]
+        )
+
+    def test_exact_expansion_batch_232_adds_immunosuppression_and_implant_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("immunosenescence", "Immunosenescence", ["biomedical", "phenomena_and_processes"], "免疫衰老"),
+                ("immunosorbent_techniqu", "Immunosorbent Techniques", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "免疫吸附技术"),
+                ("immunotherapy_adoptive", "Immunotherapy, Adoptive", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "过继免疫治疗"),
+                ("implant_capsular_contracture", "Implant Capsular Contracture", ["biomedical", "diseases"], "植入物包膜挛缩"),
+                ("implantable_neurostimulator", "Implantable Neurostimulators", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "植入式神经刺激器"),
+            ]
+        )
+
+    def test_exact_expansion_batch_233_adds_infection_control_and_infectious_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("infection_control_dental", "Infection Control, Dental", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "牙科感染控制"),
+                ("infectiou_anemia_viru_equine", "Infectious Anemia Virus, Equine", ["biomedical", "organisms"], "马传染性贫血病毒"),
+                ("infectiou_bovine_rhinotracheiti", "Infectious Bovine Rhinotracheitis", ["biomedical", "diseases"], "牛传染性鼻气管炎"),
+                ("infectiou_disease_incubation_period", "Infectious Disease Incubation Period", ["biomedical", "health_care"], "传染病潜伏期"),
+                ("infectiou_disease_transmission_vertical", "Infectious Disease Transmission, Vertical", ["biomedical", "health_care"], "传染病垂直传播"),
+            ]
+        )
+
+    def test_exact_expansion_batch_234_adds_inflammation_and_influenza_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("inflammation_mediator", "Inflammation Mediators", ["biomedical", "chemicals_and_drugs"], "炎症介质"),
+                ("inflammatory_breast_neoplasm", "Inflammatory Breast Neoplasms", ["biomedical", "diseases"], "炎性乳腺肿瘤"),
+                ("influenza_a_viru_h1n1_subtype", "Influenza A Virus, H1N1 Subtype", ["biomedical", "organisms"], "H1N1亚型甲型流感病毒"),
+                ("influenza_human", "Influenza, Human", ["biomedical", "diseases"], "人流感"),
+                ("influenza_pandemic_1918_1919", "Influenza Pandemic, 1918-1919", ["biomedical", "humanities"], "1918-1919年流感大流行"),
+            ]
+        )
+
+    def test_exact_expansion_batch_235_adds_infrared_and_infrastructure_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("infrared_imagery", "Infrared Imagery", ["computer_science"], "红外影像"),
+                ("infrared_rays", "Infrared Rays", ["biomedical", "phenomena_and_processes"], "红外线"),
+                ("infrared_thermography", "Infrared Thermography", ["computer_science"], "红外热成像"),
+                ("infrastructure_as_a_service_iaas", "Infrastructure As A Service (iaas)", ["computer_science"], "基础设施即服务"),
+                ("infratentorial_neoplasm", "Infratentorial Neoplasms", ["biomedical", "diseases"], "幕下肿瘤"),
+            ]
+        )
+
+    def test_exact_expansion_batch_236_adds_inhibitor_injury_and_insulin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("inhibin_beta_subunit", "Inhibin-beta Subunits", ["biomedical", "chemicals_and_drugs"], "抑制素β亚基"),
+                ("inhibitory_concentration_50", "Inhibitory Concentration 50", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "半数抑制浓度"),
+                ("injury_severity_score", "Injury Severity Score", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "损伤严重度评分"),
+                ("insulin_aspart", "Insulin Aspart", ["biomedical", "chemicals_and_drugs"], "门冬胰岛素"),
+                ("insulin_glargine", "Insulin Glargine", ["biomedical", "chemicals_and_drugs"], "甘精胰岛素"),
+            ]
+        )
+
+    def test_exact_expansion_batch_237_adds_insulin_like_factor_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("insulin_infusion_system", "Insulin Infusion Systems", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "胰岛素输注系统"),
+                ("insulin_like_growth_factor_binding_protein_3", "Insulin-like Growth Factor Binding Protein 3", ["biomedical", "chemicals_and_drugs"], "胰岛素样生长因子结合蛋白3"),
+                ("insulin_like_growth_factor_i", "Insulin-like Growth Factor I", ["biomedical", "chemicals_and_drugs"], "胰岛素样生长因子I"),
+                ("insulin_receptor_substrate_protein", "Insulin Receptor Substrate Proteins", ["biomedical", "chemicals_and_drugs"], "胰岛素受体底物蛋白"),
+                ("insulinoma", "Insulinoma", ["biomedical", "diseases"], "胰岛素瘤"),
+            ]
+        )
+
+    def test_exact_expansion_batch_238_adds_internet_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("internet_addiction_disorder", "Internet Addiction Disorder", ["biomedical", "psychiatry_and_psychology"], "互联网成瘾障碍"),
+                ("internet_of_medical_thing", "Internet Of Medical Things", ["engineering_in_medicine_and_biology"], "医疗物联网"),
+                ("internet_protocol_version_6", "Internet Protocol Version 6", ["computer_science"], "互联网协议第6版"),
+                ("internet_service_provider", "Internet Service Providers", ["computer_science"], "互联网服务提供商"),
+                ("internet_worm", "Internet Worm", ["computer_science"], "互联网蠕虫"),
+            ]
+        )
+
+    def test_exact_expansion_batch_239_adds_intracellular_and_intracranial_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("intracellular_fluid", "Intracellular Fluid", ["anatomy", "biomedical"], "细胞内液"),
+                ("intracranial_arteriovenou_malformation", "Intracranial Arteriovenous Malformations", ["biomedical", "diseases"], "颅内动静脉畸形"),
+                ("intracranial_hemorrhage_hypertensive", "Intracranial Hemorrhage, Hypertensive", ["biomedical", "diseases"], "高血压性颅内出血"),
+                ("intracranial_hypertension", "Intracranial Hypertension", ["biomedical", "diseases"], "颅内高压"),
+                ("intractable_pain", "Intractable Pain", ["biomedical", "diseases"], "顽固性疼痛"),
+            ]
+        )
+
+    def test_exact_expansion_batch_240_adds_ionic_and_isotope_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("ionic_liquid", "Ionic Liquids", ["biomedical", "chemicals_and_drugs"], "离子液体"),
+                ("isotachophoresi", "Isotachophoresis", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "等速电泳"),
+                ("isotonic_solution", "Isotonic Solutions", ["biomedical", "chemicals_and_drugs"], "等渗溶液"),
+                ("isotope_labeling", "Isotope Labeling", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "同位素标记"),
+                ("isotretinoin", "Isotretinoin", ["biomedical", "chemicals_and_drugs"], "异维A酸"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

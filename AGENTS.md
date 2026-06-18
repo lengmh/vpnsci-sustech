@@ -153,20 +153,20 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-18 zh-exact-expansion-batch-201-to-220 后）：
+最新已知状态（2026-06-18 zh-exact-expansion-batch-221-to-240 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`7722 / 48861 = 15.80%`
-- runtime zh aliases: `7737`
+- runtime 中文覆盖：`7843 / 48861 = 16.05%`
+- runtime zh aliases: `7857`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `7737`
-- `zh:blocked`: `11468`
+- `zh:accept`: `7857`
+- `zh:blocked`: `11472`
 - `zh:needs_review`: `0`
 - `zh:reject`: `176`
 - accepted/runtime alias conflicts: `0`
@@ -175,25 +175,45 @@ lexicons/review/
 - runtime concept aliases: `48861`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
-- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-220 运行时以 compact index/manifest 为准）
+- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-240 运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `e5bcd7fab44a941a0def2d1aea67661053acceb7df34b2ac21fd2a481749bddc`
+  `9614cff2957223f8a4e2fc6f20d261d247d2cc59fbbb0603ca86a7363ca373a4`
 - compact manifest SHA-256:
-  `e2efa7f8b057bbe092c2b4c62e77fa1ef8f9c5aaa666ff3c14f096dab47e2e07`
+  `c3722b426dca0154ec12ca9e35dd9244ef8c898cfb7bc21d42edf8e94542898b`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact index 是 batch-220 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-220 更新，不再作为默认等价检查对象。
-- 最近相关测试：`283 passed in 3.13s`。
+- compact index 是 batch-240 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-240 更新，不再作为默认等价检查对象。
+- 最近相关测试：`303 passed in 2.82s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- batch-201 至 batch-220 中文 coverage 扩展已完成，runtime 中文覆盖已到 `15.80%`；用户要求继续 20-batch 分组处理并逐轮 commit，直到 runtime 中文覆盖超过 `20%`；
+- batch-221 至 batch-240 中文 coverage 扩展已完成，runtime 中文覆盖已到 `16.05%`；用户要求继续 20-batch 分组处理并逐轮 commit，直到 runtime 中文覆盖超过 `20%`；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
+- 最新 batch-221 至 batch-240 exact/domain-aware 小批次已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_221_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_240_ALIASES`，覆盖 image/imaging、immune/immunity/immunoglobulin/immunotherapy、implant/infection/influenza/infrared/insulin/internet/intracranial/ionic/isotope 等 exact/domain-aware 术语；
+  - 新增 `20` 个代表性回归测试，先红灯后转绿；修正 `三维成像`、`牛免疫缺陷病毒`、`免疫酶技术`、`渗透浓度`、`脊髓肿瘤` 等 exact 输出；
+  - grouped L3-L5：fill `records_filled = 19298`，validate `review_decisions = 368618`；
+  - 显式接受 `129` 条 exact/domain-aware recommendation；
+  - 显式阻断 `4` 条由 exact 词条引发的 compositional/title side-effect；
+  - duplicate/collision exact-backed 输出继续保持 blocked，不自动 merge；
+  - runtime 中文覆盖从 `7722 / 48861 = 15.80%` 增至 `7843 / 48861 = 16.05%`；
+  - `zh:accept`: `7857`，`zh:blocked`: `11472`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `9614cff2957223f8a4e2fc6f20d261d247d2cc59fbbb0603ca86a7363ca373a4`；
+  - compact manifest SHA-256: `c3722b426dca0154ec12ca9e35dd9244ef8c898cfb7bc21d42edf8e94542898b`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - 相关测试：`303 passed in 2.82s`。
+- batch-240 后 review：
+  - 本轮新增 `121` 个 runtime zh-covered concepts，覆盖率到 `16.05%`，距 `>20%` 目标仍需继续；
+  - `Cancer, Stress, Anesthesia, And Immune Response`、`Immune Response And Inflammation`、`Immunotherapy And Immune Responses`、`Interferon And Immune Responses` 作为 title/domain 组合 side-effect 已显式 blocked；
+  - `Osmolar Concentration -> 渗透浓度`、`Spinal Cord Neoplasms -> 脊髓肿瘤` 用更具体 exact replacement 修正，避免组合候选污染；
+  - 下一轮从 batch-241 至 batch-260 继续，优先 I/J/K 段高确定性 exact 术语。
 - 最新 batch-201 至 batch-220 exact/domain-aware 小批次已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_201_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_220_ALIASES`，覆盖 human/humanoid/humidity/hyaluronic/hybrid、hydraulic/hydrocarbon/hydrogen/hydroxy、hyper/hyperspectral/hypertension/hypo/hypothalamus/hypoxia 等 exact/domain-aware 术语；
   - 新增 `20` 个代表性回归测试，先红灯后转绿；修正 `人脸检测`、`肺动脉高压`、`高光谱图像分类`、`下丘脑-垂体-性腺轴` 等 exact 输出；
