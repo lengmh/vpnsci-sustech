@@ -8609,6 +8609,378 @@ ZH_EXACT_EXPANSION_BATCH_240_ALIASES = {
         "stable isotopes": "稳定同位素",
 }
 
+ZH_EXACT_EXPANSION_BATCH_241_ALIASES = {
+        "17 ketosteroids": "17-酮类固醇",
+        "closed itemsets": "闭项集",
+        "isotropic materials": "各向同性材料",
+        "isovaleryl coa dehydrogenase": "异戊酰辅酶A脱氢酶",
+        "isoxazoles": "异噁唑类",
+        "isoxsuprine": "异舒普林",
+        "isradipine": "伊拉地平",
+        "it alignment": "IT一致性",
+        "it infrastructure": "IT基础设施",
+        "it investment": "IT投资",
+        "it service management": "IT服务管理",
+        "it service providers": "IT服务提供商",
+        "itemsets": "项集",
+        "iterated conditional modes": "迭代条件模式",
+}
+
+ZH_EXACT_EXPANSION_BATCH_242_ALIASES = {
+        "iterated local search": "迭代局部搜索",
+        "iterated prisoners dilemma": "重复囚徒困境",
+        "iterative algorithms": "迭代算法",
+        "iterative closest point algorithm": "迭代最近点算法",
+        "iterative decoder": "迭代译码器",
+        "iterative decoding": "迭代译码",
+        "iterative decoding algorithm": "迭代译码算法",
+        "iterative detection": "迭代检测",
+        "iterative learning": "迭代学习",
+        "iterative learning control": "迭代学习控制",
+        "iterative learning control systems": "迭代学习控制系统",
+}
+
+ZH_EXACT_EXPANSION_BATCH_243_ALIASES = {
+        "iterative methods": "迭代法",
+        "iterative methods for nonlinear equations": "非线性方程迭代法",
+        "iterative receiver": "迭代接收机",
+        "iterative solvers": "迭代求解器",
+        "itraconazole": "伊曲康唑",
+        "ivabradine": "伊伐布雷定",
+        "ivermectin": "伊维菌素",
+        "ixodes": "硬蜱属",
+        "ixodidae": "硬蜱科",
+        "jaagsiekte sheep retrovirus": "绵羊肺腺瘤逆转录病毒",
+        "jacobian": "雅可比矩阵",
+        "jacobian matrices": "雅可比矩阵",
+        "jacobsen distal 11q deletion syndrome": "Jacobsen远端11q缺失综合征",
+        "jagged 1 protein": "Jagged-1蛋白",
+        "jagged 2 protein": "Jagged-2蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_244_ALIASES = {
+        "janu kinase": "Janus激酶",
+        "janu kinase 1": "Janus激酶1",
+        "janu kinase 2": "Janus激酶2",
+        "janu kinase 3": "Janus激酶3",
+        "janu kinase inhibitors": "Janus激酶抑制剂",
+        "janu kinases": "Janus激酶",
+        "janus kinase": "Janus激酶",
+        "janus kinase 1": "Janus激酶1",
+        "janus kinase 2": "Janus激酶2",
+        "janus kinase 3": "Janus激酶3",
+        "janus kinase inhibitors": "Janus激酶抑制剂",
+        "janus kinases": "Janus激酶",
+        "japanese encephaliti vaccin": "日本脑炎疫苗",
+        "japanese encephalitis vaccines": "日本脑炎疫苗",
+        "jaundice": "黄疸",
+        "jaundice chronic idiopathic": "慢性特发性黄疸",
+        "jaundice neonatal": "新生儿黄疸",
+        "jaundice obstructive": "梗阻性黄疸",
+        "java": "Java",
+        "java applications": "Java应用",
+        "java card": "Java卡",
+        "java language": "Java语言",
+        "java pathfinder": "Java Pathfinder",
+        "java program": "Java程序",
+        "java virtual machin": "Java虚拟机",
+        "java virtual machine": "Java虚拟机",
+        "javascrip": "JavaScript",
+        "javascript": "JavaScript",
+}
+
+ZH_EXACT_EXPANSION_BATCH_245_ALIASES = {
+        "jaw": "颌",
+        "jaw cysts": "颌囊肿",
+        "jaw fixation techniques": "颌固定技术",
+        "jaw relation record": "颌位关系记录",
+        "jaw edentulous": "无牙颌",
+        "jaw edentulous partially": "部分无牙颌",
+        "jejunal diseases": "空肠疾病",
+        "jejunal neoplasms": "空肠肿瘤",
+        "jejunoileal bypass": "空回肠旁路术",
+        "jejunostomy": "空肠造口术",
+        "jervell lange nielsen syndrome": "Jervell-Lange-Nielsen综合征",
+}
+
+ZH_EXACT_EXPANSION_BATCH_246_ALIASES = {
+        "jet engines": "喷气发动机",
+        "jet lag syndrome": "时差综合征",
+        "jfet circuits": "JFET电路",
+        "jfet integrated circuits": "JFET集成电路",
+        "jfets": "JFET",
+        "jitter": "抖动",
+        "jnk mitogen activated protein kinases": "JNK丝裂原活化蛋白激酶",
+        "job execution": "作业执行",
+        "job processing time": "作业处理时间",
+        "job satisfaction": "工作满意度",
+        "job scheduling": "作业调度",
+        "job shop scheduling": "作业车间调度",
+        "job syndrome": "Job综合征",
+        "jogging": "慢跑",
+}
+
+ZH_EXACT_EXPANSION_BATCH_247_ALIASES = {
+        "joint capsule": "关节囊",
+        "joint capsule release": "关节囊松解术",
+        "joint commission on accreditation of healthcare organizations": "医疗机构评审联合委员会",
+        "joint deformities acquired": "获得性关节畸形",
+        "joint diagonalization": "联合对角化",
+        "joint diseases": "关节疾病",
+        "joint dislocations": "关节脱位",
+        "joint estimation": "联合估计",
+        "joint instability": "关节不稳",
+        "joint limits": "关节限位",
+        "joint loose bodies": "关节游离体",
+        "joint optimization": "联合优化",
+        "joint prosthesis": "关节假体",
+}
+
+ZH_EXACT_EXPANSION_BATCH_248_ALIASES = {
+        "josephson effect": "约瑟夫森效应",
+        "josephson junctions": "约瑟夫森结",
+        "journal article": "期刊论文",
+        "journal impact factor": "期刊影响因子",
+        "journalism dental": "牙科新闻学",
+        "journalism medical": "医学新闻学",
+        "jpeg": "JPEG",
+        "jpeg 2000 standard": "JPEG 2000标准",
+        "jpeg compression": "JPEG压缩",
+        "jpeg image": "JPEG图像",
+        "jpeg ls": "JPEG-LS",
+        "jpeg2000": "JPEG2000",
+        "jpeg2000 compression": "JPEG2000压缩",
+        "judgment": "判断",
+        "judgment matrix": "判断矩阵",
+}
+
+ZH_EXACT_EXPANSION_BATCH_249_ALIASES = {
+        "jugular foramina": "颈静脉孔",
+        "jumonji domain containing histone demethylases": "含Jumonji结构域组蛋白去甲基化酶",
+        "junctional adhesion molecule a": "连接黏附分子A",
+        "junctional adhesion molecule b": "连接黏附分子B",
+        "junctional adhesion molecule c": "连接黏附分子C",
+        "junctional adhesion molecules": "连接黏附分子",
+        "junctionless nanowire transistors": "无结纳米线晶体管",
+        "junin virus": "胡宁病毒",
+        "jupiter": "木星",
+        "jurkat cells": "Jurkat细胞",
+        "juvenile hormones": "保幼激素",
+        "juxtaglomerular apparatus": "肾小球旁器",
+}
+
+ZH_EXACT_EXPANSION_BATCH_250_ALIASES = {
+        "k cl cotransporters": "K-Cl协同转运蛋白",
+        "k nearest neighbor": "K近邻",
+        "k nearest neighbor algorithm": "K近邻算法",
+        "k 12 students": "K-12学生",
+        "k 12 teachers": "K-12教师",
+        "k anonymity": "K匿名",
+        "k band": "K波段",
+        "k nn": "KNN",
+        "k theory and homology": "K理论与同调",
+        "ka band": "Ka波段",
+}
+
+ZH_EXACT_EXPANSION_BATCH_251_ALIASES = {
+        "k means clustering algorithm": "K均值聚类算法",
+        "k means clustering method": "K均值聚类方法",
+        "k means method": "K均值法",
+        "kademlia": "Kademlia",
+        "kaempferols": "山柰酚类",
+        "kainic acid": "海人酸",
+        "kainic acid receptors": "海人酸受体",
+        "kalanchoe": "伽蓝菜属",
+        "kallidin": "胰激肽",
+        "kallikrein kinin system": "激肽释放酶-激肽系统",
+        "kallikreins": "激肽释放酶类",
+        "kallmann syndrome": "Kallmann综合征",
+        "plasma kallikrein": "血浆激肽释放酶",
+        "tissue kallikreins": "组织激肽释放酶类",
+}
+
+ZH_EXACT_EXPANSION_BATCH_252_ALIASES = {
+        "kalman filter": "卡尔曼滤波器",
+        "kalman filter algorithms": "卡尔曼滤波算法",
+        "kalman filtering algorithms": "卡尔曼滤波算法",
+        "kalman filters": "卡尔曼滤波器",
+        "kanamycin": "卡那霉素",
+        "kanamycin kinase": "卡那霉素激酶",
+        "kanamycin resistance": "卡那霉素耐药性",
+        "kangai 1 protein": "Kangai-1蛋白",
+        "kangaroo mother care method": "袋鼠式护理法",
+        "kaolin": "高岭土",
+}
+
+ZH_EXACT_EXPANSION_BATCH_253_ALIASES = {
+        "kaplan meier method": "Kaplan-Meier法",
+        "kaplan meier estimate": "Kaplan-Meier估计",
+        "kaplan meiers estimate": "Kaplan-Meier估计",
+        "kaposi varicelliform eruption": "卡波西水痘样疹",
+        "karaya gum": "刺梧桐胶",
+        "karhunen loeve transforms": "Karhunen-Loeve变换",
+        "karnofsky performance status": "Karnofsky体能状态评分",
+        "kartagener syndrome": "Kartagener综合征",
+        "karyometry": "核测量术",
+        "karyotype": "核型",
+        "karyotyping": "核型分析",
+        "kasabach merritt syndrome": "Kasabach-Merritt综合征",
+        "spectral karyotyping": "光谱核型分析",
+        "xyy karyotype": "XYY核型",
+}
+
+ZH_EXACT_EXPANSION_BATCH_254_ALIASES = {
+        "kashin beck disease": "大骨节病",
+        "kassinin": "卡西宁",
+        "katanin": "katanin蛋白",
+        "katp channels": "KATP通道",
+        "kava": "卡瓦",
+        "kawasaki disease and coronary complications": "川崎病与冠状动脉并发症",
+        "kazal motifs": "Kazal基序",
+        "kcnj10 channel": "KCNJ10通道",
+        "kcnj11 channel": "KCNJ11通道",
+        "kcnq1 potassium channel": "KCNQ1钾通道",
+        "kcnq2 potassium channel": "KCNQ2钾通道",
+        "kcnq3 potassium channel": "KCNQ3钾通道",
+}
+
+ZH_EXACT_EXPANSION_BATCH_255_ALIASES = {
+        "kd tree": "KD树",
+        "kearns sayre syndrome": "Kearns-Sayre综合征",
+        "kell blood group system": "Kell血型系统",
+        "keloid": "瘢痕疙瘩",
+        "keratan sulfate": "硫酸角质素",
+        "keratectomy": "角膜切除术",
+        "keratectomy subepithelial laser assisted": "准分子激光上皮下角膜切削术",
+        "keratin 1": "角蛋白1",
+        "keratin 10": "角蛋白10",
+        "keratin 12": "角蛋白12",
+        "keratin 13": "角蛋白13",
+        "keratin 14": "角蛋白14",
+        "keratin 15": "角蛋白15",
+        "keratin 16": "角蛋白16",
+        "keratin 17": "角蛋白17",
+        "keratin 18": "角蛋白18",
+        "keratin 19": "角蛋白19",
+        "keratin 20": "角蛋白20",
+        "keratinocytes": "角质形成细胞",
+        "keratins hair specific": "毛发特异性角蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_256_ALIASES = {
+        "keratitis dendritic": "树枝状角膜炎",
+        "keratitis herpetic": "疱疹性角膜炎",
+        "keratoacanthoma": "角化棘皮瘤",
+        "keratoconjunctivitis": "角结膜炎",
+        "keratoconjunctivitis sicca": "干燥性角结膜炎",
+        "keratoconjunctivitis infectious": "感染性角结膜炎",
+        "keratoconus": "圆锥角膜",
+        "keratoderma palmoplantar": "掌跖角化病",
+        "keratolytic agents": "角质溶解剂",
+        "keratomileusis laser in situ": "准分子激光原位角膜磨镶术",
+        "keratoplasty penetrating": "穿透性角膜移植术",
+        "keratosis": "角化病",
+        "keratosis actinic": "光化性角化病",
+        "keratosis seborrheic": "脂溢性角化病",
+        "keratotomy radial": "放射状角膜切开术",
+}
+
+ZH_EXACT_EXPANSION_BATCH_257_ALIASES = {
+        "kerberos": "Kerberos",
+        "kernel": "核",
+        "kernel based methods": "基于核的方法",
+        "kernel function": "核函数",
+        "kernel learning": "核学习",
+        "kernel machines": "核机器",
+        "kernel matrices": "核矩阵",
+        "kernel method": "核方法",
+        "kernel parameter": "核参数",
+        "kernel trick": "核技巧",
+        "kernelized reinforcement learning": "核化强化学习",
+        "kernicterus": "核黄疸",
+        "kerosene": "煤油",
+        "kerr effect": "克尔效应",
+        "kerr magnetooptical effect": "磁光克尔效应",
+}
+
+ZH_EXACT_EXPANSION_BATCH_258_ALIASES = {
+        "ketamine": "氯胺酮",
+        "ketanserin": "酮色林",
+        "keto acids": "酮酸",
+        "ketocholesterols": "酮胆固醇类",
+        "ketoconazole": "酮康唑",
+        "ketoglutarate dehydrogenase complex": "酮戊二酸脱氢酶复合体",
+        "ketoglutaric acids": "酮戊二酸",
+        "ketol acid reductoisomerase": "酮醇酸还原异构酶",
+        "ketolides": "酮内酯类",
+        "ketone bodies": "酮体",
+        "ketone oxidoreductases": "酮氧化还原酶",
+        "ketones": "酮类",
+        "ketoprofen": "酮洛芬",
+        "ketorolac": "酮咯酸",
+        "ketorolac tromethamine": "酮咯酸氨丁三醇",
+        "ketoses": "酮糖",
+        "ketosis": "酮症",
+        "ketosteroids": "酮类固醇",
+        "ketotifen": "酮替芬",
+}
+
+ZH_EXACT_EXPANSION_BATCH_259_ALIASES = {
+        "key agreement": "密钥协商",
+        "key agreement protocol": "密钥协商协议",
+        "key distribution": "密钥分发",
+        "key distribution schemes": "密钥分发方案",
+        "key escrow": "密钥托管",
+        "key establishment": "密钥建立",
+        "key exposure": "密钥暴露",
+        "key frames": "关键帧",
+        "key generation": "密钥生成",
+        "key management": "密钥管理",
+        "key management protocols": "密钥管理协议",
+        "key management schemes": "密钥管理方案",
+        "key performance indicator": "关键绩效指标",
+        "key pre distribution": "密钥预分发",
+        "key predistribution scheme": "密钥预分发方案",
+        "key recovery attacks": "密钥恢复攻击",
+        "key space": "密钥空间",
+        "key compromise impersonation": "密钥泄露冒充",
+        "key frame extraction": "关键帧提取",
+        "keystroke dynamics": "击键动力学",
+        "keyword queries": "关键词查询",
+        "keyword search": "关键词搜索",
+        "keyword based search": "基于关键词的搜索",
+}
+
+ZH_EXACT_EXPANSION_BATCH_260_ALIASES = {
+        "kidney": "肾脏",
+        "kidney calculi": "肾结石",
+        "kidney calices": "肾盏",
+        "kidney concentrating ability": "肾浓缩能力",
+        "kidney cortex": "肾皮质",
+        "kidney diseases cystic": "囊性肾病",
+        "kidney glomerulus": "肾小球",
+        "kidney medulla": "肾髓质",
+        "kidney papillary necrosis": "肾乳头坏死",
+        "kidney stones": "肾结石",
+        "kidney tubular necrosis acute": "急性肾小管坏死",
+        "kidney tubules": "肾小管",
+        "kidney tubules collecting": "集合管",
+        "kidney tubules distal": "远端肾小管",
+        "kidney tubules proximal": "近端肾小管",
+        "kidneys artificial": "人工肾",
+        "killer cells lymphokine activated": "淋巴因子激活杀伤细胞",
+        "kinematic chain": "运动链",
+        "kinetic energy": "动能",
+        "klatskin tumor": "Klatskin肿瘤",
+        "klebsiella pneumoniae": "肺炎克雷伯菌",
+        "knowledge acquisition": "知识获取",
+        "knowledge base": "知识库",
+        "knowledge bases": "知识库",
+        "knowledge discovery in database": "数据库知识发现",
+        "knowledge graph embedding": "知识图谱嵌入",
+        "knowledge representation and reasoning": "知识表示与推理",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -8851,6 +9223,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_237_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_238_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_239_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_240_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_241_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_242_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_243_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_244_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_245_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_246_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_247_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_248_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_249_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_250_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_251_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_252_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_253_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_254_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_255_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_256_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_257_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_258_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_259_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_260_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",
