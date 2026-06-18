@@ -12874,6 +12874,224 @@ ZH_EXACT_EXPANSION_BATCH_460_ALIASES = {
         "multi criteria decision making": "多准则决策",
 }
 
+ZH_EXACT_EXPANSION_BATCH_461_ALIASES = {
+        "multi label classification": "多标签分类",
+        "multi layer neural network": "多层神经网络",
+        "multi modal biometrics": "多模态生物识别",
+        "multi modal interactions": "多模态交互",
+        "multi modal interfaces": "多模态界面",
+        "multi mode interference": "多模干涉",
+        "multi object tracking": "多目标跟踪",
+}
+
+ZH_EXACT_EXPANSION_BATCH_462_ALIASES = {
+        "multi objective algorithm": "多目标算法",
+        "multi objective differential evolutions": "多目标差分进化",
+        "multi objective evolutionary algorithm": "多目标进化算法",
+        "multi objective genetic algorithm": "多目标遗传算法",
+        "multi objective learning": "多目标学习",
+        "multi objective optimisation": "多目标优化",
+        "multi objective optimization models": "多目标优化模型",
+        "multi objective optimization problem": "多目标优化问题",
+}
+
+ZH_EXACT_EXPANSION_BATCH_463_ALIASES = {
+        "multi objective particle swarm optimization": "多目标粒子群优化",
+        "multi objective problem": "多目标问题",
+        "multi objective programming": "多目标规划",
+        "multi party computation": "多方计算",
+        "multi path fading channels": "多径衰落信道",
+        "multi path interference": "多径干扰",
+        "multi path mitigation": "多径缓解",
+        "multi path routing": "多路径路由",
+}
+
+ZH_EXACT_EXPANSION_BATCH_464_ALIASES = {
+        "multi processors": "多处理器",
+        "multi processor architecture": "多处理器架构",
+        "multi processor platforms": "多处理器平台",
+        "multi processor scheduling": "多处理器调度",
+        "multi processor systems": "多处理器系统",
+        "multi protocol label switching": "多协议标签交换",
+        "multi resolution analysis": "多分辨率分析",
+        "multi resolution decomposition": "多分辨率分解",
+}
+
+ZH_EXACT_EXPANSION_BATCH_465_ALIASES = {
+        "multi resolution representation": "多分辨率表示",
+        "multi robot": "多机器人",
+        "multi robot cooperation": "多机器人协作",
+        "multi robot coordination": "多机器人协调",
+        "multi robot exploration": "多机器人探索",
+        "multi robot systems": "多机器人系统",
+        "multi robot teams": "多机器人团队",
+        "multi sensor": "多传感器",
+}
+
+ZH_EXACT_EXPANSION_BATCH_466_ALIASES = {
+        "multi sensor data": "多传感器数据",
+        "multi sensor data fusion": "多传感器数据融合",
+        "multi sensor images": "多传感器图像",
+        "multi sensor information fusion": "多传感器信息融合",
+        "multi sensor systems": "多传感器系统",
+        "multi server": "多服务器",
+        "multi signature": "多重签名",
+        "multi spectral imaging": "多光谱成像",
+}
+
+ZH_EXACT_EXPANSION_BATCH_467_ALIASES = {
+        "multi spectral imaging systems": "多光谱成像系统",
+        "multi standard": "多标准",
+        "multi target": "多目标",
+        "multi target tracking": "多目标跟踪",
+        "multi temporal": "多时相",
+        "multi temporal image": "多时相图像",
+        "multi temporal remote sensing": "多时相遥感",
+        "multi tenancy": "多租户",
+}
+
+ZH_EXACT_EXPANSION_BATCH_468_ALIASES = {
+        "multi thread": "多线程",
+        "multi threaded": "多线程",
+        "multi threaded application": "多线程应用",
+        "multi threading": "多线程",
+        "multi tier": "多层",
+        "multi tier applications": "多层应用",
+        "multi user detection": "多用户检测",
+        "multi user diversity": "多用户分集",
+}
+
+ZH_EXACT_EXPANSION_BATCH_469_ALIASES = {
+        "multi user interference": "多用户干扰",
+        "multi user mimo": "多用户MIMO",
+        "multi user mimo downlinks": "多用户MIMO下行链路",
+        "multi user mimo systems": "多用户MIMO系统",
+        "multi user virtual environment": "多用户虚拟环境",
+        "multi view": "多视图",
+        "multi view consistency": "多视图一致性",
+        "multi view learning": "多视图学习",
+}
+
+ZH_EXACT_EXPANSION_BATCH_470_ALIASES = {
+        "multi view stereo": "多视图立体",
+        "multi wavelets": "多小波",
+        "multiaccess communication": "多址通信",
+        "multiagent architecture": "多智能体架构",
+        "multiagent framework": "多智能体框架",
+        "multiband ofdm": "多频带OFDM",
+        "multibeam antennas": "多波束天线",
+        "multicarrier code division multiple access": "多载波码分多址",
+}
+
+ZH_EXACT_EXPANSION_BATCH_471_ALIASES = {
+        "multicarrier modulation": "多载波调制",
+        "multicast algorithms": "组播算法",
+        "multicast application": "组播应用",
+        "multicast capacity": "组播容量",
+        "multicast communication": "组播通信",
+        "multicast data": "组播数据",
+        "multicast network": "组播网络",
+        "multicast packet": "组播数据包",
+}
+
+ZH_EXACT_EXPANSION_BATCH_472_ALIASES = {
+        "multicast protocols": "组播协议",
+        "multicast routing": "组播路由",
+        "multicast routing algorithms": "组播路由算法",
+        "multicast routing protocol": "组播路由协议",
+        "multicast scheduling": "组播调度",
+        "multicast sessions": "组播会话",
+        "multicast traffic": "组播流量",
+        "multicast vpn": "组播VPN",
+}
+
+ZH_EXACT_EXPANSION_BATCH_473_ALIASES = {
+        "multicell system": "多小区系统",
+        "multicenter study": "多中心研究",
+        "multicenter studies as topic": "多中心研究主题",
+        "multichip modules": "多芯片模块",
+        "multiclass classification problems": "多类分类问题",
+        "multicomponent signals": "多分量信号",
+        "multicomponent synthesis of heterocycles": "杂环多组分合成",
+        "multicomponent systems": "多组分系统",
+}
+
+ZH_EXACT_EXPANSION_BATCH_474_ALIASES = {
+        "multicomputers": "多计算机",
+        "multicore processing": "多核处理",
+        "multicore programming": "多核编程",
+        "multicystic dysplastic kidney": "多囊性发育不良肾",
+        "multidetector computed tomography": "多层探测器CT",
+        "multidimensional scaling analysis": "多维尺度分析",
+        "multidimensional signal processing": "多维信号处理",
+        "multidimensional systems": "多维系统",
+}
+
+ZH_EXACT_EXPANSION_BATCH_475_ALIASES = {
+        "multidisciplinary design optimization": "多学科设计优化",
+        "multidrug resistance associated protein 2": "多药耐药相关蛋白2",
+        "multienzyme complexes": "多酶复合物",
+        "multifactor dimensionality reduction": "多因子降维",
+        "multifactorial inheritance": "多因素遗传",
+        "multiferroics and related materials": "多铁性及相关材料",
+        "multifilamentary superconductors": "多丝超导体",
+        "multifingered hands": "多指手",
+}
+
+ZH_EXACT_EXPANSION_BATCH_476_ALIASES = {
+        "multifocal choroiditis": "多灶性脉络膜炎",
+        "multifocal intraocular lenses": "多焦点人工晶状体",
+        "multifrequency antennas": "多频天线",
+        "multifunctional enzymes": "多功能酶",
+        "multifunctional nanoparticles": "多功能纳米颗粒",
+        "multigene family": "多基因家族",
+        "multigraph": "多重图",
+        "multigrid methods": "多重网格法",
+}
+
+ZH_EXACT_EXPANSION_BATCH_477_ALIASES = {
+        "multihop transmission": "多跳传输",
+        "multilayer and multiplex networks": "多层与多重网络",
+        "multilayer perceptrons": "多层感知机",
+        "multilevel analysis": "多层次分析",
+        "multilevel converters": "多电平变换器",
+        "multilevel inverters": "多电平逆变器",
+        "multilevel systems": "多层系统",
+}
+
+ZH_EXACT_EXPANSION_BATCH_478_ALIASES = {
+        "multilocus sequence typing": "多位点序列分型",
+        "multimedia": "多媒体",
+        "multimedia communication": "多媒体通信",
+        "multimedia computing": "多媒体计算",
+        "multimedia content": "多媒体内容",
+        "multimedia courseware": "多媒体课件",
+        "multimedia data": "多媒体数据",
+        "multimedia databases": "多媒体数据库",
+}
+
+ZH_EXACT_EXPANSION_BATCH_479_ALIASES = {
+        "multimedia documents": "多媒体文档",
+        "multimedia interactive services": "多媒体交互服务",
+        "multimedia learning systems": "多媒体学习系统",
+        "multimedia services": "多媒体服务",
+        "multimedia signal processing": "多媒体信号处理",
+        "multimedia stream": "多媒体流",
+        "multimedia streaming": "多媒体流媒体",
+        "multimedia systems": "多媒体系统",
+}
+
+ZH_EXACT_EXPANSION_BATCH_480_ALIASES = {
+        "multimedia technologies": "多媒体技术",
+        "multimodal ai": "多模态AI",
+        "multimodal dialogue systems": "多模态对话系统",
+        "multimodal image registration": "多模态图像配准",
+        "multimodal imaging": "多模态成像",
+        "multimodal sensors": "多模态传感器",
+        "multimode fibers": "多模光纤",
+        "multimode optical fibers": "多模光纤",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -13336,6 +13554,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_457_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_458_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_459_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_460_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_461_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_462_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_463_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_464_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_465_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_466_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_467_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_468_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_469_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_470_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_471_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_472_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_473_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_474_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_475_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_476_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_477_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_478_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_479_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_480_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",
