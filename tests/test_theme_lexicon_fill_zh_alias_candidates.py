@@ -13859,6 +13859,286 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_661_adds_normalized_nor_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("norm_bounded_uncertainty", "Norm-bounded Uncertainty", ["computer_science"], "范数有界不确定性"),
+                ("normal_basi", "Normal Basis", ["computer_science"], "正规基"),
+                ("normal_behavior", "Normal Behavior", ["computer_science"], "正常行为"),
+                ("normalized_cross_correlation", "Normalized Cross Correlation", ["computer_science"], "归一化互相关"),
+                ("normalized_cut", "Normalized Cuts", ["computer_science"], "归一化割"),
+                ("normalized_difference_vegetation_index", "Normalized Difference Vegetation Index", ["environmental_measurement"], "归一化差异植被指数"),
+                ("normalized_difference_water_index", "Normalized Difference Water Index", ["environmental_measurement"], "归一化差异水体指数"),
+                ("normalized_least_mean_square", "Normalized Least Mean Square", ["computer_science"], "归一化最小均方"),
+            ]
+        )
+
+    def test_exact_expansion_batch_662_adds_normetanephrine_to_north_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("normalized_mutual_information", "Normalized Mutual Information", ["computer_science"], "归一化互信息"),
+                ("normetanephrine", "Normetanephrine", ["biomedical", "chemicals_and_drugs"], "去甲变肾上腺素"),
+                ("noroviru", "Norovirus", ["biomedical", "organisms"], "诺如病毒"),
+                ("norfenfluramine", "Norfenfluramine", ["biomedical", "chemicals_and_drugs"], "去甲芬氟拉明"),
+                ("norgestrienone", "Norgestrienone", ["biomedical", "chemicals_and_drugs"], "诺孕三烯酮"),
+                ("norleucine", "Norleucine", ["biomedical", "chemicals_and_drugs"], "正亮氨酸"),
+                ("north_african_history_and_literature", "North African History And Literature", ["arts_and_humanities", "social_sciences"], "北非历史与文学"),
+                ("north_african_people", "North African People", ["biomedical", "named_groups"], "北非人群"),
+            ]
+        )
+
+    def test_exact_expansion_batch_663_adds_north_geography_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("north_america", "North America", ["change"], "北美"),
+                ("north_american_people", "North American People", ["biomedical", "named_groups"], "北美人群"),
+                ("north_asian_people", "North Asian People", ["biomedical", "named_groups"], "北亚人群"),
+                ("north_carolina", "North Carolina", ["biomedical", "geographicals"], "北卡罗来纳州"),
+                ("north_dakota", "North Dakota", ["biomedical", "geographicals"], "北达科他州"),
+                ("north_pole", "North Pole", ["science_general"], "北极"),
+                ("north_sea", "North Sea", ["biomedical", "geographicals"], "北海"),
+                ("northern_ireland", "Northern Ireland", ["biomedical", "geographicals"], "北爱尔兰"),
+            ]
+        )
+
+    def test_exact_expansion_batch_664_adds_northern_to_nose_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("northern_territory", "Northern Territory", ["biomedical", "geographicals"], "北领地"),
+                ("northwest_territory", "Northwest Territories", ["biomedical", "geographicals"], "西北地区"),
+                ("northwestern_united_stat", "Northwestern United States", ["biomedical", "geographicals"], "美国西北部"),
+                ("nortropan", "Nortropanes", ["biomedical", "chemicals_and_drugs"], "去甲托烷类"),
+                ("norwood_procedur", "Norwood Procedures", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "诺伍德手术"),
+                ("noscapine", "Noscapine", ["biomedical", "chemicals_and_drugs"], "那可汀"),
+                ("nose", "Nose", ["anatomy", "biomedical"], "鼻部"),
+                ("nose_neoplasm", "Nose Neoplasms", ["biomedical", "diseases"], "鼻肿瘤"),
+            ]
+        )
+
+    def test_exact_expansion_batch_665_adds_nostoc_to_nuchal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nosema", "Nosema", ["biomedical", "organisms"], "微孢子虫属"),
+                ("nosql", "Nosql", ["computer_science"], "NoSQL技术"),
+                ("nosql_database", "Nosql Databases", ["professional_communication"], "NoSQL数据库"),
+                ("nostalgia_and_consumer_behavior", "Nostalgia And Consumer Behavior", ["psychology", "social_sciences"], "怀旧与消费者行为"),
+                ("nostoc", "Nostoc", ["biomedical", "organisms"], "念珠藻属"),
+                ("nostoc_commune", "Nostoc Commune", ["biomedical", "organisms"], "普通念珠藻"),
+                ("notochord", "Notochord", ["anatomy", "biomedical"], "脊索"),
+                ("nuchal_cord", "Nuchal Cord", ["biomedical", "diseases"], "脐带绕颈"),
+            ]
+        )
+
+    def test_exact_expansion_batch_666_adds_nuchal_to_nuclear_basic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nuchal_translucency_measurement", "Nuchal Translucency Measurement", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "颈项透明层测量"),
+                ("nuclear_and_plasma_scienc", "Nuclear And Plasma Sciences", ["nuclear_and_plasma_sciences"], "核与等离子体科学"),
+                ("nuclear_astrophysic", "Nuclear Astrophysics", ["physics"], "核天体物理学"),
+                ("nuclear_body", "Nuclear Bodies", ["anatomy", "biomedical"], "核体"),
+                ("nuclear_cap_binding_protein_complex", "Nuclear Cap-binding Protein Complex", ["biomedical", "chemicals_and_drugs"], "核帽结合蛋白复合体"),
+                ("nuclear_data_analysi_and_compilation", "Nuclear Data Analysis & Compilation", ["physics"], "核数据分析与汇编"),
+                ("nuclear_density_functional_theory", "Nuclear Density Functional Theory", ["physics"], "核密度泛函理论"),
+                ("nuclear_electronic", "Nuclear Electronics", ["nuclear_and_plasma_sciences"], "核电子学"),
+            ]
+        )
+
+    def test_exact_expansion_batch_667_adds_nuclear_energy_to_factor_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nuclear_energy", "Nuclear Energy", ["power_engineering_and_energy"], "核能"),
+                ("nuclear_engineering", "Nuclear Engineering", ["physics"], "核工程"),
+                ("nuclear_engineering_thermal_hydraulic", "Nuclear Engineering Thermal-hydraulics", ["engineering", "physical_sciences"], "核工程热工水力学"),
+                ("nuclear_envelope", "Nuclear Envelope", ["anatomy", "biomedical"], "核膜"),
+                ("nuclear_experiment", "Nuclear Experiment", ["nuclear_physics"], "核实验"),
+                ("nuclear_explosion", "Nuclear Explosions", ["computer_science"], "核爆炸"),
+                ("nuclear_export_signal", "Nuclear Export Signals", ["biomedical", "chemicals_and_drugs"], "核输出信号"),
+                ("nuclear_factor_45_protein", "Nuclear Factor 45 Protein", ["biomedical", "chemicals_and_drugs"], "核因子45蛋白"),
+            ]
+        )
+
+    def test_exact_expansion_batch_668_adds_nuclear_factor_to_imaging_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nuclear_factor_90_protein", "Nuclear Factor 90 Proteins", ["biomedical", "chemicals_and_drugs"], "核因子90蛋白"),
+                ("nuclear_facility_regulation", "Nuclear Facility Regulation", ["industry_applications"], "核设施监管"),
+                ("nuclear_family", "Nuclear Family", ["biomedical", "psychiatry_and_psychology"], "核心家庭"),
+                ("nuclear_fission", "Nuclear Fission", ["biomedical", "phenomena_and_processes"], "核裂变"),
+                ("nuclear_fusion", "Nuclear Fusion", ["biomedical", "phenomena_and_processes"], "核聚变"),
+                ("nuclear_imaging", "Nuclear Imaging", ["imaging"], "核成像"),
+                ("nuclear_issu_and_defense", "Nuclear Issues And Defense", ["social_sciences"], "核问题与防务"),
+                ("nuclear_lamina", "Nuclear Lamina", ["anatomy", "biomedical"], "核纤层"),
+            ]
+        )
+
+    def test_exact_expansion_batch_669_adds_nuclear_localization_to_medicine_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nuclear_localization_signal", "Nuclear Localization Signals", ["biomedical", "chemicals_and_drugs"], "核定位信号"),
+                ("nuclear_magnetic_resonance", "Nuclear Magnetic Resonance", ["resonance"], "核磁共振"),
+                ("nuclear_magnetic_resonance_biomolecular", "Nuclear Magnetic Resonance, Biomolecular", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "生物分子核磁共振"),
+                ("nuclear_many_body_theory", "Nuclear Many-body Theory", ["physics"], "核多体理论"),
+                ("nuclear_material_and_property", "Nuclear Materials And Properties", ["materials_science", "physical_sciences"], "核材料与性能"),
+                ("nuclear_material_and_radiation_effect", "Nuclear Materials And Radiation Effects", ["materials_science", "physical_sciences"], "核材料与辐射效应"),
+                ("nuclear_matrix", "Nuclear Matrix", ["anatomy", "biomedical"], "核基质"),
+                ("nuclear_medicine_department_hospital", "Nuclear Medicine Department, Hospital", ["biomedical", "health_care"], "医院核医学科"),
+            ]
+        )
+
+    def test_exact_expansion_batch_670_adds_nuclear_microscopy_to_reactor_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nuclear_microscopy", "Nuclear Microscopy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "核显微术"),
+                ("nuclear_pharmacy", "Nuclear Pharmacy", ["biomedical", "disciplines_and_occupations"], "核药学"),
+                ("nuclear_phase_transformation", "Nuclear Phase Transformations", ["nuclear_and_plasma_sciences"], "核相变"),
+                ("nuclear_physic", "Nuclear Physics", ["nuclear_and_plasma_sciences"], "核物理学"),
+                ("nuclear_plant", "Nuclear Plant", ["computer_science"], "核电站"),
+                ("nuclear_pore", "Nuclear Pore", ["anatomy", "biomedical"], "核孔"),
+                ("nuclear_pore_complex_protein", "Nuclear Pore Complex Proteins", ["biomedical", "chemicals_and_drugs"], "核孔复合体蛋白"),
+                ("nuclear_reactor", "Nuclear Reactors", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "核反应堆"),
+            ]
+        )
+
+    def test_exact_expansion_batch_671_adds_nuclear_reactor_to_receptor_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nuclear_reactor_accident", "Nuclear Reactor Accidents", ["computer_science"], "核反应堆事故"),
+                ("nuclear_reactor_physic_and_engineering", "Nuclear Reactor Physics And Engineering", ["engineering", "physical_sciences"], "核反应堆物理与工程"),
+                ("nuclear_receptor_and_signaling", "Nuclear Receptors And Signaling", ["life_sciences", "neuroscience"], "核受体与信号传导"),
+                ("nuclear_receptor_co_repressor_1", "Nuclear Receptor Co-repressor 1", ["biomedical", "chemicals_and_drugs"], "核受体共抑制因子1"),
+                ("nuclear_receptor_co_repressor_2", "Nuclear Receptor Co-repressor 2", ["biomedical", "chemicals_and_drugs"], "核受体共抑制因子2"),
+                ("nuclear_receptor_coactivator", "Nuclear Receptor Coactivators", ["biomedical", "chemicals_and_drugs"], "核受体共激活因子"),
+                ("nuclear_receptor_coactivator_1", "Nuclear Receptor Coactivator 1", ["biomedical", "chemicals_and_drugs"], "核受体共激活因子1"),
+                ("nuclear_receptor_coactivator_2", "Nuclear Receptor Coactivator 2", ["biomedical", "chemicals_and_drugs"], "核受体共激活因子2"),
+            ]
+        )
+
+    def test_exact_expansion_batch_672_adds_nuclear_receptor_subfamily_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nuclear_receptor_coactivator_3", "Nuclear Receptor Coactivator 3", ["biomedical", "chemicals_and_drugs"], "核受体共激活因子3"),
+                ("nuclear_receptor_interacting_protein_1", "Nuclear Receptor Interacting Protein 1", ["biomedical", "chemicals_and_drugs"], "核受体相互作用蛋白1"),
+                ("nuclear_receptor_subfamily_1_group_d_member_1", "Nuclear Receptor Subfamily 1, Group D, Member 1", ["biomedical", "chemicals_and_drugs"], "核受体亚家族1D组成员1"),
+                ("nuclear_receptor_subfamily_1_group_f_member_1", "Nuclear Receptor Subfamily 1, Group F, Member 1", ["biomedical", "chemicals_and_drugs"], "核受体亚家族1F组成员1"),
+                ("nuclear_receptor_subfamily_1_group_f_member_2", "Nuclear Receptor Subfamily 1, Group F, Member 2", ["biomedical", "chemicals_and_drugs"], "核受体亚家族1F组成员2"),
+                ("nuclear_receptor_subfamily_1_group_f_member_3", "Nuclear Receptor Subfamily 1, Group F, Member 3", ["biomedical", "chemicals_and_drugs"], "核受体亚家族1F组成员3"),
+                ("nuclear_receptor_subfamily_2_group_c_member_1", "Nuclear Receptor Subfamily 2, Group C, Member 1", ["biomedical", "chemicals_and_drugs"], "核受体亚家族2C组成员1"),
+                ("nuclear_receptor_subfamily_2_group_c_member_2", "Nuclear Receptor Subfamily 2, Group C, Member 2", ["biomedical", "chemicals_and_drugs"], "核受体亚家族2C组成员2"),
+            ]
+        )
+
+    def test_exact_expansion_batch_673_adds_nuclear_receptor_to_warfare_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nuclear_receptor_subfamily_4_group_a_member_1", "Nuclear Receptor Subfamily 4, Group A, Member 1", ["biomedical", "chemicals_and_drugs"], "核受体亚家族4A组成员1"),
+                ("nuclear_receptor_subfamily_4_group_a_member_2", "Nuclear Receptor Subfamily 4, Group A, Member 2", ["biomedical", "chemicals_and_drugs"], "核受体亚家族4A组成员2"),
+                ("nuclear_receptor_subfamily_4_group_a_member_3", "Nuclear Receptor Subfamily 4, Group A, Member 3", ["biomedical", "chemicals_and_drugs"], "核受体亚家族4A组成员3"),
+                ("nuclear_receptor_subfamily_6_group_a_member_1", "Nuclear Receptor Subfamily 6, Group A, Member 1", ["biomedical", "chemicals_and_drugs"], "核受体亚家族6A组成员1"),
+                ("nuclear_speckl", "Nuclear Speckles", ["anatomy", "biomedical"], "核斑"),
+                ("nuclear_structure_and_function", "Nuclear Structure And Function", ["biochemistry_genetics_and_molecular_biology", "life_sciences"], "核结构与功能"),
+                ("nuclear_transfer_techniqu", "Nuclear Transfer Techniques", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "核移植技术"),
+                ("nuclear_warfare", "Nuclear Warfare", ["anthropology_education_sociology_and_social_phenomena", "biomedical"], "核战争"),
+            ]
+        )
+
+    def test_exact_expansion_batch_674_adds_nuclear_weapon_to_nucleic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nuclear_weapon", "Nuclear Weapons", ["aerospace_and_electronic_systems"], "核武器"),
+                ("nuclease_protection_assay", "Nuclease Protection Assays", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "核酸酶保护实验"),
+                ("nucleic_acid_amplification_techniqu", "Nucleic Acid Amplification Techniques", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "核酸扩增技术"),
+                ("nucleic_acid_based_vaccin", "Nucleic Acid-based Vaccines", ["biomedical", "chemicals_and_drugs"], "核酸疫苗"),
+                ("nucleic_acid_conformation", "Nucleic Acid Conformation", ["biomedical", "phenomena_and_processes"], "核酸构象"),
+                ("nucleic_acid_denaturation", "Nucleic Acid Denaturation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "核酸变性"),
+                ("nucleic_acid_heteroduplexe", "Nucleic Acid Heteroduplexes", ["biomedical", "chemicals_and_drugs"], "核酸异源双链"),
+                ("nucleic_acid_nucleotid_and_nucleosid", "Nucleic Acids, Nucleotides, And Nucleosides", ["biomedical", "chemicals_and_drugs"], "核酸、核苷酸和核苷"),
+            ]
+        )
+
+    def test_exact_expansion_batch_675_adds_nucleic_probe_to_nucleolin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nucleic_acid_precursor", "Nucleic Acid Precursors", ["biomedical", "chemicals_and_drugs"], "核酸前体"),
+                ("nucleic_acid_prob", "Nucleic Acid Probes", ["biomedical", "chemicals_and_drugs"], "核酸探针"),
+                ("nucleic_acid_renaturation", "Nucleic Acid Renaturation", ["biomedical", "phenomena_and_processes"], "核酸复性"),
+                ("nucleobase_transport_protein", "Nucleobase Transport Proteins", ["biomedical", "chemicals_and_drugs"], "核碱基转运蛋白"),
+                ("nucleocapsid", "Nucleocapsid", ["anatomy", "biomedical"], "核衣壳"),
+                ("nucleocapsid_protein", "Nucleocapsid Proteins", ["biomedical", "chemicals_and_drugs"], "核衣壳蛋白"),
+                ("nucleocytoplasmic_transport_protein", "Nucleocytoplasmic Transport Proteins", ["biomedical", "chemicals_and_drugs"], "核质转运蛋白"),
+                ("nucleolin", "Nucleolin", ["biomedical", "chemicals_and_drugs"], "核仁素"),
+            ]
+        )
+
+    def test_exact_expansion_batch_676_adds_nucleolus_to_nucleoside_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nucleolu_organizer_region", "Nucleolus Organizer Region", ["anatomy", "biomedical"], "核仁组织区"),
+                ("nucleon", "Nucleons", ["biomedical", "phenomena_and_processes"], "核子"),
+                ("nucleophosmin", "Nucleophosmin", ["biomedical", "chemicals_and_drugs"], "核磷蛋白"),
+                ("nucleoprotein", "Nucleoproteins", ["biomedical", "chemicals_and_drugs"], "核蛋白"),
+                ("nucleosid", "Nucleosides", ["biomedical", "chemicals_and_drugs"], "核苷"),
+                ("nucleoside_deaminase", "Nucleoside Deaminases", ["biomedical", "chemicals_and_drugs"], "核苷脱氨酶"),
+                ("nucleoside_diphosphate_kinase", "Nucleoside-diphosphate Kinase", ["biomedical", "chemicals_and_drugs"], "核苷二磷酸激酶"),
+                ("nucleoside_diphosphate_sugar", "Nucleoside Diphosphate Sugars", ["biomedical", "chemicals_and_drugs"], "核苷二磷酸糖"),
+            ]
+        )
+
+    def test_exact_expansion_batch_677_adds_nucleoside_to_nucleus_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nucleoside_phosphate_kinase", "Nucleoside-phosphate Kinase", ["biomedical", "chemicals_and_drugs"], "核苷磷酸激酶"),
+                ("nucleoside_transport_protein", "Nucleoside Transport Proteins", ["biomedical", "chemicals_and_drugs"], "核苷转运蛋白"),
+                ("nucleoside_triphosphatase", "Nucleoside-triphosphatase", ["biomedical", "chemicals_and_drugs"], "核苷三磷酸酶"),
+                ("nucleosom", "Nucleosomes", ["anatomy", "biomedical"], "核小体"),
+                ("nucleosome_assembly_protein_1", "Nucleosome Assembly Protein 1", ["biomedical", "chemicals_and_drugs"], "核小体组装蛋白1"),
+                ("nucleotid_cyclic", "Nucleotides, Cyclic", ["biomedical", "chemicals_and_drugs"], "环核苷酸"),
+                ("nucleotidase", "Nucleotidases", ["biomedical", "chemicals_and_drugs"], "核苷酸酶"),
+                ("nucleotide_deaminase", "Nucleotide Deaminases", ["biomedical", "chemicals_and_drugs"], "核苷酸脱氨酶"),
+            ]
+        )
+
+    def test_exact_expansion_batch_678_adds_nucleotide_to_null_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nucleotide_motif", "Nucleotide Motifs", ["biomedical", "phenomena_and_processes"], "核苷酸基序"),
+                ("nucleotide_transport_protein", "Nucleotide Transport Proteins", ["biomedical", "chemicals_and_drugs"], "核苷酸转运蛋白"),
+                ("nucleotidyltransferase", "Nucleotidyltransferases", ["biomedical", "chemicals_and_drugs"], "核苷酸转移酶"),
+                ("nucleu_accumben", "Nucleus Accumbens", ["anatomy", "biomedical"], "伏隔核"),
+                ("nucleu_pulposu", "Nucleus Pulposus", ["anatomy", "biomedical"], "髓核"),
+                ("nudix_hydrolase", "Nudix Hydrolases", ["biomedical", "chemicals_and_drugs"], "Nudix水解酶"),
+                ("null_space", "Null Space", ["mathematics"], "零空间"),
+                ("null_value", "Null Value", ["computers_and_information_processing"], "空值"),
+            ]
+        )
+
+    def test_exact_expansion_batch_679_adds_number_and_numerical_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("number_needed_to_treat", "Numbers Needed To Treat", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "需治数"),
+                ("number_of_cluster", "Number Of Clusters", ["computer_science"], "聚类数"),
+                ("number_of_hops", "Number Of Hops", ["computer_science"], "跳数"),
+                ("number_of_state", "Number Of State", ["computer_science"], "状态数"),
+                ("number_of_thread", "Number Of Threads", ["computer_science"], "线程数"),
+                ("number_of_vehicl", "Number Of Vehicles", ["computer_science"], "车辆数"),
+                ("numerical_analysi_computer_assisted", "Numerical Analysis, Computer-assisted", ["computer_science"], "计算机辅助数值分析"),
+                ("numerical_control", "Numerical Control", ["computer_science"], "数控"),
+            ]
+        )
+
+    def test_exact_expansion_batch_680_adds_numerical_method_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("numerical_control_system", "Numerical Control Systems", ["computer_science"], "数控系统"),
+                ("numerical_experiment", "Numerical Experiments", ["computer_science"], "数值实验"),
+                ("numerical_integration", "Numerical Integration", ["computer_science"], "数值积分"),
+                ("numerical_integration_method", "Numerical Integration Methods", ["computer_science"], "数值积分方法"),
+                ("numerical_method_for_differential_equation", "Numerical Methods For Differential Equations", ["mathematics", "physical_sciences"], "微分方程数值方法"),
+                ("numerical_model", "Numerical Models", ["systems_engineering_and_theory"], "数值模型"),
+                ("numerical_scheme", "Numerical Scheme", ["computer_science"], "数值格式"),
+                ("numerical_solution", "Numerical Solution", ["computer_science"], "数值解"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
