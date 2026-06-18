@@ -153,45 +153,45 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-18 zh-exact-expansion-batch-401-to-420 后）：
+最新已知状态（2026-06-18 zh-exact-expansion-batch-421-to-440 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`10275 / 48877 = 21.02%`
-- runtime zh aliases: `10289`
+- runtime 中文覆盖：`10384 / 48878 = 21.24%`
+- runtime zh aliases: `10398`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `10289`
-- `zh:blocked`: `11523`
+- `zh:accept`: `10398`
+- `zh:blocked`: `11549`
 - `zh:needs_review`: `0`
-- `zh:reject`: `154`
+- `zh:reject`: `153`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `48877`
+- runtime concept aliases: `48878`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
-- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-420 运行时以 compact index/manifest 为准）
+- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-440 运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `2b63a5d094a5ee7ee416f4fe5d5c8e1d04ed4dba4bef20867f660f325a5eaab6`
+  `e2ce594ce2889b2863d09bab157da944f2d1d3b6bc00b4a42ea41b5725b9b276`
 - compact manifest SHA-256:
-  `fcd7654f8b774d7cc3650aae875922c999147d2c77f0a1d64b1654d54828e1c0`
+  `6483f32d9c201b60b4c25baea08d8506021d19679fbc8e041e94ef710454263d`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact index 是 batch-420 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-420 更新，不再作为默认等价检查对象。
-- 最近相关测试：`483 passed in 3.37s`。
+- compact index 是 batch-440 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-440 更新，不再作为默认等价检查对象。
+- 最近相关测试：`503 passed in 3.55s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- batch-401 至 batch-420 中文 coverage 扩展已完成，runtime 中文覆盖已到 `21.02%`；用户当前目标是继续 20-batch 分组推进到 `>25%`，尚未达成；
+- batch-421 至 batch-440 中文 coverage 扩展已完成，runtime 中文覆盖已到 `21.24%`；用户当前目标是继续 20-batch 分组推进到 `>25%`，尚未达成；
 - post-20% 质量复盘和窄 L6 treemap/text fallback 修复已完成；当前主线回到 exact/domain-aware 中文 alias 覆盖扩展；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
@@ -206,6 +206,27 @@ lexicons/review/
   - query smoke：预期 runtime alias `12 / 12` 命中；预期 blocked alias `0 / 7` 误命中；
   - treemap/text fallback smoke：`build_text_themes` 可产生 `Mean Absolute Error / 平均绝对误差`、`Medication Adherence / 用药依从性`、`Median Filter / 中值滤波器` 等 concept-level themes；
   - 窄 L6 修复已完成：中文 text candidate extractor 现在会先扫描 compact runtime 中已接受的中文 alias 短语，再走原 n-gram fallback，并过滤被已选 concept alias 覆盖的短片段；`主从系统` 已稳定归并到 `concept:master_slave_system`，不再显示 `主从系`。
+- 最新 batch-421 至 batch-440 exact/domain-aware 小批次已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_421_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_440_ALIASES`，覆盖 milk/millimeter/mindfulness/mineral/mining/minor/mirror/MIS/mitochondrial/MAPK/mixed/mobile 等 M 段 exact/domain-aware 术语；
+  - 新增 `20` 个代表性回归测试，先红灯后转绿；修正 `Mobile Application Development -> 移动应用开发`、`Mobile Interaction -> 移动交互` 等旧 compositional 词序；
+  - grouped L3-L5：fill `records_filled = 21890`，validate `review_decisions = 371213`；
+  - 显式接受 `111` 条 exact/domain-aware recommendation；
+  - 显式阻断 `13` 条 non-exact side-effect，其中包括 `2` 条 low mixed fallback；未打开 mixed fallback；
+  - `混合现实` 等 exact-backed 输出因 duplicate/collision 或既有阻断策略保持 blocked，不自动 merge；
+  - runtime 中文覆盖从 `10275 / 48877 = 21.02%` 增至 `10384 / 48878 = 21.24%`；
+  - `zh:accept`: `10398`，`zh:blocked`: `11549`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `e2ce594ce2889b2863d09bab157da944f2d1d3b6bc00b4a42ea41b5725b9b276`；
+  - compact manifest SHA-256: `6483f32d9c201b60b4c25baea08d8506021d19679fbc8e041e94ef710454263d`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - query smoke 已确认 `人乳`、`正念`、`矿物油`、`微创外科手术`、`最小生成树`、`软件仓库挖掘`、`镜像神经元`、`米索前列醇`、`线粒体动力学`、`混合信号`、`移动应用开发`、`手机用户` 可命中；`混合现实`、`贝叶斯方法与混合模型`、`基于未成年人的知情同意`、`P38丝裂原活化蛋白激酶`、`受体盐皮质激素`、`唾液腺未成年人` 保持不命中；
+  - review audit artifact: `F:\AI playground\TempFiles\theme_alias_batch_421_to_440_review_audit.json`；
+  - 相关测试：`503 passed in 3.55s`。
+- batch-440 后 review：
+  - 本轮新增 `109` 个 runtime zh-covered concepts，覆盖率增至 `21.24%`，仍明显低于达到 `>25%` 所需增量；
+  - non-exact side-effect `13` 条已全部显式 blocked；其中 low mixed fallback `基于未成年人的知情同意`、`P38丝裂原活化蛋白激酶` 未被打开；
+  - 下一轮应继续 batch-441 至 batch-460，优先从 mobility/model/modulation/molecular/monitoring/morbidity/mouse 等 high-confidence exact 术语推进。
 - 最新 batch-401 至 batch-420 exact/domain-aware 小批次已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_401_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_420_ALIASES`，覆盖 mic/micro/microwave/middle/military/milk/millimeter/MIMO 等 M 段 exact/domain-aware 术语；
   - 新增 `20` 个代表性回归测试，先红灯后转绿；将 Microsoft 条目改为 `微软SQL服务器`、`微软视窗`，避免 English-heavy zh alias；

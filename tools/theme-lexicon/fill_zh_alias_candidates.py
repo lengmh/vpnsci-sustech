@@ -12454,6 +12454,214 @@ ZH_EXACT_EXPANSION_BATCH_420_ALIASES = {
         "mimo systems": "MIMO系统",
 }
 
+ZH_EXACT_EXPANSION_BATCH_421_ALIASES = {
+        "milk ejection": "射乳",
+        "milk human": "人乳",
+        "milk hypersensitivity": "牛奶过敏",
+        "milk sickness": "乳毒病",
+        "milk substitutes": "代乳品",
+        "millimeter wave circuits": "毫米波电路",
+        "millimeter wave integrated circuits": "毫米波集成电路",
+}
+
+ZH_EXACT_EXPANSION_BATCH_422_ALIASES = {
+        "millimeter wave measurements": "毫米波测量",
+        "millimeter wave radar": "毫米波雷达",
+        "millimeter wave technology": "毫米波技术",
+        "millimeter wave transistors": "毫米波晶体管",
+        "mind body therapies": "身心疗法",
+        "mind-body therapies": "身心疗法",
+        "mindfulness": "正念",
+        "mindfulness based cognitive therapy": "正念认知疗法",
+        "mindfulness-based cognitive therapy": "正念认知疗法",
+}
+
+ZH_EXACT_EXPANSION_BATCH_423_ALIASES = {
+        "mindfulness based stress reduction": "正念减压疗法",
+        "mindfulness-based stress reduction": "正念减压疗法",
+        "minerals": "矿物质",
+        "mineral fibers": "矿物纤维",
+        "mineral oil": "矿物油",
+        "mineral waters": "矿泉水",
+        "mineralocorticoids": "盐皮质激素",
+        "mineralocorticoid excess syndrome apparent": "表观盐皮质激素过多综合征",
+}
+
+ZH_EXACT_EXPANSION_BATCH_424_ALIASES = {
+        "mineralocorticoid receptor antagonists": "盐皮质激素受体拮抗剂",
+        "miniature postsynaptic potentials": "微型突触后电位",
+        "miniaturization": "小型化",
+        "minichromosome maintenance proteins": "微小染色体维持蛋白",
+        "minicomputers": "小型计算机",
+        "minimal clinically important difference": "最小临床重要差异",
+        "minimally invasive surgical procedures": "微创外科手术",
+}
+
+ZH_EXACT_EXPANSION_BATCH_425_ALIASES = {
+        "minimally invasive surgical techniques": "微创手术技术",
+        "minimax techniques": "极小极大技术",
+        "minimization": "最小化",
+        "minimization methods": "最小化方法",
+        "minimum classification error": "最小分类错误",
+        "minimum mean square error": "最小均方误差",
+        "minimum spanning tree": "最小生成树",
+}
+
+ZH_EXACT_EXPANSION_BATCH_426_ALIASES = {
+        "minimum spanning tree problem": "最小生成树问题",
+        "mining": "采矿",
+        "mining associations": "关联挖掘",
+        "mining equipment": "采矿设备",
+        "mining industry": "采矿业",
+        "mining software repositories": "软件仓库挖掘",
+        "minisatellite repeats": "小卫星重复序列",
+}
+
+ZH_EXACT_EXPANSION_BATCH_427_ALIASES = {
+        "minors": "未成年人",
+        "minor histocompatibility antigens": "次要组织相容性抗原",
+        "minor histocompatibility loci": "次要组织相容性位点",
+        "minority groups": "少数群体",
+        "minority health": "少数群体健康",
+        "mirrors": "反射镜",
+        "mirror neurons": "镜像神经元",
+}
+
+ZH_EXACT_EXPANSION_BATCH_428_ALIASES = {
+        "mirror movement therapy": "镜像运动疗法",
+        "mirizzi syndrome": "Mirizzi综合征",
+        "mirtazapine": "米氮平",
+        "mis devices": "MIS器件",
+        "misfets": "MIS场效应晶体管",
+        "misinformation and its impacts": "错误信息及其影响",
+        "mismatch repair endonuclease pms2": "错配修复内切核酸酶PMS2",
+}
+
+ZH_EXACT_EXPANSION_BATCH_429_ALIASES = {
+        "miso": "MISO系统",
+        "misonidazole": "米索硝唑",
+        "misoprostol": "米索前列醇",
+        "missed detections": "漏检",
+        "missed diagnosis": "漏诊",
+        "missiles": "导弹",
+        "missile control": "导弹控制",
+}
+
+ZH_EXACT_EXPANSION_BATCH_430_ALIASES = {
+        "mistletoe": "槲寄生",
+        "misuse detection": "误用检测",
+        "mites": "螨类",
+        "mite infestations": "螨虫感染",
+        "mitobronitol": "米托布隆醇",
+        "mitochondrial adp atp translocases": "线粒体ADP/ATP转位酶",
+        "mitochondrial dynamics": "线粒体动力学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_431_ALIASES = {
+        "mitochondrial encephalomyopathies": "线粒体脑肌病",
+        "mitochondrial gene": "线粒体基因",
+        "mitochondrial membrane transport proteins": "线粒体膜转运蛋白",
+        "mitochondrial permeability transition pore": "线粒体通透性转换孔",
+        "mitochondrial processing peptidase": "线粒体加工肽酶",
+        "mitochondrial replacement therapy": "线粒体替代疗法",
+        "mitochondrial ribosomes": "线粒体核糖体",
+}
+
+ZH_EXACT_EXPANSION_BATCH_432_ALIASES = {
+        "mitochondrial swelling": "线粒体肿胀",
+        "mitochondrial uncoupling proteins": "线粒体解偶联蛋白",
+        "mitogens": "有丝分裂原",
+        "mitogen activated protein kinases": "丝裂原活化蛋白激酶",
+        "mitogen-activated protein kinases": "丝裂原活化蛋白激酶",
+        "mitogen activated protein kinase 1": "丝裂原活化蛋白激酶1",
+        "mitogen-activated protein kinase 1": "丝裂原活化蛋白激酶1",
+        "mitogen activated protein kinase kinases": "丝裂原活化蛋白激酶激酶",
+        "mitogen-activated protein kinase kinases": "丝裂原活化蛋白激酶激酶",
+        "mitogenome": "线粒体基因组",
+}
+
+ZH_EXACT_EXPANSION_BATCH_433_ALIASES = {
+        "mitoguazone": "米托胍腙",
+        "mitomycins": "丝裂霉素",
+        "mitophagy": "线粒体自噬",
+        "mitosis": "有丝分裂",
+        "mitosis modulators": "有丝分裂调节剂",
+        "mitosporic fungi": "有丝孢子真菌",
+        "mitotane": "米托坦",
+}
+
+ZH_EXACT_EXPANSION_BATCH_434_ALIASES = {
+        "mitotic index": "有丝分裂指数",
+        "mitoxantrone": "米托蒽醌",
+        "mixed connective tissue disease": "混合性结缔组织病",
+        "mixed dementias": "混合性痴呆",
+        "mixed finite element method": "混合有限元法",
+        "mixed function oxygenases": "混合功能氧化酶",
+        "mixed integer programming model": "混合整数规划模型",
+}
+
+ZH_EXACT_EXPANSION_BATCH_435_ALIASES = {
+        "mixed noise": "混合噪声",
+        "mixed pixel": "混合像元",
+        "mixed reality": "混合现实",
+        "mixed signal": "混合信号",
+        "mixed strategy": "混合策略",
+        "mixed tumor malignant": "恶性混合瘤",
+        "mixers": "混频器",
+}
+
+ZH_EXACT_EXPANSION_BATCH_436_ALIASES = {
+        "mixing matrix": "混合矩阵",
+        "mixture models": "混合模型",
+        "ml detections": "最大似然检测",
+        "ml estimators": "最大似然估计量",
+        "mlfma": "多层快速多极子算法",
+        "mlp neural networks": "多层感知机神经网络",
+        "mlst": "多位点序列分型",
+}
+
+ZH_EXACT_EXPANSION_BATCH_437_ALIASES = {
+        "mmics": "单片微波集成电路",
+        "mmorpg": "大型多人在线角色扮演游戏",
+        "mmpi": "明尼苏达多项人格测验",
+        "mnss blood group system": "MNS血型系统",
+        "mnss blood-group system": "MNS血型系统",
+        "mobile ad hoc networks": "移动自组织网络",
+        "mobile agents": "移动智能体",
+        "mobile applications": "移动应用",
+}
+
+ZH_EXACT_EXPANSION_BATCH_438_ALIASES = {
+        "mobile application development": "移动应用开发",
+        "mobile antennas": "移动天线",
+        "mobile computing": "移动计算",
+        "mobile crowdsensing and crowdsourcing": "移动群智感知与众包",
+        "mobile handheld devices": "移动手持设备",
+        "mobile handsets": "移动终端",
+        "mobile health units": "流动医疗单位",
+}
+
+ZH_EXACT_EXPANSION_BATCH_439_ALIASES = {
+        "mobile interaction": "移动交互",
+        "mobile learning": "移动学习",
+        "mobile manipulation": "移动操作",
+        "mobile operating systems": "移动操作系统",
+        "mobile payment": "移动支付",
+        "mobile phone": "手机",
+        "mobile phone applications": "手机应用",
+}
+
+ZH_EXACT_EXPANSION_BATCH_440_ALIASES = {
+        "mobile phone cameras": "手机摄像头",
+        "mobile phone users": "手机用户",
+        "mobile-phone users": "手机用户",
+        "mobile robots": "移动机器人",
+        "mobile security": "移动安全",
+        "mobile sink": "移动汇聚节点",
+        "mobile systems": "移动系统",
+        "mobile terminal": "移动终端",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -12876,6 +13084,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_417_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_418_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_419_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_420_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_421_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_422_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_423_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_424_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_425_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_426_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_427_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_428_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_429_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_430_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_431_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_432_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_433_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_434_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_435_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_436_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_437_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_438_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_439_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_440_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",

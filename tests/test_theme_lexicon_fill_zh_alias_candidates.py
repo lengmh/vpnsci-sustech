@@ -10533,6 +10533,266 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_421_adds_milk_and_millimeter_wave_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("milk_ejection", "Milk Ejection", ["biomedical", "phenomena_and_processes"], "射乳"),
+                ("milk_human", "Milk, Human", ["anatomy", "biomedical"], "人乳"),
+                ("milk_hypersensitivity", "Milk Hypersensitivity", ["biomedical", "diseases"], "牛奶过敏"),
+                ("milk_sickness", "Milk Sickness", ["biomedical", "diseases"], "乳毒病"),
+                ("milk_substitut", "Milk Substitutes", ["biomedical", "phenomena_and_processes"], "代乳品"),
+                ("millimeter_wave_circuit", "Millimeter Wave Circuits", ["circuits_and_systems"], "毫米波电路"),
+                ("millimeter_wave_integrated_circuit", "Millimeter Wave Integrated Circuits", ["circuits_and_systems"], "毫米波集成电路"),
+            ]
+        )
+
+    def test_exact_expansion_batch_422_adds_millimeter_wave_and_mindfulness_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("millimeter_wave_measurement", "Millimeter Wave Measurements", ["instrumentation_and_measurement"], "毫米波测量"),
+                ("millimeter_wave_radar", "Millimeter Wave Radar", ["microwave_theory_and_techniques"], "毫米波雷达"),
+                ("millimeter_wave_technology", "Millimeter Wave Technology", ["microwave_theory_and_techniques"], "毫米波技术"),
+                ("millimeter_wave_transistor", "Millimeter Wave Transistors", ["electron_devices"], "毫米波晶体管"),
+                ("mind_body_therapy", "Mind-body Therapies", ["biomedical"], "身心疗法"),
+                ("mindfulness", "Mindfulness", ["biomedical", "psychiatry_and_psychology"], "正念"),
+                ("mindfulness_based_cognitive_therapy", "Mindfulness-based Cognitive Therapy", ["biomedical"], "正念认知疗法"),
+            ]
+        )
+
+    def test_exact_expansion_batch_423_adds_mindfulness_and_mineral_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mindfulness_based_stress_reduction", "Mindfulness-based Stress Reduction", ["biomedical"], "正念减压疗法"),
+                ("mineral__4", "Minerals", ["biomedical", "chemicals_and_drugs"], "矿物质"),
+                ("mineral_fiber", "Mineral Fibers", ["biomedical", "chemicals_and_drugs"], "矿物纤维"),
+                ("mineral_oil", "Mineral Oil", ["biomedical", "chemicals_and_drugs"], "矿物油"),
+                ("mineral_water", "Mineral Waters", ["biomedical", "chemicals_and_drugs"], "矿泉水"),
+                ("mineralocorticoid", "Mineralocorticoids", ["biomedical", "chemicals_and_drugs"], "盐皮质激素"),
+                ("mineralocorticoid_excess_syndrome_apparent", "Mineralocorticoid Excess Syndrome, Apparent", ["biomedical", "diseases"], "表观盐皮质激素过多综合征"),
+            ]
+        )
+
+    def test_exact_expansion_batch_424_adds_mineralocorticoid_and_minimal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mineralocorticoid_receptor_antagonist", "Mineralocorticoid Receptor Antagonists", ["biomedical", "chemicals_and_drugs"], "盐皮质激素受体拮抗剂"),
+                ("miniature_postsynaptic_potential", "Miniature Postsynaptic Potentials", ["biomedical"], "微型突触后电位"),
+                ("miniaturization", "Miniaturization", ["biomedical"], "小型化"),
+                ("minichromosome_maintenance_protein", "Minichromosome Maintenance Proteins", ["biomedical", "chemicals_and_drugs"], "微小染色体维持蛋白"),
+                ("minicomputer", "Minicomputers", ["biomedical", "information_science"], "小型计算机"),
+                ("minimal_clinically_important_difference", "Minimal Clinically Important Difference", ["biomedical", "health_care"], "最小临床重要差异"),
+                ("minimally_invasive_surgical_procedur", "Minimally Invasive Surgical Procedures", ["biomedical"], "微创外科手术"),
+            ]
+        )
+
+    def test_exact_expansion_batch_425_adds_minimum_and_mining_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("minimally_invasive_surgical_techniqu", "Minimally Invasive Surgical Techniques", ["medicine"], "微创手术技术"),
+                ("minimax_techniqu", "Minimax Techniques", ["mathematics"], "极小极大技术"),
+                ("minimization", "Minimization", ["mathematics"], "最小化"),
+                ("minimization_method", "Minimization Methods", ["mathematics"], "最小化方法"),
+                ("minimum_classification_error", "Minimum Classification Error", ["computer_science"], "最小分类错误"),
+                ("minimum_mean_square_error", "Minimum Mean Square Error", ["computer_science"], "最小均方误差"),
+                ("minimum_spanning_tree", "Minimum Spanning Tree", ["computer_science"], "最小生成树"),
+            ]
+        )
+
+    def test_exact_expansion_batch_426_adds_mining_and_minisatellite_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("minimum_spanning_tree_problem", "Minimum Spanning Tree Problem", ["computer_science"], "最小生成树问题"),
+                ("mining", "Mining", ["biomedical", "technology_industry_and_agriculture"], "采矿"),
+                ("mining_association", "Mining Associations", ["computer_science"], "关联挖掘"),
+                ("mining_equipment", "Mining Equipment", ["industry_applications"], "采矿设备"),
+                ("mining_industry", "Mining Industry", ["industry_applications"], "采矿业"),
+                ("mining_software_repository", "Mining Software Repositories", ["computer_science"], "软件仓库挖掘"),
+                ("minisatellite_repeat", "Minisatellite Repeats", ["biomedical", "phenomena_and_processes"], "小卫星重复序列"),
+            ]
+        )
+
+    def test_exact_expansion_batch_427_adds_minor_and_mirror_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("minor", "Minors", ["biomedical", "named_groups"], "未成年人"),
+                ("minor_histocompatibility_antigen", "Minor Histocompatibility Antigens", ["biomedical", "chemicals_and_drugs"], "次要组织相容性抗原"),
+                ("minor_histocompatibility_loci", "Minor Histocompatibility Loci", ["biomedical"], "次要组织相容性位点"),
+                ("minority_group", "Minority Groups", ["biomedical"], "少数群体"),
+                ("minority_health", "Minority Health", ["biomedical", "health_care"], "少数群体健康"),
+                ("mirror", "Mirrors", ["lasers_and_electrooptics"], "反射镜"),
+                ("mirror_neuron", "Mirror Neurons", ["anatomy", "biomedical"], "镜像神经元"),
+            ]
+        )
+
+    def test_exact_expansion_batch_428_adds_mirizzi_and_mis_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mirror_movement_therapy", "Mirror Movement Therapy", ["biomedical"], "镜像运动疗法"),
+                ("mirizzi_syndrome", "Mirizzi Syndrome", ["biomedical", "diseases"], "Mirizzi综合征"),
+                ("mirtazapine", "Mirtazapine", ["biomedical", "chemicals_and_drugs"], "米氮平"),
+                ("mis_devic", "MIS Devices", ["electron_devices"], "MIS器件"),
+                ("misfet", "Misfets", ["solid_state_circuits"], "MIS场效应晶体管"),
+                ("misinformation_and_its_impact", "Misinformation And Its Impacts", ["social_sciences"], "错误信息及其影响"),
+                ("mismatch_repair_endonuclease_pms2", "Mismatch Repair Endonuclease PMS2", ["biomedical", "chemicals_and_drugs"], "错配修复内切核酸酶PMS2"),
+            ]
+        )
+
+    def test_exact_expansion_batch_429_adds_miso_missile_and_misoprostol_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("miso", "MISO", ["communications_technology"], "MISO系统"),
+                ("misonidazole", "Misonidazole", ["biomedical", "chemicals_and_drugs"], "米索硝唑"),
+                ("misoprostol", "Misoprostol", ["biomedical", "chemicals_and_drugs"], "米索前列醇"),
+                ("missed_detection", "Missed Detections", ["computer_science"], "漏检"),
+                ("missed_diagnosi", "Missed Diagnosis", ["biomedical", "health_care"], "漏诊"),
+                ("missil", "Missiles", ["aerospace_and_electronic_systems"], "导弹"),
+                ("missile_control", "Missile Control", ["control_systems"], "导弹控制"),
+            ]
+        )
+
+    def test_exact_expansion_batch_430_adds_mite_and_mitochondrial_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mistletoe", "Mistletoe", ["biomedical", "organisms"], "槲寄生"),
+                ("misuse_detection", "Misuse Detection", ["computer_science"], "误用检测"),
+                ("mit", "Mites", ["biomedical", "organisms"], "螨类"),
+                ("mite_infestation", "Mite Infestations", ["biomedical", "diseases"], "螨虫感染"),
+                ("mitobronitol", "Mitobronitol", ["biomedical", "chemicals_and_drugs"], "米托布隆醇"),
+                ("mitochondrial_adp_atp_translocase", "Mitochondrial ADP, ATP Translocases", ["biomedical", "chemicals_and_drugs"], "线粒体ADP/ATP转位酶"),
+                ("mitochondrial_dynamic", "Mitochondrial Dynamics", ["biomedical"], "线粒体动力学"),
+            ]
+        )
+
+    def test_exact_expansion_batch_431_adds_mitochondrial_biomed_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mitochondrial_encephalomyopathy", "Mitochondrial Encephalomyopathies", ["biomedical", "diseases"], "线粒体脑肌病"),
+                ("mitochondrial_gene", "Mitochondrial Gene", ["computer_science"], "线粒体基因"),
+                ("mitochondrial_membrane_transport_protein", "Mitochondrial Membrane Transport Proteins", ["biomedical", "chemicals_and_drugs"], "线粒体膜转运蛋白"),
+                ("mitochondrial_permeability_transition_pore", "Mitochondrial Permeability Transition Pore", ["biomedical", "chemicals_and_drugs"], "线粒体通透性转换孔"),
+                ("mitochondrial_processing_peptidase", "Mitochondrial Processing Peptidase", ["biomedical", "chemicals_and_drugs"], "线粒体加工肽酶"),
+                ("mitochondrial_replacement_therapy", "Mitochondrial Replacement Therapy", ["biomedical"], "线粒体替代疗法"),
+                ("mitochondrial_ribosom", "Mitochondrial Ribosomes", ["anatomy", "biomedical"], "线粒体核糖体"),
+            ]
+        )
+
+    def test_exact_expansion_batch_432_adds_mitochondrial_and_mapk_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mitochondrial_swelling", "Mitochondrial Swelling", ["biomedical"], "线粒体肿胀"),
+                ("mitochondrial_uncoupling_protein", "Mitochondrial Uncoupling Proteins", ["biomedical", "chemicals_and_drugs"], "线粒体解偶联蛋白"),
+                ("mitogen", "Mitogens", ["biomedical", "chemicals_and_drugs"], "有丝分裂原"),
+                ("mitogen_activated_protein_kinase", "Mitogen-activated Protein Kinases", ["biomedical", "chemicals_and_drugs"], "丝裂原活化蛋白激酶"),
+                ("mitogen_activated_protein_kinase_1", "Mitogen-activated Protein Kinase 1", ["biomedical", "chemicals_and_drugs"], "丝裂原活化蛋白激酶1"),
+                ("mitogen_activated_protein_kinase_kinase", "Mitogen-activated Protein Kinase Kinases", ["biomedical", "chemicals_and_drugs"], "丝裂原活化蛋白激酶激酶"),
+                ("mitogenome", "Mitogenome", ["computer_science"], "线粒体基因组"),
+            ]
+        )
+
+    def test_exact_expansion_batch_433_adds_mitomycin_and_mitosis_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mitoguazone", "Mitoguazone", ["biomedical", "chemicals_and_drugs"], "米托胍腙"),
+                ("mitomycin", "Mitomycins", ["biomedical", "chemicals_and_drugs"], "丝裂霉素"),
+                ("mitophagy", "Mitophagy", ["biomedical", "phenomena_and_processes"], "线粒体自噬"),
+                ("mitosi", "Mitosis", ["biomedical", "phenomena_and_processes"], "有丝分裂"),
+                ("mitosi_modulator", "Mitosis Modulators", ["biomedical", "chemicals_and_drugs"], "有丝分裂调节剂"),
+                ("mitosporic_fungi", "Mitosporic Fungi", ["biomedical", "organisms"], "有丝孢子真菌"),
+                ("mitotane", "Mitotane", ["biomedical", "chemicals_and_drugs"], "米托坦"),
+            ]
+        )
+
+    def test_exact_expansion_batch_434_adds_mitotic_and_mixed_disease_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mitotic_index", "Mitotic Index", ["biomedical"], "有丝分裂指数"),
+                ("mitoxantrone", "Mitoxantrone", ["biomedical", "chemicals_and_drugs"], "米托蒽醌"),
+                ("mixed_connective_tissue_disease", "Mixed Connective Tissue Disease", ["biomedical", "diseases"], "混合性结缔组织病"),
+                ("mixed_dementia", "Mixed Dementias", ["biomedical", "diseases"], "混合性痴呆"),
+                ("mixed_finite_element_method", "Mixed Finite Element Method", ["computer_science"], "混合有限元法"),
+                ("mixed_function_oxygenase", "Mixed Function Oxygenases", ["biomedical", "chemicals_and_drugs"], "混合功能氧化酶"),
+                ("mixed_integer_programming_model", "Mixed Integer Programming Model", ["computer_science"], "混合整数规划模型"),
+            ]
+        )
+
+    def test_exact_expansion_batch_435_adds_mixed_model_and_signal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mixed_noise", "Mixed Noise", ["computer_science"], "混合噪声"),
+                ("mixed_pixel", "Mixed Pixel", ["computer_science"], "混合像元"),
+                ("mixed_reality", "Mixed Reality", ["systems_engineering_and_theory"], "混合现实"),
+                ("mixed_signal", "Mixed Signal", ["computer_science"], "混合信号"),
+                ("mixed_strategy", "Mixed Strategy", ["computer_science"], "混合策略"),
+                ("mixed_tumor_malignant", "Mixed Tumor, Malignant", ["biomedical", "diseases"], "恶性混合瘤"),
+                ("mixer", "Mixers", ["power_electronics"], "混频器"),
+            ]
+        )
+
+    def test_exact_expansion_batch_436_adds_mixture_and_ml_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mixing_matrix", "Mixing Matrix", ["computer_science"], "混合矩阵"),
+                ("mixture_model", "Mixture Models", ["mathematics"], "混合模型"),
+                ("ml_detection", "Ml Detections", ["computer_science"], "最大似然检测"),
+                ("ml_estimator", "Ml Estimators", ["computer_science"], "最大似然估计量"),
+                ("mlfma", "MLFMA", ["mathematics"], "多层快速多极子算法"),
+                ("mlp_neural_network", "Mlp Neural Networks", ["computer_science"], "多层感知机神经网络"),
+                ("mlst", "Mlst", ["computer_science"], "多位点序列分型"),
+            ]
+        )
+
+    def test_exact_expansion_batch_437_adds_mmic_and_mobile_base_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mmic", "Mmics", ["circuits_and_systems"], "单片微波集成电路"),
+                ("mmorpg", "Mmorpg", ["computer_science"], "大型多人在线角色扮演游戏"),
+                ("mmpi", "MMPI", ["biomedical", "psychiatry_and_psychology"], "明尼苏达多项人格测验"),
+                ("mnss_blood_group_system", "Mnss Blood-group System", ["biomedical", "chemicals_and_drugs"], "MNS血型系统"),
+                ("mobile_ad_hoc_network", "Mobile Ad Hoc Networks", ["computer_science"], "移动自组织网络"),
+                ("mobile_agent", "Mobile Agents", ["computer_science"], "移动智能体"),
+                ("mobile_application", "Mobile Applications", ["computer_science"], "移动应用"),
+            ]
+        )
+
+    def test_exact_expansion_batch_438_adds_mobile_application_and_computing_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mobile_application_development", "Mobile Application Development", ["computer_science"], "移动应用开发"),
+                ("mobile_antenna", "Mobile Antennas", ["antennas_and_propagation"], "移动天线"),
+                ("mobile_computing", "Mobile Computing", ["computer_science"], "移动计算"),
+                ("mobile_crowdsensing_and_crowdsourcing", "Mobile Crowdsensing And Crowdsourcing", ["computer_science"], "移动群智感知与众包"),
+                ("mobile_handheld_devic", "Mobile Handheld Devices", ["computer_science"], "移动手持设备"),
+                ("mobile_handset", "Mobile Handsets", ["computer_science"], "移动终端"),
+                ("mobile_health_unit", "Mobile Health Units", ["biomedical", "health_care"], "流动医疗单位"),
+            ]
+        )
+
+    def test_exact_expansion_batch_439_adds_mobile_interaction_and_phone_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mobile_interaction", "Mobile Interaction", ["computer_science"], "移动交互"),
+                ("mobile_learning", "Mobile Learning", ["computer_science"], "移动学习"),
+                ("mobile_manipulation", "Mobile Manipulation", ["computer_science"], "移动操作"),
+                ("mobile_operating_system", "Mobile Operating Systems", ["computer_science"], "移动操作系统"),
+                ("mobile_payment", "Mobile Payment", ["computer_science"], "移动支付"),
+                ("mobile_phone", "Mobile Phone", ["computer_science"], "手机"),
+                ("mobile_phone_application", "Mobile Phone Applications", ["computer_science"], "手机应用"),
+            ]
+        )
+
+    def test_exact_expansion_batch_440_adds_mobile_robot_and_terminal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mobile_phone_camera", "Mobile Phone Cameras", ["computer_science"], "手机摄像头"),
+                ("mobile_phone_user", "Mobile-phone Users", ["computer_science"], "手机用户"),
+                ("mobile_robot", "Mobile Robots", ["robotics_and_automation"], "移动机器人"),
+                ("mobile_security", "Mobile Security", ["computer_science"], "移动安全"),
+                ("mobile_sink", "Mobile Sink", ["computer_science"], "移动汇聚节点"),
+                ("mobile_system", "Mobile Systems", ["computer_science"], "移动系统"),
+                ("mobile_terminal", "Mobile Terminal", ["computer_science"], "移动终端"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
