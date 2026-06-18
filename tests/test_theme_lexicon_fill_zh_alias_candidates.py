@@ -10273,6 +10273,266 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_401_adds_micro_device_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("micafungin", "Micafungin", ["biomedical", "chemicals_and_drugs"], "米卡芬净"),
+                ("micro_and_nano_robotic", "Micro And Nano Robotics", ["physics"], "微纳机器人"),
+                ("micro_and_nano_system", "Micro And Nano Systems", ["computer_science"], "微纳系统"),
+                ("micro_controller", "Micro-controller", ["computer_science"], "微控制器"),
+                ("micro_ct", "Micro Ct", ["computer_science"], "微型CT"),
+                ("micro_electrical_mechanical_system__2", "Micro-Electrical-Mechanical System", ["biomedical"], "微机电系统"),
+                ("micro_fabrication_techniqu", "Micro-fabrication Techniques", ["computer_science"], "微制造技术"),
+            ]
+        )
+
+    def test_exact_expansion_batch_402_adds_micro_mechanical_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("micro_cantilever", "Micro-cantilevers", ["computer_science"], "微悬臂梁"),
+                ("micro_milling", "Micro Milling", ["computer_science"], "微铣削"),
+                ("micro_mirror", "Micro Mirror", ["computer_science"], "微镜"),
+                ("micro_mobility", "Micro-mobility", ["computer_science"], "微出行"),
+                ("micro_robotic", "Micro Robotics", ["computer_science"], "微机器人学"),
+                ("micro_strip_patch_antenna", "Micro-strip Patch Antennas", ["computer_science"], "微带贴片天线"),
+                ("micro_structured_optical_fiber", "Micro-structured Optical Fibers", ["computer_science"], "微结构光纤"),
+            ]
+        )
+
+    def test_exact_expansion_batch_403_adds_microarray_and_microbial_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("microalgae", "Microalgae", ["biomedical", "organisms"], "微藻"),
+                ("microaneurysm", "Microaneurysm", ["biomedical", "diseases"], "微动脉瘤"),
+                ("microarray_analysi", "Microarray Analysis", ["biomedical"], "微阵列分析"),
+                ("microautophagy", "Microautophagy", ["biomedical", "phenomena_and_processes"], "微自噬"),
+                ("microbial_collagenase", "Microbial Collagenase", ["biomedical", "chemicals_and_drugs"], "微生物胶原酶"),
+                ("colony_count_microbial", "Microbial Colony Count", ["biomedical"], "微生物菌落计数"),
+                ("microbial_diversity", "Microbial Diversity", ["computer_science"], "微生物多样性"),
+            ]
+        )
+
+    def test_exact_expansion_batch_404_adds_microbial_ecology_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("microbial_bioremediation_and_biosurfactant", "Microbial Bioremediation And Biosurfactants", ["environmental_science"], "微生物生物修复与生物表面活性剂"),
+                ("microbial_community_ecology_and_physiology", "Microbial Community Ecology And Physiology", ["environmental_science"], "微生物群落生态学与生理学"),
+                ("microbial_consortia", "Microbial Consortia", ["biomedical", "phenomena_and_processes"], "微生物共生体"),
+                ("microbial_fuel_cell_and_bioremediation", "Microbial Fuel Cells And Bioremediation", ["environmental_science"], "微生物燃料电池与生物修复"),
+                ("microbial_inactivation_method", "Microbial Inactivation Methods", ["life_sciences"], "微生物灭活方法"),
+                ("microbial_interaction", "Microbial Interactions", ["biomedical"], "微生物相互作用"),
+                ("microbial_sensitivity_test", "Microbial Sensitivity Tests", ["biomedical"], "微生物敏感性试验"),
+            ]
+        )
+
+    def test_exact_expansion_batch_405_adds_microbiological_and_microchip_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("microbiological_phenomena", "Microbiological Phenomena", ["biomedical"], "微生物学现象"),
+                ("microbiological_techniqu", "Microbiological Techniques", ["biomedical"], "微生物学技术"),
+                ("microbiota", "Microbiota", ["biomedical", "phenomena_and_processes"], "微生物群"),
+                ("microbody", "Microbodies", ["anatomy", "biomedical"], "微体"),
+                ("microbubbl", "Microbubbles", ["biomedical"], "微泡"),
+                ("microcephaly", "Microcephaly", ["biomedical", "diseases"], "小头畸形"),
+                ("electrophoresi_microchip", "Microchip Electrophoreses", ["biomedical"], "微芯片电泳"),
+            ]
+        )
+
+    def test_exact_expansion_batch_406_adds_micrococcus_and_microelectrode_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("microclimate", "Microclimate", ["biomedical"], "微气候"),
+                ("micrococcal_nuclease", "Micrococcal Nuclease", ["biomedical", "chemicals_and_drugs"], "微球菌核酸酶"),
+                ("micrococcu_luteu", "Micrococcus Luteus", ["biomedical", "organisms"], "藤黄微球菌"),
+                ("microcomputer__2", "Microcomputer", ["biomedical", "information_science"], "微型计算机"),
+                ("microcystin", "Microcystins", ["biomedical", "chemicals_and_drugs"], "微囊藻毒素"),
+                ("microdialysi", "Microdialysis", ["biomedical"], "微透析"),
+                ("microelectrod__2", "Microelectrode", ["biomedical"], "微电极"),
+            ]
+        )
+
+    def test_exact_expansion_batch_407_adds_microelectromechanical_and_microfluidic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("microelectromechanical_devic", "Microelectromechanical Devices", ["electron_devices"], "微机电器件"),
+                ("micro_electrical_mechanical_system", "microelectromechanical system", ["computer_science"], "微机电系统"),
+                ("microfabrication_process", "Microfabrication Process", ["computer_science"], "微制造工艺"),
+                ("microfilament_protein", "Microfilament Proteins", ["biomedical", "chemicals_and_drugs"], "微丝蛋白"),
+                ("microfilariae", "Microfilariae", ["biomedical", "organisms"], "微丝蚴"),
+                ("microfiltration", "Microfiltration", ["materials_elements_and_compounds"], "微滤"),
+                ("microfluidic__4", "Microfluidic", ["biomedical"], "微流控"),
+            ]
+        )
+
+    def test_exact_expansion_batch_408_adds_microfluidic_and_microgrid_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("microfluidic_analytical_techniqu", "Microfluidic Analytical Techniques", ["biomedical"], "微流控分析技术"),
+                ("microfluidic_and_bio_sensing_technology", "Microfluidic And Bio-sensing Technologies", ["engineering"], "微流控与生物传感技术"),
+                ("microgel", "Microgels", ["biomedical", "chemicals_and_drugs"], "微凝胶"),
+                ("microglia", "Microglia", ["anatomy", "biomedical"], "小胶质细胞"),
+                ("micrognathism", "Micrognathism", ["biomedical", "diseases"], "小颌畸形"),
+                ("microgrid_control_and_optimization", "Microgrid Control And Optimization", ["engineering"], "微电网控制与优化"),
+                ("microinjection__3", "Microinjections", ["biomedical"], "显微注射"),
+            ]
+        )
+
+    def test_exact_expansion_batch_409_adds_micromechanics_and_micronutrient_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("microkernel", "Microkernel", ["computer_science"], "微内核"),
+                ("micromagnetic", "Micromagnetics", ["magnetics"], "微磁学"),
+                ("micromanipulation", "Micromanipulation", ["biomedical"], "显微操作"),
+                ("micromechanical_model", "Micromechanical Model", ["computer_science"], "微力学模型"),
+                ("micromechanic", "Micromechanics", ["computer_science"], "微力学"),
+                ("micrometer", "Micrometers", ["instrumentation_and_measurement"], "测微计"),
+                ("micronutrient", "Micronutrients", ["biomedical", "chemicals_and_drugs"], "微量营养素"),
+            ]
+        )
+
+    def test_exact_expansion_batch_410_adds_microphone_and_microplastic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("microneedle_drug_delivery", "Microneedle Drug Delivery", ["biomedical"], "微针给药"),
+                ("micronucleu_test", "Micronucleus Tests", ["biomedical"], "微核试验"),
+                ("microoptic", "Microoptics", ["lasers_and_electrooptics"], "微光学"),
+                ("microphone", "Microphone", ["computer_science"], "麦克风"),
+                ("microphone_array__2", "Microphone Array", ["computer_science"], "麦克风阵列"),
+                ("microplastic__2", "Microplastic", ["biomedical", "chemicals_and_drugs"], "微塑料"),
+                ("micropore_filter", "Micropore Filters", ["biomedical"], "微孔滤膜"),
+            ]
+        )
+
+    def test_exact_expansion_batch_411_adds_microrna_and_microsoft_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("microrna", "Micrornas", ["biomedical", "chemicals_and_drugs"], "微小RNA"),
+                ("microsatellite_dna", "Microsatellite Dna", ["computer_science"], "微卫星DNA"),
+                ("microsatellite_repeat", "Microsatellite Repeat", ["biomedical"], "微卫星重复序列"),
+                ("microscopic_coliti", "Microscopic Colitis", ["biomedical", "diseases"], "显微镜下结肠炎"),
+                ("microservice_architecture", "Microservice Architecture", ["computer_science"], "微服务架构"),
+                ("microsoft_sql_server", "Microsoft Sql Server", ["computer_science"], "微软SQL服务器"),
+                ("microsoft_window", "Microsoft Windows", ["computer_science"], "微软视窗"),
+            ]
+        )
+
+    def test_exact_expansion_batch_412_adds_microsporidia_and_microstrip_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("microsom", "Microsomes", ["anatomy", "biomedical"], "微粒体"),
+                ("microspher", "Microspheres", ["biomedical"], "微球"),
+                ("microsporidia", "Microsporidia", ["biomedical", "organisms"], "微孢子虫"),
+                ("microsporidiosi", "Microsporidiosis", ["biomedical", "diseases"], "微孢子虫病"),
+                ("microstrip", "Microstrip", ["computer_science"], "微带"),
+                ("microstrip_antenna__2", "Microstrip Antenna", ["computer_science"], "微带天线"),
+                ("microstrip_band_pass_filter", "Microstrip Band-pass Filter", ["computer_science"], "微带带通滤波器"),
+            ]
+        )
+
+    def test_exact_expansion_batch_413_adds_microstructure_and_microvascular_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("microstructure", "Microstructure", ["materials_elements_and_compounds"], "微观结构"),
+                ("microstructure_and_mechanical_property", "Microstructure And Mechanical Properties", ["materials_science"], "微观结构与力学性能"),
+                ("microtechnology", "Microtechnology", ["biomedical"], "微技术"),
+                ("microtubule_organizing_center", "Microtubule-organizing Center", ["anatomy", "biomedical"], "微管组织中心"),
+                ("microvascular_angina", "Microvascular Angina", ["biomedical", "diseases"], "微血管性心绞痛"),
+                ("microvascular_density", "Microvascular Density", ["biomedical"], "微血管密度"),
+                ("microvilli", "Microvilli", ["anatomy", "biomedical"], "微绒毛"),
+            ]
+        )
+
+    def test_exact_expansion_batch_414_adds_microwave_basic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("microwav__2", "Microwave", ["biomedical"], "微波"),
+                ("microwave_ablation", "Microwave Ablation", ["microwave_theory_and_techniques"], "微波消融"),
+                ("microwave_antenna_array", "Microwave Antenna Arrays", ["antennas_and_propagation"], "微波天线阵列"),
+                ("microwave_band", "Microwave Bands", ["microwave_theory_and_techniques"], "微波频段"),
+                ("microwave_devic", "Microwave Devices", ["microwave_theory_and_techniques"], "微波器件"),
+                ("microwave_filter", "Microwave Filters", ["microwave_theory_and_techniques"], "微波滤波器"),
+                ("microwave_generation", "Microwave Generation", ["microwave_theory_and_techniques"], "微波产生"),
+            ]
+        )
+
+    def test_exact_expansion_batch_415_adds_microwave_engineering_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("microwave_engineering_and_waveguid", "Microwave Engineering And Waveguides", ["engineering"], "微波工程与波导"),
+                ("microwave_imaging_and_scattering_analysi", "Microwave Imaging And Scattering Analysis", ["engineering"], "微波成像与散射分析"),
+                ("microwave_link", "Microwave Links", ["computer_science"], "微波链路"),
+                ("microwave_measurement", "Microwave Measurement", ["instrumentation_and_measurement"], "微波测量"),
+                ("microwave_metamaterial", "Microwave Metamaterials", ["electromagnetic_compatibility_and_interference"], "微波超材料"),
+                ("microwave_oscillator", "Microwave Oscillators", ["circuits_and_systems"], "微波振荡器"),
+                ("microwave_sensor", "Microwave Sensors", ["microwave_theory_and_techniques"], "微波传感器"),
+            ]
+        )
+
+    def test_exact_expansion_batch_416_adds_midbrain_and_middle_ear_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("midazolam", "Midazolam", ["biomedical", "chemicals_and_drugs"], "咪达唑仑"),
+                ("midbrain_raphe_nuclei", "Midbrain Raphe Nuclei", ["anatomy", "biomedical"], "中脑缝核"),
+                ("middle_aged", "Middle Aged", ["biomedical", "named_groups"], "中年人"),
+                ("middle_cerebral_artery", "Middle Cerebral Artery", ["anatomy", "biomedical"], "大脑中动脉"),
+                ("cholesteatoma_middle_ear", "Middle Ear Cholesteatomas", ["biomedical", "diseases"], "中耳胆脂瘤"),
+                ("ear_middle", "Middle Ears", ["anatomy", "biomedical"], "中耳"),
+                ("middle_east_respiratory_syndrome_coronaviru", "Middle East Respiratory Syndrome Coronavirus", ["biomedical", "organisms"], "中东呼吸综合征冠状病毒"),
+            ]
+        )
+
+    def test_exact_expansion_batch_417_adds_middle_east_and_migraine_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("middle_east", "Middle East", ["biomedical", "geographicals"], "中东"),
+                ("middle_eastern_people", "Middle Eastern People", ["biomedical", "named_groups"], "中东人群"),
+                ("middleware", "Middleware", ["computers_and_information_processing"], "中间件"),
+                ("midodrine", "Midodrine", ["biomedical", "chemicals_and_drugs"], "米多君"),
+                ("midwifery", "Midwifery", ["biomedical"], "助产学"),
+                ("mifepristone", "Mifepristone", ["biomedical", "chemicals_and_drugs"], "米非司酮"),
+                ("migraine_with_aura", "Migraine With Aura", ["biomedical", "diseases"], "有先兆偏头痛"),
+            ]
+        )
+
+    def test_exact_expansion_batch_418_adds_military_base_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("milieu_therapy", "Milieu Therapy", ["biomedical", "psychiatry_and_psychology"], "环境疗法"),
+                ("military_aircraft", "Military Aircraft", ["aerospace_and_electronic_systems"], "军用飞机"),
+                ("military_communication", "Military Communication", ["communications_technology"], "军事通信"),
+                ("military_computing", "Military Computing", ["computers_and_information_processing"], "军事计算"),
+                ("military_equipment", "Military Equipment", ["aerospace_and_electronic_systems"], "军事装备"),
+                ("military_health", "Military Health", ["biomedical", "health_care"], "军事健康"),
+                ("military_medicine", "Military Medicine", ["biomedical"], "军事医学"),
+            ]
+        )
+
+    def test_exact_expansion_batch_419_adds_military_and_milk_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("military_personnel", "Military Personnel", ["biomedical", "named_groups"], "军事人员"),
+                ("psychology_military", "Military Psychology", ["biomedical", "psychiatry_and_psychology"], "军事心理学"),
+                ("military_science", "Military Science", ["biomedical"], "军事科学"),
+                ("military_system", "Military Systems", ["systems_engineering_and_theory"], "军事系统"),
+                ("milk", "Milk", ["anatomy", "biomedical"], "乳汁"),
+                ("milk_bank", "Milk Banks", ["biomedical", "health_care"], "乳库"),
+                ("milk_protein", "Milk Proteins", ["anatomy", "biomedical"], "乳蛋白"),
+            ]
+        )
+
+    def test_exact_expansion_batch_420_adds_millimeter_wave_and_mimo_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("miller_fisher_syndrome", "Miller Fisher Syndrome", ["biomedical", "diseases"], "米勒-费希尔综合征"),
+                ("millimeter_wave_communication", "Millimeter Wave Communication", ["communications_technology"], "毫米波通信"),
+                ("millimeter_wave_devic", "Millimeter Wave Devices", ["microwave_theory_and_techniques"], "毫米波器件"),
+                ("millimeter_wave_propagation", "Millimeter Wave Propagation", ["antennas_and_propagation"], "毫米波传播"),
+                ("milling_process", "Milling Process", ["computer_science"], "铣削工艺"),
+                ("mimo_antenna", "Mimo Antenna", ["computer_science"], "MIMO天线"),
+                ("mimo_system", "Mimo Systems", ["computer_science"], "MIMO系统"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
