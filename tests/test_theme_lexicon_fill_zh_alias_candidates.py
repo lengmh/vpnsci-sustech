@@ -10005,6 +10005,274 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_381_adds_men_and_meningeal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("men", "Men", ["biomedical", "named_groups"], "男性"),
+                ("men_s_health", "Men's Health", ["biomedical", "health_care"], "男性健康"),
+                ("menarche", "Menarche", ["biomedical", "phenomena_and_processes"], "初潮"),
+                ("mendelian_randomization_analysi", "Mendelian Randomization Analysis", ["biomedical"], "孟德尔随机化分析"),
+                ("meniere_disease", "Meniere Disease", ["biomedical", "diseases"], "梅尼埃病"),
+                ("meningeal_artery", "Meningeal Arteries", ["anatomy", "biomedical"], "脑膜动脉"),
+                ("meningeal_neoplasm", "Meningeal Neoplasms", ["biomedical", "diseases"], "脑膜肿瘤"),
+            ]
+        )
+
+    def test_exact_expansion_batch_382_adds_meningitis_and_menstrual_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mening", "Meninges", ["anatomy", "biomedical"], "脑膜"),
+                ("meningism", "Meningism", ["biomedical", "diseases"], "脑膜刺激征"),
+                ("meningococcal_infection", "Meningococcal Infections", ["biomedical", "diseases"], "脑膜炎球菌感染"),
+                ("meningiti_meningococcal", "Meningococcal Meningitis", ["biomedical", "diseases"], "脑膜炎球菌性脑膜炎"),
+                ("meningoencephaliti", "Meningoencephalitis", ["biomedical", "diseases"], "脑膜脑炎"),
+                ("menorrhagia", "Menorrhagia", ["biomedical", "diseases"], "月经过多"),
+                ("menstrual_hygiene_product", "Menstrual Hygiene Products", ["biomedical"], "月经卫生用品"),
+            ]
+        )
+
+    def test_exact_expansion_batch_383_adds_mental_status_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mental_competency", "Mental Competency", ["biomedical", "psychiatry_and_psychology"], "精神行为能力"),
+                ("mental_disorder__3", "Mental Disorder", ["biomedical", "psychiatry_and_psychology"], "精神障碍"),
+                ("mental_fatigue", "Mental Fatigue", ["biomedical", "diseases"], "精神疲劳"),
+                ("mental_foramen", "Mental Foramen", ["anatomy", "biomedical"], "颏孔"),
+                ("mental_health_servic", "Mental Health Services", ["biomedical", "psychiatry_and_psychology"], "心理健康服务"),
+                ("mental_hygiene", "Mental Hygiene", ["biomedical", "psychiatry_and_psychology"], "心理卫生"),
+                ("mental_recall", "Mental Recall", ["biomedical", "psychiatry_and_psychology"], "心理回忆"),
+            ]
+        )
+
+    def test_exact_expansion_batch_384_adds_mental_health_and_mentha_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mental_health_and_well_being", "Mental Health And Well-being", ["social_sciences"], "心理健康与幸福感"),
+                ("mental_health_recovery", "Mental Health Recovery", ["biomedical", "health_care"], "心理健康康复"),
+                ("mental_health_teletherapy", "Mental Health Teletherapy", ["biomedical"], "心理健康远程治疗"),
+                ("mentalization", "Mentalization", ["biomedical", "psychiatry_and_psychology"], "心理化"),
+                ("mentalization_based_therapy", "Mentalization-based Therapy", ["biomedical"], "心理化治疗"),
+                ("mentha", "Mentha", ["biomedical", "organisms"], "薄荷属"),
+                ("menthol", "Menthol", ["biomedical", "chemicals_and_drugs"], "薄荷醇"),
+            ]
+        )
+
+    def test_exact_expansion_batch_385_adds_meperidine_and_mercury_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("menu_planning", "Menu Planning", ["biomedical"], "膳食计划"),
+                ("meperidine", "Meperidine", ["biomedical", "chemicals_and_drugs"], "哌替啶"),
+                ("mepivacaine", "Mepivacaine", ["biomedical", "chemicals_and_drugs"], "甲哌卡因"),
+                ("meprobamate", "Meprobamate", ["biomedical", "chemicals_and_drugs"], "甲丙氨酯"),
+                ("mercaptoethanol", "Mercaptoethanol", ["biomedical", "chemicals_and_drugs"], "巯基乙醇"),
+                ("mercaptopurine", "Mercaptopurine", ["biomedical", "chemicals_and_drugs"], "巯嘌呤"),
+                ("mercuric_chloride", "Mercuric Chloride", ["biomedical", "chemicals_and_drugs"], "氯化汞"),
+            ]
+        )
+
+    def test_exact_expansion_batch_386_adds_mercury_and_merkel_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mercury", "Mercury", ["biomedical", "chemicals_and_drugs"], "汞元素"),
+                ("mercury_compound", "Mercury Compounds", ["biomedical", "chemicals_and_drugs"], "汞化合物"),
+                ("mercury_poisoning", "Mercury Poisoning", ["biomedical", "diseases"], "汞中毒"),
+                ("mercury_poisoning_nervou_system", "Mercury Poisoning, Nervous System", ["biomedical", "diseases"], "神经系统汞中毒"),
+                ("meridian", "Meridians", ["biomedical"], "经络"),
+                ("meristem", "Meristem", ["anatomy", "biomedical"], "分生组织"),
+                ("merkel_cell_polyomaviru", "Merkel Cell Polyomavirus", ["biomedical", "organisms"], "默克尔细胞多瘤病毒"),
+                ("meropenem", "Meropenem", ["biomedical", "chemicals_and_drugs"], "美罗培南"),
+            ]
+        )
+
+    def test_exact_expansion_batch_387_adds_mesalamine_and_mesenchymal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mesalamine", "Mesalamine", ["biomedical", "chemicals_and_drugs"], "美沙拉嗪"),
+                ("mesangial_cell", "Mesangial Cells", ["anatomy", "biomedical"], "系膜细胞"),
+                ("mescaline", "Mescaline", ["biomedical", "chemicals_and_drugs"], "麦司卡林"),
+                ("mesencephalon", "Mesencephalon", ["anatomy", "biomedical"], "中脑"),
+                ("mesenchymal_stem_cell", "Mesenchymal Stem Cells", ["anatomy", "biomedical"], "间充质干细胞"),
+                ("mesenchymal_stem_cell_transplantation", "Mesenchymal Stem Cell Transplantation", ["biomedical"], "间充质干细胞移植"),
+                ("mesenteric_artery", "Mesenteric Arteries", ["anatomy", "biomedical"], "肠系膜动脉"),
+            ]
+        )
+
+    def test_exact_expansion_batch_388_adds_mesenteric_and_mesh_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mesenteric_ischemia", "Mesenteric Ischemia", ["biomedical", "diseases"], "肠系膜缺血"),
+                ("mesenteric_lymphadeniti", "Mesenteric Lymphadenitis", ["biomedical", "diseases"], "肠系膜淋巴结炎"),
+                ("mesenteric_vein", "Mesenteric Veins", ["anatomy", "biomedical"], "肠系膜静脉"),
+                ("mesh_free_method", "Mesh-free Method", ["computer_science"], "无网格法"),
+                ("mesh_network__2", "Mesh Network", ["computer_science"], "网状网络"),
+                ("mesh_router", "Mesh Routers", ["computer_science"], "网状路由器"),
+                ("mesh_topology", "Mesh Topologies", ["computer_science"], "网状拓扑"),
+                ("wireless_mesh_network", "Wireless Mesh Networks", ["computer_science"], "无线网状网络"),
+                ("multi_hop_wireless_mesh_network", "Multi-hop Wireless Mesh Networks", ["computer_science"], "多跳无线网状网络"),
+            ]
+        )
+
+    def test_exact_expansion_batch_389_adds_mesoderm_message_and_meta_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mesoderm", "Mesoderm", ["anatomy", "biomedical"], "中胚层"),
+                ("mesolimbic_system", "Mesolimbic System", ["anatomy", "biomedical"], "中脑边缘系统"),
+                ("mesoporou_material", "Mesoporous Materials", ["materials_elements_and_compounds"], "介孔材料"),
+                ("mesothelioma", "Mesothelioma", ["biomedical", "diseases"], "间皮瘤"),
+                ("message_authentication__2", "message authentication code", ["computer_science"], "消息认证码"),
+                ("message_passing_interface", "Message Passing Interface", ["computer_science"], "消息传递接口"),
+                ("meta_analysi", "Meta-analysis", ["biomedical", "publication_characteristics"], "荟萃分析"),
+                ("network_meta_analysi", "Network Meta-analysis", ["biomedical", "publication_characteristics"], "网络荟萃分析"),
+                ("network_meta_analysi_as_topic", "Network Meta-analysis As Topic", ["biomedical"], "网络荟萃分析专题"),
+            ]
+        )
+
+    def test_exact_expansion_batch_390_adds_metaheuristic_and_metabolic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("metacognition__2", "Meta-cognition", ["biomedical", "psychiatry_and_psychology"], "元认知"),
+                ("meta_heuristic_method", "Meta-heuristic Methods", ["computer_science"], "元启发式方法"),
+                ("meta_learning", "Meta-learning", ["computer_science"], "元学习"),
+                ("metabolic_clearance_rate", "Metabolic Clearance Rate", ["biomedical"], "代谢清除率"),
+                ("metabolic_disease", "Metabolic Diseases", ["biomedical", "diseases"], "代谢性疾病"),
+                ("metabolic_engineering", "Metabolic Engineering", ["biomedical"], "代谢工程"),
+                ("metabolic_flux_analysi", "Metabolic Flux Analysis", ["biomedical"], "代谢通量分析"),
+            ]
+        )
+
+    def test_exact_expansion_batch_391_adds_metabolome_and_metagenomics_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("metabolic_reprogramming", "Metabolic Reprogramming", ["biomedical"], "代谢重编程"),
+                ("metabolism__3", "Metabolic Process", ["biomedical"], "代谢过程"),
+                ("metabolome", "Metabolome", ["biomedical", "phenomena_and_processes"], "代谢组"),
+                ("metabolomic", "Metabolomics", ["biomedical", "disciplines_and_occupations"], "代谢组学"),
+                ("receptor_metabotropic_glutamate", "Metabotropic Glutamate Receptor", ["biomedical", "chemicals_and_drugs"], "代谢型谷氨酸受体"),
+                ("metagenome", "Metagenome", ["biomedical", "phenomena_and_processes"], "宏基因组"),
+                ("metagenomic", "Metagenomics", ["biomedical", "disciplines_and_occupations"], "宏基因组学"),
+            ]
+        )
+
+    def test_exact_expansion_batch_392_adds_metacarpal_and_metal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("metacarpal_bon", "Metacarpal Bones", ["anatomy", "biomedical"], "掌骨"),
+                ("metacarpophalangeal_joint", "Metacarpophalangeal Joint", ["anatomy", "biomedical"], "掌指关节"),
+                ("metadata_server", "Metadata Servers", ["computer_science"], "元数据服务器"),
+                ("metal__2", "Metal", ["biomedical", "chemicals_and_drugs"], "金属"),
+                ("metal_cutting", "Metal Cutting", ["computer_science"], "金属切削"),
+                ("metal_detector", "Metal Detectors", ["computer_science"], "金属探测器"),
+                ("metal_foam", "Metal Foam", ["materials_elements_and_compounds"], "金属泡沫"),
+            ]
+        )
+
+    def test_exact_expansion_batch_393_adds_metal_framework_and_material_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("metal_gate", "Metal Gate", ["computer_science"], "金属栅"),
+                ("metal_insulator_boundary", "Metal Insulator Boundaries", ["computer_science"], "金属-绝缘体边界"),
+                ("metal_nanoparticl", "Metal Nanoparticles", ["biomedical"], "金属纳米颗粒"),
+                ("metal_organic_framework", "Metal-organic Frameworks", ["biomedical", "chemicals_and_drugs"], "金属有机框架"),
+                ("metal_product", "Metal Products", ["industry_applications"], "金属制品"),
+                ("metallic_glasse_and_amorphou_alloy", "Metallic Glasses And Amorphous Alloys", ["engineering"], "金属玻璃与非晶合金"),
+                ("metallic_material", "Metallic Materials", ["materials_elements_and_compounds"], "金属材料"),
+                ("integrated_circuit_metallization", "Integrated Circuit Metallization", ["materials_elements_and_compounds"], "集成电路金属化"),
+            ]
+        )
+
+    def test_exact_expansion_batch_394_adds_metallo_and_metamaterial_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("metallization", "Metallization", ["materials_elements_and_compounds"], "金属化"),
+                ("metalloprotein", "Metalloproteins", ["biomedical", "chemicals_and_drugs"], "金属蛋白"),
+                ("metallothionein", "Metallothionein", ["biomedical", "chemicals_and_drugs"], "金属硫蛋白"),
+                ("metallurgical_processe_and_thermodynamic", "Metallurgical Processes And Thermodynamics", ["engineering"], "冶金过程与热力学"),
+                ("metallurgy_and_material_science", "Metallurgy And Material Science", ["materials_science"], "冶金学与材料科学"),
+                ("metamaterial__2", "Metamaterial", ["computer_science"], "超材料"),
+                ("metamaterial_antenna", "Metamaterial Antennas", ["computer_science"], "超材料天线"),
+            ]
+        )
+
+    def test_exact_expansion_batch_395_adds_metaphysics_and_metatarsal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("metaphor", "Metaphor", ["biomedical", "humanities"], "隐喻"),
+                ("metaphysic", "Metaphysics", ["biomedical", "humanities"], "形而上学"),
+                ("metaplasia", "Metaplasia", ["biomedical", "diseases"], "化生"),
+                ("metapneumoviru", "Metapneumovirus", ["biomedical", "organisms"], "偏肺病毒"),
+                ("metasurfac", "Metasurfaces", ["materials_elements_and_compounds"], "超表面"),
+                ("metatarsal_bon", "Metatarsal Bones", ["anatomy", "biomedical"], "跖骨"),
+                ("metatarsophalangeal_joint", "Metatarsophalangeal Joint", ["anatomy", "biomedical"], "跖趾关节"),
+            ]
+        )
+
+    def test_exact_expansion_batch_396_adds_metered_inhaler_and_methane_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("metencephalon", "Metencephalon", ["anatomy", "biomedical"], "后脑"),
+                ("metered_dose_inhaler", "Metered Dose Inhalers", ["biomedical"], "定量吸入器"),
+                ("metformin", "Metformin", ["biomedical", "chemicals_and_drugs"], "二甲双胍"),
+                ("methacholine_chloride", "Methacholine Chloride", ["biomedical", "chemicals_and_drugs"], "氯化乙酰甲胆碱"),
+                ("methacrylat", "Methacrylates", ["biomedical", "chemicals_and_drugs"], "甲基丙烯酸酯类"),
+                ("methadone", "Methadone", ["biomedical", "chemicals_and_drugs"], "美沙酮"),
+                ("methane", "Methane", ["biomedical", "chemicals_and_drugs"], "甲烷"),
+            ]
+        )
+
+    def test_exact_expansion_batch_397_adds_methanogen_and_methemoglobin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("methanobacterium", "Methanobacterium", ["biomedical", "organisms"], "甲烷杆菌属"),
+                ("methanococcu", "Methanococcus", ["biomedical", "organisms"], "甲烷球菌属"),
+                ("methanosarcina", "Methanosarcina", ["biomedical", "organisms"], "甲烷八叠球菌属"),
+                ("methemoglobin", "Methemoglobin", ["biomedical", "chemicals_and_drugs"], "高铁血红蛋白"),
+                ("methemoglobinemia", "Methemoglobinemia", ["biomedical", "diseases"], "高铁血红蛋白血症"),
+                ("methenamine", "Methenamine", ["biomedical", "chemicals_and_drugs"], "乌洛托品"),
+                ("methicillin_resistance", "Methicillin Resistance", ["biomedical"], "甲氧西林耐药性"),
+            ]
+        )
+
+    def test_exact_expansion_batch_398_adds_mrsa_and_methionine_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("methicillin", "Methicillin", ["biomedical", "chemicals_and_drugs"], "甲氧西林"),
+                ("methicillin_resistant_staphylococcu_aureu", "Methicillin-resistant Staphylococcus Aureus", ["biomedical", "organisms"], "耐甲氧西林金黄色葡萄球菌"),
+                ("methimazole", "Methimazole", ["biomedical", "chemicals_and_drugs"], "甲巯咪唑"),
+                ("methionine", "Methionine", ["biomedical", "chemicals_and_drugs"], "蛋氨酸"),
+                ("methionine_adenosyltransferase", "Methionine Adenosyltransferase", ["biomedical", "chemicals_and_drugs"], "蛋氨酸腺苷转移酶"),
+                ("methionine_sulfoxide_reductase", "Methionine Sulfoxide Reductases", ["biomedical", "chemicals_and_drugs"], "蛋氨酸亚砜还原酶"),
+                ("methotrexate", "Methotrexate", ["biomedical", "chemicals_and_drugs"], "甲氨蝶呤"),
+            ]
+        )
+
+    def test_exact_expansion_batch_399_adds_methylation_and_methylene_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("method_of_moment", "Method Of Moments", ["computer_science", "mathematics"], "矩量法"),
+                ("methyl_chloride", "Methyl Chloride", ["biomedical", "chemicals_and_drugs"], "氯甲烷"),
+                ("methyl_cpg_binding_protein_2", "Methyl-cpg-binding Protein 2", ["biomedical", "chemicals_and_drugs"], "甲基CpG结合蛋白2"),
+                ("methylation", "Methylation", ["biomedical", "phenomena_and_processes"], "甲基化"),
+                ("methylene_blue", "Methylene Blue", ["biomedical", "chemicals_and_drugs"], "亚甲蓝"),
+                ("methylenetetrahydrofolate_reductase_nadph2", "Methylenetetrahydrofolate Reductase (nadph2)", ["biomedical", "chemicals_and_drugs"], "亚甲基四氢叶酸还原酶"),
+                ("methylprednisolone_acetate", "Methylprednisolone Acetate", ["biomedical", "chemicals_and_drugs"], "醋酸甲泼尼龙"),
+                ("methyltransferase", "Methyltransferases", ["biomedical", "chemicals_and_drugs"], "甲基转移酶"),
+                ("rna_methylation", "RNA Methylation", ["biomedical", "phenomena_and_processes"], "RNA甲基化"),
+            ]
+        )
+
+    def test_exact_expansion_batch_400_adds_metoprolol_metric_and_mice_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("metoclopramide", "Metoclopramide", ["biomedical", "chemicals_and_drugs"], "甲氧氯普胺"),
+                ("metoprolol", "Metoprolol", ["biomedical", "chemicals_and_drugs"], "美托洛尔"),
+                ("metric_space", "Metric Space", ["computer_science"], "度量空间"),
+                ("metro_network", "Metro Networks", ["computer_science"], "城域网"),
+                ("metronidazole", "Metronidazole", ["biomedical", "chemicals_and_drugs"], "甲硝唑"),
+                ("metropoli_hasting_algorithm", "Metropolis-hastings Algorithm", ["computer_science"], "Metropolis-Hastings算法"),
+                ("mice", "Mice", ["biomedical", "organisms"], "小鼠"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
