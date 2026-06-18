@@ -153,48 +153,68 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-18 zh-exact-expansion-batch-661-to-680 后）：
+最新已知状态（2026-06-18 zh-exact-expansion-batch-681-to-700 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`11914 / 48891 = 24.37%`
-- runtime zh aliases: `11927`
+- runtime 中文覆盖：`12021 / 48895 = 24.59%`
+- runtime zh aliases: `12034`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `11927`
-- `zh:blocked`: `11620`
+- `zh:accept`: `12034`
+- `zh:blocked`: `11622`
 - `zh:needs_review`: `0`
 - `zh:reject`: `151`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `48891`
+- runtime concept aliases: `48895`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
-- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-680 运行时以 compact index/manifest 为准）
+- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-700 运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `fca124bef5c5d4d455e865ca9df8358bf79d9d61cd176e723ce70c28858b55ab`
+  `222afd7a66965029dea3efc1dccadf58cd2de014d750a5983fc97212dae81b3e`
 - compact manifest SHA-256:
-  `7875059787235bc7ee6f6723e4717cd51839a1dda41b5232125cb20a94596c80`
+  `f07f74335e5b6ec59787eea0c9895cbc04b2f60c8914dcbd56e4f6f7ce60e446`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact index 是 batch-680 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-680 更新，不再作为默认等价检查对象。
-- 最近相关测试：`743 passed in 5.32s`。
+- compact index 是 batch-700 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-700 更新，不再作为默认等价检查对象。
+- 最近相关测试：`763 passed in 5.56s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- batch-661 至 batch-680 中文 coverage 扩展已完成，runtime 中文覆盖已到 `24.37%`；用户当前目标是继续 20-batch 分组推进到 `>25%`，尚未达成；
+- batch-681 至 batch-700 中文 coverage 扩展已完成，runtime 中文覆盖已到 `24.59%`；用户当前目标是继续 20-batch 分组推进到 `>25%`，尚未达成；
 - post-20% 质量复盘和窄 L6 treemap/text fallback 修复已完成；当前主线回到 exact/domain-aware 中文 alias 覆盖扩展；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
+- 最新 batch-681 至 batch-700 exact/domain-aware 小批次已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_681_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_700_ALIASES`，覆盖 NURBS、nurse/nursing、nutrition/nutritional、obesity/object/object-oriented、observation/obstacle/obstetric/occupational 等 exact/domain-aware 术语；
+  - 新增 `20` 个代表性回归测试，先红灯后转绿；修正 `护士新生儿 -> 新生儿护士`、`护理评估研究 -> 护理评价研究`、`面向目标* -> 面向对象*`、`产科学外科操作 -> 产科手术`、`职业损伤 -> 职业伤害` 等坏形态；
+  - grouped L3-L5：fill `records_filled = 23606`，validate `review_decisions = 372920`；
+  - 显式接受 `121` 条 exact/domain-aware recommendation；
+  - 显式阻断 `21` 条由 observation/nutrition/nurse 等 exact 组件引发的 compositional/title side-effect；
+  - `面向对象编程` 等 duplicate/collision exact 输出继续保持 blocked，不自动 merge；
+  - runtime 中文覆盖从 `11914 / 48891 = 24.37%` 增至 `12021 / 48895 = 24.59%`；
+  - `zh:accept`: `12034`，`zh:blocked`: `11622`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `222afd7a66965029dea3efc1dccadf58cd2de014d750a5983fc97212dae81b3e`；
+  - compact manifest SHA-256: `f07f74335e5b6ec59787eea0c9895cbc04b2f60c8914dcbd56e4f6f7ce60e446`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - query smoke 已确认 `护理信息学`、`工作场所职业健康与安全` 可命中；`面向对象编程` 因 duplicate/collision 保持不命中；
+  - 相关测试：`763 passed in 5.56s`。
+- batch-700 后 review：
+  - 本轮新增 `107` 个 runtime zh-covered concepts，覆盖率增至 `24.59%`，仍未达到 `>25%`；
+  - side-effect `21` 条已显式 blocked，主要来自 observation/nutrition/nurse component 组合；
+  - 下一轮应继续 batch-701 至 batch-720，优先从 occupational/ocean/ocular/OFDM/offline 等高确定性 exact 术语推进。
 - 最新 batch-661 至 batch-680 exact/domain-aware 小批次已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_661_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_680_ALIASES`，覆盖 normalized/Nor/North/Nose/NoSQL/Nuchal、nuclear/nucleic/nucleotide、number/numerical 等 exact/domain-aware 术语；
   - 新增 `20` 个代表性回归测试，先红灯后转绿；其中修正 `Nuclear Family -> 核心家庭`、`Nuclear Structure And Function -> 核结构与功能`、`Number Of Hops -> 跳数`、`Numerical Control Systems -> 数控系统` 等坏形态或词序；
