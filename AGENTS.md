@@ -153,20 +153,20 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-18 zh-exact-expansion-batch-621-to-640 后）：
+最新已知状态（2026-06-18 zh-exact-expansion-batch-641-to-660 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`11637 / 48890 = 23.80%`
-- runtime zh aliases: `11650`
+- runtime 中文覆盖：`11783 / 48890 = 24.10%`
+- runtime zh aliases: `11796`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `11650`
-- `zh:blocked`: `11607`
+- `zh:accept`: `11796`
+- `zh:blocked`: `11625`
 - `zh:needs_review`: `0`
 - `zh:reject`: `151`
 - accepted/runtime alias conflicts: `0`
@@ -175,23 +175,23 @@ lexicons/review/
 - runtime concept aliases: `48890`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
-- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-640 运行时以 compact index/manifest 为准）
+- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-660 运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `fb8b9781d0358960ae777fae5ea0e50fb09b23e2b5bba8c82367248f692f4e7f`
+  `9f4c87ec3c27b6f495f62e3104249383ed1ab04db27f7bff22cc241500a463e5`
 - compact manifest SHA-256:
-  `8b15a95945c9edcf467312e0a2a487737c44ef6d93783cb3e76cbadb031ff76b`
+  `a4b52e555b401fff1e9abd403fa3c2a808bfc8918d8973aeea1529a21222cc10`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact index 是 batch-640 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-640 更新，不再作为默认等价检查对象。
-- 最近相关测试：`703 passed in 3.89s`。
+- compact index 是 batch-660 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-660 更新，不再作为默认等价检查对象。
+- 最近相关测试：`723 passed in 3.85s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- batch-621 至 batch-640 中文 coverage 扩展已完成，runtime 中文覆盖已到 `23.80%`；用户当前目标是继续 20-batch 分组推进到 `>25%`，尚未达成；
+- batch-641 至 batch-660 中文 coverage 扩展已完成，runtime 中文覆盖已到 `24.10%`；用户当前目标是继续 20-batch 分组推进到 `>25%`，尚未达成；
 - post-20% 质量复盘和窄 L6 treemap/text fallback 修复已完成；当前主线回到 exact/domain-aware 中文 alias 覆盖扩展；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
@@ -206,6 +206,27 @@ lexicons/review/
   - query smoke：预期 runtime alias `12 / 12` 命中；预期 blocked alias `0 / 7` 误命中；
   - treemap/text fallback smoke：`build_text_themes` 可产生 `Mean Absolute Error / 平均绝对误差`、`Medication Adherence / 用药依从性`、`Median Filter / 中值滤波器` 等 concept-level themes；
   - 窄 L6 修复已完成：中文 text candidate extractor 现在会先扫描 compact runtime 中已接受的中文 alias 短语，再走原 n-gram fallback，并过滤被已选 concept alias 覆盖的短片段；`主从系统` 已稳定归并到 `concept:master_slave_system`，不再显示 `主从系`。
+- 最新 batch-641 至 batch-660 exact/domain-aware 小批次已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_641_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_660_ALIASES`，覆盖 NoC/Nocardia/nociception/nocturnal/NOD/node/Nogo/noise、non-/nonlinear/noninvasive/nonvolatile、Norway/Norwalk/Nose/Notch 等 exact/domain-aware 术语；
+  - 新增 `20` 个代表性回归测试，先红灯后转绿；其中 `Non-functional Requirements -> 非功能性需求` 修正旧的坏输出 `非泛函需求`，`NoC Architectures -> NoC架构` 避免撞上既有 `片上网络架构`；
+  - grouped L3-L5：fill `records_filled = 23370`，validate `review_decisions = 372685`；
+  - 显式接受 `147` 条 exact/domain-aware recommendation；
+  - 显式阻断 `1` 条 `nomenclature` 组件引发的 title/topic side-effect：`命名法主题`；
+  - `去噪`、`命名法`、`噪声整形`、`非同质化代币`、`非参数统计`、`非政府组织`、`非易失性*`、`陷波滤波器` 等 exact-backed duplicate/collision 输出保持 blocked，不自动 merge；
+  - runtime 中文覆盖从 `11637 / 48890 = 23.80%` 增至 `11783 / 48890 = 24.10%`；
+  - `zh:accept`: `11796`，`zh:blocked`: `11625`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `9f4c87ec3c27b6f495f62e3104249383ed1ab04db27f7bff22cc241500a463e5`；
+  - compact manifest SHA-256: `a4b52e555b401fff1e9abd403fa3c2a808bfc8918d8973aeea1529a21222cc10`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - query smoke 已确认 `NoC架构`、`非功能性需求` 可命中；`命名法主题` 保持不命中；
+  - 相关测试：`723 passed in 3.85s`。
+- batch-660 后 review：
+  - 本轮新增 `146` 个 runtime zh-covered concepts，覆盖率增至 `24.10%`，仍未达到 `>25%`；
+  - side-effect 控制在 `1` 条，主要收益来自 non-/nonlinear 与生医 exact 密集区；
+  - duplicate/collision exact 输出继续不自动 merge；
+  - 下一轮应继续 batch-661 至 batch-680，优先从 Nor/North/Nose/Notch/Nuclear/Nucleic/Nucleotide 等高确定性 exact 术语推进。
 - 最新 batch-621 至 batch-640 exact/domain-aware 小批次已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_621_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_640_ALIASES`，覆盖 nicotinamide/nicotine、Nidovirales/Niemann-Pick/Nigella/night、NIMA/Nimaviridae、niobium/Nipah/nipple/Nissl、nitrate/nitric/nitrite/nitro/nitrogen、NK/NLR/NMR/no-reflow 等 exact/domain-aware 术语；
   - 新增 `20` 个代表性回归测试，先红灯后转绿；其中 `NIMA相关激酶1`、`NIH 3T3细胞` 通过 exact 证据重开旧 non-collision block；
