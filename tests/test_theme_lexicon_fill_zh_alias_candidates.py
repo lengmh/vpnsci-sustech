@@ -14419,6 +14419,286 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_701_adds_ocean_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("occupational_therapy_practice_and_research", "Occupational Therapy Practice And Research", ["health_professions", "health_sciences"], "职业治疗实践与研究"),
+                ("ocdma", "Ocdma", ["computer_science"], "光码分多址"),
+                ("ocean", "Oceans", ["change"], "海洋"),
+                ("ocean_acidification", "Ocean Acidification", ["change"], "海洋酸化"),
+                ("ocean_acidification_effect_and_response", "Ocean Acidification Effects And Responses", ["earth_and_planetary_sciences", "physical_sciences"], "海洋酸化效应与响应"),
+                ("ocean_and_seas", "Oceans And Seas", ["biomedical", "phenomena_and_processes"], "海洋和海域"),
+                ("ocean_circulation", "Ocean Circulation", ["change"], "海洋环流"),
+                ("ocean_current", "Ocean Currents", ["computer_science"], "海流"),
+            ]
+        )
+
+    def test_exact_expansion_batch_702_adds_ocean_dynamics_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("ocean_dynamic", "Ocean Dynamics", ["change"], "海洋动力学"),
+                ("ocean_salinity", "Ocean Salinity", ["change"], "海洋盐度"),
+                ("ocean_temperature", "Ocean Temperature", ["change"], "海洋温度"),
+                ("ocean_thermal_energy_conversion", "Ocean Thermal Energy Conversion", ["oceanic_engineering_and_marine_technology"], "海洋热能转换"),
+                ("ocean_tide", "Ocean Tide", ["computer_science"], "海潮"),
+                ("ocean_wav_and_remote_sensing", "Ocean Waves And Remote Sensing", ["earth_and_planetary_sciences", "physical_sciences"], "海浪与遥感"),
+                ("oceania", "Oceania", ["biomedical", "geographicals"], "大洋洲"),
+                ("oceanian", "Oceanians", ["biomedical", "named_groups"], "大洋洲人"),
+            ]
+        )
+
+    def test_exact_expansion_batch_703_adds_oceanographic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("oceanic_crust", "Oceanic Crust", ["change"], "洋壳"),
+                ("oceanic_current", "Oceanic Current", ["computer_science"], "海流"),
+                ("oceanic_engineering_and_marine_technology", "Oceanic Engineering And Marine Technology", ["oceanic_engineering_and_marine_technology"], "海洋工程与海洋技术"),
+                ("oceanographic_and_atmospheric_processe", "Oceanographic And Atmospheric Processes", ["earth_and_planetary_sciences", "physical_sciences"], "海洋与大气过程"),
+                ("oceanographic_instrument", "Oceanographic Instruments", ["computer_science"], "海洋仪器"),
+                ("oceanographic_techniqu", "Oceanographic Techniques", ["oceanic_engineering_and_marine_technology"], "海洋学技术"),
+                ("oceanography", "Oceanography", ["change"], "海洋学"),
+                ("ochratoxin", "Ochratoxins", ["biomedical", "chemicals_and_drugs"], "赭曲霉毒素类"),
+            ]
+        )
+
+    def test_exact_expansion_batch_704_adds_ochrobactrum_and_ocr_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("ochrobactrum", "Ochrobactrum", ["biomedical", "organisms"], "苍白杆菌属"),
+                ("ochrobactrum_anthropi", "Ochrobactrum Anthropi", ["biomedical", "organisms"], "人苍白杆菌"),
+                ("ochronosi", "Ochronosis", ["biomedical", "diseases"], "褐黄病"),
+                ("ocimum", "Ocimum", ["biomedical", "organisms"], "罗勒属"),
+                ("ocimum_basilicum", "Ocimum Basilicum", ["biomedical", "organisms"], "罗勒"),
+                ("ocimum_sanctum", "Ocimum Sanctum", ["biomedical", "organisms"], "圣罗勒"),
+                ("ocl", "Ocl", ["computer_science"], "对象约束语言"),
+                ("ocr", "Ocr", ["computer_science"], "光学字符识别"),
+            ]
+        )
+
+    def test_exact_expansion_batch_705_adds_octamer_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("octamer_transcription_factor", "Octamer Transcription Factors", ["biomedical", "chemicals_and_drugs"], "八聚体转录因子"),
+                ("octamer_transcription_factor_1", "Octamer Transcription Factor-1", ["biomedical", "chemicals_and_drugs"], "八聚体转录因子1"),
+                ("octamer_transcription_factor_2", "Octamer Transcription Factor-2", ["biomedical", "chemicals_and_drugs"], "八聚体转录因子2"),
+                ("octamer_transcription_factor_3", "Octamer Transcription Factor-3", ["biomedical", "chemicals_and_drugs"], "八聚体转录因子3"),
+                ("octamer_transcription_factor_6", "Octamer Transcription Factor-6", ["biomedical", "chemicals_and_drugs"], "八聚体转录因子6"),
+                ("octan", "Octanes", ["biomedical", "chemicals_and_drugs"], "辛烷类"),
+                ("octanol", "Octanols", ["biomedical", "chemicals_and_drugs"], "辛醇类"),
+                ("octogenarian", "Octogenarians", ["biomedical", "named_groups"], "八旬老人"),
+            ]
+        )
+
+    def test_exact_expansion_batch_706_adds_octopamine_and_ocular_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("octopamine", "Octopamine", ["biomedical", "chemicals_and_drugs"], "章鱼胺"),
+                ("octre", "Octrees", ["computers_and_information_processing"], "八叉树"),
+                ("octreotide", "Octreotide", ["biomedical", "chemicals_and_drugs"], "奥曲肽"),
+                ("ocular_absorption", "Ocular Absorption", ["biomedical", "phenomena_and_processes"], "眼吸收"),
+                ("ocular_dominance", "Ocular Dominance", ["computer_science"], "眼优势"),
+                ("ocular_hypertension", "Ocular Hypertension", ["biomedical", "diseases"], "高眼压"),
+                ("ocular_hypotension", "Ocular Hypotension", ["biomedical", "diseases"], "低眼压"),
+                ("ocular_motility_disorder", "Ocular Motility Disorders", ["biomedical", "diseases"], "眼球运动障碍"),
+            ]
+        )
+
+    def test_exact_expansion_batch_707_adds_oculomotor_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("ocular_physiological_phenomena", "Ocular Physiological Phenomena", ["biomedical", "phenomena_and_processes"], "眼生理现象"),
+                ("oculocerebrorenal_syndrome", "Oculocerebrorenal Syndrome", ["biomedical", "diseases"], "眼脑肾综合征"),
+                ("oculomotor_muscl", "Oculomotor Muscles", ["anatomy", "biomedical"], "动眼肌"),
+                ("oculomotor_nerve", "Oculomotor Nerve", ["anatomy", "biomedical"], "动眼神经"),
+                ("oculomotor_nerve_disease", "Oculomotor Nerve Diseases", ["biomedical", "diseases"], "动眼神经疾病"),
+                ("oculomotor_nerve_injury", "Oculomotor Nerve Injuries", ["biomedical", "diseases"], "动眼神经损伤"),
+                ("oculomotor_nuclear_complex", "Oculomotor Nuclear Complex", ["anatomy", "biomedical"], "动眼神经核复合体"),
+                ("odds_ratio", "Odds Ratio", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "优势比"),
+            ]
+        )
+
+    def test_exact_expansion_batch_708_adds_odometry_and_odontogenesis_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("ode", "Ode", ["computer_science"], "常微分方程"),
+                ("odometer", "Odometers", ["instrumentation_and_measurement"], "里程表"),
+                ("odometry", "Odometry", ["computer_science"], "里程计"),
+                ("odonata", "Odonata", ["biomedical", "organisms"], "蜻蜓目"),
+                ("odontoblast", "Odontoblasts", ["anatomy", "biomedical"], "成牙本质细胞"),
+                ("odontodysplasia", "Odontodysplasia", ["biomedical", "diseases"], "牙发育不良"),
+                ("odontogenesi", "Odontogenesis", ["biomedical", "phenomena_and_processes"], "牙发生"),
+                ("odontogenic_cyst", "Odontogenic Cysts", ["biomedical", "diseases"], "牙源性囊肿"),
+            ]
+        )
+
+    def test_exact_expansion_batch_709_adds_odontogenic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("odontogenic_cyst_calcifying", "Odontogenic Cyst, Calcifying", ["biomedical", "diseases"], "钙化性牙源性囊肿"),
+                ("odontogenic_tumor", "Odontogenic Tumors", ["biomedical", "diseases"], "牙源性肿瘤"),
+                ("odontogenic_tumor_squamou", "Odontogenic Tumor, Squamous", ["biomedical", "diseases"], "鳞状牙源性肿瘤"),
+                ("odontoid_process", "Odontoid Process", ["anatomy", "biomedical"], "齿突"),
+                ("odontoma", "Odontoma", ["biomedical", "diseases"], "牙瘤"),
+                ("odontometry", "Odontometry", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "牙测量"),
+                ("odor_and_emission_control_technology", "Odor And Emission Control Technologies", ["chemical_engineering", "physical_sciences"], "气味与排放控制技术"),
+                ("odorant", "Odorants", ["biomedical", "phenomena_and_processes"], "气味物质"),
+            ]
+        )
+
+    def test_exact_expansion_batch_710_adds_ofdm_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("oedipu_complex", "Oedipus Complex", ["biomedical", "psychiatry_and_psychology"], "俄狄浦斯情结"),
+                ("ofdm_modulation", "OFDM Modulation", ["communications_technology"], "正交频分复用调制"),
+                ("ofdm_signal", "Ofdm Signal", ["computer_science"], "正交频分复用信号"),
+                ("ofdm_system", "Ofdm Systems", ["computer_science"], "正交频分复用系统"),
+                ("ofdm_transmission", "Ofdm Transmission", ["computer_science"], "正交频分复用传输"),
+                ("ofdma", "Ofdma", ["computer_science"], "正交频分多址"),
+                ("ofdma_system", "Ofdma Systems", ["computer_science"], "正交频分多址系统"),
+                ("ofdma_uplink", "Ofdma Uplinks", ["computer_science"], "正交频分多址上行链路"),
+            ]
+        )
+
+    def test_exact_expansion_batch_711_adds_office_memory_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("ofet", "Ofets", ["solid_state_circuits"], "有机场效应晶体管"),
+                ("off_chip_memory", "Off-chip Memories", ["computer_science"], "片外存储器"),
+                ("off_label_use", "Off-label Use", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "超说明书用药"),
+                ("off_line_algorithm", "Off-line Algorithm", ["computer_science"], "离线算法"),
+                ("off_line_handwritten", "Off-line Handwritten", ["computer_science"], "离线手写"),
+                ("off_road_motor_vehicl", "Off-road Motor Vehicles", ["biomedical", "technology_industry_and_agriculture"], "越野机动车"),
+                ("office_automation", "Office Automation", ["robotics_and_automation"], "办公自动化"),
+                ("office_building", "Office Buildings", ["computer_science"], "办公楼"),
+            ]
+        )
+
+    def test_exact_expansion_batch_712_adds_office_and_offshore_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("office_management", "Office Management", ["biomedical", "health_care"], "办公室管理"),
+                ("office_nursing", "Office Nursing", ["biomedical", "health_care"], "诊所护理"),
+                ("office_visit", "Office Visits", ["biomedical", "health_care"], "门诊就诊"),
+                ("office_worker", "Office Workers", ["computer_science"], "办公室工作人员"),
+                ("offline_password_guessing_attack", "Offline Password Guessing Attack", ["computer_science"], "离线密码猜测攻击"),
+                ("offset_frequency", "Offset Frequencies", ["computer_science"], "偏移频率"),
+                ("offset_printing", "Offset Printing", ["computer_science"], "胶版印刷"),
+                ("offshore_engineering_and_technology", "Offshore Engineering And Technologies", ["engineering", "physical_sciences"], "近海工程技术"),
+            ]
+        )
+
+    def test_exact_expansion_batch_713_adds_oil_and_gas_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("offshore_installation", "Offshore Installations", ["engineering_general"], "海上设施"),
+                ("ofloxacin", "Ofloxacin", ["biomedical", "chemicals_and_drugs"], "氧氟沙星"),
+                ("ohio", "Ohio", ["biomedical", "geographicals"], "俄亥俄州"),
+                ("ohmic_contact", "Ohmic Contacts", ["circuits_and_systems"], "欧姆接触"),
+                ("oil_and_gas_field", "Oil And Gas Fields", ["biomedical", "phenomena_and_processes"], "油气田"),
+                ("oil_and_gas_industry", "Oil And Gas Industry", ["biomedical", "technology_industry_and_agriculture"], "油气行业"),
+                ("oil_and_gas_production_techniqu", "Oil And Gas Production Techniques", ["engineering", "physical_sciences"], "油气生产技术"),
+                ("oil_drilling", "Oil Drilling", ["industry_applications"], "石油钻井"),
+            ]
+        )
+
+    def test_exact_expansion_batch_714_adds_oil_production_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("oil_filled_cabl", "Oil Filled Cables", ["dielectrics_and_electrical_insulation"], "充油电缆"),
+                ("oil_gas_and_environmental_issu", "Oil, Gas, And Environmental Issues", ["energy", "physical_sciences"], "油气与环境问题"),
+                ("oil_insulation", "Oil Insulation", ["dielectrics_and_electrical_insulation"], "油绝缘"),
+                ("oil_palm_production_and_sustainability", "Oil Palm Production And Sustainability", ["environmental_science", "physical_sciences"], "油棕生产与可持续性"),
+                ("oil_pollution", "Oil Pollution", ["pollution"], "石油污染"),
+                ("oil_recovery", "Oil Recoveries", ["computer_science"], "采油"),
+                ("oil_refinery", "Oil Refineries", ["industry_applications"], "炼油厂"),
+                ("oil_spill_detection_and_mitigation", "Oil Spill Detection And Mitigation", ["environmental_science", "physical_sciences"], "溢油检测与缓解"),
+            ]
+        )
+
+    def test_exact_expansion_batch_715_adds_oils_and_olap_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("oils", "Oils", ["materials_elements_and_compounds"], "油类"),
+                ("oils_volatile", "Oils, Volatile", ["biomedical", "chemicals_and_drugs"], "挥发油"),
+                ("ointment", "Ointments", ["biomedical", "chemicals_and_drugs"], "软膏"),
+                ("ointment_base", "Ointment Bases", ["biomedical", "chemicals_and_drugs"], "软膏基质"),
+                ("okadaic_acid", "Okadaic Acid", ["biomedical", "chemicals_and_drugs"], "冈田酸"),
+                ("oklahoma", "Oklahoma", ["biomedical", "geographicals"], "俄克拉荷马州"),
+                ("olanzapine", "Olanzapine", ["biomedical", "chemicals_and_drugs"], "奥氮平"),
+                ("olap", "Olap", ["computer_science"], "联机分析处理"),
+            ]
+        )
+
+    def test_exact_expansion_batch_716_adds_olecranon_and_oled_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("olap_query", "Olap Queries", ["computer_science"], "OLAP查询"),
+                ("old_age_assistance", "Old Age Assistance", ["biomedical", "health_care"], "老年援助"),
+                ("older_adult_driving_study", "Older Adults Driving Studies", ["health_professions", "health_sciences"], "老年人驾驶研究"),
+                ("oleandomycin", "Oleandomycin", ["biomedical", "chemicals_and_drugs"], "竹桃霉素"),
+                ("oleanolic_acid", "Oleanolic Acid", ["biomedical", "chemicals_and_drugs"], "齐墩果酸"),
+                ("olecranon_fracture", "Olecranon Fracture", ["biomedical", "diseases"], "鹰嘴骨折"),
+                ("olecranon_process", "Olecranon Process", ["anatomy", "biomedical"], "鹰嘴"),
+                ("oled_display", "Oled Displays", ["computer_science"], "OLED显示器"),
+            ]
+        )
+
+    def test_exact_expansion_batch_717_adds_olfactory_bulb_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("oleic_acid", "Oleic Acids", ["biomedical", "chemicals_and_drugs"], "油酸"),
+                ("olfaction_disorder", "Olfaction Disorders", ["biomedical", "diseases"], "嗅觉障碍"),
+                ("olfactometry", "Olfactometry", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "嗅觉测量"),
+                ("olfactory_and_sensory_function_study", "Olfactory And Sensory Function Studies", ["life_sciences", "neuroscience"], "嗅觉与感觉功能研究"),
+                ("olfactory_bulb", "Olfactory Bulb", ["anatomy", "biomedical"], "嗅球"),
+                ("olfactory_cortex", "Olfactory Cortex", ["anatomy", "biomedical"], "嗅皮层"),
+                ("olfactory_marker_protein", "Olfactory Marker Protein", ["biomedical", "chemicals_and_drugs"], "嗅觉标志蛋白"),
+                ("olfactory_mucosa", "Olfactory Mucosa", ["anatomy", "biomedical"], "嗅黏膜"),
+            ]
+        )
+
+    def test_exact_expansion_batch_718_adds_olfactory_nerve_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("olfactory_nerve", "Olfactory Nerve", ["anatomy", "biomedical"], "嗅神经"),
+                ("olfactory_nerve_disease", "Olfactory Nerve Diseases", ["biomedical", "diseases"], "嗅神经疾病"),
+                ("olfactory_nerve_injury", "Olfactory Nerve Injuries", ["biomedical", "diseases"], "嗅神经损伤"),
+                ("olfactory_pathway", "Olfactory Pathways", ["anatomy", "biomedical"], "嗅觉通路"),
+                ("olfactory_perception", "Olfactory Perception", ["biomedical", "psychiatry_and_psychology"], "嗅觉感知"),
+                ("olfactory_receptor_neuron", "Olfactory Receptor Neurons", ["anatomy", "biomedical"], "嗅觉受体神经元"),
+                ("olfactory_training", "Olfactory Training", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "嗅觉训练"),
+                ("olfactory_tubercle", "Olfactory Tubercle", ["anatomy", "biomedical"], "嗅结节"),
+            ]
+        )
+
+    def test_exact_expansion_batch_719_adds_oligodendrocyte_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("oligo_1_6_glucosidase", "Oligo-1,6-glucosidase", ["biomedical", "chemicals_and_drugs"], "寡-1,6-葡萄糖苷酶"),
+                ("oligoclonal_band", "Oligoclonal Bands", ["biomedical", "chemicals_and_drugs"], "寡克隆带"),
+                ("oligodendrocyte_myelin_glycoprotein", "Oligodendrocyte-myelin Glycoprotein", ["biomedical", "chemicals_and_drugs"], "少突胶质细胞髓鞘糖蛋白"),
+                ("oligodendrocyte_precursor_cell", "Oligodendrocyte Precursor Cells", ["anatomy", "biomedical"], "少突胶质前体细胞"),
+                ("oligodendrocyte_transcription_factor_2", "Oligodendrocyte Transcription Factor 2", ["biomedical", "chemicals_and_drugs"], "少突胶质细胞转录因子2"),
+                ("oligodendroglia", "Oligodendroglia", ["anatomy", "biomedical"], "少突胶质细胞"),
+                ("oligodendroglioma", "Oligodendroglioma", ["biomedical", "diseases"], "少突胶质细胞瘤"),
+                ("oligodeoxyribonucleotid", "Oligodeoxyribonucleotides", ["biomedical", "chemicals_and_drugs"], "寡脱氧核糖核苷酸"),
+            ]
+        )
+
+    def test_exact_expansion_batch_720_adds_oligonucleotide_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("oligonucleotid", "Oligonucleotides", ["biomedical", "chemicals_and_drugs"], "寡核苷酸"),
+                ("oligonucleotide_array_sequence_analysi", "Oligonucleotide Array Sequence Analysis", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "寡核苷酸阵列序列分析"),
+                ("oligonucleotide_prob", "Oligonucleotide Probes", ["biomedical", "chemicals_and_drugs"], "寡核苷酸探针"),
+                ("oligopeptid", "Oligopeptides", ["biomedical", "chemicals_and_drugs"], "寡肽"),
+                ("oligopoly", "Oligopoly", ["engineering_management"], "寡头垄断"),
+                ("oligoribonucleotid", "Oligoribonucleotides", ["biomedical", "chemicals_and_drugs"], "寡核糖核苷酸"),
+                ("oligosaccharid", "Oligosaccharides", ["biomedical", "chemicals_and_drugs"], "寡糖"),
+                ("oligospermia", "Oligospermia", ["biomedical", "diseases"], "少精子症"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
