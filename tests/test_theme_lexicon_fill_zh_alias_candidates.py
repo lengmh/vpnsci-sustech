@@ -9416,6 +9416,278 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_341_adds_magneto_effect_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("magneto_electrical_resistivity_imaging_technique", "Magneto Electrical Resistivity Imaging Technique", ["imaging"], "磁电阻率成像技术"),
+                ("magneto_optical_property_and_application", "Magneto-optical Properties And Applications", ["engineering", "physical_sciences"], "磁光性质与应用"),
+                ("magneto_rheological_damper", "Magneto-rheological Dampers", ["computer_science"], "磁流变阻尼器"),
+                ("magnetoacoustic_effect", "Magnetoacoustic Effects", ["magnetics"], "磁声效应"),
+                ("magnetocardiography", "Magnetocardiography", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "心磁图"),
+                ("magnetoelasticity", "Magnetoelasticity", ["magnetics"], "磁弹性"),
+                ("magnetoelectric_effect", "Magnetoelectric Effects", ["magnetics"], "磁电效应"),
+            ]
+        )
+
+    def test_exact_expansion_batch_342_adds_magnetohydrodynamic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("magnetoelectronic", "Magnetoelectronics", ["magnetics"], "磁电子学"),
+                ("magnetoencephalography", "Magnetoencephalography", ["magnetics"], "脑磁图"),
+                ("magnetohydrodynamic_power_generation", "Magnetohydrodynamic Power Generation", ["power_engineering_and_energy"], "磁流体发电"),
+                ("magnetohydrodynamic_techniqu", "Magnetohydrodynamic Techniques", ["physics"], "磁流体动力学技术"),
+                ("magnetohydrodynamic", "Magnetohydrodynamics", ["science_general"], "磁流体动力学"),
+                ("magnetomechanical_effect", "Magnetomechanical Effects", ["magnetics"], "磁机械效应"),
+                ("magnetometer", "Magnetometers", ["instrumentation_and_measurement"], "磁强计"),
+            ]
+        )
+
+    def test_exact_expansion_batch_343_adds_magnetooptic_and_magnetoresistance_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("magnetometry", "Magnetometry", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "磁测量"),
+                ("magnetooptic_devic", "Magnetooptic Devices", ["magnetics"], "磁光器件"),
+                ("magnetooptic_effect", "Magnetooptic Effects", ["magnetics"], "磁光效应"),
+                ("magnetooptic_recording", "Magnetooptic Recording", ["lasers_and_electrooptics"], "磁光记录"),
+                ("magnetoresistance", "Magnetoresistance", ["magnetics"], "磁阻"),
+                ("magnetoresistive_devic", "Magnetoresistive Devices", ["magnetics"], "磁阻器件"),
+                ("magnetosom", "Magnetosomes", ["anatomy", "biomedical"], "磁小体"),
+            ]
+        )
+
+    def test_exact_expansion_batch_344_adds_magnetostatic_and_magnolia_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("magnetosphere", "Magnetosphere", ["change"], "磁层"),
+                ("magnetospirillum", "Magnetospirillum", ["biomedical", "organisms"], "趋磁螺菌属"),
+                ("magnetostatic_wav", "Magnetostatic Waves", ["science_general"], "静磁波"),
+                ("magnetostriction", "Magnetostriction", ["magnetics"], "磁致伸缩"),
+                ("magnetostrictive_devic", "Magnetostrictive Devices", ["magnetics"], "磁致伸缩器件"),
+                ("magnetron", "Magnetrons", ["electron_devices"], "磁控管"),
+                ("magnolia", "Magnolia", ["biomedical", "organisms"], "木兰属"),
+            ]
+        )
+
+    def test_exact_expansion_batch_345_adds_magnolia_maintenance_and_major_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("magnoliaceae", "Magnoliaceae", ["biomedical", "organisms"], "木兰科"),
+                ("magnonic", "Magnonics", ["magnetics"], "磁振子学"),
+                ("maillard_reaction", "Maillard Reaction", ["biomedical", "phenomena_and_processes"], "美拉德反应"),
+                ("computer_mainframe", "Computers, Mainframe", ["biomedical", "information_science"], "大型计算机"),
+                ("maintenance_chemotherapy", "Maintenance Chemotherapy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "维持化疗"),
+                ("maize_streak_viru", "Maize Streak Virus", ["biomedical", "organisms"], "玉米条纹病毒"),
+                ("major_depressive_disorder", "Major Depressive Disorder", ["biomedical", "psychiatry_and_psychology"], "重性抑郁障碍"),
+                ("major_histocompatibility_complex", "Major Histocompatibility Complex", ["biomedical", "phenomena_and_processes"], "主要组织相容性复合体"),
+            ]
+        )
+
+    def test_exact_expansion_batch_346_adds_malaria_and_malate_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("major_vault_protein", "Major Vault Protein", ["biomedical", "chemicals_and_drugs"], "主要穹窿蛋白"),
+                ("malacoplakia", "Malacoplakia", ["biomedical", "diseases"], "软斑病"),
+                ("malaria_research_and_control", "Malaria Research And Control", ["health_sciences", "medicine"], "疟疾研究与控制"),
+                ("malaria_avian", "Malaria, Avian", ["biomedical", "diseases"], "鸟疟疾"),
+                ("malaria_falciparum", "Malaria, Falciparum", ["biomedical", "diseases"], "恶性疟"),
+                ("malaria_vivax", "Malaria, Vivax", ["biomedical", "diseases"], "间日疟"),
+                ("malate_dehydrogenase", "Malate Dehydrogenase", ["biomedical", "chemicals_and_drugs"], "苹果酸脱氢酶"),
+            ]
+        )
+
+    def test_exact_expansion_batch_347_adds_maleic_and_cortical_malformation_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("malate_synthase", "Malate Synthase", ["biomedical", "chemicals_and_drugs"], "苹果酸合酶"),
+                ("malathion", "Malathion", ["biomedical", "chemicals_and_drugs"], "马拉硫磷"),
+                ("male_urogenital_disease", "Male Urogenital Diseases", ["biomedical", "diseases"], "男性泌尿生殖系统疾病"),
+                ("breast_neoplasm_male", "Breast Neoplasms, Male", ["biomedical", "diseases"], "男性乳腺肿瘤"),
+                ("infertility_male", "Infertility, Male", ["biomedical", "diseases"], "男性不育"),
+                ("nurse_male", "Nurses, Male", ["biomedical", "named_groups"], "男护士"),
+                ("maleat", "Maleates", ["biomedical", "chemicals_and_drugs"], "马来酸盐"),
+                ("maleic_anhydrid", "Maleic Anhydrides", ["biomedical", "chemicals_and_drugs"], "马来酸酐类"),
+                ("maleimid", "Maleimides", ["biomedical", "chemicals_and_drugs"], "马来酰亚胺类"),
+                ("malformation_of_cortical_development", "Malformations Of Cortical Development", ["biomedical", "diseases"], "皮质发育畸形"),
+            ]
+        )
+
+    def test_exact_expansion_batch_348_adds_malicious_malignant_and_malocclusion_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("maliciou_attack", "Malicious Attack", ["computer_science"], "恶意攻击"),
+                ("maliciou_code", "Malicious Code", ["computer_science"], "恶意代码"),
+                ("malignant_atrophic_papulosi", "Malignant Atrophic Papulosis", ["biomedical", "diseases"], "恶性萎缩性丘疹病"),
+                ("malignant_carcinoid_syndrome", "Malignant Carcinoid Syndrome", ["biomedical", "diseases"], "恶性类癌综合征"),
+                ("malignant_hyperthermia", "Malignant Hyperthermia", ["biomedical", "diseases"], "恶性高热"),
+                ("malocclusion", "Malocclusion", ["biomedical", "diseases"], "错颌"),
+                ("malocclusion_angle_class_ii", "Malocclusion, Angle Class II", ["biomedical", "diseases"], "安氏II类错颌"),
+            ]
+        )
+
+    def test_exact_expansion_batch_349_adds_malonate_malware_and_mammaglobin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("malondialdehyde", "Malondialdehyde", ["biomedical", "chemicals_and_drugs"], "丙二醛"),
+                ("malonyl_coenzyme_a", "Malonyl Coenzyme A", ["biomedical", "chemicals_and_drugs"], "丙二酰辅酶A"),
+                ("maltose", "Maltose", ["biomedical", "chemicals_and_drugs"], "麦芽糖"),
+                ("maltose_binding_protein", "Maltose-binding Proteins", ["biomedical", "chemicals_and_drugs"], "麦芽糖结合蛋白"),
+                ("anti_malware", "Anti-malware", ["computer_science"], "反恶意软件"),
+                ("malware_analysi", "Malware Analysis", ["computer_science"], "恶意软件分析"),
+                ("mammaglobin_a", "Mammaglobin A", ["biomedical", "chemicals_and_drugs"], "乳腺珠蛋白A"),
+                ("mammaglobin_b", "Mammaglobin B", ["biomedical", "chemicals_and_drugs"], "乳腺珠蛋白B"),
+            ]
+        )
+
+    def test_exact_expansion_batch_350_adds_mammary_and_mammography_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mammalian_orthoreoviru_3", "Mammalian Orthoreovirus 3", ["biomedical", "organisms"], "哺乳动物正呼肠孤病毒3型"),
+                ("mammaplasty", "Mammaplasty", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "乳房成形术"),
+                ("mammary_analogue_secretory_carcinoma", "Mammary Analogue Secretory Carcinoma", ["biomedical", "diseases"], "乳腺样分泌性癌"),
+                ("mammary_gland_animal", "Mammary Glands, Animal", ["anatomy", "biomedical"], "动物乳腺"),
+                ("mammary_neoplasm_experimental", "Mammary Neoplasms, Experimental", ["biomedical", "diseases"], "实验性乳腺肿瘤"),
+                ("mammary_tumor_viru_mouse", "Mammary Tumor Virus, Mouse", ["biomedical", "organisms"], "小鼠乳腺肿瘤病毒"),
+                ("mammillary_body", "Mammillary Bodies", ["anatomy", "biomedical"], "乳头体"),
+                ("digital_mammogram", "Digital Mammograms", ["computer_science"], "数字乳腺X线片"),
+            ]
+        )
+
+    def test_exact_expansion_batch_351_adds_managed_care_and_management_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("man_in_the_middle_attack", "Man-in-the-middle Attack", ["computer_science"], "中间人攻击"),
+                ("managed_care_program", "Managed Care Programs", ["biomedical", "health_care"], "管理式医疗项目"),
+                ("managed_competition", "Managed Competition", ["biomedical", "health_care"], "管理式竞争"),
+                ("management_and_marketing_education", "Management And Marketing Education", ["business_management_and_accounting", "social_sciences"], "管理与营销教育"),
+                ("management_audit", "Management Audit", ["biomedical", "health_care"], "管理审计"),
+                ("management_information_base", "Management Information Base", ["computers_and_information_processing"], "管理信息库"),
+                ("management_of_metastatic_bone_disease", "Management Of Metastatic Bone Disease", ["health_sciences", "medicine"], "转移性骨病管理"),
+            ]
+        )
+
+    def test_exact_expansion_batch_352_adds_mandatory_and_mandibular_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mandatory_reporting", "Mandatory Reporting", ["anthropology_education_sociology_and_social_phenomena", "biomedical"], "强制报告"),
+                ("mandatory_testing", "Mandatory Testing", ["anthropology_education_sociology_and_social_phenomena", "biomedical"], "强制检测"),
+                ("mandatory_vaccination", "Mandatory Vaccination", ["anthropology_education_sociology_and_social_phenomena", "biomedical"], "强制接种"),
+                ("mandelic_acid", "Mandelic Acids", ["biomedical", "chemicals_and_drugs"], "扁桃酸类"),
+                ("mandibular_canal", "Mandibular Canal", ["anatomy", "biomedical"], "下颌管"),
+                ("mandibular_fractur", "Mandibular Fractures", ["biomedical", "diseases"], "下颌骨骨折"),
+                ("mandibular_nerve", "Mandibular Nerve", ["anatomy", "biomedical"], "下颌神经"),
+            ]
+        )
+
+    def test_exact_expansion_batch_353_adds_manet_manganese_and_manifold_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("manet", "Manet", ["computer_science"], "移动自组织网络"),
+                ("manet_routing", "Manet Routing", ["computer_science"], "移动自组织网络路由"),
+                ("maneuvering_target_tracking", "Maneuvering Target Tracking", ["computer_science"], "机动目标跟踪"),
+                ("manganese_alloy", "Manganese Alloys", ["materials_elements_and_compounds"], "锰合金"),
+                ("manganese_compound", "Manganese Compounds", ["biomedical", "chemicals_and_drugs"], "锰化合物"),
+                ("manganese_poisoning", "Manganese Poisoning", ["biomedical", "diseases"], "锰中毒"),
+                ("manifold_learning", "Manifold Learning", ["computer_science", "mathematics"], "流形学习"),
+            ]
+        )
+
+    def test_exact_expansion_batch_354_adds_manipulation_and_mannose_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("manipulation_chiropractic", "Manipulation, Chiropractic", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "脊椎按摩手法"),
+                ("manipulation_orthopedic", "Manipulation, Orthopedic", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "骨科手法"),
+                ("manipulation_spinal", "Manipulation, Spinal", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "脊柱手法"),
+                ("manipulator_system", "Manipulator Systems", ["computer_science"], "机械臂系统"),
+                ("mannitol", "Mannitol", ["biomedical", "chemicals_and_drugs"], "甘露醇"),
+                ("mannitol_dehydrogenase", "Mannitol Dehydrogenases", ["biomedical", "chemicals_and_drugs"], "甘露醇脱氢酶"),
+                ("alpha_mannosidase", "Alpha-mannosidase", ["biomedical", "chemicals_and_drugs"], "α-甘露糖苷酶"),
+                ("beta_mannosidase", "Beta-mannosidase", ["biomedical", "chemicals_and_drugs"], "β-甘露糖苷酶"),
+                ("mannose_receptor", "Mannose Receptor", ["biomedical", "chemicals_and_drugs"], "甘露糖受体"),
+            ]
+        )
+
+    def test_exact_expansion_batch_355_adds_mannose_manual_and_manufacturing_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mannose_6_phosphate_isomerase", "Mannose-6-phosphate Isomerase", ["biomedical", "chemicals_and_drugs"], "甘露糖-6-磷酸异构酶"),
+                ("mannose_binding_lectin", "Mannose-binding Lectins", ["biomedical", "chemicals_and_drugs"], "甘露糖结合凝集素"),
+                ("mannosidase_deficiency_disease", "Mannosidase Deficiency Diseases", ["biomedical", "diseases"], "甘露糖苷酶缺乏病"),
+                ("manual_lymphatic_drainage", "Manual Lymphatic Drainage", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "手法淋巴引流"),
+                ("manual_segmentation", "Manual Segmentation", ["computer_science"], "手动分割"),
+                ("manufacturing_automation", "Manufacturing Automation", ["industrial_electronics"], "制造自动化"),
+                ("manufacturing_resource_planning", "Manufacturing Resource Planning", ["computer_science"], "制造资源计划"),
+            ]
+        )
+
+    def test_exact_expansion_batch_356_adds_many_core_and_map_kinase_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("many_body_techniqu", "Many-body Techniques", ["physics"], "多体技术"),
+                ("many_core_architecture", "Many-core Architecture", ["computer_science"], "众核架构"),
+                ("many_core_processor", "Many-core Processors", ["computer_science"], "众核处理器"),
+                ("many_valued_logic", "Many-valued Logic", ["computer_science"], "多值逻辑"),
+                ("map_kinase_kinase_1", "MAP Kinase Kinase 1", ["biomedical", "chemicals_and_drugs"], "MAP激酶激酶1"),
+                ("map_kinase_kinase_kinase_1", "MAP Kinase Kinase Kinase 1", ["biomedical", "chemicals_and_drugs"], "MAP激酶激酶激酶1"),
+                ("map_kinase_signaling_system", "MAP Kinase Signaling System", ["biomedical", "phenomena_and_processes"], "MAP激酶信号系统"),
+            ]
+        )
+
+    def test_exact_expansion_batch_357_adds_mapreduce_and_marine_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("map_matching", "Map Matching", ["computer_science"], "地图匹配"),
+                ("map_matching_algorithm", "Map-matching Algorithm", ["computer_science"], "地图匹配算法"),
+                ("map_reduce", "Map-reduce", ["computer_science"], "映射归约"),
+                ("maple_syrup_urine_disease", "Maple Syrup Urine Disease", ["biomedical", "diseases"], "枫糖尿病"),
+                ("maraviroc", "Maraviroc", ["biomedical", "chemicals_and_drugs"], "马拉韦罗"),
+                ("marburg_viru_disease", "Marburg Virus Disease", ["biomedical", "diseases"], "马尔堡病毒病"),
+                ("marek_disease", "Marek Disease", ["biomedical", "diseases"], "马立克病"),
+            ]
+        )
+
+    def test_exact_expansion_batch_358_adds_marine_and_maritime_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("marfan_syndrome", "Marfan Syndrome", ["biomedical", "diseases"], "马凡综合征"),
+                ("marijuana_abuse", "Marijuana Abuse", ["biomedical", "diseases"], "大麻滥用"),
+                ("marine_biology", "Marine Biology", ["biomedical", "disciplines_and_occupations"], "海洋生物学"),
+                ("marine_engineering", "Marine Engineering", ["engineering_general"], "海洋工程"),
+                ("marine_navigation", "Marine Navigation", ["intelligent_transportation_systems"], "海上导航"),
+                ("marine_pollution", "Marine Pollution", ["oceanic_engineering_and_marine_technology"], "海洋污染"),
+                ("maritime_communication", "Maritime Communications", ["communications_technology"], "海事通信"),
+            ]
+        )
+
+    def test_exact_expansion_batch_359_adds_market_and_markov_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("market_dynamic_and_volatility", "Market Dynamics And Volatility", ["economics_econometrics_and_finance", "social_sciences"], "市场动态与波动性"),
+                ("market_research", "Market Research", ["engineering_management"], "市场研究"),
+                ("marketing_management", "Marketing Management", ["engineering_management"], "营销管理"),
+                ("consumer_behavior_and_marketing_influence", "Consumer Behavior And Marketing Influence", ["business_management_and_accounting", "social_sciences"], "消费者行为与营销影响"),
+                ("digital_marketing_and_social_media", "Digital Marketing And Social Media", ["social_sciences"], "数字营销与社交媒体"),
+                ("social_marketing", "Social Marketing", ["biomedical", "technology_industry_and_agriculture"], "社会营销"),
+                ("markov_chain", "Markov Chain", ["computer_science"], "马尔可夫链"),
+                ("markov_chain_monte_carlo", "Markov Chain Monte Carlo", ["computer_science"], "马尔可夫链蒙特卡罗"),
+                ("markov_logic_network", "Markov Logic Networks", ["computer_science"], "马尔可夫逻辑网络"),
+                ("markov_random_field", "Markov Random Fields", ["computer_science", "mathematics"], "马尔可夫随机场"),
+            ]
+        )
+
+    def test_exact_expansion_batch_360_adds_mass_and_mast_cell_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("masked_hypertension", "Masked Hypertension", ["biomedical", "diseases"], "隐匿性高血压"),
+                ("masked_language_modeling", "Masked Language Modeling", ["computer_science"], "掩码语言建模"),
+                ("mass_casualty_incident", "Mass Casualty Incidents", ["anthropology_education_sociology_and_social_phenomena", "biomedical"], "大规模伤亡事件"),
+                ("mass_drug_administration", "Mass Drug Administration", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "群体给药"),
+                ("mass_spectrometry", "Mass Spectrometry", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "质谱法"),
+                ("mass_spectrometry_techniqu_and_application", "Mass Spectrometry Techniques And Applications", ["chemistry", "physical_sciences"], "质谱技术与应用"),
+                ("mast_cell_activation_syndrome", "Mast Cell Activation Syndrome", ["biomedical", "diseases"], "肥大细胞活化综合征"),
+                ("mast_cell_stabilizer", "Mast Cell Stabilizers", ["biomedical", "chemicals_and_drugs"], "肥大细胞稳定剂"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

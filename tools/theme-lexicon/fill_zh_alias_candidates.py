@@ -10832,6 +10832,403 @@ ZH_EXACT_EXPANSION_BATCH_340_ALIASES = {
         "receptor macrophage colony-stimulating factor": "巨噬细胞集落刺激因子受体",
 }
 
+ZH_EXACT_EXPANSION_BATCH_341_ALIASES = {
+        "magneto electrical resistivity imaging technique": "磁电阻率成像技术",
+        "magneto-optical properties and applications": "磁光性质与应用",
+        "magneto rheological dampers": "磁流变阻尼器",
+        "magneto-rheological dampers": "磁流变阻尼器",
+        "magnetoacoustic effects": "磁声效应",
+        "magnetocardiography": "心磁图",
+        "magnetoelasticity": "磁弹性",
+        "magnetoelectric effects": "磁电效应",
+}
+
+ZH_EXACT_EXPANSION_BATCH_342_ALIASES = {
+        "magnetoelectronics": "磁电子学",
+        "magnetoencephalography": "脑磁图",
+        "magnetohydrodynamic power generation": "磁流体发电",
+        "magnetohydrodynamic techniques": "磁流体动力学技术",
+        "magnetohydrodynamics": "磁流体动力学",
+        "magnetomechanical effects": "磁机械效应",
+        "magnetometers": "磁强计",
+        "magnetometer": "磁强计",
+}
+
+ZH_EXACT_EXPANSION_BATCH_343_ALIASES = {
+        "magnetometry": "磁测量",
+        "magnetooptic devices": "磁光器件",
+        "magnetooptic effects": "磁光效应",
+        "magnetooptic recording": "磁光记录",
+        "magnetoresistance": "磁阻",
+        "magnetoresistive devices": "磁阻器件",
+        "magnetosomes": "磁小体",
+}
+
+ZH_EXACT_EXPANSION_BATCH_344_ALIASES = {
+        "magnetosphere": "磁层",
+        "magnetospirillum": "趋磁螺菌属",
+        "magnetostatic waves": "静磁波",
+        "magnetostatics": "静磁学",
+        "magnetostriction": "磁致伸缩",
+        "magnetostrictive devices": "磁致伸缩器件",
+        "magnetrons": "磁控管",
+        "magnets": "磁体",
+        "magnitude response": "幅度响应",
+        "magnolia": "木兰属",
+}
+
+ZH_EXACT_EXPANSION_BATCH_345_ALIASES = {
+        "magnolia and illicium research": "木兰与八角研究",
+        "magnoliaceae": "木兰科",
+        "magnoliopsida": "木兰纲",
+        "magnonics": "磁振子学",
+        "mahonia": "十大功劳属",
+        "maianthemum": "舞鹤草属",
+        "mail servers": "邮件服务器",
+        "maillard reaction": "美拉德反应",
+        "maine": "缅因州",
+        "mainframes": "大型机",
+        "computers mainframe": "大型计算机",
+        "mainstreaming education": "融合教育",
+        "maintenance activity": "维护活动",
+        "maintenance and engineering hospital": "医院维护与工程",
+        "maintenance chemotherapy": "维持化疗",
+        "maintenance engineering": "维修工程",
+        "maintenance process": "维护过程",
+        "maintenance tasks": "维护任务",
+        "maize streak virus": "玉米条纹病毒",
+}
+
+ZH_EXACT_EXPANSION_BATCH_346_ALIASES = {
+        "major depressive disorder": "重性抑郁障碍",
+        "major histocompatibility complex": "主要组织相容性复合体",
+        "major vault protein": "主要穹窿蛋白",
+        "malacoplakia": "软斑病",
+        "malaria research and control": "疟疾研究与控制",
+        "malaria avian": "鸟疟疾",
+        "malaria falciparum": "恶性疟",
+        "malaria vivax": "间日疟",
+        "malassezia": "马拉色菌属",
+        "malate dehydrogenase": "苹果酸脱氢酶",
+        "malate dehydrogenase nadp": "NADP+苹果酸脱氢酶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_347_ALIASES = {
+        "malate synthase": "苹果酸合酶",
+        "malates": "苹果酸盐",
+        "malathion": "马拉硫磷",
+        "malawi": "马拉维",
+        "malaysia": "马来西亚",
+        "maldives": "马尔代夫",
+        "male": "男性",
+        "male breast health studies": "男性乳腺健康研究",
+        "male reproductive health studies": "男性生殖健康研究",
+        "male urogenital diseases": "男性泌尿生殖系统疾病",
+        "breast neoplasms male": "男性乳腺肿瘤",
+        "infertility male": "男性不育",
+        "nurses male": "男护士",
+        "maleates": "马来酸盐",
+        "maleic anhydrides": "马来酸酐类",
+        "maleic hydrazide": "马来酰肼",
+        "maleimides": "马来酰亚胺类",
+        "malformations of cortical development": "皮质发育畸形",
+        "malformations of cortical development group i": "I组皮质发育畸形",
+        "malformations of cortical development group ii": "II组皮质发育畸形",
+        "malformations of cortical development group iii": "III组皮质发育畸形",
+}
+
+ZH_EXACT_EXPANSION_BATCH_348_ALIASES = {
+        "mali": "马里",
+        "malicious activities": "恶意活动",
+        "malicious attack": "恶意攻击",
+        "malicious behavior": "恶意行为",
+        "malicious code": "恶意代码",
+        "malicious host": "恶意主机",
+        "malicious nodes": "恶意节点",
+        "malicious peer": "恶意对等节点",
+        "malignant atrophic papulosis": "恶性萎缩性丘疹病",
+        "malignant carcinoid syndrome": "恶性类癌综合征",
+        "malignant catarrh": "恶性卡他热",
+        "malignant hyperthermia": "恶性高热",
+        "malingering": "装病",
+        "malleus": "锤骨",
+        "mallory bodies": "Mallory小体",
+        "mallory weiss syndrome": "Mallory-Weiss综合征",
+        "malocclusion": "错颌",
+        "malocclusion angle class i": "安氏I类错颌",
+        "malocclusion angle class ii": "安氏II类错颌",
+        "malocclusion angle class iii": "安氏III类错颌",
+}
+
+ZH_EXACT_EXPANSION_BATCH_349_ALIASES = {
+        "malonate semialdehyde dehydrogenase acetylating": "乙酰化丙二酸半醛脱氢酶",
+        "malonates": "丙二酸盐",
+        "malondialdehyde": "丙二醛",
+        "malonyl coenzyme a": "丙二酰辅酶A",
+        "malpighiaceae": "金虎尾科",
+        "malpighiales": "金虎尾目",
+        "malpighian tubules": "马氏管",
+        "malta": "马耳他",
+        "maltose": "麦芽糖",
+        "maltose binding proteins": "麦芽糖结合蛋白",
+        "malus": "苹果属",
+        "malva": "锦葵属",
+        "malvaceae": "锦葵科",
+        "malvales": "锦葵目",
+        "malware": "恶意软件",
+        "anti malware": "反恶意软件",
+        "anti-malware": "反恶意软件",
+        "malware analysis": "恶意软件分析",
+        "malware attacks": "恶意软件攻击",
+        "malware detection": "恶意软件检测",
+        "mamastrovirus": "哺乳动物星状病毒属",
+        "mammaglobin a": "乳腺珠蛋白A",
+        "mammaglobin b": "乳腺珠蛋白B",
+}
+
+ZH_EXACT_EXPANSION_BATCH_350_ALIASES = {
+        "mammalian orthoreovirus 3": "哺乳动物正呼肠孤病毒3型",
+        "mammals": "哺乳动物",
+        "mammaplasty": "乳房成形术",
+        "mammary analogue secretory carcinoma": "乳腺样分泌性癌",
+        "mammary arteries": "乳腺动脉",
+        "mammary glands animal": "动物乳腺",
+        "mammary glands human": "人乳腺",
+        "mammary neoplasms animal": "动物乳腺肿瘤",
+        "mammary neoplasms experimental": "实验性乳腺肿瘤",
+        "mammary tumor virus mouse": "小鼠乳腺肿瘤病毒",
+        "mammillary bodies": "乳头体",
+        "mammogram": "乳腺X线片",
+        "digital mammograms": "数字乳腺X线片",
+        "mammographic": "乳腺X线摄影",
+        "mammographic images": "乳腺X线图像",
+        "mammography": "乳腺X线摄影",
+        "mammoths": "猛犸象",
+}
+
+ZH_EXACT_EXPANSION_BATCH_351_ALIASES = {
+        "man machine systems": "人机系统",
+        "man in the middle attack": "中间人攻击",
+        "managed care programs": "管理式医疗项目",
+        "managed competition": "管理式竞争",
+        "management and marketing education": "管理与营销教育",
+        "management and optimization techniques": "管理与优化技术",
+        "management and organizational practices": "管理与组织实践",
+        "management and performance evaluation": "管理与绩效评价",
+        "management audit": "管理审计",
+        "management information base": "管理信息库",
+        "management information systems": "管理信息系统",
+        "management of metastatic bone disease": "转移性骨病管理",
+        "management quality circles": "管理质量圈",
+        "management science": "管理科学",
+        "management service organizations": "管理服务组织",
+        "management systems and quality improvement": "管理系统与质量改进",
+        "management theory and practice": "管理理论与实践",
+        "management training": "管理培训",
+        "management economics and public policy": "管理、经济与公共政策",
+}
+
+ZH_EXACT_EXPANSION_BATCH_352_ALIASES = {
+        "mandatory programs": "强制性项目",
+        "mandatory reporting": "强制报告",
+        "mandatory testing": "强制检测",
+        "mandatory vaccination": "强制接种",
+        "mandelic acids": "扁桃酸类",
+        "mandibular advancement": "下颌前移",
+        "mandibular canal": "下颌管",
+        "mandibular condyle": "下颌髁",
+        "mandibular diseases": "下颌疾病",
+        "mandibular fractures": "下颌骨骨折",
+        "mandibular injuries": "下颌损伤",
+        "mandibular neoplasms": "下颌肿瘤",
+        "mandibular nerve": "下颌神经",
+        "mandibular nerve injuries": "下颌神经损伤",
+        "mandibular osteotomy": "下颌骨切开术",
+        "mandibular prosthesis": "下颌假体",
+        "mandibular prosthesis implantation": "下颌假体植入",
+        "mandibular reconstruction": "下颌重建",
+        "mandibulofacial dysostosis": "下颌面骨发育不全",
+}
+
+ZH_EXACT_EXPANSION_BATCH_353_ALIASES = {
+        "mandragora": "曼陀罗属",
+        "mandrillus": "山魈属",
+        "manduca": "天蛾属",
+        "maneb": "代森锰",
+        "manet": "移动自组织网络",
+        "manet routing": "移动自组织网络路由",
+        "maneuvering target": "机动目标",
+        "maneuvering target tracking": "机动目标跟踪",
+        "manganese": "锰元素",
+        "manganese alloys": "锰合金",
+        "manganese compounds": "锰化合物",
+        "manganese oxide": "氧化锰",
+        "manganese poisoning": "锰中毒",
+        "mangifera": "芒果属",
+        "mangiferin and mango extracts": "芒果苷与芒果提取物",
+        "mania": "躁狂症",
+        "manifest anxiety scale": "显性焦虑量表",
+        "manifold learning": "流形学习",
+        "manifold learning algorithm": "流形学习算法",
+}
+
+ZH_EXACT_EXPANSION_BATCH_354_ALIASES = {
+        "manihot": "木薯属",
+        "manikins": "人体模型",
+        "manilkara": "人心果属",
+        "manipulation chiropractic": "脊椎按摩手法",
+        "manipulation orthopedic": "骨科手法",
+        "manipulation osteopathic": "整骨手法",
+        "manipulation spinal": "脊柱手法",
+        "manipulator": "机械臂",
+        "manipulator systems": "机械臂系统",
+        "manipulators": "机械手",
+        "manitoba": "马尼托巴省",
+        "mannans": "甘露聚糖",
+        "mannheimia": "曼海姆菌属",
+        "mannheimia haemolytica": "溶血曼海姆菌",
+        "mannich bases": "曼尼希碱",
+        "alpha mannosidase": "α-甘露糖苷酶",
+        "alpha-mannosidase": "α-甘露糖苷酶",
+        "beta mannosidase": "β-甘露糖苷酶",
+        "beta-mannosidase": "β-甘露糖苷酶",
+        "mannitol": "甘露醇",
+        "mannitol dehydrogenases": "甘露醇脱氢酶",
+        "mannitol phosphates": "甘露醇磷酸盐",
+}
+
+ZH_EXACT_EXPANSION_BATCH_355_ALIASES = {
+        "mannoheptulose": "甘露庚酮糖",
+        "mannomustine": "甘露莫司汀",
+        "mannose": "甘露糖",
+        "mannose receptor": "甘露糖受体",
+        "mannose 6 phosphate isomerase": "甘露糖-6-磷酸异构酶",
+        "mannose binding lectins": "甘露糖结合凝集素",
+        "mannose binding protein associated serine proteases": "甘露糖结合蛋白相关丝氨酸蛋白酶",
+        "mannosephosphates": "甘露糖磷酸盐",
+        "mannosidase deficiency diseases": "甘露糖苷酶缺乏病",
+        "mannosidases": "甘露糖苷酶",
+        "mannosides": "甘露糖苷",
+        "mannosyl glycoprotein endo beta n acetylglucosaminidase": "甘露糖基糖蛋白内切β-N-乙酰葡糖胺糖苷酶",
+        "mannosyltransferases": "甘露糖基转移酶",
+        "manometry": "测压法",
+        "manual communication": "手语交流",
+        "manual lymphatic drainage": "手法淋巴引流",
+        "manual segmentation": "手动分割",
+        "manufacturing automation": "制造自动化",
+        "manufacturing resource planning": "制造资源计划",
+}
+
+ZH_EXACT_EXPANSION_BATCH_356_ALIASES = {
+        "many body techniques": "多体技术",
+        "many core": "众核",
+        "many core architecture": "众核架构",
+        "many core processors": "众核处理器",
+        "many valued logic": "多值逻辑",
+        "map kinase kinase 1": "MAP激酶激酶1",
+        "map kinase kinase 2": "MAP激酶激酶2",
+        "map kinase kinase 3": "MAP激酶激酶3",
+        "map kinase kinase 4": "MAP激酶激酶4",
+        "map kinase kinase 5": "MAP激酶激酶5",
+        "map kinase kinase 6": "MAP激酶激酶6",
+        "map kinase kinase 7": "MAP激酶激酶7",
+        "map kinase kinase kinase 1": "MAP激酶激酶激酶1",
+        "map kinase kinase kinases": "MAP激酶激酶激酶",
+        "map kinase signaling system": "MAP激酶信号系统",
+}
+
+ZH_EXACT_EXPANSION_BATCH_357_ALIASES = {
+        "map matching": "地图匹配",
+        "map matching algorithm": "地图匹配算法",
+        "map reduce": "映射归约",
+        "map-reduce": "映射归约",
+        "maple syrup urine disease": "枫糖尿病",
+        "mapping algorithms": "映射算法",
+        "mapreduce frameworks": "MapReduce框架",
+        "maprotiline": "马普替林",
+        "marantaceae": "竹芋科",
+        "marasmius": "小皮伞属",
+        "marathon running": "马拉松跑",
+        "maraviroc": "马拉韦罗",
+        "marburg virus disease": "马尔堡病毒病",
+        "marburgvirus": "马尔堡病毒属",
+        "marchantia": "地钱属",
+        "marchiafava bignami disease": "Marchiafava-Bignami病",
+        "mardivirus": "马立克病毒属",
+        "marek disease": "马立克病",
+        "marek disease vaccines": "马立克病疫苗",
+}
+
+ZH_EXACT_EXPANSION_BATCH_358_ALIASES = {
+        "marfan syndrome": "马凡综合征",
+        "margarine": "人造黄油",
+        "margins of excision": "切除边缘",
+        "marijuana abuse": "大麻滥用",
+        "marijuana smoking": "吸食大麻",
+        "marijuana use": "大麻使用",
+        "marine accidents": "海上事故",
+        "marine and coastal ecosystems": "海洋与海岸生态系统",
+        "marine biology": "海洋生物学",
+        "marine engineering": "海洋工程",
+        "marine equipment": "海洋设备",
+        "marine navigation": "海上导航",
+        "marine pollution": "海洋污染",
+        "marine radar": "船用雷达",
+        "marine robots": "海洋机器人",
+        "marine technology": "海洋技术",
+        "marine toxins": "海洋毒素",
+        "marine transportation": "海上运输",
+        "marine vehicles": "海洋载具",
+        "maritime communications": "海事通信",
+}
+
+ZH_EXACT_EXPANSION_BATCH_359_ALIASES = {
+        "maritime navigation and safety": "海事导航与安全",
+        "maritime ports and logistics": "海事港口与物流",
+        "mark recapture": "标志重捕",
+        "mark recapture method": "标志重捕法",
+        "market dynamics and volatility": "市场动态与波动性",
+        "market participants": "市场参与者",
+        "market power": "市场势力",
+        "market research": "市场研究",
+        "market risks": "市场风险",
+        "marketing": "营销",
+        "marketing and advertising strategies": "营销与广告策略",
+        "marketing management": "营销管理",
+        "marketing of health services": "卫生服务营销",
+        "marketing strategy": "营销策略",
+        "consumer behavior and marketing influence": "消费者行为与营销影响",
+        "digital marketing and social media": "数字营销与社交媒体",
+        "social marketing": "社会营销",
+        "markov chain": "马尔可夫链",
+        "markov chain model": "马尔可夫链模型",
+        "markov chain monte carlo": "马尔可夫链蒙特卡罗",
+        "markov chain monte carlo algorithms": "马尔可夫链蒙特卡罗算法",
+        "markov chain monte carlo method": "马尔可夫链蒙特卡罗方法",
+        "markov chains and monte carlo methods": "马尔可夫链与蒙特卡罗方法",
+}
+
+ZH_EXACT_EXPANSION_BATCH_360_ALIASES = {
+        "markov jump linear systems": "马尔可夫跳变线性系统",
+        "markov jump system": "马尔可夫跳变系统",
+        "markov logic networks": "马尔可夫逻辑网络",
+        "markov model": "马尔可夫模型",
+        "markov processes": "马尔可夫过程",
+        "markov random field model": "马尔可夫随机场模型",
+        "markov random fields": "马尔可夫随机场",
+        "markovian jump systems": "马尔可夫跳变系统",
+        "markovian jumping parameters": "马尔可夫跳变参数",
+        "markovian jumps": "马尔可夫跳变",
+        "masked hypertension": "隐匿性高血压",
+        "masked language modeling": "掩码语言建模",
+        "mass casualty incidents": "大规模伤亡事件",
+        "mass drug administration": "群体给药",
+        "mass spectrometry": "质谱法",
+        "mass spectrometry techniques and applications": "质谱技术与应用",
+        "mast cell activation syndrome": "肥大细胞活化综合征",
+        "mast cell stabilizers": "肥大细胞稳定剂",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -11174,6 +11571,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_337_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_338_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_339_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_340_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_341_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_342_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_343_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_344_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_345_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_346_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_347_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_348_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_349_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_350_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_351_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_352_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_353_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_354_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_355_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_356_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_357_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_358_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_359_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_360_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",
