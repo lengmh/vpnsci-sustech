@@ -571,6 +571,35 @@ class PaperSearchProAdapterTests(unittest.TestCase):
         self.assertEqual(set(wireless["paper_ids"]), {"a", "b"})
         self.assertEqual(wireless["method"], "concept_alias_text_fallback")
 
+    def test_text_theme_fallback_preserves_accepted_chinese_alias_phrases(self):
+        themes = build_text_themes(
+            [
+                {
+                    "paper_id": "a",
+                    "title": "主从系统同步控制",
+                    "abstract": "主从系统用于复杂网络同步。",
+                },
+                {
+                    "paper_id": "b",
+                    "title": "复杂网络中的主从系统设计",
+                    "abstract": "主从系统控制提高同步稳定性。",
+                },
+            ]
+        )
+
+        theme_names = {theme["name"] for theme in themes["themes"]}
+        self.assertIn("Master-slave Systems / 主从系统", theme_names)
+        self.assertNotIn("主从系", theme_names)
+        master_slave = next(
+            theme for theme in themes["themes"]
+            if theme["name"] == "Master-slave Systems / 主从系统"
+        )
+        self.assertEqual(master_slave["concept_id"], "concept:master_slave_system")
+        self.assertEqual(master_slave["value"], 2)
+        self.assertEqual(set(master_slave["paper_ids"]), {"a", "b"})
+        self.assertEqual(master_slave["matched_aliases"], {"zh": ["主从系统"]})
+        self.assertEqual(master_slave["method"], "concept_alias_text_fallback")
+
     def test_seed_preview_prefers_keywords_frequency_clustering_before_text_fallback(self):
         with WritableTemporaryDirectory() as tmp:
             session = SearchSession(
