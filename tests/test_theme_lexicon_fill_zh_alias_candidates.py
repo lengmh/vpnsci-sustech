@@ -11623,6 +11623,286 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_501_adds_music_player_retrieval_and_therapy_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("music_player", "Music Players", ["computer_science"], "音乐播放器"),
+                ("music_recommendation", "Music Recommendation", ["computer_science"], "音乐推荐"),
+                ("music_retrieval", "Music Retrieval", ["computer_science"], "音乐检索"),
+                ("music_signal", "Music Signals", ["computer_science"], "音乐信号"),
+                ("music_similarity", "Music Similarity", ["computer_science"], "音乐相似性"),
+                ("music_therapy", "Music Therapy", ["biomedical"], "音乐疗法"),
+                ("musical_instrument", "Musical Instruments", ["education"], "乐器"),
+                ("musical_instrument_digital_interfac", "Musical Instrument Digital Interfaces", ["computers_and_information_processing"], "乐器数字接口"),
+            ]
+        )
+
+    def test_exact_expansion_batch_502_adds_music_performance_mustard_and_mutagen_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("musical_noise", "Musical Noise", ["computer_science"], "音乐噪声"),
+                ("musical_performance", "Musical Performance", ["computer_science"], "音乐表演"),
+                ("must_carry_regulation", "Must-carry Regulations", ["communications_technology"], "必载规则"),
+                ("mustard_compound", "Mustard Compounds", ["biomedical", "chemicals_and_drugs"], "芥子化合物"),
+                ("mustard_gas", "Mustard Gas", ["biomedical", "chemicals_and_drugs"], "芥子气"),
+                ("mustard_plant", "Mustard Plant", ["biomedical", "organisms"], "芥菜"),
+                ("mustelidae", "Mustelidae", ["biomedical", "organisms"], "鼬科"),
+                ("mutagen", "Mutagens", ["biomedical", "chemicals_and_drugs"], "诱变剂"),
+            ]
+        )
+
+    def test_exact_expansion_batch_503_adds_mutagenesis_mutant_and_mutation_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mutagenesi_insertional", "Mutagenesis, Insertional", ["biomedical"], "插入诱变"),
+                ("mutagenesi_site_directed", "Mutagenesis, Site-directed", ["biomedical"], "定点诱变"),
+                ("mutagenicity_test", "Mutagenicity Tests", ["biomedical"], "致突变性试验"),
+                ("mutant_chimeric_protein", "Mutant Chimeric Proteins", ["biomedical", "chemicals_and_drugs"], "突变嵌合蛋白"),
+                ("mutant_protein", "Mutant Proteins", ["biomedical", "chemicals_and_drugs"], "突变蛋白"),
+                ("mutation_accumulation", "Mutation Accumulation", ["biomedical"], "突变积累"),
+                ("mutation_missense", "Mutation, Missense", ["biomedical"], "错义突变"),
+                ("mutation_operation", "Mutation Operations", ["computer_science"], "变异操作"),
+            ]
+        )
+
+    def test_exact_expansion_batch_504_adds_mutation_mutual_and_myasthenia_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mutation_operator", "Mutation Operator", ["computer_science"], "变异算子"),
+                ("mutation_rate", "Mutation Rate", ["biomedical"], "突变率"),
+                ("mutation_strategy", "Mutation Strategy", ["computer_science"], "变异策略"),
+                ("mutism", "Mutism", ["biomedical", "diseases"], "缄默症"),
+                ("mutual_authentication", "Mutual Authentication", ["computer_science"], "双向认证"),
+                ("mutual_coupling", "Mutual Coupling", ["computer_science"], "互耦"),
+                ("mutual_coupling_effect", "Mutual Coupling Effects", ["computer_science"], "互耦效应"),
+                ("mutual_information", "Mutual Information", ["information_theory"], "互信息"),
+            ]
+        )
+
+    def test_exact_expansion_batch_505_adds_myalgia_myasthenia_and_mycobacterium_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("myalgia", "Myalgia", ["biomedical", "diseases"], "肌痛"),
+                ("myasthenia_gravi_and_thymoma", "Myasthenia Gravis And Thymoma", ["medicine"], "重症肌无力与胸腺瘤"),
+                ("myasthenia_gravi_autoimmune_experimental", "Myasthenia Gravis, Autoimmune, Experimental", ["biomedical", "diseases"], "实验性自身免疫性重症肌无力"),
+                ("myasthenic_syndrom_congenital", "Myasthenic Syndromes, Congenital", ["biomedical", "diseases"], "先天性肌无力综合征"),
+                ("mycelium", "Mycelium", ["biomedical"], "菌丝体"),
+                ("mycetoma", "Mycetoma", ["biomedical", "diseases"], "足菌肿"),
+                ("mycetozoa", "Mycetozoa", ["biomedical", "organisms"], "黏菌动物"),
+                ("mycobacteriaceae", "Mycobacteriaceae", ["biomedical", "organisms"], "分枝杆菌科"),
+            ]
+        )
+
+    def test_exact_expansion_batch_506_adds_mycobacteriophage_and_avium_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mycobacteriophag", "Mycobacteriophages", ["biomedical", "organisms"], "分枝杆菌噬菌体"),
+                ("mycobacterium", "Mycobacterium", ["biomedical", "organisms"], "分枝杆菌属"),
+                ("mycobacterium_abscessu", "Mycobacterium Abscessus", ["biomedical", "organisms"], "脓肿分枝杆菌"),
+                ("mycobacterium_avium", "Mycobacterium Avium", ["biomedical", "organisms"], "鸟分枝杆菌"),
+                ("mycobacterium_avium_complex", "Mycobacterium Avium Complex", ["biomedical", "organisms"], "鸟分枝杆菌复合群"),
+                ("mycobacterium_avium_intracellulare_infection", "Mycobacterium Avium-intracellulare Infection", ["biomedical", "diseases"], "鸟分枝杆菌-胞内分枝杆菌感染"),
+                ("mycobacterium_avium_subsp_paratuberculosi", "Mycobacterium Avium Subsp. Paratuberculosis", ["biomedical", "organisms"], "副结核分枝杆菌"),
+                ("mycobacterium_bovi", "Mycobacterium Bovis", ["biomedical", "organisms"], "牛分枝杆菌"),
+            ]
+        )
+
+    def test_exact_expansion_batch_507_adds_cheloniae_fortuitum_and_leprae_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mycobacterium_chelonae", "Mycobacterium Chelonae", ["biomedical", "organisms"], "龟分枝杆菌"),
+                ("mycobacterium_fortuitum", "Mycobacterium Fortuitum", ["biomedical", "organisms"], "偶发分枝杆菌"),
+                ("mycobacterium_haemophilum", "Mycobacterium Haemophilum", ["biomedical", "organisms"], "嗜血分枝杆菌"),
+                ("mycobacterium_infection", "Mycobacterium Infections", ["biomedical", "diseases"], "分枝杆菌感染"),
+                ("mycobacterium_infection_nontuberculou", "Mycobacterium Infections, Nontuberculous", ["biomedical", "diseases"], "非结核分枝杆菌感染"),
+                ("mycobacterium_kansasii", "Mycobacterium Kansasii", ["biomedical", "organisms"], "堪萨斯分枝杆菌"),
+                ("mycobacterium_leprae", "Mycobacterium Leprae", ["biomedical", "organisms"], "麻风分枝杆菌"),
+                ("mycobacterium_lepraemurium", "Mycobacterium Lepraemurium", ["biomedical", "organisms"], "鼠麻风分枝杆菌"),
+            ]
+        )
+
+    def test_exact_expansion_batch_508_adds_mycobacterium_marinum_and_mycology_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mycobacterium_marinum", "Mycobacterium Marinum", ["biomedical", "organisms"], "海分枝杆菌"),
+                ("mycobacterium_phlei", "Mycobacterium Phlei", ["biomedical", "organisms"], "草分枝杆菌"),
+                ("mycobacterium_scrofulaceum", "Mycobacterium Scrofulaceum", ["biomedical", "organisms"], "瘰疬分枝杆菌"),
+                ("mycobacterium_smegmati", "Mycobacterium Smegmatis", ["biomedical", "organisms"], "耻垢分枝杆菌"),
+                ("mycobacterium_tuberculosi", "Mycobacterium Tuberculosis", ["biomedical", "organisms"], "结核分枝杆菌"),
+                ("mycobacterium_ulceran", "Mycobacterium Ulcerans", ["biomedical", "organisms"], "溃疡分枝杆菌"),
+                ("mycobiome", "Mycobiome", ["biomedical"], "真菌组"),
+                ("mycolic_acid", "Mycolic Acids", ["biomedical", "chemicals_and_drugs"], "分枝菌酸"),
+            ]
+        )
+
+    def test_exact_expansion_batch_509_adds_mycological_and_mycoplasma_family_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mycological_typing_techniqu", "Mycological Typing Techniques", ["biomedical"], "真菌学分型技术"),
+                ("mycology", "Mycology", ["biomedical"], "真菌学"),
+                ("mycophenolic_acid", "Mycophenolic Acid", ["biomedical", "chemicals_and_drugs"], "霉酚酸"),
+                ("mycoplasma", "Mycoplasma", ["biomedical", "organisms"], "支原体"),
+                ("mycoplasma_agalactiae", "Mycoplasma Agalactiae", ["biomedical", "organisms"], "无乳支原体"),
+                ("mycoplasma_arthritidi", "Mycoplasma Arthritidis", ["biomedical", "organisms"], "关节炎支原体"),
+                ("mycoplasma_bovi", "Mycoplasma Bovis", ["biomedical", "organisms"], "牛支原体"),
+                ("mycoplasma_bovigenitalium", "Mycoplasma Bovigenitalium", ["biomedical", "organisms"], "牛生殖道支原体"),
+            ]
+        )
+
+    def test_exact_expansion_batch_510_adds_mycoplasma_livestock_and_human_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mycoplasma_capricolum", "Mycoplasma Capricolum", ["biomedical", "organisms"], "山羊支原体"),
+                ("mycoplasma_conjunctivae", "Mycoplasma Conjunctivae", ["biomedical", "organisms"], "结膜支原体"),
+                ("mycoplasma_fermentan", "Mycoplasma Fermentans", ["biomedical", "organisms"], "发酵支原体"),
+                ("mycoplasma_gallisepticum", "Mycoplasma Gallisepticum", ["biomedical", "organisms"], "鸡毒支原体"),
+                ("mycoplasma_genitalium", "Mycoplasma Genitalium", ["biomedical", "organisms"], "生殖支原体"),
+                ("mycoplasma_homini", "Mycoplasma Hominis", ["biomedical", "organisms"], "人型支原体"),
+                ("mycoplasma_hyopneumoniae", "Mycoplasma Hyopneumoniae", ["biomedical", "organisms"], "猪肺炎支原体"),
+                ("mycoplasma_hyorhini", "Mycoplasma Hyorhinis", ["biomedical", "organisms"], "猪鼻支原体"),
+            ]
+        )
+
+    def test_exact_expansion_batch_511_adds_mycoplasma_pneumoniae_and_taxonomy_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mycoplasma_hyosynoviae", "Mycoplasma Hyosynoviae", ["biomedical", "organisms"], "猪滑液支原体"),
+                ("mycoplasma_infection", "Mycoplasma Infections", ["biomedical", "diseases"], "支原体感染"),
+                ("mycoplasma_iowae", "Mycoplasma Iowae", ["biomedical", "organisms"], "爱荷华支原体"),
+                ("mycoplasma_meleagridi", "Mycoplasma Meleagridis", ["biomedical", "organisms"], "火鸡支原体"),
+                ("mycoplasma_orale", "Mycoplasma Orale", ["biomedical", "organisms"], "口腔支原体"),
+                ("mycoplasma_ovipneumoniae", "Mycoplasma Ovipneumoniae", ["biomedical", "organisms"], "绵羊肺炎支原体"),
+                ("mycoplasma_penetran", "Mycoplasma Penetrans", ["biomedical", "organisms"], "穿透支原体"),
+                ("mycoplasma_pneumoniae", "Mycoplasma Pneumoniae", ["biomedical", "organisms"], "肺炎支原体"),
+            ]
+        )
+
+    def test_exact_expansion_batch_512_adds_mycoplasma_synoviae_and_mycoses_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mycoplasma_pulmoni", "Mycoplasma Pulmonis", ["biomedical", "organisms"], "肺支原体"),
+                ("mycoplasma_salivarium", "Mycoplasma Salivarium", ["biomedical", "organisms"], "唾液支原体"),
+                ("mycoplasma_synoviae", "Mycoplasma Synoviae", ["biomedical", "organisms"], "滑液支原体"),
+                ("mycoplasmataceae", "Mycoplasmataceae", ["biomedical", "organisms"], "支原体科"),
+                ("mycoplasmatal", "Mycoplasmatales", ["biomedical", "organisms"], "支原体目"),
+                ("mycoplasmatal_infection", "Mycoplasmatales Infections", ["biomedical", "diseases"], "支原体目感染"),
+                ("mycorrhizae", "Mycorrhizae", ["biomedical"], "菌根"),
+                ("mycose", "Mycoses", ["biomedical", "diseases"], "真菌病"),
+            ]
+        )
+
+    def test_exact_expansion_batch_513_adds_mycosis_mycotoxin_and_myelin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mycosi_fungoid", "Mycosis Fungoides", ["biomedical", "diseases"], "蕈样肉芽肿"),
+                ("mycosphaerella", "Mycosphaerella", ["biomedical", "organisms"], "球腔菌属"),
+                ("mycotoxicosi", "Mycotoxicosis", ["biomedical", "diseases"], "霉菌毒素中毒"),
+                ("mycotoxin", "Mycotoxins", ["biomedical", "chemicals_and_drugs"], "霉菌毒素"),
+                ("mydriasi", "Mydriasis", ["biomedical", "diseases"], "瞳孔散大"),
+                ("mydriatic", "Mydriatics", ["biomedical", "chemicals_and_drugs"], "散瞳药"),
+                ("myelencephalon", "Myelencephalon", ["biomedical"], "髓脑"),
+                ("myelin_basic_protein", "Myelin Basic Protein", ["biomedical", "chemicals_and_drugs"], "髓鞘碱性蛋白"),
+            ]
+        )
+
+    def test_exact_expansion_batch_514_adds_myelin_disease_and_myelitis_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("myelin_oligodendrocyte_glycoprotein", "Myelin-oligodendrocyte Glycoprotein", ["biomedical", "chemicals_and_drugs"], "髓鞘少突胶质细胞糖蛋白"),
+                ("myelin_oligodendrocyte_glycoprotein_antibody_associated_disease", "Myelin Oligodendrocyte Glycoprotein Antibody-associated Disease", ["biomedical", "diseases"], "髓鞘少突胶质细胞糖蛋白抗体相关疾病"),
+                ("myelin_proteolipid_protein", "Myelin Proteolipid Protein", ["biomedical", "chemicals_and_drugs"], "髓鞘蛋白脂质蛋白"),
+                ("myelinolysi_central_pontine", "Myelinolysis, Central Pontine", ["biomedical", "diseases"], "脑桥中央髓鞘溶解症"),
+                ("myeliti", "Myelitis", ["biomedical", "diseases"], "脊髓炎"),
+                ("myeliti_transverse", "Myelitis, Transverse", ["biomedical", "diseases"], "横贯性脊髓炎"),
+                ("myelodysplastic_myeloproliferative_disease", "Myelodysplastic-myeloproliferative Diseases", ["biomedical", "diseases"], "骨髓增生异常-骨髓增殖性疾病"),
+                ("myelodysplastic_syndrom", "Myelodysplastic Syndromes", ["biomedical", "diseases"], "骨髓增生异常综合征"),
+            ]
+        )
+
+    def test_exact_expansion_batch_515_adds_myeloid_cell_and_myeloproliferative_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("myelography", "Myelography", ["biomedical"], "脊髓造影"),
+                ("myeloid_cell", "Myeloid Cells", ["biomedical"], "髓系细胞"),
+                ("myeloid_derived_suppressor_cell", "Myeloid-derived Suppressor Cells", ["biomedical"], "髓源性抑制细胞"),
+                ("myeloid_differentiation_factor_88", "Myeloid Differentiation Factor 88", ["biomedical", "chemicals_and_drugs"], "髓样分化因子88"),
+                ("myeloid_progenitor_cell", "Myeloid Progenitor Cells", ["biomedical"], "髓系祖细胞"),
+                ("myelolipoma", "Myelolipoma", ["biomedical", "diseases"], "骨髓脂肪瘤"),
+                ("myelopoiesi", "Myelopoiesis", ["biomedical"], "髓系造血"),
+                ("myeloproliferative_disorder", "Myeloproliferative Disorders", ["biomedical", "diseases"], "骨髓增殖性疾病"),
+            ]
+        )
+
+    def test_exact_expansion_batch_516_adds_myenteric_myoblast_and_myocardial_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("myenteric_plexu", "Myenteric Plexus", ["biomedical"], "肌间神经丛"),
+                ("myiasi", "Myiasis", ["biomedical", "diseases"], "蝇蛆病"),
+                ("myo_inositol_1_phosphate_synthase", "Myo-inositol-1-phosphate Synthase", ["biomedical", "chemicals_and_drugs"], "肌醇-1-磷酸合酶"),
+                ("myoblast", "Myoblasts", ["biomedical"], "成肌细胞"),
+                ("myoblast_cardiac", "Myoblasts, Cardiac", ["biomedical"], "心肌成肌细胞"),
+                ("myoblast_skeletal", "Myoblasts, Skeletal", ["biomedical"], "骨骼肌成肌细胞"),
+                ("myoblast_smooth_muscle", "Myoblasts, Smooth Muscle", ["biomedical"], "平滑肌成肌细胞"),
+                ("myocardial_bridging", "Myocardial Bridging", ["biomedical", "diseases"], "心肌桥"),
+            ]
+        )
+
+    def test_exact_expansion_batch_517_adds_myocardial_imaging_and_myoclonic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("myocardial_contraction", "Myocardial Contraction", ["biomedical"], "心肌收缩"),
+                ("myocardial_contusion", "Myocardial Contusions", ["biomedical", "diseases"], "心肌挫伤"),
+                ("myocardial_depressant_factor", "Myocardial Depressant Factor", ["biomedical", "chemicals_and_drugs"], "心肌抑制因子"),
+                ("myocardial_perfusion_imaging", "Myocardial Perfusion Imaging", ["biomedical"], "心肌灌注显像"),
+                ("myocardin", "Myocardin", ["biomedical", "chemicals_and_drugs"], "心肌素"),
+                ("myoclonic_cerebellar_dyssynergia", "Myoclonic Cerebellar Dyssynergia", ["biomedical", "diseases"], "肌阵挛性小脑协同不能"),
+                ("myoclonic_epilepsy_juvenile", "Myoclonic Epilepsy, Juvenile", ["biomedical", "diseases"], "青少年肌阵挛性癫痫"),
+                ("myoclonic_epilepsy_progressive", "Myoclonic Epilepsies, Progressive", ["biomedical", "diseases"], "进行性肌阵挛性癫痫"),
+            ]
+        )
+
+    def test_exact_expansion_batch_518_adds_myoclonus_myocytes_and_myofascial_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("myoclonu", "Myoclonus", ["biomedical", "diseases"], "肌阵挛"),
+                ("myocutaneou_flap", "Myocutaneous Flap", ["biomedical"], "肌皮瓣"),
+                ("myocyt_cardiac", "Myocytes, Cardiac", ["biomedical"], "心肌细胞"),
+                ("myocyt_smooth_muscle", "Myocytes, Smooth Muscle", ["biomedical"], "平滑肌细胞"),
+                ("myoelectric_complex_migrating", "Myoelectric Complex, Migrating", ["biomedical"], "移行性肌电复合波"),
+                ("myoelectric_control", "Myoelectric Control", ["engineering_in_medicine_and_biology"], "肌电控制"),
+                ("myoepithelioma", "Myoepithelioma", ["biomedical", "diseases"], "肌上皮瘤"),
+                ("myofascial_pain_syndrom", "Myofascial Pain Syndromes", ["biomedical", "diseases"], "肌筋膜疼痛综合征"),
+            ]
+        )
+
+    def test_exact_expansion_batch_519_adds_myofibril_myogenic_and_myoglobin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("myofascial_release_therapy", "Myofascial Release Therapy", ["biomedical"], "肌筋膜松解疗法"),
+                ("myofibril", "Myofibrils", ["biomedical"], "肌原纤维"),
+                ("myofibroblast", "Myofibroblasts", ["biomedical"], "肌成纤维细胞"),
+                ("myofibroma", "Myofibroma", ["biomedical", "diseases"], "肌纤维瘤"),
+                ("myofibromatosi", "Myofibromatosis", ["biomedical", "diseases"], "肌纤维瘤病"),
+                ("myofunctional_therapy", "Myofunctional Therapy", ["biomedical"], "肌功能疗法"),
+                ("myogenic_regulatory_factor", "Myogenic Regulatory Factors", ["biomedical", "chemicals_and_drugs"], "肌生成调节因子"),
+                ("myogenic_regulatory_factor_5", "Myogenic Regulatory Factor 5", ["biomedical", "chemicals_and_drugs"], "肌生成调节因子5"),
+            ]
+        )
+
+    def test_exact_expansion_batch_520_adds_myogenin_myoma_and_myosarcoma_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("myogenin", "Myogenin", ["biomedical", "chemicals_and_drugs"], "肌生成素"),
+                ("myoglobin", "Myoglobin", ["biomedical", "chemicals_and_drugs"], "肌红蛋白"),
+                ("myoglobinuria", "Myoglobinuria", ["biomedical", "diseases"], "肌红蛋白尿"),
+                ("myokin", "Myokines", ["biomedical", "chemicals_and_drugs"], "肌因子"),
+                ("myokymia", "Myokymia", ["biomedical", "diseases"], "肌纤维颤搐"),
+                ("myoma", "Myoma", ["biomedical", "diseases"], "肌瘤"),
+                ("myometrium", "Myometrium", ["biomedical"], "子宫肌层"),
+                ("myosarcoma", "Myosarcoma", ["biomedical", "diseases"], "肌肉肉瘤"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
