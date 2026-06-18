@@ -8401,6 +8401,241 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_261_adds_knowledge_and_kohonen_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("knowledge_transfer", "Knowledge Transfer", ["computers_and_information_processing"], "知识转移"),
+                ("knowledge_visualization", "Knowledge Visualization", ["computer_science"], "知识可视化"),
+                ("kohonen_self_organizing_maps", "Kohonen Self-organizing Maps", ["computer_science"], "Kohonen自组织映射"),
+                ("krill_herd_algorithm", "Krill Herd Algorithm", ["mathematics"], "磷虾群算法"),
+                ("krylov_subspace_method", "Krylov Subspace Method", ["computer_science"], "Krylov子空间法"),
+            ]
+        )
+
+    def test_exact_expansion_batch_262_adds_kr_kruppel_and_ku_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("korsakoff_syndrome", "Korsakoff Syndrome", ["biomedical", "diseases"], "Korsakoff综合征"),
+                ("krukenberg_tumor", "Krukenberg Tumor", ["biomedical", "diseases"], "Krukenberg肿瘤"),
+                ("kruppel_like_factor_4", "Kruppel-like Factor 4", ["biomedical", "chemicals_and_drugs"], "Kruppel样因子4"),
+                ("ku_band", "Ku-band", ["microwave_theory_and_techniques"], "Ku波段"),
+                ("kupffer_cell", "Kupffer Cells", ["anatomy", "biomedical"], "Kupffer细胞"),
+            ]
+        )
+
+    def test_exact_expansion_batch_263_adds_kv_channel_and_kynurenine_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("kv1_1_potassium_channel", "Kv1.1 Potassium Channel", ["biomedical", "chemicals_and_drugs"], "Kv1.1钾通道"),
+                ("kv1_2_potassium_channel", "Kv1.2 Potassium Channel", ["biomedical", "chemicals_and_drugs"], "Kv1.2钾通道"),
+                ("kv1_3_potassium_channel", "Kv1.3 Potassium Channel", ["biomedical", "chemicals_and_drugs"], "Kv1.3钾通道"),
+                ("kynurenic_acid", "Kynurenic Acid", ["biomedical", "chemicals_and_drugs"], "犬尿喹啉酸"),
+                ("kynurenine_3_monooxygenase", "Kynurenine 3-monooxygenase", ["biomedical", "chemicals_and_drugs"], "犬尿氨酸3-单加氧酶"),
+            ]
+        )
+
+    def test_exact_expansion_batch_264_adds_l_enzyme_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("l_amino_acid_oxidase", "L-amino Acid Oxidase", ["biomedical", "chemicals_and_drugs"], "L-氨基酸氧化酶"),
+                ("l_aminoadipate_semialdehyde_dehydrogenase", "L-aminoadipate-semialdehyde Dehydrogenase", ["biomedical", "chemicals_and_drugs"], "L-氨基己二酸半醛脱氢酶"),
+                ("l_gulonolactone_oxidase", "L-gulonolactone Oxidase", ["biomedical", "chemicals_and_drugs"], "L-古洛糖酸内酯氧化酶"),
+                ("l_lactate_dehydrogenase", "L-lactate Dehydrogenase", ["biomedical", "chemicals_and_drugs"], "L-乳酸脱氢酶"),
+                ("l_selectin", "L-selectin", ["biomedical", "chemicals_and_drugs"], "L-选择素"),
+            ]
+        )
+
+    def test_exact_expansion_batch_265_adds_lband_lab_chip_and_label_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("l2_cache", "L2 Cache", ["computer_science"], "L2缓存"),
+                ("la_crosse_viru", "La Crosse Virus", ["biomedical", "organisms"], "拉克罗斯病毒"),
+                ("lab_on_a_chip_devic", "Lab-on-a-chip Devices", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "芯片实验室装置"),
+                ("label_propagation", "Label Propagation", ["computer_science"], "标签传播"),
+                ("label_switched_path", "Label Switched Paths", ["computer_science"], "标签交换路径"),
+                ("food_labeling", "Food Labeling", ["biomedical", "technology_industry_and_agriculture"], "食品标识"),
+                ("product_labeling", "Product Labeling", ["biomedical", "technology_industry_and_agriculture"], "产品标识"),
+                ("sequence_labeling", "Sequence Labeling", ["computer_science"], "序列标注"),
+            ]
+        )
+
+    def test_exact_expansion_batch_266_adds_laboratory_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("labetalol", "Labetalol", ["biomedical", "chemicals_and_drugs"], "拉贝洛尔"),
+                ("labial_frenum", "Labial Frenum", ["anatomy", "biomedical"], "唇系带"),
+                ("laboratory_clinical", "Laboratories, Clinical", ["biomedical", "health_care"], "临床实验室"),
+                ("laboratory_critical_valu", "Laboratory Critical Values", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "实验室危急值"),
+                ("laboratory_proficiency_testing", "Laboratory Proficiency Testing", ["biomedical", "technology_industry_and_agriculture"], "实验室能力验证"),
+            ]
+        )
+
+    def test_exact_expansion_batch_267_adds_lac_and_lactase_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("beta_lactam", "Beta-lactams", ["biomedical", "chemicals_and_drugs"], "β-内酰胺类"),
+                ("beta_lactam_resistance", "Beta-lactam Resistance", ["biomedical", "phenomena_and_processes"], "β-内酰胺耐药性"),
+                ("lac_operon", "Lac Operon", ["biomedical", "phenomena_and_processes"], "Lac操纵子"),
+                ("lac_repressor", "Lac Repressors", ["biomedical", "chemicals_and_drugs"], "Lac阻遏蛋白"),
+                ("laccase", "Laccase", ["biomedical", "chemicals_and_drugs"], "漆酶"),
+                ("lacosamide", "Lacosamide", ["biomedical", "chemicals_and_drugs"], "拉考沙胺"),
+                ("lactase_phlorizin_hydrolase", "Lactase-phlorizin Hydrolase", ["biomedical", "chemicals_and_drugs"], "乳糖酶-根皮苷水解酶"),
+            ]
+        )
+
+    def test_exact_expansion_batch_268_adds_lactic_lactobacillus_and_lactose_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lactat", "Lactates", ["biomedical", "chemicals_and_drugs"], "乳酸盐"),
+                ("lactic_acid", "Lactic Acid", ["biomedical", "chemicals_and_drugs"], "乳酸"),
+                ("lactobacillu", "Lactobacillus", ["biomedical", "organisms"], "乳杆菌属"),
+                ("lactobacillu_acidophilu", "Lactobacillus Acidophilus", ["biomedical", "organisms"], "嗜酸乳杆菌"),
+                ("lactose_intolerance", "Lactose Intolerance", ["biomedical", "diseases"], "乳糖不耐受"),
+            ]
+        )
+
+    def test_exact_expansion_batch_269_adds_lactoferrin_and_lactone_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lactoferrin", "Lactoferrin", ["biomedical", "chemicals_and_drugs"], "乳铁蛋白"),
+                ("lactoglobulin", "Lactoglobulins", ["biomedical", "chemicals_and_drugs"], "乳球蛋白"),
+                ("lacton", "Lactones", ["biomedical", "chemicals_and_drugs"], "内酯类"),
+                ("lactoperoxidase", "Lactoperoxidase", ["biomedical", "chemicals_and_drugs"], "乳过氧化物酶"),
+                ("lactulose", "Lactulose", ["biomedical", "chemicals_and_drugs"], "乳果糖"),
+                ("sodium_lactate", "Sodium Lactate", ["biomedical", "chemicals_and_drugs"], "乳酸钠"),
+            ]
+        )
+
+    def test_exact_expansion_batch_270_adds_lambda_and_lamin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lambda_calculu", "Lambda Calculus", ["computer_science"], "Lambda演算"),
+                ("lambert_eaton_myasthenic_syndrome", "Lambert-eaton Myasthenic Syndrome", ["biomedical", "diseases"], "Lambert-Eaton肌无力综合征"),
+                ("laminar_flow", "Laminar Flows", ["physics"], "层流"),
+                ("lamin_b_receptor", "Lamin B Receptor", ["biomedical", "chemicals_and_drugs"], "Lamin B受体"),
+                ("lamivudine", "Lamivudine", ["biomedical", "chemicals_and_drugs"], "拉米夫定"),
+            ]
+        )
+
+    def test_exact_expansion_batch_271_adds_land_and_lane_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("ieee_802_11_wireless_lan", "Ieee 802.11 Wireless Lan", ["computer_science"], "IEEE 802.11无线局域网"),
+                ("land_mobile_radio_cellular_system", "Land Mobile Radio Cellular Systems", ["computer_science"], "陆地移动无线蜂窝系统"),
+                ("land_mobile_radio_equipment", "Land Mobile Radio Equipment", ["communications_technology"], "陆地移动无线设备"),
+                ("land_surface_temperature", "Land Surface Temperature", ["change"], "地表温度"),
+                ("land_vehicl", "Land Vehicles", ["intelligent_transportation_systems"], "陆地车辆"),
+                ("lane_detection", "Lane Detection", ["industry_applications"], "车道检测"),
+            ]
+        )
+
+    def test_exact_expansion_batch_272_adds_language_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("language_acquisition", "Language Acquisition", ["computer_science"], "语言习得"),
+                ("language_development", "Language Development", ["biomedical", "psychiatry_and_psychology"], "语言发展"),
+                ("language_disorder", "Language Disorders", ["biomedical", "diseases"], "语言障碍"),
+                ("language_model", "Language Model", ["computer_science"], "语言模型"),
+                ("language_therapy", "Language Therapy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "语言治疗"),
+            ]
+        )
+
+    def test_exact_expansion_batch_273_adds_laplace_and_large_language_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("concept_lattice", "Concept Lattice", ["computer_science"], "概念格"),
+                ("laplace_equation", "Laplace Equations", ["mathematics"], "拉普拉斯方程"),
+                ("laplacian_eigenmap", "Laplacian Eigenmaps", ["computer_science"], "拉普拉斯特征映射"),
+                ("laplacian_pyramid", "Laplacian Pyramid", ["computer_science"], "拉普拉斯金字塔"),
+                ("large_language_model", "Large Language Models", ["computational_and_artificial_intelligence"], "大语言模型"),
+                ("large_scale_wireless_sensor_network", "Large-scale Wireless Sensor Networks", ["computer_science"], "大规模无线传感器网络"),
+            ]
+        )
+
+    def test_exact_expansion_batch_274_adds_large_scale_and_channel_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("large_vocabulary_continuou_speech_recognition", "Large Vocabulary Continuous Speech Recognition", ["computer_science"], "大词汇量连续语音识别"),
+                ("large_conductance_calcium_activated_potassium_channel", "Large-conductance Calcium-activated Potassium Channels", ["biomedical", "chemicals_and_drugs"], "大电导钙激活钾通道"),
+                ("large_conductance_calcium_activated_potassium_channel_alpha_subunit", "Large-conductance Calcium-activated Potassium Channel Alpha Subunits", ["biomedical", "chemicals_and_drugs"], "大电导钙激活钾通道α亚基"),
+                ("large_conductance_calcium_activated_potassium_channel_beta_subunit", "Large-conductance Calcium-activated Potassium Channel Beta Subunits", ["biomedical", "chemicals_and_drugs"], "大电导钙激活钾通道β亚基"),
+                ("large_eddy_simulation", "Large Eddy Simulations", ["physics"], "大涡模拟"),
+            ]
+        )
+
+    def test_exact_expansion_batch_275_adds_laryngeal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("larynx_artificial", "Larynx, Artificial", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "人工喉"),
+                ("laryngeal_cartilag", "Laryngeal Cartilages", ["anatomy", "biomedical"], "喉软骨"),
+                ("laryngeal_disease", "Laryngeal Diseases", ["biomedical", "diseases"], "喉疾病"),
+                ("laryngeal_neoplasm", "Laryngeal Neoplasms", ["biomedical", "diseases"], "喉肿瘤"),
+                ("laryngoscopy", "Laryngoscopy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "喉镜检查"),
+                ("larynx", "Larynx", ["anatomy", "biomedical"], "喉部"),
+            ]
+        )
+
+    def test_exact_expansion_batch_276_adds_laser_basic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("laser_ablation", "Laser Ablation", ["lasers_and_electrooptics"], "激光烧蚀"),
+                ("laser_beam_cutting", "Laser Beam Cutting", ["lasers_and_electrooptics"], "激光束切割"),
+                ("laser_capture_microdissection", "Laser Capture Microdissection", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "激光捕获显微切割"),
+                ("laser_coagulation", "Laser Coagulation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "激光凝固"),
+                ("laser_communication", "Laser Communication", ["computer_science"], "激光通信"),
+                ("laser_material_processing_techniqu", "Laser Material Processing Techniques", ["engineering", "physical_sciences"], "激光材料加工技术"),
+                ("measurement_by_laser_beam", "Measurement By Laser Beam", ["instrumentation_and_measurement"], "激光束测量"),
+            ]
+        )
+
+    def test_exact_expansion_batch_277_adds_laser_system_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("laser_doppler_vibrometry", "Laser Doppler Vibrometry", ["computer_science"], "激光多普勒测振"),
+                ("laser_guide_star", "Laser Guide Star", ["computer_science"], "激光导星"),
+                ("laser_induced_damage_threshold", "Laser Induced Damage Thresholds", ["computer_science"], "激光损伤阈值"),
+                ("laser_printer", "Laser Printers", ["computers_and_information_processing"], "激光打印机"),
+                ("laser_scanning_cytometry", "Laser Scanning Cytometry", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "激光扫描细胞术"),
+            ]
+        )
+
+    def test_exact_expansion_batch_278_adds_laser_imaging_and_laser_type_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("laser_speckle_contrast_imaging", "Laser Speckle Contrast Imaging", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "激光散斑对比成像"),
+                ("laser_doppler_flowmetry", "Laser-doppler Flowmetry", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "激光多普勒血流测定"),
+                ("laser_evoked_potential", "Laser-evoked Potentials", ["biomedical", "phenomena_and_processes"], "激光诱发电位"),
+                ("laser_excimer", "Lasers, Excimer", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "准分子激光器"),
+                ("laser_semiconductor", "Lasers, Semiconductor", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "半导体激光器"),
+                ("optic_and_laser", "Optics & Lasers", ["physics"], "光学与激光"),
+            ]
+        )
+
+    def test_exact_expansion_batch_279_adds_latent_lateral_and_latex_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("latent_autoimmune_diabet_in_adult", "Latent Autoimmune Diabetes In Adults", ["biomedical", "diseases"], "成人隐匿性自身免疫性糖尿病"),
+                ("latent_class_analysi", "Latent Class Analysis", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "潜类别分析"),
+                ("latent_variable", "Latent Variable", ["computer_science"], "潜变量"),
+                ("lateral_ventricl", "Lateral Ventricles", ["anatomy", "biomedical"], "侧脑室"),
+                ("latex_hypersensitivity", "Latex Hypersensitivity", ["biomedical", "diseases"], "乳胶超敏反应"),
+            ]
+        )
+
+    def test_exact_expansion_batch_280_adds_lead_learning_and_least_square_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("non_binary_ldpc_cod", "Non-binary Ldpc Codes", ["computer_science"], "非二进制LDPC码"),
+                ("lead_acid_battery", "Lead Acid Batteries", ["industry_applications"], "铅酸电池"),
+                ("lead_poisoning", "Lead Poisoning", ["biomedical", "diseases"], "铅中毒"),
+                ("learning_automata", "Learning Automata", ["computational_and_artificial_intelligence"], "学习自动机"),
+                ("learning_management_system", "Learning Management Systems", ["computational_and_artificial_intelligence"], "学习管理系统"),
+                ("least_mean_squar_method", "Least Mean Squares Methods", ["mathematics"], "最小二乘法"),
+                ("medical_laboratory_personnel", "Medical Laboratory Personnel", ["biomedical", "named_groups"], "医学实验室人员"),
+                ("receptor_laminin", "Receptors, Laminin", ["biomedical", "chemicals_and_drugs"], "层粘连蛋白受体"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
