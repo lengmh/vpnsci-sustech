@@ -13532,6 +13532,226 @@ ZH_EXACT_EXPANSION_BATCH_520_ALIASES = {
         "myosarcoma": "肌肉肉瘤",
 }
 
+ZH_EXACT_EXPANSION_BATCH_521_ALIASES = {
+        "myosin binding protein c": "肌球蛋白结合蛋白C",
+        "myosin heavy chains": "肌球蛋白重链",
+        "myosin light chains": "肌球蛋白轻链",
+        "myosin-light-chain kinase": "肌球蛋白轻链激酶",
+        "myosin-light-chain phosphatase": "肌球蛋白轻链磷酸酶",
+        "myosin subfragments": "肌球蛋白亚片段",
+        "myosin viia": "肌球蛋白VIIA",
+        "myositis": "肌炎",
+}
+
+ZH_EXACT_EXPANSION_BATCH_522_ALIASES = {
+        "myositis, inclusion body": "包涵体肌炎",
+        "myositis ossificans": "骨化性肌炎",
+        "myostatin": "肌肉生长抑制素",
+        "myotendinous junction": "肌腱连接",
+        "myotomy": "肌切开术",
+        "myotonia": "肌强直",
+        "myotonia congenita": "先天性肌强直",
+        "myotonic disorders": "肌强直性疾病",
+}
+
+ZH_EXACT_EXPANSION_BATCH_523_ALIASES = {
+        "myotonic dystrophy": "肌强直性营养不良",
+        "myotonin-protein kinase": "肌强直蛋白激酶",
+        "myotoxicity": "肌毒性",
+        "myxedema": "黏液性水肿",
+        "myxoma": "黏液瘤",
+        "myxoma virus": "黏液瘤病毒",
+        "myxomatosis, infectious": "传染性黏液瘤病",
+        "myxozoa": "黏体动物门",
+}
+
+ZH_EXACT_EXPANSION_BATCH_524_ALIASES = {
+        "n95 respirators": "N95口罩",
+        "n-acetylgalactosamine-4-sulfatase": "N-乙酰半乳糖胺-4-硫酸酯酶",
+        "n-acetylgalactosaminyltransferases": "N-乙酰半乳糖胺转移酶",
+        "n-acetylglucosaminyltransferases": "N-乙酰葡糖胺转移酶",
+        "n-acetylhexosaminyltransferases": "N-乙酰己糖胺转移酶",
+        "n-acetyllactosamine synthase": "N-乙酰乳糖胺合酶",
+        "n-acetylmuramoyl-l-alanine amidase": "N-乙酰胞壁酰-L-丙氨酸酰胺酶",
+        "n-acylneuraminate cytidylyltransferase": "N-酰基神经氨酸胞苷酰转移酶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_525_ALIASES = {
+        "n-acylsphingosine galactosyltransferase": "N-酰基鞘氨醇半乳糖基转移酶",
+        "n-ethylmaleimide-sensitive proteins": "N-乙基马来酰亚胺敏感蛋白",
+        "n-formylmethionine": "N-甲酰甲硫氨酸",
+        "n-formylmethionine leucyl-phenylalanine": "N-甲酰甲硫氨酰亮氨酰苯丙氨酸",
+        "n-glycosyl hydrolases": "N-糖苷水解酶",
+        "n-terminal acetyltransferases": "N端乙酰转移酶",
+        "n-terminal acetyltransferase a": "N端乙酰转移酶A",
+        "n-terminal acetyltransferase b": "N端乙酰转移酶B",
+}
+
+ZH_EXACT_EXPANSION_BATCH_526_ALIASES = {
+        "n-terminal acetyltransferase c": "N端乙酰转移酶C",
+        "n-terminal acetyltransferase d": "N端乙酰转移酶D",
+        "n-terminal acetyltransferase e": "N端乙酰转移酶E",
+        "n-terminal acetyltransferase f": "N端乙酰转移酶F",
+        "nabumetone": "萘丁美酮",
+        "nacre": "珍珠层",
+        "nad": "烟酰胺腺嘌呤二核苷酸",
+        "nad (+) and nadp (+) dependent alcohol oxidoreductases": "烟酰胺腺嘌呤二核苷酸和其磷酸依赖性醇氧化还原酶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_527_ALIASES = {
+        "nad+ nucleosidase": "烟酰胺腺嘌呤二核苷酸核苷酶",
+        "nadh, nadph oxidoreductases": "还原型烟酰胺腺嘌呤二核苷酸及其磷酸氧化还原酶",
+        "nadh tetrazolium reductase": "还原型烟酰胺腺嘌呤二核苷酸四唑还原酶",
+        "nadolol": "纳多洛尔",
+        "nadp": "烟酰胺腺嘌呤二核苷酸磷酸",
+        "nadp transhydrogenases": "烟酰胺腺嘌呤二核苷酸磷酸转氢酶",
+        "nadp transhydrogenase, ab-specific": "AB特异性烟酰胺腺嘌呤二核苷酸磷酸转氢酶",
+        "nadp transhydrogenase, b-specific": "B特异性烟酰胺腺嘌呤二核苷酸磷酸转氢酶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_528_ALIASES = {
+        "nadph dehydrogenase": "还原型烟酰胺腺嘌呤二核苷酸磷酸脱氢酶",
+        "nadph-ferrihemoprotein reductase": "还原型烟酰胺腺嘌呤二核苷酸磷酸铁血红蛋白还原酶",
+        "nadph oxidases": "还原型烟酰胺腺嘌呤二核苷酸磷酸氧化酶",
+        "nadph oxidase 1": "还原型烟酰胺腺嘌呤二核苷酸磷酸氧化酶1",
+        "nadph oxidase 2": "还原型烟酰胺腺嘌呤二核苷酸磷酸氧化酶2",
+        "nadph oxidase 4": "还原型烟酰胺腺嘌呤二核苷酸磷酸氧化酶4",
+        "nadph oxidase 5": "还原型烟酰胺腺嘌呤二核苷酸磷酸氧化酶5",
+        "nadroparin": "那屈肝素",
+}
+
+ZH_EXACT_EXPANSION_BATCH_529_ALIASES = {
+        "naegleria": "耐格里属",
+        "naegleria fowleri": "福氏耐格里阿米巴",
+        "nafarelin": "那法瑞林",
+        "nafcillin": "萘夫西林",
+        "nafoxidine": "萘福昔定",
+        "nail biting": "咬甲癖",
+        "nails, ingrown": "嵌甲",
+        "nails, malformed": "甲畸形",
+}
+
+ZH_EXACT_EXPANSION_BATCH_530_ALIASES = {
+        "nail-patella syndrome": "甲髌综合征",
+        "nairobi sheep disease": "内罗毕绵羊病",
+        "nairobi sheep disease virus": "内罗毕绵羊病病毒",
+        "nairovirus": "内罗病毒",
+        "naive bayes": "朴素贝叶斯",
+        "naive bayes classifier": "朴素贝叶斯分类器",
+        "naive bayesian classifier": "朴素贝叶斯分类器",
+        "nakagami distribution": "中上分布",
+}
+
+ZH_EXACT_EXPANSION_BATCH_531_ALIASES = {
+        "nakagami fading": "Nakagami衰落",
+        "nakagami fading channel": "Nakagami衰落信道",
+        "nakagami-m": "Nakagami-m分布",
+        "nakagami-m fading": "Nakagami-m衰落",
+        "nalbuphine": "纳布啡",
+        "nalidixic acid": "萘啶酸",
+        "naloxone": "纳洛酮",
+        "naltrexone": "纳曲酮",
+}
+
+ZH_EXACT_EXPANSION_BATCH_532_ALIASES = {
+        "name recognition": "名称识别",
+        "named entities": "命名实体",
+        "nand circuits": "与非门电路",
+        "nand flash": "NAND闪存",
+        "nand flash memory": "NAND闪存",
+        "nandrolone": "南诺龙",
+        "nandrolone decanoate": "癸酸南诺龙",
+        "nano electromechanical systems": "纳米机电系统",
+}
+
+ZH_EXACT_EXPANSION_BATCH_533_ALIASES = {
+        "nanoantennas": "纳米天线",
+        "nanoarchaeota": "纳古菌门",
+        "nanobiophotonics": "纳米生物光子学",
+        "nanobioscience": "纳米生物科学",
+        "nanobiotechnology": "纳米生物技术",
+        "nanocantilevers": "纳米悬臂梁",
+        "nanocapsules": "纳米胶囊",
+        "nanocarriers": "纳米载体",
+}
+
+ZH_EXACT_EXPANSION_BATCH_534_ALIASES = {
+        "nanocommunication": "纳米通信",
+        "nanocomposites": "纳米复合材料",
+        "nanocomposite films": "纳米复合薄膜",
+        "nanoconjugates": "纳米偶联物",
+        "nanocontacts": "纳米接触",
+        "nanocrystals": "纳米晶体",
+        "nanodiamonds": "纳米金刚石",
+        "nanoelectromechanical systems": "纳米机电系统",
+}
+
+ZH_EXACT_EXPANSION_BATCH_535_ALIASES = {
+        "nanoelectronics": "纳米电子学",
+        "nanofabrication": "纳米制造",
+        "nanofabrication and lithography techniques": "纳米制造与光刻技术",
+        "nanofibers": "纳米纤维",
+        "nanofluid flow and heat transfer": "纳米流体流动与传热",
+        "nanofluidics": "纳米流体学",
+        "nanofluidic devices": "纳米流体器件",
+        "nanog homeobox protein": "Nanog同源盒蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_536_ALIASES = {
+        "nanogels": "纳米凝胶",
+        "nanogenerators": "纳米发电机",
+        "nanolithography": "纳米光刻",
+        "nanomagnetics": "纳米磁学",
+        "nanomaterials": "纳米材料",
+        "nanomechatronics": "纳米机电一体化",
+        "nanomedicine": "纳米医学",
+        "nanometers": "纳米",
+}
+
+ZH_EXACT_EXPANSION_BATCH_537_ALIASES = {
+        "nanopackaging": "纳米封装",
+        "nanoparticles": "纳米颗粒",
+        "nanoparticle-based drug delivery": "基于纳米颗粒的药物递送",
+        "nanoparticle drug delivery system": "纳米颗粒药物递送系统",
+        "nanopatterning": "纳米图案化",
+        "nanophotonics": "纳米光子学",
+        "nanoplasmonics": "纳米等离激元学",
+        "nanopores": "纳米孔",
+}
+
+ZH_EXACT_EXPANSION_BATCH_538_ALIASES = {
+        "nanopore sequencing": "纳米孔测序",
+        "nanoporous materials": "纳米多孔材料",
+        "nanoporous metals and alloys": "纳米多孔金属与合金",
+        "nanopositioning": "纳米定位",
+        "nanoribbons": "纳米带",
+        "nanorods": "纳米棒",
+        "nanoscale devices": "纳米尺度器件",
+        "nanoscale technology": "纳米尺度技术",
+}
+
+ZH_EXACT_EXPANSION_BATCH_539_ALIASES = {
+        "nanosensors": "纳米传感器",
+        "nanoshells": "纳米壳",
+        "nanospheres": "纳米球",
+        "nanostructured materials": "纳米结构材料",
+        "nanostructures": "纳米结构",
+        "nanotechnology": "纳米技术",
+        "nanotubes": "纳米管",
+        "nanowires": "纳米线",
+}
+
+ZH_EXACT_EXPANSION_BATCH_540_ALIASES = {
+        "naphthalenes": "萘类",
+        "naphthols": "萘酚类",
+        "naproxen": "萘普生",
+        "narcissism": "自恋",
+        "narcolepsy": "发作性睡病",
+        "narcotics": "麻醉药品",
+        "nasal bone": "鼻骨",
+        "nasal cavity": "鼻腔",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -14054,6 +14274,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_517_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_518_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_519_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_520_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_521_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_522_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_523_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_524_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_525_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_526_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_527_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_528_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_529_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_530_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_531_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_532_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_533_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_534_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_535_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_536_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_537_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_538_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_539_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_540_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",
