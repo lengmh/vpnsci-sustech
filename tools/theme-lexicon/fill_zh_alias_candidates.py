@@ -12244,6 +12244,216 @@ ZH_EXACT_EXPANSION_BATCH_400_ALIASES = {
         "miconazole": "咪康唑",
 }
 
+ZH_EXACT_EXPANSION_BATCH_401_ALIASES = {
+        "micafungin": "米卡芬净",
+        "micro and nano robotics": "微纳机器人",
+        "micro and nano systems": "微纳系统",
+        "micro controller": "微控制器",
+        "micro-controller": "微控制器",
+        "micro ct": "微型CT",
+        "micro electrical mechanical system": "微机电系统",
+        "micro-electrical-mechanical system": "微机电系统",
+        "micro fabrication techniques": "微制造技术",
+        "micro-fabrication techniques": "微制造技术",
+}
+
+ZH_EXACT_EXPANSION_BATCH_402_ALIASES = {
+        "micro cantilevers": "微悬臂梁",
+        "micro-cantilevers": "微悬臂梁",
+        "micro milling": "微铣削",
+        "micro mirror": "微镜",
+        "micro mobility": "微出行",
+        "micro-mobility": "微出行",
+        "micro robotics": "微机器人学",
+        "micro strip patch antennas": "微带贴片天线",
+        "micro-strip patch antennas": "微带贴片天线",
+        "micro structured optical fibers": "微结构光纤",
+        "micro-structured optical fibers": "微结构光纤",
+}
+
+ZH_EXACT_EXPANSION_BATCH_403_ALIASES = {
+        "microalgae": "微藻",
+        "microaneurysm": "微动脉瘤",
+        "microarray analysis": "微阵列分析",
+        "microautophagy": "微自噬",
+        "microbial collagenase": "微生物胶原酶",
+        "microbial colony count": "微生物菌落计数",
+        "microbial diversity": "微生物多样性",
+}
+
+ZH_EXACT_EXPANSION_BATCH_404_ALIASES = {
+        "microbial bioremediation and biosurfactants": "微生物生物修复与生物表面活性剂",
+        "microbial community ecology and physiology": "微生物群落生态学与生理学",
+        "microbial consortia": "微生物共生体",
+        "microbial fuel cells and bioremediation": "微生物燃料电池与生物修复",
+        "microbial inactivation methods": "微生物灭活方法",
+        "microbial interactions": "微生物相互作用",
+        "microbial sensitivity tests": "微生物敏感性试验",
+}
+
+ZH_EXACT_EXPANSION_BATCH_405_ALIASES = {
+        "microbiological phenomena": "微生物学现象",
+        "microbiological techniques": "微生物学技术",
+        "microbiota": "微生物群",
+        "microbodies": "微体",
+        "microbubbles": "微泡",
+        "microcephaly": "小头畸形",
+        "microchip electrophoreses": "微芯片电泳",
+}
+
+ZH_EXACT_EXPANSION_BATCH_406_ALIASES = {
+        "microclimate": "微气候",
+        "micrococcal nuclease": "微球菌核酸酶",
+        "micrococcus luteus": "藤黄微球菌",
+        "microcomputer": "微型计算机",
+        "microcystins": "微囊藻毒素",
+        "microdialysis": "微透析",
+        "microelectrode": "微电极",
+}
+
+ZH_EXACT_EXPANSION_BATCH_407_ALIASES = {
+        "microelectromechanical devices": "微机电器件",
+        "microelectromechanical system": "微机电系统",
+        "microfabrication process": "微制造工艺",
+        "microfilament proteins": "微丝蛋白",
+        "microfilariae": "微丝蚴",
+        "microfiltration": "微滤",
+        "microfluidic": "微流控",
+}
+
+ZH_EXACT_EXPANSION_BATCH_408_ALIASES = {
+        "microfluidic analytical techniques": "微流控分析技术",
+        "microfluidic and bio sensing technologies": "微流控与生物传感技术",
+        "microfluidic and bio-sensing technologies": "微流控与生物传感技术",
+        "microgels": "微凝胶",
+        "microglia": "小胶质细胞",
+        "micrognathism": "小颌畸形",
+        "microgrid control and optimization": "微电网控制与优化",
+        "microinjections": "显微注射",
+}
+
+ZH_EXACT_EXPANSION_BATCH_409_ALIASES = {
+        "microkernel": "微内核",
+        "micromagnetics": "微磁学",
+        "micromanipulation": "显微操作",
+        "micromechanical model": "微力学模型",
+        "micromechanics": "微力学",
+        "micrometers": "测微计",
+        "micronutrients": "微量营养素",
+}
+
+ZH_EXACT_EXPANSION_BATCH_410_ALIASES = {
+        "microneedle drug delivery": "微针给药",
+        "micronucleus tests": "微核试验",
+        "microoptics": "微光学",
+        "microphone": "麦克风",
+        "microphone array": "麦克风阵列",
+        "microplastic": "微塑料",
+        "micropore filters": "微孔滤膜",
+}
+
+ZH_EXACT_EXPANSION_BATCH_411_ALIASES = {
+        "micrornas": "微小RNA",
+        "microsatellite dna": "微卫星DNA",
+        "microsatellite repeat": "微卫星重复序列",
+        "microscopic colitis": "显微镜下结肠炎",
+        "microservice architecture": "微服务架构",
+        "microsoft sql server": "微软SQL服务器",
+        "microsoft windows": "微软视窗",
+}
+
+ZH_EXACT_EXPANSION_BATCH_412_ALIASES = {
+        "microsomes": "微粒体",
+        "microspheres": "微球",
+        "microsporidia": "微孢子虫",
+        "microsporidiosis": "微孢子虫病",
+        "microstrip": "微带",
+        "microstrip antenna": "微带天线",
+        "microstrip band pass filter": "微带带通滤波器",
+        "microstrip band-pass filter": "微带带通滤波器",
+}
+
+ZH_EXACT_EXPANSION_BATCH_413_ALIASES = {
+        "microstructure": "微观结构",
+        "microstructure and mechanical properties": "微观结构与力学性能",
+        "microtechnology": "微技术",
+        "microtubule organizing center": "微管组织中心",
+        "microtubule-organizing center": "微管组织中心",
+        "microvascular angina": "微血管性心绞痛",
+        "microvascular density": "微血管密度",
+        "microvilli": "微绒毛",
+}
+
+ZH_EXACT_EXPANSION_BATCH_414_ALIASES = {
+        "microwave": "微波",
+        "microwave ablation": "微波消融",
+        "microwave antenna arrays": "微波天线阵列",
+        "microwave bands": "微波频段",
+        "microwave devices": "微波器件",
+        "microwave filters": "微波滤波器",
+        "microwave generation": "微波产生",
+}
+
+ZH_EXACT_EXPANSION_BATCH_415_ALIASES = {
+        "microwave engineering and waveguides": "微波工程与波导",
+        "microwave imaging and scattering analysis": "微波成像与散射分析",
+        "microwave links": "微波链路",
+        "microwave measurement": "微波测量",
+        "microwave metamaterials": "微波超材料",
+        "microwave oscillators": "微波振荡器",
+        "microwave sensors": "微波传感器",
+}
+
+ZH_EXACT_EXPANSION_BATCH_416_ALIASES = {
+        "midazolam": "咪达唑仑",
+        "midbrain raphe nuclei": "中脑缝核",
+        "middle aged": "中年人",
+        "middle cerebral artery": "大脑中动脉",
+        "middle ear cholesteatomas": "中耳胆脂瘤",
+        "middle ears": "中耳",
+        "middle east respiratory syndrome coronavirus": "中东呼吸综合征冠状病毒",
+}
+
+ZH_EXACT_EXPANSION_BATCH_417_ALIASES = {
+        "middle east": "中东",
+        "middle eastern people": "中东人群",
+        "middleware": "中间件",
+        "midodrine": "米多君",
+        "midwifery": "助产学",
+        "mifepristone": "米非司酮",
+        "migraine with aura": "有先兆偏头痛",
+}
+
+ZH_EXACT_EXPANSION_BATCH_418_ALIASES = {
+        "milieu therapy": "环境疗法",
+        "military aircraft": "军用飞机",
+        "military communication": "军事通信",
+        "military computing": "军事计算",
+        "military equipment": "军事装备",
+        "military health": "军事健康",
+        "military medicine": "军事医学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_419_ALIASES = {
+        "military personnel": "军事人员",
+        "military psychology": "军事心理学",
+        "military science": "军事科学",
+        "military systems": "军事系统",
+        "milk": "乳汁",
+        "milk banks": "乳库",
+        "milk proteins": "乳蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_420_ALIASES = {
+        "miller fisher syndrome": "米勒-费希尔综合征",
+        "millimeter wave communication": "毫米波通信",
+        "millimeter wave devices": "毫米波器件",
+        "millimeter wave propagation": "毫米波传播",
+        "milling process": "铣削工艺",
+        "mimo antenna": "MIMO天线",
+        "mimo systems": "MIMO系统",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -12646,6 +12856,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_397_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_398_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_399_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_400_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_401_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_402_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_403_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_404_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_405_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_406_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_407_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_408_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_409_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_410_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_411_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_412_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_413_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_414_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_415_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_416_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_417_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_418_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_419_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_420_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",
