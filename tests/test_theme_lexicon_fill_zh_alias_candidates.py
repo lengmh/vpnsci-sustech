@@ -7741,6 +7741,226 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_201_adds_human_general_and_genome_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("human_action_recognition", "Human Action Recognition", ["computer_science"], "人体动作识别"),
+                ("human_ai_collaboration", "Human-ai Collaboration", ["computer_science"], "人-AI协作"),
+                ("human_challenge_trial", "Human Challenge Trials", ["biomedical", "publication_characteristics"], "人体挑战试验"),
+                ("human_factor", "Human Factors", ["systems_man_and_cybernetics"], "人因"),
+                ("human_genome_project", "Human Genome Project", ["biomedical", "phenomena_and_processes"], "人类基因组计划"),
+            ]
+        )
+
+    def test_exact_expansion_batch_202_adds_human_vision_and_motion_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("human_face_detection", "Human Face Detection", ["computer_science"], "人脸检测"),
+                ("human_face_recognition", "Human Face Recognition", ["computer_science"], "人脸识别"),
+                ("human_in_the_loop", "Human In The Loop", ["systems_engineering_and_theory"], "人在环路"),
+                ("human_motion_capture", "Human Motion Capture", ["computer_science"], "人体动作捕捉"),
+                ("human_pose_estimation", "Human Pose Estimations", ["computer_science"], "人体姿态估计"),
+            ]
+        )
+
+    def test_exact_expansion_batch_203_adds_human_papillomavirus_and_robot_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("human_papillomaviru_18", "Human Papillomavirus 18", ["biomedical", "organisms"], "18型人乳头瘤病毒"),
+                ("human_papillomaviru_dna_test", "Human Papillomavirus DNA Tests", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "人乳头瘤病毒DNA检测"),
+                ("human_robot_interaction", "Human-robot Interaction", ["systems_man_and_cybernetics"], "人与机器人交互"),
+                ("human_t_lymphotropic_viru_1", "Human T-lymphotropic Virus 1", ["biomedical", "organisms"], "人T淋巴细胞病毒1型"),
+                ("human_umbilical_vein_endothelial_cell", "Human Umbilical Vein Endothelial Cells", ["anatomy", "biomedical"], "人脐静脉内皮细胞"),
+            ]
+        )
+
+    def test_exact_expansion_batch_204_adds_humanoid_humerus_and_hyaluronic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("humanoid_robot", "Humanoid Robots", ["robotics_and_automation"], "类人机器人"),
+                ("humeral_fractur", "Humeral Fractures", ["biomedical", "diseases"], "肱骨骨折"),
+                ("humidity_measurement", "Humidity Measurement", ["instrumentation_and_measurement"], "湿度测量"),
+                ("hyaluronic_acid", "Hyaluronic Acid", ["biomedical", "chemicals_and_drugs"], "透明质酸"),
+                ("hybrid_electric_vehicl", "Hybrid Electric Vehicles", ["vehicular_and_wireless_technologies"], "混合动力电动汽车"),
+            ]
+        )
+
+    def test_exact_expansion_batch_205_adds_hybrid_hygiene_and_hypnosis_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hybrid_metaheuristic", "Hybrid Metaheuristics", ["computer_science"], "混合元启发式"),
+                ("hybrid_renal_replacement_therapy", "Hybrid Renal Replacement Therapy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "混合肾脏替代治疗"),
+                ("hybridoma", "Hybridomas", ["anatomy", "biomedical"], "杂交瘤"),
+                ("hygiene_hypothesi", "Hygiene Hypothesis", ["biomedical", "humanities"], "卫生假说"),
+                ("hypnosi_dental", "Hypnosis, Dental", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "牙科催眠"),
+            ]
+        )
+
+    def test_exact_expansion_batch_206_adds_hydatidiform_and_hydraulic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hydantoin", "Hydantoins", ["biomedical", "chemicals_and_drugs"], "乙内酰脲类"),
+                ("hydatidiform_mole", "Hydatidiform Mole", ["biomedical", "diseases"], "葡萄胎"),
+                ("hydraulic_diameter", "Hydraulic Diameter", ["science_general"], "水力直径"),
+                ("hydraulic_fracking", "Hydraulic Fracking", ["biomedical", "technology_industry_and_agriculture"], "水力压裂"),
+                ("hydrazon", "Hydrazones", ["biomedical", "chemicals_and_drugs"], "腙类"),
+            ]
+        )
+
+    def test_exact_expansion_batch_207_adds_hydrocarbon_and_hydrocephalus_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hydrobromic_acid", "Hydrobromic Acid", ["biomedical", "chemicals_and_drugs"], "氢溴酸"),
+                ("hydrocarbon_aromatic", "Hydrocarbons, Aromatic", ["biomedical", "chemicals_and_drugs"], "芳香烃"),
+                ("hydrocephalu_normal_pressure", "Hydrocephalus, Normal Pressure", ["biomedical", "diseases"], "正常压力脑积水"),
+                ("hydrochlorothiazide", "Hydrochlorothiazide", ["biomedical", "chemicals_and_drugs"], "氢氯噻嗪"),
+                ("hydrocortisone", "Hydrocortisone", ["biomedical", "chemicals_and_drugs"], "氢化可的松"),
+            ]
+        )
+
+    def test_exact_expansion_batch_208_adds_hydrogen_and_hydrogel_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hydroelectric_power_generation", "Hydroelectric Power Generation", ["power_engineering_and_energy"], "水力发电"),
+                ("hydrofluoric_acid", "Hydrofluoric Acid", ["biomedical", "chemicals_and_drugs"], "氢氟酸"),
+                ("hydrogen_deuterium_exchange_mass_spectrometry", "Hydrogen Deuterium Exchange-mass Spectrometry", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "氢氘交换质谱"),
+                ("hydrogen_storage", "Hydrogen Storage", ["power_engineering_and_energy"], "储氢"),
+                ("hydrogen_sulfide", "Hydrogen Sulfide", ["biomedical", "chemicals_and_drugs"], "硫化氢"),
+            ]
+        )
+
+    def test_exact_expansion_batch_209_adds_hydrology_and_hydrophobic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hydrological_forecasting_using_ai", "Hydrological Forecasting Using AI", ["environmental_science", "physical_sciences"], "基于AI的水文预报"),
+                ("hydrology_and_drought_analysi", "Hydrology And Drought Analysis", ["environmental_science", "physical_sciences"], "水文学与干旱分析"),
+                ("hydromorphone", "Hydromorphone", ["biomedical", "chemicals_and_drugs"], "氢吗啡酮"),
+                ("hydrophobic_and_hydrophilic_interaction", "Hydrophobic And Hydrophilic Interactions", ["biomedical", "phenomena_and_processes"], "疏水与亲水相互作用"),
+                ("hydropneumothorax", "Hydropneumothorax", ["biomedical", "diseases"], "液气胸"),
+            ]
+        )
+
+    def test_exact_expansion_batch_210_adds_hydroxy_chemical_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hydroquinon", "Hydroquinones", ["biomedical", "chemicals_and_drugs"], "对苯二酚类"),
+                ("hydrothermal_vent", "Hydrothermal Vents", ["biomedical", "phenomena_and_processes"], "热液喷口"),
+                ("hydroxyapatit", "Hydroxyapatites", ["biomedical", "chemicals_and_drugs"], "羟基磷灰石"),
+                ("hydroxybutyrate_dehydrogenase", "Hydroxybutyrate Dehydrogenase", ["biomedical", "chemicals_and_drugs"], "羟基丁酸脱氢酶"),
+                ("hydroxychloroquine", "Hydroxychloroquine", ["biomedical", "chemicals_and_drugs"], "羟氯喹"),
+            ]
+        )
+
+    def test_exact_expansion_batch_211_adds_hydroxyl_and_hmg_coa_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hydroxyindoleacetic_acid", "Hydroxyindoleacetic Acid", ["biomedical", "chemicals_and_drugs"], "羟吲哚乙酸"),
+                ("hydroxyl_radical", "Hydroxyl Radical", ["biomedical", "chemicals_and_drugs"], "羟自由基"),
+                ("hydroxymethylglutaryl_coa_reductase_inhibitor", "Hydroxymethylglutaryl-coa Reductase Inhibitors", ["biomedical", "chemicals_and_drugs"], "HMG-CoA还原酶抑制剂"),
+                ("hydroxyproline", "Hydroxyproline", ["biomedical", "chemicals_and_drugs"], "羟脯氨酸"),
+                ("hydroxyurea", "Hydroxyurea", ["biomedical", "chemicals_and_drugs"], "羟基脲"),
+            ]
+        )
+
+    def test_exact_expansion_batch_212_adds_early_hyper_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hyper_igm_immunodeficiency_syndrome", "Hyper-igm Immunodeficiency Syndrome", ["biomedical", "diseases"], "高IgM免疫缺陷综合征"),
+                ("hyper_spectral_imag", "Hyper-spectral Images", ["computer_science"], "高光谱图像"),
+                ("hyperacusi", "Hyperacusis", ["biomedical", "diseases"], "听觉过敏"),
+                ("hyperbilirubinemia_neonatal", "Hyperbilirubinemia, Neonatal", ["biomedical", "diseases"], "新生儿高胆红素血症"),
+                ("hypercementosi", "Hypercementosis", ["biomedical", "diseases"], "牙骨质增生症"),
+            ]
+        )
+
+    def test_exact_expansion_batch_213_adds_hypermetabolic_and_electrolyte_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hyperemesi_gravidarum", "Hyperemesis Gravidarum", ["biomedical", "diseases"], "妊娠剧吐"),
+                ("hypereosinophilic_syndrome", "Hypereosinophilic Syndrome", ["biomedical", "diseases"], "嗜酸性粒细胞增多综合征"),
+                ("hyperglycemic_hyperosmolar_nonketotic_coma", "Hyperglycemic Hyperosmolar Nonketotic Coma", ["biomedical", "diseases"], "高渗性非酮症高血糖昏迷"),
+                ("hyperhomocysteinemia", "Hyperhomocysteinemia", ["biomedical", "diseases"], "高同型半胱氨酸血症"),
+                ("hyperkalemia", "Hyperkalemia", ["biomedical", "diseases"], "高钾血症"),
+            ]
+        )
+
+    def test_exact_expansion_batch_214_adds_hyperlipoproteinemia_and_hyperostosis_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hyperledger", "Hyperledger", ["computer_science"], "超级账本"),
+                ("hyperlipoproteinemia_type_i", "Hyperlipoproteinemia Type I", ["biomedical", "diseases"], "I型高脂蛋白血症"),
+                ("hypernatremia", "Hypernatremia", ["biomedical", "diseases"], "高钠血症"),
+                ("hyperopia", "Hyperopia", ["biomedical", "diseases"], "远视"),
+                ("hyperostosi_diffuse_idiopathic_skeletal", "Hyperostosis, Diffuse Idiopathic Skeletal", ["biomedical", "diseases"], "弥漫性特发性骨肥厚"),
+            ]
+        )
+
+    def test_exact_expansion_batch_215_adds_parathyroid_and_hypersensitivity_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hyperparameter_optimization", "Hyperparameter Optimization", ["computational_and_artificial_intelligence"], "超参数优化"),
+                ("hyperparathyroidism_primary", "Hyperparathyroidism, Primary", ["biomedical", "diseases"], "原发性甲状旁腺功能亢进症"),
+                ("hyperpolarization_activated_cyclic_nucleotide_gated_channel", "Hyperpolarization-activated Cyclic Nucleotide-gated Channels", ["biomedical", "chemicals_and_drugs"], "超极化激活环核苷酸门控通道"),
+                ("hypersensitivity_delayed", "Hypersensitivity, Delayed", ["biomedical", "diseases"], "迟发型超敏反应"),
+                ("hypersensitivity_immediate", "Hypersensitivity, Immediate", ["biomedical", "diseases"], "速发型超敏反应"),
+            ]
+        )
+
+    def test_exact_expansion_batch_216_adds_hyperspectral_and_hypertension_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hyperspectral_image_classification", "Hyperspectral Image Classification", ["computer_science"], "高光谱图像分类"),
+                ("hyperspectral_unmixing", "Hyperspectral Unmixing", ["computer_science"], "高光谱解混"),
+                ("hypertension_pregnancy_induced", "Hypertension, Pregnancy-induced", ["biomedical", "diseases"], "妊娠期高血压"),
+                ("hypertension_pulmonary", "Hypertension, Pulmonary", ["biomedical", "diseases"], "肺动脉高压"),
+                ("hypertensive_retinopathy", "Hypertensive Retinopathy", ["biomedical", "diseases"], "高血压视网膜病变"),
+            ]
+        )
+
+    def test_exact_expansion_batch_217_adds_hyperthermia_and_early_hypo_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hyperthermic_intraperitoneal_chemotherapy", "Hyperthermic Intraperitoneal Chemotherapy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "腹腔热灌注化疗"),
+                ("hypertrophy_left_ventricular", "Hypertrophy, Left Ventricular", ["biomedical", "diseases"], "左心室肥厚"),
+                ("hypervisor", "Hypervisor", ["computer_science"], "虚拟机监控器"),
+                ("hypoalbuminemia", "Hypoalbuminemia", ["biomedical", "diseases"], "低白蛋白血症"),
+                ("hypobetalipoproteinemia", "Hypobetalipoproteinemias", ["biomedical", "diseases"], "低β脂蛋白血症"),
+            ]
+        )
+
+    def test_exact_expansion_batch_218_adds_hypocalcemia_and_hypoglossal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hypocalcemia", "Hypocalcemia", ["biomedical", "diseases"], "低钙血症"),
+                ("hypochlorou_acid", "Hypochlorous Acid", ["biomedical", "chemicals_and_drugs"], "次氯酸"),
+                ("hypoglossal_nerve", "Hypoglossal Nerve", ["anatomy", "biomedical"], "舌下神经"),
+                ("hypoglycemic_agent", "Hypoglycemic Agents", ["biomedical", "chemicals_and_drugs"], "降血糖药"),
+                ("hypokalemic_periodic_paralysi", "Hypokalemic Periodic Paralysis", ["biomedical", "diseases"], "低钾性周期性麻痹"),
+            ]
+        )
+
+    def test_exact_expansion_batch_219_adds_hypopharynx_and_pituitary_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hypolipidemic_agent", "Hypolipidemic Agents", ["biomedical", "chemicals_and_drugs"], "降脂药"),
+                ("hypoparathyroidism", "Hypoparathyroidism", ["biomedical", "diseases"], "甲状旁腺功能减退症"),
+                ("hypopharyngeal_neoplasm", "Hypopharyngeal Neoplasms", ["biomedical", "diseases"], "下咽肿瘤"),
+                ("hypophysectomy", "Hypophysectomy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "垂体切除术"),
+                ("hypoplastic_left_heart_syndrome", "Hypoplastic Left Heart Syndrome", ["biomedical", "diseases"], "左心发育不良综合征"),
+            ]
+        )
+
+    def test_exact_expansion_batch_220_adds_hypothalamus_and_hypoxia_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hypothalamic_pituitary_gonadal_axis", "Hypothalamic-pituitary-gonadal Axis", ["anatomy", "biomedical"], "下丘脑-垂体-性腺轴"),
+                ("hypothalamus_anterior", "Hypothalamus, Anterior", ["anatomy", "biomedical"], "前下丘脑"),
+                ("hypotonic_solution", "Hypotonic Solutions", ["biomedical", "chemicals_and_drugs"], "低渗溶液"),
+                ("hypoxanthine_phosphoribosyltransferase", "Hypoxanthine Phosphoribosyltransferase", ["biomedical", "chemicals_and_drugs"], "次黄嘌呤磷酸核糖转移酶"),
+                ("hypoxia_inducible_factor_1_alpha_subunit", "Hypoxia-inducible Factor 1, Alpha Subunit", ["biomedical", "chemicals_and_drugs"], "缺氧诱导因子1α亚基"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
