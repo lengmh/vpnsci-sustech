@@ -8896,6 +8896,266 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_301_adds_liquid_listeria_and_liraglutide_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("liquid_crystal_spatial_light_modulator", "Liquid Crystal Spatial Light Modulators", ["computer_science"], "液晶空间光调制器"),
+                ("liquid_liquid_extraction", "Liquid-liquid Extraction", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "液-液萃取"),
+                ("liraglutide", "Liraglutide", ["biomedical", "chemicals_and_drugs"], "利拉鲁肽"),
+                ("lisinopril", "Lisinopril", ["biomedical", "chemicals_and_drugs"], "赖诺普利"),
+                ("lissencephaly", "Lissencephaly", ["biomedical", "diseases"], "无脑回畸形"),
+                ("listeria_monocytogen", "Listeria Monocytogenes", ["biomedical", "organisms"], "单核细胞增生李斯特菌"),
+                ("listeriosi", "Listeriosis", ["biomedical", "diseases"], "李斯特菌病"),
+            ]
+        )
+
+    def test_exact_expansion_batch_302_adds_lithium_lithotripsy_and_live_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lithiasi", "Lithiasis", ["biomedical", "diseases"], "结石病"),
+                ("lithium_ion_battery", "Lithium-ion Batteries", ["industry_applications"], "锂离子电池"),
+                ("lithium_carbonate", "Lithium Carbonate", ["biomedical", "chemicals_and_drugs"], "碳酸锂"),
+                ("lithocholic_acid", "Lithocholic Acid", ["biomedical", "chemicals_and_drugs"], "石胆酸"),
+                ("lithotripsy", "Lithotripsy", ["engineering_in_medicine_and_biology"], "碎石术"),
+                ("litter_size", "Litter Size", ["biomedical", "phenomena_and_processes"], "窝产仔数"),
+                ("livedo_reticulari", "Livedo Reticularis", ["biomedical", "diseases"], "网状青斑"),
+            ]
+        )
+
+    def test_exact_expansion_batch_303_adds_liver_livestock_and_lizard_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("liver", "Liver", ["anatomy", "biomedical"], "肝脏"),
+                ("liver_abscess_amebic", "Liver Abscess, Amebic", ["biomedical", "diseases"], "阿米巴性肝脓肿"),
+                ("liver_cirrhosi_alcoholic", "Liver Cirrhosis, Alcoholic", ["biomedical", "diseases"], "酒精性肝硬化"),
+                ("liver_disease_parasitic", "Liver Diseases, Parasitic", ["biomedical", "diseases"], "寄生虫性肝病"),
+                ("liver_specific_organic_anion_transporter_1", "Liver-specific Organic Anion Transporter 1", ["biomedical", "chemicals_and_drugs"], "肝特异性有机阴离子转运蛋白1"),
+                ("livestock", "Livestock", ["biomedical", "organisms"], "家畜"),
+                ("living_donor", "Living Donors", ["biomedical", "named_groups"], "活体供者"),
+            ]
+        )
+
+    def test_exact_expansion_batch_304_adds_load_and_local_area_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("load_balancing_algorithm", "Load Balancing Algorithms", ["computer_science"], "负载均衡算法"),
+                ("load_frequency_control", "Load Frequency Control", ["computer_science"], "负荷频率控制"),
+                ("load_imbalance", "Load Imbalance", ["computer_science"], "负载不均衡"),
+                ("load_management", "Load Management", ["power_engineering_and_energy"], "负荷管理"),
+                ("loaded_antenna", "Loaded Antennas", ["antennas_and_propagation"], "加载天线"),
+                ("lobeline", "Lobeline", ["biomedical", "chemicals_and_drugs"], "洛贝林"),
+                ("local_binary_pattern", "Local Binary Pattern", ["computer_science"], "局部二值模式"),
+            ]
+        )
+
+    def test_exact_expansion_batch_305_adds_local_feature_and_projection_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("local_descriptor", "Local Descriptors", ["computer_science"], "局部描述符"),
+                ("local_field_potential", "Local Field Potentials", ["signal_processing"], "局部场电位"),
+                ("local_image_descriptor", "Local Image Descriptors", ["computer_science"], "局部图像描述符"),
+                ("local_lymph_node_assay", "Local Lymph Node Assay", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "局部淋巴结试验"),
+                ("local_search_operator", "Local Search Operators", ["computer_science"], "局部搜索算子"),
+                ("locality_preserving_projection", "Locality Preserving Projection", ["computer_science"], "局部保持投影"),
+                ("locally_linear_embedding", "Locally Linear Embedding", ["computer_science"], "局部线性嵌入"),
+            ]
+        )
+
+    def test_exact_expansion_batch_306_adds_localization_and_location_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("localization_accuracy", "Localization Accuracy", ["computer_science"], "定位精度"),
+                ("localization_schem", "Localization Schemes", ["computer_science"], "定位方案"),
+                ("location_awareness", "Location Awareness", ["communications_technology"], "位置感知"),
+                ("location_based_service", "Location Based Service", ["computer_science"], "基于位置的服务"),
+                ("location_fingerprinting", "Location Fingerprinting", ["computer_science"], "位置指纹"),
+                ("location_privacy", "Location Privacy", ["computer_science"], "位置隐私"),
+                ("location_based_social_network", "Location-based Social Networks", ["computer_science"], "基于位置的社交网络"),
+            ]
+        )
+
+    def test_exact_expansion_batch_307_adds_locus_log_and_logic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("locked_in_syndrome", "Locked-in Syndrome", ["biomedical", "diseases"], "闭锁综合征"),
+                ("locu_coeruleu", "Locus Coeruleus", ["anatomy", "biomedical"], "蓝斑"),
+                ("lod_score", "Lod Score", ["computer_science"], "LOD评分"),
+                ("loey_dietz_syndrome", "Loeys-dietz Syndrome", ["biomedical", "diseases"], "Loeys-Dietz综合征"),
+                ("log_analysi", "Log Analysis", ["computer_science"], "日志分析"),
+                ("log_normal_distribution", "Log-normal Distribution", ["mathematics"], "对数正态分布"),
+                ("logic_circuit", "Logic Circuits", ["circuits_and_systems"], "逻辑电路"),
+            ]
+        )
+
+    def test_exact_expansion_batch_308_adds_logic_and_logistic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("logic_gate", "Logic Gate", ["computer_science"], "逻辑门"),
+                ("logic_programming", "Logic Programming", ["computers_and_information_processing"], "逻辑编程"),
+                ("logic_synthesi", "Logic Synthesis", ["computer_science"], "逻辑综合"),
+                ("logical_observation_identifier_nam_and_cod", "Logical Observation Identifiers Names And Codes", ["biomedical", "information_science"], "逻辑观测标识符名称和代码"),
+                ("logistic_map", "Logistic Map", ["computer_science"], "Logistic映射"),
+                ("logistic_regression", "Logistic Regression", ["computer_science"], "Logistic回归"),
+                ("logistic_service_provider", "Logistics Service Provider", ["computer_science"], "物流服务提供商"),
+            ]
+        )
+
+    def test_exact_expansion_batch_309_adds_long_term_and_lstm_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("long_interspersed_nucleotide_element", "Long Interspersed Nucleotide Elements", ["biomedical", "phenomena_and_processes"], "长散在核苷酸元件"),
+                ("long_period_fiber_grating", "Long Period Fiber Grating", ["computer_science"], "长周期光纤光栅"),
+                ("long_qt_syndrome", "Long QT Syndrome", ["biomedical", "diseases"], "长QT综合征"),
+                ("long_short_term_memory", "Long Short Term Memory", ["computational_and_artificial_intelligence"], "长短期记忆"),
+                ("long_term_adverse_effect", "Long Term Adverse Effects", ["biomedical", "diseases"], "长期不良反应"),
+                ("long_chain_3_hydroxyacyl_coa_dehydrogenase", "Long-chain-3-hydroxyacyl-coa Dehydrogenase", ["biomedical", "chemicals_and_drugs"], "长链3-羟酰辅酶A脱氢酶"),
+                ("long_term_potentiation", "Long-term Potentiation", ["biomedical", "phenomena_and_processes"], "长时程增强"),
+            ]
+        )
+
+    def test_exact_expansion_batch_310_adds_longitudinal_loop_and_losartan_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("longevity", "Longevity", ["biomedical", "phenomena_and_processes"], "长寿"),
+                ("longitudinal_control", "Longitudinal Control", ["computer_science"], "纵向控制"),
+                ("longitudinal_ligament", "Longitudinal Ligaments", ["anatomy", "biomedical"], "纵韧带"),
+                ("loop_antenna", "Loop Antennas", ["antennas_and_propagation"], "环形天线"),
+                ("loop_of_henle", "Loop Of Henle", ["anatomy", "biomedical"], "Henle袢"),
+                ("loopy_belief_propagation", "Loopy Belief Propagation", ["computer_science"], "有环置信传播"),
+                ("losartan", "Losartan", ["biomedical", "chemicals_and_drugs"], "氯沙坦"),
+            ]
+        )
+
+    def test_exact_expansion_batch_311_adds_lossless_and_lovastatin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("loss_of_function_mutation", "Loss Of Function Mutation", ["biomedical", "phenomena_and_processes"], "功能缺失突变"),
+                ("loss_of_heterozygosity", "Loss Of Heterozygosity", ["computer_science"], "杂合性缺失"),
+                ("lossless_coding", "Lossless Coding", ["computer_science"], "无损编码"),
+                ("lossless_data_compression", "Lossless Data Compression", ["computer_science"], "无损数据压缩"),
+                ("lossless_data_hiding", "Lossless Data Hiding", ["computer_science"], "无损数据隐藏"),
+                ("lossy_compression", "Lossy Compression", ["computer_science"], "有损压缩"),
+                ("lovastatin", "Lovastatin", ["biomedical", "chemicals_and_drugs"], "洛伐他汀"),
+            ]
+        )
+
+    def test_exact_expansion_batch_312_adds_low_power_and_ldpc_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("low_back_pain", "Low Back Pain", ["biomedical", "diseases"], "下背痛"),
+                ("low_bit_rate", "Low Bit Rate", ["computer_science"], "低比特率"),
+                ("low_carbon_economy", "Low Carbon Economy", ["power_engineering_and_energy"], "低碳经济"),
+                ("low_density_parity_check_cod", "Low Density Parity Check Codes", ["computer_science"], "低密度奇偶校验码"),
+                ("low_earth_orbit_satellit", "Low Earth Orbit Satellites", ["aerospace_and_electronic_systems"], "低地球轨道卫星"),
+                ("low_latency_communication", "Low Latency Communication", ["communications_technology"], "低时延通信"),
+                ("low_power", "Low Power", ["computer_science"], "低功耗"),
+            ]
+        )
+
+    def test_exact_expansion_batch_313_adds_low_resolution_and_low_level_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("low_power_design", "Low Power Design", ["computer_science"], "低功耗设计"),
+                ("low_resolution", "Low Resolution", ["computer_science"], "低分辨率"),
+                ("low_resolution_imag", "Low Resolution Images", ["computer_science"], "低分辨率图像"),
+                ("low_signal_to_noise_ratio", "Low Signal-to-noise Ratio", ["computer_science"], "低信噪比"),
+                ("low_tension_glaucoma", "Low Tension Glaucoma", ["biomedical", "diseases"], "低眼压性青光眼"),
+                ("low_dimensional_manifold", "Low-dimensional Manifolds", ["computer_science"], "低维流形"),
+                ("low_level_light_therapy", "Low-level Light Therapy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "低强度光疗"),
+            ]
+        )
+
+    def test_exact_expansion_batch_314_adds_low_pass_lower_and_low_rank_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("low_noise_amplifier", "Low-noise Amplifiers", ["signal_processing"], "低噪声放大器"),
+                ("low_pass_filter", "Low-pass Filters", ["circuits_and_systems"], "低通滤波器"),
+                ("low_power_wide_area_network", "Low-power Wide Area Networks", ["communications_technology"], "低功耗广域网"),
+                ("low_rank_adaptation", "Low-rank Adaptation", ["computer_science"], "低秩适配"),
+                ("low_temperature_plasma", "Low-temperature Plasmas", ["nuclear_and_plasma_sciences"], "低温等离子体"),
+                ("lower_bound", "Lower Bound", ["mathematics"], "下界"),
+                ("lower_urinary_tract_symptom", "Lower Urinary Tract Symptoms", ["biomedical", "diseases"], "下尿路症状"),
+            ]
+        )
+
+    def test_exact_expansion_batch_315_adds_lte_ltl_lu_and_lubricant_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lown_ganong_levine_syndrome", "Lown-ganong-levine Syndrome", ["biomedical", "diseases"], "Lown-Ganong-Levine综合征"),
+                ("lte_uplink", "Lte Uplink", ["computer_science"], "LTE上行链路"),
+                ("lti_system", "Lti Systems", ["computer_science"], "LTI系统"),
+                ("ltl_model_checking", "Ltl Model-checking", ["computer_science"], "LTL模型检测"),
+                ("lu_factorization", "Lu Factorization", ["computer_science"], "LU分解"),
+                ("lubiprostone", "Lubiprostone", ["biomedical", "chemicals_and_drugs"], "鲁比前列酮"),
+                ("lubricating_oils", "Lubricating Oils", ["materials_elements_and_compounds"], "润滑油"),
+            ]
+        )
+
+    def test_exact_expansion_batch_316_adds_luciferase_lumbar_and_lung_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("luciferase", "Luciferases", ["biomedical", "chemicals_and_drugs"], "荧光素酶"),
+                ("luciferase_firefly", "Luciferases, Firefly", ["biomedical", "chemicals_and_drugs"], "萤火虫荧光素酶"),
+                ("ludwig_s_angina", "Ludwig's Angina", ["biomedical", "diseases"], "路德维希咽峡炎"),
+                ("lumbar_vertebrae", "Lumbar Vertebrae", ["anatomy", "biomedical"], "腰椎"),
+                ("lumbosacral_plexu", "Lumbosacral Plexus", ["anatomy", "biomedical"], "腰骶丛"),
+                ("luminol", "Luminol", ["biomedical", "chemicals_and_drugs"], "鲁米诺"),
+                ("lung", "Lung", ["anatomy", "biomedical"], "肺脏"),
+            ]
+        )
+
+    def test_exact_expansion_batch_317_adds_lung_disease_and_lupus_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lung_abscess", "Lung Abscess", ["biomedical", "diseases"], "肺脓肿"),
+                ("lung_compliance", "Lung Compliance", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "肺顺应性"),
+                ("lung_disease_interstitial", "Lung Diseases, Interstitial", ["biomedical", "diseases"], "间质性肺疾病"),
+                ("lung_neoplasm", "Lung Neoplasms", ["biomedical", "diseases"], "肺肿瘤"),
+                ("lung_transplantation", "Lung Transplantation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "肺移植"),
+                ("lupu_erythematosu_systemic", "Lupus Erythematosus, Systemic", ["biomedical", "diseases"], "系统性红斑狼疮"),
+                ("lupu_nephriti", "Lupus Nephritis", ["biomedical", "diseases"], "狼疮性肾炎"),
+            ]
+        )
+
+    def test_exact_expansion_batch_318_adds_lutein_lutetium_and_lyapunov_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lurasidone_hydrochloride", "Lurasidone Hydrochloride", ["biomedical", "chemicals_and_drugs"], "盐酸鲁拉西酮"),
+                ("luteal_phase", "Luteal Phase", ["biomedical", "phenomena_and_processes"], "黄体期"),
+                ("luteinizing_hormone", "Luteinizing Hormone", ["biomedical", "chemicals_and_drugs"], "黄体生成素"),
+                ("luteolytic_agent", "Luteolytic Agents", ["biomedical", "chemicals_and_drugs"], "溶黄体剂"),
+                ("lutetium", "Lutetium", ["materials_elements_and_compounds"], "镥元素"),
+                ("lyapunov_equation", "Lyapunov Equation", ["computer_science"], "Lyapunov方程"),
+                ("lyapunov_krasovskii_functional", "Lyapunov-krasovskii Functional", ["computer_science"], "Lyapunov-Krasovskii泛函"),
+            ]
+        )
+
+    def test_exact_expansion_batch_319_adds_lyme_and_lymphatic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lyase", "Lyases", ["biomedical", "chemicals_and_drugs"], "裂解酶类"),
+                ("lycopene", "Lycopene", ["biomedical", "chemicals_and_drugs"], "番茄红素"),
+                ("lyme_disease", "Lyme Disease", ["biomedical", "diseases"], "莱姆病"),
+                ("lyme_neuroborreliosi", "Lyme Neuroborreliosis", ["biomedical", "diseases"], "莱姆神经疏螺旋体病"),
+                ("lymphadeniti", "Lymphadenitis", ["biomedical", "diseases"], "淋巴结炎"),
+                ("lymphangioma_cystic", "Lymphangioma, Cystic", ["biomedical", "diseases"], "囊性淋巴管瘤"),
+                ("lymphedema", "Lymphedema", ["biomedical", "diseases"], "淋巴水肿"),
+            ]
+        )
+
+    def test_exact_expansion_batch_320_adds_lymphocyte_and_lymphoma_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lymphocyte_activation", "Lymphocyte Activation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "淋巴细胞活化"),
+                ("lymphocyte_count", "Lymphocyte Count", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "淋巴细胞计数"),
+                ("lymphocyte_function_associated_antigen_1", "Lymphocyte Function-associated Antigen-1", ["biomedical", "chemicals_and_drugs"], "淋巴细胞功能相关抗原1"),
+                ("lymphocyte_subset", "Lymphocyte Subsets", ["anatomy", "biomedical"], "淋巴细胞亚群"),
+                ("lymphocytic_choriomeningiti", "Lymphocytic Choriomeningitis", ["biomedical", "diseases"], "淋巴细胞性脉络丛脑膜炎"),
+                ("lymphogranuloma_venereum", "Lymphogranuloma Venereum", ["biomedical", "diseases"], "性病性淋巴肉芽肿"),
+                ("lymphoma_non_hodgkin", "Lymphoma, Non-hodgkin", ["biomedical", "diseases"], "非霍奇金淋巴瘤"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

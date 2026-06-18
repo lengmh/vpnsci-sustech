@@ -153,47 +153,68 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-18 zh-exact-expansion-batch-281-to-300 后）：
+最新已知状态（2026-06-18 zh-exact-expansion-batch-301-to-320 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`8671 / 48864 = 17.75%`
-- runtime zh aliases: `8685`
+- runtime 中文覆盖：`9030 / 48866 = 18.48%`
+- runtime zh aliases: `9044`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `8685`
-- `zh:blocked`: `11524`
+- `zh:accept`: `9044`
+- `zh:blocked`: `11516`
 - `zh:needs_review`: `0`
-- `zh:reject`: `172`
+- `zh:reject`: `167`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `48864`
+- runtime concept aliases: `48866`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
-- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-300 运行时以 compact index/manifest 为准）
+- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-320 运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `f1288e19183fc0676f9de559f7e11a82271352597c77e1e7325ff4c91aabdbbc`
+  `cad492abc92dade8e94d6cd7468b0a081c471f725094c7015bf27706050e7c00`
 - compact manifest SHA-256:
-  `b9acc4b9c495ed6abf2966a6d6128473400bb11fba3e54967d7e5c13b9339600`
+  `d3e6a7f288fb2c5f11a3ccdd20d1dc2340ca849c62aa9b4ddf00c041b34e1415`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact index 是 batch-300 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-300 更新，不再作为默认等价检查对象。
-- 最近相关测试：`363 passed in 2.91s`。
+- compact index 是 batch-320 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-320 更新，不再作为默认等价检查对象。
+- 最近相关测试：`383 passed in 2.90s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- batch-281 至 batch-300 中文 coverage 扩展已完成，runtime 中文覆盖已到 `17.75%`；用户要求继续 20-batch 分组处理并逐轮 commit，直到 runtime 中文覆盖超过 `20%`；
+- batch-301 至 batch-320 中文 coverage 扩展已完成，runtime 中文覆盖已到 `18.48%`；用户要求继续 20-batch 分组处理并逐轮 commit，直到 runtime 中文覆盖超过 `20%`；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
+- 最新 batch-301 至 batch-320 exact/domain-aware 小批次已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_301_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_320_ALIASES`，覆盖 liquid/listeria/lithium/liver/load/local/location/logic/logistic、long-term/LSTM、lossless/low-power、LTE/LU/lubricants、luciferase/luminescence/lung/lupus、lutein/Lyapunov/Lyme/lymphatic/lymphocyte/lymphoma 等 exact/domain-aware 术语；
+  - 新增 `20` 个代表性回归测试，先红灯后转绿；保持单字中文 alias 门禁，不放宽全局形态约束，将 `Liver`/`Lung` exact 输出改为 `肝脏`/`肺脏`；
+  - grouped L3-L5：fill `records_filled = 20519`，validate `review_decisions = 369840`；
+  - 显式接受 `362` 条 exact/domain-aware recommendation；
+  - 显式阻断 `4` 条 medium compositional/domain-title side-effect；另有 `51` 条 exact-backed 输出由 validator 因 duplicate/collision 保持 blocked，`2` 条 medium compositional collision 也保持 blocked；
+  - validation 后恢复 `713` 条既有 English ambiguous blocked 决策，保持 `en:needs_review = 0`；
+  - runtime 中文覆盖从 `8671 / 48864 = 17.75%` 增至 `9030 / 48866 = 18.48%`；
+  - `zh:accept`: `9044`，`zh:blocked`: `11516`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `cad492abc92dade8e94d6cd7468b0a081c471f725094c7015bf27706050e7c00`；
+  - compact manifest SHA-256: `d3e6a7f288fb2c5f11a3ccdd20d1dc2340ca849c62aa9b4ddf00c041b34e1415`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - 相关测试：`383 passed in 2.90s`。
+- batch-320 后 review：
+  - 本轮新增 `359` 个 runtime zh-covered concepts，覆盖率到 `18.48%`，距 `>20%` 目标仍需继续；
+  - `遗传老化与模型生物体中的长寿`、`食品安全中的单核细胞增生李斯特菌`、`读写能力与教育实践`、`读写能力媒体与教育` 等 medium side-effect 已显式 blocked；
+  - `长短期记忆`、`低通滤波器`、`局域网`、`逻辑门`、`环形天线` 等 exact-backed 输出因多 concept duplicate/collision 保持 blocked，不自动 merge；
+  - query smoke 已确认 `液-液萃取`、`锂硫电池`、`肝特异性有机阴离子转运蛋白1`、`负荷频率控制`、`局部保持投影`、`基于位置的社交网络`、`Logistic回归`、`LTE上行链路`、`荧光素酶`、`间质性肺疾病`、`Lyapunov稳定性`、`莱姆病`、`淋巴管生成`、`非霍奇金淋巴瘤` 可命中；blocked side-effect 不命中；
+  - 下一轮从 batch-321 至 batch-340 继续，优先 lymphomatoid/lysine/lysosomal/M-phase/MAC/Mach 后续 high-confidence exact 术语。
 - 最新 batch-281 至 batch-300 exact/domain-aware 小批次已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_281_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_300_ALIASES`，覆盖 least/lectin/leg/legacy、Leishmania/leprosy/leptospira、leucine/leukemia/leukocyte/leukotriene、Lewis/library/LiDAR/life/light、linear/link/lipid/lipoprotein/liquid 等 exact/domain-aware 术语；
   - 新增 `20` 个代表性回归测试，先红灯后转绿；
