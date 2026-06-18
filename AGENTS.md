@@ -192,8 +192,20 @@ lexicons/review/
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
 - batch-361 至 batch-380 中文 coverage 扩展已完成，runtime 中文覆盖已到 `20.14%`，用户要求的 `>20%` 目标已达成；
+- post-20% 质量复盘已开始并完成第一轮只读 smoke；下一步建议先在“继续冲 25% coverage”和“进入受控 L6 treemap/text fallback 候选抽取优化”之间做选择；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
+- post-20% 复盘要点：
+  - 质量审计 artifact:
+    `F:\AI playground\TempFiles\theme_alias_post20_quality_review.json`；
+  - theme smoke artifact:
+    `F:\AI playground\TempFiles\theme_alias_post20_theme_smoke_refined.json`；
+  - batch-361 至 batch-380 recommendation 复查：`348` accept，`23` blocked；heuristic suspect accepted `19` 条，多数为 `MATLAB`/`MEMS`/Meigs/Meige 等合法中英混排或 title-shaped exact concept，未发现需要立即回滚的 runtime pollution；
+  - blocked exact-like 复查命中 `17` 条，包括 `循证医学`、`农业机械化`、`模糊隶属函数`、`传染病医学`、`等离子体材料加工`、`受体黑皮质素*`、`受体褪黑素*` 等；这些不应 blanket accept，后续应通过独立 exact/domain-specific review 或 canonical merge 决策打开；
+  - alias conflict raw groups: `en = 3500`，`zh = 1731`，但 runtime accepted conflicts 仍为 `0`；
+  - query smoke：预期 runtime alias `12 / 12` 命中；预期 blocked alias `0 / 7` 误命中；
+  - treemap/text fallback smoke：`build_text_themes` 可产生 `Mean Absolute Error / 平均绝对误差`、`Medication Adherence / 用药依从性`、`Median Filter / 中值滤波器` 等 concept-level themes；
+  - 窄 L6 修复已完成：中文 text candidate extractor 现在会先扫描 compact runtime 中已接受的中文 alias 短语，再走原 n-gram fallback，并过滤被已选 concept alias 覆盖的短片段；`主从系统` 已稳定归并到 `concept:master_slave_system`，不再显示 `主从系`。
 - 最新 batch-361 至 batch-380 exact/domain-aware 小批次已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_361_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_380_ALIASES`，覆盖 mast/match/material/maternal/mathematical/matrix/max/mean/mechanical/media/medical/medicine/melanin/membrane/memory 等 exact/domain-aware 术语；
   - 新增 `20` 个代表性回归测试，先红灯后转绿；将 `MATLAB`、`Matlab-simulink` 改为含中文成分的 `MATLAB软件`、`MATLAB/Simulink软件`，避免 English-only zh alias；

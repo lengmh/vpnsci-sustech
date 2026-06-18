@@ -425,17 +425,51 @@ def _is_valid_chinese_theme_candidate(term: str) -> bool:
     return True
 
 
+def _is_chinese_term(term: str) -> bool:
+    return any("\u4e00" <= ch <= "\u9fff" for ch in term or "")
+
+
+def _build_chinese_concept_alias_terms() -> tuple[str, ...]:
+    terms = set()
+    for alias_key in THEME_CONCEPT_ALIAS_INDEX:
+        if not str(alias_key).startswith("zh:"):
+            continue
+        term = str(alias_key)[3:]
+        if not (4 <= len(term) <= 20):
+            continue
+        if not _is_chinese_term(term):
+            continue
+        if _is_noisy_theme_term(term) or not _is_valid_chinese_theme_candidate(term):
+            continue
+        terms.add(term)
+    return tuple(sorted(terms, key=lambda item: (-len(item), item)))
+
+
+THEME_CONCEPT_ALIAS_ZH_TERMS = _build_chinese_concept_alias_terms()
+
+
+def _chinese_concept_alias_matches(text: str) -> list[str]:
+    if not _is_chinese_term(text):
+        return []
+    normalized_text = _normalize_concept_alias(text)
+    return [
+        term
+        for term in THEME_CONCEPT_ALIAS_ZH_TERMS
+        if term in text or term in normalized_text
+    ]
+
+
 def _theme_term_candidates(paper: dict[str, Any]) -> list[str]:
     text = _paper_text(paper)
     return [
         term
-        for term in (_english_term_candidates(text) + _chinese_term_candidates(text))
+        for term in (
+            _english_term_candidates(text)
+            + _chinese_concept_alias_matches(text)
+            + _chinese_term_candidates(text)
+        )
         if not _is_noisy_theme_term(term)
     ]
-
-
-def _is_chinese_term(term: str) -> bool:
-    return any("\u4e00" <= ch <= "\u9fff" for ch in term or "")
 
 
 def _concept_alias_key(term: str) -> str:
@@ -535,6 +569,25 @@ def _is_redundant_theme_term(
             return True
         if existing_term in term and len(existing_term) < len(term):
             continue
+    return False
+
+
+def _is_redundant_with_selected_concept_alias(
+    term: str,
+    paper_ids: tuple[str, ...],
+    selected_concepts: list[tuple[str, tuple[str, ...]]],
+    concept_matched_aliases: dict[str, dict[str, set[str]]],
+) -> bool:
+    term_papers = set(paper_ids)
+    for concept_id, concept_paper_ids in selected_concepts:
+        if not term_papers.issubset(set(concept_paper_ids)):
+            continue
+        for aliases in concept_matched_aliases[concept_id].values():
+            for alias in aliases:
+                if not alias or term == alias:
+                    continue
+                if _is_chinese_term(term) and _is_chinese_term(alias) and term in alias:
+                    return True
     return False
 
 
@@ -692,6 +745,17 @@ def build_text_themes(
     )
 
     selected_concepts = concept_candidates[:max_themes]
+    if selected_concepts:
+        candidate_terms = [
+            (term, paper_ids)
+            for term, paper_ids in candidate_terms
+            if not _is_redundant_with_selected_concept_alias(
+                term,
+                paper_ids,
+                selected_concepts,
+                concept_matched_aliases,
+            )
+        ]
     remaining_slots = max(0, max_themes - len(selected_concepts))
     selected_terms, raw_status = _select_text_theme_candidates(
         candidate_terms,
