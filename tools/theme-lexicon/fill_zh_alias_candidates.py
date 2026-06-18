@@ -13312,6 +13312,226 @@ ZH_EXACT_EXPANSION_BATCH_500_ALIASES = {
         "music information retrieval": "音乐信息检索",
 }
 
+ZH_EXACT_EXPANSION_BATCH_501_ALIASES = {
+        "music players": "音乐播放器",
+        "music recommendation": "音乐推荐",
+        "music retrieval": "音乐检索",
+        "music signals": "音乐信号",
+        "music similarity": "音乐相似性",
+        "music therapy": "音乐疗法",
+        "musical instruments": "乐器",
+        "musical instrument digital interfaces": "乐器数字接口",
+}
+
+ZH_EXACT_EXPANSION_BATCH_502_ALIASES = {
+        "musical noise": "音乐噪声",
+        "musical performance": "音乐表演",
+        "must-carry regulations": "必载规则",
+        "mustard compounds": "芥子化合物",
+        "mustard gas": "芥子气",
+        "mustard plant": "芥菜",
+        "mustelidae": "鼬科",
+        "mutagens": "诱变剂",
+}
+
+ZH_EXACT_EXPANSION_BATCH_503_ALIASES = {
+        "mutagenesis, insertional": "插入诱变",
+        "mutagenesis, site-directed": "定点诱变",
+        "mutagenicity tests": "致突变性试验",
+        "mutant chimeric proteins": "突变嵌合蛋白",
+        "mutant proteins": "突变蛋白",
+        "mutation accumulation": "突变积累",
+        "mutation, missense": "错义突变",
+        "mutation operations": "变异操作",
+}
+
+ZH_EXACT_EXPANSION_BATCH_504_ALIASES = {
+        "mutation operator": "变异算子",
+        "mutation rate": "突变率",
+        "mutation strategy": "变异策略",
+        "mutism": "缄默症",
+        "mutual authentication": "双向认证",
+        "mutual coupling": "互耦",
+        "mutual coupling effects": "互耦效应",
+        "mutual information": "互信息",
+}
+
+ZH_EXACT_EXPANSION_BATCH_505_ALIASES = {
+        "myalgia": "肌痛",
+        "myasthenia gravis and thymoma": "重症肌无力与胸腺瘤",
+        "myasthenia gravis, autoimmune, experimental": "实验性自身免疫性重症肌无力",
+        "myasthenic syndromes, congenital": "先天性肌无力综合征",
+        "mycelium": "菌丝体",
+        "mycetoma": "足菌肿",
+        "mycetozoa": "黏菌动物",
+        "mycobacteriaceae": "分枝杆菌科",
+}
+
+ZH_EXACT_EXPANSION_BATCH_506_ALIASES = {
+        "mycobacteriophages": "分枝杆菌噬菌体",
+        "mycobacterium": "分枝杆菌属",
+        "mycobacterium abscessus": "脓肿分枝杆菌",
+        "mycobacterium avium": "鸟分枝杆菌",
+        "mycobacterium avium complex": "鸟分枝杆菌复合群",
+        "mycobacterium avium-intracellulare infection": "鸟分枝杆菌-胞内分枝杆菌感染",
+        "mycobacterium avium subsp. paratuberculosis": "副结核分枝杆菌",
+        "mycobacterium bovis": "牛分枝杆菌",
+}
+
+ZH_EXACT_EXPANSION_BATCH_507_ALIASES = {
+        "mycobacterium chelonae": "龟分枝杆菌",
+        "mycobacterium fortuitum": "偶发分枝杆菌",
+        "mycobacterium haemophilum": "嗜血分枝杆菌",
+        "mycobacterium infections": "分枝杆菌感染",
+        "mycobacterium infections, nontuberculous": "非结核分枝杆菌感染",
+        "mycobacterium kansasii": "堪萨斯分枝杆菌",
+        "mycobacterium leprae": "麻风分枝杆菌",
+        "mycobacterium lepraemurium": "鼠麻风分枝杆菌",
+}
+
+ZH_EXACT_EXPANSION_BATCH_508_ALIASES = {
+        "mycobacterium marinum": "海分枝杆菌",
+        "mycobacterium phlei": "草分枝杆菌",
+        "mycobacterium scrofulaceum": "瘰疬分枝杆菌",
+        "mycobacterium smegmatis": "耻垢分枝杆菌",
+        "mycobacterium tuberculosis": "结核分枝杆菌",
+        "mycobacterium ulcerans": "溃疡分枝杆菌",
+        "mycobiome": "真菌组",
+        "mycolic acids": "分枝菌酸",
+}
+
+ZH_EXACT_EXPANSION_BATCH_509_ALIASES = {
+        "mycological typing techniques": "真菌学分型技术",
+        "mycology": "真菌学",
+        "mycophenolic acid": "霉酚酸",
+        "mycoplasma": "支原体",
+        "mycoplasma agalactiae": "无乳支原体",
+        "mycoplasma arthritidis": "关节炎支原体",
+        "mycoplasma bovis": "牛支原体",
+        "mycoplasma bovigenitalium": "牛生殖道支原体",
+}
+
+ZH_EXACT_EXPANSION_BATCH_510_ALIASES = {
+        "mycoplasma capricolum": "山羊支原体",
+        "mycoplasma conjunctivae": "结膜支原体",
+        "mycoplasma fermentans": "发酵支原体",
+        "mycoplasma gallisepticum": "鸡毒支原体",
+        "mycoplasma genitalium": "生殖支原体",
+        "mycoplasma hominis": "人型支原体",
+        "mycoplasma hyopneumoniae": "猪肺炎支原体",
+        "mycoplasma hyorhinis": "猪鼻支原体",
+}
+
+ZH_EXACT_EXPANSION_BATCH_511_ALIASES = {
+        "mycoplasma hyosynoviae": "猪滑液支原体",
+        "mycoplasma infections": "支原体感染",
+        "mycoplasma iowae": "爱荷华支原体",
+        "mycoplasma meleagridis": "火鸡支原体",
+        "mycoplasma orale": "口腔支原体",
+        "mycoplasma ovipneumoniae": "绵羊肺炎支原体",
+        "mycoplasma penetrans": "穿透支原体",
+        "mycoplasma pneumoniae": "肺炎支原体",
+}
+
+ZH_EXACT_EXPANSION_BATCH_512_ALIASES = {
+        "mycoplasma pulmonis": "肺支原体",
+        "mycoplasma salivarium": "唾液支原体",
+        "mycoplasma synoviae": "滑液支原体",
+        "mycoplasmataceae": "支原体科",
+        "mycoplasmatales": "支原体目",
+        "mycoplasmatales infections": "支原体目感染",
+        "mycorrhizae": "菌根",
+        "mycoses": "真菌病",
+}
+
+ZH_EXACT_EXPANSION_BATCH_513_ALIASES = {
+        "mycosis fungoides": "蕈样肉芽肿",
+        "mycosphaerella": "球腔菌属",
+        "mycotoxicosis": "霉菌毒素中毒",
+        "mycotoxins": "霉菌毒素",
+        "mydriasis": "瞳孔散大",
+        "mydriatics": "散瞳药",
+        "myelencephalon": "髓脑",
+        "myelin basic protein": "髓鞘碱性蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_514_ALIASES = {
+        "myelin-oligodendrocyte glycoprotein": "髓鞘少突胶质细胞糖蛋白",
+        "myelin oligodendrocyte glycoprotein antibody-associated disease": "髓鞘少突胶质细胞糖蛋白抗体相关疾病",
+        "myelin proteolipid protein": "髓鞘蛋白脂质蛋白",
+        "myelinolysis, central pontine": "脑桥中央髓鞘溶解症",
+        "myelitis": "脊髓炎",
+        "myelitis, transverse": "横贯性脊髓炎",
+        "myelodysplastic-myeloproliferative diseases": "骨髓增生异常-骨髓增殖性疾病",
+        "myelodysplastic syndromes": "骨髓增生异常综合征",
+}
+
+ZH_EXACT_EXPANSION_BATCH_515_ALIASES = {
+        "myelography": "脊髓造影",
+        "myeloid cells": "髓系细胞",
+        "myeloid-derived suppressor cells": "髓源性抑制细胞",
+        "myeloid differentiation factor 88": "髓样分化因子88",
+        "myeloid progenitor cells": "髓系祖细胞",
+        "myelolipoma": "骨髓脂肪瘤",
+        "myelopoiesis": "髓系造血",
+        "myeloproliferative disorders": "骨髓增殖性疾病",
+}
+
+ZH_EXACT_EXPANSION_BATCH_516_ALIASES = {
+        "myenteric plexus": "肌间神经丛",
+        "myiasis": "蝇蛆病",
+        "myo-inositol-1-phosphate synthase": "肌醇-1-磷酸合酶",
+        "myoblasts": "成肌细胞",
+        "myoblasts, cardiac": "心肌成肌细胞",
+        "myoblasts, skeletal": "骨骼肌成肌细胞",
+        "myoblasts, smooth muscle": "平滑肌成肌细胞",
+        "myocardial bridging": "心肌桥",
+}
+
+ZH_EXACT_EXPANSION_BATCH_517_ALIASES = {
+        "myocardial contraction": "心肌收缩",
+        "myocardial contusions": "心肌挫伤",
+        "myocardial depressant factor": "心肌抑制因子",
+        "myocardial perfusion imaging": "心肌灌注显像",
+        "myocardin": "心肌素",
+        "myoclonic cerebellar dyssynergia": "肌阵挛性小脑协同不能",
+        "myoclonic epilepsy, juvenile": "青少年肌阵挛性癫痫",
+        "myoclonic epilepsies, progressive": "进行性肌阵挛性癫痫",
+}
+
+ZH_EXACT_EXPANSION_BATCH_518_ALIASES = {
+        "myoclonus": "肌阵挛",
+        "myocutaneous flap": "肌皮瓣",
+        "myocytes, cardiac": "心肌细胞",
+        "myocytes, smooth muscle": "平滑肌细胞",
+        "myoelectric complex, migrating": "移行性肌电复合波",
+        "myoelectric control": "肌电控制",
+        "myoepithelioma": "肌上皮瘤",
+        "myofascial pain syndromes": "肌筋膜疼痛综合征",
+}
+
+ZH_EXACT_EXPANSION_BATCH_519_ALIASES = {
+        "myofascial release therapy": "肌筋膜松解疗法",
+        "myofibrils": "肌原纤维",
+        "myofibroblasts": "肌成纤维细胞",
+        "myofibroma": "肌纤维瘤",
+        "myofibromatosis": "肌纤维瘤病",
+        "myofunctional therapy": "肌功能疗法",
+        "myogenic regulatory factors": "肌生成调节因子",
+        "myogenic regulatory factor 5": "肌生成调节因子5",
+}
+
+ZH_EXACT_EXPANSION_BATCH_520_ALIASES = {
+        "myogenin": "肌生成素",
+        "myoglobin": "肌红蛋白",
+        "myoglobinuria": "肌红蛋白尿",
+        "myokines": "肌因子",
+        "myokymia": "肌纤维颤搐",
+        "myoma": "肌瘤",
+        "myometrium": "子宫肌层",
+        "myosarcoma": "肌肉肉瘤",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -13814,6 +14034,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_497_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_498_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_499_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_500_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_501_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_502_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_503_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_504_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_505_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_506_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_507_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_508_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_509_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_510_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_511_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_512_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_513_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_514_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_515_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_516_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_517_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_518_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_519_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_520_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",
