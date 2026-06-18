@@ -153,45 +153,45 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-18 zh-exact-expansion-batch-501-to-520 后）：
+最新已知状态（2026-06-18 zh-exact-expansion-batch-521-to-540 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`10883 / 48879 = 22.27%`
-- runtime zh aliases: `10897`
+- runtime 中文覆盖：`11011 / 48882 = 22.53%`
+- runtime zh aliases: `11025`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `10897`
-- `zh:blocked`: `11519`
+- `zh:accept`: `11025`
+- `zh:blocked`: `11597`
 - `zh:needs_review`: `0`
 - `zh:reject`: `153`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `48879`
+- runtime concept aliases: `48882`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
-- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-520 运行时以 compact index/manifest 为准）
+- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-540 运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `9f7e70a2b27184a8ce8e100314c68db07362d5639cc19c9061b597313546afb9`
+  `50becfae2c275d1cf8e4447000655e44926ef56add2e8308e52cad89b37505f9`
 - compact manifest SHA-256:
-  `4e2b1cfda3587f5509390127be5c3c9a4c1498accc96aafb271c8c7dcd4183bb`
+  `712d8714da94ae690bbe95a3c7cacd42d069c0d121461ceb356d4b76bda44e17`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact index 是 batch-520 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-520 更新，不再作为默认等价检查对象。
-- 最近相关测试：`583 passed in 3.11s`。
+- compact index 是 batch-540 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-540 更新，不再作为默认等价检查对象。
+- 最近相关测试：`603 passed in 3.85s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- batch-501 至 batch-520 中文 coverage 扩展已完成，runtime 中文覆盖已到 `22.27%`；用户当前目标是继续 20-batch 分组推进到 `>25%`，尚未达成；
+- batch-521 至 batch-540 中文 coverage 扩展已完成，runtime 中文覆盖已到 `22.53%`；用户当前目标是继续 20-batch 分组推进到 `>25%`，尚未达成；
 - post-20% 质量复盘和窄 L6 treemap/text fallback 修复已完成；当前主线回到 exact/domain-aware 中文 alias 覆盖扩展；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
@@ -227,6 +227,27 @@ lexicons/review/
   - 本轮新增 `120` 个 runtime zh-covered concepts，覆盖率增至 `21.96%`，仍未达到 `>25%`；
   - `Multiple Kernels`、`MIMO Radar` 等新 exact 词条触发旧 domain-sensitive 约定，已改为服从既有术语，不用英文缩写或更具体 alias 覆盖旧行为；
   - 下一轮应继续 batch-501 至 batch-520，优先从 music/mutation/mycobacterium/myocardial/nanoparticle/neural 等 high-confidence exact 术语推进。
+- 最新 batch-521 至 batch-540 exact/domain-aware 小批次已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_521_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_540_ALIASES`，覆盖 myosin/myositis/myotonia/myxoma、N-acetyl/N-terminal/NAD/NADPH、Naegleria/nail/Naive Bayes/Nakagami/Naloxone、named entity/NAND/nano、naphthalene/narcissism/narcolepsy/nasal 等 exact/domain-aware 术语；
+  - 新增 `20` 个代表性回归测试，先红灯后转绿；其中 `Nanometers -> 纳米` 仅生成候选但因 standalone generic unit 过宽保持 blocked，`肌球蛋白重链`、`朴素贝叶斯` 由旧 non-collision blocked 决策显式重开；
+  - grouped L3-L5：fill `records_filled = 22562`，validate `review_decisions = 371888`；
+  - 显式接受 `126` 条 exact/domain-aware recommendation，另重开 `2` 条旧 non-collision exact block；
+  - 显式阻断 `19` 条中文候选，包括 `17` 条 medium compositional side-effect、`1` 条 low mixed fallback 和 `纳米` standalone generic unit；
+  - validator 重现的 `713` 条英文 acronym needs_review 按既有策略 blocked；
+  - `NAND闪存`、`纳米技术`、`纳米颗粒`、`纳米线`、`纳米生物技术` 等 exact-backed 输出因 duplicate/collision 保持 blocked，不自动 merge；
+  - runtime 中文覆盖从 `10883 / 48879 = 22.27%` 增至 `11011 / 48882 = 22.53%`；
+  - `zh:accept`: `11025`，`zh:blocked`: `11597`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `50becfae2c275d1cf8e4447000655e44926ef56add2e8308e52cad89b37505f9`；
+  - compact manifest SHA-256: `712d8714da94ae690bbe95a3c7cacd42d069c0d121461ceb356d4b76bda44e17`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - query smoke 已确认 `肌球蛋白重链`、`朴素贝叶斯` 可命中；`纳米`、`纳米技术`、`SDMH` 保持不命中；
+  - 相关测试：`603 passed in 3.85s`。
+- batch-540 后 review：
+  - 本轮新增 `128` 个 runtime zh-covered concepts，覆盖率增至 `22.53%`，仍未达到 `>25%`；
+  - nano 段 exact 词条碰撞密集，继续不自动 merge；泛词 `纳米` 已阻断，避免 runtime 中文匹配污染；
+  - 下一轮应继续 batch-541 至 batch-560，优先从 nasal/nasopharyngeal/natural language/neural/network 等高确定性 exact 术语推进。
 - 最新 batch-501 至 batch-520 exact/domain-aware 小批次已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_501_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_520_ALIASES`，覆盖 music/mutagenesis/mutation、mutual information/authentication、mycobacterium/mycoplasma、myelin/myeloid/myocardial/myofascial/myoglobin 等 M 段 exact/domain-aware 术语；
   - 新增 `20` 个代表性回归测试，先红灯后转绿；其中 `Mutation Operator` 从旧组合输出 `突变算子` 修正为领域内更常用的 `变异算子`；
