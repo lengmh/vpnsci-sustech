@@ -13023,6 +13023,286 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_601_adds_neuronal_and_neuron_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neuronal_outgrowth", "Neuronal Outgrowth", ["biomedical", "phenomena_and_processes"], "神经元突起生长"),
+                ("neuronal_plasticity", "Neuronal Plasticity", ["biomedical", "phenomena_and_processes"], "神经元可塑性"),
+                ("neuronal_tract_tracer", "Neuronal Tract-tracers", ["biomedical", "chemicals_and_drugs"], "神经元束示踪剂"),
+                ("neuronavigation", "Neuronavigation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "神经导航"),
+                ("neuron", "Neurons", ["anatomy", "biomedical"], "神经元"),
+                ("neuron_and_cognition", "Neurons And Cognition", ["quantitative_biology"], "神经元与认知"),
+                ("neuron_afferent", "Neurons, Afferent", ["anatomy", "biomedical"], "传入神经元"),
+                ("neuron_efferent", "Neurons, Efferent", ["anatomy", "biomedical"], "传出神经元"),
+            ]
+        )
+
+    def test_exact_expansion_batch_602_adds_neuropathology_neuropeptide_and_monitoring_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neuropathology", "Neuropathology", ["engineering_in_medicine_and_biology"], "神经病理学"),
+                ("neuropathology__2", "Neuropathology", ["biomedical", "disciplines_and_occupations"], "神经病理学"),
+                ("neuropeptide_y", "Neuropeptide Y", ["biomedical", "chemicals_and_drugs"], "神经肽Y"),
+                ("neuropeptid", "Neuropeptides", ["biomedical", "chemicals_and_drugs"], "神经肽"),
+                ("neuropeptid_and_animal_physiology", "Neuropeptides And Animal Physiology", ["life_sciences", "neuroscience"], "神经肽与动物生理学"),
+                ("neuropharmacology", "Neuropharmacology", ["biomedical", "disciplines_and_occupations"], "神经药理学"),
+                ("neurophysin", "Neurophysins", ["biomedical", "chemicals_and_drugs"], "神经垂体激素运载蛋白"),
+                ("neurophysiological_monitoring", "Neurophysiological Monitoring", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "神经生理监测"),
+            ]
+        )
+
+    def test_exact_expansion_batch_603_adds_neurophysiology_neuropil_and_neuropilin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neurophysiology", "Neurophysiology", ["biomedical", "disciplines_and_occupations"], "神经生理学"),
+                ("neuropil", "Neuropil", ["anatomy", "biomedical"], "神经毡"),
+                ("neuropil_thread", "Neuropil Threads", ["anatomy", "biomedical"], "神经毡丝"),
+                ("neuropilin_1", "Neuropilin-1", ["biomedical", "chemicals_and_drugs"], "神经纤毛蛋白1"),
+                ("neuropilin_2", "Neuropilin-2", ["biomedical", "chemicals_and_drugs"], "神经纤毛蛋白2"),
+                ("neuropilin", "Neuropilins", ["biomedical", "chemicals_and_drugs"], "神经纤毛蛋白"),
+                ("neuroprostan", "Neuroprostanes", ["biomedical", "chemicals_and_drugs"], "神经前列烷"),
+                ("neuroprosthese", "Neuroprostheses", ["engineering_in_medicine_and_biology"], "神经假体"),
+            ]
+        )
+
+    def test_exact_expansion_batch_604_adds_neuroprotection_and_neuropsychology_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neuroprosthese__2", "Neuroprostheses", ["science_general"], "神经假体"),
+                ("neuroprotection", "Neuroprotection", ["biomedical", "phenomena_and_processes"], "神经保护"),
+                ("neuroprotective_agent", "Neuroprotective Agents", ["biomedical", "chemicals_and_drugs"], "神经保护剂"),
+                ("neuropsychiatry", "Neuropsychiatry", ["biomedical", "psychiatry_and_psychology"], "神经精神病学"),
+                ("neuropsychological_test", "Neuropsychological Tests", ["biomedical", "psychiatry_and_psychology"], "神经心理测验"),
+                ("neuropsychology", "Neuropsychology", ["science_general"], "神经心理学"),
+                ("neuropsychology__2", "Neuropsychology", ["systems_man_and_cybernetics"], "神经心理学"),
+                ("neuropsychology__3", "Neuropsychology", ["biomedical", "psychiatry_and_psychology"], "神经心理学"),
+            ]
+        )
+
+    def test_exact_expansion_batch_605_adds_neuroradiology_and_neuroscience_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neuroradiography", "Neuroradiography", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "神经放射摄影"),
+                ("neuroradiology", "Neuroradiology", ["engineering_in_medicine_and_biology"], "神经放射学"),
+                ("neurorehabilitation", "Neurorehabilitation", ["engineering_in_medicine_and_biology"], "神经康复"),
+                ("neuroschistosomiasi", "Neuroschistosomiasis", ["biomedical", "diseases"], "神经血吸虫病"),
+                ("neuroscience", "Neuroscience", ["science_general"], "神经科学"),
+                ("neuroscience_and_music_perception", "Neuroscience And Music Perception", ["life_sciences", "neuroscience"], "神经科学与音乐感知"),
+                ("neuroscience_and_neural_engineering", "Neuroscience And Neural Engineering", ["life_sciences", "neuroscience"], "神经科学与神经工程"),
+                ("neuroscience_and_neuropharmacology_research", "Neuroscience And Neuropharmacology Research", ["life_sciences", "neuroscience"], "神经科学与神经药理学研究"),
+            ]
+        )
+
+    def test_exact_expansion_batch_606_adds_neuroscience_and_neurospora_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neuroscience_nursing", "Neuroscience Nursing", ["biomedical", "disciplines_and_occupations"], "神经科学护理"),
+                ("neuroscience_of_respiration_and_sleep", "Neuroscience Of Respiration And Sleep", ["life_sciences", "neuroscience"], "呼吸与睡眠神经科学"),
+                ("neuroscience_neural_computation_and_artificial_intelligence", "Neuroscience, Neural Computation & Artificial Intelligence", ["physics"], "神经科学、神经计算与人工智能"),
+                ("neuroscienc", "Neurosciences", ["biomedical", "disciplines_and_occupations"], "神经科学"),
+                ("neurosecretion", "Neurosecretion", ["biomedical", "phenomena_and_processes"], "神经分泌"),
+                ("neurosecretory_system", "Neurosecretory Systems", ["anatomy", "biomedical"], "神经分泌系统"),
+                ("neuroserpin", "Neuroserpin", ["biomedical", "chemicals_and_drugs"], "神经丝氨酸蛋白酶抑制剂"),
+                ("neurospora", "Neurospora", ["biomedical", "organisms"], "脉孢菌属"),
+            ]
+        )
+
+    def test_exact_expansion_batch_607_adds_neurospora_neurosurgery_and_neurotechnology_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neurospora_crassa", "Neurospora Crassa", ["biomedical", "organisms"], "粗糙脉孢菌"),
+                ("neurosteroid", "Neurosteroids", ["biomedical", "chemicals_and_drugs"], "神经甾体"),
+                ("neurosurgeon", "Neurosurgeons", ["biomedical", "named_groups"], "神经外科医师"),
+                ("neurosurgery", "Neurosurgery", ["biomedical", "disciplines_and_occupations"], "神经外科学"),
+                ("neurosurgical_procedur", "Neurosurgical Procedures", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "神经外科手术"),
+                ("neurosurgical_procedur_and_complication", "Neurosurgical Procedures And Complications", ["health_sciences", "medicine"], "神经外科手术及并发症"),
+                ("neurosymbolic_ai", "Neurosymbolic Ai", ["computer_science"], "神经符号AI"),
+                ("neurosyphili", "Neurosyphilis", ["biomedical", "diseases"], "神经梅毒"),
+            ]
+        )
+
+    def test_exact_expansion_batch_608_adds_neurotensin_neurotoxicity_and_neurotoxin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neurotechnology", "Neurotechnology", ["change"], "神经技术"),
+                ("neurotensin", "Neurotensin", ["biomedical", "chemicals_and_drugs"], "神经降压素"),
+                ("neurothekeoma", "Neurothekeoma", ["biomedical", "diseases"], "神经鞘黏液瘤"),
+                ("neurotic_disorder", "Neurotic Disorders", ["biomedical", "psychiatry_and_psychology"], "神经症性障碍"),
+                ("neuroticism", "Neuroticism", ["biomedical", "psychiatry_and_psychology"], "神经质"),
+                ("neurotology", "Neurotology", ["biomedical", "disciplines_and_occupations"], "神经耳科学"),
+                ("neurotoxicity_syndrom", "Neurotoxicity Syndromes", ["biomedical", "diseases"], "神经毒性综合征"),
+                ("neurotoxin", "Neurotoxins", ["biomedical", "chemicals_and_drugs"], "神经毒素"),
+                ("receptor_neurotensin", "Receptors, Neurotensin", ["biomedical", "chemicals_and_drugs"], "神经降压素受体"),
+            ]
+        )
+
+    def test_exact_expansion_batch_609_adds_neurotransmitter_neurotrophin_and_neutral_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neurotransmitter_agent", "Neurotransmitter Agents", ["biomedical", "chemicals_and_drugs"], "神经递质作用剂"),
+                ("neurotransmitter_receptor_influence_on_behavior", "Neurotransmitter Receptor Influence On Behavior", ["life_sciences", "neuroscience"], "神经递质受体对行为的影响"),
+                ("neurotransmitter_transport_protein", "Neurotransmitter Transport Proteins", ["biomedical", "chemicals_and_drugs"], "神经递质转运蛋白"),
+                ("neurotransmitter_uptake_inhibitor", "Neurotransmitter Uptake Inhibitors", ["biomedical", "chemicals_and_drugs"], "神经递质摄取抑制剂"),
+                ("neurotransmitter", "Neurotransmitters", ["communications_technology"], "神经递质"),
+                ("neurotrophin_3", "Neurotrophin 3", ["biomedical", "chemicals_and_drugs"], "神经营养因子3"),
+                ("neurovascular_coupling", "Neurovascular Coupling", ["biomedical", "phenomena_and_processes"], "神经血管耦合"),
+                ("neurulation", "Neurulation", ["biomedical", "phenomena_and_processes"], "神经胚形成"),
+            ]
+        )
+
+    def test_exact_expansion_batch_610_adds_neutralization_neutrino_and_neutron_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neutral_ceramidase", "Neutral Ceramidase", ["biomedical", "chemicals_and_drugs"], "中性神经酰胺酶"),
+                ("neutral_glycosphingolipid", "Neutral Glycosphingolipids", ["biomedical", "chemicals_and_drugs"], "中性糖鞘脂"),
+                ("neutral_red", "Neutral Red", ["biomedical", "chemicals_and_drugs"], "中性红"),
+                ("neutral_system", "Neutral Systems", ["computer_science"], "中立型系统"),
+                ("neutralization_test", "Neutralization Tests", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "中和试验"),
+                ("neutrino_physic_research", "Neutrino Physics Research", ["physical_sciences", "physics_and_astronomy"], "中微子物理研究"),
+                ("neutrino_sourc", "Neutrino Sources", ["nuclear_and_plasma_sciences"], "中微子源"),
+                ("neutron_activation_analysi", "Neutron Activation Analysis", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "中子活化分析"),
+            ]
+        )
+
+    def test_exact_expansion_batch_611_adds_neutron_and_neutropenia_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neutron_capture_therapy__2", "Neutron Capture Therapy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "中子俘获治疗"),
+                ("neutron_capture_therapy", "Neutron Capture Therapy", ["engineering_in_medicine_and_biology"], "中子俘获治疗"),
+                ("neutron_diffraction", "Neutron Diffraction", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "中子衍射"),
+                ("neutron_radiation_effect", "Neutron Radiation Effects", ["nuclear_and_plasma_sciences"], "中子辐射效应"),
+                ("neutron_spin_echo", "Neutron Spin Echo", ["instrumentation_and_measurement"], "中子自旋回波"),
+                ("neutron_star", "Neutron Stars", ["science_general"], "中子星"),
+                ("neutron_techniqu", "Neutron Techniques", ["physics"], "中子技术"),
+                ("neutron", "Neutrons", ["nuclear_and_plasma_sciences"], "中子"),
+            ]
+        )
+
+    def test_exact_expansion_batch_612_adds_neutrophil_nevada_and_nevus_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neutron__2", "Neutrons", ["biomedical", "phenomena_and_processes"], "中子"),
+                ("neutropenia", "Neutropenia", ["biomedical", "diseases"], "中性粒细胞减少症"),
+                ("neutropenia_and_cancer_infection", "Neutropenia And Cancer Infections", ["health_sciences", "medicine"], "中性粒细胞减少症与癌症感染"),
+                ("neutrophil_activation", "Neutrophil Activation", ["biomedical", "phenomena_and_processes"], "中性粒细胞活化"),
+                ("neutrophil_infiltration", "Neutrophil Infiltration", ["biomedical", "phenomena_and_processes"], "中性粒细胞浸润"),
+                ("neutrophil", "Neutrophils", ["anatomy", "biomedical"], "中性粒细胞"),
+                ("nevada", "Nevada", ["biomedical", "geographicals"], "内华达州"),
+                ("nevi_and_melanoma", "Nevi And Melanomas", ["biomedical", "diseases"], "痣和黑色素瘤"),
+            ]
+        )
+
+    def test_exact_expansion_batch_613_adds_nevirapine_and_specific_nevus_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nevirapine", "Nevirapine", ["biomedical", "chemicals_and_drugs"], "奈韦拉平"),
+                ("nevu_of_ota", "Nevus Of Ota", ["biomedical", "diseases"], "太田痣"),
+                ("nevu_blue", "Nevus, Blue", ["biomedical", "diseases"], "蓝痣"),
+                ("nevu_epithelioid_and_spindle_cell", "Nevus, Epithelioid And Spindle Cell", ["biomedical", "diseases"], "上皮样和梭形细胞痣"),
+                ("nevu_halo", "Nevus, Halo", ["biomedical", "diseases"], "晕痣"),
+                ("nevu_intradermal", "Nevus, Intradermal", ["biomedical", "diseases"], "皮内痣"),
+                ("nevu_pigmented", "Nevus, Pigmented", ["biomedical", "diseases"], "色素痣"),
+                ("nevu_spindle_cell", "Nevus, Spindle Cell", ["biomedical", "diseases"], "梭形细胞痣"),
+            ]
+        )
+
+    def test_exact_expansion_batch_614_adds_new_geographical_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nevu_sebaceou_of_jadassohn", "Nevus, Sebaceous Of Jadassohn", ["biomedical", "diseases"], "贾达松皮脂腺痣"),
+                ("new_brunswick", "New Brunswick", ["biomedical", "geographicals"], "新不伦瑞克"),
+                ("new_caledonia", "New Caledonia", ["biomedical", "geographicals"], "新喀里多尼亚"),
+                ("new_caledonia_indigenou_study", "New Caledonia Indigenous Studies", ["social_sciences"], "新喀里多尼亚原住民研究"),
+                ("new_england", "New England", ["biomedical", "geographicals"], "新英格兰"),
+                ("new_guinea", "New Guinea", ["biomedical", "geographicals"], "新几内亚"),
+                ("new_hampshire", "New Hampshire", ["biomedical", "geographicals"], "新罕布什尔"),
+                ("new_jersey", "New Jersey", ["biomedical", "geographicals"], "新泽西"),
+            ]
+        )
+
+    def test_exact_expansion_batch_615_adds_more_new_geographical_and_newcastle_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("new_mexico", "New Mexico", ["biomedical", "geographicals"], "新墨西哥"),
+                ("new_orlean", "New Orleans", ["biomedical", "geographicals"], "新奥尔良"),
+                ("new_south_wal", "New South Wales", ["biomedical", "geographicals"], "新南威尔士"),
+                ("new_york", "New York", ["biomedical", "geographicals"], "纽约"),
+                ("new_york_city", "New York City", ["biomedical", "geographicals"], "纽约市"),
+                ("new_zealand", "New Zealand", ["biomedical", "geographicals"], "新西兰"),
+                ("new_zealand_economic_and_social_study", "New Zealand Economic And Social Studies", ["economics_econometrics_and_finance", "social_sciences"], "新西兰经济与社会研究"),
+                ("newcastle_disease", "Newcastle Disease", ["biomedical", "diseases"], "新城疫"),
+            ]
+        )
+
+    def test_exact_expansion_batch_616_adds_newcastle_newspaper_and_newtonian_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("newcastle_disease_viru", "Newcastle Disease Virus", ["biomedical", "organisms"], "新城疫病毒"),
+                ("newfoundland_and_labrador", "Newfoundland And Labrador", ["biomedical", "geographicals"], "纽芬兰与拉布拉多"),
+                ("news", "News", ["biomedical", "publication_characteristics"], "新闻"),
+                ("newspaper_article", "Newspaper Article", ["biomedical", "publication_characteristics"], "报纸文章"),
+                ("newspaper_as_topic", "Newspapers As Topic", ["biomedical", "information_science"], "报纸专题"),
+                ("newton_method", "Newton Method", ["computer_science", "mathematics"], "牛顿法"),
+                ("newtonian_flow", "Newtonian Flow", ["computer_science"], "牛顿流"),
+                ("newtonian_fluid", "Newtonian Fluid", ["computer_science"], "牛顿流体"),
+            ]
+        )
+
+    def test_exact_expansion_batch_617_adds_newtonian_next_generation_and_nfe2_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("newtonian_liquid", "Newtonian Liquids", ["computer_science"], "牛顿液体"),
+                ("next_generation_networking", "Next Generation Networking", ["communications_technology"], "下一代网络"),
+                ("next_generation_networking__2", "Next Generation Networking", ["computers_and_information_processing"], "下一代网络"),
+                ("next_generation_wireless_network", "Next-generation Wireless Network", ["computer_science"], "下一代无线网络"),
+                ("next_hop", "Next-hop", ["computer_science"], "下一跳"),
+                ("nf_e2_transcription_factor", "Nf-e2 Transcription Factor", ["biomedical", "chemicals_and_drugs"], "NF-E2转录因子"),
+                ("nf_e2_transcription_factor_p45_subunit", "Nf-e2 Transcription Factor, P45 Subunit", ["biomedical", "chemicals_and_drugs"], "NF-E2转录因子p45亚基"),
+                ("nf_e2_related_factor_1", "Nf-e2-related Factor 1", ["biomedical", "chemicals_and_drugs"], "NF-E2相关因子1"),
+            ]
+        )
+
+    def test_exact_expansion_batch_618_adds_nf_related_and_nfkappab_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nf_e2_related_factor_2", "Nf-e2-related Factor 2", ["biomedical", "chemicals_and_drugs"], "NF-E2相关因子2"),
+                ("nf_kappa_b", "Nf-kappa B", ["biomedical", "chemicals_and_drugs"], "核因子κB"),
+                ("nf_kappa_b_p50_subunit", "Nf-kappa B P50 Subunit", ["biomedical", "chemicals_and_drugs"], "NF-κB p50亚基"),
+                ("nf_kappa_b_p52_subunit", "Nf-kappa B P52 Subunit", ["biomedical", "chemicals_and_drugs"], "NF-κB p52亚基"),
+                ("nf_kappab_inhibitor_alpha", "Nf-kappab Inhibitor Alpha", ["biomedical", "chemicals_and_drugs"], "NF-κB抑制蛋白α"),
+                ("nf_kappab_inducing_kinase", "Nf-kappab-inducing Kinase", ["biomedical", "chemicals_and_drugs"], "NF-κB诱导激酶"),
+                ("nf_b_signaling_pathway", "Nf-κb Signaling Pathways", ["biochemistry_genetics_and_molecular_biology", "life_sciences"], "NF-κB信号通路"),
+                ("nfatc_transcription_factor", "Nfatc Transcription Factors", ["biomedical", "chemicals_and_drugs"], "NFATc转录因子"),
+            ]
+        )
+
+    def test_exact_expansion_batch_619_adds_nfatc_niacin_and_nicaragua_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nfi_transcription_factor", "NFI Transcription Factors", ["biomedical", "chemicals_and_drugs"], "NFI转录因子"),
+                ("ng_nitroarginine_methyl_ester", "Ng-nitroarginine Methyl Ester", ["biomedical", "chemicals_and_drugs"], "NG-硝基精氨酸甲酯"),
+                ("niacin", "Niacin", ["biomedical", "chemicals_and_drugs"], "烟酸"),
+                ("niacinamide", "Niacinamide", ["biomedical", "chemicals_and_drugs"], "烟酰胺"),
+                ("nialamide", "Nialamide", ["biomedical", "chemicals_and_drugs"], "尼亚拉胺"),
+                ("nicaragua", "Nicaragua", ["biomedical", "geographicals"], "尼加拉瓜"),
+                ("nicarbazin", "Nicarbazin", ["biomedical", "chemicals_and_drugs"], "尼卡巴嗪"),
+                ("nicardipine", "Nicardipine", ["biomedical", "chemicals_and_drugs"], "尼卡地平"),
+            ]
+        )
+
+    def test_exact_expansion_batch_620_adds_nicardipine_nickel_and_nicotiana_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nicergoline", "Nicergoline", ["biomedical", "chemicals_and_drugs"], "尼麦角林"),
+                ("nickel", "Nickel", ["materials_elements_and_compounds"], "镍元素"),
+                ("nickel__2", "Nickel", ["biomedical", "chemicals_and_drugs"], "镍元素"),
+                ("nickel_alloy", "Nickel Alloys", ["materials_elements_and_compounds"], "镍合金"),
+                ("nickel_cadmium_battery", "Nickel Cadmium Batteries", ["industry_applications"], "镍镉电池"),
+                ("nickel_compound", "Nickel Compounds", ["materials_elements_and_compounds"], "镍化合物"),
+                ("nicotiana", "Nicotiana", ["biomedical", "organisms"], "烟草属"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

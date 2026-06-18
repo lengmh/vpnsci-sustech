@@ -14407,6 +14407,221 @@ ZH_EXACT_EXPANSION_BATCH_600_ALIASES = {
         "neuroma, acoustic": "听神经瘤",
 }
 
+ZH_EXACT_EXPANSION_BATCH_601_ALIASES = {
+        "neuronal outgrowth": "神经元突起生长",
+        "neuronal plasticity": "神经元可塑性",
+        "neuronal tract-tracers": "神经元束示踪剂",
+        "neuronavigation": "神经导航",
+        "neurons": "神经元",
+        "neurons and cognition": "神经元与认知",
+        "neurons, afferent": "传入神经元",
+        "neurons, efferent": "传出神经元",
+}
+
+ZH_EXACT_EXPANSION_BATCH_602_ALIASES = {
+        "neuropathology": "神经病理学",
+        "neuropeptide y": "神经肽Y",
+        "neuropeptides": "神经肽",
+        "neuropeptides and animal physiology": "神经肽与动物生理学",
+        "neuropharmacology": "神经药理学",
+        "neurophysins": "神经垂体激素运载蛋白",
+        "neurophysiological monitoring": "神经生理监测",
+}
+
+ZH_EXACT_EXPANSION_BATCH_603_ALIASES = {
+        "neurophysiology": "神经生理学",
+        "neuropil": "神经毡",
+        "neuropil threads": "神经毡丝",
+        "neuropilin-1": "神经纤毛蛋白1",
+        "neuropilin-2": "神经纤毛蛋白2",
+        "neuropilins": "神经纤毛蛋白",
+        "neuroprostanes": "神经前列烷",
+        "neuroprostheses": "神经假体",
+}
+
+ZH_EXACT_EXPANSION_BATCH_604_ALIASES = {
+        "neuroprotection": "神经保护",
+        "neuroprotective agents": "神经保护剂",
+        "neuropsychiatry": "神经精神病学",
+        "neuropsychological tests": "神经心理测验",
+        "neuropsychology": "神经心理学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_605_ALIASES = {
+        "neuroradiography": "神经放射摄影",
+        "neuroradiology": "神经放射学",
+        "neurorehabilitation": "神经康复",
+        "neuroschistosomiasis": "神经血吸虫病",
+        "neuroscience": "神经科学",
+        "neuroscience and music perception": "神经科学与音乐感知",
+        "neuroscience and neural engineering": "神经科学与神经工程",
+        "neuroscience and neuropharmacology research": "神经科学与神经药理学研究",
+}
+
+ZH_EXACT_EXPANSION_BATCH_606_ALIASES = {
+        "neuroscience nursing": "神经科学护理",
+        "neuroscience of respiration and sleep": "呼吸与睡眠神经科学",
+        "neuroscience, neural computation & artificial intelligence": "神经科学、神经计算与人工智能",
+        "neurosciences": "神经科学",
+        "neurosecretion": "神经分泌",
+        "neurosecretory systems": "神经分泌系统",
+        "neuroserpin": "神经丝氨酸蛋白酶抑制剂",
+        "neurospora": "脉孢菌属",
+}
+
+ZH_EXACT_EXPANSION_BATCH_607_ALIASES = {
+        "neurospora crassa": "粗糙脉孢菌",
+        "neurosteroids": "神经甾体",
+        "neurosurgeons": "神经外科医师",
+        "neurosurgery": "神经外科学",
+        "neurosurgical procedures": "神经外科手术",
+        "neurosurgical procedures and complications": "神经外科手术及并发症",
+        "neurosymbolic ai": "神经符号AI",
+        "neurosyphilis": "神经梅毒",
+}
+
+ZH_EXACT_EXPANSION_BATCH_608_ALIASES = {
+        "neurotechnology": "神经技术",
+        "neurotensin": "神经降压素",
+        "neurothekeoma": "神经鞘黏液瘤",
+        "neurotic disorders": "神经症性障碍",
+        "neuroticism": "神经质",
+        "neurotology": "神经耳科学",
+        "neurotoxicity syndromes": "神经毒性综合征",
+        "neurotoxins": "神经毒素",
+        "neurotensin receptor": "神经降压素受体",
+        "neurotensin receptors": "神经降压素受体",
+        "receptor neurotensin": "神经降压素受体",
+        "receptors neurotensin": "神经降压素受体",
+}
+
+ZH_EXACT_EXPANSION_BATCH_609_ALIASES = {
+        "neurotransmitter agents": "神经递质作用剂",
+        "neurotransmitter receptor influence on behavior": "神经递质受体对行为的影响",
+        "neurotransmitter transport proteins": "神经递质转运蛋白",
+        "neurotransmitter uptake inhibitors": "神经递质摄取抑制剂",
+        "neurotransmitters": "神经递质",
+        "neurotrophin 3": "神经营养因子3",
+        "neurovascular coupling": "神经血管耦合",
+        "neurulation": "神经胚形成",
+}
+
+ZH_EXACT_EXPANSION_BATCH_610_ALIASES = {
+        "neutral ceramidase": "中性神经酰胺酶",
+        "neutral glycosphingolipids": "中性糖鞘脂",
+        "neutral red": "中性红",
+        "neutral systems": "中立型系统",
+        "neutralization tests": "中和试验",
+        "neutrino physics research": "中微子物理研究",
+        "neutrino sources": "中微子源",
+        "neutron activation analysis": "中子活化分析",
+}
+
+ZH_EXACT_EXPANSION_BATCH_611_ALIASES = {
+        "neutron capture therapy": "中子俘获治疗",
+        "neutron diffraction": "中子衍射",
+        "neutron radiation effects": "中子辐射效应",
+        "neutron spin echo": "中子自旋回波",
+        "neutron stars": "中子星",
+        "neutron techniques": "中子技术",
+        "neutrons": "中子",
+}
+
+ZH_EXACT_EXPANSION_BATCH_612_ALIASES = {
+        "neutropenia": "中性粒细胞减少症",
+        "neutropenia and cancer infections": "中性粒细胞减少症与癌症感染",
+        "neutrophil activation": "中性粒细胞活化",
+        "neutrophil infiltration": "中性粒细胞浸润",
+        "neutrophils": "中性粒细胞",
+        "nevada": "内华达州",
+        "nevi and melanomas": "痣和黑色素瘤",
+}
+
+ZH_EXACT_EXPANSION_BATCH_613_ALIASES = {
+        "nevirapine": "奈韦拉平",
+        "nevus of ota": "太田痣",
+        "nevus, blue": "蓝痣",
+        "nevus, epithelioid and spindle cell": "上皮样和梭形细胞痣",
+        "nevus, halo": "晕痣",
+        "nevus, intradermal": "皮内痣",
+        "nevus, pigmented": "色素痣",
+}
+
+ZH_EXACT_EXPANSION_BATCH_614_ALIASES = {
+        "nevus, sebaceous of jadassohn": "贾达松皮脂腺痣",
+        "nevus, spindle cell": "梭形细胞痣",
+        "new brunswick": "新不伦瑞克",
+        "new caledonia": "新喀里多尼亚",
+        "new caledonia indigenous studies": "新喀里多尼亚原住民研究",
+        "new england": "新英格兰",
+        "new guinea": "新几内亚",
+        "new hampshire": "新罕布什尔",
+}
+
+ZH_EXACT_EXPANSION_BATCH_615_ALIASES = {
+        "new jersey": "新泽西",
+        "new mexico": "新墨西哥",
+        "new orleans": "新奥尔良",
+        "new south wales": "新南威尔士",
+        "new york": "纽约",
+        "new york city": "纽约市",
+        "new zealand": "新西兰",
+        "new zealand economic and social studies": "新西兰经济与社会研究",
+}
+
+ZH_EXACT_EXPANSION_BATCH_616_ALIASES = {
+        "newcastle disease": "新城疫",
+        "newcastle disease virus": "新城疫病毒",
+        "newfoundland and labrador": "纽芬兰与拉布拉多",
+        "news": "新闻",
+        "newspaper article": "报纸文章",
+        "newspapers as topic": "报纸专题",
+        "newton method": "牛顿法",
+        "newtonian flow": "牛顿流",
+}
+
+ZH_EXACT_EXPANSION_BATCH_617_ALIASES = {
+        "newtonian fluid": "牛顿流体",
+        "newtonian liquids": "牛顿液体",
+        "next generation networking": "下一代网络",
+        "next-generation wireless network": "下一代无线网络",
+        "next-hop": "下一跳",
+        "nf-e2 transcription factor": "NF-E2转录因子",
+        "nf-e2 transcription factor, p45 subunit": "NF-E2转录因子p45亚基",
+}
+
+ZH_EXACT_EXPANSION_BATCH_618_ALIASES = {
+        "nf-e2-related factor 1": "NF-E2相关因子1",
+        "nf-e2-related factor 2": "NF-E2相关因子2",
+        "nf-kappa b": "核因子κB",
+        "nf-kappa b p50 subunit": "NF-κB p50亚基",
+        "nf-kappa b p52 subunit": "NF-κB p52亚基",
+        "nf-kappab inhibitor alpha": "NF-κB抑制蛋白α",
+        "nf-kappab-inducing kinase": "NF-κB诱导激酶",
+        "nf-κb signaling pathways": "NF-κB信号通路",
+}
+
+ZH_EXACT_EXPANSION_BATCH_619_ALIASES = {
+        "nfatc transcription factors": "NFATc转录因子",
+        "nfi transcription factors": "NFI转录因子",
+        "ng-nitroarginine methyl ester": "NG-硝基精氨酸甲酯",
+        "niacin": "烟酸",
+        "niacinamide": "烟酰胺",
+        "nialamide": "尼亚拉胺",
+        "nicaragua": "尼加拉瓜",
+        "nicarbazin": "尼卡巴嗪",
+}
+
+ZH_EXACT_EXPANSION_BATCH_620_ALIASES = {
+        "nicardipine": "尼卡地平",
+        "nicergoline": "尼麦角林",
+        "nickel": "镍元素",
+        "nickel alloys": "镍合金",
+        "nickel cadmium batteries": "镍镉电池",
+        "nickel compounds": "镍化合物",
+        "nicotiana": "烟草属",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -15009,6 +15224,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_597_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_598_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_599_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_600_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_601_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_602_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_603_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_604_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_605_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_606_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_607_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_608_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_609_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_610_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_611_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_612_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_613_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_614_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_615_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_616_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_617_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_618_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_619_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_620_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",

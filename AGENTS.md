@@ -153,45 +153,45 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-18 zh-exact-expansion-batch-581-to-600 后）：
+最新已知状态（2026-06-18 zh-exact-expansion-batch-601-to-620 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`11369 / 48888 = 23.26%`
-- runtime zh aliases: `11382`
+- runtime 中文覆盖：`11494 / 48889 = 23.51%`
+- runtime zh aliases: `11507`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `11382`
-- `zh:blocked`: `11595`
+- `zh:accept`: `11507`
+- `zh:blocked`: `11599`
 - `zh:needs_review`: `0`
 - `zh:reject`: `151`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `48888`
+- runtime concept aliases: `48889`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
-- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-600 运行时以 compact index/manifest 为准）
+- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-620 运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `1369adcc990e611df1f98537fa1c747751df3b6140cd188a0289135ed1a40730`
+  `a4d6593d01cdfcfbc9fc001c3bae62a50acf26168d53fdfb3d6e39132b331820`
 - compact manifest SHA-256:
-  `532113ca8d591b5c0d09d34c771c868bdefa86526da897eb2109a06c8b9c1ed2`
+  `79d7e922179d5bf346cdd12696071dff32923dc02e6c3cce898640953e77115a`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact index 是 batch-600 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-600 更新，不再作为默认等价检查对象。
-- 最近相关测试：`663 passed in 3.41s`。
+- compact index 是 batch-620 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-620 更新，不再作为默认等价检查对象。
+- 最近相关测试：`683 passed in 4.46s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- batch-581 至 batch-600 中文 coverage 扩展已完成，runtime 中文覆盖已到 `23.26%`；用户当前目标是继续 20-batch 分组推进到 `>25%`，尚未达成；
+- batch-601 至 batch-620 中文 coverage 扩展已完成，runtime 中文覆盖已到 `23.51%`；用户当前目标是继续 20-batch 分组推进到 `>25%`，尚未达成；
 - post-20% 质量复盘和窄 L6 treemap/text fallback 修复已完成；当前主线回到 exact/domain-aware 中文 alias 覆盖扩展；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
@@ -206,6 +206,26 @@ lexicons/review/
   - query smoke：预期 runtime alias `12 / 12` 命中；预期 blocked alias `0 / 7` 误命中；
   - treemap/text fallback smoke：`build_text_themes` 可产生 `Mean Absolute Error / 平均绝对误差`、`Medication Adherence / 用药依从性`、`Median Filter / 中值滤波器` 等 concept-level themes；
   - 窄 L6 修复已完成：中文 text candidate extractor 现在会先扫描 compact runtime 中已接受的中文 alias 短语，再走原 n-gram fallback，并过滤被已选 concept alias 覆盖的短片段；`主从系统` 已稳定归并到 `concept:master_slave_system`，不再显示 `主从系`。
+- 最新 batch-601 至 batch-620 exact/domain-aware 小批次已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_601_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_620_ALIASES`，覆盖 neuronal/neuron、neuropathology/neuropeptide/neurophysiology、neuroprostheses/neuroprotection/neuropsychology、neuroscience/neurospora/neurosurgery/neurotransmitter，以及 neutral/neutrino/neutron/neutrophil、Nevus/New 地名、Newtonian/next-generation/NF/niacin/nickel 等 exact/domain-aware 术语；
+  - 新增 `20` 个代表性回归测试，先红灯后转绿；其中 `Receptors, Neurotensin -> 神经降压素受体` 修正 exact component 引发的 MeSH 词序问题；
+  - grouped L3-L5：fill `records_filled = 23052`，validate `review_decisions = 372370`；
+  - 显式接受 `130` 条 exact/domain-aware recommendation，包括 `广播新闻`、`快速中子`、`非牛顿流体`、`非牛顿液体`、`神经降压素受体` 等 high-confidence exact-backed 派生；
+  - validator 重现的 `713` 条英文 acronym needs_review 按既有策略 blocked；
+  - `镍元素` exact-backed 输出因 duplicate/collision 保持 blocked，不自动 merge；单字 `痣`、`镍` 和纯符号 `NF-κB` 不作为 runtime zh alias；
+  - runtime 中文覆盖从 `11369 / 48888 = 23.26%` 增至 `11494 / 48889 = 23.51%`；
+  - `zh:accept`: `11507`，`zh:blocked`: `11599`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `a4d6593d01cdfcfbc9fc001c3bae62a50acf26168d53fdfb3d6e39132b331820`；
+  - compact manifest SHA-256: `79d7e922179d5bf346cdd12696071dff32923dc02e6c3cce898640953e77115a`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - query smoke 已确认 `神经降压素受体`、`非牛顿流体`、`广播新闻`、`神经元突起生长`、`NF-κB信号通路` 可命中；`受体神经降压素`、`痣`、`镍`、`NF-κB`、`SDMH` 保持不命中；
+  - 相关测试：`683 passed in 4.46s`。
+- batch-620 后 review：
+  - 本轮新增 `125` 个 runtime zh-covered concepts，覆盖率增至 `23.51%`，仍未达到 `>25%`；
+  - 新增 `nickel` 双来源翻译被 collision guard 阻断，继续不自动 merge；
+  - 下一轮应继续 batch-621 至 batch-640，优先从 nicotinamide/nicotine/Nidovirales/Niemann-Pick/Nigella/night/niobium/nitrate/nitric/nitrogen 等高确定性 exact 术语推进。
 - 最新 batch-581 至 batch-600 exact/domain-aware 小批次已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_581_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_600_ALIASES`，覆盖 network pharmacology/protocol/routing/security/topology/traffic/networked，以及 neural/neuroblastoma/neurodevelopment/neuroendocrine/neurofibromatosis/neurology 等 N 段 exact/domain-aware 术语；
   - 新增 `20` 个代表性回归测试，先红灯后转绿；其中 `Network Phase Transitions -> 网络相变`、`Neural Cell Adhesion Molecule L1 -> L1神经细胞黏附分子` 等 exact 词条覆盖较泛的 compositional 输出；
