@@ -13092,6 +13092,226 @@ ZH_EXACT_EXPANSION_BATCH_480_ALIASES = {
         "multimode optical fibers": "多模光纤",
 }
 
+ZH_EXACT_EXPANSION_BATCH_481_ALIASES = {
+        "multimorbidity": "多病共存",
+        "multiobjective combinatorial optimization": "多目标组合优化",
+        "multiobjective models": "多目标模型",
+        "multiomics": "多组学",
+        "multiparametric magnetic resonance imaging": "多参数磁共振成像",
+        "multiparty computation": "多方计算",
+        "multipath channels": "多径信道",
+        "multipath environments": "多径环境",
+}
+
+ZH_EXACT_EXPANSION_BATCH_482_ALIASES = {
+        "multipath error": "多径误差",
+        "multipath fading": "多径衰落",
+        "multipath propagation": "多径传播",
+        "multipath routing algorithms": "多路径路由算法",
+        "multipath routing protocols": "多路径路由协议",
+        "multiphase flows": "多相流",
+        "multiphasic screening": "多相筛查",
+        "multiphysics": "多物理场",
+}
+
+ZH_EXACT_EXPANSION_BATCH_483_ALIASES = {
+        "multiple access interference": "多址干扰",
+        "multiple access relay channel": "多址中继信道",
+        "multiple access scheme": "多址接入方案",
+        "multiple acyl coenzyme a dehydrogenase deficiency": "多酰基辅酶A脱氢酶缺乏症",
+        "multiple amputations, traumatic": "多发性创伤性截肢",
+        "multiple antenna": "多天线",
+        "multiple attribute decision making problems": "多属性决策问题",
+        "multiple beam": "多波束",
+}
+
+ZH_EXACT_EXPANSION_BATCH_484_ALIASES = {
+        "multiple birth offspring": "多胎后代",
+        "multiple carboxylase deficiency": "多羧化酶缺乏症",
+        "multiple chemical sensitivity": "多种化学物质敏感症",
+        "multiple chronic conditions": "多种慢性病",
+        "multiple endocrine neoplasia": "多发性内分泌腺瘤病",
+        "multiple endocrine neoplasia type 1": "1型多发性内分泌腺瘤病",
+        "multiple endocrine neoplasia type 2a": "2A型多发性内分泌腺瘤病",
+        "multiple endocrine neoplasia type 2b": "2B型多发性内分泌腺瘤病",
+}
+
+ZH_EXACT_EXPANSION_BATCH_485_ALIASES = {
+        "multiple hypothesis tracking": "多假设跟踪",
+        "multiple-input multiple-output channels": "MIMO信道",
+        "multiple input multiple output (mimo) radars": "多输入多输出雷达",
+        "multiple-input-multiple-output (mimo) systems": "MIMO系统",
+        "multiple-instance learning algorithms": "多示例学习算法",
+        "multiple kernels": "多核",
+        "multiple lyapunov function": "多Lyapunov函数",
+        "multiple myeloma research and treatments": "多发性骨髓瘤研究与治疗",
+}
+
+ZH_EXACT_EXPANSION_BATCH_486_ALIASES = {
+        "multiple receive antennas": "多接收天线",
+        "multiple regression": "多元回归",
+        "multiple routes": "多路径",
+        "multiple sclerosis, chronic progressive": "慢性进展型多发性硬化",
+        "multiple sclerosis, relapsing-remitting": "复发缓解型多发性硬化",
+        "multiple sclerosis research studies": "多发性硬化研究",
+        "multiple signal classification": "多重信号分类",
+        "multiple sulfatase deficiency disease": "多种硫酸酯酶缺乏症",
+}
+
+ZH_EXACT_EXPANSION_BATCH_487_ALIASES = {
+        "multiple system atrophy": "多系统萎缩",
+        "multiple threads": "多线程",
+        "multiple transmit antennas": "多发射天线",
+        "multiple trauma": "多发伤",
+        "multiplex polymerase chain reaction": "多重聚合酶链反应",
+        "multiplex radio transmission": "多路无线电传输",
+        "multiplexer": "多路复用器",
+        "multiplexing": "多路复用",
+}
+
+ZH_EXACT_EXPANSION_BATCH_488_ALIASES = {
+        "multiplexing equipment": "多路复用设备",
+        "multiplexing, frequency division": "频分复用",
+        "multiplexing gains": "复用增益",
+        "multiplexing, time division": "时分复用",
+        "multiplication": "乘法",
+        "multiplicative noise": "乘性噪声",
+        "multiplicative updates": "乘法更新",
+        "multiplier": "乘法器",
+}
+
+ZH_EXACT_EXPANSION_BATCH_489_ALIASES = {
+        "multiplying circuits": "乘法电路",
+        "multipole matrix elements": "多极矩阵元",
+        "multipotent stem cells": "多能干细胞",
+        "multiprocessing programs": "多处理程序",
+        "multiprocessing systems": "多处理系统",
+        "multiprocessor interconnection": "多处理器互连",
+        "multiprocessor interconnection networks": "多处理器互连网络",
+        "multiprocessor system on chips": "多处理器片上系统",
+}
+
+ZH_EXACT_EXPANSION_BATCH_490_ALIASES = {
+        "multiprotein complexes": "多蛋白复合物",
+        "multiprotocol label switching": "多协议标签交换",
+        "multipurpose robots": "多用途机器人",
+        "multiresolution images": "多分辨率图像",
+        "multiresolution (mr)": "多分辨率",
+        "multisensory perception and integration": "多感觉感知与整合",
+        "multisignature scheme": "多重签名方案",
+        "multispectral imaging": "多光谱成像",
+}
+
+ZH_EXACT_EXPANSION_BATCH_491_ALIASES = {
+        "multistage interconnection network": "多级互连网络",
+        "multistatic radar": "多基地雷达",
+        "multistorey building": "多层建筑",
+        "multitask learning": "多任务学习",
+        "multitasking": "多任务处理",
+        "multitasking behavior": "多任务行为",
+        "multithreaded processors": "多线程处理器",
+        "multithreading": "多线程",
+}
+
+ZH_EXACT_EXPANSION_BATCH_492_ALIASES = {
+        "multiuser channels": "多用户信道",
+        "multiuser detection": "多用户检测",
+        "multiuser scheduling": "多用户调度",
+        "multiuser system": "多用户系统",
+        "multivalued logic": "多值逻辑",
+        "multivariable control": "多变量控制",
+        "multivariable control systems": "多变量控制系统",
+        "multivariate analysis": "多变量分析",
+}
+
+ZH_EXACT_EXPANSION_BATCH_493_ALIASES = {
+        "multivesicular bodies": "多囊泡体",
+        "multivibrators": "多谐振荡器",
+        "multiwave mixing": "多波混频",
+        "multiwavelength": "多波长",
+        "mummies": "木乃伊",
+        "munchausen syndrome": "孟乔森综合征",
+        "munchausen syndrome by proxy": "代理型孟乔森综合征",
+        "municipal solid waste management": "城市固体废物管理",
+}
+
+ZH_EXACT_EXPANSION_BATCH_494_ALIASES = {
+        "muntjacs": "麂属",
+        "muon colliders": "μ子对撞机",
+        "mupirocin": "莫匹罗星",
+        "muramic acids": "胞壁酸",
+        "muramidase": "溶菌酶",
+        "muramoylpentapeptide carboxypeptidase": "胞壁酰五肽羧肽酶",
+        "muridae": "鼠科",
+        "murinae": "鼠亚科",
+}
+
+ZH_EXACT_EXPANSION_BATCH_495_ALIASES = {
+        "murine acquired immunodeficiency syndrome": "小鼠获得性免疫缺陷综合征",
+        "murine hepatitis virus": "小鼠肝炎病毒",
+        "murine pneumonia virus": "小鼠肺炎病毒",
+        "muromegalovirus": "鼠巨细胞病毒",
+        "muromonab-cd3": "莫罗单抗-CD3",
+        "muscarine": "毒蕈碱",
+        "muscarinic agonists": "毒蕈碱受体激动剂",
+        "muscarinic antagonists": "毒蕈碱受体拮抗剂",
+}
+
+ZH_EXACT_EXPANSION_BATCH_496_ALIASES = {
+        "muscimol": "蝇蕈醇",
+        "muscle cells": "肌细胞",
+        "muscle cramp": "肌肉痉挛",
+        "muscle denervation": "肌肉去神经支配",
+        "muscle development": "肌肉发育",
+        "muscle fatigue": "肌肉疲劳",
+        "muscle fibers, fast-twitch": "快肌纤维",
+        "muscle fibers, skeletal": "骨骼肌纤维",
+}
+
+ZH_EXACT_EXPANSION_BATCH_497_ALIASES = {
+        "muscle fibers, slow-twitch": "慢肌纤维",
+        "muscle hypertonia": "肌张力增高",
+        "muscle hypotonia": "肌张力减退",
+        "muscle neoplasms": "肌肉肿瘤",
+        "muscle proteins": "肌肉蛋白",
+        "muscle relaxation": "肌肉松弛",
+        "muscle, skeletal": "骨骼肌",
+        "muscle, smooth, vascular": "血管平滑肌",
+}
+
+ZH_EXACT_EXPANSION_BATCH_498_ALIASES = {
+        "muscle spasticity": "肌痉挛状态",
+        "muscle spindles": "肌梭",
+        "muscle strength dynamometer": "肌力测力计",
+        "muscle stretching exercises": "肌肉拉伸运动",
+        "muscle, striated": "横纹肌",
+        "muscle tonus": "肌张力",
+        "muscular atrophy": "肌萎缩",
+        "muscular atrophy, spinal": "脊髓性肌萎缩",
+}
+
+ZH_EXACT_EXPANSION_BATCH_499_ALIASES = {
+        "muscular disorders, atrophic": "萎缩性肌病",
+        "muscular dystrophy": "肌营养不良",
+        "muscular dystrophies": "肌营养不良",
+        "muscular dystrophy, animal": "动物肌营养不良",
+        "muscular dystrophy, duchenne": "杜氏肌营养不良",
+        "muscular dystrophy, emery-dreifuss": "埃默里-德雷福斯肌营养不良",
+        "muscular dystrophy, facioscapulohumeral": "面肩肱型肌营养不良",
+        "muscular dystrophies, limb-girdle": "肢带型肌营养不良",
+}
+
+ZH_EXACT_EXPANSION_BATCH_500_ALIASES = {
+        "muscular dystrophy, oculopharyngeal": "眼咽型肌营养不良",
+        "musculocutaneous nerve": "肌皮神经",
+        "musculoskeletal manipulations": "肌肉骨骼手法治疗",
+        "musculoskeletal physiological phenomena": "肌肉骨骼生理现象",
+        "musculoskeletal system": "肌肉骨骼系统",
+        "mushroom bodies": "蘑菇体",
+        "mushroom poisoning": "蘑菇中毒",
+        "music information retrieval": "音乐信息检索",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -13574,6 +13794,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_477_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_478_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_479_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_480_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_481_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_482_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_483_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_484_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_485_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_486_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_487_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_488_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_489_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_490_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_491_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_492_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_493_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_494_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_495_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_496_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_497_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_498_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_499_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_500_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",
