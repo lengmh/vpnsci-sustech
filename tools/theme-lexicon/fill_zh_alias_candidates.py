@@ -14190,6 +14190,223 @@ ZH_EXACT_EXPANSION_BATCH_580_ALIASES = {
         "network performance": "网络性能",
 }
 
+ZH_EXACT_EXPANSION_BATCH_581_ALIASES = {
+        "network pharmacology": "网络药理学",
+        "network phase transitions": "网络相变",
+        "network protocols": "网络协议",
+        "network reconnaissance": "网络侦察",
+        "network routing": "网络路由",
+        "network searches": "网络搜索",
+        "network security": "网络安全",
+        "network selection": "网络选择",
+}
+
+ZH_EXACT_EXPANSION_BATCH_582_ALIASES = {
+        "network security and intrusion detection": "网络安全与入侵检测",
+        "network servers": "网络服务器",
+        "network services": "网络服务",
+        "network slicing": "网络切片",
+        "network stability": "网络稳定性",
+        "network strategy": "网络策略",
+        "network structure": "网络结构",
+}
+
+ZH_EXACT_EXPANSION_BATCH_583_ALIASES = {
+        "network survivability": "网络生存性",
+        "network synthesis": "网络综合",
+        "network systems": "网络系统",
+        "network theory (graphs)": "网络理论",
+        "network time synchronization technologies": "网络时间同步技术",
+        "network topology": "网络拓扑",
+        "network traffic": "网络流量",
+        "network traffic and congestion control": "网络流量与拥塞控制",
+}
+
+ZH_EXACT_EXPANSION_BATCH_584_ALIASES = {
+        "network traffic classification": "网络流量分类",
+        "network utility maximization": "网络效用最大化",
+        "network virtualization": "网络虚拟化",
+        "network visualization": "网络可视化",
+        "network-induced delay": "网络诱导时延",
+        "network-on-chip architectures": "片上网络架构",
+        "networked control": "网络化控制",
+        "networked control system": "网络化控制系统",
+}
+
+ZH_EXACT_EXPANSION_BATCH_585_ALIASES = {
+        "networked control system (ncs)": "网络化控制系统",
+        "networked control systems": "网络化控制系统",
+        "networked systems": "网络化系统",
+        "networking and internet architecture": "网络与互联网架构",
+        "networks & random structures": "网络与随机结构",
+        "networks analysis tools": "网络分析工具",
+        "neurabins": "神经结合蛋白",
+        "neural and behavioral psychology studies": "神经与行为心理学研究",
+}
+
+ZH_EXACT_EXPANSION_BATCH_586_ALIASES = {
+        "neural and evolutionary computing": "神经与进化计算",
+        "neural architecture search": "神经架构搜索",
+        "neural cell adhesion molecule l1": "L1神经细胞黏附分子",
+        "neural cell adhesion molecules": "神经细胞黏附分子",
+        "neural circuits": "神经回路",
+        "neural conduction": "神经传导",
+        "neural crest": "神经嵴",
+}
+
+ZH_EXACT_EXPANSION_BATCH_587_ALIASES = {
+        "neural dynamics and brain function": "神经动力学与脑功能",
+        "neural engineering": "神经工程",
+        "neural fine-tuning": "神经微调",
+        "neural implants": "神经植入物",
+        "neural inhibition": "神经抑制",
+        "neural machine translation": "神经机器翻译",
+        "neural microtechnology": "神经微技术",
+        "neural nanotechnology": "神经纳米技术",
+}
+
+ZH_EXACT_EXPANSION_BATCH_588_ALIASES = {
+        "neural network compression": "神经网络压缩",
+        "neural network hardware": "神经网络硬件",
+        "neural network simulations": "神经网络仿真",
+        "neural networks": "神经网络",
+        "neural networks and applications": "神经网络与应用",
+        "neural networks and reservoir computing": "神经网络与储备池计算",
+        "neural networks stability and synchronization": "神经网络稳定性与同步",
+}
+
+ZH_EXACT_EXPANSION_BATCH_589_ALIASES = {
+        "neural networks, computer": "计算机神经网络",
+        "neural pathways": "神经通路",
+        "neural plate": "神经板",
+        "neural prostheses": "神经假体",
+        "neural prosthesis": "神经假体",
+        "neural radiance field": "神经辐射场",
+        "neural radiance fields": "神经辐射场",
+        "neural stem cells": "神经干细胞",
+}
+
+ZH_EXACT_EXPANSION_BATCH_590_ALIASES = {
+        "neural style transfer": "神经风格迁移",
+        "neural tube": "神经管",
+        "neural tube defects": "神经管缺陷",
+        "neural-symbolic integration": "神经符号集成",
+        "neuralgia": "神经痛",
+        "neuralgia, postherpetic": "带状疱疹后神经痛",
+        "neuraminic acids": "神经氨酸",
+        "neuraminidase": "神经氨酸酶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_591_ALIASES = {
+        "neurasthenia": "神经衰弱",
+        "neuregulin-1": "神经调节蛋白1",
+        "neuregulins": "神经调节蛋白",
+        "neurexins": "神经连接蛋白",
+        "neurilemma": "神经膜",
+        "neurilemmoma": "神经鞘瘤",
+        "neurites": "神经突",
+        "neuritis": "神经炎",
+}
+
+ZH_EXACT_EXPANSION_BATCH_592_ALIASES = {
+        "neuritis, autoimmune, experimental": "实验性自身免疫性神经炎",
+        "neuro-fuzzy": "神经模糊",
+        "neuro-fuzzy controller": "神经模糊控制器",
+        "neuro-fuzzy model": "神经模糊模型",
+        "neuro-fuzzy network": "神经模糊网络",
+        "neuro-oncological ventral antigen": "神经肿瘤腹侧抗原",
+        "neuroacanthocytosis": "神经棘红细胞增多症",
+        "neuroanatomy": "神经解剖学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_593_ALIASES = {
+        "neuroanatomical tract-tracing techniques": "神经解剖束追踪技术",
+        "neuroanesthesia": "神经麻醉",
+        "neuroaspergillosis": "神经曲霉病",
+        "neuroaxonal dystrophies": "神经轴索营养不良",
+        "neurobehavioral manifestations": "神经行为表现",
+        "neurobiology": "神经生物学",
+        "neuroblastoma": "神经母细胞瘤",
+        "neurochemistry": "神经化学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_594_ALIASES = {
+        "neurocognitive disorders": "神经认知障碍",
+        "neurocontrollers": "神经控制器",
+        "neurocutaneous syndromes": "神经皮肤综合征",
+        "neurocysticercosis": "神经囊尾蚴病",
+        "neurocytoma": "神经细胞瘤",
+        "neurodegenerative diseases": "神经退行性疾病",
+        "neurodermatitis": "神经性皮炎",
+        "neurodevelopment": "神经发育",
+}
+
+ZH_EXACT_EXPANSION_BATCH_595_ALIASES = {
+        "neurodevelopmental disorders": "神经发育障碍",
+        "neuroectodermal tumor, melanotic": "黑色素性神经外胚层肿瘤",
+        "neuroectodermal tumors": "神经外胚层肿瘤",
+        "neuroeffector junction": "神经效应接头",
+        "neuroendocrine cells": "神经内分泌细胞",
+        "neuroendocrine regulation and behavior": "神经内分泌调节与行为",
+        "neuroendocrine tumors": "神经内分泌肿瘤",
+        "neuroendocrinology": "神经内分泌学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_596_ALIASES = {
+        "neuroendoscopes": "神经内镜",
+        "neuroendoscopy": "神经内镜检查",
+        "neuroepithelial bodies": "神经上皮小体",
+        "neuroepithelial cells": "神经上皮细胞",
+        "neurofeedback": "神经反馈",
+        "neurofibrillary tangles": "神经原纤维缠结",
+        "neurofibrils": "神经原纤维",
+        "neurofibroma": "神经纤维瘤",
+}
+
+ZH_EXACT_EXPANSION_BATCH_597_ALIASES = {
+        "neurofibroma, plexiform": "丛状神经纤维瘤",
+        "neurofibromatoses": "神经纤维瘤病",
+        "neurofibromatosis 1": "1型神经纤维瘤病",
+        "neurofibromatosis 2": "2型神经纤维瘤病",
+        "neurofibromin 1": "神经纤维瘤蛋白1",
+        "neurofibromin 2": "神经纤维瘤蛋白2",
+        "neurofibrosarcoma": "神经纤维肉瘤",
+        "neurofilament proteins": "神经丝蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_598_ALIASES = {
+        "neurogenesis": "神经发生",
+        "neurogenesis and neuroplasticity mechanisms": "神经发生与神经可塑性机制",
+        "neurogenic bowel": "神经源性肠道",
+        "neurogenic inflammation": "神经源性炎症",
+        "neuroglia": "神经胶质",
+        "neuroglobin": "神经珠蛋白",
+        "neuroimaging": "神经影像学",
+        "neuroinflammatory diseases": "神经炎症性疾病",
+}
+
+ZH_EXACT_EXPANSION_BATCH_599_ALIASES = {
+        "neuroinformatics": "神经信息学",
+        "neurokinin a": "神经激肽A",
+        "neurokinin b": "神经激肽B",
+        "neurokinin-1 receptor antagonists": "神经激肽1受体拮抗剂",
+        "neuroleptanalgesia": "神经安定镇痛",
+        "neuroleptic malignant syndrome": "神经阻滞剂恶性综合征",
+        "neuroligins": "神经连接蛋白",
+        "neurolinguistic programming": "神经语言程序学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_600_ALIASES = {
+        "neurologic examination": "神经系统检查",
+        "neurologic manifestations": "神经系统表现",
+        "neurological disorders and treatments": "神经系统疾病与治疗",
+        "neurological rehabilitation": "神经康复",
+        "neurologists": "神经科医师",
+        "neurology": "神经病学",
+        "neuroma": "神经瘤",
+        "neuroma, acoustic": "听神经瘤",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -14772,6 +14989,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_577_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_578_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_579_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_580_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_581_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_582_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_583_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_584_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_585_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_586_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_587_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_588_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_589_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_590_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_591_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_592_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_593_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_594_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_595_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_596_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_597_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_598_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_599_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_600_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",
