@@ -12662,6 +12662,218 @@ ZH_EXACT_EXPANSION_BATCH_440_ALIASES = {
         "mobile terminal": "移动终端",
 }
 
+ZH_EXACT_EXPANSION_BATCH_441_ALIASES = {
+        "mobile telecommunication systems": "移动通信系统",
+        "mobile tv": "移动电视",
+        "mobile web": "移动Web",
+        "mobile wimax": "移动WiMAX",
+        "mobility analysis": "移动性分析",
+        "mobility as a service": "出行即服务",
+        "mobility limitation": "活动受限",
+}
+
+ZH_EXACT_EXPANSION_BATCH_442_ALIASES = {
+        "mobility management": "移动性管理",
+        "mobility management protocol": "移动性管理协议",
+        "mobility management scheme": "移动性管理方案",
+        "mobility models": "移动性模型",
+        "mobility modeling": "移动性建模",
+        "mobility pattern": "移动模式",
+        "mobiluncus": "动弯杆菌属",
+        "models anatomic": "解剖模型",
+}
+
+ZH_EXACT_EXPANSION_BATCH_443_ALIASES = {
+        "models animal": "动物模型",
+        "model based systems engineering": "基于模型的系统工程",
+        "model based testing": "基于模型的测试",
+        "models biological": "生物模型",
+        "models biopsychosocial": "生物心理社会模型",
+        "models cardiovascular": "心血管模型",
+        "model checker": "模型检测器",
+        "model checking": "模型检测",
+}
+
+ZH_EXACT_EXPANSION_BATCH_444_ALIASES = {
+        "model checking algorithm": "模型检测算法",
+        "model checking problem": "模型检测问题",
+        "model checking techniques": "模型检测技术",
+        "model checking tools": "模型检测工具",
+        "models chemical": "化学模型",
+        "model compression": "模型压缩",
+        "models dental": "牙科模型",
+}
+
+ZH_EXACT_EXPANSION_BATCH_445_ALIASES = {
+        "model driven architecture": "模型驱动架构",
+        "model driven development": "模型驱动开发",
+        "model driven software development": "模型驱动软件开发",
+        "model driven software engineering techniques": "模型驱动软件工程技术",
+        "models econometric": "计量经济模型",
+        "models economic": "经济模型",
+        "models educational": "教育模型",
+}
+
+ZH_EXACT_EXPANSION_BATCH_446_ALIASES = {
+        "models genetic": "遗传模型",
+        "models immunological": "免疫学模型",
+        "model languages": "模型语言",
+        "models molecular": "分子模型",
+        "models neurological": "神经学模型",
+        "model reference adaptive control": "模型参考自适应控制",
+        "model reference adaptive system": "模型参考自适应系统",
+}
+
+ZH_EXACT_EXPANSION_BATCH_447_ALIASES = {
+        "models psychological": "心理模型",
+        "models spatial interaction": "空间相互作用模型",
+        "models statistical": "统计模型",
+        "models structural": "结构模型",
+        "models theoretical": "理论模型",
+        "model to model transformation": "模型到模型转换",
+        "model transformation": "模型转换",
+        "model validation": "模型验证",
+}
+
+ZH_EXACT_EXPANSION_BATCH_448_ALIASES = {
+        "model view controller": "模型-视图-控制器",
+        "modeling language": "建模语言",
+        "modems": "调制解调器",
+        "modern logistics": "现代物流",
+        "modified differential evolution": "改进差分进化",
+        "modules abstract algebra": "抽象代数模",
+        "modular construction": "模块化建造",
+        "modular exponentiation": "模幂运算",
+}
+
+ZH_EXACT_EXPANSION_BATCH_449_ALIASES = {
+        "modular multiplication": "模乘",
+        "modular robots": "模块化机器人",
+        "modular robotics": "模块化机器人学",
+        "modulation": "调制",
+        "modulation and coding schemes": "调制编码方案",
+        "modulation coding": "调制编码",
+        "modulo scheduling": "模调度",
+        "molecular beams": "分子束",
+}
+
+ZH_EXACT_EXPANSION_BATCH_450_ALIASES = {
+        "molecular biology": "分子生物学",
+        "molecular biology techniques and applications": "分子生物学技术与应用",
+        "molecular biomarkers": "分子生物标志物",
+        "molecular biophysics": "分子生物物理学",
+        "molecular chaperones": "分子伴侣",
+        "molecular communication": "分子通信",
+        "molecular communication and nanonetworks": "分子通信与纳米网络",
+}
+
+ZH_EXACT_EXPANSION_BATCH_451_ALIASES = {
+        "molecular computing": "分子计算",
+        "molecular conformation": "分子构象",
+        "molecular diagnostic techniques": "分子诊断技术",
+        "molecular docking simulation": "分子对接模拟",
+        "molecular electronics": "分子电子学",
+        "molecular epidemiology": "分子流行病学",
+        "molecular farming": "分子农业",
+}
+
+ZH_EXACT_EXPANSION_BATCH_452_ALIASES = {
+        "molecular imaging": "分子成像",
+        "molecular imprinting": "分子印迹",
+        "molecular mechanisms of pharmacological action": "药理作用分子机制",
+        "molecular medicine": "分子医学",
+        "molecular mimicry": "分子拟态",
+        "molecular motor proteins": "分子马达蛋白",
+        "molecular networks": "分子网络",
+}
+
+ZH_EXACT_EXPANSION_BATCH_453_ALIASES = {
+        "molecular probes": "分子探针",
+        "molecular probe techniques": "分子探针技术",
+        "molecular sequence annotation": "分子序列注释",
+        "molecular sequence data": "分子序列数据",
+        "molecular structure": "分子结构",
+        "molecular targeted therapy": "分子靶向治疗",
+        "molecular typing": "分子分型",
+        "molecular weight": "分子量",
+}
+
+ZH_EXACT_EXPANSION_BATCH_454_ALIASES = {
+        "molecularly imprinted polymers": "分子印迹聚合物",
+        "monitoring": "监测",
+        "monitoring ambulatory": "动态监测",
+        "monitoring intraoperative": "术中监测",
+        "monitoring physiologic": "生理监测",
+        "monoclonal gammopathy of undetermined significance": "意义未明单克隆免疫球蛋白血症",
+        "morphinans": "吗啡烷类",
+        "morphine": "吗啡",
+}
+
+ZH_EXACT_EXPANSION_BATCH_455_ALIASES = {
+        "morphine dependence": "吗啡依赖",
+        "morphine derivatives": "吗啡衍生物",
+        "morphodynamics": "形态动力学",
+        "morphogenesis": "形态发生",
+        "morpholines": "吗啉类",
+        "morpholinos": "吗啉代寡核苷酸",
+        "morphological filter": "形态滤波器",
+        "morphological filtering": "形态滤波",
+}
+
+ZH_EXACT_EXPANSION_BATCH_456_ALIASES = {
+        "morphological operations": "形态学运算",
+        "morphological operator": "形态算子",
+        "mouse embryonic stem cells": "小鼠胚胎干细胞",
+        "movement": "运动",
+        "moving and lifting patients": "患者搬运与抬移",
+        "moving least squares": "移动最小二乘",
+        "moving object": "运动物体",
+        "moving object segmentation": "运动目标分割",
+}
+
+ZH_EXACT_EXPANSION_BATCH_457_ALIASES = {
+        "moving object tracking": "运动目标跟踪",
+        "moving obstacles": "移动障碍物",
+        "moving platform": "移动平台",
+        "moving target": "移动目标",
+        "moving target detection": "移动目标检测",
+        "moving target tracking": "移动目标跟踪",
+        "multi access edge computing": "多接入边缘计算",
+        "multi agent approach": "多智能体方法",
+}
+
+ZH_EXACT_EXPANSION_BATCH_458_ALIASES = {
+        "multi agent systems": "多智能体系统",
+        "multi agent systems and negotiation": "多智能体系统与协商",
+        "multi antenna": "多天线",
+        "multi antenna relay": "多天线中继",
+        "multi antenna systems": "多天线系统",
+        "multi armed bandit problem": "多臂老虎机问题",
+        "multi band orthogonal frequency division multiplex": "多频带正交频分复用",
+}
+
+ZH_EXACT_EXPANSION_BATCH_459_ALIASES = {
+        "multi beam": "多波束",
+        "multi body system mbs": "多体系统",
+        "multi carrier": "多载波",
+        "multi carrier code division multiple access system": "多载波码分多址系统",
+        "multi carrier systems": "多载波系统",
+        "multi carrier transmission": "多载波传输",
+        "multi channel mac": "多信道MAC",
+        "multi channel mac protocols": "多信道MAC协议",
+}
+
+ZH_EXACT_EXPANSION_BATCH_460_ALIASES = {
+        "multi class classification": "多类分类",
+        "multi class classifier": "多类分类器",
+        "multi core": "多核",
+        "multi core architectures": "多核架构",
+        "multi core processor": "多核处理器",
+        "multi core systems": "多核系统",
+        "multi criteria decision analysis": "多准则决策分析",
+        "multi criteria decision making": "多准则决策",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -13104,6 +13316,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_437_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_438_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_439_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_440_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_441_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_442_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_443_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_444_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_445_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_446_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_447_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_448_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_449_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_450_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_451_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_452_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_453_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_454_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_455_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_456_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_457_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_458_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_459_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_460_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",

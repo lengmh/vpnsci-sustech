@@ -10793,6 +10793,278 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_441_adds_mobile_telecom_and_mobility_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mobile_telecommunication_system", "Mobile Telecommunication Systems", ["computer_science"], "移动通信系统"),
+                ("mobile_tv", "Mobile TV", ["communications_technology"], "移动电视"),
+                ("mobile_web", "Mobile Web", ["computer_science"], "移动Web"),
+                ("mobile_wimax", "Mobile Wimax", ["computer_science"], "移动WiMAX"),
+                ("mobility_analysi", "Mobility Analysis", ["computer_science"], "移动性分析"),
+                ("mobility_as_a_service", "Mobility As A Service", ["computers_and_information_processing"], "出行即服务"),
+                ("mobility_limitation", "Mobility Limitation", ["biomedical", "diseases"], "活动受限"),
+            ]
+        )
+
+    def test_exact_expansion_batch_442_adds_mobility_management_and_anatomic_model_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("mobility_management", "Mobility Management", ["computer_science"], "移动性管理"),
+                ("mobility_management_protocol", "Mobility Management Protocol", ["computer_science"], "移动性管理协议"),
+                ("mobility_management_scheme", "Mobility Management Scheme", ["computer_science"], "移动性管理方案"),
+                ("mobility_model", "Mobility Models", ["computer_science"], "移动性模型"),
+                ("mobility_modeling", "Mobility Modeling", ["computer_science"], "移动性建模"),
+                ("mobility_pattern", "Mobility Pattern", ["computer_science"], "移动模式"),
+                ("mobiluncu", "Mobiluncus", ["biomedical", "organisms"], "动弯杆菌属"),
+                ("model_anatomic", "Models, Anatomic", ["biomedical"], "解剖模型"),
+            ]
+        )
+
+    def test_exact_expansion_batch_443_adds_model_checking_and_biomed_model_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("model_animal", "Models, Animal", ["biomedical"], "动物模型"),
+                ("model_based_system_engineering", "Model-based Systems Engineering", ["computer_science"], "基于模型的系统工程"),
+                ("model_based_testing", "Model Based Testing", ["computer_science"], "基于模型的测试"),
+                ("model_biological", "Models, Biological", ["biomedical"], "生物模型"),
+                ("model_biopsychosocial", "Models, Biopsychosocial", ["biomedical"], "生物心理社会模型"),
+                ("model_cardiovascular", "Models, Cardiovascular", ["biomedical"], "心血管模型"),
+                ("model_checker", "Model Checker", ["computer_science"], "模型检测器"),
+                ("model_checking", "Model Checking", ["computer_science"], "模型检测"),
+            ]
+        )
+
+    def test_exact_expansion_batch_444_adds_model_checking_tools_and_compression_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("model_checking_algorithm", "Model Checking Algorithm", ["computer_science"], "模型检测算法"),
+                ("model_checking_problem", "Model Checking Problem", ["computer_science"], "模型检测问题"),
+                ("model_checking_techniqu", "Model-checking Techniques", ["computer_science"], "模型检测技术"),
+                ("model_checking_tool", "Model Checking Tools", ["computer_science"], "模型检测工具"),
+                ("model_chemical", "Models, Chemical", ["biomedical"], "化学模型"),
+                ("model_compression", "Model Compression", ["computer_science"], "模型压缩"),
+                ("model_dental", "Models, Dental", ["biomedical"], "牙科模型"),
+            ]
+        )
+
+    def test_exact_expansion_batch_445_adds_model_driven_and_economic_model_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("model_driven_architecture", "Model Driven Architecture", ["computer_science"], "模型驱动架构"),
+                ("model_driven_development", "Model-driven Development", ["computer_science"], "模型驱动开发"),
+                ("model_driven_software_development", "Model-driven Software Development", ["computer_science"], "模型驱动软件开发"),
+                ("model_driven_software_engineering_techniqu", "Model-driven Software Engineering Techniques", ["computer_science"], "模型驱动软件工程技术"),
+                ("model_econometric", "Models, Econometric", ["biomedical"], "计量经济模型"),
+                ("model_economic", "Models, Economic", ["computer_science"], "经济模型"),
+                ("model_educational", "Models, Educational", ["computer_science"], "教育模型"),
+            ]
+        )
+
+    def test_exact_expansion_batch_446_adds_genetic_molecular_and_reference_model_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("model_genetic", "Models, Genetic", ["biomedical"], "遗传模型"),
+                ("model_immunological", "Models, Immunological", ["biomedical"], "免疫学模型"),
+                ("model_languag", "Model Languages", ["computer_science"], "模型语言"),
+                ("model_molecular", "Models, Molecular", ["biomedical"], "分子模型"),
+                ("model_neurological", "Models, Neurological", ["biomedical"], "神经学模型"),
+                ("model_reference_adaptive_control", "Model Reference Adaptive Control", ["computer_science"], "模型参考自适应控制"),
+                ("model_reference_adaptive_system", "Model Reference Adaptive System", ["computer_science"], "模型参考自适应系统"),
+            ]
+        )
+
+    def test_exact_expansion_batch_447_adds_psychological_statistical_and_transformation_model_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("model_psychological", "Models, Psychological", ["biomedical"], "心理模型"),
+                ("model_spatial_interaction", "Models, Spatial Interaction", ["biomedical"], "空间相互作用模型"),
+                ("model_statistical", "Models, Statistical", ["computer_science"], "统计模型"),
+                ("model_structural", "Models, Structural", ["biomedical"], "结构模型"),
+                ("model_theoretical", "Models, Theoretical", ["biomedical"], "理论模型"),
+                ("model_to_model_transformation", "Model To Model Transformation", ["computer_science"], "模型到模型转换"),
+                ("model_transformation", "Model Transformation", ["computer_science"], "模型转换"),
+                ("model_validation", "Model Validation", ["computer_science"], "模型验证"),
+            ]
+        )
+
+    def test_exact_expansion_batch_448_adds_mvc_modem_and_modular_math_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("model_view_controller", "Model View Controller", ["computer_science"], "模型-视图-控制器"),
+                ("modeling_language", "Modeling Language", ["computer_science"], "建模语言"),
+                ("modem", "Modems", ["communications_technology", "computer_science"], "调制解调器"),
+                ("modern_logistic", "Modern Logistics", ["computer_science"], "现代物流"),
+                ("modified_differential_evolution", "Modified Differential Evolution", ["computer_science"], "改进差分进化"),
+                ("modul_abstract_algebra", "Modules (abstract Algebra)", ["mathematics"], "抽象代数模"),
+                ("modular_construction", "Modular Construction", ["industry_applications"], "模块化建造"),
+                ("modular_exponentiation", "Modular Exponentiation", ["computer_science"], "模幂运算"),
+            ]
+        )
+
+    def test_exact_expansion_batch_449_adds_modular_modulation_and_molecular_beam_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("modular_multiplication", "Modular Multiplication", ["computer_science"], "模乘"),
+                ("modular_robot", "Modular Robots", ["computer_science"], "模块化机器人"),
+                ("modular_robotic", "Modular Robotics", ["computer_science"], "模块化机器人学"),
+                ("modulation", "Modulation", ["communications_technology"], "调制"),
+                ("modulation_and_coding_schem", "Modulation And Coding Schemes", ["computer_science"], "调制编码方案"),
+                ("modulation_coding", "Modulation Coding", ["communications_technology"], "调制编码"),
+                ("modulo_scheduling", "Modulo Scheduling", ["computer_science"], "模调度"),
+                ("molecular_beam", "Molecular Beams", ["science_general"], "分子束"),
+            ]
+        )
+
+    def test_exact_expansion_batch_450_adds_molecular_biology_and_chaperone_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("molecular_biology", "Molecular Biology", ["biomedical"], "分子生物学"),
+                ("molecular_biology_techniqu_and_application", "Molecular Biology Techniques And Applications", ["life_sciences"], "分子生物学技术与应用"),
+                ("molecular_biomarker", "Molecular Biomarkers", ["systems_man_and_cybernetics"], "分子生物标志物"),
+                ("molecular_biophysic", "Molecular Biophysics", ["science_general"], "分子生物物理学"),
+                ("molecular_chaperon", "Molecular Chaperones", ["biomedical", "chemicals_and_drugs"], "分子伴侣"),
+                ("molecular_communication", "Molecular Communication", ["communications_technology"], "分子通信"),
+                ("molecular_communication_and_nanonetwork", "Molecular Communication And Nanonetworks", ["engineering"], "分子通信与纳米网络"),
+            ]
+        )
+
+    def test_exact_expansion_batch_451_adds_molecular_computing_diagnostic_and_epidemiology_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("molecular_computing", "Molecular Computing", ["computer_science"], "分子计算"),
+                ("molecular_conformation", "Molecular Conformation", ["biomedical"], "分子构象"),
+                ("molecular_diagnostic_techniqu", "Molecular Diagnostic Techniques", ["biomedical"], "分子诊断技术"),
+                ("molecular_docking_simulation", "Molecular Docking Simulation", ["biomedical"], "分子对接模拟"),
+                ("molecular_electronic", "Molecular Electronics", ["nanotechnology"], "分子电子学"),
+                ("molecular_epidemiology", "Molecular Epidemiology", ["biomedical"], "分子流行病学"),
+                ("molecular_farming", "Molecular Farming", ["biomedical"], "分子农业"),
+            ]
+        )
+
+    def test_exact_expansion_batch_452_adds_molecular_imaging_and_medicine_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("molecular_imaging", "Molecular Imaging", ["imaging"], "分子成像"),
+                ("molecular_imprinting", "Molecular Imprinting", ["biomedical"], "分子印迹"),
+                ("molecular_mechanism_of_pharmacological_action", "Molecular Mechanisms Of Pharmacological Action", ["biomedical"], "药理作用分子机制"),
+                ("molecular_medicine", "Molecular Medicine", ["biomedical"], "分子医学"),
+                ("molecular_mimicry", "Molecular Mimicry", ["biomedical"], "分子拟态"),
+                ("molecular_motor_protein", "Molecular Motor Proteins", ["biomedical", "chemicals_and_drugs"], "分子马达蛋白"),
+                ("molecular_network", "Molecular Networks", ["quantitative_biology"], "分子网络"),
+            ]
+        )
+
+    def test_exact_expansion_batch_453_adds_molecular_probe_sequence_and_structure_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("molecular_prob", "Molecular Probes", ["biomedical", "chemicals_and_drugs"], "分子探针"),
+                ("molecular_probe_techniqu", "Molecular Probe Techniques", ["biomedical"], "分子探针技术"),
+                ("molecular_sequence_annotation", "Molecular Sequence Annotation", ["biomedical"], "分子序列注释"),
+                ("molecular_sequence_data", "Molecular Sequence Data", ["biomedical", "information_science"], "分子序列数据"),
+                ("molecular_structure", "Molecular Structure", ["biomedical"], "分子结构"),
+                ("molecular_targeted_therapy", "Molecular Targeted Therapy", ["biomedical"], "分子靶向治疗"),
+                ("molecular_typing", "Molecular Typing", ["biomedical"], "分子分型"),
+                ("molecular_weight", "Molecular Weight", ["biomedical"], "分子量"),
+            ]
+        )
+
+    def test_exact_expansion_batch_454_adds_molecularly_imprinted_monitoring_and_morphine_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("molecularly_imprinted_polymer", "Molecularly Imprinted Polymers", ["biomedical", "chemicals_and_drugs"], "分子印迹聚合物"),
+                ("monitoring", "Monitoring", ["instrumentation_and_measurement"], "监测"),
+                ("monitoring_ambulatory", "Monitoring, Ambulatory", ["biomedical"], "动态监测"),
+                ("monitoring_intraoperative", "Monitoring, Intraoperative", ["biomedical"], "术中监测"),
+                ("monitoring_physiologic", "Monitoring, Physiologic", ["biomedical"], "生理监测"),
+                ("monoclonal_gammopathy_of_undetermined_significance", "Monoclonal Gammopathy Of Undetermined Significance", ["biomedical", "diseases"], "意义未明单克隆免疫球蛋白血症"),
+                ("morphinan", "Morphinans", ["biomedical", "chemicals_and_drugs"], "吗啡烷类"),
+                ("morphine", "Morphine", ["biomedical", "chemicals_and_drugs"], "吗啡"),
+            ]
+        )
+
+    def test_exact_expansion_batch_455_adds_morphine_morphogenesis_and_morphological_filter_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("morphine_dependence", "Morphine Dependence", ["biomedical", "diseases"], "吗啡依赖"),
+                ("morphine_derivativ", "Morphine Derivatives", ["biomedical", "chemicals_and_drugs"], "吗啡衍生物"),
+                ("morphodynamic", "Morphodynamics", ["computer_science"], "形态动力学"),
+                ("morphogenesi", "Morphogenesis", ["biomedical"], "形态发生"),
+                ("morpholin", "Morpholines", ["biomedical", "chemicals_and_drugs"], "吗啉类"),
+                ("morpholino", "Morpholinos", ["biomedical", "chemicals_and_drugs"], "吗啉代寡核苷酸"),
+                ("morphological_filter", "Morphological Filter", ["computer_science"], "形态滤波器"),
+                ("morphological_filtering", "Morphological Filtering", ["computer_science"], "形态滤波"),
+            ]
+        )
+
+    def test_exact_expansion_batch_456_adds_morphological_mouse_and_moving_object_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("morphological_operation", "Morphological Operations", ["computer_science"], "形态学运算"),
+                ("morphological_operator", "Morphological Operator", ["computer_science"], "形态算子"),
+                ("mouse_embryonic_stem_cell", "Mouse Embryonic Stem Cells", ["biomedical"], "小鼠胚胎干细胞"),
+                ("movement", "Movement", ["biomedical"], "运动"),
+                ("moving_and_lifting_patient", "Moving And Lifting Patients", ["biomedical", "health_care"], "患者搬运与抬移"),
+                ("moving_least_squar", "Moving Least Squares", ["computer_science"], "移动最小二乘"),
+                ("moving_object", "Moving Object", ["computer_science"], "运动物体"),
+                ("moving_object_segmentation", "Moving Object Segmentation", ["computer_science"], "运动目标分割"),
+            ]
+        )
+
+    def test_exact_expansion_batch_457_adds_moving_target_and_multi_agent_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("moving_object_tracking", "Moving Object Tracking", ["computer_science"], "运动目标跟踪"),
+                ("moving_obstacl", "Moving Obstacles", ["computer_science"], "移动障碍物"),
+                ("moving_platform", "Moving Platform", ["computer_science"], "移动平台"),
+                ("moving_target", "Moving Target", ["computer_science"], "移动目标"),
+                ("moving_target_detection", "Moving Target Detection", ["computer_science"], "移动目标检测"),
+                ("moving_target_tracking", "Moving Target Tracking", ["computer_science"], "移动目标跟踪"),
+                ("multi_access_edge_computing", "Multi-access Edge Computing", ["computers_and_information_processing"], "多接入边缘计算"),
+                ("multi_agent_approach", "Multi-agent Approach", ["computer_science"], "多智能体方法"),
+            ]
+        )
+
+    def test_exact_expansion_batch_458_adds_multi_agent_antenna_and_bandit_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multi_agent_system", "Multi-agent Systems", ["systems_engineering_and_theory"], "多智能体系统"),
+                ("multi_agent_system_and_negotiation", "Multi-agent Systems And Negotiation", ["computer_science"], "多智能体系统与协商"),
+                ("multi_antenna", "Multi-antenna", ["computer_science"], "多天线"),
+                ("multi_antenna_relay", "Multi-antenna Relay", ["computer_science"], "多天线中继"),
+                ("multi_antenna_system", "Multi-antenna Systems", ["computer_science"], "多天线系统"),
+                ("multi_armed_bandit_problem", "Multi-armed Bandit Problem", ["computer_science"], "多臂老虎机问题"),
+                ("multi_band_orthogonal_frequency_division_multiplex", "Multi-band Orthogonal Frequency Division Multiplex", ["computer_science"], "多频带正交频分复用"),
+            ]
+        )
+
+    def test_exact_expansion_batch_459_adds_multibeam_multibody_and_multicarrier_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multi_beam", "Multi-beam", ["computer_science"], "多波束"),
+                ("multi_body_system_mbs", "Multi-body System (mbs)", ["computer_science"], "多体系统"),
+                ("multi_carrier", "Multi Carrier", ["computer_science"], "多载波"),
+                ("multi_carrier_code_division_multiple_access_system", "Multi Carrier Code-division Multiple-access System", ["computer_science"], "多载波码分多址系统"),
+                ("multi_carrier_system", "Multi Carrier Systems", ["computer_science"], "多载波系统"),
+                ("multi_carrier_transmission", "Multi Carrier Transmission", ["computer_science"], "多载波传输"),
+                ("multi_channel_mac", "Multi-channel Mac", ["computer_science"], "多信道MAC"),
+                ("multi_channel_mac_protocol", "Multi-channel Mac Protocols", ["computer_science"], "多信道MAC协议"),
+            ]
+        )
+
+    def test_exact_expansion_batch_460_adds_multiclass_multicore_and_multicriteria_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multi_class_classification", "Multi-class Classification", ["computer_science"], "多类分类"),
+                ("multi_class_classifier", "Multi-class Classifier", ["computer_science"], "多类分类器"),
+                ("multi_core", "Multi Core", ["computer_science"], "多核"),
+                ("multi_core_architectur", "Multi-core Architectures", ["computer_science"], "多核架构"),
+                ("multi_core_processor", "Multi-core Processor", ["computer_science"], "多核处理器"),
+                ("multi_core_system", "Multi-core Systems", ["computer_science"], "多核系统"),
+                ("multi_criteria_decision_analysi", "Multi-criteria Decision Analysis", ["computer_science"], "多准则决策分析"),
+                ("multi_criteria_decision_making", "Multi-criteria Decision Making", ["computer_science"], "多准则决策"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
