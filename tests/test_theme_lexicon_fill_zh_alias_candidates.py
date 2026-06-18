@@ -11065,6 +11065,284 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_461_adds_multilabel_multimodal_and_multiobject_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multi_label_classification", "Multi Label Classification", ["computer_science"], "多标签分类"),
+                ("multi_layer_neural_network", "Multi-layer Neural Network", ["computer_science"], "多层神经网络"),
+                ("multi_modal_biometric", "Multi-modal Biometrics", ["computer_science"], "多模态生物识别"),
+                ("multi_modal_interaction", "Multi-modal Interactions", ["computer_science"], "多模态交互"),
+                ("multi_modal_interfac", "Multi-modal Interfaces", ["computer_science"], "多模态界面"),
+                ("multi_mode_interference", "Multi-mode Interference", ["computer_science"], "多模干涉"),
+                ("multi_object_tracking", "Multi-object Tracking", ["computer_science"], "多目标跟踪"),
+            ]
+        )
+
+    def test_exact_expansion_batch_462_adds_multiobjective_algorithm_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multi_objective_algorithm", "Multi Objective Algorithm", ["computer_science"], "多目标算法"),
+                ("multi_objective_differential_evolution", "Multi-objective Differential Evolutions", ["computer_science"], "多目标差分进化"),
+                ("multi_objective_evolutionary_algorithm", "Multi-objective Evolutionary Algorithm", ["computer_science"], "多目标进化算法"),
+                ("multi_objective_genetic_algorithm", "Multi-objective Genetic Algorithm", ["computer_science"], "多目标遗传算法"),
+                ("multi_objective_learning", "Multi-objective Learning", ["computer_science"], "多目标学习"),
+                ("multi_objective_optimisation", "Multi-objective Optimisation", ["computer_science"], "多目标优化"),
+                ("multi_objective_optimization_model", "Multi-objective Optimization Models", ["computer_science"], "多目标优化模型"),
+                ("multi_objective_optimization_problem", "Multi-objective Optimization Problem", ["computer_science"], "多目标优化问题"),
+            ]
+        )
+
+    def test_exact_expansion_batch_463_adds_multiparty_and_multipath_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multi_objective_particle_swarm_optimization", "Multi Objective Particle Swarm Optimization", ["computer_science"], "多目标粒子群优化"),
+                ("multi_objective_problem", "Multi-objective Problem", ["computer_science"], "多目标问题"),
+                ("multi_objective_programming", "Multi-objective Programming", ["computer_science"], "多目标规划"),
+                ("multi_party_computation", "Multi-party Computation", ["computer_science"], "多方计算"),
+                ("multi_path_fading_channel", "Multi-path Fading Channels", ["computer_science"], "多径衰落信道"),
+                ("multi_path_interference", "Multi-path Interference", ["computer_science"], "多径干扰"),
+                ("multi_path_mitigation", "Multi-path Mitigation", ["computer_science"], "多径缓解"),
+                ("multi_path_routing", "Multi Path Routing", ["computer_science"], "多路径路由"),
+            ]
+        )
+
+    def test_exact_expansion_batch_464_adds_multiprocessor_mpls_and_multiresolution_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multi_processor", "Multi-processors", ["computer_science"], "多处理器"),
+                ("multi_processor_architecture", "Multi Processor Architecture", ["computer_science"], "多处理器架构"),
+                ("multi_processor_platform", "Multi-processor Platforms", ["computer_science"], "多处理器平台"),
+                ("multi_processor_scheduling", "Multi Processor Scheduling", ["computer_science"], "多处理器调度"),
+                ("multi_processor_system", "Multi Processor Systems", ["computer_science"], "多处理器系统"),
+                ("multi_protocol_label_switching", "Multi Protocol Label Switching", ["computer_science"], "多协议标签交换"),
+                ("multi_resolution_analysi", "Multi-resolution Analysis", ["computer_science"], "多分辨率分析"),
+                ("multi_resolution_decomposition", "Multi Resolution Decomposition", ["computer_science"], "多分辨率分解"),
+            ]
+        )
+
+    def test_exact_expansion_batch_465_adds_multirobot_and_multisensor_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multi_resolution_representation", "Multi Resolution Representation", ["computer_science"], "多分辨率表示"),
+                ("multi_robot", "Multi-robot", ["computer_science"], "多机器人"),
+                ("multi_robot_cooperation", "Multi-robot Cooperation", ["computer_science"], "多机器人协作"),
+                ("multi_robot_coordination", "Multi-robot Coordination", ["computer_science"], "多机器人协调"),
+                ("multi_robot_exploration", "Multi-robot Exploration", ["computer_science"], "多机器人探索"),
+                ("multi_robot_system", "Multi-robot Systems", ["robotics_and_automation"], "多机器人系统"),
+                ("multi_robot_team", "Multi-robot Teams", ["computer_science"], "多机器人团队"),
+                ("multi_sensor", "Multi Sensor", ["computer_science"], "多传感器"),
+            ]
+        )
+
+    def test_exact_expansion_batch_466_adds_multisensor_multiserver_and_multispectral_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multi_sensor_data", "Multi-sensor Data", ["computer_science"], "多传感器数据"),
+                ("multi_sensor_data_fusion", "Multi-sensor Data Fusion", ["computer_science"], "多传感器数据融合"),
+                ("multi_sensor_imag", "Multi Sensor Images", ["computer_science"], "多传感器图像"),
+                ("multi_sensor_information_fusion", "Multi-sensor Information Fusion", ["computer_science"], "多传感器信息融合"),
+                ("multi_sensor_system", "Multi-sensor Systems", ["computer_science"], "多传感器系统"),
+                ("multi_server", "Multi-server", ["computer_science"], "多服务器"),
+                ("multi_signature", "Multi-signature", ["computer_science"], "多重签名"),
+                ("multi_spectral_imaging", "Multi-spectral Imaging", ["computer_science"], "多光谱成像"),
+            ]
+        )
+
+    def test_exact_expansion_batch_467_adds_multitarget_multitemporal_and_multitenancy_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multi_spectral_imaging_system", "Multi-spectral Imaging Systems", ["computer_science"], "多光谱成像系统"),
+                ("multi_standard", "Multi-standard", ["computer_science"], "多标准"),
+                ("multi_target", "Multi-target", ["computer_science"], "多目标"),
+                ("multi_target_tracking", "Multi-target Tracking", ["computer_science"], "多目标跟踪"),
+                ("multi_temporal", "Multi-temporal", ["computer_science"], "多时相"),
+                ("multi_temporal_image", "Multi-temporal Image", ["computer_science"], "多时相图像"),
+                ("multi_temporal_remote_sensing", "Multi-temporal Remote Sensing", ["computer_science"], "多时相遥感"),
+                ("multi_tenancy", "Multi-tenancy", ["computer_science"], "多租户"),
+            ]
+        )
+
+    def test_exact_expansion_batch_468_adds_multithread_multitier_and_multiuser_detection_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multi_thread", "Multi-thread", ["computer_science"], "多线程"),
+                ("multi_threaded", "Multi-threaded", ["computer_science"], "多线程"),
+                ("multi_threaded_application", "Multi-threaded Application", ["computer_science"], "多线程应用"),
+                ("multi_threading", "Multi-threading", ["computer_science"], "多线程"),
+                ("multi_tier", "Multi-tier", ["computer_science"], "多层"),
+                ("multi_tier_application", "Multi-tier Applications", ["computer_science"], "多层应用"),
+                ("multi_user_detection", "Multi-user Detection", ["computer_science"], "多用户检测"),
+                ("multi_user_diversity", "Multi-user Diversity", ["computer_science"], "多用户分集"),
+            ]
+        )
+
+    def test_exact_expansion_batch_469_adds_multiuser_mimo_and_multiview_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multi_user_interference", "Multi-user Interference", ["computer_science"], "多用户干扰"),
+                ("multi_user_mimo", "Multi-user Mimo", ["computer_science"], "多用户MIMO"),
+                ("multi_user_mimo_downlink", "Multi-user Mimo Downlinks", ["computer_science"], "多用户MIMO下行链路"),
+                ("multi_user_mimo_system", "Multi-user Mimo Systems", ["computer_science"], "多用户MIMO系统"),
+                ("multi_user_virtual_environment", "Multi-user Virtual Environment", ["computer_science"], "多用户虚拟环境"),
+                ("multi_view", "Multi-view", ["computer_science"], "多视图"),
+                ("multi_view_consistency", "Multi-view Consistency", ["computer_science"], "多视图一致性"),
+                ("multi_view_learning", "Multi-view Learning", ["computer_science"], "多视图学习"),
+            ]
+        )
+
+    def test_exact_expansion_batch_470_adds_multiview_multiaccess_and_multicarrier_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multi_view_stereo", "Multi-view Stereo", ["computer_science"], "多视图立体"),
+                ("multi_wavelet", "Multi-wavelets", ["computer_science"], "多小波"),
+                ("multiaccess_communication", "Multiaccess Communication", ["communications_technology"], "多址通信"),
+                ("multiagent_architecture", "Multiagent Architecture", ["computer_science"], "多智能体架构"),
+                ("multiagent_framework", "Multiagent Framework", ["computer_science"], "多智能体框架"),
+                ("multiband_ofdm", "Multiband Ofdm", ["computer_science"], "多频带OFDM"),
+                ("multibeam_antenna", "Multibeam Antennas", ["computer_science"], "多波束天线"),
+                ("multicarrier_code_division_multiple_access", "Multicarrier Code Division Multiple Access", ["computer_science"], "多载波码分多址"),
+            ]
+        )
+
+    def test_exact_expansion_batch_471_adds_multicast_basic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multicarrier_modulation", "Multicarrier Modulation", ["computer_science"], "多载波调制"),
+                ("multicast_algorithm", "Multicast Algorithms", ["computer_science"], "组播算法"),
+                ("multicast_application", "Multicast Application", ["computer_science"], "组播应用"),
+                ("multicast_capacity", "Multicast Capacity", ["computer_science"], "组播容量"),
+                ("multicast_communication", "Multicast Communication", ["computer_science"], "组播通信"),
+                ("multicast_data", "Multicast Data", ["computer_science"], "组播数据"),
+                ("multicast_network", "Multicast Network", ["computer_science"], "组播网络"),
+                ("multicast_packet", "Multicast Packet", ["computer_science"], "组播数据包"),
+            ]
+        )
+
+    def test_exact_expansion_batch_472_adds_multicast_routing_and_traffic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multicast_protocol", "Multicast Protocols", ["computer_science"], "组播协议"),
+                ("multicast_routing", "Multicast Routing", ["computer_science"], "组播路由"),
+                ("multicast_routing_algorithm", "Multicast Routing Algorithms", ["computer_science"], "组播路由算法"),
+                ("multicast_routing_protocol", "Multicast Routing Protocol", ["computer_science"], "组播路由协议"),
+                ("multicast_scheduling", "Multicast Scheduling", ["computer_science"], "组播调度"),
+                ("multicast_session", "Multicast Sessions", ["computer_science"], "组播会话"),
+                ("multicast_traffic", "Multicast Traffic", ["computer_science"], "组播流量"),
+                ("multicast_vpn", "Multicast VPN", ["communications_technology"], "组播VPN"),
+            ]
+        )
+
+    def test_exact_expansion_batch_473_adds_multicenter_multichip_and_multicomponent_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multicell_system", "Multicell System", ["computer_science"], "多小区系统"),
+                ("multicenter_study", "Multicenter Study", ["biomedical"], "多中心研究"),
+                ("multicenter_study_as_topic", "Multicenter Studies As Topic", ["biomedical"], "多中心研究主题"),
+                ("multichip_modul", "Multichip Modules", ["computer_science"], "多芯片模块"),
+                ("multiclass_classification_problem", "Multiclass Classification Problems", ["computer_science"], "多类分类问题"),
+                ("multicomponent_signal", "Multicomponent Signals", ["computer_science"], "多分量信号"),
+                ("multicomponent_synthesi_of_heterocycl", "Multicomponent Synthesis Of Heterocycles", ["chemistry"], "杂环多组分合成"),
+                ("multicomponent_system", "Multicomponent Systems", ["physics"], "多组分系统"),
+            ]
+        )
+
+    def test_exact_expansion_batch_474_adds_multicore_multidetector_and_multidimensional_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multicomputer", "Multicomputers", ["computer_science"], "多计算机"),
+                ("multicore_processing", "Multicore Processing", ["computer_science"], "多核处理"),
+                ("multicore_programming", "Multicore Programming", ["computer_science"], "多核编程"),
+                ("multicystic_dysplastic_kidney", "Multicystic Dysplastic Kidney", ["biomedical", "diseases"], "多囊性发育不良肾"),
+                ("multidetector_computed_tomography", "Multidetector Computed Tomography", ["biomedical"], "多层探测器CT"),
+                ("multidimensional_scaling_analysi", "Multidimensional Scaling Analysis", ["biomedical"], "多维尺度分析"),
+                ("multidimensional_signal_processing", "Multidimensional Signal Processing", ["signal_processing"], "多维信号处理"),
+                ("multidimensional_system", "Multidimensional Systems", ["systems_engineering_and_theory"], "多维系统"),
+            ]
+        )
+
+    def test_exact_expansion_batch_475_adds_multidrug_multienzyme_and_multiferroic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multidisciplinary_design_optimization", "Multidisciplinary Design Optimization", ["computer_science"], "多学科设计优化"),
+                ("multidrug_resistance_associated_protein_2", "Multidrug Resistance-associated Protein 2", ["biomedical", "chemicals_and_drugs"], "多药耐药相关蛋白2"),
+                ("multienzyme_complexe", "Multienzyme Complexes", ["biomedical", "chemicals_and_drugs"], "多酶复合物"),
+                ("multifactor_dimensionality_reduction", "Multifactor Dimensionality Reduction", ["biomedical"], "多因子降维"),
+                ("multifactorial_inheritance", "Multifactorial Inheritance", ["biomedical"], "多因素遗传"),
+                ("multiferroic_and_related_material", "Multiferroics And Related Materials", ["materials_science"], "多铁性及相关材料"),
+                ("multifilamentary_superconductor", "Multifilamentary Superconductors", ["superconductivity"], "多丝超导体"),
+                ("multifingered_hand", "Multifingered Hands", ["computer_science"], "多指手"),
+            ]
+        )
+
+    def test_exact_expansion_batch_476_adds_multifocal_multifunctional_and_multigrid_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multifocal_choroiditi", "Multifocal Choroiditis", ["biomedical", "diseases"], "多灶性脉络膜炎"),
+                ("multifocal_intraocular_lense", "Multifocal Intraocular Lenses", ["biomedical"], "多焦点人工晶状体"),
+                ("multifrequency_antenna", "Multifrequency Antennas", ["antennas_and_propagation"], "多频天线"),
+                ("multifunctional_enzym", "Multifunctional Enzymes", ["biomedical", "chemicals_and_drugs"], "多功能酶"),
+                ("multifunctional_nanoparticl", "Multifunctional Nanoparticles", ["biomedical"], "多功能纳米颗粒"),
+                ("multigene_family", "Multigene Family", ["biomedical"], "多基因家族"),
+                ("multigraph", "Multigraph", ["computer_science"], "多重图"),
+                ("multigrid_method", "Multigrid Methods", ["mathematics"], "多重网格法"),
+            ]
+        )
+
+    def test_exact_expansion_batch_477_adds_multihop_multilayer_and_multilevel_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multihop_transmission", "Multihop Transmission", ["computer_science"], "多跳传输"),
+                ("multilayer_and_multiplex_network", "Multilayer & Multiplex Networks", ["physics"], "多层与多重网络"),
+                ("multilayer_perceptron", "Multilayer Perceptrons", ["computer_science"], "多层感知机"),
+                ("multilevel_analysi", "Multilevel Analysis", ["biomedical"], "多层次分析"),
+                ("multilevel_converter", "Multilevel Converters", ["power_electronics"], "多电平变换器"),
+                ("multilevel_inverter", "Multilevel Inverters", ["power_electronics"], "多电平逆变器"),
+                ("multilevel_system", "Multilevel Systems", ["systems_engineering_and_theory"], "多层系统"),
+            ]
+        )
+
+    def test_exact_expansion_batch_478_adds_multilocus_and_multimedia_basic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multilocu_sequence_typing", "Multilocus Sequence Typing", ["biomedical"], "多位点序列分型"),
+                ("multimedia", "Multimedia", ["computer_science"], "多媒体"),
+                ("multimedia_communication", "Multimedia Communication", ["computer_science"], "多媒体通信"),
+                ("multimedia_computing", "Multimedia Computing", ["consumer_electronics"], "多媒体计算"),
+                ("multimedia_content", "Multimedia Content", ["computer_science"], "多媒体内容"),
+                ("multimedia_courseware", "Multimedia Courseware", ["computer_science"], "多媒体课件"),
+                ("multimedia_data", "Multimedia Data", ["computer_science"], "多媒体数据"),
+                ("multimedia_database", "Multimedia Databases", ["consumer_electronics"], "多媒体数据库"),
+            ]
+        )
+
+    def test_exact_expansion_batch_479_adds_multimedia_service_and_streaming_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multimedia_document", "Multimedia Documents", ["computer_science"], "多媒体文档"),
+                ("multimedia_interactive_servic", "Multimedia Interactive Services", ["computer_science"], "多媒体交互服务"),
+                ("multimedia_learning_system", "Multimedia Learning Systems", ["computer_science"], "多媒体学习系统"),
+                ("multimedia_servic", "Multimedia Services", ["computer_science"], "多媒体服务"),
+                ("multimedia_signal_processing", "Multimedia Signal Processing", ["computer_science"], "多媒体信号处理"),
+                ("multimedia_stream", "Multimedia Stream", ["computer_science"], "多媒体流"),
+                ("multimedia_streaming", "Multimedia Streaming", ["computer_science"], "多媒体流媒体"),
+                ("multimedia_system", "Multimedia Systems", ["computer_science"], "多媒体系统"),
+            ]
+        )
+
+    def test_exact_expansion_batch_480_adds_multimedia_technology_and_multimodal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("multimedia_technology", "Multimedia Technologies", ["computer_science"], "多媒体技术"),
+                ("multimodal_ai", "Multimodal Ai", ["computer_science"], "多模态AI"),
+                ("multimodal_dialogue_system", "Multimodal Dialogue Systems", ["computer_science"], "多模态对话系统"),
+                ("multimodal_image_registration", "Multimodal Image Registration", ["computer_science"], "多模态图像配准"),
+                ("multimodal_imaging", "Multimodal Imaging", ["biomedical"], "多模态成像"),
+                ("multimodal_sensor", "Multimodal Sensors", ["sensors"], "多模态传感器"),
+                ("multimode_fiber", "Multimode Fibers", ["computer_science"], "多模光纤"),
+                ("multimode_optical_fiber", "Multimode Optical Fibers", ["computer_science"], "多模光纤"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
