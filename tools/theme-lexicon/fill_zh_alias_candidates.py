@@ -10499,6 +10499,339 @@ ZH_EXACT_EXPANSION_BATCH_320_ALIASES = {
         "lymphoma non-hodgkin": "非霍奇金淋巴瘤",
 }
 
+ZH_EXACT_EXPANSION_BATCH_321_ALIASES = {
+        "lymphadenopathy diagnosis and analysis": "淋巴结病诊断与分析",
+        "lymphatic disorders and treatments": "淋巴系统疾病与治疗",
+        "lymphatic system and diseases": "淋巴系统与疾病",
+        "lymphoma diagnosis and treatment": "淋巴瘤诊断与治疗",
+        "lymphoma large cell immunoblastic": "免疫母细胞性大细胞淋巴瘤",
+        "lymphoma large-cell immunoblastic": "免疫母细胞性大细胞淋巴瘤",
+        "lymphoma primary effusion": "原发性渗出性淋巴瘤",
+        "lymphomatoid granulomatosis": "淋巴瘤样肉芽肿病",
+}
+
+ZH_EXACT_EXPANSION_BATCH_322_ALIASES = {
+        "lymphoma primary cutaneous anaplastic large cell": "原发性皮肤间变性大细胞淋巴瘤",
+        "lymphoma t cell cutaneous": "皮肤T细胞淋巴瘤",
+        "lymphoma t-cell cutaneous": "皮肤T细胞淋巴瘤",
+        "lymphoma t cell peripheral": "外周T细胞淋巴瘤",
+        "lymphoma t-cell peripheral": "外周T细胞淋巴瘤",
+        "lymphomatoid papulosis": "淋巴瘤样丘疹病",
+        "lymphopenia": "淋巴细胞减少症",
+        "lymphopoiesis": "淋巴细胞生成",
+        "lymphoproliferative disorders": "淋巴增殖性疾病",
+}
+
+ZH_EXACT_EXPANSION_BATCH_323_ALIASES = {
+        "lymphoscintigraphy": "淋巴显像",
+        "lymphotoxin alpha1 beta2 heterotrimer": "淋巴毒素α1β2异源三聚体",
+        "lymphotoxin beta receptor": "淋巴毒素β受体",
+        "lymphotoxin alpha": "淋巴毒素α",
+        "lymphotoxin-alpha": "淋巴毒素α",
+        "lymphotoxin beta": "淋巴毒素β",
+        "lymphotoxin-beta": "淋巴毒素β",
+        "lynch syndrome ii": "Lynch综合征II",
+        "lynestrenol": "利奈孕醇",
+}
+
+ZH_EXACT_EXPANSION_BATCH_324_ALIASES = {
+        "lyngbya": "鞘丝藻属",
+        "lyngbya toxins": "鞘丝藻毒素",
+        "lynx": "猞猁属",
+        "lypressin": "赖氨加压素",
+        "lysergic acid": "麦角酸",
+        "lysergic acid diethylamide": "麦角酸二乙胺",
+        "lysholm knee score": "Lysholm膝关节评分",
+        "lysimachia": "珍珠菜属",
+}
+
+ZH_EXACT_EXPANSION_BATCH_325_ALIASES = {
+        "lysine": "赖氨酸",
+        "lysine acetyltransferase 5": "赖氨酸乙酰转移酶5",
+        "lysine acetyltransferases": "赖氨酸乙酰转移酶",
+        "lysine carboxypeptidase": "赖氨酸羧肽酶",
+        "lysine trna ligase": "赖氨酰tRNA连接酶",
+        "lysine-trna ligase": "赖氨酰tRNA连接酶",
+        "lysinoalanine": "赖氨酰丙氨酸",
+}
+
+ZH_EXACT_EXPANSION_BATCH_326_ALIASES = {
+        "lysobacter": "溶杆菌属",
+        "lysogeny": "溶原性",
+        "lysophosphatidylcholines": "溶血磷脂酰胆碱",
+        "lysophospholipase": "溶血磷脂酶",
+        "lysophospholipase d": "溶血磷脂酶D",
+        "lysophospholipids": "溶血磷脂",
+        "lysosomal membrane proteins": "溶酶体膜蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_327_ALIASES = {
+        "lysosomal storage diseases": "溶酶体贮积病",
+        "lysosomal storage diseases nervous system": "神经系统溶酶体贮积病",
+        "lysosomal storage disorders research": "溶酶体贮积症研究",
+        "lysosomal associated membrane protein 1": "溶酶体相关膜蛋白1",
+        "lysosomal-associated membrane protein 1": "溶酶体相关膜蛋白1",
+        "lysosomal associated membrane protein 2": "溶酶体相关膜蛋白2",
+        "lysosomal-associated membrane protein 2": "溶酶体相关膜蛋白2",
+        "lysosomal associated membrane protein 3": "溶酶体相关膜蛋白3",
+        "lysosomal-associated membrane protein 3": "溶酶体相关膜蛋白3",
+        "lysosomes": "溶酶体",
+}
+
+ZH_EXACT_EXPANSION_BATCH_328_ALIASES = {
+        "lysostaphin": "溶葡萄球菌酶",
+        "lyssavirus": "丽沙病毒属",
+        "lytechinus": "莱氏海胆属",
+        "lythraceae": "千屈菜科",
+        "lythrum": "千屈菜属",
+        "m phase cell cycle checkpoints": "M期细胞周期检查点",
+        "m sequence": "M序列",
+        "m commerce": "移动商务",
+        "m-commerce": "移动商务",
+}
+
+ZH_EXACT_EXPANSION_BATCH_329_ALIASES = {
+        "m learning": "移动学习",
+        "m-learning": "移动学习",
+        "m matrix": "M矩阵",
+        "m-matrix": "M矩阵",
+        "m2m": "M2M通信",
+        "maackia": "马鞍树属",
+        "mac address": "MAC地址",
+        "mac layer": "MAC层",
+        "macadamia": "澳洲坚果属",
+}
+
+ZH_EXACT_EXPANSION_BATCH_330_ALIASES = {
+        "macaca": "猕猴属",
+        "macaca arctoides": "熊猴",
+        "macaca fascicularis": "食蟹猴",
+        "macaca fuscata": "日本猕猴",
+        "macaca mulatta": "恒河猴",
+        "macaca nemestrina": "豚尾猴",
+        "macaca radiata": "冠毛猕猴",
+}
+
+ZH_EXACT_EXPANSION_BATCH_331_ALIASES = {
+        "macau": "澳门",
+        "mach zehnder modulator": "Mach-Zehnder调制器",
+        "mach zehnder": "Mach-Zehnder结构",
+        "mach-zehnder": "Mach-Zehnder结构",
+        "machado joseph disease": "Machado-Joseph病",
+        "machado-joseph disease": "Machado-Joseph病",
+        "machiavellianism": "马基雅维利主义",
+        "machinability": "可加工性",
+        "machine components": "机器部件",
+}
+
+ZH_EXACT_EXPANSION_BATCH_332_ALIASES = {
+        "machine design": "机械设计",
+        "machine ethics": "机器伦理",
+        "machine intelligence": "机器智能",
+        "machine learning": "机器学习",
+        "machine learning algorithms": "机器学习算法",
+        "machine learning and elm": "机器学习与极限学习机",
+        "machine listening": "机器听觉",
+}
+
+ZH_EXACT_EXPANSION_BATCH_333_ALIASES = {
+        "machine learning in bioinformatics": "生物信息学中的机器学习",
+        "machine learning in healthcare": "医疗保健中的机器学习",
+        "machine learning in materials science": "材料科学中的机器学习",
+        "machine perception": "机器感知",
+        "machine shops": "机械加工车间",
+        "machine storytelling": "机器叙事",
+        "machine tools": "机床",
+}
+
+ZH_EXACT_EXPANSION_BATCH_334_ALIASES = {
+        "machine translation": "机器翻译",
+        "machine vector control": "电机矢量控制",
+        "machine vision": "机器视觉",
+        "machine windings": "电机绕组",
+        "machine to machine m2m": "机器到机器通信",
+        "machine-to-machine m2m": "机器到机器通信",
+        "machine to machine communications": "机器到机器通信",
+        "machine-to-machine communications": "机器到机器通信",
+        "machined surface": "加工表面",
+}
+
+ZH_EXACT_EXPANSION_BATCH_335_ALIASES = {
+        "agricultural machinery": "农业机械",
+        "machinery": "机械",
+        "machinery production industries": "机械制造业",
+        "machining": "机械加工",
+        "machining centers": "加工中心",
+        "machining efficiency": "加工效率",
+        "machining operations": "机械加工操作",
+        "machining parameters": "加工参数",
+        "printing machinery": "印刷机械",
+        "textile machinery": "纺织机械",
+}
+
+ZH_EXACT_EXPANSION_BATCH_336_ALIASES = {
+        "machining time": "加工时间",
+        "maclura": "柘属",
+        "macro block": "宏块",
+        "macroautophagy": "巨自噬",
+        "macrocyclic compounds": "大环化合物",
+        "macroeconomic factors": "宏观经济因素",
+        "macroeconomics": "宏观经济学",
+        "macrolides": "大环内酯类",
+}
+
+ZH_EXACT_EXPANSION_BATCH_337_ALIASES = {
+        "alpha macroglobulins": "α-巨球蛋白",
+        "alpha-macroglobulins": "α-巨球蛋白",
+        "macroglobulins": "巨球蛋白",
+        "macroglossia": "巨舌症",
+        "macromolecular substances": "大分子物质",
+        "macromolecules": "大分子",
+        "macronucleus": "大核",
+        "macrophage colony stimulating factor": "巨噬细胞集落刺激因子",
+        "macrophage colony-stimulating factor": "巨噬细胞集落刺激因子",
+        "macrophage inflammatory proteins": "巨噬细胞炎性蛋白",
+        "pregnancy associated alpha 2 macroglobulins": "妊娠相关α2-巨球蛋白",
+        "pregnancy-associated alpha 2-macroglobulins": "妊娠相关α2-巨球蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_338_ALIASES = {
+        "macrophage migration inhibitory factor": "巨噬细胞迁移抑制因子",
+        "macrophages alveolar": "肺泡巨噬细胞",
+        "macrophages peritoneal": "腹腔巨噬细胞",
+        "macropodidae": "袋鼠科",
+        "macrostomia": "巨口症",
+        "macula lutea": "黄斑",
+        "macular degeneration": "黄斑变性",
+        "macular edema": "黄斑水肿",
+}
+
+ZH_EXACT_EXPANSION_BATCH_339_ALIASES = {
+        "macular pigment": "黄斑色素",
+        "madagascar": "马达加斯加",
+        "madhuca": "紫荆木属",
+        "madin darby canine kidney cells": "Madin-Darby犬肾细胞",
+        "madurella": "马杜拉菌属",
+        "maesa": "杜茎山属",
+        "maf transcription factors": "Maf转录因子",
+        "maf transcription factors large": "大Maf转录因子",
+        "maf transcription factors small": "小Maf转录因子",
+        "mafb transcription factor": "Mafb转录因子",
+        "mafenide": "磺胺米隆",
+        "mafg transcription factor": "Mafg转录因子",
+        "mafk transcription factor": "Mafk转录因子",
+        "magainins": "马盖宁类",
+        "maggot debridement therapy": "蛆虫清创疗法",
+        "magnaporthe": "稻瘟菌属",
+        "magnesium": "镁元素",
+        "magnesium chloride": "氯化镁",
+}
+
+ZH_EXACT_EXPANSION_BATCH_340_ALIASES = {
+        "magnesium alloys properties and applications": "镁合金性质与应用",
+        "magnesium compounds": "镁化合物",
+        "magnesium deficiency": "镁缺乏",
+        "magnesium hydroxide": "氢氧化镁",
+        "magnesium in health and disease": "健康与疾病中的镁",
+        "magnesium oxide": "氧化镁",
+        "magnesium oxide properties and applications": "氧化镁性质与应用",
+        "magnesium silicates": "硅酸镁",
+        "magnesium sulfate": "硫酸镁",
+        "magnetic analysis": "磁分析",
+        "magnetic and electromagnetic effects": "磁和电磁效应",
+        "magnetic anisotropy": "磁各向异性",
+        "magnetic anomaly detection": "磁异常检测",
+        "magnetic bearings and levitation dynamics": "磁轴承与悬浮动力学",
+        "characterization and applications of magnetic nanoparticles": "磁性纳米颗粒表征与应用",
+        "magnetic circuits": "磁路",
+        "magnetic communication": "磁通信",
+        "magnetic confinement": "磁约束",
+        "magnetic confinement fusion research": "磁约束聚变研究",
+        "magnetic cores": "磁芯",
+        "magnetic devices": "磁性器件",
+        "magnetic disk storage": "磁盘存储",
+        "magnetic domain walls": "磁畴壁",
+        "magnetic domains": "磁畴",
+        "magnetic field induced strain": "磁场诱导应变",
+        "magnetic field measurement": "磁场测量",
+        "magnetic field therapy": "磁场疗法",
+        "magnetic fields": "磁场",
+        "magnetic films": "磁性薄膜",
+        "magnetic fluids": "磁流体",
+        "magnetic flux": "磁通",
+        "magnetic flux density": "磁通密度",
+        "magnetic flux leakage": "漏磁",
+        "magnetic force microscopy": "磁力显微镜",
+        "magnetic forces": "磁力",
+        "magnetic gears": "磁齿轮",
+        "magnetic heads": "磁头",
+        "magnetic hysteresis": "磁滞",
+        "magnetic iron oxide nanoparticles": "磁性氧化铁纳米颗粒",
+        "magnetic levitation": "磁悬浮",
+        "magnetic levitation vehicles": "磁悬浮车辆",
+        "magnetic liquids": "磁性液体",
+        "magnetic losses": "磁损耗",
+        "magnetic materials": "磁性材料",
+        "magnetic memory": "磁存储器",
+        "magnetic modulators": "磁调制器",
+        "magnetic moments": "磁矩",
+        "magnetic multilayers": "磁性多层膜",
+        "magnetic nanoparticles": "磁性纳米颗粒",
+        "magnetic noise": "磁噪声",
+        "magnetic particle imaging": "磁粒子成像",
+        "magnetic particles": "磁性颗粒",
+        "magnetic phenomena": "磁现象",
+        "magnetic properties": "磁性",
+        "magnetic properties and applications": "磁性及应用",
+        "magnetic properties and synthesis of ferrites": "铁氧体磁性与合成",
+        "magnetic properties of alloys": "合金磁性",
+        "magnetic properties of thin films": "薄膜磁性",
+        "magnetic reconnection": "磁重联",
+        "magnetic recording": "磁记录",
+        "magnetic resonance": "磁共振",
+        "magnetic resonance angiography": "磁共振血管造影",
+        "magnetic resonance elastography": "磁共振弹性成像",
+        "magnetic resonance fingerprinting": "磁共振指纹成像",
+        "magnetic resonance imaging": "磁共振成像",
+        "magnetic resonance imaging cine": "电影磁共振成像",
+        "magnetic resonance imaging interventional": "介入性磁共振成像",
+        "magnetic resonance myelography": "磁共振脊髓造影",
+        "magnetic resonance spectroscopy": "磁共振波谱",
+        "carbon 13 magnetic resonance spectroscopy": "碳-13磁共振波谱",
+        "carbon-13 magnetic resonance spectroscopy": "碳-13磁共振波谱",
+        "proton magnetic resonance spectroscopy": "质子磁共振波谱",
+        "magnetic semiconductors": "磁性半导体",
+        "magnetic sensors": "磁传感器",
+        "magnetic separation": "磁分离",
+        "magnetic shielding": "磁屏蔽",
+        "magnetic stimulation": "磁刺激",
+        "magnetic storage": "磁存储",
+        "magnetic superlattices": "磁性超晶格",
+        "magnetic susceptibility": "磁化率",
+        "magnetic switching": "磁开关",
+        "magnetic systems": "磁系统",
+        "magnetic techniques": "磁技术",
+        "magnetic tunneling": "磁隧穿",
+        "magnetic variables control": "磁变量控制",
+        "magnetic variables measurement": "磁变量测量",
+        "magnetics": "磁学",
+        "magnetism": "磁学",
+        "magnetism in coordination complexes": "配位化合物中的磁性",
+        "magnetite nanoparticles": "磁铁矿纳米颗粒",
+        "magnetization": "磁化",
+        "magnetization processes": "磁化过程",
+        "magnetization reversal": "磁化反转",
+        "methods in magnetism": "磁学方法",
+        "cutaneous lymphoproliferative disorders research": "皮肤淋巴增殖性疾病研究",
+        "protein lysine 6 oxidase": "蛋白赖氨酸6-氧化酶",
+        "protein-lysine 6-oxidase": "蛋白赖氨酸6-氧化酶",
+        "receptors granulocyte macrophage colony stimulating factor": "粒细胞巨噬细胞集落刺激因子受体",
+        "receptors granulocyte-macrophage colony-stimulating factor": "粒细胞巨噬细胞集落刺激因子受体",
+        "receptors lysophospholipid": "溶血磷脂受体",
+        "receptor macrophage colony stimulating factor": "巨噬细胞集落刺激因子受体",
+        "receptor macrophage colony-stimulating factor": "巨噬细胞集落刺激因子受体",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -10821,6 +11154,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_317_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_318_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_319_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_320_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_321_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_322_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_323_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_324_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_325_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_326_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_327_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_328_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_329_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_330_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_331_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_332_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_333_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_334_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_335_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_336_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_337_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_338_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_339_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_340_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",

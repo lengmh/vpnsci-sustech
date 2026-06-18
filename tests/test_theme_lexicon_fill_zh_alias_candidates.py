@@ -9156,6 +9156,266 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_321_adds_lymphoma_diagnosis_and_large_cell_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lymphadenopathy_diagnosi_and_analysi", "Lymphadenopathy Diagnosis And Analysis", ["health_sciences", "medicine"], "淋巴结病诊断与分析"),
+                ("lymphatic_disorder_and_treatment", "Lymphatic Disorders And Treatments", ["health_sciences", "medicine"], "淋巴系统疾病与治疗"),
+                ("lymphatic_system_and_disease", "Lymphatic System And Diseases", ["health_sciences", "medicine"], "淋巴系统与疾病"),
+                ("lymphoma_diagnosi_and_treatment", "Lymphoma Diagnosis And Treatment", ["health_sciences", "medicine"], "淋巴瘤诊断与治疗"),
+                ("lymphoma_large_cell_immunoblastic", "Lymphoma, Large-cell, Immunoblastic", ["biomedical", "diseases"], "免疫母细胞性大细胞淋巴瘤"),
+                ("lymphoma_primary_effusion", "Lymphoma, Primary Effusion", ["biomedical", "diseases"], "原发性渗出性淋巴瘤"),
+                ("lymphomatoid_granulomatosi", "Lymphomatoid Granulomatosis", ["biomedical", "diseases"], "淋巴瘤样肉芽肿病"),
+            ]
+        )
+
+    def test_exact_expansion_batch_322_adds_cutaneous_lymphoma_and_lymphopenia_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lymphoma_primary_cutaneou_anaplastic_large_cell", "Lymphoma, Primary Cutaneous Anaplastic Large Cell", ["biomedical", "diseases"], "原发性皮肤间变性大细胞淋巴瘤"),
+                ("lymphoma_t_cell_cutaneou", "Lymphoma, T-cell, Cutaneous", ["biomedical", "diseases"], "皮肤T细胞淋巴瘤"),
+                ("lymphoma_t_cell_peripheral", "Lymphoma, T-cell, Peripheral", ["biomedical", "diseases"], "外周T细胞淋巴瘤"),
+                ("lymphomatoid_papulosi", "Lymphomatoid Papulosis", ["biomedical", "diseases"], "淋巴瘤样丘疹病"),
+                ("lymphopenia", "Lymphopenia", ["biomedical", "diseases"], "淋巴细胞减少症"),
+                ("lymphopoiesi", "Lymphopoiesis", ["biomedical", "phenomena_and_processes"], "淋巴细胞生成"),
+                ("lymphoproliferative_disorder", "Lymphoproliferative Disorders", ["biomedical", "diseases"], "淋巴增殖性疾病"),
+            ]
+        )
+
+    def test_exact_expansion_batch_323_adds_lymphoscintigraphy_lymphotoxin_and_lynch_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lymphoscintigraphy", "Lymphoscintigraphy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "淋巴显像"),
+                ("lymphotoxin_alpha1_beta2_heterotrimer", "Lymphotoxin Alpha1, Beta2 Heterotrimer", ["biomedical", "chemicals_and_drugs"], "淋巴毒素α1β2异源三聚体"),
+                ("lymphotoxin_beta_receptor", "Lymphotoxin Beta Receptor", ["biomedical", "chemicals_and_drugs"], "淋巴毒素β受体"),
+                ("lymphotoxin_alpha", "Lymphotoxin-alpha", ["biomedical", "chemicals_and_drugs"], "淋巴毒素α"),
+                ("lymphotoxin_beta", "Lymphotoxin-beta", ["biomedical", "chemicals_and_drugs"], "淋巴毒素β"),
+                ("lynch_syndrome_ii", "Lynch Syndrome II", ["biomedical", "diseases"], "Lynch综合征II"),
+                ("lynestrenol", "Lynestrenol", ["biomedical", "chemicals_and_drugs"], "利奈孕醇"),
+            ]
+        )
+
+    def test_exact_expansion_batch_324_adds_lyngbya_lysergic_and_lysholm_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lyngbya", "Lyngbya", ["biomedical", "organisms"], "鞘丝藻属"),
+                ("lyngbya_toxin", "Lyngbya Toxins", ["biomedical", "chemicals_and_drugs"], "鞘丝藻毒素"),
+                ("lynx", "Lynx", ["biomedical", "organisms"], "猞猁属"),
+                ("lypressin", "Lypressin", ["biomedical", "chemicals_and_drugs"], "赖氨加压素"),
+                ("lysergic_acid", "Lysergic Acid", ["biomedical", "chemicals_and_drugs"], "麦角酸"),
+                ("lysergic_acid_diethylamide", "Lysergic Acid Diethylamide", ["biomedical", "chemicals_and_drugs"], "麦角酸二乙胺"),
+                ("lysholm_knee_score", "Lysholm Knee Score", ["biomedical", "health_care"], "Lysholm膝关节评分"),
+            ]
+        )
+
+    def test_exact_expansion_batch_325_adds_lysine_and_lysine_enzyme_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lysimachia", "Lysimachia", ["biomedical", "organisms"], "珍珠菜属"),
+                ("lysine", "Lysine", ["biomedical", "chemicals_and_drugs"], "赖氨酸"),
+                ("lysine_acetyltransferase_5", "Lysine Acetyltransferase 5", ["biomedical", "chemicals_and_drugs"], "赖氨酸乙酰转移酶5"),
+                ("lysine_acetyltransferase", "Lysine Acetyltransferases", ["biomedical", "chemicals_and_drugs"], "赖氨酸乙酰转移酶"),
+                ("lysine_carboxypeptidase", "Lysine Carboxypeptidase", ["biomedical", "chemicals_and_drugs"], "赖氨酸羧肽酶"),
+                ("lysine_trna_ligase", "Lysine-trna Ligase", ["biomedical", "chemicals_and_drugs"], "赖氨酰tRNA连接酶"),
+                ("lysinoalanine", "Lysinoalanine", ["biomedical", "chemicals_and_drugs"], "赖氨酰丙氨酸"),
+            ]
+        )
+
+    def test_exact_expansion_batch_326_adds_lysogeny_and_lysophospholipid_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lysobacter", "Lysobacter", ["biomedical", "organisms"], "溶杆菌属"),
+                ("lysogeny", "Lysogeny", ["biomedical", "phenomena_and_processes"], "溶原性"),
+                ("lysophosphatidylcholin", "Lysophosphatidylcholines", ["biomedical", "chemicals_and_drugs"], "溶血磷脂酰胆碱"),
+                ("lysophospholipase", "Lysophospholipase", ["biomedical", "chemicals_and_drugs"], "溶血磷脂酶"),
+                ("lysophospholipase_d", "Lysophospholipase D", ["biomedical", "chemicals_and_drugs"], "溶血磷脂酶D"),
+                ("lysophospholipid", "Lysophospholipids", ["biomedical", "chemicals_and_drugs"], "溶血磷脂"),
+                ("lysosomal_membrane_protein", "Lysosomal Membrane Proteins", ["biomedical", "chemicals_and_drugs"], "溶酶体膜蛋白"),
+            ]
+        )
+
+    def test_exact_expansion_batch_327_adds_lysosomal_storage_and_lamp_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lysosomal_storage_disease", "Lysosomal Storage Diseases", ["biomedical", "diseases"], "溶酶体贮积病"),
+                ("lysosomal_storage_disease_nervou_system", "Lysosomal Storage Diseases, Nervous System", ["biomedical", "diseases"], "神经系统溶酶体贮积病"),
+                ("lysosomal_storage_disorder_research", "Lysosomal Storage Disorders Research", ["health_sciences", "medicine"], "溶酶体贮积症研究"),
+                ("lysosomal_associated_membrane_protein_1", "Lysosomal-associated Membrane Protein 1", ["biomedical", "chemicals_and_drugs"], "溶酶体相关膜蛋白1"),
+                ("lysosomal_associated_membrane_protein_2", "Lysosomal-associated Membrane Protein 2", ["biomedical", "chemicals_and_drugs"], "溶酶体相关膜蛋白2"),
+                ("lysosomal_associated_membrane_protein_3", "Lysosomal-associated Membrane Protein 3", ["biomedical", "chemicals_and_drugs"], "溶酶体相关膜蛋白3"),
+                ("lysosom", "Lysosomes", ["anatomy", "biomedical"], "溶酶体"),
+            ]
+        )
+
+    def test_exact_expansion_batch_328_adds_lysostaphin_m_phase_and_m_sequence_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("lysostaphin", "Lysostaphin", ["biomedical", "chemicals_and_drugs"], "溶葡萄球菌酶"),
+                ("lyssaviru", "Lyssavirus", ["biomedical", "organisms"], "丽沙病毒属"),
+                ("lythraceae", "Lythraceae", ["biomedical", "organisms"], "千屈菜科"),
+                ("lythrum", "Lythrum", ["biomedical", "organisms"], "千屈菜属"),
+                ("m_phase_cell_cycle_checkpoint", "M Phase Cell Cycle Checkpoints", ["biomedical", "phenomena_and_processes"], "M期细胞周期检查点"),
+                ("m_sequence", "M Sequence", ["computer_science"], "M序列"),
+                ("m_commerce", "M-commerce", ["computer_science"], "移动商务"),
+            ]
+        )
+
+    def test_exact_expansion_batch_329_adds_m_learning_mac_address_and_mac_layer_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("m_learning", "M-learning", ["computer_science"], "移动学习"),
+                ("m_matrix", "M-matrix", ["computer_science"], "M矩阵"),
+                ("m2m", "M2m", ["computer_science"], "M2M通信"),
+                ("maackia", "Maackia", ["biomedical", "organisms"], "马鞍树属"),
+                ("mac_address", "Mac Address", ["computer_science"], "MAC地址"),
+                ("mac_layer", "Mac Layer", ["computer_science"], "MAC层"),
+                ("macadamia", "Macadamia", ["biomedical", "organisms"], "澳洲坚果属"),
+            ]
+        )
+
+    def test_exact_expansion_batch_330_adds_macaca_species_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("macaca", "Macaca", ["biomedical", "organisms"], "猕猴属"),
+                ("macaca_arctoid", "Macaca Arctoides", ["biomedical", "organisms"], "熊猴"),
+                ("macaca_fasciculari", "Macaca Fascicularis", ["biomedical", "organisms"], "食蟹猴"),
+                ("macaca_fuscata", "Macaca Fuscata", ["biomedical", "organisms"], "日本猕猴"),
+                ("macaca_mulatta", "Macaca Mulatta", ["biomedical", "organisms"], "恒河猴"),
+                ("macaca_nemestrina", "Macaca Nemestrina", ["biomedical", "organisms"], "豚尾猴"),
+                ("macaca_radiata", "Macaca Radiata", ["biomedical", "organisms"], "冠毛猕猴"),
+            ]
+        )
+
+    def test_exact_expansion_batch_331_adds_mach_and_machinability_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("macau", "Macau", ["biomedical", "geographicals"], "澳门"),
+                ("mach_zehnder_modulator", "Mach Zehnder Modulator", ["computer_science"], "Mach-Zehnder调制器"),
+                ("mach_zehnder", "Mach-zehnder", ["computer_science"], "Mach-Zehnder结构"),
+                ("machado_joseph_disease", "Machado-joseph Disease", ["biomedical", "diseases"], "Machado-Joseph病"),
+                ("machiavellianism", "Machiavellianism", ["biomedical", "psychiatry_and_psychology"], "马基雅维利主义"),
+                ("machinability", "Machinability", ["computer_science"], "可加工性"),
+                ("machine_component", "Machine Components", ["industry_applications"], "机器部件"),
+            ]
+        )
+
+    def test_exact_expansion_batch_332_adds_machine_design_and_machine_learning_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("machine_design", "Machine Design", ["computer_science"], "机械设计"),
+                ("machine_ethic", "Machine Ethics", ["change"], "机器伦理"),
+                ("machine_intelligence", "Machine Intelligence", ["computational_and_artificial_intelligence"], "机器智能"),
+                ("machine_learning", "Machine Learning", ["computational_and_artificial_intelligence"], "机器学习"),
+                ("machine_learning_algorithm__2", "Machine Learning Algorithms", ["biomedical", "phenomena_and_processes"], "机器学习算法"),
+                ("machine_learning_and_elm", "Machine Learning And ELM", ["computer_science", "physical_sciences"], "机器学习与极限学习机"),
+                ("machine_listening", "Machine Listening", ["computational_and_artificial_intelligence"], "机器听觉"),
+            ]
+        )
+
+    def test_exact_expansion_batch_333_adds_machine_learning_application_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("machine_learning_in_bioinformatic", "Machine Learning In Bioinformatics", ["biochemistry_genetics_and_molecular_biology", "life_sciences"], "生物信息学中的机器学习"),
+                ("machine_learning_in_healthcare", "Machine Learning In Healthcare", ["computer_science", "physical_sciences"], "医疗保健中的机器学习"),
+                ("machine_learning_in_material_science", "Machine Learning In Materials Science", ["materials_science", "physical_sciences"], "材料科学中的机器学习"),
+                ("machine_perception", "Machine Perception", ["computer_science"], "机器感知"),
+                ("machine_shop", "Machine Shops", ["industry_applications"], "机械加工车间"),
+                ("machine_storytelling", "Machine Storytelling", ["computer_science"], "机器叙事"),
+                ("machine_tool", "Machine Tools", ["industry_applications"], "机床"),
+            ]
+        )
+
+    def test_exact_expansion_batch_334_adds_machine_translation_and_machining_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("machine_translation", "Machine Translation", ["systems_man_and_cybernetics"], "机器翻译"),
+                ("machine_vector_control", "Machine Vector Control", ["industrial_electronics"], "电机矢量控制"),
+                ("machine_vision", "Machine Vision", ["computers_and_information_processing"], "机器视觉"),
+                ("machine_winding", "Machine Windings", ["dielectrics_and_electrical_insulation"], "电机绕组"),
+                ("machine_to_machine_m2m", "Machine-to-machine (m2m)", ["computer_science"], "机器到机器通信"),
+                ("machine_to_machine_communication", "Machine-to-machine Communications", ["communications_technology"], "机器到机器通信"),
+                ("machined_surface", "Machined Surface", ["computer_science"], "加工表面"),
+            ]
+        )
+
+    def test_exact_expansion_batch_335_adds_machinery_and_machining_operation_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("machinery", "Machinery", ["industry_applications"], "机械"),
+                ("machinery_production_industry", "Machinery Production Industries", ["industry_applications"], "机械制造业"),
+                ("machining", "Machining", ["industry_applications"], "机械加工"),
+                ("machining_center", "Machining Centers", ["computer_science"], "加工中心"),
+                ("machining_efficiency", "Machining Efficiency", ["computer_science"], "加工效率"),
+                ("machining_operation", "Machining Operations", ["computer_science"], "机械加工操作"),
+                ("machining_parameter", "Machining Parameters", ["computer_science"], "加工参数"),
+            ]
+        )
+
+    def test_exact_expansion_batch_336_adds_macro_and_macromolecule_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("machining_time", "Machining Time", ["computer_science"], "加工时间"),
+                ("maclura", "Maclura", ["biomedical", "organisms"], "柘属"),
+                ("macro_block", "Macro Block", ["computer_science"], "宏块"),
+                ("macroautophagy", "Macroautophagy", ["biomedical", "phenomena_and_processes"], "巨自噬"),
+                ("macrocyclic_compound", "Macrocyclic Compounds", ["biomedical", "chemicals_and_drugs"], "大环化合物"),
+                ("macroeconomic_factor", "Macroeconomic Factors", ["computer_science"], "宏观经济因素"),
+                ("macrolid", "Macrolides", ["biomedical", "chemicals_and_drugs"], "大环内酯类"),
+            ]
+        )
+
+    def test_exact_expansion_batch_337_adds_macroglobulin_and_macrophage_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("macroglobulin", "Macroglobulins", ["biomedical", "chemicals_and_drugs"], "巨球蛋白"),
+                ("macroglossia", "Macroglossia", ["biomedical", "diseases"], "巨舌症"),
+                ("macromolecular_substanc", "Macromolecular Substances", ["biomedical", "chemicals_and_drugs"], "大分子物质"),
+                ("macromolecul", "Macromolecules", ["physics"], "大分子"),
+                ("macronucleu", "Macronucleus", ["anatomy", "biomedical"], "大核"),
+                ("macrophage_colony_stimulating_factor", "Macrophage Colony-stimulating Factor", ["biomedical", "chemicals_and_drugs"], "巨噬细胞集落刺激因子"),
+                ("macrophage_inflammatory_protein", "Macrophage Inflammatory Proteins", ["biomedical", "chemicals_and_drugs"], "巨噬细胞炎性蛋白"),
+            ]
+        )
+
+    def test_exact_expansion_batch_338_adds_macrophage_and_macular_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("macrophage_migration_inhibitory_factor", "Macrophage Migration Inhibitory Factor", ["biomedical", "chemicals_and_drugs", "immunology_and_microbiology", "life_sciences"], "巨噬细胞迁移抑制因子"),
+                ("macrophag_alveolar", "Macrophages, Alveolar", ["anatomy", "biomedical"], "肺泡巨噬细胞"),
+                ("macrophag_peritoneal", "Macrophages, Peritoneal", ["anatomy", "biomedical"], "腹腔巨噬细胞"),
+                ("macrostomia", "Macrostomia", ["biomedical", "diseases"], "巨口症"),
+                ("macula_lutea", "Macula Lutea", ["anatomy", "biomedical"], "黄斑"),
+                ("macular_degeneration", "Macular Degeneration", ["biomedical", "diseases"], "黄斑变性"),
+                ("macular_edema", "Macular Edema", ["biomedical", "diseases"], "黄斑水肿"),
+            ]
+        )
+
+    def test_exact_expansion_batch_339_adds_macular_madagascar_and_magnesium_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("macular_pigment", "Macular Pigment", ["biomedical", "chemicals_and_drugs"], "黄斑色素"),
+                ("madagascar", "Madagascar", ["biomedical", "geographicals"], "马达加斯加"),
+                ("madin_darby_canine_kidney_cell", "Madin Darby Canine Kidney Cells", ["anatomy", "biomedical"], "Madin-Darby犬肾细胞"),
+                ("maf_transcription_factor", "Maf Transcription Factors", ["biomedical", "chemicals_and_drugs"], "Maf转录因子"),
+                ("mafenide", "Mafenide", ["biomedical", "chemicals_and_drugs"], "磺胺米隆"),
+                ("magnesium", "Magnesium", ["materials_elements_and_compounds"], "镁元素"),
+                ("magnesium_chloride", "Magnesium Chloride", ["biomedical", "chemicals_and_drugs"], "氯化镁"),
+            ]
+        )
+
+    def test_exact_expansion_batch_340_adds_magnesium_and_magnetic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("magnesium_deficiency", "Magnesium Deficiency", ["biomedical", "diseases"], "镁缺乏"),
+                ("magnesium_hydroxide", "Magnesium Hydroxide", ["biomedical", "chemicals_and_drugs"], "氢氧化镁"),
+                ("magnesium_oxide", "Magnesium Oxide", ["biomedical", "chemicals_and_drugs"], "氧化镁"),
+                ("magnesium_sulfate", "Magnesium Sulfate", ["biomedical", "chemicals_and_drugs"], "硫酸镁"),
+                ("magnetic_anisotropy", "Magnetic Anisotropy", ["magnetics"], "磁各向异性"),
+                ("magnetic_circuit", "Magnetic Circuits", ["circuits_and_systems"], "磁路"),
+                ("magnetic_disk_storage", "Magnetic Disk Storage", ["computer_science"], "磁盘存储"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
