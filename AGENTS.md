@@ -153,45 +153,45 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-18 zh-exact-expansion-batch-541-to-560 后）：
+最新已知状态（2026-06-18 zh-exact-expansion-batch-561-to-580 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`11163 / 48887 = 22.83%`
-- runtime zh aliases: `11177`
+- runtime 中文覆盖：`11266 / 48888 = 23.04%`
+- runtime zh aliases: `11279`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `11177`
-- `zh:blocked`: `11599`
+- `zh:accept`: `11279`
+- `zh:blocked`: `11593`
 - `zh:needs_review`: `0`
 - `zh:reject`: `153`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `48887`
+- runtime concept aliases: `48888`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
-- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-560 运行时以 compact index/manifest 为准）
+- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-580 运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `b864cb7c3723397a8f3eed216481ef7b1ef0402ef326ee82ea91270a0ebeab44`
+  `8f4cbd5e2831a257df9c20be8caebe5453648b48c2a42fe9de970d082a21ad03`
 - compact manifest SHA-256:
-  `67cd166bf67f3e393ae242cef4547357d89cdda38a6182082d3634cb56587e62`
+  `29e6ac81c303f93a1b4d8ccdc28e4c827c51d8172efde7abbf8c213daaeeb5de`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact index 是 batch-560 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-560 更新，不再作为默认等价检查对象。
-- 最近相关测试：`623 passed in 3.54s`。
+- compact index 是 batch-580 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-580 更新，不再作为默认等价检查对象。
+- 最近相关测试：`643 passed in 3.56s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- batch-541 至 batch-560 中文 coverage 扩展已完成，runtime 中文覆盖已到 `22.83%`；用户当前目标是继续 20-batch 分组推进到 `>25%`，尚未达成；
+- batch-561 至 batch-580 中文 coverage 扩展已完成，runtime 中文覆盖已到 `23.04%`；用户当前目标是继续 20-batch 分组推进到 `>25%`，尚未达成；
 - post-20% 质量复盘和窄 L6 treemap/text fallback 修复已完成；当前主线回到 exact/domain-aware 中文 alias 覆盖扩展；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
@@ -206,6 +206,26 @@ lexicons/review/
   - query smoke：预期 runtime alias `12 / 12` 命中；预期 blocked alias `0 / 7` 误命中；
   - treemap/text fallback smoke：`build_text_themes` 可产生 `Mean Absolute Error / 平均绝对误差`、`Medication Adherence / 用药依从性`、`Median Filter / 中值滤波器` 等 concept-level themes；
   - 窄 L6 修复已完成：中文 text candidate extractor 现在会先扫描 compact runtime 中已接受的中文 alias 短语，再走原 n-gram fallback，并过滤被已选 concept alias 覆盖的短片段；`主从系统` 已稳定归并到 `concept:master_slave_system`，不再显示 `主从系`。
+- 最新 batch-561 至 batch-580 exact/domain-aware 小批次已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_561_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_580_ALIASES`，覆盖 neoplasm 后续分类、neoplastic/neovascularization、nephritis/nephrology/nephrotic、nerve/nervous system、netrin/network 等 N 段 exact/domain-aware 术语；
+  - 新增 `20` 个代表性回归测试，先红灯后转绿；其中 `Network Codes -> 网络码`、`Network Formation & Growth -> 网络形成与增长` 用 exact 词条覆盖较泛的 compositional 输出；
+  - grouped L3-L5：fill `records_filled = 22814`，validate `review_decisions = 372138`；
+  - 显式接受 `106` 条 exact/domain-aware recommendation；
+  - 显式阻断 `2` 条由 `network analyzer` 组件引发的 compositional side-effect（`电动网络分析仪`、`向量网络分析仪`）；
+  - validator 重现的 `713` 条英文 acronym needs_review 按既有策略 blocked；
+  - runtime 中文覆盖从 `11163 / 48887 = 22.83%` 增至 `11266 / 48888 = 23.04%`；
+  - `zh:accept`: `11279`，`zh:blocked`: `11593`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `8f4cbd5e2831a257df9c20be8caebe5453648b48c2a42fe9de970d082a21ad03`；
+  - compact manifest SHA-256: `29e6ac81c303f93a1b4d8ccdc28e4c827c51d8172efde7abbf8c213daaeeb5de`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - query smoke 已确认 `肿瘤分期`、`肾病综合征`、`神经传导检查`、`网络入侵检测` 可命中；`电动网络分析仪`、`向量网络分析仪` 保持不命中；
+  - 相关测试：`643 passed in 3.56s`。
+- batch-580 后 review：
+  - 本轮新增 `103` 个 runtime zh-covered concepts，覆盖率增至 `23.04%`，仍未达到 `>25%`；
+  - network 段开始出现更多 duplicate/collision 风险，本轮只接受 exact/domain-aware 且无 accepted conflict 的候选；
+  - 下一轮应继续 batch-581 至 batch-600，优先从 network 后续、networked、neural 等高确定性 exact 术语推进。
 - 最新 batch-481 至 batch-500 exact/domain-aware 小批次已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_481_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_500_ALIASES`，覆盖 multimorbidity/multiomics/multipath、multiple access/endocrine/sclerosis/system、multiplexing/multiprocessor/multiresolution/multitask/multiuser、muscarinic/muscle/muscular dystrophy/musculoskeletal/music 等 M 段 exact/domain-aware 术语；
   - 新增 `20` 个代表性回归测试，先红灯后转绿；其中 `Multiple Kernels` 沿用既有 domain-sensitive 约定输出 `多核`，`Multiple Input Multiple Output (mimo) Radars` 沿用 `多输入多输出雷达`，`Muscular Dystrophy/Dystrophies` 因 label-only exact 归一化保持同一中文 alias `肌营养不良`；

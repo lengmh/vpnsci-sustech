@@ -12463,6 +12463,286 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_561_adds_neoplasm_grading_and_metastasis_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neoplasm_grading", "Neoplasm Grading", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "肿瘤分级"),
+                ("neoplasm_invasiveness", "Neoplasm Invasiveness", ["biomedical", "diseases"], "肿瘤侵袭性"),
+                ("neoplasm_metastasi", "Neoplasm Metastasis", ["biomedical", "diseases"], "肿瘤转移"),
+                ("neoplasm_micrometastasi", "Neoplasm Micrometastasis", ["biomedical", "diseases"], "肿瘤微转移"),
+                ("neoplasm_protein", "Neoplasm Proteins", ["biomedical", "chemicals_and_drugs"], "肿瘤蛋白"),
+                ("neoplasm_recurrence_local", "Neoplasm Recurrence, Local", ["biomedical", "diseases"], "局部肿瘤复发"),
+                ("neoplasm_regression_spontaneou", "Neoplasm Regression, Spontaneous", ["biomedical", "diseases"], "肿瘤自发消退"),
+                ("neoplasm_seeding", "Neoplasm Seeding", ["biomedical", "diseases"], "肿瘤种植"),
+            ]
+        )
+
+    def test_exact_expansion_batch_562_adds_neoplasm_staging_and_classification_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neoplasm_staging", "Neoplasm Staging", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "肿瘤分期"),
+                ("neoplasm_transplantation", "Neoplasm Transplantation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "肿瘤移植"),
+                ("neoplasm_lymphatic_tissue", "Neoplasm, Lymphatic Tissue", ["biomedical", "diseases"], "淋巴组织肿瘤"),
+                ("neoplasm_residual", "Neoplasm, Residual", ["biomedical", "diseases"], "残留肿瘤"),
+                ("neoplasm", "Neoplasms", ["biomedical", "diseases"], "肿瘤"),
+                ("neoplasm_by_histologic_type", "Neoplasms By Histologic Type", ["biomedical", "diseases"], "按组织学类型分类的肿瘤"),
+                ("neoplasm_by_site", "Neoplasms By Site", ["biomedical", "diseases"], "按部位分类的肿瘤"),
+                ("neoplasm_bone_tissue", "Neoplasms, Bone Tissue", ["biomedical", "diseases"], "骨组织肿瘤"),
+            ]
+        )
+
+    def test_exact_expansion_batch_563_adds_neoplasm_tissue_type_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neoplasm_ductal_lobular_and_medullary", "Neoplasms, Ductal, Lobular, And Medullary", ["biomedical", "diseases"], "导管性小叶性和髓样肿瘤"),
+                ("neoplasm_glandular_and_epithelial", "Neoplasms, Glandular And Epithelial", ["biomedical", "diseases"], "腺性和上皮性肿瘤"),
+                ("neoplasm_gonadal_tissue", "Neoplasms, Gonadal Tissue", ["biomedical", "diseases"], "性腺组织肿瘤"),
+                ("neoplasm_hormone_dependent", "Neoplasms, Hormone-dependent", ["biomedical", "diseases"], "激素依赖性肿瘤"),
+                ("neoplasm_mesothelial", "Neoplasms, Mesothelial", ["biomedical", "diseases"], "间皮性肿瘤"),
+                ("neoplasm_multiple_primary", "Neoplasms, Multiple Primary", ["biomedical", "diseases"], "多原发肿瘤"),
+                ("neoplasm_muscle_tissue", "Neoplasms, Muscle Tissue", ["biomedical", "diseases"], "肌肉组织肿瘤"),
+                ("neoplasm_nerve_tissue", "Neoplasms, Nerve Tissue", ["biomedical", "diseases"], "神经组织肿瘤"),
+            ]
+        )
+
+    def test_exact_expansion_batch_564_adds_neoplasm_origin_and_primary_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neoplasm_neuroepithelial", "Neoplasms, Neuroepithelial", ["biomedical", "diseases"], "神经上皮性肿瘤"),
+                ("neoplasm_plasma_cell", "Neoplasms, Plasma Cell", ["biomedical", "diseases"], "浆细胞肿瘤"),
+                ("neoplasm_post_traumatic", "Neoplasms, Post-traumatic", ["biomedical", "diseases"], "创伤后肿瘤"),
+                ("neoplasm_radiation_induced", "Neoplasms, Radiation-induced", ["biomedical", "diseases"], "放射诱发性肿瘤"),
+                ("neoplasm_second_primary", "Neoplasms, Second Primary", ["biomedical", "diseases"], "第二原发肿瘤"),
+                ("neoplasm_squamou_cell", "Neoplasms, Squamous Cell", ["biomedical", "diseases"], "鳞状细胞肿瘤"),
+                ("neoplasm_unknown_primary", "Neoplasms, Unknown Primary", ["biomedical", "diseases"], "原发灶不明肿瘤"),
+                ("neoplasm_vascular_tissue", "Neoplasms, Vascular Tissue", ["biomedical", "diseases"], "血管组织肿瘤"),
+            ]
+        )
+
+    def test_exact_expansion_batch_565_adds_neoplastic_neoprene_and_neorickettsia_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neoplastic_cell_circulating", "Neoplastic Cells, Circulating", ["anatomy", "biomedical"], "循环肿瘤细胞"),
+                ("neoplastic_processe", "Neoplastic Processes", ["biomedical", "diseases"], "肿瘤性过程"),
+                ("neoplastic_stem_cell", "Neoplastic Stem Cells", ["anatomy", "biomedical"], "肿瘤干细胞"),
+                ("neoplastic_syndrom_hereditary", "Neoplastic Syndromes, Hereditary", ["biomedical", "diseases"], "遗传性肿瘤综合征"),
+                ("neoprene", "Neoprene", ["biomedical", "chemicals_and_drugs"], "氯丁橡胶"),
+                ("neoptera", "Neoptera", ["biomedical", "organisms"], "新翅类"),
+                ("neopterin", "Neopterin", ["biomedical", "chemicals_and_drugs"], "新蝶呤"),
+                ("neorickettsia", "Neorickettsia", ["biomedical", "organisms"], "新立克次体属"),
+            ]
+        )
+
+    def test_exact_expansion_batch_566_adds_neorickettsia_neospora_and_neovascularization_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neorickettsia_risticii", "Neorickettsia Risticii", ["biomedical", "organisms"], "里氏新立克次体"),
+                ("neorickettsia_sennetsu", "Neorickettsia Sennetsu", ["biomedical", "organisms"], "腺热新立克次体"),
+                ("neosartorya", "Neosartorya", ["biomedical", "organisms"], "新萨托菌属"),
+                ("neospora", "Neospora", ["biomedical", "organisms"], "新孢子虫属"),
+                ("neostigmine", "Neostigmine", ["biomedical", "chemicals_and_drugs"], "新斯的明"),
+                ("neostriatum", "Neostriatum", ["anatomy", "biomedical"], "新纹状体"),
+                ("neotyphodium", "Neotyphodium", ["biomedical", "organisms"], "新麦角菌属"),
+                ("neovascularization_pathologic", "Neovascularization, Pathologic", ["biomedical", "diseases"], "病理性新生血管形成"),
+            ]
+        )
+
+    def test_exact_expansion_batch_567_adds_neovascularization_nepal_and_nephritis_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("neovascularization_physiologic", "Neovascularization, Physiologic", ["biomedical", "phenomena_and_processes"], "生理性新生血管形成"),
+                ("nepal", "Nepal", ["biomedical", "geographicals"], "尼泊尔"),
+                ("nepeta", "Nepeta", ["biomedical", "organisms"], "荆芥属"),
+                ("nephelometry_and_turbidimetry", "Nephelometry And Turbidimetry", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "散射比浊法和透射比浊法"),
+                ("nephrectomy", "Nephrectomy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "肾切除术"),
+                ("nephriti", "Nephritis", ["biomedical", "diseases"], "肾炎"),
+                ("nephriti_hereditary", "Nephritis, Hereditary", ["biomedical", "diseases"], "遗传性肾炎"),
+                ("nephriti_interstitial", "Nephritis, Interstitial", ["biomedical", "diseases"], "间质性肾炎"),
+            ]
+        )
+
+    def test_exact_expansion_batch_568_adds_nephroblastoma_nephrology_and_lithiasis_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nephroblastoma_overexpressed_protein", "Nephroblastoma Overexpressed Protein", ["biomedical", "chemicals_and_drugs"], "肾母细胞瘤过表达蛋白"),
+                ("nephrocalcinosi", "Nephrocalcinosis", ["biomedical", "diseases"], "肾钙质沉着症"),
+                ("nephrogenic_fibrosing_dermopathy", "Nephrogenic Fibrosing Dermopathy", ["biomedical", "diseases"], "肾源性纤维化皮肤病"),
+                ("nephrolithiasi", "Nephrolithiasis", ["biomedical", "diseases"], "肾结石"),
+                ("nephrolithotomy_percutaneou", "Nephrolithotomy, Percutaneous", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "经皮肾镜取石术"),
+                ("nephrologist", "Nephrologists", ["biomedical", "named_groups"], "肾脏科医师"),
+                ("nephrology", "Nephrology", ["engineering_in_medicine_and_biology"], "肾脏病学"),
+                ("nephrology_nursing", "Nephrology Nursing", ["biomedical", "disciplines_and_occupations"], "肾脏病护理"),
+            ]
+        )
+
+    def test_exact_expansion_batch_569_adds_nephroma_nephron_and_nephrotic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nephroma_mesoblastic", "Nephroma, Mesoblastic", ["biomedical", "diseases"], "中胚叶肾瘤"),
+                ("nephron", "Nephrons", ["anatomy", "biomedical"], "肾单位"),
+                ("nephropidae", "Nephropidae", ["biomedical", "organisms"], "海螯虾科"),
+                ("nephrosclerosi", "Nephrosclerosis", ["biomedical", "diseases"], "肾硬化"),
+                ("nephrosi", "Nephrosis", ["biomedical", "diseases"], "肾病"),
+                ("nephrosi_lipoid", "Nephrosis, Lipoid", ["biomedical", "diseases"], "脂性肾病"),
+                ("nephrostomy_percutaneou", "Nephrostomy, Percutaneous", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "经皮肾造瘘术"),
+                ("nephrotic_syndrome", "Nephrotic Syndrome", ["biomedical", "diseases"], "肾病综合征"),
+            ]
+        )
+
+    def test_exact_expansion_batch_570_adds_nephrotomy_neprilysin_and_neptunium_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nephrotomy", "Nephrotomy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "肾切开术"),
+                ("nephrotoxicity_and_medicinal_plant", "Nephrotoxicity And Medicinal Plants", ["health_sciences", "medicine"], "肾毒性与药用植物"),
+                ("nephroureterectomy", "Nephroureterectomy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "肾输尿管切除术"),
+                ("nepoviru", "Nepovirus", ["biomedical", "organisms"], "线虫传多面体病毒属"),
+                ("neprilysin", "Neprilysin", ["biomedical", "chemicals_and_drugs"], "脑啡肽酶"),
+                ("neptune", "Neptune", ["biomedical", "phenomena_and_processes"], "海王星"),
+                ("neptunium", "Neptunium", ["materials_elements_and_compounds"], "镎元素"),
+                ("nerium", "Nerium", ["biomedical", "organisms"], "夹竹桃属"),
+            ]
+        )
+
+    def test_exact_expansion_batch_571_adds_nerve_agent_block_and_conduction_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nerve_agent", "Nerve Agents", ["biomedical", "chemicals_and_drugs"], "神经毒剂"),
+                ("nerve_block", "Nerve Block", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "神经阻滞"),
+                ("nerve_compression_syndrom", "Nerve Compression Syndromes", ["biomedical", "diseases"], "神经压迫综合征"),
+                ("nerve_conduction_study", "Nerve Conduction Studies", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "神经传导检查"),
+                ("nerve_crush", "Nerve Crush", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "神经挤压"),
+                ("nerve_degeneration", "Nerve Degeneration", ["biomedical", "diseases"], "神经变性"),
+                ("nerve_ending", "Nerve Endings", ["anatomy", "biomedical"], "神经末梢"),
+                ("nerve_expansion", "Nerve Expansion", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "神经扩张"),
+            ]
+        )
+
+    def test_exact_expansion_batch_572_adds_nerve_fiber_growth_and_regeneration_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nerve_fiber", "Nerve Fibers", ["anatomy", "biomedical"], "神经纤维"),
+                ("nerve_fiber_myelinated", "Nerve Fibers, Myelinated", ["anatomy", "biomedical"], "有髓神经纤维"),
+                ("nerve_fiber_unmyelinated", "Nerve Fibers, Unmyelinated", ["anatomy", "biomedical"], "无髓神经纤维"),
+                ("nerve_growth_factor", "Nerve Growth Factors", ["biomedical", "chemicals_and_drugs"], "神经生长因子"),
+                ("nerve_injury_and_regeneration", "Nerve Injury And Regeneration", ["life_sciences", "neuroscience"], "神经损伤与再生"),
+                ("nerve_injury_and_rehabilitation", "Nerve Injury And Rehabilitation", ["health_sciences", "medicine"], "神经损伤与康复"),
+                ("nerve_net", "Nerve Net", ["anatomy", "biomedical"], "神经网"),
+                ("nerve_regeneration", "Nerve Regeneration", ["biomedical", "phenomena_and_processes"], "神经再生"),
+            ]
+        )
+
+    def test_exact_expansion_batch_573_adds_nerve_tissue_and_nervous_system_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nerve_sheath_neoplasm", "Nerve Sheath Neoplasms", ["biomedical", "diseases"], "神经鞘肿瘤"),
+                ("nerve_tissue", "Nerve Tissue", ["anatomy", "biomedical"], "神经组织"),
+                ("nerve_tissue_protein", "Nerve Tissue Proteins", ["biomedical", "chemicals_and_drugs"], "神经组织蛋白"),
+                ("nerve_transfer", "Nerve Transfer", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "神经移位术"),
+                ("nervou_system", "Nervous System", ["anatomy", "biomedical"], "神经系统"),
+                ("nervou_system_autoimmune_disease_experimental", "Nervous System Autoimmune Disease, Experimental", ["biomedical", "diseases"], "实验性神经系统自身免疫病"),
+                ("nervou_system_disease", "Nervous System Diseases", ["biomedical", "diseases"], "神经系统疾病"),
+                ("nervou_system_malformation", "Nervous System Malformations", ["biomedical", "diseases"], "神经系统畸形"),
+            ]
+        )
+
+    def test_exact_expansion_batch_574_adds_nervous_system_nestin_and_net_zero_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("nervou_system_neoplasm", "Nervous System Neoplasms", ["biomedical", "diseases"], "神经系统肿瘤"),
+                ("nervou_system_physiological_phenomena", "Nervous System Physiological Phenomena", ["biomedical", "phenomena_and_processes"], "神经系统生理现象"),
+                ("nesidioblastosi", "Nesidioblastosis", ["biomedical", "diseases"], "胰岛母细胞增生症"),
+                ("nested_gen", "Nested Genes", ["biomedical", "phenomena_and_processes"], "嵌套基因"),
+                ("nestin", "Nestin", ["biomedical", "chemicals_and_drugs"], "巢蛋白"),
+                ("nesting_behavior", "Nesting Behavior", ["biomedical", "psychiatry_and_psychology"], "筑巢行为"),
+                ("net_zero", "Net Zero", ["industry_applications"], "净零"),
+                ("net_zero_water", "Net Zero Water", ["industry_applications"], "净零用水"),
+            ]
+        )
+
+    def test_exact_expansion_batch_575_adds_netherlands_netrin_and_netherton_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("netherland", "Netherlands", ["biomedical", "geographicals"], "荷兰"),
+                ("netherland_antill", "Netherlands Antilles", ["biomedical", "geographicals"], "荷属安的列斯"),
+                ("netherton_syndrome", "Netherton Syndrome", ["biomedical", "diseases"], "内瑟顿综合征"),
+                ("netilmicin", "Netilmicin", ["biomedical", "chemicals_and_drugs"], "奈替米星"),
+                ("netrin_receptor", "Netrin Receptors", ["biomedical", "chemicals_and_drugs"], "神经导向因子受体"),
+                ("netrin_1", "Netrin-1", ["biomedical", "chemicals_and_drugs"], "神经导向因子1"),
+                ("netrin", "Netrins", ["biomedical", "chemicals_and_drugs"], "神经导向因子"),
+                ("network_address_translation", "Network Address Translation", ["computers_and_information_processing"], "网络地址转换"),
+            ]
+        )
+
+    def test_exact_expansion_batch_576_adds_network_address_analysis_and_architecture_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("network_address_translation__2", "Network Address Translations", ["computer_science"], "网络地址转换"),
+                ("network_analysi", "Network Analysis", ["computer_science"], "网络分析"),
+                ("network_analyzer__2", "Network Analyzer", ["computer_science"], "网络分析仪"),
+                ("network_analyzer", "Network Analyzers", ["instrumentation_and_measurement"], "网络分析仪"),
+                ("network_anomaly", "Network Anomalies", ["computer_science"], "网络异常"),
+                ("network_anomaly_detection", "Network Anomaly Detection", ["computer_science"], "网络异常检测"),
+                ("network_architecture", "Network Architecture", ["communications_technology", "computer_science"], "网络架构"),
+                ("network_attack", "Network Attack", ["computer_science"], "网络攻击"),
+            ]
+        )
+
+    def test_exact_expansion_batch_577_adds_network_coding_component_and_evolution_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("network_cod", "Network Codes", ["computer_science"], "网络码"),
+                ("network_coding", "Network Coding", ["information_theory"], "网络编码"),
+                ("network_coding__2", "Network Coding", ["computer_science"], "网络编码"),
+                ("network_community", "Network Communities", ["computer_science"], "网络社区"),
+                ("network_component", "Network Components", ["computer_science"], "网络组件"),
+                ("network_congestion", "Network Congestion", ["computer_science"], "网络拥塞"),
+                ("network_evolution", "Network Evolution", ["physics"], "网络演化"),
+                ("network_forensic", "Network Forensics", ["computer_science"], "网络取证"),
+            ]
+        )
+
+    def test_exact_expansion_batch_578_adds_network_function_interface_and_intrusion_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("network_formation_and_growth", "Network Formation & Growth", ["physics"], "网络形成与增长"),
+                ("network_function_virtualization", "Network Function Virtualization", ["communications_technology"], "网络功能虚拟化"),
+                ("network_function_virtualization__2", "Network Function Virtualization", ["computers_and_information_processing"], "网络功能虚拟化"),
+                ("network_interface", "Network Interface", ["computer_science"], "网络接口"),
+                ("network_interfac", "Network Interfaces", ["computers_and_information_processing"], "网络接口"),
+                ("network_intrusion", "Network Intrusion", ["computer_science"], "网络入侵"),
+                ("network_intrusion_detection", "Network Intrusion Detection", ["computer_science"], "网络入侵检测"),
+                ("network_intrusion_detection_system", "Network Intrusion Detection Systems", ["computer_science"], "网络入侵检测系统"),
+            ]
+        )
+
+    def test_exact_expansion_batch_579_adds_network_latency_management_and_model_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("network_latency", "Network Latencies", ["computer_science"], "网络时延"),
+                ("network_layer", "Network Layers", ["computer_science"], "网络层"),
+                ("network_life_time", "Network Life-time", ["computer_science"], "网络寿命"),
+                ("network_management", "Network Management", ["computer_science"], "网络管理"),
+                ("network_management_system", "Network Management System", ["computer_science"], "网络管理系统"),
+                ("network_mobility", "Network Mobility", ["computer_science"], "网络移动性"),
+                ("network_model", "Network Models", ["physics"], "网络模型"),
+                ("network_monitoring", "Network Monitoring", ["computer_science"], "网络监测"),
+            ]
+        )
+
+    def test_exact_expansion_batch_580_adds_network_motif_chip_and_optimization_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("network_motif", "Network Motifs", ["mathematics"], "网络模体"),
+                ("network_of_workstation", "Network Of Workstations", ["computer_science"], "工作站网络"),
+                ("network_on_chip", "Network On Chip", ["computer_science"], "片上网络"),
+                ("network_operation", "Network Operations", ["computer_science"], "网络运维"),
+                ("network_optimization", "Network Optimization", ["physics"], "网络优化"),
+                ("network_packet_processing_and_optimization", "Network Packet Processing And Optimization", ["computer_science", "physical_sciences"], "网络包处理与优化"),
+                ("network_path", "Network Paths", ["computer_science"], "网络路径"),
+                ("network_performance", "Network Performance", ["computer_science"], "网络性能"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -13972,6 +13972,224 @@ ZH_EXACT_EXPANSION_BATCH_560_ALIASES = {
         "neoplasms, germ cell and embryonal": "生殖细胞和胚胎性肿瘤",
 }
 
+ZH_EXACT_EXPANSION_BATCH_561_ALIASES = {
+        "neoplasm grading": "肿瘤分级",
+        "neoplasm invasiveness": "肿瘤侵袭性",
+        "neoplasm metastasis": "肿瘤转移",
+        "neoplasm micrometastasis": "肿瘤微转移",
+        "neoplasm proteins": "肿瘤蛋白",
+        "neoplasm recurrence, local": "局部肿瘤复发",
+        "neoplasm regression, spontaneous": "肿瘤自发消退",
+        "neoplasm seeding": "肿瘤种植",
+}
+
+ZH_EXACT_EXPANSION_BATCH_562_ALIASES = {
+        "neoplasm staging": "肿瘤分期",
+        "neoplasm transplantation": "肿瘤移植",
+        "neoplasm, lymphatic tissue": "淋巴组织肿瘤",
+        "neoplasm, residual": "残留肿瘤",
+        "neoplasms": "肿瘤",
+        "neoplasms by histologic type": "按组织学类型分类的肿瘤",
+        "neoplasms by site": "按部位分类的肿瘤",
+        "neoplasms, bone tissue": "骨组织肿瘤",
+}
+
+ZH_EXACT_EXPANSION_BATCH_563_ALIASES = {
+        "neoplasms, ductal, lobular, and medullary": "导管性小叶性和髓样肿瘤",
+        "neoplasms, glandular and epithelial": "腺性和上皮性肿瘤",
+        "neoplasms, gonadal tissue": "性腺组织肿瘤",
+        "neoplasms, hormone-dependent": "激素依赖性肿瘤",
+        "neoplasms, mesothelial": "间皮性肿瘤",
+        "neoplasms, multiple primary": "多原发肿瘤",
+        "neoplasms, muscle tissue": "肌肉组织肿瘤",
+        "neoplasms, nerve tissue": "神经组织肿瘤",
+}
+
+ZH_EXACT_EXPANSION_BATCH_564_ALIASES = {
+        "neoplasms, neuroepithelial": "神经上皮性肿瘤",
+        "neoplasms, plasma cell": "浆细胞肿瘤",
+        "neoplasms, post-traumatic": "创伤后肿瘤",
+        "neoplasms, radiation-induced": "放射诱发性肿瘤",
+        "neoplasms, second primary": "第二原发肿瘤",
+        "neoplasms, squamous cell": "鳞状细胞肿瘤",
+        "neoplasms, unknown primary": "原发灶不明肿瘤",
+        "neoplasms, vascular tissue": "血管组织肿瘤",
+}
+
+ZH_EXACT_EXPANSION_BATCH_565_ALIASES = {
+        "neoplastic cells, circulating": "循环肿瘤细胞",
+        "neoplastic processes": "肿瘤性过程",
+        "neoplastic stem cells": "肿瘤干细胞",
+        "neoplastic syndromes, hereditary": "遗传性肿瘤综合征",
+        "neoprene": "氯丁橡胶",
+        "neoptera": "新翅类",
+        "neopterin": "新蝶呤",
+        "neorickettsia": "新立克次体属",
+}
+
+ZH_EXACT_EXPANSION_BATCH_566_ALIASES = {
+        "neorickettsia risticii": "里氏新立克次体",
+        "neorickettsia sennetsu": "腺热新立克次体",
+        "neosartorya": "新萨托菌属",
+        "neospora": "新孢子虫属",
+        "neostigmine": "新斯的明",
+        "neostriatum": "新纹状体",
+        "neotyphodium": "新麦角菌属",
+        "neovascularization, pathologic": "病理性新生血管形成",
+}
+
+ZH_EXACT_EXPANSION_BATCH_567_ALIASES = {
+        "neovascularization, physiologic": "生理性新生血管形成",
+        "nepal": "尼泊尔",
+        "nepeta": "荆芥属",
+        "nephelometry and turbidimetry": "散射比浊法和透射比浊法",
+        "nephrectomy": "肾切除术",
+        "nephritis": "肾炎",
+        "nephritis, hereditary": "遗传性肾炎",
+        "nephritis, interstitial": "间质性肾炎",
+}
+
+ZH_EXACT_EXPANSION_BATCH_568_ALIASES = {
+        "nephroblastoma overexpressed protein": "肾母细胞瘤过表达蛋白",
+        "nephrocalcinosis": "肾钙质沉着症",
+        "nephrogenic fibrosing dermopathy": "肾源性纤维化皮肤病",
+        "nephrolithiasis": "肾结石",
+        "nephrolithotomy, percutaneous": "经皮肾镜取石术",
+        "nephrologists": "肾脏科医师",
+        "nephrology": "肾脏病学",
+        "nephrology nursing": "肾脏病护理",
+}
+
+ZH_EXACT_EXPANSION_BATCH_569_ALIASES = {
+        "nephroma, mesoblastic": "中胚叶肾瘤",
+        "nephrons": "肾单位",
+        "nephropidae": "海螯虾科",
+        "nephrosclerosis": "肾硬化",
+        "nephrosis": "肾病",
+        "nephrosis, lipoid": "脂性肾病",
+        "nephrostomy, percutaneous": "经皮肾造瘘术",
+        "nephrotic syndrome": "肾病综合征",
+}
+
+ZH_EXACT_EXPANSION_BATCH_570_ALIASES = {
+        "nephrotomy": "肾切开术",
+        "nephrotoxicity and medicinal plants": "肾毒性与药用植物",
+        "nephroureterectomy": "肾输尿管切除术",
+        "nepovirus": "线虫传多面体病毒属",
+        "neprilysin": "脑啡肽酶",
+        "neptune": "海王星",
+        "neptunium": "镎元素",
+        "nerium": "夹竹桃属",
+}
+
+ZH_EXACT_EXPANSION_BATCH_571_ALIASES = {
+        "nerve agents": "神经毒剂",
+        "nerve block": "神经阻滞",
+        "nerve compression syndromes": "神经压迫综合征",
+        "nerve conduction studies": "神经传导检查",
+        "nerve crush": "神经挤压",
+        "nerve degeneration": "神经变性",
+        "nerve endings": "神经末梢",
+        "nerve expansion": "神经扩张",
+}
+
+ZH_EXACT_EXPANSION_BATCH_572_ALIASES = {
+        "nerve fibers": "神经纤维",
+        "nerve fibers, myelinated": "有髓神经纤维",
+        "nerve fibers, unmyelinated": "无髓神经纤维",
+        "nerve growth factors": "神经生长因子",
+        "nerve injury and regeneration": "神经损伤与再生",
+        "nerve injury and rehabilitation": "神经损伤与康复",
+        "nerve net": "神经网",
+        "nerve regeneration": "神经再生",
+}
+
+ZH_EXACT_EXPANSION_BATCH_573_ALIASES = {
+        "nerve sheath neoplasms": "神经鞘肿瘤",
+        "nerve tissue": "神经组织",
+        "nerve tissue proteins": "神经组织蛋白",
+        "nerve transfer": "神经移位术",
+        "nervous system": "神经系统",
+        "nervous system autoimmune disease, experimental": "实验性神经系统自身免疫病",
+        "nervous system diseases": "神经系统疾病",
+        "nervous system malformations": "神经系统畸形",
+}
+
+ZH_EXACT_EXPANSION_BATCH_574_ALIASES = {
+        "nervous system neoplasms": "神经系统肿瘤",
+        "nervous system physiological phenomena": "神经系统生理现象",
+        "nesidioblastosis": "胰岛母细胞增生症",
+        "nested genes": "嵌套基因",
+        "nestin": "巢蛋白",
+        "nesting behavior": "筑巢行为",
+        "net zero": "净零",
+        "net zero water": "净零用水",
+}
+
+ZH_EXACT_EXPANSION_BATCH_575_ALIASES = {
+        "netherlands": "荷兰",
+        "netherlands antilles": "荷属安的列斯",
+        "netherton syndrome": "内瑟顿综合征",
+        "netilmicin": "奈替米星",
+        "netrin receptors": "神经导向因子受体",
+        "netrin-1": "神经导向因子1",
+        "netrins": "神经导向因子",
+        "network address translation": "网络地址转换",
+}
+
+ZH_EXACT_EXPANSION_BATCH_576_ALIASES = {
+        "network address translations": "网络地址转换",
+        "network analysis": "网络分析",
+        "network analyzer": "网络分析仪",
+        "network analyzers": "网络分析仪",
+        "network anomalies": "网络异常",
+        "network anomaly detection": "网络异常检测",
+        "network architecture": "网络架构",
+        "network attack": "网络攻击",
+}
+
+ZH_EXACT_EXPANSION_BATCH_577_ALIASES = {
+        "network codes": "网络码",
+        "network coding": "网络编码",
+        "network communities": "网络社区",
+        "network components": "网络组件",
+        "network congestion": "网络拥塞",
+        "network evolution": "网络演化",
+        "network forensics": "网络取证",
+}
+
+ZH_EXACT_EXPANSION_BATCH_578_ALIASES = {
+        "network formation & growth": "网络形成与增长",
+        "network function virtualization": "网络功能虚拟化",
+        "network interface": "网络接口",
+        "network interfaces": "网络接口",
+        "network intrusion": "网络入侵",
+        "network intrusion detection": "网络入侵检测",
+        "network intrusion detection systems": "网络入侵检测系统",
+}
+
+ZH_EXACT_EXPANSION_BATCH_579_ALIASES = {
+        "network latencies": "网络时延",
+        "network layers": "网络层",
+        "network life-time": "网络寿命",
+        "network management": "网络管理",
+        "network management system": "网络管理系统",
+        "network mobility": "网络移动性",
+        "network models": "网络模型",
+        "network monitoring": "网络监测",
+}
+
+ZH_EXACT_EXPANSION_BATCH_580_ALIASES = {
+        "network motifs": "网络模体",
+        "network of workstations": "工作站网络",
+        "network on chip": "片上网络",
+        "network operations": "网络运维",
+        "network optimization": "网络优化",
+        "network packet processing and optimization": "网络包处理与优化",
+        "network paths": "网络路径",
+        "network performance": "网络性能",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -14534,6 +14752,26 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_557_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_558_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_559_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_560_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_561_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_562_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_563_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_564_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_565_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_566_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_567_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_568_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_569_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_570_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_571_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_572_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_573_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_574_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_575_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_576_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_577_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_578_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_579_ALIASES)
+RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_580_ALIASES)
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",
