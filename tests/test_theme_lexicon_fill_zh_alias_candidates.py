@@ -8181,6 +8181,226 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_241_adds_isotropic_and_it_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("isotropic_material", "Isotropic Materials", ["computer_science"], "各向同性材料"),
+                ("isovaleryl_coa_dehydrogenase", "Isovaleryl-coa Dehydrogenase", ["biomedical", "chemicals_and_drugs"], "异戊酰辅酶A脱氢酶"),
+                ("isradipine", "Isradipine", ["biomedical", "chemicals_and_drugs"], "伊拉地平"),
+                ("it_infrastructure", "It Infrastructure", ["computer_science"], "IT基础设施"),
+                ("it_service_management", "It Service Management", ["computer_science"], "IT服务管理"),
+            ]
+        )
+
+    def test_exact_expansion_batch_242_adds_iterative_algorithm_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("iterated_local_search", "Iterated Local Search", ["computer_science"], "迭代局部搜索"),
+                ("iterative_algorithm", "Iterative Algorithms", ["mathematics"], "迭代算法"),
+                ("iterative_closest_point_algorithm", "Iterative Closest Point Algorithm", ["mathematics"], "迭代最近点算法"),
+                ("iterative_decoding", "Iterative Decoding", ["information_theory"], "迭代译码"),
+                ("iterative_learning_control", "Iterative Learning Control", ["computer_science", "mathematics"], "迭代学习控制"),
+            ]
+        )
+
+    def test_exact_expansion_batch_243_adds_iterative_method_and_jagged_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("iterative_method", "Iterative Methods", ["mathematics"], "迭代法"),
+                ("iterative_solver", "Iterative Solvers", ["computer_science"], "迭代求解器"),
+                ("itraconazole", "Itraconazole", ["biomedical", "chemicals_and_drugs"], "伊曲康唑"),
+                ("jagged_1_protein", "Jagged-1 Protein", ["biomedical", "chemicals_and_drugs"], "Jagged-1蛋白"),
+                ("janu_kinase_inhibitor", "Janus Kinase Inhibitors", ["biomedical", "chemicals_and_drugs"], "Janus激酶抑制剂"),
+            ]
+        )
+
+    def test_exact_expansion_batch_244_adds_janus_jaundice_and_java_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("janu_kinase_1", "Janus Kinase 1", ["biomedical", "chemicals_and_drugs"], "Janus激酶1"),
+                ("japanese_encephaliti_vaccin", "Japanese Encephalitis Vaccines", ["biomedical", "chemicals_and_drugs"], "日本脑炎疫苗"),
+                ("jaundice_neonatal", "Jaundice, Neonatal", ["biomedical", "diseases"], "新生儿黄疸"),
+                ("java_language", "Java Language", ["computer_science"], "Java语言"),
+                ("java_virtual_machine", "Java Virtual Machine", ["computer_science"], "Java虚拟机"),
+            ]
+        )
+
+    def test_exact_expansion_batch_245_adds_jaw_and_jejunal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("jaw_cyst", "Jaw Cysts", ["biomedical", "diseases"], "颌囊肿"),
+                ("jaw_fixation_techniqu", "Jaw Fixation Techniques", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "颌固定技术"),
+                ("jejunal_disease", "Jejunal Diseases", ["biomedical", "diseases"], "空肠疾病"),
+                ("jejunal_neoplasm", "Jejunal Neoplasms", ["biomedical", "diseases"], "空肠肿瘤"),
+                ("jejunostomy", "Jejunostomy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "空肠造口术"),
+            ]
+        )
+
+    def test_exact_expansion_batch_246_adds_jet_jnk_and_job_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("jet_engin", "Jet Engines", ["industry_applications"], "喷气发动机"),
+                ("jet_lag_syndrome", "Jet Lag Syndrome", ["biomedical", "diseases"], "时差综合征"),
+                ("jnk_mitogen_activated_protein_kinase", "JNK Mitogen-activated Protein Kinases", ["biomedical", "chemicals_and_drugs"], "JNK丝裂原活化蛋白激酶"),
+                ("job_satisfaction", "Job Satisfaction", ["biomedical", "psychiatry_and_psychology"], "工作满意度"),
+                ("job_scheduling", "Job Scheduling", ["computer_science"], "作业调度"),
+            ]
+        )
+
+    def test_exact_expansion_batch_247_adds_joint_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("joint_capsule", "Joint Capsule", ["anatomy", "biomedical"], "关节囊"),
+                ("joint_deformity_acquired", "Joint Deformities, Acquired", ["biomedical", "diseases"], "获得性关节畸形"),
+                ("joint_disease", "Joint Diseases", ["biomedical", "diseases"], "关节疾病"),
+                ("joint_dislocation", "Joint Dislocations", ["biomedical", "diseases"], "关节脱位"),
+                ("joint_instability", "Joint Instability", ["biomedical", "diseases"], "关节不稳"),
+            ]
+        )
+
+    def test_exact_expansion_batch_248_adds_josephson_journal_and_jpeg_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("josephson_effect", "Josephson Effect", ["electron_devices"], "约瑟夫森效应"),
+                ("josephson_junction", "Josephson Junctions", ["superconductivity"], "约瑟夫森结"),
+                ("journal_impact_factor", "Journal Impact Factor", ["biomedical", "information_science"], "期刊影响因子"),
+                ("jpeg_compression", "Jpeg Compression", ["computer_science"], "JPEG压缩"),
+                ("judgment_matrix", "Judgment Matrix", ["computer_science"], "判断矩阵"),
+            ]
+        )
+
+    def test_exact_expansion_batch_249_adds_junction_and_juvenile_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("junctional_adhesion_molecule_a", "Junctional Adhesion Molecule A", ["biomedical", "chemicals_and_drugs"], "连接黏附分子A"),
+                ("junctional_adhesion_molecule_b", "Junctional Adhesion Molecule B", ["biomedical", "chemicals_and_drugs"], "连接黏附分子B"),
+                ("junctionless_nanowire_transistor", "Junctionless Nanowire Transistors", ["nanotechnology"], "无结纳米线晶体管"),
+                ("juvenile_hormon", "Juvenile Hormones", ["biomedical", "chemicals_and_drugs"], "保幼激素"),
+                ("juxtaglomerular_apparatu", "Juxtaglomerular Apparatus", ["anatomy", "biomedical"], "肾小球旁器"),
+            ]
+        )
+
+    def test_exact_expansion_batch_250_adds_k_neighbor_and_anonymity_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("k_cl_cotransporter", "K Cl- Cotransporters", ["biomedical", "chemicals_and_drugs"], "K-Cl协同转运蛋白"),
+                ("k_nearest_neighbor", "K Nearest Neighbor", ["computer_science"], "K近邻"),
+                ("k_nearest_neighbor_algorithm", "K Nearest Neighbor Algorithm", ["computer_science"], "K近邻算法"),
+                ("k_anonymity", "K-anonymity", ["computer_science"], "K匿名"),
+                ("k_band", "K-band", ["microwave_theory_and_techniques"], "K波段"),
+            ]
+        )
+
+    def test_exact_expansion_batch_251_adds_kmeans_and_ka_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("k_mean_clustering_algorithm", "K-means Clustering Algorithm", ["computer_science"], "K均值聚类算法"),
+                ("k_mean_clustering_method", "K-means Clustering Method", ["computer_science"], "K均值聚类方法"),
+                ("k_mean_method", "K-means Method", ["computer_science"], "K均值法"),
+                ("ka_band", "Ka-band", ["microwave_theory_and_techniques"], "Ka波段"),
+                ("kaempferol", "Kaempferols", ["biomedical", "chemicals_and_drugs"], "山柰酚类"),
+            ]
+        )
+
+    def test_exact_expansion_batch_252_adds_kainic_and_kallikrein_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("kainic_acid", "Kainic Acid", ["biomedical", "chemicals_and_drugs"], "海人酸"),
+                ("kainic_acid_receptor", "Kainic Acid Receptors", ["biomedical", "chemicals_and_drugs"], "海人酸受体"),
+                ("kallikrein_kinin_system", "Kallikrein-kinin System", ["biomedical", "phenomena_and_processes"], "激肽释放酶-激肽系统"),
+                ("kallikrein", "Kallikreins", ["biomedical", "chemicals_and_drugs"], "激肽释放酶类"),
+                ("kallmann_syndrome", "Kallmann Syndrome", ["biomedical", "diseases"], "Kallmann综合征"),
+            ]
+        )
+
+    def test_exact_expansion_batch_253_adds_kalman_and_kanamycin_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("kalman_filter_algorithm", "Kalman Filter Algorithms", ["computer_science"], "卡尔曼滤波算法"),
+                ("kalman_filtering_algorithm", "Kalman Filtering Algorithms", ["computer_science"], "卡尔曼滤波算法"),
+                ("kanamycin", "Kanamycin", ["biomedical", "chemicals_and_drugs"], "卡那霉素"),
+                ("kanamycin_kinase", "Kanamycin Kinase", ["biomedical", "chemicals_and_drugs"], "卡那霉素激酶"),
+                ("kanamycin_resistance", "Kanamycin Resistance", ["biomedical", "phenomena_and_processes"], "卡那霉素耐药性"),
+            ]
+        )
+
+    def test_exact_expansion_batch_254_adds_kaplan_kaposi_and_karyotype_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("kangaroo_mother_care_method", "Kangaroo-mother Care Method", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "袋鼠式护理法"),
+                ("kaplan_meier_method", "Kaplan Meier Method", ["computer_science"], "Kaplan-Meier法"),
+                ("kaposi_varicelliform_eruption", "Kaposi Varicelliform Eruption", ["biomedical", "diseases"], "卡波西水痘样疹"),
+                ("karnofsky_performance_statu", "Karnofsky Performance Status", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "Karnofsky体能状态评分"),
+                ("karyotyping", "Karyotyping", ["computer_science"], "核型分析"),
+            ]
+        )
+
+    def test_exact_expansion_batch_255_adds_keratin_and_keratitis_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("keratan_sulfate", "Keratan Sulfate", ["biomedical", "chemicals_and_drugs"], "硫酸角质素"),
+                ("keratin_14", "Keratin-14", ["biomedical", "chemicals_and_drugs"], "角蛋白14"),
+                ("keratinocyt", "Keratinocytes", ["anatomy", "biomedical"], "角质形成细胞"),
+                ("keratiti_herpetic", "Keratitis, Herpetic", ["biomedical", "diseases"], "疱疹性角膜炎"),
+                ("keratoconu", "Keratoconus", ["biomedical", "diseases"], "圆锥角膜"),
+            ]
+        )
+
+    def test_exact_expansion_batch_256_adds_kernel_and_ketone_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("kernel_function", "Kernel Function", ["computer_science"], "核函数"),
+                ("kernel_method", "Kernel Method", ["computer_science"], "核方法"),
+                ("ketamine", "Ketamine", ["biomedical", "chemicals_and_drugs"], "氯胺酮"),
+                ("ketoconazole", "Ketoconazole", ["biomedical", "chemicals_and_drugs"], "酮康唑"),
+                ("ketone_body", "Ketone Bodies", ["biomedical", "chemicals_and_drugs"], "酮体"),
+            ]
+        )
+
+    def test_exact_expansion_batch_257_adds_key_and_keyword_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("key_agreement", "Key Agreement", ["computer_science"], "密钥协商"),
+                ("key_distribution", "Key Distribution", ["computer_science"], "密钥分发"),
+                ("key_management", "Key Management", ["computer_science"], "密钥管理"),
+                ("keystroke_dynamic", "Keystroke Dynamics", ["systems_man_and_cybernetics"], "击键动力学"),
+                ("keyword_search", "Keyword Search", ["professional_communication"], "关键词搜索"),
+            ]
+        )
+
+    def test_exact_expansion_batch_258_adds_kidney_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("kidney", "Kidney", ["anatomy", "biomedical"], "肾脏"),
+                ("kidney_calculi", "Kidney Calculi", ["biomedical", "diseases"], "肾结石"),
+                ("kidney_cortex", "Kidney Cortex", ["anatomy", "biomedical"], "肾皮质"),
+                ("kidney_glomerulu", "Kidney Glomerulus", ["anatomy", "biomedical"], "肾小球"),
+                ("kidney_tubul_proximal", "Kidney Tubules, Proximal", ["anatomy", "biomedical"], "近端肾小管"),
+            ]
+        )
+
+    def test_exact_expansion_batch_259_adds_killer_kinase_and_klebsiella_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("killer_cell_lymphokine_activated", "Killer Cells, Lymphokine-activated", ["anatomy", "biomedical"], "淋巴因子激活杀伤细胞"),
+                ("kinematic_chain", "Kinematic Chain", ["computer_science"], "运动链"),
+                ("kinetic_energy", "Kinetic Energy", ["science_general"], "动能"),
+                ("klatskin_tumor", "Klatskin Tumor", ["biomedical", "diseases"], "Klatskin肿瘤"),
+                ("klebsiella_pneumoniae", "Klebsiella Pneumoniae", ["biomedical", "organisms"], "肺炎克雷伯菌"),
+            ]
+        )
+
+    def test_exact_expansion_batch_260_adds_knowledge_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("knowledge_acquisition", "Knowledge Acquisition", ["computational_and_artificial_intelligence"], "知识获取"),
+                ("knowledge_base", "Knowledge Base", ["computer_science"], "知识库"),
+                ("knowledge_discovery_in_database", "Knowledge Discovery In Database", ["computer_science"], "数据库知识发现"),
+                ("knowledge_graph_embedding", "Knowledge Graph Embedding", ["computer_science"], "知识图谱嵌入"),
+                ("knowledge_representation_and_reasoning", "Knowledge Representation And Reasoning", ["computer_science"], "知识表示与推理"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
