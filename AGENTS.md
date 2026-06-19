@@ -187,6 +187,7 @@ lexicons/review/
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
 - batch-721 至 batch-740 中文 coverage 扩展已完成，runtime 中文覆盖已到 `25.08%`；用户当前 `>25%` 目标已达成；
+- 后续连续扩展采用新的提交节奏：每 `5` 轮 `20-batch` 处理作为一个最终 milestone commit；中间 checkpoint、review 清单和 smoke 产物仅放在 `F:\AI playground\TempFiles`，不再每轮 20-batch 都提交；
 - post-20% 质量复盘和窄 L6 treemap/text fallback 修复已完成；当前主线回到 exact/domain-aware 中文 alias 覆盖扩展；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
@@ -208,7 +209,9 @@ lexicons/review/
   - 相关测试：`803 passed in 5.20s`。
 - batch-740 后 review：
   - side-effect `5` 条已显式 blocked，后续如需 `放射肿瘤科医生`、`抑瘤素M受体` 等应通过更具体 exact/domain-specific replacement 重开；
-  - 建议先停止连续批处理并做一次 25% 后覆盖/质量复盘，再决定是否继续新目标。
+  - post-25% review 初步结论：batch-701-to-740 近期 `247` accept / `10` blocked，compact index load 约 `158.51 ms`，text fallback smoke 约 `6.08 ms`；`优化链路状态路由`、`开放式无线接入网`、`光码分多址` 可命中，`本体构建`、`辐射肿瘤科医生`、`受体抑瘤素M` 保持不命中；
+  - treemap/text fallback 排序按“覆盖论文数 > concept specificity > frequency > 名称长度”，小样本中更宽泛的 `Access Network / 接入网` 可因跨论文支撑排在更具体单篇术语前；这是排序偏好，不是 alias 污染；
+  - 建议先停止连续批处理并完成 post-25% 覆盖/质量复盘，再决定是否设置 `>30%` 等新目标；若继续扩展，仍按 exact/domain-aware 小批次推进，不打开低质 mixed fallback、不 blanket accept medium-confidence compositional candidates、不自动 merge collision、不进入新的 L6。
 - 最新 batch-701 至 batch-720 exact/domain-aware 小批次已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_701_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_720_ALIASES`，覆盖 occupational therapy practice、OCDMA、ocean/oceanographic、Ochrobactrum/Ocimum/OCR、octamer/octane/octanol、ocular/oculomotor、odonto/Odontogenic、OFDM/OFDMA、office/offshore/oil、OLAP/OLED、olfactory、oligodendrocyte/oligonucleotide 等 exact/domain-aware 术语；
   - 新增 `20` 个代表性回归测试，先红灯后转绿；
