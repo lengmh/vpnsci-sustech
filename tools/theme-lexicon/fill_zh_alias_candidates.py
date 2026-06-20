@@ -15932,6 +15932,707 @@ ZH_EXACT_EXPANSION_BATCH_740_ALIASES = {
         "open reading frames": "开放阅读框",
 }
 
+ZH_EXACT_EXPANSION_BATCH_741_ALIASES = {
+        "open reading frame": "开放阅读框",
+        "open services": "开放服务",
+        "open shortest path first": "开放最短路径优先",
+        "open source hardware": "开源硬件",
+}
+
+ZH_EXACT_EXPANSION_BATCH_742_ALIASES = {
+        "open source projects": "开源项目",
+        "open source software": "开源软件",
+        "open source software innovations": "开源软件创新",
+        "open source system": "开源系统",
+}
+
+ZH_EXACT_EXPANSION_BATCH_743_ALIASES = {
+        "open systems": "开放系统",
+        "open waste burning": "露天废物焚烧",
+        "open wireless architecture": "开放无线架构",
+        "opencl": "OpenCL",
+}
+
+ZH_EXACT_EXPANSION_BATCH_744_ALIASES = {
+        "opengl": "OpenGL",
+        "openmp": "OpenMP",
+        "operating bands": "工作频带",
+        "operating frequency bands": "工作频带",
+}
+
+ZH_EXACT_EXPANSION_BATCH_745_ALIASES = {
+        "operating rooms": "手术室",
+        "operating room information systems": "手术室信息系统",
+        "operating room nursing": "手术室护理",
+        "operating room technicians": "手术室技师",
+}
+
+ZH_EXACT_EXPANSION_BATCH_746_ALIASES = {
+        "operating systems": "操作系统",
+        "operating tables": "手术台",
+        "operations management techniques": "运营管理技术",
+        "operations research": "运筹学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_747_ALIASES = {
+        "operational amplifiers": "运算放大器",
+        "operational modal analysis": "运行模态分析",
+        "operational profile": "运行剖面",
+        "operational semantics": "操作语义",
+}
+
+ZH_EXACT_EXPANSION_BATCH_748_ALIASES = {
+        "operational trans conductance amplifier": "运算跨导放大器",
+        "operative blood salvage": "术中血液回收",
+        "operative time": "手术时间",
+        "operator algebras": "算子代数",
+}
+
+ZH_EXACT_EXPANSION_BATCH_749_ALIASES = {
+        "operator regions, genetic": "遗传操纵区",
+        "operon": "操纵子",
+        "ophiophagus hannah": "眼镜王蛇",
+        "ophiopogon": "麦冬属",
+}
+
+ZH_EXACT_EXPANSION_BATCH_750_ALIASES = {
+        "ophiostoma": "长喙壳属",
+        "ophiostomatales": "长喙壳目",
+        "ophthalmia neonatorum": "新生儿眼炎",
+        "ophthalmia, sympathetic": "交感性眼炎",
+}
+
+ZH_EXACT_EXPANSION_BATCH_751_ALIASES = {
+        "ophthalmic artery": "眼动脉",
+        "ophthalmic assistants": "眼科助理",
+        "ophthalmic nerve": "眼神经",
+        "ophthalmic solutions": "眼用溶液",
+}
+
+ZH_EXACT_EXPANSION_BATCH_752_ALIASES = {
+        "ophthalmodynamometry": "眼动脉压测量",
+        "ophthalmologic surgical procedures": "眼科手术",
+        "ophthalmologists": "眼科医生",
+        "ophthalmology": "眼科学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_753_ALIASES = {
+        "ophthalmology and eye disorders": "眼科学与眼部疾病",
+        "ophthalmology and visual health research": "眼科学与视觉健康研究",
+        "ophthalmology and visual impairment studies": "眼科学与视觉障碍研究",
+        "ophthalmoplegia": "眼肌麻痹",
+}
+
+ZH_EXACT_EXPANSION_BATCH_754_ALIASES = {
+        "ophthalmoplegia, chronic progressive external": "慢性进行性外眼肌麻痹",
+        "ophthalmoplegic migraine": "眼肌麻痹性偏头痛",
+        "ophthalmoscopes": "检眼镜",
+        "ophthalmoscopy": "眼底镜检查",
+}
+
+ZH_EXACT_EXPANSION_BATCH_755_ALIASES = {
+        "opiate alkaloids": "鸦片生物碱",
+        "opiate overdose": "阿片过量",
+        "opiate substitution treatment": "阿片替代治疗",
+        "opinion dynamics and social influence": "意见动力学与社会影响",
+}
+
+ZH_EXACT_EXPANSION_BATCH_756_ALIASES = {
+        "opinion mining": "观点挖掘",
+        "opioid epidemic": "阿片类药物流行",
+        "opioid-induced constipation": "阿片类药物诱发性便秘",
+        "opioid peptides": "阿片肽",
+}
+
+ZH_EXACT_EXPANSION_BATCH_757_ALIASES = {
+        "opioid-related disorders": "阿片类药物相关障碍",
+        "opioid use disorder treatment": "阿片类药物使用障碍治疗",
+        "opipramol": "奥匹哌醇",
+        "opisthorchis": "后睾吸虫属",
+}
+
+ZH_EXACT_EXPANSION_BATCH_758_ALIASES = {
+        "opisthorchiasis": "后睾吸虫病",
+        "opisthorchidae": "后睾科",
+        "opium": "鸦片",
+        "opium dependence": "鸦片依赖",
+}
+
+ZH_EXACT_EXPANSION_BATCH_759_ALIASES = {
+        "opossums": "负鼠",
+        "opportunistic and delay-tolerant networks": "机会与延迟容忍网络",
+        "opportunistic beamforming": "机会波束成形",
+        "opportunistic forwarding": "机会转发",
+}
+
+ZH_EXACT_EXPANSION_BATCH_760_ALIASES = {
+        "opportunistic infections": "机会性感染",
+        "opportunistic network": "机会网络",
+        "opportunistic networking": "机会网络",
+        "opportunistic relaying": "机会中继",
+}
+
+ZH_EXACT_EXPANSION_BATCH_761_ALIASES = {
+        "opportunistic routing": "机会路由",
+        "opportunistic spectrum access": "机会频谱接入",
+        "opposition-based learning": "反向学习",
+        "oppositional defiant disorder": "对立违抗障碍",
+}
+
+ZH_EXACT_EXPANSION_BATCH_762_ALIASES = {
+        "opsins": "视蛋白",
+        "opsoclonus-myoclonus syndrome": "眼阵挛-肌阵挛综合征",
+        "opsonin proteins": "调理素蛋白",
+        "opsonization": "调理作用",
+}
+
+ZH_EXACT_EXPANSION_BATCH_763_ALIASES = {
+        "optics": "光学",
+        "optics & lasers": "光学与激光",
+        "optics and photonics": "光学与光子学",
+        "optic atrophy": "视神经萎缩",
+}
+
+ZH_EXACT_EXPANSION_BATCH_764_ALIASES = {
+        "optic atrophy, autosomal dominant": "常染色体显性视神经萎缩",
+        "optic atrophies, hereditary": "遗传性视神经萎缩",
+        "optic atrophy, hereditary, leber": "Leber遗传性视神经萎缩",
+        "optic chiasm": "视交叉",
+}
+
+ZH_EXACT_EXPANSION_BATCH_765_ALIASES = {
+        "optic disk": "视盘",
+        "optic disk drusen": "视盘玻璃疣",
+        "optic flow": "光流",
+        "optic lobe, nonmammalian": "非哺乳动物视叶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_766_ALIASES = {
+        "optic nerve": "视神经",
+        "optic nerve diseases": "视神经疾病",
+        "optic nerve glioma": "视神经胶质瘤",
+        "optic nerve hypoplasia": "视神经发育不全",
+}
+
+ZH_EXACT_EXPANSION_BATCH_767_ALIASES = {
+        "optic nerve injuries": "视神经损伤",
+        "optic nerve neoplasms": "视神经肿瘤",
+        "optic neuritis": "视神经炎",
+        "optic neuropathy, ischemic": "缺血性视神经病变",
+}
+
+ZH_EXACT_EXPANSION_BATCH_768_ALIASES = {
+        "optic tract": "视束",
+        "optical access": "光接入",
+        "optical access network": "光接入网",
+        "optical amplifiers": "光放大器",
+}
+
+ZH_EXACT_EXPANSION_BATCH_769_ALIASES = {
+        "optical and acousto-optic technologies": "光学与声光技术",
+        "optical antennas": "光天线",
+        "optical arrays": "光学阵列",
+        "optical attenuators": "光衰减器",
+}
+
+ZH_EXACT_EXPANSION_BATCH_770_ALIASES = {
+        "optical beams": "光束",
+        "optical bistability": "光学双稳态",
+        "optical buffer": "光缓存",
+        "optical buffering": "光缓存",
+}
+
+ZH_EXACT_EXPANSION_BATCH_771_ALIASES = {
+        "optical burst switching": "光突发交换",
+        "optical cables": "光缆",
+        "optical cdma": "光码分多址",
+        "optical character recognition": "光学字符识别",
+}
+
+ZH_EXACT_EXPANSION_BATCH_772_ALIASES = {
+        "optical circuit switching": "光路交换",
+        "optical cloaking": "光学隐身",
+        "optical coatings": "光学镀膜",
+        "optical coatings and gratings": "光学镀膜与光栅",
+}
+
+ZH_EXACT_EXPANSION_BATCH_773_ALIASES = {
+        "optical coherence tomography": "光学相干断层扫描",
+        "optical coherence tomography applications": "光学相干断层扫描应用",
+        "optical coherence tomography (oct)": "光学相干断层扫描",
+        "optical collimators": "光准直器",
+}
+
+ZH_EXACT_EXPANSION_BATCH_774_ALIASES = {
+        "optical communication equipment": "光通信设备",
+        "optical computing": "光计算",
+        "optical control": "光控制",
+        "optical coupling": "光耦合",
+}
+
+ZH_EXACT_EXPANSION_BATCH_775_ALIASES = {
+        "optical crosstalk": "光串扰",
+        "optical data processing": "光数据处理",
+        "optical data storage": "光数据存储",
+        "optical design": "光学设计",
+}
+
+ZH_EXACT_EXPANSION_BATCH_776_ALIASES = {
+        "optical design techniques": "光学设计技术",
+        "optical detectors": "光探测器",
+        "optical devices": "光学器件",
+        "optical device fabrication": "光学器件制造",
+}
+
+ZH_EXACT_EXPANSION_BATCH_777_ALIASES = {
+        "optical diffraction": "光衍射",
+        "optical distortion": "光学畸变",
+        "optical emission spectroscopy": "光发射光谱",
+        "optical engineering": "光学工程",
+}
+
+ZH_EXACT_EXPANSION_BATCH_778_ALIASES = {
+        "optical fabrication": "光学制造",
+        "optical feedback": "光反馈",
+        "optical fibers": "光纤",
+        "optical fiber": "光纤",
+}
+
+ZH_EXACT_EXPANSION_BATCH_779_ALIASES = {
+        "optical fiber communication": "光纤通信",
+        "optical fiber coupling": "光纤耦合",
+        "optical fiber devices": "光纤器件",
+        "optical fiber dispersion": "光纤色散",
+}
+
+ZH_EXACT_EXPANSION_BATCH_780_ALIASES = {
+        "optical fiber fabrication": "光纤制造",
+        "optical fiber networks": "光纤网络",
+        "optical fiber sensors": "光纤传感器",
+        "optical fiber testing": "光纤测试",
+}
+
+ZH_EXACT_EXPANSION_BATCH_781_ALIASES = {
+        "optical fibre": "光纤",
+        "optical fibre sensors": "光纤传感器",
+        "optical films": "光学薄膜",
+        "optical filters": "光学滤波器",
+}
+
+ZH_EXACT_EXPANSION_BATCH_782_ALIASES = {
+        "optical flow": "光流",
+        "optical flow algorithm": "光流算法",
+        "optical flow computation": "光流计算",
+        "optical flow estimation": "光流估计",
+}
+
+ZH_EXACT_EXPANSION_BATCH_783_ALIASES = {
+        "optical flow methods": "光流方法",
+        "optical frequency conversion": "光频转换",
+        "optical harmonic generation": "光学谐波产生",
+        "optical illusions": "光学错觉",
+}
+
+ZH_EXACT_EXPANSION_BATCH_784_ALIASES = {
+        "optical imaging": "光学成像",
+        "optical imaging and spectroscopy techniques": "光学成像与光谱技术",
+        "optical inspection": "光学检测",
+        "optical instruments": "光学仪器",
+}
+
+ZH_EXACT_EXPANSION_BATCH_785_ALIASES = {
+        "optical interconnect": "光互连",
+        "optical interconnections": "光互连",
+        "optical interferometry": "光学干涉测量",
+        "optical kerr effect": "光学克尔效应",
+}
+
+ZH_EXACT_EXPANSION_BATCH_786_ALIASES = {
+        "optical line terminals": "光线路终端",
+        "optical links": "光链路",
+        "optical losses": "光损耗",
+        "optical materials": "光学材料",
+}
+
+ZH_EXACT_EXPANSION_BATCH_787_ALIASES = {
+        "optical measurement": "光学测量",
+        "optical measurement systems": "光学测量系统",
+        "optical metamaterials": "光学超材料",
+        "optical metrology": "光学计量",
+}
+
+ZH_EXACT_EXPANSION_BATCH_788_ALIASES = {
+        "optical microcavities": "光微腔",
+        "optical microscopy": "光学显微镜",
+        "optical mixing": "光混频",
+        "optical modulation": "光调制",
+}
+
+ZH_EXACT_EXPANSION_BATCH_789_ALIASES = {
+        "optical modulators": "光调制器",
+        "optical network": "光网络",
+        "optical network technologies": "光网络技术",
+        "optical network units": "光网络单元",
+}
+
+ZH_EXACT_EXPANSION_BATCH_790_ALIASES = {
+        "optical networking": "光网络",
+        "optical nonlinearity": "光学非线性",
+        "optical ofdm": "光正交频分复用",
+        "optical packets": "光分组",
+}
+
+ZH_EXACT_EXPANSION_BATCH_791_ALIASES = {
+        "optical packet switches": "光分组交换机",
+        "optical packet switching": "光分组交换",
+        "optical parametric amplifiers": "光参量放大器",
+        "optical parametric oscillator": "光参量振荡器",
+}
+
+ZH_EXACT_EXPANSION_BATCH_792_ALIASES = {
+        "optical phase conjugation": "光相位共轭",
+        "optical phenomena": "光学现象",
+        "optical polarization": "光偏振",
+        "optical polymers": "光学聚合物",
+}
+
+ZH_EXACT_EXPANSION_BATCH_793_ALIASES = {
+        "optical projectors": "光学投影仪",
+        "optical propagation": "光传播",
+        "optical pulses": "光脉冲",
+        "optical pulse compression": "光脉冲压缩",
+}
+
+ZH_EXACT_EXPANSION_BATCH_794_ALIASES = {
+        "optical pulse generation": "光脉冲产生",
+        "optical pulse shaping": "光脉冲整形",
+        "optical pumping": "光泵浦",
+        "optical radar": "光雷达",
+}
+
+ZH_EXACT_EXPANSION_BATCH_795_ALIASES = {
+        "optical receivers": "光接收机",
+        "optical recording": "光记录",
+        "optical reflection": "光反射",
+        "optical refraction": "光折射",
+}
+
+ZH_EXACT_EXPANSION_BATCH_796_ALIASES = {
+        "optical resolving power": "光学分辨本领",
+        "optical resonators": "光学谐振器",
+        "optical restriction mapping": "光学限制性作图",
+        "optical retarders": "光学延迟器",
+}
+
+ZH_EXACT_EXPANSION_BATCH_797_ALIASES = {
+        "optical rotation": "旋光",
+        "optical rotatory dispersion": "旋光色散",
+        "optical saturation": "光饱和",
+        "optical scanners": "光学扫描仪",
+}
+
+ZH_EXACT_EXPANSION_BATCH_798_ALIASES = {
+        "optical sensors": "光学传感器",
+        "optical signals": "光信号",
+        "optical signal detection": "光信号检测",
+        "optical signal processing": "光信号处理",
+}
+
+ZH_EXACT_EXPANSION_BATCH_799_ALIASES = {
+        "optical signal to noise ratio": "光信噪比",
+        "optical solitons": "光孤子",
+        "optical storage devices": "光存储设备",
+        "optical surfaces": "光学表面",
+}
+
+ZH_EXACT_EXPANSION_BATCH_800_ALIASES = {
+        "optical surface waves": "光表面波",
+        "optical switches": "光开关",
+        "optical switching": "光交换",
+        "optical systems and laser technology": "光学系统与激光技术",
+}
+
+ZH_EXACT_EXPANSION_BATCH_801_ALIASES = {
+        "optical techniques": "光学技术",
+        "optical testing": "光学测试",
+        "optical thin films": "光学薄膜",
+        "optical tomography": "光学断层成像",
+}
+
+ZH_EXACT_EXPANSION_BATCH_802_ALIASES = {
+        "optical transceivers": "光收发器",
+        "optical transfer function": "光学传递函数",
+        "optical transmission": "光传输",
+        "optical transmission systems": "光传输系统",
+}
+
+ZH_EXACT_EXPANSION_BATCH_803_ALIASES = {
+        "optical transmitters": "光发射机",
+        "optical transport networks": "光传送网",
+        "optical tuning": "光调谐",
+        "optical tweezers": "光镊",
+}
+
+ZH_EXACT_EXPANSION_BATCH_804_ALIASES = {
+        "optical variables control": "光变量控制",
+        "optical variables measurement": "光变量测量",
+        "optical vortices": "光涡旋",
+        "optical waveguides": "光波导",
+}
+
+ZH_EXACT_EXPANSION_BATCH_805_ALIASES = {
+        "optical wavelength conversion": "光波长转换",
+        "optical wdm networks": "光波分复用网络",
+        "optical wireless communication technologies": "光无线通信技术",
+        "optical wireless systems": "光无线系统",
+}
+
+ZH_EXACT_EXPANSION_BATCH_806_ALIASES = {
+        "optically pumped lasers": "光泵浦激光器",
+        "optically stimulated luminescence dosimetry": "光释光剂量测定",
+        "opticians": "配镜师",
+        "optimal beamforming": "最优波束成形",
+}
+
+ZH_EXACT_EXPANSION_BATCH_807_ALIASES = {
+        "optimal bit allocation": "最优比特分配",
+        "optimal control": "最优控制",
+        "optimal control problem": "最优控制问题",
+        "optimal design": "最优设计",
+}
+
+ZH_EXACT_EXPANSION_BATCH_808_ALIASES = {
+        "optimal experimental design methods": "最优实验设计方法",
+        "optimal matching": "最优匹配",
+        "optimal path planning": "最优路径规划",
+        "optimal power control": "最优功率控制",
+}
+
+ZH_EXACT_EXPANSION_BATCH_809_ALIASES = {
+        "optimal power flow distribution": "最优潮流分布",
+        "optimal routing": "最优路由",
+        "optimal scheduling": "最优调度",
+        "optimization": "优化",
+}
+
+ZH_EXACT_EXPANSION_BATCH_810_ALIASES = {
+        "hybrid optimization algorithm": "混合优化算法",
+        "optimization and control": "优化与控制",
+        "optimization methods": "优化方法",
+        "optimization models": "优化模型",
+        "optimized link state routing": "优化链路状态路由",
+}
+
+ZH_EXACT_EXPANSION_BATCH_811_ALIASES = {
+        "optimizing compilers": "优化编译器",
+        "optoelectronics": "光电子学",
+        "optoelectronic and photonic sensors": "光电子与光子传感器",
+        "optoelectronic devices": "光电子器件",
+}
+
+ZH_EXACT_EXPANSION_BATCH_812_ALIASES = {
+        "optogenetics": "光遗传学",
+        "optometrists": "验光师",
+        "optometry": "验光学",
+        "oral allergy syndrome": "口腔过敏综合征",
+}
+
+ZH_EXACT_EXPANSION_BATCH_813_ALIASES = {
+        "oral and maxillofacial pathology": "口腔颌面病理学",
+        "oral and maxillofacial surgeons": "口腔颌面外科医生",
+        "oral communication": "口头交流",
+        "oral fistula": "口腔瘘",
+}
+
+ZH_EXACT_EXPANSION_BATCH_814_ALIASES = {
+        "oral health": "口腔健康",
+        "oral hygiene": "口腔卫生",
+        "oral hygiene index": "口腔卫生指数",
+        "oral mucosal absorption": "口腔黏膜吸收",
+}
+
+ZH_EXACT_EXPANSION_BATCH_815_ALIASES = {
+        "oral submucous fibrosis": "口腔黏膜下纤维化",
+        "oral surgical procedures": "口腔外科手术",
+        "oral ulcer": "口腔溃疡",
+        "orbit": "眼眶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_816_ALIASES = {
+        "orbital angular momentum in optics": "光学轨道角动量",
+        "orbital cellulitis": "眶蜂窝织炎",
+        "orbital diseases": "眼眶疾病",
+        "orbital fractures": "眶骨骨折",
+}
+
+ZH_EXACT_EXPANSION_BATCH_817_ALIASES = {
+        "orbital implants": "眼眶植入物",
+        "orbitofrontal cortex": "眶额皮质",
+        "orchidaceae": "兰科",
+        "orchiectomy": "睾丸切除术",
+}
+
+ZH_EXACT_EXPANSION_BATCH_818_ALIASES = {
+        "orchiopexy": "睾丸固定术",
+        "orchitis": "睾丸炎",
+        "order of convergence": "收敛阶",
+        "order picking": "订单拣选",
+}
+
+ZH_EXACT_EXPANSION_BATCH_819_ALIASES = {
+        "ordered binary decision diagrams": "有序二叉决策图",
+        "ordered weighted averaging": "有序加权平均",
+        "ordinary differential equations": "常微分方程",
+        "orexins": "食欲素",
+}
+
+ZH_EXACT_EXPANSION_BATCH_820_ALIASES = {
+        "orexin receptors": "食欲素受体",
+        "organs at risk": "危及器官",
+        "organ culture techniques": "器官培养技术",
+        "organ donation and transplantation": "器官捐献与移植",
+}
+
+ZH_EXACT_EXPANSION_BATCH_821_ALIASES = {
+        "organ dysfunction scores": "器官功能障碍评分",
+        "organ of corti": "柯蒂器",
+        "organ preservation": "器官保存",
+        "organ transplantation": "器官移植",
+}
+
+ZH_EXACT_EXPANSION_BATCH_822_ALIASES = {
+        "organelles": "细胞器",
+        "organic agriculture": "有机农业",
+        "organic anion transporters": "有机阴离子转运体",
+        "organic cation transport proteins": "有机阳离子转运蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_823_ALIASES = {
+        "organic compounds": "有机化合物",
+        "organic light emitting diodes": "有机发光二极管",
+        "organic light-emitting diodes": "有机发光二极管",
+        "organic semiconductors": "有机半导体",
+}
+
+ZH_EXACT_EXPANSION_BATCH_824_ALIASES = {
+        "organic thin film transistors": "有机薄膜晶体管",
+        "organoids": "类器官",
+        "organogenesis": "器官发生",
+        "organophosphates": "有机磷酸酯",
+}
+
+ZH_EXACT_EXPANSION_BATCH_825_ALIASES = {
+        "organophosphate poisoning": "有机磷中毒",
+        "organophosphorus compounds": "有机磷化合物",
+        "ornithine": "鸟氨酸",
+        "ornithine carbamoyltransferase deficiency disease": "鸟氨酸氨甲酰转移酶缺乏症",
+}
+
+ZH_EXACT_EXPANSION_BATCH_826_ALIASES = {
+        "orthodontics": "正畸学",
+        "orthodontic appliances": "正畸矫治器",
+        "orthogonal channels": "正交信道",
+        "orthogonal frequency division multiple access": "正交频分多址",
+}
+
+ZH_EXACT_EXPANSION_BATCH_827_ALIASES = {
+        "orthogonal frequency division multiplexing": "正交频分复用",
+        "orthogonal matching pursuit": "正交匹配追踪",
+        "orthopedics": "骨科学",
+        "orthopedic fixation devices": "骨科固定装置",
+}
+
+ZH_EXACT_EXPANSION_BATCH_828_ALIASES = {
+        "orthopedic surgeons": "骨科医生",
+        "orthopoxvirus": "正痘病毒",
+        "oseltamivir": "奥司他韦",
+        "osmium": "锇",
+}
+
+ZH_EXACT_EXPANSION_BATCH_829_ALIASES = {
+        "osmolar concentration": "渗透摩尔浓度",
+        "osmosis": "渗透",
+        "osmotic pressure": "渗透压",
+        "osseointegration": "骨结合",
+}
+
+ZH_EXACT_EXPANSION_BATCH_830_ALIASES = {
+        "osteoarthritis": "骨关节炎",
+        "osteoarthritis, hip": "髋骨关节炎",
+        "osteoarthritis, knee": "膝骨关节炎",
+        "osteoblasts": "成骨细胞",
+}
+
+ZH_EXACT_EXPANSION_BATCH_831_ALIASES = {
+        "osteocalcin": "骨钙素",
+        "osteoclasts": "破骨细胞",
+        "osteocytes": "骨细胞",
+        "osteogenesis imperfecta": "成骨不全症",
+}
+
+ZH_EXACT_EXPANSION_BATCH_832_ALIASES = {
+        "osteolysis": "骨溶解",
+        "osteomalacia": "骨软化症",
+        "osteomyelitis": "骨髓炎",
+        "osteoporosis": "骨质疏松症",
+}
+
+ZH_EXACT_EXPANSION_BATCH_833_ALIASES = {
+        "osteosarcoma": "骨肉瘤",
+        "osteotomy": "截骨术",
+        "otitis media": "中耳炎",
+        "otolaryngologists": "耳鼻喉科医生",
+}
+
+ZH_EXACT_EXPANSION_BATCH_834_ALIASES = {
+        "otolaryngology": "耳鼻喉科学",
+        "otomycosis": "耳真菌病",
+        "otosclerosis": "耳硬化症",
+        "out-of-hospital cardiac arrest": "院外心脏骤停",
+}
+
+ZH_EXACT_EXPANSION_BATCH_835_ALIASES = {
+        "outage": "中断",
+        "outage analysis": "中断分析",
+        "outage probability": "中断概率",
+        "outage probability analysis": "中断概率分析",
+}
+
+ZH_EXACT_EXPANSION_BATCH_836_ALIASES = {
+        "outcome assessment, health care": "卫生保健结局评估",
+        "outpatients": "门诊患者",
+        "outpatient clinics, hospital": "医院门诊",
+        "output feedback": "输出反馈",
+}
+
+ZH_EXACT_EXPANSION_BATCH_837_ALIASES = {
+        "output feedback control": "输出反馈控制",
+        "output tracking": "输出跟踪",
+        "outsourcing": "外包",
+        "oval window, ear": "卵圆窗",
+}
+
+ZH_EXACT_EXPANSION_BATCH_838_ALIASES = {
+        "ovalbumin": "卵清蛋白",
+        "ovarian cysts": "卵巢囊肿",
+        "ovarian diseases": "卵巢疾病",
+        "ovarian follicle": "卵泡",
+}
+
+ZH_EXACT_EXPANSION_BATCH_839_ALIASES = {
+        "ovarian function tests": "卵巢功能试验",
+        "ovarian hyperstimulation syndrome": "卵巢过度刺激综合征",
+        "ovarian neoplasms": "卵巢肿瘤",
+        "ovarian reserve": "卵巢储备",
+}
+
+ZH_EXACT_EXPANSION_BATCH_840_ALIASES = {
+        "ovarian torsion": "卵巢扭转",
+        "ovariectomy": "卵巢切除术",
+        "oxidative phosphorylation": "氧化磷酸化",
+        "oxygen inhalation therapy": "氧吸入疗法",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -16674,6 +17375,110 @@ RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_737_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_738_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_739_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_740_ALIASES)
+for _zh_exact_expansion_batch in (
+    ZH_EXACT_EXPANSION_BATCH_741_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_742_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_743_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_744_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_745_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_746_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_747_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_748_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_749_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_750_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_751_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_752_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_753_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_754_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_755_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_756_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_757_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_758_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_759_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_760_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_761_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_762_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_763_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_764_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_765_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_766_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_767_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_768_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_769_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_770_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_771_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_772_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_773_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_774_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_775_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_776_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_777_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_778_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_779_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_780_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_781_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_782_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_783_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_784_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_785_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_786_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_787_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_788_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_789_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_790_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_791_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_792_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_793_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_794_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_795_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_796_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_797_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_798_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_799_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_800_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_801_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_802_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_803_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_804_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_805_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_806_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_807_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_808_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_809_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_810_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_811_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_812_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_813_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_814_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_815_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_816_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_817_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_818_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_819_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_820_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_821_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_822_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_823_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_824_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_825_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_826_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_827_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_828_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_829_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_830_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_831_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_832_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_833_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_834_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_835_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_836_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_837_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_838_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_839_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_840_ALIASES,
+):
+    RAW_EXACT_ALIASES.update(_zh_exact_expansion_batch)
+del _zh_exact_expansion_batch
 
 RAW_PRIORITY_COMPONENTS = {
     "agent": "智能体",

@@ -14979,6 +14979,56 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_741_to_760_adds_open_operation_ophthalmic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("open_shortest_path_first", "Open Shortest Path First", ["computer_science"], "开放最短路径优先"),
+                ("operating_room", "Operating Rooms", ["biomedical", "health_care"], "手术室"),
+                ("operational_amplifier", "Operational Amplifiers", ["circuits_and_systems"], "运算放大器"),
+                ("ophthalmic_artery", "Ophthalmic Artery", ["anatomy", "biomedical"], "眼动脉"),
+            ]
+        )
+
+    def test_exact_expansion_batch_761_to_780_adds_opioid_opportunistic_optic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("opioid_related_disorder", "Opioid-related Disorders", ["biomedical", "diseases"], "阿片类药物相关障碍"),
+                ("opportunistic_routing", "Opportunistic Routing", ["computer_science"], "机会路由"),
+                ("optic_nerve", "Optic Nerve", ["anatomy", "biomedical"], "视神经"),
+                ("optical_burst_switching", "Optical Burst Switching", ["computer_science"], "光突发交换"),
+            ]
+        )
+
+    def test_exact_expansion_batch_781_to_800_adds_optical_networking_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("optical_crosstalk", "Optical Crosstalk", ["lasers_and_electrooptics"], "光串扰"),
+                ("optical_flow", "Optical Flow", ["computer_science"], "光流"),
+                ("optical_network", "Optical Networks", ["computer_science"], "光网络"),
+                ("optical_switching", "Optical Switching", ["communications_technology"], "光交换"),
+            ]
+        )
+
+    def test_exact_expansion_batch_801_to_820_adds_optimization_organ_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("hybrid_optimization_algorithm", "Hybrid Optimization Algorithm", ["computer_science"], "混合优化算法"),
+                ("oral_health", "Oral Health", ["biomedical", "health_care"], "口腔健康"),
+                ("organ_transplantation", "Organ Transplantation", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "器官移植"),
+                ("organic_light_emitting_diod", "Organic Light Emitting Diodes", ["computer_science"], "有机发光二极管"),
+            ]
+        )
+
+    def test_exact_expansion_batch_821_to_840_adds_ovarian_oxygen_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("outage_probability", "Outage Probabilities", ["computer_science"], "中断概率"),
+                ("ovarian_hyperstimulation_syndrome", "Ovarian Hyperstimulation Syndrome", ["biomedical", "diseases"], "卵巢过度刺激综合征"),
+                ("oxidative_phosphorylation", "Oxidative Phosphorylation", ["biomedical", "phenomena_and_processes"], "氧化磷酸化"),
+                ("oxygen_inhalation_therapy", "Oxygen Inhalation Therapy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "氧吸入疗法"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

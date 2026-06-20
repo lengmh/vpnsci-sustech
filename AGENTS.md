@@ -153,20 +153,20 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-18 zh-exact-expansion-batch-721-to-740 后）：
+最新已知状态（2026-06-20 zh-exact-expansion-batch-741-to-840 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`12264 / 48897 = 25.08%`
-- runtime zh aliases: `12277`
+- runtime 中文覆盖：`12468 / 48897 = 25.50%`
+- runtime zh aliases: `12519`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `12277`
-- `zh:blocked`: `11656`
+- `zh:accept`: `12519`
+- `zh:blocked`: `11808`
 - `zh:needs_review`: `0`
 - `zh:reject`: `151`
 - accepted/runtime alias conflicts: `0`
@@ -175,29 +175,50 @@ lexicons/review/
 - runtime concept aliases: `48897`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
-- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-740 运行时以 compact index/manifest 为准）
+- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-840 运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `4dd94629e1dee0db345281e3a02e2df8c9157fa0a792ff2db8135e317c037a60`
+  `e7cc7ee89ded7eaa6fb1a5ce98ab05032608e750e6e0a2521891af7c50028f41`
 - compact manifest SHA-256:
-  `534bf36a0c4b77c8d70c7dfe9f4e3e6c5a15fe02cfcb228bf42c32f240ad9a33`
+  `7627e9379a981e502ab41b2b0250eb18e13566a1c6327efe5a1f60c8c821b6c1`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact index 是 batch-740 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-740 更新，不再作为默认等价检查对象。
-- 最近相关测试：`803 passed in 5.20s`。
+- compact index 是 batch-840 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-840 更新，不再作为默认等价检查对象。
+- 最近相关测试：`808 passed in 8.27s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- batch-721 至 batch-740 中文 coverage 扩展已完成，runtime 中文覆盖已到 `25.08%`；用户当前 `>25%` 目标已达成；
-- 后续连续扩展采用新的提交节奏：每 `5` 轮 `20-batch` 处理作为一个最终 milestone commit；中间 checkpoint、review 清单和 smoke 产物仅放在 `F:\AI playground\TempFiles`，不再每轮 20-batch 都提交；
-- post-25% review 已开始，临时审查产物：
-  `F:\AI playground\TempFiles\theme_alias_post25_review.json`；
+- batch-741 至 batch-840 五轮 milestone 已完成，runtime 中文覆盖已到 `25.50%`；
+- 后续连续扩展继续采用新的提交节奏：每 `5` 轮 `20-batch` 处理作为一个最终 milestone commit；中间 checkpoint、review 清单和 smoke 产物仅放在 `F:\AI playground\TempFiles`，不再每轮 20-batch 都提交；
+- batch-741-to-840 milestone 临时审查产物：
+  `F:\AI playground\TempFiles\zh_review_recommendations.batch-741-to-840.summary.json`；
 - post-20% 质量复盘和窄 L6 treemap/text fallback 修复已完成；当前主线回到 exact/domain-aware 中文 alias 覆盖扩展；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
+- 最新 batch-741 至 batch-840 exact/domain-aware 五轮 milestone 已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_741_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_840_ALIASES`，覆盖 open/open source/operating/ophthalmic、opioid/opportunistic/optic/optical、optimal/oral/orbital/organ、organic/orthopedic/osteoporosis/outage、ovarian/oxygen 等 exact/domain-aware 术语；
+  - 新增 `5` 个分组代表性回归测试，先红灯后转绿；保留 `Optical Harmonic Generation -> 光学谐波产生` 既有标准译法；
+  - grouped L3-L5：fill `records_filled = 24135`，validate `review_decisions = 373448`；从 TempFiles checkpoint 补回 `143` 条 prior zh review 决策，并恢复 `1` 条 prior runtime target（`concept:optical_tomography / 光学断层成像`），避免候选重排导致旧 runtime alias 回退；
+  - 显式接受 `247` 条 exact/domain-aware recommendation；
+  - 显式阻断 `29` 条 medium compositional / low mixed fallback side-effect，包括 `无源光网络`、`实时操作系统`、`骨科学设备`、`氧化磷酸化耦合因子` 等，后续如需应通过更具体 exact/domain-specific replacement 重开；
+  - reblocked validator-regenerated English short acronym queue: `713`；
+  - runtime 中文覆盖从 `12264 / 48897 = 25.08%` 增至 `12468 / 48897 = 25.50%`；
+  - `zh:accept`: `12519`，`zh:blocked`: `11808`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `e7cc7ee89ded7eaa6fb1a5ce98ab05032608e750e6e0a2521891af7c50028f41`；
+  - compact manifest SHA-256: `7627e9379a981e502ab41b2b0250eb18e13566a1c6327efe5a1f60c8c821b6c1`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - query smoke 已确认 `开放最短路径优先 -> concept:open_shortest_path_first` 可命中，`无源光网络`、`氧化磷酸化耦合因子` 保持不命中；
+  - 相关测试：`808 passed in 8.27s`。
+- batch-840 后 review：
+  - 本 milestone 新增 `204` 个 runtime zh-covered concepts，覆盖率增至 `25.50%`；
+  - side-effect `29` 条已显式 blocked，没有打开低质 mixed fallback，也没有 blanket accept medium-confidence compositional candidates；
+  - accepted/runtime conflict 继续为 `0`，duplicate/collision 仍不自动 merge；
+  - 若继续扩大覆盖，下一轮从 batch-841 起按同一 `5 x 20-batch` milestone 节奏推进，仍不进入新的 L6。
 - 最新 batch-721 至 batch-740 exact/domain-aware 小批次已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_721_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_740_ALIASES`，覆盖 oliguria/olive/olmesartan、OLSR/omni/on-chip、online/ontology、oncogene/oncology、oocyte/OOD、open/open loop/open RAN 等 exact/domain-aware 术语；
   - 新增 `20` 个代表性回归测试，先红灯后转绿；修正 `Ontology Building -> 本体构建`、`Open Field Test -> 旷场实验` 等 exact 输出；
