@@ -15079,6 +15079,56 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_941_to_960_adds_partial_particle_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("partial_differential_equation", "Partial Differential Equations", ["computer_science", "mathematics"], "偏微分方程"),
+                ("partial_thromboplastin_time", "Partial Thromboplastin Time", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "部分凝血活酶时间"),
+                ("particle_accelerator", "Particle Accelerators", ["nuclear_and_plasma_sciences"], "粒子加速器"),
+                ("particle_swarm_optimization", "Particle Swarm Optimization", ["computational_and_artificial_intelligence"], "粒子群优化"),
+            ]
+        )
+
+    def test_exact_expansion_batch_961_to_980_adds_parvovirus_passive_password_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("parvoviru_b19_human", "Parvovirus B19, Human", ["biomedical", "organisms"], "人细小病毒B19"),
+                ("passive_optical_network", "Passive Optical Network", ["computer_science"], "无源光网络"),
+                ("password_authenticated_key_exchange", "Password-authenticated Key Exchange", ["computer_science"], "口令认证密钥交换"),
+                ("pasteurization", "Pasteurization", ["biomedical", "technology_industry_and_agriculture"], "巴氏灭菌"),
+            ]
+        )
+
+    def test_exact_expansion_batch_981_to_1000_adds_patch_patella_path_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("patch_antenna", "Patch Antennas", ["antennas_and_propagation"], "贴片天线"),
+                ("patch_clamp_techniqu", "Patch-clamp Techniques", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "膜片钳技术"),
+                ("patella", "Patella", ["anatomy", "biomedical"], "髌骨"),
+                ("path_planning", "Path Planning", ["control_systems"], "路径规划"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1001_to_1020_adds_pathology_patient_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("pathology", "Pathology", ["engineering_in_medicine_and_biology"], "病理学"),
+                ("patient_care", "Patient Care", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "患者护理"),
+                ("patient_handoff", "Patient Handoff", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "患者交接"),
+                ("patient_monitoring", "Patient Monitoring", ["instrumentation_and_measurement"], "患者监测"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1021_to_1040_adds_pattern_peak_pearson_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("pattern_recognition", "Pattern Recognition", ["computer_science"], "模式识别"),
+                ("peak_signal_to_noise_ratio", "Peak Signal To Noise Ratio", ["computer_science"], "峰值信噪比"),
+                ("pearson_correlation_coefficient", "Pearson Correlation Coefficients", ["computer_science"], "皮尔逊相关系数"),
+                ("pcsk9_inhibitor", "Pcsk9 Inhibitors", ["biomedical", "chemicals_and_drugs"], "PCSK9抑制剂"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
