@@ -15129,6 +15129,56 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_1041_to_1060_adds_penile_pentose_and_peptide_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("penile_disease", "Penile Diseases", ["biomedical", "diseases"], "阴茎疾病"),
+                ("pentose_phosphate_pathway", "Pentose Phosphate Pathway", ["biomedical", "phenomena_and_processes"], "磷酸戊糖途径"),
+                ("peptic_ulcer", "Peptic Ulcer", ["biomedical", "diseases"], "消化性溃疡"),
+                ("peptide_mapping", "Peptide Mapping", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "肽图谱分析"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1061_to_1080_adds_peripheral_peritoneal_and_personal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("peripheral_arterial_disease", "Peripheral Arterial Disease", ["biomedical", "diseases"], "外周动脉疾病"),
+                ("peritoneal_dialysi", "Peritoneal Dialysis", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "腹膜透析"),
+                ("persistent_organic_pollutant", "Persistent Organic Pollutants", ["biomedical", "chemicals_and_drugs"], "持久性有机污染物"),
+                ("personal_health_record", "Personal Health Record", ["computer_science"], "个人健康记录"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1081_to_1100_adds_petri_phage_and_pharmaceutical_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("petri_dish", "Petri Dishes", ["engineering_in_medicine_and_biology"], "培养皿"),
+                ("phage_therapy", "Phage Therapy", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "噬菌体疗法"),
+                ("pharmaceutical_preparation", "Pharmaceutical Preparations", ["biomedical", "chemicals_and_drugs"], "药物制剂"),
+                ("pharmacovigilance", "Pharmacovigilance", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "药物警戒"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1101_to_1120_adds_phase_and_phenyl_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("phase_change_material", "Phase Change Materials", ["materials_elements_and_compounds"], "相变材料"),
+                ("phase_shifting_interferometry", "Phase Shifting Interferometry", ["instrumentation_and_measurement"], "相移干涉测量"),
+                ("phenylalanine", "Phenylalanine", ["biomedical", "chemicals_and_drugs"], "苯丙氨酸"),
+                ("phenotype", "Phenotype", ["biomedical", "phenomena_and_processes"], "表型"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1121_to_1140_adds_phosphate_photonic_and_photovoltaic_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("phosphatidylinositol_3_kinase", "Phosphatidylinositol 3-kinases", ["biomedical", "chemicals_and_drugs"], "磷脂酰肌醇3-激酶"),
+                ("photocatalysi", "Photocatalysis", ["science_general"], "光催化"),
+                ("photonic_integrated_circuit", "Photonic Integrated Circuits", ["computer_science"], "光子集成电路"),
+                ("photovoltaic_system", "Photovoltaic Systems", ["power_engineering_and_energy"], "光伏系统"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
