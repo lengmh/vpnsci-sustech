@@ -153,51 +153,72 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-22 zh-exact-expansion-batch-941-to-1040 后）：
+最新已知状态（2026-06-22 zh-exact-expansion-batch-1041-to-1140 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`13086 / 48902 = 26.76%`
-- runtime zh aliases: `13158`
+- runtime 中文覆盖：`13708 / 48904 = 28.03%`
+- runtime zh aliases: `13720`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `13158`
-- `zh:blocked`: `11870`
+- `zh:accept`: `13720`
+- `zh:blocked`: `11694`
 - `zh:needs_review`: `0`
-- `zh:reject`: `152`
+- `zh:reject`: `146`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `48902`
+- runtime concept aliases: `48904`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
-- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-1040 运行时以 compact index/manifest 为准）
+- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-1140 运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `7542a6473cbb50ee86d25df27f703a387fec3c8141f265b61cd114f9353e13fb`
+  `d821a62b7366ca1f33433c508ad216596b9aa861d1263b84542f51a095eb416d`
 - compact manifest SHA-256:
-  `af3334e51ccac03a7177947e2d6a27828d1c8b512f42d311e53de0903cfa000a`
+  `5ab3c53060296a1d763c22b81c7d8d7910ff180884cb9eecff05de0203a49a36`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact index 是 batch-1040 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-1040 更新，不再作为默认等价检查对象。
-- 最近相关测试：`818 passed in 7.11s`。
+- compact index 是 batch-1140 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-1140 更新，不再作为默认等价检查对象。
+- 最近相关测试：`823 passed in 6.21s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- batch-941 至 batch-1040 五轮 milestone 已完成，runtime 中文覆盖已到 `26.76%`；用户当前目标为 `>28%`，仍未达成；
+- batch-1041 至 batch-1140 五轮 milestone 已完成，runtime 中文覆盖已到 `28.03%`，已超过用户当前目标 `>28%`；
 - 后续连续扩展继续采用新的提交节奏：每 `5` 轮 `20-batch` 处理作为一个最终 milestone commit；中间 checkpoint、review 清单和 smoke 产物仅放在 `F:\AI playground\TempFiles`，不再每轮 20-batch 都提交；
-- batch-941-to-1040 milestone 临时审查产物：
-  `F:\AI playground\TempFiles\zh_review_recommendations.batch-941-to-1040.summary.json`；
+- batch-1041-to-1140 milestone 临时审查产物：
+  `F:\AI playground\TempFiles\zh_review_recommendations.batch-1041-to-1140.json`，
+  `F:\AI playground\TempFiles\zh_review_recommendations.batch-1041-to-1140-pollution-fix.json`，
+  `F:\AI playground\TempFiles\zh_review_recommendations.batch-1041-to-1140-exact-reopen.json`；
 - post-20% 质量复盘和窄 L6 treemap/text fallback 修复已完成；当前主线回到 exact/domain-aware 中文 alias 覆盖扩展；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
+- 最新 batch-1041 至 batch-1140 exact/domain-aware 五轮 milestone 已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_1041_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_1140_ALIASES`，覆盖 penile/pentose/peptide、perception/performance/peripheral/peritoneal/personal、Petri/phage/pharmaceutical/pharmacology、phase/phenyl/phosphate/photo/photovoltaic 等 P 段 exact/domain-aware 术语；
+  - 新增 `5` 个分组代表性回归测试，先红灯后转绿；修正 `Phosphatidate Phosphatase -> 磷脂酸磷酸水解酶`，清除 `酸磷酸酶` 坏形态命中；
+  - grouped L3-L5：fill `records_filled = 25360`，validate `review_decisions = 374673`；从 TempFiles checkpoint 恢复 prior review 决策，并恢复 `713` 条 validator-regenerated English short acronym queue；
+  - 显式接受 `633` 条 exact/domain-aware recommendation，另重开 `11` 条 prior blocked exact 输出（包括 `性能评估`、`个人区域网络`、`光伏系统`）；
+  - 显式阻断 `45` 条 compositional/domain-title side-effect；`药理学与纳米医学研究` 保持 blocked，`光子集成电路` 等 duplicate/collision 输出继续不自动 merge；
+  - runtime 中文覆盖从 `13086 / 48902 = 26.76%` 增至 `13708 / 48904 = 28.03%`；
+  - `zh:accept`: `13720`，`zh:blocked`: `11694`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `d821a62b7366ca1f33433c508ad216596b9aa861d1263b84542f51a095eb416d`；
+  - compact manifest SHA-256: `5ab3c53060296a1d763c22b81c7d8d7910ff180884cb9eecff05de0203a49a36`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - query smoke 已确认 `磷酸戊糖途径 -> concept:pentose_phosphate_pathway`、`药物警戒 -> concept:pharmacovigilance`、`相变材料 -> concept:phase_change_material`、`光伏系统 -> concept:photovoltaic_system`、`磷脂酸磷酸水解酶 -> concept:phosphatidate_phosphatase` 可命中，`磷脂酸磷酸酶`、`药理学与纳米医学研究` 保持不命中；
+  - 相关测试：`823 passed in 6.21s`。
+- batch-1140 后 review：
+  - 本 milestone 新增 `622` 个 runtime zh-covered concepts，覆盖率超过 `28%` 目标；
+  - exact reopen audit 发现 `12` 条旧 pending-exact block，其中 `11` 条已按 exact/domain-aware 证据重开，`药理学与纳米医学研究` 因 title/domain 组合风险继续 blocked；
+  - accepted/runtime conflict 继续为 `0`，duplicate/collision 仍不自动 merge；不打开低质 mixed fallback、不 blanket accept medium-confidence compositional candidates、不进入新的 L6。
 - 最新 batch-941 至 batch-1040 exact/domain-aware 五轮 milestone 已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_941_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_1040_ALIASES`，覆盖 partial/particle、parvovirus/passive/password、patch/patella/pathology/patient、pattern/PAX/peak/Pearson、pediatric/peer/pelvic/penicillin 等 P 段 exact/domain-aware 术语；
   - 新增 `5` 个分组代表性回归测试，先红灯后转绿；修正 `Partial Differential Equations -> 偏微分方程`、`Patient Discharge -> 患者出院` 等 exact 输出；
