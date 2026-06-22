@@ -16633,6 +16633,707 @@ ZH_EXACT_EXPANSION_BATCH_840_ALIASES = {
         "oxygen inhalation therapy": "氧吸入疗法",
 }
 
+ZH_EXACT_EXPANSION_BATCH_841_ALIASES = {
+        "oxygen isotopes": "氧同位素",
+        "oxygen radical absorbance capacity": "氧自由基吸收能力",
+        "oxygen radioisotopes": "氧放射性同位素",
+        "oxygen saturation": "血氧饱和度",
+}
+
+ZH_EXACT_EXPANSION_BATCH_842_ALIASES = {
+        "oxygenases": "加氧酶",
+        "oxygenator": "氧合器",
+        "oxygenators": "氧合器",
+        "oxygenators, membrane": "膜式氧合器",
+        "membrane oxygenator": "膜式氧合器",
+}
+
+ZH_EXACT_EXPANSION_BATCH_843_ALIASES = {
+        "oxyhemoglobins": "氧合血红蛋白",
+        "oxyhemoglobin": "氧合血红蛋白",
+        "oxylipins": "氧脂素",
+        "oxymetazoline": "羟甲唑啉",
+}
+
+ZH_EXACT_EXPANSION_BATCH_844_ALIASES = {
+        "oxymetholone": "羟甲烯龙",
+        "oxymorphone": "羟吗啡酮",
+        "oxyntomodulin": "胃泌酸调节素",
+        "oxyphenbutazone": "羟布宗",
+}
+
+ZH_EXACT_EXPANSION_BATCH_845_ALIASES = {
+        "oxyphenisatin acetate": "醋酸羟苯异汀",
+        "oxyphenonium": "羟苯铵",
+        "oxyphil cells": "嗜酸性细胞",
+        "oxypurinol": "氧嘌呤醇",
+}
+
+ZH_EXACT_EXPANSION_BATCH_846_ALIASES = {
+        "oxyquinoline": "羟基喹啉",
+        "8-hydroxyquinoline": "8-羟基喹啉",
+        "oxysterols": "氧固醇",
+        "oxysterol binding proteins": "氧固醇结合蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_847_ALIASES = {
+        "oxytetracycline": "土霉素",
+        "oxythiamine": "氧硫胺素",
+        "oxytocics": "催产药",
+        "oxytocin": "催产素",
+}
+
+ZH_EXACT_EXPANSION_BATCH_848_ALIASES = {
+        "oxyuriasis": "蛲虫病",
+        "oxyurida infections": "蛲虫目感染",
+        "ozone": "臭氧",
+        "ozone depletion": "臭氧消耗",
+}
+
+ZH_EXACT_EXPANSION_BATCH_849_ALIASES = {
+        "p120 gtpase activating protein": "p120 GTP酶激活蛋白",
+        "p21-activated kinases": "p21活化激酶",
+        "p300-cbp-associated factor": "p300-CBP相关因子",
+        "p300-cbp transcription factors": "p300-CBP转录因子",
+}
+
+ZH_EXACT_EXPANSION_BATCH_850_ALIASES = {
+        "p38 mitogen-activated protein kinases": "p38丝裂原活化蛋白激酶",
+        "p2p": "点对点网络",
+        "p2p computing": "P2P计算",
+        "p2p environment": "P2P环境",
+}
+
+ZH_EXACT_EXPANSION_BATCH_851_ALIASES = {
+        "p2p file sharing": "P2P文件共享",
+        "p2p overlay": "P2P覆盖网络",
+        "p2p overlay networks": "P2P覆盖网络",
+        "p2p streaming": "P2P流媒体",
+}
+
+ZH_EXACT_EXPANSION_BATCH_852_ALIASES = {
+        "p-aminoazobenzene": "对氨基偶氮苯",
+        "p-azobenzenearsonate": "对偶氮苯胂酸盐",
+        "p blood-group system": "P血型系统",
+        "p-chloroamphetamine": "对氯苯丙胺",
+}
+
+ZH_EXACT_EXPANSION_BATCH_853_ALIASES = {
+        "p-cycles": "P圈",
+        "p-dimethylaminoazobenzene": "对二甲氨基偶氮苯",
+        "p-fluorophenylalanine": "对氟苯丙氨酸",
+        "p-hydroxyamphetamine": "对羟基苯丙胺",
+}
+
+ZH_EXACT_EXPANSION_BATCH_854_ALIASES = {
+        "p-hydroxynorephedrine": "对羟基去甲麻黄碱",
+        "p-i-n diodes": "PIN二极管",
+        "p-n junctions": "PN结",
+        "p-selectin": "P-选择素",
+}
+
+ZH_EXACT_EXPANSION_BATCH_855_ALIASES = {
+        "p-type atpases": "P型ATP酶",
+        "pacemakers": "起搏器",
+        "pacemaker, artificial": "人工心脏起搏器",
+        "pachyonychia congenita": "先天性厚甲症",
+}
+
+ZH_EXACT_EXPANSION_BATCH_856_ALIASES = {
+        "pachytene stage": "粗线期",
+        "pacific and southeast asian studies": "太平洋与东南亚研究",
+        "pacific islands": "太平洋岛屿",
+        "pacific island people": "太平洋岛民",
+}
+
+ZH_EXACT_EXPANSION_BATCH_857_ALIASES = {
+        "pacific ocean": "太平洋",
+        "pacific states": "太平洋州",
+        "pacifiers": "安抚奶嘴",
+        "pacinian corpuscles": "帕西尼小体",
+}
+
+ZH_EXACT_EXPANSION_BATCH_858_ALIASES = {
+        "packaging": "包装",
+        "packaging machines": "包装机械",
+        "packet classification": "分组分类",
+        "packet delay": "分组时延",
+}
+
+ZH_EXACT_EXPANSION_BATCH_859_ALIASES = {
+        "packet delivery": "分组传递",
+        "packet dropout": "分组丢失",
+        "packet filtering": "分组过滤",
+        "packet latency": "分组延迟",
+}
+
+ZH_EXACT_EXPANSION_BATCH_860_ALIASES = {
+        "packet loss": "丢包",
+        "packet loss probability": "分组丢失概率",
+        "packet loss rate": "丢包率",
+        "packet loss ratio": "丢包率",
+}
+
+ZH_EXACT_EXPANSION_BATCH_861_ALIASES = {
+        "packet marking": "分组标记",
+        "packet networks": "分组网络",
+        "packet processing": "分组处理",
+        "packet radio networks": "分组无线电网络",
+}
+
+ZH_EXACT_EXPANSION_BATCH_862_ALIASES = {
+        "packet scheduler": "分组调度器",
+        "packet scheduling": "分组调度",
+        "packet scheduling algorithm": "分组调度算法",
+        "packet switches": "分组交换机",
+}
+
+ZH_EXACT_EXPANSION_BATCH_863_ALIASES = {
+        "packet switching": "分组交换",
+        "packet transmissions": "分组传输",
+        "packing & jamming problems": "堆积与堵塞问题",
+        "paclitaxel": "紫杉醇",
+}
+
+ZH_EXACT_EXPANSION_BATCH_864_ALIASES = {
+        "pactamycin": "帕克他霉素",
+        "paenibacillus": "类芽孢杆菌属",
+        "paenibacillus larvae": "幼虫类芽孢杆菌",
+        "paenibacillus polymyxa": "多粘类芽孢杆菌",
+}
+
+ZH_EXACT_EXPANSION_BATCH_865_ALIASES = {
+        "paeonia": "芍药属",
+        "paget disease, extramammary": "乳房外佩吉特病",
+        "paget's disease, mammary": "乳腺佩吉特病",
+        "pagetoid reticulosis": "佩吉特样网状细胞增生症",
+}
+
+ZH_EXACT_EXPANSION_BATCH_866_ALIASES = {
+        "paging": "分页",
+        "pain": "疼痛",
+        "pain clinics": "疼痛门诊",
+        "pain insensitivity, congenital": "先天性痛觉不敏感症",
+}
+
+ZH_EXACT_EXPANSION_BATCH_867_ALIASES = {
+        "pain management": "疼痛管理",
+        "pain management and opioid use": "疼痛管理与阿片类药物使用",
+        "pain management and treatment": "疼痛管理与治疗",
+        "pain measurement": "疼痛测量",
+}
+
+ZH_EXACT_EXPANSION_BATCH_868_ALIASES = {
+        "pain mechanisms and treatments": "疼痛机制与治疗",
+        "pain perception": "疼痛感知",
+        "pain threshold": "痛阈",
+        "paintings": "绘画",
+}
+
+ZH_EXACT_EXPANSION_BATCH_869_ALIASES = {
+        "pair bond": "配偶纽带",
+        "pair-wise comparison": "成对比较",
+        "pair-wise error probability": "成对错误概率",
+        "paired-associate learning": "配对联想学习",
+}
+
+ZH_EXACT_EXPANSION_BATCH_870_ALIASES = {
+        "paired box transcription factors": "配对盒转录因子",
+        "pairing-based cryptography": "基于配对的密码学",
+        "pairwise error probability": "成对错误概率",
+        "pairwise key": "成对密钥",
+}
+
+ZH_EXACT_EXPANSION_BATCH_871_ALIASES = {
+        "pakistan": "巴基斯坦",
+        "palatal expansion technique": "腭扩展技术",
+        "palatal muscles": "腭肌",
+        "palatal neoplasms": "腭肿瘤",
+}
+
+ZH_EXACT_EXPANSION_BATCH_872_ALIASES = {
+        "palatal obturators": "腭阻塞器",
+        "palate": "腭",
+        "palate, hard": "硬腭",
+        "palate, soft": "软腭",
+}
+
+ZH_EXACT_EXPANSION_BATCH_873_ALIASES = {
+        "palatine tonsil": "腭扁桃体",
+        "paleodontology": "古牙科学",
+        "paleography": "古文字学",
+        "paleontology": "古生物学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_874_ALIASES = {
+        "paleontology and evolutionary biology": "古生物学与进化生物学",
+        "paleopathology": "古病理学",
+        "paleotemperature": "古温度",
+        "paliperidone palmitate": "帕利哌酮棕榈酸酯",
+}
+
+ZH_EXACT_EXPANSION_BATCH_875_ALIASES = {
+        "palivizumab": "帕利珠单抗",
+        "palladium": "钯",
+        "pallet": "托盘",
+        "palliative care": "姑息治疗",
+}
+
+ZH_EXACT_EXPANSION_BATCH_876_ALIASES = {
+        "palliative and oncologic care": "姑息与肿瘤护理",
+        "palliative medicine": "姑息医学",
+        "pallidotomy": "苍白球切开术",
+        "pallor": "苍白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_877_ALIASES = {
+        "palm oil": "棕榈油",
+        "palm print image": "掌纹图像",
+        "palmar plate": "掌板",
+        "palmitic acid": "棕榈酸",
+}
+
+ZH_EXACT_EXPANSION_BATCH_878_ALIASES = {
+        "palmitoyl coenzyme a": "棕榈酰辅酶A",
+        "palmprint": "掌纹",
+        "palmprint recognition": "掌纹识别",
+        "palpation": "触诊",
+}
+
+ZH_EXACT_EXPANSION_BATCH_879_ALIASES = {
+        "pamidronate": "帕米膦酸盐",
+        "pan american health organization": "泛美卫生组织",
+        "pan-sharpening": "全色锐化",
+        "panchromatic image": "全色图像",
+}
+
+ZH_EXACT_EXPANSION_BATCH_880_ALIASES = {
+        "panax": "人参属",
+        "panax notoginseng": "三七",
+        "pancoast syndrome": "潘科斯特综合征",
+        "pancreas": "胰腺",
+}
+
+ZH_EXACT_EXPANSION_BATCH_881_ALIASES = {
+        "pancreas, artificial": "人工胰腺",
+        "pancreas divisum": "胰腺分裂",
+        "pancreas, exocrine": "外分泌胰腺",
+        "pancreas transplantation": "胰腺移植",
+}
+
+ZH_EXACT_EXPANSION_BATCH_882_ALIASES = {
+        "pancreatectomy": "胰腺切除术",
+        "pancreatic alpha-amylase": "胰α-淀粉酶",
+        "pancreatic cyst": "胰腺囊肿",
+        "pancreatic diseases": "胰腺疾病",
+}
+
+ZH_EXACT_EXPANSION_BATCH_883_ALIASES = {
+        "pancreatic duct": "胰管",
+        "pancreatic elastase": "胰弹性蛋白酶",
+        "pancreatic extracts": "胰腺提取物",
+        "pancreatic fistula": "胰瘘",
+}
+
+ZH_EXACT_EXPANSION_BATCH_884_ALIASES = {
+        "pancreatic function tests": "胰腺功能试验",
+        "pancreatic hormones": "胰腺激素",
+        "pancreatic intraductal neoplasms": "胰管内肿瘤",
+        "pancreatic juice": "胰液",
+}
+
+ZH_EXACT_EXPANSION_BATCH_885_ALIASES = {
+        "pancreatic neoplasms": "胰腺肿瘤",
+        "pancreatic polypeptide": "胰多肽",
+        "pancreatic pseudocyst": "胰腺假性囊肿",
+        "pancreatic stellate cells": "胰腺星状细胞",
+}
+
+ZH_EXACT_EXPANSION_BATCH_886_ALIASES = {
+        "pancreaticoduodenectomy": "胰十二指肠切除术",
+        "pancreaticojejunostomy": "胰空肠吻合术",
+        "pancreatin": "胰酶",
+        "pancreatitis": "胰腺炎",
+}
+
+ZH_EXACT_EXPANSION_BATCH_887_ALIASES = {
+        "pancreatitis, acute hemorrhagic": "急性出血性胰腺炎",
+        "pancreatitis, acute necrotizing": "急性坏死性胰腺炎",
+        "pancreatitis, alcoholic": "酒精性胰腺炎",
+        "pancreatitis-associated proteins": "胰腺炎相关蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_888_ALIASES = {
+        "pancreatitis, chronic": "慢性胰腺炎",
+        "pancreatitis, graft": "移植物胰腺炎",
+        "pancrelipase": "胰脂肪酶",
+        "pancytopenia": "全血细胞减少症",
+}
+
+ZH_EXACT_EXPANSION_BATCH_889_ALIASES = {
+        "pandemic": "大流行",
+        "pandemic preparedness": "大流行防备",
+        "paneth cells": "潘氏细胞",
+        "panic disorder": "惊恐障碍",
+}
+
+ZH_EXACT_EXPANSION_BATCH_890_ALIASES = {
+        "panitumumab": "帕尼单抗",
+        "panniculitis": "脂膜炎",
+        "panophthalmitis": "全眼球炎",
+        "pansharpening": "全色锐化",
+}
+
+ZH_EXACT_EXPANSION_BATCH_891_ALIASES = {
+        "pantetheine": "泛酰巯基乙胺",
+        "pantothenic acid": "泛酸",
+        "pap smears": "巴氏涂片",
+        "pap test": "巴氏试验",
+}
+
+ZH_EXACT_EXPANSION_BATCH_892_ALIASES = {
+        "papain": "木瓜蛋白酶",
+        "papaverine": "罂粟碱",
+        "paper microfluidics": "纸基微流控",
+        "paper spray mass spectrometry": "纸喷雾质谱",
+}
+
+ZH_EXACT_EXPANSION_BATCH_893_ALIASES = {
+        "papillary muscles": "乳头肌",
+        "papilledema": "视乳头水肿",
+        "papilloma": "乳头状瘤",
+        "papilloma, intraductal": "导管内乳头状瘤",
+}
+
+ZH_EXACT_EXPANSION_BATCH_894_ALIASES = {
+        "papillomavirus infections": "乳头瘤病毒感染",
+        "papillomaviridae": "乳头瘤病毒科",
+        "papio": "狒狒属",
+        "papua new guinea": "巴布亚新几内亚",
+}
+
+ZH_EXACT_EXPANSION_BATCH_895_ALIASES = {
+        "paracentesis": "穿刺放液术",
+        "paracoccus": "副球菌属",
+        "paracrine communication": "旁分泌通讯",
+        "paracrine signaling": "旁分泌信号传导",
+}
+
+ZH_EXACT_EXPANSION_BATCH_896_ALIASES = {
+        "paraffin": "石蜡",
+        "paraffin embedding": "石蜡包埋",
+        "paraffin sections": "石蜡切片",
+        "paraganglia": "副神经节",
+}
+
+ZH_EXACT_EXPANSION_BATCH_897_ALIASES = {
+        "paraganglioma": "副神经节瘤",
+        "paragonimiasis": "并殖吸虫病",
+        "paragonimus": "并殖吸虫属",
+        "parainfluenza virus 1, human": "人副流感病毒1型",
+}
+
+ZH_EXACT_EXPANSION_BATCH_898_ALIASES = {
+        "parainfluenza virus 2, human": "人副流感病毒2型",
+        "parainfluenza virus 3, human": "人副流感病毒3型",
+        "parainfluenza virus 4, human": "人副流感病毒4型",
+        "parainfluenza viruses, human": "人副流感病毒",
+}
+
+ZH_EXACT_EXPANSION_BATCH_899_ALIASES = {
+        "parallel algorithms": "并行算法",
+        "parallel architecture": "并行体系结构",
+        "parallel communication": "并行通信",
+        "parallel computing": "并行计算",
+}
+
+ZH_EXACT_EXPANSION_BATCH_900_ALIASES = {
+        "parallel computer": "并行计算机",
+        "parallel computers": "并行计算机",
+        "parallel corpora": "平行语料库",
+        "parallel corpus": "平行语料库",
+}
+
+ZH_EXACT_EXPANSION_BATCH_901_ALIASES = {
+        "parallel data processing": "并行数据处理",
+        "parallel database": "并行数据库",
+        "parallel execution": "并行执行",
+        "parallel implementation": "并行实现",
+}
+
+ZH_EXACT_EXPANSION_BATCH_902_ALIASES = {
+        "parallel interference cancellation": "并行干扰抵消",
+        "parallel jobs": "并行作业",
+        "parallel kinematic machines": "并联运动机床",
+        "parallel languages": "并行语言",
+}
+
+ZH_EXACT_EXPANSION_BATCH_903_ALIASES = {
+        "parallel machines": "并行机",
+        "parallel machine scheduling": "并行机调度",
+        "parallel manipulator": "并联机械手",
+        "parallel mechanism": "并联机构",
+}
+
+ZH_EXACT_EXPANSION_BATCH_904_ALIASES = {
+        "parallel multipliers": "并行乘法器",
+        "parallel performance": "并行性能",
+        "parallel plates": "平行板",
+        "parallel processing": "并行处理",
+}
+
+ZH_EXACT_EXPANSION_BATCH_905_ALIASES = {
+        "parallel processing systems": "并行处理系统",
+        "parallel program": "并行程序",
+        "parallel programming": "并行编程",
+        "parallel programming model": "并行编程模型",
+}
+
+ZH_EXACT_EXPANSION_BATCH_906_ALIASES = {
+        "parallel robots": "并联机器人",
+        "parallel text": "平行文本",
+        "parallel virtual machine": "并行虚拟机",
+        "parallelism": "并行性",
+}
+
+ZH_EXACT_EXPANSION_BATCH_907_ALIASES = {
+        "parallelization": "并行化",
+        "parallelization strategies": "并行化策略",
+        "paralyses, familial periodic": "家族性周期性麻痹",
+        "paralysis": "麻痹",
+}
+
+ZH_EXACT_EXPANSION_BATCH_908_ALIASES = {
+        "paralysis, hyperkalemic periodic": "高钾性周期性麻痹",
+        "paralysis, obstetric": "产科性麻痹",
+        "paramagnetic materials": "顺磁性材料",
+        "paramagnetic resonance": "顺磁共振",
+}
+
+ZH_EXACT_EXPANSION_BATCH_909_ALIASES = {
+        "paramecium": "草履虫属",
+        "paramecium aurelia": "金色草履虫",
+        "paramecium caudatum": "尾草履虫",
+        "paramecium tetraurelia": "四膜草履虫",
+}
+
+ZH_EXACT_EXPANSION_BATCH_910_ALIASES = {
+        "paramedics": "急救人员",
+        "paramedicine": "急救医学",
+        "parameter adaptation": "参数自适应",
+        "parameter-efficient tuning": "参数高效微调",
+}
+
+ZH_EXACT_EXPANSION_BATCH_911_ALIASES = {
+        "parameter estimation": "参数估计",
+        "parameter extraction": "参数提取",
+        "parameter learning": "参数学习",
+        "parameter uncertainty": "参数不确定性",
+}
+
+ZH_EXACT_EXPANSION_BATCH_912_ALIASES = {
+        "parameterization": "参数化",
+        "parametric amplifiers": "参量放大器",
+        "parametric oscillators": "参量振荡器",
+        "parametric polymorphism": "参数多态",
+}
+
+ZH_EXACT_EXPANSION_BATCH_913_ALIASES = {
+        "parametric statistics": "参数统计",
+        "parametric study": "参数研究",
+        "parametric uncertainty": "参数不确定性",
+        "parametric yield": "参数成品率",
+}
+
+ZH_EXACT_EXPANSION_BATCH_914_ALIASES = {
+        "parametritis": "子宫旁组织炎",
+        "paramyxoviridae": "副黏病毒科",
+        "paramyxoviridae infections": "副黏病毒科感染",
+        "paramyxovirinae": "副黏病毒亚科",
+}
+
+ZH_EXACT_EXPANSION_BATCH_915_ALIASES = {
+        "paranasal sinus diseases": "鼻旁窦疾病",
+        "paranasal sinus neoplasms": "鼻旁窦肿瘤",
+        "paranasal sinuses": "鼻旁窦",
+        "paraneoplastic cerebellar degeneration": "副肿瘤性小脑变性",
+}
+
+ZH_EXACT_EXPANSION_BATCH_916_ALIASES = {
+        "paraneoplastic endocrine syndromes": "副肿瘤性内分泌综合征",
+        "paraneoplastic polyneuropathy": "副肿瘤性多发性神经病",
+        "paraneoplastic syndromes": "副肿瘤综合征",
+        "paraneoplastic syndromes, nervous system": "神经系统副肿瘤综合征",
+}
+
+ZH_EXACT_EXPANSION_BATCH_917_ALIASES = {
+        "paraneoplastic syndromes, ocular": "眼副肿瘤综合征",
+        "paranoid behavior": "偏执行为",
+        "paranoid disorders": "偏执性障碍",
+        "paranoid personality disorder": "偏执型人格障碍",
+}
+
+ZH_EXACT_EXPANSION_BATCH_918_ALIASES = {
+        "paraparesis": "轻截瘫",
+        "paraparesis, spastic": "痉挛性轻截瘫",
+        "paraparesis, tropical spastic": "热带痉挛性轻截瘫",
+        "parapharyngeal space": "咽旁间隙",
+}
+
+ZH_EXACT_EXPANSION_BATCH_919_ALIASES = {
+        "paraphilic disorders": "性偏好障碍",
+        "paraphimosis": "嵌顿包茎",
+        "paraplegia": "截瘫",
+        "parapoxvirus": "副痘病毒属",
+}
+
+ZH_EXACT_EXPANSION_BATCH_920_ALIASES = {
+        "paraproteins": "副蛋白",
+        "paraproteinemias": "副蛋白血症",
+        "parapsoriasis": "副银屑病",
+        "parapsychology": "超心理学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_921_ALIASES = {
+        "paraptosis": "类凋亡",
+        "paraquat": "百草枯",
+        "paraquat toxicity studies and treatments": "百草枯毒性研究与治疗",
+        "parasites": "寄生虫",
+}
+
+ZH_EXACT_EXPANSION_BATCH_922_ALIASES = {
+        "parasites and host interactions": "寄生虫与宿主相互作用",
+        "parasite biology and host interactions": "寄生虫生物学与宿主相互作用",
+        "parasite egg count": "寄生虫卵计数",
+        "parasite encystment": "寄生虫成囊",
+}
+
+ZH_EXACT_EXPANSION_BATCH_923_ALIASES = {
+        "parasite load": "寄生虫负荷",
+        "parasitemia": "寄生虫血症",
+        "parasitic capacitance": "寄生电容",
+        "parasitic diseases": "寄生虫病",
+}
+
+ZH_EXACT_EXPANSION_BATCH_924_ALIASES = {
+        "parasitic diseases, animal": "动物寄生虫病",
+        "parasitic diseases research and treatment": "寄生虫病研究与治疗",
+        "parasitic infections and diagnostics": "寄生虫感染与诊断",
+        "parasitic sensitivity tests": "寄生虫敏感性试验",
+}
+
+ZH_EXACT_EXPANSION_BATCH_925_ALIASES = {
+        "parasitology": "寄生虫学",
+        "parasomnias": "异态睡眠",
+        "paraspeckles": "副斑点",
+        "paraspinal muscles": "脊柱旁肌",
+}
+
+ZH_EXACT_EXPANSION_BATCH_926_ALIASES = {
+        "parasympathectomy": "副交感神经切除术",
+        "parasympathetic fibers, postganglionic": "节后副交感神经纤维",
+        "parasympathetic nervous system": "副交感神经系统",
+        "parasympatholytics": "副交感神经阻断药",
+}
+
+ZH_EXACT_EXPANSION_BATCH_927_ALIASES = {
+        "parasympathomimetics": "拟副交感神经药",
+        "parasystole": "并行心律",
+        "parathion": "对硫磷",
+        "parathyroid diseases": "甲状旁腺疾病",
+}
+
+ZH_EXACT_EXPANSION_BATCH_928_ALIASES = {
+        "parathyroid disorders and treatments": "甲状旁腺疾病与治疗",
+        "parathyroid glands": "甲状旁腺",
+        "parathyroid hormone": "甲状旁腺激素",
+        "parathyroid hormone-related protein": "甲状旁腺激素相关蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_929_ALIASES = {
+        "parathyroid neoplasms": "甲状旁腺肿瘤",
+        "parathyroidectomy": "甲状旁腺切除术",
+        "paratuberculosis": "副结核病",
+        "paratyphoid fever": "副伤寒",
+}
+
+ZH_EXACT_EXPANSION_BATCH_930_ALIASES = {
+        "paraventricular hypothalamic nucleus": "下丘脑室旁核",
+        "parechovirus": "帕雷科病毒属",
+        "parenchymal tissue": "实质组织",
+        "parents": "父母",
+}
+
+ZH_EXACT_EXPANSION_BATCH_931_ALIASES = {
+        "parent-child relations": "亲子关系",
+        "parental consent": "父母同意",
+        "parental death": "父母死亡",
+        "parental involvement in education": "父母参与教育",
+}
+
+ZH_EXACT_EXPANSION_BATCH_932_ALIASES = {
+        "parental leave": "育儿假",
+        "parental notification": "父母通知",
+        "parenteral nutrition": "肠外营养",
+        "parenteral nutrition, home": "家庭肠外营养",
+}
+
+ZH_EXACT_EXPANSION_BATCH_933_ALIASES = {
+        "parenteral nutrition solutions": "肠外营养液",
+        "parenting": "养育",
+        "parenting and child development": "养育与儿童发展",
+        "parenting and family relationships": "养育与家庭关系",
+}
+
+ZH_EXACT_EXPANSION_BATCH_934_ALIASES = {
+        "parenting education": "父母教育",
+        "parenting interventions": "养育干预",
+        "parietal bone": "顶骨",
+        "parietal cells, gastric": "胃壁细胞",
+}
+
+ZH_EXACT_EXPANSION_BATCH_935_ALIASES = {
+        "parietal lobe": "顶叶",
+        "parietal pleura": "壁胸膜",
+        "parietaria": "墙草属",
+        "paris": "巴黎",
+}
+
+ZH_EXACT_EXPANSION_BATCH_936_ALIASES = {
+        "parity": "产次",
+        "parity check codes": "奇偶校验码",
+        "parity-check matrix": "校验矩阵",
+        "parkinson disease": "帕金森病",
+}
+
+ZH_EXACT_EXPANSION_BATCH_937_ALIASES = {
+        "parkinson disease, postencephalitic": "脑炎后帕金森病",
+        "parkinson disease and movement disorders": "帕金森病与运动障碍",
+        "parkinson disease and treatment": "帕金森病与治疗",
+        "parkinsonian disorders": "帕金森综合征",
+}
+
+ZH_EXACT_EXPANSION_BATCH_938_ALIASES = {
+        "parkin protein": "Parkin蛋白",
+        "parking": "停车",
+        "parking assistance systems": "停车辅助系统",
+        "parking lots": "停车场",
+}
+
+ZH_EXACT_EXPANSION_BATCH_939_ALIASES = {
+        "paromomycin": "巴龙霉素",
+        "paronychia": "甲沟炎",
+        "parotid diseases": "腮腺疾病",
+        "parotid gland": "腮腺",
+}
+
+ZH_EXACT_EXPANSION_BATCH_940_ALIASES = {
+        "parotid neoplasms": "腮腺肿瘤",
+        "parotitis": "腮腺炎",
+        "paroxetine": "帕罗西汀",
+        "paroxysmal kinesigenic dyskinesia": "阵发性运动诱发性运动障碍",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -17476,6 +18177,106 @@ for _zh_exact_expansion_batch in (
     ZH_EXACT_EXPANSION_BATCH_838_ALIASES,
     ZH_EXACT_EXPANSION_BATCH_839_ALIASES,
     ZH_EXACT_EXPANSION_BATCH_840_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_841_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_842_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_843_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_844_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_845_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_846_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_847_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_848_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_849_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_850_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_851_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_852_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_853_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_854_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_855_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_856_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_857_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_858_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_859_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_860_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_861_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_862_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_863_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_864_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_865_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_866_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_867_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_868_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_869_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_870_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_871_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_872_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_873_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_874_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_875_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_876_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_877_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_878_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_879_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_880_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_881_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_882_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_883_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_884_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_885_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_886_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_887_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_888_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_889_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_890_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_891_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_892_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_893_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_894_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_895_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_896_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_897_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_898_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_899_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_900_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_901_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_902_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_903_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_904_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_905_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_906_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_907_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_908_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_909_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_910_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_911_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_912_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_913_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_914_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_915_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_916_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_917_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_918_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_919_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_920_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_921_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_922_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_923_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_924_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_925_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_926_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_927_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_928_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_929_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_930_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_931_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_932_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_933_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_934_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_935_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_936_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_937_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_938_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_939_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_940_ALIASES,
 ):
     RAW_EXACT_ALIASES.update(_zh_exact_expansion_batch)
 del _zh_exact_expansion_batch
