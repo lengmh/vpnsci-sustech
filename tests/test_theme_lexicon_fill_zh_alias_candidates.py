@@ -15029,6 +15029,56 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_841_to_860_adds_oxygen_p2p_packet_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("oxygen_saturation", "Oxygen Saturation", ["biomedical", "phenomena_and_processes"], "血氧饱和度"),
+                ("oxygenator_membrane", "Oxygenators, Membrane", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "膜式氧合器"),
+                ("p2p_file_sharing", "P2p File Sharing", ["computer_science"], "P2P文件共享"),
+                ("packet_loss", "Packet Loss", ["communications_technology", "computer_science"], "丢包"),
+            ]
+        )
+
+    def test_exact_expansion_batch_861_to_880_adds_pain_pairing_palatal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("pain_management", "Pain Management", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "疼痛管理"),
+                ("pain_threshold", "Pain Threshold", ["biomedical", "psychiatry_and_psychology"], "痛阈"),
+                ("pairing_based_cryptography", "Pairing-based Cryptography", ["computer_science"], "基于配对的密码学"),
+                ("palatal_expansion_technique", "Palatal Expansion Technique", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "腭扩展技术"),
+            ]
+        )
+
+    def test_exact_expansion_batch_881_to_900_adds_pancreatic_papilloma_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("pancrea_artificial", "Pancreas, Artificial", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "人工胰腺"),
+                ("pancreatic_neoplasm", "Pancreatic Neoplasms", ["biomedical", "diseases"], "胰腺肿瘤"),
+                ("papillomaviru_infection", "Papillomavirus Infections", ["biomedical", "diseases"], "乳头瘤病毒感染"),
+                ("paper_microfluidic", "Paper Microfluidics", ["computer_science"], "纸基微流控"),
+            ]
+        )
+
+    def test_exact_expansion_batch_901_to_920_adds_parallel_parameter_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("parallel_computing", "Parallel Computing", ["computer_science"], "并行计算"),
+                ("parallel_processing", "Parallel Processing", ["computers_and_information_processing"], "并行处理"),
+                ("parameter_estimation", "Parameter Estimation", ["mathematics"], "参数估计"),
+                ("parametric_amplifier", "Parametric Amplifiers", ["computer_science"], "参量放大器"),
+            ]
+        )
+
+    def test_exact_expansion_batch_921_to_940_adds_paraneoplastic_parasite_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("paranasal_sinu_neoplasm", "Paranasal Sinus Neoplasms", ["biomedical", "diseases"], "鼻旁窦肿瘤"),
+                ("paraneoplastic_syndrom", "Paraneoplastic Syndromes", ["biomedical", "diseases"], "副肿瘤综合征"),
+                ("parasite_load", "Parasite Load", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "寄生虫负荷"),
+                ("parasympathetic_nervou_system", "Parasympathetic Nervous System", ["anatomy", "biomedical"], "副交感神经系统"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
