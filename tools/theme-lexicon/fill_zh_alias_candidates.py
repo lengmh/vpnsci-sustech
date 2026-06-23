@@ -19034,6 +19034,1980 @@ ZH_EXACT_EXPANSION_BATCH_1140_ALIASES = {
         "photovoltaic power systems": "光伏发电系统",
 }
 
+ZH_EXACT_EXPANSION_BATCH_1141_ALIASES = {
+        "php": "PHP",
+        "phrase-based statistical machine translation": "基于短语的统计机器翻译",
+        "phrenic nerve": "膈神经",
+        "phthalic acids": "邻苯二甲酸类",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1142_ALIASES = {
+        "phthalic anhydrides": "邻苯二甲酸酐",
+        "phthalimides": "邻苯二甲酰亚胺类",
+        "phthiraptera": "虱目",
+        "phthirus": "阴虱属",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1143_ALIASES = {
+        "phycobilins": "藻胆素",
+        "phycobiliproteins": "藻胆蛋白",
+        "phycobilisomes": "藻胆体",
+        "phycocyanin": "藻蓝蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1144_ALIASES = {
+        "phycodnaviridae": "藻类DNA病毒科",
+        "phycoerythrin": "藻红蛋白",
+        "phyllanthus": "叶下珠属",
+        "phyllodes tumor": "叶状肿瘤",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1145_ALIASES = {
+        "phylogenetic networks": "系统发育网络",
+        "phylogenetic tree": "系统发育树",
+        "phylogeny": "系统发育",
+        "phylogeography": "系统地理学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1146_ALIASES = {
+        "physical abuse": "身体虐待",
+        "physical activity and health": "身体活动与健康",
+        "physical and rehabilitation medicine": "物理与康复医学",
+        "physical appearance body": "身体外貌",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1147_ALIASES = {
+        "physical chemistry": "物理化学",
+        "physical chromosome mapping": "物理染色体作图",
+        "physical conditioning human": "人体体能训练",
+        "physical distancing": "社交距离",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1148_ALIASES = {
+        "physical education and training": "体育教育与训练",
+        "physical endurance": "体力耐力",
+        "physical examination": "体格检查",
+        "physical exertion": "体力消耗",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1149_ALIASES = {
+        "physical fitness": "体适能",
+        "physical functional performance": "身体功能表现",
+        "physical layer network coding": "物理层网络编码",
+        "physical layer security": "物理层安全",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1150_ALIASES = {
+        "physical optics": "物理光学",
+        "physical phenomena": "物理现象",
+        "physical stimulation": "物理刺激",
+        "physical theory of diffraction": "物理绕射理论",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1151_ALIASES = {
+        "physical therapist assistants": "物理治疗师助理",
+        "physical therapists": "物理治疗师",
+        "physical therapy department hospital": "医院物理治疗科",
+        "physical therapy modalities": "物理治疗方式",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1152_ALIASES = {
+        "physical therapy specialty": "物理治疗专业",
+        "physical unclonable function": "物理不可克隆函数",
+        "physical-layer network coding": "物理层网络编码",
+        "physical channels": "物理信道",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1153_ALIASES = {
+        "physician assistants": "医师助理",
+        "physician engagement": "医师参与",
+        "physician executives": "医师管理者",
+        "physician incentive plans": "医师激励计划",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1154_ALIASES = {
+        "physician-nurse relations": "医护关系",
+        "physician-patient relations": "医患关系",
+        "physicians": "医师",
+        "physicians' offices": "医师诊所",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1155_ALIASES = {
+        "physicians family": "家庭医师",
+        "physicians primary care": "初级保健医师",
+        "physicians women": "女性医师",
+        "physician self-referral": "医师自我转诊",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1156_ALIASES = {
+        "physics": "物理学",
+        "physics and society": "物理学与社会",
+        "physics computing": "物理计算",
+        "physics education": "物理教育",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1157_ALIASES = {
+        "physiological effects of drugs": "药物生理效应",
+        "physiological phenomena": "生理现象",
+        "physiology comparative": "比较生理学",
+        "physiopathology": "病理生理学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1158_ALIASES = {
+        "physostigmine": "毒扁豆碱",
+        "phytanic acid": "植烷酸",
+        "phytic acid": "植酸",
+        "phytoalexins": "植物抗毒素",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1159_ALIASES = {
+        "phytochelatins": "植物螯合肽",
+        "phytochemicals": "植物化学物",
+        "phytochrome": "光敏色素",
+        "phytochrome a": "光敏色素A",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1160_ALIASES = {
+        "phytochrome b": "光敏色素B",
+        "phytoestrogens": "植物雌激素",
+        "phytohemagglutinins": "植物血凝素",
+        "phytosterols": "植物甾醇",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1161_ALIASES = {
+        "phytol": "植醇",
+        "phytoplankton": "浮游植物",
+        "phytoplasma": "植原体",
+        "phytotherapy": "植物疗法",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1162_ALIASES = {
+        "pi control": "PI控制",
+        "pi3k/akt/mtor signaling in cancer": "癌症中的PI3K/AKT/mTOR信号通路",
+        "pia mater": "软脑膜",
+        "pic microcontrollers": "PIC微控制器",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1163_ALIASES = {
+        "pica": "异食癖",
+        "picea": "云杉属",
+        "pichia": "毕赤酵母属",
+        "pichinde virus": "皮钦德病毒",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1164_ALIASES = {
+        "picibanil": "溶链菌制剂",
+        "pick disease of the brain": "脑皮克病",
+        "pickering emulsions and particle stabilization": "Pickering乳液与颗粒稳定化",
+        "pickup and delivery": "取送问题",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1165_ALIASES = {
+        "picloram": "毒莠定",
+        "pico-cell": "微微小区",
+        "pico-second pulse": "皮秒脉冲",
+        "picobirnavirus": "小双节段RNA病毒属",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1166_ALIASES = {
+        "picohydro power": "微微水电",
+        "picolines": "甲基吡啶类",
+        "picolinic acids": "吡啶甲酸类",
+        "piconet": "微微网",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1167_ALIASES = {
+        "picornavirales": "小RNA病毒目",
+        "picornaviridae": "小RNA病毒科",
+        "picornaviridae infections": "小RNA病毒科感染",
+        "picrates": "苦味酸盐",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1168_ALIASES = {
+        "picrotoxin": "印防己毒素",
+        "picryl chloride": "苦基氯",
+        "pictorial work": "图像作品",
+        "picture archiving": "图像归档",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1169_ALIASES = {
+        "picture archiving and communication systems": "医学影像存档与通信系统",
+        "pid controller design": "PID控制器设计",
+        "pid parameters": "PID参数",
+        "pid tuning": "PID整定",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1170_ALIASES = {
+        "piebaldism": "斑驳病",
+        "piece-wise linear functions": "分段线性函数",
+        "piecewise linear approximation": "分段线性逼近",
+        "piecewise linear techniques": "分段线性技术",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1171_ALIASES = {
+        "piedra": "毛结节菌病",
+        "pierre robin syndrome": "皮埃尔-罗宾综合征",
+        "piezo-resistive": "压阻式",
+        "piezoelectric actuators": "压电致动器",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1172_ALIASES = {
+        "piezoelectric devices": "压电器件",
+        "piezoelectric effect": "压电效应",
+        "piezoelectric elements": "压电元件",
+        "piezoelectric energy": "压电能",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1173_ALIASES = {
+        "piezoelectric energy harvesting": "压电能量采集",
+        "piezoelectric films": "压电薄膜",
+        "piezoelectric materials": "压电材料",
+        "piezoelectric polarization": "压电极化",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1174_ALIASES = {
+        "piezoelectric sensor": "压电传感器",
+        "piezoelectric transducers": "压电换能器",
+        "piezoelectricity": "压电性",
+        "piezoresistance": "压阻效应",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1175_ALIASES = {
+        "piezoresistive devices": "压阻器件",
+        "piezosurgery": "压电外科",
+        "pigment epithelium of eye": "眼色素上皮",
+        "pigment epithelium-derived factor": "色素上皮衍生因子",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1176_ALIASES = {
+        "pigmentation": "色素沉着",
+        "pigmentation disorders": "色素沉着障碍",
+        "pigments": "色素",
+        "pigments biological": "生物色素",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1177_ALIASES = {
+        "pii nitrogen regulatory proteins": "PII氮调节蛋白",
+        "pili sex": "性菌毛",
+        "pilocarpine": "毛果芸香碱",
+        "pilomatrixoma": "毛母质瘤",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1178_ALIASES = {
+        "pilonidal sinus": "藏毛窦",
+        "pilot projects": "试点项目",
+        "pilots": "飞行员",
+        "pin diode": "PIN二极管",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1179_ALIASES = {
+        "pineal gland": "松果体",
+        "pinealectomy": "松果体切除术",
+        "pinealoma": "松果体瘤",
+        "pinguecula": "睑裂斑",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1180_ALIASES = {
+        "pinocytosis": "胞饮作用",
+        "pioglitazone": "吡格列酮",
+        "pipeline architecture": "流水线架构",
+        "pipeline processing": "流水线处理",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1181_ALIASES = {
+        "pipeline processing systems": "流水线处理系统",
+        "pipelined adc": "流水线ADC",
+        "pipelined analog-to-digital converter": "流水线模数转换器",
+        "pipelines": "管道",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1182_ALIASES = {
+        "pipemidic acid": "吡哌酸",
+        "piper betle": "蒌叶",
+        "piper nigrum": "黑胡椒",
+        "piperaceae": "胡椒科",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1183_ALIASES = {
+        "piperacillin": "哌拉西林",
+        "piperacillin tazobactam drug combination": "哌拉西林-他唑巴坦复方",
+        "piperazine": "哌嗪",
+        "piperazines": "哌嗪类",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1184_ALIASES = {
+        "piperidines": "哌啶类",
+        "piperidones": "哌啶酮类",
+        "piperonyl butoxide": "胡椒基丁醚",
+        "piracetam": "吡拉西坦",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1185_ALIASES = {
+        "pirenzepine": "哌仑西平",
+        "piribedil": "吡贝地尔",
+        "piriform cortex": "梨状皮质",
+        "piriformis muscle syndrome": "梨状肌综合征",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1186_ALIASES = {
+        "piroxicam": "吡罗昔康",
+        "piscirickettsiaceae infections": "鱼立克次体科感染",
+        "pisiform bone": "豌豆骨",
+        "pistons": "活塞",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1187_ALIASES = {
+        "pit and fissure sealants": "窝沟封闭剂",
+        "pitcairn island": "皮特凯恩岛",
+        "pitch contours": "音高轮廓",
+        "pitch detection": "音高检测",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1188_ALIASES = {
+        "pitch discrimination": "音高辨别",
+        "pitch perception": "音高知觉",
+        "pitch period": "音高周期",
+        "pituitary acth hypersecretion": "垂体ACTH分泌过多",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1189_ALIASES = {
+        "pituitary adenylate cyclase-activating polypeptide": "垂体腺苷酸环化酶激活多肽",
+        "pituitary apoplexy": "垂体卒中",
+        "pituitary diseases": "垂体疾病",
+        "pituitary function tests": "垂体功能检查",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1190_ALIASES = {
+        "pituitary gland": "垂体",
+        "pituitary gland anterior": "垂体前叶",
+        "pituitary gland intermediate": "垂体中间叶",
+        "pituitary gland posterior": "垂体后叶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1191_ALIASES = {
+        "pituitary hormone release inhibiting hormones": "垂体激素释放抑制激素",
+        "pituitary hormone-releasing hormones": "垂体激素释放激素",
+        "pituitary hormones": "垂体激素",
+        "pituitary hormones anterior": "垂体前叶激素",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1192_ALIASES = {
+        "pituitary hormones posterior": "垂体后叶激素",
+        "pituitary irradiation": "垂体照射",
+        "pituitary neoplasms": "垂体肿瘤",
+        "pituitary-adrenal system": "垂体-肾上腺系统",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1193_ALIASES = {
+        "pityriasis": "糠疹",
+        "pityriasis lichenoides": "苔藓样糠疹",
+        "pityriasis rosea": "玫瑰糠疹",
+        "pityriasis rubra pilaris": "毛发红糠疹",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1194_ALIASES = {
+        "pivampicillin": "匹氨西林",
+        "piwi-interacting rna": "PIWI相互作用RNA",
+        "pixel domain": "像素域",
+        "pixel expansion": "像素扩展",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1195_ALIASES = {
+        "pizotyline": "苯噻啶",
+        "pki": "PKI",
+        "place cells": "位置细胞",
+        "placebo effect": "安慰剂效应",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1196_ALIASES = {
+        "placebos": "安慰剂",
+        "placenta": "胎盘",
+        "placenta accreta": "胎盘植入",
+        "placenta diseases": "胎盘疾病",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1197_ALIASES = {
+        "placenta growth factor": "胎盘生长因子",
+        "placenta previa": "前置胎盘",
+        "placenta retained": "胎盘滞留",
+        "placental circulation": "胎盘循环",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1198_ALIASES = {
+        "placental extracts": "胎盘提取物",
+        "placental function tests": "胎盘功能检查",
+        "placental hormones": "胎盘激素",
+        "placental insufficiency": "胎盘功能不全",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1199_ALIASES = {
+        "placental lactogen": "胎盘催乳素",
+        "placentation": "胎盘形成",
+        "plagiarism": "剽窃",
+        "plagiocephaly": "斜头畸形",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1200_ALIASES = {
+        "plague": "鼠疫",
+        "plague vaccine": "鼠疫疫苗",
+        "plain language summaries": "通俗语言摘要",
+        "planar antenna": "平面天线",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1201_ALIASES = {
+        "planar arrays": "平面阵列",
+        "planar graph": "平面图",
+        "planar inverted-f antenna": "平面倒F天线",
+        "planar manipulator": "平面机械臂",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1202_ALIASES = {
+        "planar monopole antenna": "平面单极天线",
+        "planar parallel manipulators": "平面并联机械臂",
+        "planar robots": "平面机器人",
+        "planarity": "平面性",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1203_ALIASES = {
+        "plane graphs": "平面图",
+        "planetary gears": "行星齿轮",
+        "planets": "行星",
+        "plankton": "浮游生物",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1204_ALIASES = {
+        "planning": "规划",
+        "planning techniques": "规划技术",
+        "planning under uncertainty": "不确定性规划",
+        "plant bark": "植物树皮",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1205_ALIASES = {
+        "plant breeding": "植物育种",
+        "plant cells": "植物细胞",
+        "plant chromosome": "植物染色体",
+        "plant components aerial": "植物地上部分",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1206_ALIASES = {
+        "plant defense against herbivory": "植物抗食草防御",
+        "plant development": "植物发育",
+        "plant diseases": "植物病害",
+        "plant dormancy": "植物休眠",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1207_ALIASES = {
+        "plant epidermis": "植物表皮",
+        "plant extracts": "植物提取物",
+        "plant exudates": "植物渗出物",
+        "plant growth regulators": "植物生长调节剂",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1208_ALIASES = {
+        "plant immunity": "植物免疫",
+        "plant infertility": "植物不育",
+        "plant leaves": "植物叶",
+        "plant lectins": "植物凝集素",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1209_ALIASES = {
+        "plant oils": "植物油",
+        "plant pathology": "植物病理学",
+        "plant physiological phenomena": "植物生理现象",
+        "plant poisoning": "植物中毒",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1210_ALIASES = {
+        "plant preparations": "植物制剂",
+        "plant proteins": "植物蛋白",
+        "plant proteins dietary": "膳食植物蛋白",
+        "plant root cap": "植物根冠",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1211_ALIASES = {
+        "plant root nodulation": "植物根瘤形成",
+        "plant roots": "植物根",
+        "plant senescence": "植物衰老",
+        "plant shoots": "植物芽",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1212_ALIASES = {
+        "plant somatic embryogenesis techniques": "植物体细胞胚发生技术",
+        "plant stems": "植物茎",
+        "plant stomata": "植物气孔",
+        "plant structures": "植物结构",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1213_ALIASES = {
+        "plant systemic acquired resistance": "植物系统获得性抗性",
+        "plant transpiration": "植物蒸腾",
+        "plant tubers": "植物块茎",
+        "plant tumor-inducing plasmids": "植物致瘤质粒",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1214_ALIASES = {
+        "plant tumors": "植物肿瘤",
+        "plant vascular bundle": "植物维管束",
+        "plant viral movement proteins": "植物病毒运动蛋白",
+        "plant viruses": "植物病毒",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1215_ALIASES = {
+        "plant weeds": "杂草植物",
+        "plant-based milk": "植物基奶",
+        "plantago": "车前属",
+        "plants": "植物",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1216_ALIASES = {
+        "plants edible": "食用植物",
+        "plants genetically modified": "转基因植物",
+        "plants medicinal": "药用植物",
+        "plants toxic": "有毒植物",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1217_ALIASES = {
+        "plaque amyloid": "淀粉样斑块",
+        "plaque atherosclerotic": "动脉粥样硬化斑块",
+        "plasma": "血浆",
+        "plasma accelerators": "等离子体加速器",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1218_ALIASES = {
+        "plasma applications": "等离子体应用",
+        "plasma chemistry": "等离子体化学",
+        "plasma confinement": "等离子体约束",
+        "plasma density": "等离子体密度",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1219_ALIASES = {
+        "plasma devices": "等离子体器件",
+        "plasma diagnostic techniques": "等离子体诊断技术",
+        "plasma diagnostics": "等离子体诊断",
+        "plasma discharges": "等离子体放电",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1220_ALIASES = {
+        "plasma exchange": "血浆置换",
+        "plasma fusion": "等离子体聚变",
+        "plasma gases": "等离子体气体",
+        "plasma immersion ion implantation": "等离子体浸没离子注入",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1221_ALIASES = {
+        "plasma ionization": "等离子体电离",
+        "plasma kallikrein": "血浆激肽释放酶",
+        "plasma kinetic theory": "等离子体动力学理论",
+        "plasma materials processing": "等离子体材料加工",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1222_ALIASES = {
+        "plasma measurements": "等离子体测量",
+        "plasma membrane calcium-transporting atpases": "质膜钙转运ATP酶",
+        "plasma membrane neurotransmitter transport proteins": "质膜神经递质转运蛋白",
+        "plasma opacity": "等离子体不透明度",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1223_ALIASES = {
+        "plasma optics": "等离子体光学",
+        "plasma physics": "等离子体物理",
+        "plasma production and heating": "等离子体产生与加热",
+        "plasma properties": "等离子体性质",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1224_ALIASES = {
+        "plasma sheaths": "等离子体鞘",
+        "plasma simulation": "等离子体仿真",
+        "plasma skin regeneration": "等离子体皮肤再生",
+        "plasma sources": "等离子体源",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1225_ALIASES = {
+        "plasma stability": "等离子体稳定性",
+        "plasma substitutes": "血浆代用品",
+        "plasma temperature": "等离子体温度",
+        "plasma thermodynamics": "等离子体热力学",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1226_ALIASES = {
+        "plasma transport": "等离子体输运",
+        "plasma transport processes": "等离子体输运过程",
+        "plasma volume": "血浆容量",
+        "plasma waves": "等离子体波",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1227_ALIASES = {
+        "plasma welding": "等离子弧焊",
+        "plasmablastic lymphoma": "浆母细胞淋巴瘤",
+        "plasmacytoma": "浆细胞瘤",
+        "plasmalogens": "缩醛磷脂",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1228_ALIASES = {
+        "plasmapheresis": "血浆置换术",
+        "plasmids": "质粒",
+        "plasminogen": "纤溶酶原",
+        "plasminogen activator inhibitor 1": "纤溶酶原激活物抑制剂1",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1229_ALIASES = {
+        "plasminogen activator inhibitor 2": "纤溶酶原激活物抑制剂2",
+        "plasminogen activators": "纤溶酶原激活物",
+        "plasminogen inactivators": "纤溶酶原灭活物",
+        "plasmodesmata": "胞间连丝",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1230_ALIASES = {
+        "plasmodium": "疟原虫属",
+        "plasmodium berghei": "伯氏疟原虫",
+        "plasmodium chabaudi": "夏氏疟原虫",
+        "plasmodium falciparum": "恶性疟原虫",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1231_ALIASES = {
+        "plasmodium knowlesi": "诺氏疟原虫",
+        "plasmodium malariae": "三日疟原虫",
+        "plasmodium ovale": "卵形疟原虫",
+        "plasmodium vivax": "间日疟原虫",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1232_ALIASES = {
+        "plasmons": "等离激元",
+        "plastic films": "塑料薄膜",
+        "plastic optical fiber": "塑料光纤",
+        "plasticizers": "增塑剂",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1233_ALIASES = {
+        "plastics": "塑料",
+        "plastics industry": "塑料工业",
+        "plastids": "质体",
+        "plastination": "塑化技术",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1234_ALIASES = {
+        "plastocyanin": "质体蓝素",
+        "plastoquinone": "质体醌",
+        "platelet activating factor": "血小板活化因子",
+        "platelet activation": "血小板活化",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1235_ALIASES = {
+        "platelet adhesiveness": "血小板黏附性",
+        "platelet aggregation": "血小板聚集",
+        "platelet aggregation inhibitors": "血小板聚集抑制剂",
+        "platelet count": "血小板计数",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1236_ALIASES = {
+        "platelet endothelial cell adhesion molecule-1": "血小板内皮细胞黏附分子1",
+        "platelet factor 3": "血小板因子3",
+        "platelet factor 4": "血小板因子4",
+        "platelet function tests": "血小板功能检查",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1237_ALIASES = {
+        "platelet glycoprotein gpib-ix complex": "血小板糖蛋白GPIb-IX复合物",
+        "platelet glycoprotein gpiib-iiia complex": "血小板糖蛋白GPIIb-IIIa复合物",
+        "platelet membrane glycoproteins": "血小板膜糖蛋白",
+        "platelet storage pool deficiency": "血小板储存池缺陷",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1238_ALIASES = {
+        "platelet transfusion": "血小板输注",
+        "platelet-derived growth factor": "血小板源性生长因子",
+        "platelet-rich fibrin": "富血小板纤维蛋白",
+        "platelet-rich plasma": "富血小板血浆",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1239_ALIASES = {
+        "platform as a service paas": "平台即服务",
+        "platform independent model": "平台无关模型",
+        "platform specific model": "平台特定模型",
+        "platform virtualization": "平台虚拟化",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1240_ALIASES = {
+        "platinum": "铂",
+        "platinum alloys": "铂合金",
+        "platinum compounds": "铂化合物",
+        "pneumatic actuators": "气动致动器",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1241_ALIASES = {
+        "pneumatic artificial muscle": "气动人工肌肉",
+        "pneumatic control": "气动控制",
+        "pneumatic control equipment": "气动控制设备",
+        "pneumatic cylinders": "气缸",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1242_ALIASES = {
+        "pneumatic drives": "气动驱动",
+        "pneumatic muscle": "气动肌肉",
+        "pneumatic systems": "气动系统",
+        "pneumatic system": "气动系统",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1243_ALIASES = {
+        "pneumatosis cystoides intestinalis": "肠气囊肿症",
+        "pneumocephalus": "颅内积气",
+        "pneumococcal infections": "肺炎链球菌感染",
+        "pneumococcal vaccines": "肺炎球菌疫苗",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1244_ALIASES = {
+        "pneumoconiosis": "尘肺",
+        "pneumocystis": "肺孢子菌",
+        "pneumocystis carinii": "卡氏肺孢子菌",
+        "pneumocystis infections": "肺孢子菌感染",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1245_ALIASES = {
+        "pneumocystis jirovecii pneumonia detection and treatment": "耶氏肺孢子菌肺炎检测与治疗",
+        "pneumoencephalography": "气脑造影",
+        "pneumomediastinum, diagnostic": "诊断性气纵隔",
+        "pneumonectomy": "肺切除术",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1246_ALIASES = {
+        "pneumonia": "肺炎",
+        "pneumonia and respiratory infections": "肺炎与呼吸道感染",
+        "pneumonia, aspiration": "吸入性肺炎",
+        "pneumonia, atypical interstitial, of cattle": "牛非典型间质性肺炎",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1247_ALIASES = {
+        "pneumonia, bacterial": "细菌性肺炎",
+        "pneumonia, lipid": "类脂性肺炎",
+        "pneumonia, mycoplasma": "支原体肺炎",
+        "pneumonia, necrotizing": "坏死性肺炎",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1248_ALIASES = {
+        "pneumonia of calves, enzootic": "犊牛地方性肺炎",
+        "pneumonia of swine, mycoplasmal": "猪支原体肺炎",
+        "pneumonia, pneumococcal": "肺炎链球菌肺炎",
+        "pneumonia, pneumocystis": "肺孢子菌肺炎",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1249_ALIASES = {
+        "pneumonia, progressive interstitial, of sheep": "绵羊进行性间质性肺炎",
+        "pneumonia, rickettsial": "立克次体性肺炎",
+        "pneumonia, staphylococcal": "葡萄球菌性肺炎",
+        "pneumonia, ventilator-associated": "呼吸机相关性肺炎",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1250_ALIASES = {
+        "pneumonia, viral": "病毒性肺炎",
+        "pneumonolysis": "肺松解术",
+        "pneumopericardium": "心包积气",
+        "pneumoperitoneum": "气腹",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1251_ALIASES = {
+        "pneumoperitoneum, artificial": "人工气腹",
+        "pneumoradiography": "充气造影",
+        "pneumorrhachis": "椎管积气",
+        "pneumothorax": "气胸",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1252_ALIASES = {
+        "pneumothorax, artificial": "人工气胸",
+        "pneumothorax, barotrauma, emphysema": "气胸、气压伤与肺气肿",
+        "pneumovirinae": "肺病毒亚科",
+        "pneumovirus": "肺病毒属",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1253_ALIASES = {
+        "pneumovirus infections": "肺病毒感染",
+        "poa": "早熟禾属",
+        "poaceae": "禾本科",
+        "pocket-pc": "掌上电脑",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1254_ALIASES = {
+        "podiatry": "足病学",
+        "podocytes": "足细胞",
+        "podophyllin": "鬼臼树脂",
+        "podophyllotoxin": "鬼臼毒素",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1255_ALIASES = {
+        "podophyllum": "鬼臼属",
+        "podophyllum peltatum": "北美鬼臼",
+        "podoplanin": "平足蛋白",
+        "podosomes": "足小体",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1256_ALIASES = {
+        "podoviridae": "短尾噬菌体科",
+        "poecilia": "花鳉属",
+        "poems syndrome": "POEMS综合征",
+        "poetry": "诗歌",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1257_ALIASES = {
+        "poetry analysis and criticism": "诗歌分析与批评",
+        "poetry as topic": "诗歌主题",
+        "pogostemon": "广藿香属",
+        "poincare invariance": "庞加莱不变性",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1258_ALIASES = {
+        "poincaré map": "庞加莱映射",
+        "point cloud": "点云",
+        "point cloud compression": "点云压缩",
+        "point data": "点数据",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1259_ALIASES = {
+        "point density": "点密度",
+        "point multiplication": "点乘",
+        "point mutation": "点突变",
+        "point of care": "床旁医疗",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1260_ALIASES = {
+        "point-of-care systems": "床旁系统",
+        "point-of-care testing": "床旁检测",
+        "points of interest": "兴趣点",
+        "point processes and geometric inequalities": "点过程与几何不等式",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1261_ALIASES = {
+        "point spread function": "点扩散函数",
+        "point targets": "点目标",
+        "points-to analysis": "指向分析",
+        "point-to-multipoint communications": "点到多点通信",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1262_ALIASES = {
+        "pointcut": "切点",
+        "pointer analysis": "指针分析",
+        "poisons": "毒物",
+        "poison control centers": "中毒控制中心",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1263_ALIASES = {
+        "poison frogs": "毒箭蛙",
+        "poisoning": "中毒",
+        "poisoning and overdose treatments": "中毒与过量用药治疗",
+        "poisson distribution": "泊松分布",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1264_ALIASES = {
+        "poisson noise": "泊松噪声",
+        "poisson point process": "泊松点过程",
+        "pokeweed mitogens": "美洲商陆有丝分裂原",
+        "pol1 transcription initiation complex proteins": "Pol1转录起始复合物蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1265_ALIASES = {
+        "pol gene products, human immunodeficiency virus": "HIV pol基因产物",
+        "poland": "波兰",
+        "poland syndrome": "波兰综合征",
+        "polar bodies": "极体",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1266_ALIASES = {
+        "polar codes": "极化码",
+        "polar research and ecology": "极地研究与生态学",
+        "polarimeter": "偏振计",
+        "polarimetric data": "极化数据",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1267_ALIASES = {
+        "polarimetric imaging": "极化成像",
+        "polarimetric radars": "极化雷达",
+        "polarimetric synthetic aperture radar": "极化合成孔径雷达",
+        "polarimetric synthetic aperture radars": "极化合成孔径雷达",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1268_ALIASES = {
+        "polarimetry": "偏振测量",
+        "polaritons": "极化激元",
+        "polarity classification": "极性分类",
+        "polarization maintaining": "保偏",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1269_ALIASES = {
+        "polarization mode dispersion": "偏振模色散",
+        "polarization shift keying": "偏振移位键控",
+        "polarization state": "偏振态",
+        "polarized light": "偏振光",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1270_ALIASES = {
+        "polarographic analysis": "极谱分析",
+        "polarography": "极谱法",
+        "police": "警察",
+        "policy": "政策",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1271_ALIASES = {
+        "policy enforcement": "策略执行",
+        "policy evaluation": "策略评估",
+        "policy iteration": "策略迭代",
+        "policy language": "策略语言",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1272_ALIASES = {
+        "policy making": "政策制定",
+        "policy specification": "策略规范",
+        "polidocanol": "聚多卡醇",
+        "polinsar": "极化干涉合成孔径雷达",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1273_ALIASES = {
+        "poliomyelitis": "脊髓灰质炎",
+        "poliomyelitis, bulbar": "延髓型脊髓灰质炎",
+        "poliovirus": "脊髓灰质炎病毒",
+        "poliovirus vaccines": "脊髓灰质炎疫苗",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1274_ALIASES = {
+        "poliovirus vaccine, inactivated": "灭活脊髓灰质炎疫苗",
+        "poliovirus vaccine, oral": "口服脊髓灰质炎疫苗",
+        "polishing machines": "抛光机",
+        "pollen": "花粉",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1275_ALIASES = {
+        "pollen tube": "花粉管",
+        "pollination": "授粉",
+        "pollution": "污染",
+        "pollution attack": "污染攻击",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1276_ALIASES = {
+        "pollution control": "污染控制",
+        "pollution measurement": "污染测量",
+        "polo-like kinases": "Polo样激酶",
+        "polo-like kinase 1": "Polo样激酶1",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1277_ALIASES = {
+        "polonium": "钋",
+        "poloxalene": "泊洛沙仑",
+        "poloxamer": "泊洛沙姆",
+        "polsar": "极化SAR",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1278_ALIASES = {
+        "poly a": "多聚腺苷酸",
+        "poly(a)-binding proteins": "poly(A)结合蛋白",
+        "poly(a)-binding protein i": "poly(A)结合蛋白I",
+        "poly(a)-binding protein ii": "poly(A)结合蛋白II",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1279_ALIASES = {
+        "poly a-u": "多聚A-U",
+        "poly adenosine diphosphate ribose": "聚ADP核糖",
+        "poly-adp-ribose binding motif": "聚ADP核糖结合基序",
+        "poly-adp-ribose binding proteins": "聚ADP核糖结合蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1280_ALIASES = {
+        "poly(adp-ribose) polymerases": "聚ADP核糖聚合酶",
+        "poly (adp-ribose) polymerase-1": "聚ADP核糖聚合酶1",
+        "poly(adp-ribose) polymerase inhibitors": "聚ADP核糖聚合酶抑制剂",
+        "poly adp ribosylation": "聚ADP核糖基化",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1281_ALIASES = {
+        "poly c": "多聚胞苷酸",
+        "poly da-dt": "多聚dA-dT",
+        "poly g": "多聚鸟苷酸",
+        "poly i": "多聚肌苷酸",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1282_ALIASES = {
+        "poly i-c": "聚肌胞苷酸",
+        "poly t": "多聚胸苷酸",
+        "poly u": "多聚尿苷酸",
+        "polyacetylene polymer": "聚乙炔聚合物",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1283_ALIASES = {
+        "polyacrylamides": "聚丙烯酰胺",
+        "polyadenylation": "多聚腺苷酸化",
+        "polyamines": "多胺",
+        "polyamine metabolism and applications": "多胺代谢与应用",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1284_ALIASES = {
+        "polyamine oxidase": "多胺氧化酶",
+        "polyanetholesulfonate": "聚茴香脑磺酸盐",
+        "polyanhydrides": "聚酸酐",
+        "polyarteritis nodosa": "结节性多动脉炎",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1285_ALIASES = {
+        "polybrominated biphenyls": "多溴联苯",
+        "polycaprolactone": "聚己内酯",
+        "polycarbonates": "聚碳酸酯",
+        "polycarboxylate cement": "聚羧酸盐水门汀",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1286_ALIASES = {
+        "polychaeta": "多毛纲",
+        "polychlorinated biphenyls": "多氯联苯",
+        "polychlorinated dibenzodioxins": "多氯二苯并二噁英",
+        "polychloroterphenyl compounds": "多氯三联苯化合物",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1287_ALIASES = {
+        "polychondritis, relapsing": "复发性多软骨炎",
+        "polycomb-group proteins": "Polycomb组蛋白",
+        "polycomb repressive complex 1": "Polycomb抑制复合物1",
+        "polycomb repressive complex 2": "Polycomb抑制复合物2",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1288_ALIASES = {
+        "polycyclic aromatic hydrocarbons": "多环芳烃",
+        "polycyclic compounds": "多环化合物",
+        "polycyclic sesquiterpenes": "多环倍半萜",
+        "polycystic kidney, autosomal dominant": "常染色体显性多囊肾",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1289_ALIASES = {
+        "polycystic kidney, autosomal recessive": "常染色体隐性多囊肾",
+        "polycystic kidney diseases": "多囊肾病",
+        "polycystic ovary syndrome": "多囊卵巢综合征",
+        "polycythemia": "红细胞增多症",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1290_ALIASES = {
+        "polycythemia vera": "真性红细胞增多症",
+        "polydactyly": "多指畸形",
+        "polydeoxyribonucleotides": "多聚脱氧核糖核苷酸",
+        "polydiacetylene-based materials and applications": "聚二乙炔基材料与应用",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1291_ALIASES = {
+        "polydioxanone": "聚二氧六环酮",
+        "polydipsia": "多饮",
+        "polydipsia, psychogenic": "精神性多饮",
+        "polydisperse materials": "多分散材料",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1292_ALIASES = {
+        "polydisperse systems": "多分散体系",
+        "polydnaviridae": "多分DNA病毒科",
+        "polyelectrolytes": "聚电解质",
+        "polyenes": "多烯",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1293_ALIASES = {
+        "polyendocrinopathies, autoimmune": "自身免疫性多内分泌病",
+        "polyesters": "聚酯",
+        "polyether compounds": "聚醚化合物",
+        "polyether polyketides": "聚醚聚酮",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1294_ALIASES = {
+        "polyether toxins": "聚醚毒素",
+        "polyethylenes": "聚乙烯",
+        "polyethylene": "聚乙烯",
+        "polyethylene glycols": "聚乙二醇",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1295_ALIASES = {
+        "polyethylene terephthalates": "聚对苯二甲酸乙二醇酯",
+        "polyethyleneimine": "聚乙烯亚胺",
+        "polygala": "远志属",
+        "polygalaceae": "远志科",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1296_ALIASES = {
+        "polygalacturonase": "聚半乳糖醛酸酶",
+        "polygeline": "聚明胶肽",
+        "polyglactin 910": "聚乳酸羟基乙酸910",
+        "polyglutamic acid": "聚谷氨酸",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1297_ALIASES = {
+        "polyglycolic acid": "聚乙醇酸",
+        "polygonaceae": "蓼科",
+        "polygonatum": "黄精属",
+        "polygonum": "蓼属",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1298_ALIASES = {
+        "polyhedron attention mechanisms": "多面体注意力机制",
+        "polyhydramnios": "羊水过多",
+        "polyhydroxyalkanoates": "聚羟基烷酸酯",
+        "polyhydroxybutyrates": "聚羟基丁酸酯",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1299_ALIASES = {
+        "polyhydroxyethyl methacrylate": "聚甲基丙烯酸羟乙酯",
+        "polyimides": "聚酰亚胺",
+        "polyisoprenyl phosphates": "多异戊烯基磷酸盐",
+        "polyisoprenyl phosphate monosaccharides": "多异戊烯基磷酸单糖",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1300_ALIASES = {
+        "polyisoprenyl phosphate oligosaccharides": "多异戊烯基磷酸寡糖",
+        "polyisoprenyl phosphate sugars": "多异戊烯基磷酸糖",
+        "polyketides": "聚酮类",
+        "polyketide synthases": "聚酮合酶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1301_ALIASES = {
+        "polylactic acid-polyglycolic acid copolymer": "聚乳酸-羟基乙酸共聚物",
+        "polylysine": "聚赖氨酸",
+        "polymenophorea": "多膜纲",
+        "polymers": "聚合物",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1302_ALIASES = {
+        "polymer aging": "聚合物老化",
+        "polymer-based agricultural enhancements": "聚合物基农业改良",
+        "polymer behavior": "聚合物行为",
+        "polymer composites and self-healing": "聚合物复合材料与自修复",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1303_ALIASES = {
+        "polymer crystallization and properties": "聚合物结晶与性能",
+        "polymer fibers": "聚合物纤维",
+        "polymer films": "聚合物薄膜",
+        "polymer foams": "聚合物泡沫",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1304_ALIASES = {
+        "polymer foaming and composites": "聚合物发泡与复合材料",
+        "polymer gels": "聚合物凝胶",
+        "polymer nanocomposites and properties": "聚合物纳米复合材料与性能",
+        "polymer nanocomposite synthesis and irradiation": "聚合物纳米复合材料合成与辐照",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1305_ALIASES = {
+        "polymer science and applications": "聚合物科学与应用",
+        "polymer science and pvc": "聚合物科学与PVC",
+        "polymer surface interaction studies": "聚合物表面相互作用研究",
+        "polymer synthesis and characterization": "聚合物合成与表征",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1306_ALIASES = {
+        "polymer theory": "聚合物理论",
+        "polymer waveguides": "聚合物波导",
+        "polymerase chain reaction": "聚合酶链式反应",
+        "polymerization": "聚合",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1307_ALIASES = {
+        "polymethacrylic acids": "聚甲基丙烯酸",
+        "polymethyl methacrylate": "聚甲基丙烯酸甲酯",
+        "polymicrogyria": "多小脑回畸形",
+        "polymorphic catecholaminergic ventricular tachycardia": "儿茶酚胺敏感性多形性室性心动过速",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1308_ALIASES = {
+        "polymorphism": "多态性",
+        "polymorphism, genetic": "遗传多态性",
+        "polymorphism, restriction fragment length": "限制性片段长度多态性",
+        "polymorphism, single nucleotide": "单核苷酸多态性",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1309_ALIASES = {
+        "polymorphism, single-stranded conformational": "单链构象多态性",
+        "polymyalgia rheumatica": "风湿性多肌痛",
+        "polymyositis": "多发性肌炎",
+        "polymyxins": "多黏菌素",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1310_ALIASES = {
+        "polymyxin b": "多黏菌素B",
+        "polynesia": "波利尼西亚",
+        "polyneuropathies": "多发性神经病",
+        "polynomials": "多项式",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1311_ALIASES = {
+        "polynomial and algebraic computation": "多项式与代数计算",
+        "polynomial approximation": "多项式逼近",
+        "polynomial basis": "多项式基",
+        "polynomial space": "多项式空间",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1312_ALIASES = {
+        "polynomial time algorithm": "多项式时间算法",
+        "polynomial-time approximation algorithms": "多项式时间近似算法",
+        "polynomial time approximation schemes": "多项式时间近似方案",
+        "polynomial time complexity": "多项式时间复杂度",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1313_ALIASES = {
+        "polynucleotides": "多核苷酸",
+        "polynucleotide 5'-hydroxyl-kinase": "多核苷酸5'-羟基激酶",
+        "polynucleotide adenylyltransferase": "多核苷酸腺苷酸转移酶",
+        "polynucleotide ligases": "多核苷酸连接酶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1314_ALIASES = {
+        "polyomaviridae": "多瘤病毒科",
+        "polyomavirus": "多瘤病毒",
+        "polyomavirus and related diseases": "多瘤病毒及相关疾病",
+        "polyomavirus infections": "多瘤病毒感染",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1315_ALIASES = {
+        "polyoxometalates": "多金属氧酸盐",
+        "polyoxometalates: synthesis and applications": "多金属氧酸盐合成与应用",
+        "polyps": "息肉",
+        "polypeptide n-acetylgalactosaminyltransferase": "多肽N-乙酰半乳糖胺转移酶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1316_ALIASES = {
+        "polypharmacology": "多药理学",
+        "polypharmacy": "多重用药",
+        "polyphenols": "多酚",
+        "polyphloretin phosphate": "聚根皮素磷酸酯",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1317_ALIASES = {
+        "polyphosphates": "多磷酸盐",
+        "polyplacophora": "多板纲",
+        "polyploidy": "多倍性",
+        "polypodiaceae": "水龙骨科",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1318_ALIASES = {
+        "polypodium": "水龙骨属",
+        "polypoidal choroidal vasculopathy": "息肉样脉络膜血管病变",
+        "polyporaceae": "多孔菌科",
+        "polyporales": "多孔菌目",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1319_ALIASES = {
+        "polyporus": "多孔菌属",
+        "polyprenols": "多萜醇",
+        "polypropylenes": "聚丙烯",
+        "polyproteins": "多聚蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1320_ALIASES = {
+        "polypyrimidine tract-binding protein": "多嘧啶束结合蛋白",
+        "polyradiculoneuropathy": "多发性神经根神经病",
+        "polyradiculoneuropathy, chronic inflammatory demyelinating": "慢性炎性脱髓鞘性多发性神经根神经病",
+        "polyradiculopathy": "多发性神经根病",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1321_ALIASES = {
+        "polyribonucleotides": "多聚核糖核苷酸",
+        "polyribonucleotide nucleotidyltransferase": "多聚核糖核苷酸核苷酸转移酶",
+        "polyribosomes": "多核糖体",
+        "polysaccharides": "多糖",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1322_ALIASES = {
+        "polysaccharides and plant cell walls": "多糖与植物细胞壁",
+        "polysaccharides, bacterial": "细菌多糖",
+        "polysaccharides composition and applications": "多糖组成与应用",
+        "polysaccharide-lyases": "多糖裂解酶",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1323_ALIASES = {
+        "polysomnography": "多导睡眠监测",
+        "polysorbates": "聚山梨酯",
+        "polystichum": "耳蕨属",
+        "polystyrenes": "聚苯乙烯",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1324_ALIASES = {
+        "polytene chromosomes": "多线染色体",
+        "polytetrafluoroethylene": "聚四氟乙烯",
+        "polythiazide": "泊利噻嗪",
+        "polytopic uncertainties": "多胞体不确定性",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1325_ALIASES = {
+        "polyubiquitin": "多聚泛素",
+        "polyunsaturated alkamides": "多不饱和烷酰胺",
+        "polyurethanes": "聚氨酯",
+        "polyuria": "多尿",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1326_ALIASES = {
+        "polyvinyls": "聚乙烯基化合物",
+        "polyvinyl alcohol": "聚乙烯醇",
+        "polyvinyl chloride": "聚氯乙烯",
+        "polyvinylpyridine n-oxide": "聚乙烯基吡啶N-氧化物",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1327_ALIASES = {
+        "polyynes": "多炔",
+        "pomdp": "部分可观测马尔可夫决策过程",
+        "pomegranate": "石榴",
+        "pomegranate: compositions and health benefits": "石榴成分与健康益处",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1328_ALIASES = {
+        "pon system": "无源光网络系统",
+        "poncirus": "枳属",
+        "ponds": "池塘",
+        "pongamia": "水黄皮属",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1329_ALIASES = {
+        "pongo": "猩猩属",
+        "pongo abelii": "苏门答腊猩猩",
+        "pongo pygmaeus": "婆罗洲猩猩",
+        "pons": "脑桥",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1330_ALIASES = {
+        "pontederiaceae": "雨久花科",
+        "pontine tegmentum": "脑桥被盖",
+        "pooled testing": "混合检测",
+        "popliteal artery": "腘动脉",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1331_ALIASES = {
+        "popliteal artery aneurysm": "腘动脉瘤",
+        "popliteal artery entrapment syndrome": "腘动脉卡压综合征",
+        "popliteal cyst": "腘窝囊肿",
+        "popliteal vein": "腘静脉",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1332_ALIASES = {
+        "popular culture": "大众文化",
+        "popular physics": "大众物理",
+        "popular work": "通俗作品",
+        "population": "人口",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1333_ALIASES = {
+        "populations and evolution": "种群与进化",
+        "population bottleneck": "种群瓶颈",
+        "population characteristics": "人口特征",
+        "population control": "人口控制",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1334_ALIASES = {
+        "population density": "人口密度",
+        "population differentiation": "种群分化",
+        "population dynamics": "种群动态",
+        "population forecast": "人口预测",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1335_ALIASES = {
+        "population groups": "人群",
+        "population groups, us": "美国人群",
+        "population growth": "人口增长",
+        "population health": "人口健康",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1336_ALIASES = {
+        "population health management": "人口健康管理",
+        "population size": "种群大小",
+        "population surveillance": "人群监测",
+        "populus": "杨属",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1337_ALIASES = {
+        "porcelain": "瓷",
+        "porcine epidemic diarrhea virus": "猪流行性腹泻病毒",
+        "porcine postweaning multisystemic wasting syndrome": "猪断奶后多系统衰竭综合征",
+        "porcine reproductive and respiratory syndrome": "猪繁殖与呼吸综合征",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1338_ALIASES = {
+        "porcine respiratory and reproductive syndrome virus": "猪繁殖与呼吸综合征病毒",
+        "porcine respiratory coronavirus": "猪呼吸道冠状病毒",
+        "porcupines": "豪猪",
+        "pore forming cytotoxic proteins": "成孔细胞毒蛋白",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1339_ALIASES = {
+        "porencephaly": "脑穿通畸形",
+        "porfiromycin": "卟吡霉素",
+        "poria": "茯苓",
+        "porifera": "多孔动物门",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1340_ALIASES = {
+        "porins": "孔蛋白",
+        "pork meat": "猪肉",
+        "porokeratosis": "汗孔角化症",
+        "poroma": "汗孔瘤",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1341_TO_1440_ALIASES = {
+        "porosity": "孔隙率",
+        "porous media": "多孔介质",
+        "porphobilinogen": "卟胆原",
+        "porphobilinogen synthase": "卟胆原合酶",
+        "porphyra": "紫菜属",
+        "porphyrias": "卟啉病",
+        "porphyria, acute intermittent": "急性间歇性卟啉病",
+        "porphyria cutanea tarda": "迟发性皮肤卟啉病",
+        "porphyria, erythropoietic": "红细胞生成性卟啉病",
+        "porphyrias, hepatic": "肝性卟啉病",
+        "porphyria, hepatoerythropoietic": "肝红细胞生成性卟啉病",
+        "porphyria, variegate": "混合型卟啉病",
+        "porphyridium": "紫球藻属",
+        "porphyrins": "卟啉",
+        "porphyrin and phthalocyanine chemistry": "卟啉与酞菁化学",
+        "porphyrin metabolism and disorders": "卟啉代谢与疾病",
+        "porphyrinogens": "卟啉原",
+        "porphyromonas": "卟啉单胞菌属",
+        "porphyromonas endodontalis": "牙髓卟啉单胞菌",
+        "porphyromonas gingivalis": "牙龈卟啉单胞菌",
+        "porpoises": "鼠海豚",
+        "ports computers": "端口",
+        "port numbers": "端口号",
+        "port-wine stain": "鲜红斑痣",
+        "portable computers": "便携式计算机",
+        "portable device": "便携设备",
+        "portable equipment": "便携设备",
+        "portable media players": "便携式媒体播放器",
+        "portable x-ray": "便携式X线",
+        "portacaval shunt, surgical": "门腔静脉分流术",
+        "portals": "门户",
+        "portal pressure": "门静脉压力",
+        "portal system": "门静脉系统",
+        "portal vein": "门静脉",
+        "portasystemic shunt, surgical": "门体分流术",
+        "portasystemic shunt, transjugular intrahepatic": "经颈静脉肝内门体分流术",
+        "portfolios": "投资组合",
+        "portfolio management": "投资组合管理",
+        "portfolio optimization": "投资组合优化",
+        "portfolio selection": "投资组合选择",
+        "portfolio selection problems": "投资组合选择问题",
+        "portion size": "份量",
+        "portoenterostomy, hepatic": "肝门肠吻合术",
+        "portography": "门静脉造影",
+        "portrait": "肖像",
+        "portraits as topic": "肖像主题",
+        "portugal": "葡萄牙",
+        "portulaca": "马齿苋属",
+        "portulacaceae": "马齿苋科",
+        "pos taggers": "词性标注器",
+        "pos tagging": "词性标注",
+        "pose estimation": "姿态估计",
+        "pose parameters": "姿态参数",
+        "pose variation": "姿态变化",
+        "position analysis": "位置分析",
+        "position control": "位置控制",
+        "position controller": "位置控制器",
+        "position measurement": "位置测量",
+        "position sensitive particle detectors": "位置灵敏粒子探测器",
+        "position-specific scoring matrices": "位置特异性评分矩阵",
+        "positioning accuracies": "定位精度",
+        "positioning methods": "定位方法",
+        "positioning system": "定位系统",
+        "positioning techniques": "定位技术",
+        "positioning technologies": "定位技术",
+        "positive-pressure respiration": "正压呼吸",
+        "positive-pressure respiration, intrinsic": "内源性正压呼吸",
+        "positive region": "正域",
+        "positive regulatory domain i-binding factor 1": "正调控结构域I结合因子1",
+        "positive solution": "正解",
+        "positive-strand rna viruses": "正链RNA病毒",
+        "positive train control": "主动列车控制",
+        "positive transcriptional elongation factor b": "正性转录延伸因子B",
+        "positive-unlabeled learning": "正-未标记学习",
+        "positrons": "正电子",
+        "positron annihilation lifetime spectroscopy": "正电子湮没寿命谱",
+        "positron annihilation spectroscopy": "正电子湮没谱",
+        "positron diffraction": "正电子衍射",
+        "positron emission tomography": "正电子发射断层成像",
+        "positron-emission tomography": "正电子发射断层成像",
+        "positron emission tomography computed tomography": "正电子发射断层成像-计算机断层成像",
+        "possibilistic c-means": "可能性C均值",
+        "possibility theory": "可能性理论",
+        "post-acute covid-19 syndrome": "新冠急性后综合征",
+        "post and core technique": "桩核技术",
+        "post-cardiac arrest syndrome": "心脏骤停后综合征",
+        "post classification": "后分类",
+        "post-communist economic and political transition": "后共产主义经济与政治转型",
+        "post-concussion syndrome": "脑震荡后综合征",
+        "post-conditions": "后置条件",
+        "post-consumer waste": "消费后废弃物",
+        "post-dural puncture headache": "硬膜穿刺后头痛",
+        "post-exercise hypotension": "运动后低血压",
+        "post-exercise recovery": "运动后恢复",
+        "post-exercise recovery techniques": "运动后恢复技术",
+        "post-exposure prophylaxis": "暴露后预防",
+        "post-implementation": "后实施",
+        "post-infectious disorders": "感染后疾病",
+        "post-lyme disease syndrome": "莱姆病后综合征",
+        "post-secondary education": "中等后教育",
+        "post-silicon": "硅后",
+        "post-soviet geopolitical dynamics": "后苏联地缘政治动态",
+        "post-synaptic density": "突触后致密物",
+        "post-traumatic headache": "创伤后头痛",
+        "postal services": "邮政服务",
+        "postal service": "邮政服务",
+        "postanesthesia nursing": "麻醉后护理",
+        "postcard": "明信片",
+        "postcards as topic": "明信片主题",
+        "postcholecystectomy syndrome": "胆囊切除术后综合征",
+        "postcolonial and cultural literary studies": "后殖民与文化文学研究",
+        "postdoctoral training": "博士后培训",
+        "poster": "海报",
+        "posters as topic": "海报主题",
+        "posterior capsular rupture, ocular": "眼后囊膜破裂",
+        "posterior capsule of the lens": "晶状体后囊",
+        "posterior capsulotomy": "后囊切开术",
+        "posterior cerebellar commissure": "小脑后连合",
+        "posterior cerebral artery": "大脑后动脉",
+        "posterior cervical sympathetic syndrome": "后颈交感神经综合征",
+        "posterior cruciate ligament": "后交叉韧带",
+        "posterior cruciate ligament reconstruction": "后交叉韧带重建",
+        "posterior distributions": "后验分布",
+        "posterior eye segment": "眼后节",
+        "posterior horn cells": "后角细胞",
+        "posterior leukoencephalopathy syndrome": "后部白质脑病综合征",
+        "posterior probability": "后验概率",
+        "posterior thalamic nuclei": "丘脑后核",
+        "posterior tibial tendon dysfunction": "胫后肌腱功能障碍",
+        "postfilters": "后置滤波器",
+        "postgastrectomy syndromes": "胃切除术后综合征",
+        "postharvest quality and shelf life management": "采后品质与货架期管理",
+        "postmenopause": "绝经后期",
+        "postmortem changes": "死后变化",
+        "postmortem imaging": "死后影像",
+        "postnatal care": "产后护理",
+        "postoperative care": "术后护理",
+        "postoperative cognitive complications": "术后认知并发症",
+        "postoperative complications": "术后并发症",
+        "postoperative hemorrhage": "术后出血",
+        "postoperative nausea and vomiting": "术后恶心呕吐",
+        "postoperative pain": "术后疼痛",
+        "postoperative period": "术后期",
+        "postpartum hemorrhage": "产后出血",
+        "postpartum period": "产褥期",
+        "postpartum thyroiditis": "产后甲状腺炎",
+        "postpericardiotomy syndrome": "心包切开术后综合征",
+        "postphlebitic syndrome": "静脉炎后综合征",
+        "postpoliomyelitis syndrome": "脊髓灰质炎后综合征",
+        "postprandial period": "餐后期",
+        "postsynaptic potential summation": "突触后电位总和",
+        "postthrombotic syndrome": "血栓后综合征",
+        "posttraumatic growth, psychological": "创伤后心理成长",
+        "posttraumatic stress disorder research": "创伤后应激障碍研究",
+        "postural balance": "姿势平衡",
+        "postural orthostatic tachycardia syndrome": "体位性心动过速综合征",
+        "posture": "姿势",
+        "potamogetonaceae": "眼子菜科",
+        "potassium": "钾",
+        "potassium acetate": "乙酸钾",
+        "potassium and related disorders": "钾及相关疾病",
+        "potassium channels": "钾通道",
+        "potassium channel blockers": "钾通道阻滞剂",
+        "potassium channels, calcium-activated": "钙激活钾通道",
+        "potassium channels, inwardly rectifying": "内向整流钾通道",
+        "potassium channels, sodium-activated": "钠激活钾通道",
+        "potassium channels, tandem pore domain": "双孔结构域钾通道",
+        "potassium channels, voltage-gated": "电压门控钾通道",
+        "potassium chloride": "氯化钾",
+        "potassium citrate": "柠檬酸钾",
+        "potassium compounds": "钾化合物",
+        "potassium cyanide": "氰化钾",
+        "potassium deficiency": "钾缺乏",
+        "potassium dichromate": "重铬酸钾",
+        "potassium, dietary": "膳食钾",
+        "potassium-hydrogen antiporters": "钾氢反向转运体",
+        "potassium iodide": "碘化钾",
+        "potassium ionophores": "钾离子载体",
+        "potassium isotopes": "钾同位素",
+        "potassium magnesium aspartate": "天冬氨酸钾镁",
+        "potassium permanganate": "高锰酸钾",
+        "potassium radioisotopes": "钾放射性同位素",
+        "potato plant research": "马铃薯植物研究",
+        "potential barriers": "势垒",
+        "potential customers": "潜在客户",
+        "potential field": "势场",
+        "potential field methods": "势场法",
+        "potential games": "势博弈",
+        "potential well": "势阱",
+        "potentially inappropriate medication list": "潜在不适当用药清单",
+        "potentilla": "委陵菜属",
+        "potentiometers": "电位器",
+        "potentiometry": "电位滴定法",
+        "potexvirus": "马铃薯X病毒属",
+        "pott puffy tumor": "波特浮肿瘤",
+        "potyviridae": "马铃薯Y病毒科",
+        "potyvirus": "马铃薯Y病毒属",
+        "pou domain factors": "POU结构域因子",
+        "pouchitis": "储袋炎",
+        "poult enteritis mortality syndrome": "雏火鸡肠炎死亡综合征",
+        "poultry": "家禽",
+        "poultry diseases": "家禽疾病",
+        "poultry products": "家禽产品",
+        "poultry proteins": "家禽蛋白",
+        "poverty": "贫困",
+        "poverty areas": "贫困地区",
+        "poverty, education, and child welfare": "贫困、教育与儿童福利",
+        "povidone": "聚维酮",
+        "povidone-iodine": "聚维酮碘",
+        "powders": "粉末",
+        "powder diffraction": "粉末衍射",
+        "powder metallurgy techniques and materials": "粉末冶金技术与材料",
+        "powdery mildew fungal diseases": "白粉病真菌病害",
+        "power allocation": "功率分配",
+        "power allocation algorithms": "功率分配算法",
+        "power allocation strategies": "功率分配策略",
+        "power amplifiers": "功率放大器",
+        "power analysis attack": "功耗分析攻击",
+        "power cable insulation": "电力电缆绝缘",
+        "power capacitors": "电力电容器",
+        "power conditioning": "电能调节",
+        "power constraints": "功率约束",
+        "power consumed": "功耗",
+        "power control": "功率控制",
+        "power control algorithm": "功率控制算法",
+        "power control game": "功率控制博弈",
+        "power control problem": "功率控制问题",
+        "power control schemes": "功率控制方案",
+        "power controlled": "功率受控",
+        "power conversion": "电能转换",
+        "power conversion harmonics": "电能转换谐波",
+        "power-delay products": "功耗延迟积",
+        "power demand": "电力需求",
+        "power dissipation": "功耗",
+        "power distribution": "配电",
+        "power distribution control": "配电控制",
+        "power distribution faults": "配电故障",
+        "power distribution lines": "配电线路",
+        "power distribution networks": "配电网",
+        "power distribution network": "配电网",
+        "power distribution planning": "配电规划",
+        "power distribution reliability": "配电可靠性",
+        "power electronics": "电力电子",
+        "power engineering": "电力工程",
+        "power engineering and energy": "电力工程与能源",
+        "power engineering computing": "电力工程计算",
+        "power engineering education": "电力工程教育",
+        "power filters": "电力滤波器",
+        "power gains": "功率增益",
+        "power generation": "发电",
+        "power generation control": "发电控制",
+        "power generation dispatch": "发电调度",
+        "power generation economics": "发电经济学",
+        "power generation planning": "发电规划",
+        "power generation reliability": "发电可靠性",
+        "power grids": "电网",
+        "power harmonic filters": "电力谐波滤波器",
+        "power harvesting": "能量收集",
+        "power industry": "电力工业",
+        "power integrated circuits": "功率集成电路",
+        "power integrity": "电源完整性",
+        "power lasers": "功率激光器",
+        "power-line communications": "电力线通信",
+        "power line communications and noise": "电力线通信与噪声",
+        "power line inspection robots": "电力线路巡检机器人",
+        "power management": "电源管理",
+        "power management scheme": "电源管理方案",
+        "power management techniques": "电源管理技术",
+        "power management telecommunication": "通信电源管理",
+        "power measurement": "功率测量",
+        "power mosfet": "功率MOSFET",
+        "power networks": "电力网络",
+        "power outage": "停电",
+        "power plants": "发电厂",
+        "power plant operators": "电厂操作员",
+        "power, psychological": "心理权力",
+        "power quality": "电能质量",
+        "power quality and harmonics": "电能质量与谐波",
+        "power saving mechanism": "节能机制",
+        "power-scaling": "功率缩放",
+        "power semiconductor devices": "功率半导体器件",
+        "power semiconductor switches": "功率半导体开关",
+        "power smoothing": "功率平滑",
+        "power state": "电源状态",
+        "power steering": "动力转向",
+        "power supplies": "电源",
+        "power systems": "电力系统",
+        "power system analysis computing": "电力系统分析计算",
+        "power systems and renewable energy": "电力系统与可再生能源",
+        "power systems and technologies": "电力系统与技术",
+        "power system control": "电力系统控制",
+        "power system dynamics": "电力系统动态",
+        "power system economics": "电力系统经济学",
+        "power system faults": "电力系统故障",
+        "power systems fault detection": "电力系统故障检测",
+        "power system harmonics": "电力系统谐波",
+        "power system interconnection": "电力系统互联",
+        "power system management": "电力系统管理",
+        "power system measurements": "电力系统测量",
+        "power system modeling": "电力系统建模",
+        "power system optimization and stability": "电力系统优化与稳定性",
+        "power system planning": "电力系统规划",
+        "power system protection": "电力系统保护",
+        "power system reliability": "电力系统可靠性",
+        "power system reliability and maintenance": "电力系统可靠性与维护",
+        "power system restoration": "电力系统恢复",
+        "power system security": "电力系统安全",
+        "power system simulation": "电力系统仿真",
+        "power system stability": "电力系统稳定性",
+        "power system transients": "电力系统暂态",
+        "power transformers": "电力变压器",
+        "power transformer diagnostics and insulation": "电力变压器诊断与绝缘",
+        "power transistors": "功率晶体管",
+        "power transmission": "输电",
+        "powertrains": "动力总成",
+        "poxviridae": "痘病毒科",
+        "poxviridae infections": "痘病毒科感染",
+        "poxvirus research and outbreaks": "痘病毒研究与暴发",
+        "ppar alpha": "过氧化物酶体增殖物激活受体α",
+        "ppar-beta": "过氧化物酶体增殖物激活受体β",
+        "ppar delta": "过氧化物酶体增殖物激活受体δ",
+        "ppar gamma": "过氧化物酶体增殖物激活受体γ",
+        "ppar-gamma agonists": "过氧化物酶体增殖物激活受体γ激动剂",
+        "pqq cofactor": "PQQ辅因子",
+        "pr-set domains": "PR-SET结构域",
+        "practical teachings": "实践教学",
+        "practice guidelines as topic": "实践指南主题",
+        "practice guideline": "实践指南",
+        "practice management": "执业管理",
+        "practice management, dental": "牙科执业管理",
+        "practice management, medical": "医疗执业管理",
+        "practice management, veterinary": "兽医执业管理",
+        "practice patterns, dentists'": "牙医执业模式",
+        "practice patterns, nurses'": "护士执业模式",
+        "practice patterns, pharmacists'": "药师执业模式",
+        "practice patterns, physicians'": "医师执业模式",
+        "practice, psychological": "心理实践",
+        "practice valuation and purchase": "执业估值与购买",
+        "practolol": "普拉洛尔",
+        "prader-willi syndrome": "普拉德-威利综合征",
+        "pradimicins and benanomicins": "普拉迪霉素与贝那霉素",
+        "pragmatics": "语用学",
+        "pragmatic clinical trial": "实用性临床试验",
+        "pragmatic clinical trials as topic": "实用性临床试验主题",
+        "prajmaline": "普拉马林",
+        "pralidoxime compounds": "解磷定类化合物",
+        "pramipexole": "普拉克索",
+        "praseodymium": "镨",
+        "prasugrel hydrochloride": "普拉格雷盐酸盐",
+        "pravastatin": "普伐他汀",
+        "prazepam": "普拉西泮",
+        "praziquantel": "吡喹酮",
+        "prazosin": "哌唑嗪",
+        "pre-analytical phase": "分析前阶段",
+        "pre-b-cell leukemia transcription factor 1": "前B细胞白血病转录因子1",
+        "pre-b cell receptors": "前B细胞受体",
+        "pre-coding": "预编码",
+        "pre-college engineering": "大学前工程教育",
+        "pre-conditions": "前置条件",
+        "pre-eclampsia": "子痫前期",
+        "pre-emptive scheduling": "抢占式调度",
+        "pre-excitation, mahaim-type": "Mahaim型预激",
+        "pre-excitation syndromes": "预激综合征",
+        "pre-exposure prophylaxis": "暴露前预防",
+        "pre-fetching": "预取",
+        "pre-registration publication": "预注册出版",
+        "prealbumin": "前白蛋白",
+        "preamplifiers": "前置放大器",
+        "preanesthetic medication": "麻醉前用药",
+        "prebiotics": "益生元",
+        "precancerous conditions": "癌前状态",
+        "preceptorship": "导师制",
+        "precipitating factors": "诱发因素",
+        "precipitation measurement and analysis": "降水测量与分析",
+        "precipitation radar": "降水雷达",
+        "precipitins": "沉淀素",
+        "precipitin tests": "沉淀反应试验",
+        "precise point positioning": "精密单点定位",
+}
+
+ZH_EXACT_EXPANSION_BATCH_1441_TO_1480_ALIASES = {
+        "precision agriculture": "精准农业",
+        "precision engineering": "精密工程",
+        "precision machining": "精密加工",
+        "precision measurements": "精密测量",
+        "precision medicine": "精准医学",
+        "precoder": "预编码器",
+        "precoder design": "预编码器设计",
+        "precoding": "预编码",
+        "precoding matrix": "预编码矩阵",
+        "precoding scheme": "预编码方案",
+        "preconception care": "孕前保健",
+        "preconception injuries": "孕前损伤",
+        "preconditioned conjugate gradient method": "预条件共轭梯度法",
+        "preconditioner": "预条件器",
+        "preconditioning techniques": "预条件技术",
+        "precursor b-cell lymphoblastic leukemia-lymphoma": "前体B细胞淋巴母细胞白血病-淋巴瘤",
+        "precursor cells, b-lymphoid": "B淋巴系前体细胞",
+        "precursor cell lymphoblastic leukemia-lymphoma": "前体细胞淋巴母细胞白血病-淋巴瘤",
+        "precursor cells, t-lymphoid": "T淋巴系前体细胞",
+        "precursor t-cell lymphoblastic leukemia-lymphoma": "前体T细胞淋巴母细胞白血病-淋巴瘤",
+        "predator prey systems": "捕食者-猎物系统",
+        "predatory behavior": "捕食行为",
+        "predatory journals as topic": "掠夺性期刊主题",
+        "prediabetic state": "糖尿病前期",
+        "prediction algorithms": "预测算法",
+        "prediction methods": "预测方法",
+        "prediction methods, machine": "机器预测方法",
+        "prediction modes": "预测模式",
+        "prediction theory": "预测理论",
+        "predictive analytics": "预测分析",
+        "predictive coding": "预测编码",
+        "predictive control": "预测控制",
+        "predictive distributions": "预测分布",
+        "predictive encoding": "预测编码",
+        "predictive learning models": "预测学习模型",
+        "predictive maintenance": "预测性维护",
+        "predictive models": "预测模型",
+        "predictive value of tests": "试验预测值",
+        "predistortion": "预失真",
+        "prednimustine": "泼尼莫司汀",
+        "prednisolone": "泼尼松龙",
+        "prednisone": "泼尼松",
+        "preexisting condition coverage": "既往病症保障",
+        "prefabricated construction": "预制建筑",
+        "preference information": "偏好信息",
+        "preferential attachment": "优先连接",
+        "preferred provider organizations": "优选医疗服务组织",
+        "prefetch": "预取",
+        "prefix codes": "前缀码",
+        "preforms": "预制件",
+        "prefrontal cortex": "前额叶皮质",
+        "pregabalin": "普瑞巴林",
+        "pregnadienes": "孕甾二烯",
+        "pregnadienediols": "孕甾二烯二醇",
+        "pregnadienetriols": "孕甾二烯三醇",
+        "pregnanes": "孕烷",
+        "pregnancy": "妊娠",
+        "pregnancy, abdominal": "腹腔妊娠",
+        "pregnancy and medication impact": "妊娠与药物影响",
+        "pregnancy and preeclampsia studies": "妊娠与子痫前期研究",
+        "pregnancy, angular": "角部妊娠",
+        "pregnancy, animal": "动物妊娠",
+        "pregnancy-associated alpha 2-macroglobulins": "妊娠相关α2-巨球蛋白",
+        "pregnancy-associated plasma protein-a": "妊娠相关血浆蛋白A",
+        "pregnancy complications": "妊娠并发症",
+        "pregnancy complications, cardiovascular": "心血管妊娠并发症",
+        "pregnancy complications, hematologic": "血液妊娠并发症",
+        "pregnancy complications, infectious": "感染性妊娠并发症",
+        "pregnancy complications, neoplastic": "肿瘤性妊娠并发症",
+        "pregnancy complications, parasitic": "寄生虫性妊娠并发症",
+        "pregnancy, cornual": "宫角妊娠",
+        "pregnancy, ectopic": "异位妊娠",
+        "pregnancy, heterotopic": "复合妊娠",
+        "pregnancy, high-risk": "高危妊娠",
+        "pregnancy in adolescence": "青少年妊娠",
+        "pregnancy in diabetics": "糖尿病妊娠",
+        "pregnancy in obesity": "肥胖妊娠",
+        "pregnancy, interstitial": "间质部妊娠",
+        "pregnancy maintenance": "妊娠维持",
+        "pregnancy, multiple": "多胎妊娠",
+        "pregnancy outcome": "妊娠结局",
+        "pregnancy, ovarian": "卵巢妊娠",
+        "pregnancy, prolonged": "过期妊娠",
+        "pregnancy proteins": "妊娠蛋白",
+        "pregnancy, quadruplet": "四胎妊娠",
+        "pregnancy, quintuplet": "五胎妊娠",
+        "pregnancy rate": "妊娠率",
+        "pregnancy reduction, multifetal": "多胎妊娠减胎术",
+        "pregnancy-related death": "妊娠相关死亡",
+        "pregnancy-specific beta 1-glycoproteins": "妊娠特异性β1糖蛋白",
+        "pregnancy test": "妊娠试验",
+        "pregnancy tests": "妊娠试验",
+        "pregnancy tests, immunologic": "免疫学妊娠试验",
+        "pregnancy trimesters": "妊娠三个月期",
+        "pregnancy trimester, first": "妊娠早期",
+        "pregnancy trimester, second": "妊娠中期",
+        "pregnancy trimester, third": "妊娠晚期",
+        "pregnancy, triplet": "三胎妊娠",
+        "pregnancy, tubal": "输卵管妊娠",
+        "pregnancy, twin": "双胎妊娠",
+        "pregnancy, unplanned": "意外妊娠",
+        "pregnancy, unwanted": "非意愿妊娠",
+        "pregnane x receptor": "孕烷X受体",
+        "pregnanediol": "孕烷二醇",
+        "pregnanediones": "孕烷二酮",
+        "pregnanetriol": "孕烷三醇",
+        "pregnanolone": "孕烷醇酮",
+        "pregnant people": "孕妇",
+        "pregnatrienes": "孕甾三烯",
+        "pregnenes": "孕烯",
+        "pregnenediones": "孕烯二酮",
+        "pregnenolone": "孕烯醇酮",
+        "pregnenolone carbonitrile": "孕烯醇酮腈",
+        "prehypertension": "高血压前期",
+        "preimages": "原像",
+        "preimage attack": "原像攻击",
+        "preimplantation diagnosis": "植入前诊断",
+        "prejudice": "偏见",
+        "prekallikrein": "前激肽释放酶",
+        "preleukemia": "白血病前期",
+        "preliminary data": "初步数据",
+        "premarital examinations": "婚前检查",
+        "premature birth": "早产",
+        "premature convergence": "早熟收敛",
+        "premature ejaculation": "早泄",
+        "premature rupture of fetal membranes": "胎膜早破",
+        "premedication": "预用药",
+        "premenopause": "绝经前期",
+        "premenstrual dysphoric disorder": "经前烦躁障碍",
+        "premenstrual syndrome": "经前综合征",
+        "prenatal care": "产前保健",
+        "prenatal diagnosis": "产前诊断",
+        "prenatal education": "产前教育",
+        "prenatal exposure delayed effects": "产前暴露迟发效应",
+        "prenatal injuries": "产前损伤",
+        "prenatal nutritional physiological phenomena": "产前营养生理现象",
+        "prenatal screening and diagnostics": "产前筛查与诊断",
+        "prenatal substance exposure effects": "产前物质暴露效应",
+        "prenylamine": "普尼拉明",
+        "prenylation": "异戊二烯化",
+        "preoperative care": "术前护理",
+        "preoperative exercise": "术前运动",
+        "preoperative period": "术前期",
+        "preoptic area": "视前区",
+        "prepaid health plans": "预付健康计划",
+        "prephenate dehydratase": "预苯酸脱水酶",
+        "prephenate dehydrogenase": "预苯酸脱氢酶",
+        "preprint": "预印本",
+        "preprints as topic": "预印本主题",
+        "prepulse inhibition": "前脉冲抑制",
+        "presburger arithmetic": "Presburger算术",
+        "presbycusis": "老年性聋",
+        "presbyopia": "老花眼",
+        "prescriptions": "处方",
+        "prescription drug diversion": "处方药转移",
+        "prescription drug misuse": "处方药滥用",
+        "prescription drug monitoring programs": "处方药监测计划",
+        "prescription drug overuse": "处方药过度使用",
+        "prescription fees": "处方费",
+        "presence network agents": "呈现网络代理",
+        "presenilins": "早老素",
+        "presenilin-1": "早老素1",
+        "presenilin-2": "早老素2",
+        "presenteeism": "带病出勤",
+        "preservation, biological": "生物保存",
+        "preservatives, pharmaceutical": "药用防腐剂",
+        "press load control": "压力载荷控制",
+        "pressing": "压制",
+        "pressoreceptors": "压力感受器",
+        "pressure": "压力",
+        "pressure control": "压力控制",
+        "pressure effects": "压力效应",
+        "pressure gauges": "压力表",
+        "pressure measurement": "压力测量",
+        "pressure sensors": "压力传感器",
+        "pressure techniques": "压力技术",
+        "pressure ulcer": "压疮",
+        "pressure ulcer prevention and management": "压疮预防与管理",
+        "pressure vessels": "压力容器",
+        "pressurized intraperitoneal aerosol chemotherapy": "加压腹腔气溶胶化疗",
+        "pressurized water reactors": "压水反应堆",
+        "presumed consent": "推定同意",
+        "presynaptic terminals": "突触前末梢",
+        "pretectal region": "顶盖前区",
+        "preterm birth and chorioamnionitis": "早产与绒毛膜羊膜炎",
+        "prevalence": "患病率",
+        "prevention and control": "预防与控制",
+        "preventive dentistry": "预防牙科学",
+        "preventive health services": "预防保健服务",
+        "preventive maintenance": "预防性维护",
+}
+
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_005_ALIASES)
 RAW_EXACT_ALIASES.update(ZH_EXACT_EXPANSION_BATCH_006_ALIASES)
 
@@ -20177,6 +22151,208 @@ for _zh_exact_expansion_batch in (
     ZH_EXACT_EXPANSION_BATCH_1138_ALIASES,
     ZH_EXACT_EXPANSION_BATCH_1139_ALIASES,
     ZH_EXACT_EXPANSION_BATCH_1140_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1141_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1142_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1143_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1144_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1145_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1146_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1147_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1148_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1149_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1150_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1151_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1152_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1153_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1154_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1155_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1156_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1157_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1158_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1159_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1160_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1161_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1162_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1163_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1164_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1165_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1166_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1167_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1168_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1169_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1170_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1171_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1172_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1173_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1174_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1175_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1176_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1177_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1178_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1179_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1180_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1181_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1182_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1183_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1184_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1185_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1186_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1187_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1188_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1189_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1190_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1191_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1192_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1193_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1194_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1195_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1196_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1197_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1198_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1199_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1200_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1201_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1202_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1203_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1204_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1205_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1206_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1207_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1208_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1209_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1210_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1211_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1212_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1213_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1214_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1215_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1216_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1217_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1218_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1219_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1220_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1221_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1222_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1223_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1224_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1225_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1226_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1227_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1228_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1229_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1230_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1231_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1232_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1233_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1234_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1235_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1236_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1237_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1238_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1239_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1240_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1241_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1242_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1243_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1244_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1245_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1246_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1247_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1248_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1249_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1250_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1251_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1252_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1253_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1254_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1255_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1256_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1257_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1258_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1259_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1260_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1261_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1262_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1263_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1264_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1265_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1266_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1267_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1268_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1269_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1270_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1271_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1272_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1273_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1274_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1275_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1276_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1277_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1278_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1279_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1280_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1281_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1282_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1283_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1284_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1285_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1286_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1287_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1288_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1289_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1290_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1291_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1292_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1293_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1294_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1295_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1296_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1297_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1298_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1299_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1300_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1301_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1302_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1303_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1304_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1305_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1306_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1307_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1308_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1309_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1310_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1311_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1312_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1313_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1314_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1315_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1316_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1317_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1318_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1319_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1320_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1321_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1322_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1323_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1324_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1325_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1326_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1327_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1328_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1329_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1330_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1331_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1332_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1333_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1334_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1335_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1336_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1337_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1338_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1339_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1340_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1341_TO_1440_ALIASES,
+    ZH_EXACT_EXPANSION_BATCH_1441_TO_1480_ALIASES,
 ):
     RAW_EXACT_ALIASES.update(_zh_exact_expansion_batch)
 del _zh_exact_expansion_batch

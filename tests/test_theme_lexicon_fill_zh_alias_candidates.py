@@ -15179,6 +15179,176 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_1141_to_1160_adds_physical_and_physician_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("physical_examination", "Physical Examination", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "体格检查"),
+                ("physical_therapy_modality", "Physical Therapy Modalities", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "物理治疗方式"),
+                ("physician_assistant", "Physician Assistants", ["biomedical", "named_groups"], "医师助理"),
+                ("physician_patient_relation", "Physician-patient Relations", ["biomedical", "psychiatry_and_psychology"], "医患关系"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1161_to_1180_adds_physiology_and_phyto_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("physiological_phenomena", "Physiological Phenomena", ["biomedical", "phenomena_and_processes"], "生理现象"),
+                ("phytic_acid", "Phytic Acid", ["biomedical", "chemicals_and_drugs"], "植酸"),
+                ("phytochrome", "Phytochrome", ["biomedical", "chemicals_and_drugs"], "光敏色素"),
+                ("phytosterol", "Phytosterols", ["biomedical", "chemicals_and_drugs"], "植物甾醇"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1181_to_1200_adds_picture_piezo_and_pituitary_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("picture_archiving_and_communication_system", "Picture Archiving And Communication Systems", ["communications_technology", "computer_science"], "医学影像存档与通信系统"),
+                ("piezoelectric_actuator", "Piezoelectric Actuators", ["control_systems"], "压电致动器"),
+                ("piezoelectric_energy_harvesting", "Piezoelectric Energy Harvesting", ["computer_science"], "压电能量采集"),
+                ("pituitary_gland", "Pituitary Gland", ["anatomy", "biomedical"], "垂体"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1201_to_1220_adds_plant_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("plant_breeding", "Plant Breeding", ["biomedical", "technology_industry_and_agriculture"], "植物育种"),
+                ("plant_growth_regulator", "Plant Growth Regulators", ["biomedical", "chemicals_and_drugs"], "植物生长调节剂"),
+                ("plant_pathology", "Plant Pathology", ["biomedical", "disciplines_and_occupations"], "植物病理学"),
+                ("plant_viruse", "Plant Viruses", ["biomedical", "organisms"], "植物病毒"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1221_to_1240_adds_plasma_and_platelet_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("plasma_diagnostic", "Plasma Diagnostics", ["nuclear_and_plasma_sciences"], "等离子体诊断"),
+                ("plasma_exchange", "Plasma Exchange", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "血浆置换"),
+                ("platelet_aggregation", "Platelet Aggregation", ["biomedical", "phenomena_and_processes"], "血小板聚集"),
+                ("platelet_rich_plasma", "Platelet-rich Plasma", ["anatomy", "biomedical"], "富血小板血浆"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1241_to_1260_adds_pneumatic_and_pneumonia_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("pneumatic_artificial_muscle", "Pneumatic Artificial Muscle", ["computer_science"], "气动人工肌肉"),
+                ("pneumococcal_infection", "Pneumococcal Infections", ["biomedical", "diseases"], "肺炎链球菌感染"),
+                ("pneumonia_aspiration", "Pneumonia, Aspiration", ["biomedical", "diseases"], "吸入性肺炎"),
+                ("pneumonia_ventilator_associated", "Pneumonia, Ventilator-associated", ["biomedical", "diseases"], "呼吸机相关性肺炎"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1261_to_1280_adds_pneumothorax_podocyte_point_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("pneumothorax", "Pneumothorax", ["biomedical", "diseases"], "气胸"),
+                ("podocyt", "Podocytes", ["anatomy", "biomedical"], "足细胞"),
+                ("poem_syndrome", "Poems Syndrome", ["biomedical", "diseases"], "POEMS综合征"),
+                ("point_cloud", "Point Cloud", ["computer_science"], "点云"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1281_to_1300_adds_point_poisson_and_polar_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("point_of_care_testing", "Point-of-care Testing", ["biomedical", "health_care"], "床旁检测"),
+                ("poisson_distribution", "Poisson Distribution", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "泊松分布"),
+                ("polar_cod", "Polar Codes", ["information_theory"], "极化码"),
+                ("polarimetric_synthetic_aperture_radar", "Polarimetric Synthetic Aperture Radar", ["electromagnetic_compatibility_and_interference"], "极化合成孔径雷达"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1301_to_1320_adds_polarization_policy_polio_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("polarization_mode_dispersion", "Polarization Mode Dispersion", ["computer_science"], "偏振模色散"),
+                ("policy_iteration", "Policy Iteration", ["computer_science"], "策略迭代"),
+                ("poliomyeliti", "Poliomyelitis", ["biomedical", "diseases"], "脊髓灰质炎"),
+                ("polioviru_vaccine_oral", "Poliovirus Vaccine, Oral", ["biomedical", "chemicals_and_drugs"], "口服脊髓灰质炎疫苗"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1321_to_1340_adds_pollen_polo_and_poly_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("pollen", "Pollen", ["anatomy", "biomedical"], "花粉"),
+                ("polo_like_kinase_1", "Polo-like Kinase 1", ["biomedical", "chemicals_and_drugs"], "Polo样激酶1"),
+                ("poly_a_binding_protein", "Poly(a)-binding Proteins", ["biomedical", "chemicals_and_drugs"], "poly(A)结合蛋白"),
+                ("poly_adp_ribose_polymerase_inhibitor", "Poly(adp-ribose) Polymerase Inhibitors", ["biomedical", "chemicals_and_drugs"], "聚ADP核糖聚合酶抑制剂"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1341_to_1360_adds_porphyria_portal_and_position_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("porphyria_acute_intermittent", "Porphyria, Acute Intermittent", ["biomedical", "diseases"], "急性间歇性卟啉病"),
+                ("portal_vein", "Portal Vein", ["anatomy", "biomedical"], "门静脉"),
+                ("pose_estimation", "Pose Estimation", ["computer_science", "mathematics"], "姿态估计"),
+                ("position_specific_scoring_matric", "Position-specific Scoring Matrices", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "位置特异性评分矩阵"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1361_to_1380_adds_positron_post_and_posterior_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("positron_emission_tomography", "Positron Emission Tomography", ["imaging"], "正电子发射断层成像"),
+                ("post_acute_covid_19_syndrome", "Post-acute Covid-19 Syndrome", ["biomedical", "diseases"], "新冠急性后综合征"),
+                ("posterior_cerebral_artery", "Posterior Cerebral Artery", ["anatomy", "biomedical"], "大脑后动脉"),
+                ("posterior_probability", "Posterior Probability", ["computer_science", "mathematics"], "后验概率"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1381_to_1400_adds_potassium_potential_and_power_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("potassium_chloride", "Potassium Chloride", ["biomedical", "chemicals_and_drugs"], "氯化钾"),
+                ("potential_field_method", "Potential Field Methods", ["computer_science"], "势场法"),
+                ("power_allocation", "Power Allocation", ["computer_science"], "功率分配"),
+                ("power_amplifier", "Power Amplifiers", ["signal_processing"], "功率放大器"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1401_to_1420_adds_power_grid_and_system_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("power_distribution_network", "Power Distribution Networks", ["power_engineering_and_energy"], "配电网"),
+                ("power_electronic", "Power Electronics", ["power_electronics"], "电力电子"),
+                ("power_grid", "Power Grids", ["power_engineering_and_energy"], "电网"),
+                ("power_system_stability", "Power System Stability", ["power_engineering_and_energy"], "电力系统稳定性"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1421_to_1440_adds_ppar_practice_and_pre_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("ppar_gamma", "PPAR Gamma", ["biomedical", "chemicals_and_drugs"], "过氧化物酶体增殖物激活受体γ"),
+                ("practice_guideline", "Practice Guideline", ["biomedical", "publication_characteristics"], "实践指南"),
+                ("pre_eclampsia", "Pre-eclampsia", ["biomedical", "diseases"], "子痫前期"),
+                ("precise_point_positioning", "Precise Point Positioning", ["computer_science"], "精密单点定位"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1441_to_1460_adds_precision_prediction_and_pregnancy_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("precision_medicine", "Precision Medicine", ["engineering_in_medicine_and_biology"], "精准医学"),
+                ("preconditioned_conjugate_gradient_method", "Preconditioned Conjugate Gradient Method", ["computer_science"], "预条件共轭梯度法"),
+                ("predictive_maintenance", "Predictive Maintenance", ["engineering_general"], "预测性维护"),
+                ("pregnancy_complication", "Pregnancy Complications", ["biomedical", "diseases"], "妊娠并发症"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1461_to_1480_adds_prenatal_prescription_and_pressure_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("prenatal_diagnosi", "Prenatal Diagnosis", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "产前诊断"),
+                ("prescription_drug_monitoring_program", "Prescription Drug Monitoring Programs", ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"], "处方药监测计划"),
+                ("pressure_sensor", "Pressure Sensors", ["sensors"], "压力传感器"),
+                ("preventive_maintenance", "Preventive Maintenance", ["engineering_general"], "预防性维护"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
