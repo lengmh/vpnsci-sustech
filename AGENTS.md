@@ -153,54 +153,93 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-23 zh-exact-expansion-batch-1141-to-1480 后）：
+最新已知状态（2026-06-25 zh-exact-expansion-batch-2187-to-3400 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`14750 / 48909 = 30.16%`
-- runtime zh aliases: `14766`
+- runtime 中文覆盖：`17413 / 48932 = 35.59%`
+- runtime zh aliases: `17424`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `14766`
-- `zh:blocked`: `11788`
+- `zh:accept`: `17424`
+- `zh:blocked`: `9227`
 - `zh:needs_review`: `0`
-- `zh:reject`: `139`
+- `zh:reject`: `92`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `48909`
+- runtime concept aliases: `48932`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
-- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-1480 运行时以 compact index/manifest 为准）
+- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-3400 运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `e4da85cac78a14442863bc9a8e08c7c33e12f5a9d713b35c59132586f5e64d52`
+  `21b2c615ef7561b4dad5be1983de276db1daf467b467b6b351b3940509e55792`
 - compact manifest SHA-256:
-  `20802d044cf623943ba664e5f95c53d25ea6969d62e0664cb459a43db2c5a96e`
+  `b90c34679af86e5bfe1607d16cfdadef3819da83ded58fb2ef067c8375dfa85e`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact index 是 batch-1480 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-1480 更新，不再作为默认等价检查对象。
-- 最近相关测试：`840 passed in 8.56s`。
+- compact index 是 batch-3400 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-3400 更新，不再作为默认等价检查对象。
+- 最近相关测试：`852 passed in 9.15s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- batch-1141 至 batch-1480 已完成，runtime 中文覆盖已到 `30.16%`，已超过用户当前目标 `>30%`；
+- batch-2187 至 batch-3400 已完成，runtime 中文覆盖已到 `35.59%`，已超过用户当前目标 `>35%`；
 - 后续连续扩展继续采用新的提交节奏：每 `5` 轮 `20-batch` 处理作为一个最终 milestone commit；中间 checkpoint、review 清单和 smoke 产物仅放在 `F:\AI playground\TempFiles`，不再每轮 20-batch 都提交；
-- batch-1141-to-1480 milestone 临时审查产物：
-  `F:\AI playground\TempFiles\zh_review_recommendations.batch-1141-to-1240.json`，
-  `F:\AI playground\TempFiles\zh_review_recommendations.batch-1241-to-1340.json`，
-  `F:\AI playground\TempFiles\zh_review_recommendations.batch-1341-to-1440.json`，
-  `F:\AI playground\TempFiles\zh_review_recommendations.batch-1441-to-1480.json`；
+- batch-2187-to-3400 milestone 临时审查产物：
+  `F:\AI playground\TempFiles\review_decisions.before-35pct.20260625-012746.jsonl`，
+  `F:\AI playground\TempFiles\exact_domain_35pct_aliases_v3b.json`，
+  `F:\AI playground\TempFiles\zh_review_recommendations_35pct_exact_domain_v3b.json`，
+  `F:\AI playground\TempFiles\zh_review_recommendations_35pct_needs_review_cleanup.json`，
+  `F:\AI playground\TempFiles\theme_alias_runtime_full_audit_35pct_final.jsonl`；
 - post-20% 质量复盘和窄 L6 treemap/text fallback 修复已完成；当前主线回到 exact/domain-aware 中文 alias 覆盖扩展；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
+- 最新 batch-2187 至 batch-3400 exact/domain-aware milestone 已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_2187_TO_3400_ALIASES`，覆盖 temporal/text/cryptographic/software-defined/spatio-temporal、access/cache/control/fault/formal/remote/security/software/speech/VLSI/WDM 等 exact/domain-aware 技术术语；
+  - 新增 `1` 个分组代表性回归测试，先红灯后转绿；修正 `Temporal Database -> 时态数据库`、`Quality Of Service Routing -> 服务质量路由`、`Remote Authentication -> 远程认证`、`Electric Impedance Tomography -> 电阻抗断层成像` 等坏词序/误译；
+  - grouped L3-L5：fill `records_filled = 26529`，validate `review_decisions = 375856`；
+  - preserve-except selection 恢复 `21646` 条 prior review 决策；显式接受 `1253` 条非碰撞 exact/domain-aware recommendation，并 cleanup 接受 `2` 条新 `needs_review`；
+  - `839` 条 selected collision/duplicate 输出继续 blocked，不自动 merge；`软件定义无线电`、`二元决策图` 等 collision 输出未进入 runtime；
+  - runtime 中文覆盖从 `16165 / 48914 = 33.05%` 增至 `17413 / 48932 = 35.59%`；
+  - `zh:accept`: `17424`，`zh:blocked`: `9227`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `21b2c615ef7561b4dad5be1983de276db1daf467b467b6b351b3940509e55792`；
+  - compact manifest SHA-256: `b90c34679af86e5bfe1607d16cfdadef3819da83ded58fb2ef067c8375dfa85e`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - query smoke 已确认 `时态数据库 -> concept:temporal_database`、`密码算法 -> concept:cryptographic_algorithm`、`时空数据库 -> concept:spatio_temporal_database`、`服务质量路由 -> concept:quality_of_service_routing`、`远程认证 -> concept:remote_authentication`、`电阻抗断层成像 -> concept:electric_impedance_tomography`、`声表面波滤波器 -> concept:acoustic_surface_wave_filter`、`文本分类 -> concept:text_categorization` 可命中，`服务路由的质量`、`遥感认证`、`电动阻抗断层成像`、`I J条件` 保持不命中；
+  - 相关测试：`852 passed in 9.15s`。
+- batch-3400 后 review：
+  - 本 milestone 新增 `1248` 个 runtime zh-covered concepts，覆盖率超过 `35%` 目标；
+  - accepted/runtime conflict 继续为 `0`，duplicate/collision 仍不自动 merge；
+  - 不打开低质 mixed fallback、不 blanket accept medium-confidence compositional candidates、不进入新的 L6；
+  - 若继续扩大覆盖，下一轮从 batch-3401 起，仍优先 exact/domain-aware glossary 与显式 review。
+- 最新 batch-1481 至 batch-2186 exact/domain-aware milestone 已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_1481_TO_1700_ALIASES` 与 `ZH_EXACT_EXPANSION_BATCH_1701_TO_2186_ALIASES`，覆盖 adaptive/agent/agile、binary/blind/cache/channel、data/decision/digital/distributed/dynamic、finite/fuzzy/information/knowledge、routing/rule/SAR/satellite/security/semantic/semiconductor/service/signal/spectral/stochastic/system/switching/time/tracking 等 exact/domain-aware 术语；
+  - 新增 `11` 个分组代表性回归测试；修复 `microphone signals -> 麦克风信号` UTF-8 破损，并移除 `agent-based framework` exact entry 以保留 mesh/biomedical pollution guard；
+  - grouped L3-L5 完成：先接受 `915` 条非碰撞 exact/domain-aware reopen/prefix recommendation，清理 `59` 条 needs_review（接受 `35`、阻断 `24`），再接受 `478` 条 batch-1701-to-2186 exact glossary recommendation；`793 + 8` 条 collision 相关输出继续 blocked，不自动 merge；
+  - runtime 中文覆盖从 `14750 / 48909 = 30.16%` 增至 `16165 / 48914 = 33.05%`；
+  - `zh:accept`: `16176`，`zh:blocked`: `10406`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
+  - compact index SHA-256: `f9190c2268fb710890a1796ef84ed9c7d28c869baec1f570994b6872947e45a0`；
+  - compact manifest SHA-256: `aa5b58fe7e23b09e509008bdfaa2d9267a4d8e56ebaeb7630e490c1dc521b73e`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - query smoke 已确认 `规则库 -> concept:rule_base`、`安全需求工程 -> concept:security_requirement_engineering`、`半导体器件测量 -> concept:semiconductor_device_measurement`、`系统级仿真 -> concept:system_level_simulation`、`分时计算机系统 -> concept:time_sharing_computer_system`、`时频分析 -> concept:time_frequency_analysi`、`跟踪误差 -> concept:tracking_error`、`谱聚类 -> concept:spectral_clustering` 可命中，`规则碱基`、`自自适应`、`集合点跟踪`、`稀疏溶液`、`频谱图书馆` 保持不命中；
+  - 相关测试：`851 passed in 6.03s`。
+- batch-2186 后 review：
+  - 本 milestone 新增 `1415` 个 runtime zh-covered concepts，覆盖率超过 `33%` 目标；
+  - accepted/runtime conflict 继续为 `0`，duplicate/collision 仍不自动 merge；
+  - 不打开低质 mixed fallback、不 blanket accept medium-confidence compositional candidates、不进入新的 L6；
+  - 若继续扩大覆盖，下一轮从 batch-2187 起，仍优先 exact/domain-aware glossary 与显式 review。
 - 最新 batch-1141 至 batch-1480 exact/domain-aware milestone 已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_1141_ALIASES` 至 `ZH_EXACT_EXPANSION_BATCH_1340_ALIASES`，并新增 `ZH_EXACT_EXPANSION_BATCH_1341_TO_1440_ALIASES`、`ZH_EXACT_EXPANSION_BATCH_1441_TO_1480_ALIASES`，覆盖 physical/physiology/picture/plant/plasma、pneumatic/pneumonia/point/polio/poly、porphyria/portal/position/potassium/power、precision/pregnancy/prenatal/prescription/pressure/preventive 等 P 段 exact/domain-aware 术语；
   - 新增 `17` 个分组代表性回归测试；
