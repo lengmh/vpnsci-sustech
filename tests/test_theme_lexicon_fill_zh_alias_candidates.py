@@ -15349,6 +15349,128 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
+    def test_exact_expansion_batch_1481_to_1520_adds_adaptive_agent_and_autonomous_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("adaptive_array__2", "Adaptive Array", ["engineering_general"], "自适应阵列"),
+                ("agent_based_simulation", "Agent Based Simulation", ["computer_science"], "基于智能体的仿真"),
+                ("agricultural_mechanization", "Agricultural Mechanization", ["agriculture_and_food_science"], "农业机械化"),
+                ("autonomous_underwater_vehicle", "Autonomous Underwater Vehicle", ["marine_engineering"], "自主水下航行器"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1521_to_1560_adds_binary_blind_cache_and_channel_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("binary_classification", "Binary Classification", ["computer_science"], "二分类"),
+                ("blind_channel_estimation", "Blind Channel Estimation", ["signal_processing"], "盲信道估计"),
+                ("cache_architecture", "Cache Architecture", ["computer_science"], "缓存架构"),
+                ("channel_code", "Channel Code", ["signal_processing"], "信道码"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1561_to_1600_adds_data_decision_digital_and_distributed_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("data_flow_graph", "Data Flow Graph", ["computer_science"], "数据流图"),
+                ("decision_tree_learning", "Decision Tree Learning", ["computer_science"], "决策树学习"),
+                ("digital_analog_conversion", "Digital-analog Conversion", ["electronics"], "数模转换"),
+                ("distributed_denial_of_service_attack", "Distributed Denial-of-Service Attack", ["computer_science"], "分布式拒绝服务攻击"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1601_to_1640_adds_dynamic_finite_fuzzy_and_information_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("dynamic_spectrum_access", "Dynamic Spectrum Access", ["wireless_networks"], "动态频谱接入"),
+                ("finite_difference_method", "Finite Difference Methods", ["numerical_analysis"], "有限差分法"),
+                ("fuzzy_observer", "Fuzzy Observer", ["control_theory"], "模糊观测器"),
+                ("information_extraction", "Information Extraction", ["computer_science"], "信息提取"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1641_to_1680_adds_knowledge_micro_privacy_and_probability_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("knowledge_graph_engineering", "Knowledge Graphs Engineering", ["computer_science"], "知识图谱工程"),
+                ("microphone_signal", "Microphone Signals", ["signal_processing"], "麦克风信号"),
+                ("privacy_preserving_data_mining", "Privacy Preserving Data Mining", ["computer_science"], "隐私保护数据挖掘"),
+                ("probability_density_function", "Probability Density Function", ["mathematics"], "概率密度函数"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1681_to_1700_adds_quantization_radar_robot_and_robust_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("quantization_signal", "Quantization (Signal)", ["signal_processing"], "信号量化"),
+                ("radar_target_recognition", "Radar Target Recognition", ["signal_processing"], "雷达目标识别"),
+                ("robot_path_planning", "Robot Path Planning", ["robotics"], "机器人路径规划"),
+                ("robust_h_control", "Robust H Control", ["control_theory"], "鲁棒H∞控制"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1701_to_1780_adds_routing_rule_sar_and_satellite_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("routing_and_wavelength_assignment", "Routing And Wavelength Assignment", ["computer_science"], "路由与波长分配"),
+                ("rule_base", "Rule Base", ["computer_science"], "规则库"),
+                ("sar_image_segmentation", "Sar Image Segmentation", ["computer_science"], "SAR图像分割"),
+                ("satellite_communication_system", "Satellite Communication Systems", ["communications_technology"], "卫星通信系统"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1781_to_1860_adds_security_semantic_and_semiconductor_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("security_requirement_engineering", "Security Requirements Engineering", ["computer_science"], "安全需求工程"),
+                ("self_adaptive_system", "Self-adaptive System", ["computer_science"], "自适应系统"),
+                ("semantic_web_service_discovery", "Semantic Web Service Discovery", ["computer_science"], "语义网服务发现"),
+                ("semiconductor_device_measurement", "Semiconductor Device Measurement", ["instrumentation_and_measurement"], "半导体器件测量"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1861_to_1940_adds_service_signal_and_sparse_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("service_oriented_architecture", "Service Oriented Architecture", ["computer_science"], "面向服务的架构"),
+                ("set_point_tracking", "Set-point Tracking", ["control_systems"], "设定点跟踪"),
+                ("signal_to_interference_ratio", "Signal To Interference Ratio", ["signal_processing"], "信号到干扰比率"),
+                ("sparse_solution", "Sparse Solutions", ["mathematics"], "稀疏解"),
+            ]
+        )
+
+    def test_exact_expansion_batch_1941_to_2040_adds_spectral_stochastic_and_system_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("spectral_clustering", "Spectral Clustering", ["computer_science"], "谱聚类"),
+                ("stochastic_programming", "Stochastic Programming", ["mathematics"], "随机规划"),
+                ("stream_processing_system", "Stream Processing Systems", ["computer_science"], "流处理系统"),
+                ("system_of_linear_equation", "System Of Linear Equations", ["mathematics"], "线性方程组"),
+            ]
+        )
+
+    def test_exact_expansion_batch_2041_to_2186_adds_switching_time_tool_and_tracking_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("switching_law", "Switching Law", ["control_systems"], "切换律"),
+                ("time_division_multiple_access", "Time Division Multiple Access", ["communications_technology"], "时分多址"),
+                ("tool_condition_monitoring", "Tool Condition Monitoring", ["instrumentation_and_measurement"], "刀具状态监测"),
+                ("tracking_error", "Tracking Error", ["control_systems"], "跟踪误差"),
+            ]
+        )
+
+    def test_exact_expansion_batch_2187_to_2600_adds_synthetic_temporal_and_trusted_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("binary_decision_diagram", "Binary Decision Diagrams", ["computers_and_information_processing"], "二元决策图"),
+                ("cryptographic_algorithm", "Cryptographic Algorithms", ["computer_science"], "密码算法"),
+                ("software_defined_radio_sdr", "Software Defined Radio (sdr)", ["computer_science"], "软件定义无线电"),
+                ("spatio_temporal_database", "Spatio-temporal Database", ["computer_science"], "时空数据库"),
+                ("temporal_database", "Temporal Database", ["computer_science"], "时态数据库"),
+                ("text_categorization", "Text Categorization", ["computer_science"], "文本分类"),
+            ]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
