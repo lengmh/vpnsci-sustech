@@ -15459,17 +15459,130 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             ]
         )
 
-    def test_exact_expansion_batch_2187_to_2600_adds_synthetic_temporal_and_trusted_terms(self) -> None:
+    def test_exact_expansion_batch_2187_to_3400_adds_synthetic_temporal_and_trusted_terms(self) -> None:
         self.assert_exact_alias_cases(
             [
                 ("binary_decision_diagram", "Binary Decision Diagrams", ["computers_and_information_processing"], "二元决策图"),
                 ("cryptographic_algorithm", "Cryptographic Algorithms", ["computer_science"], "密码算法"),
+                ("electric_impedance_tomography", "Electric Impedance Tomography", ["computer_science"], "电阻抗断层成像"),
+                ("quality_of_service_routing", "Quality Of Service Routing", ["computer_science"], "服务质量路由"),
+                ("remote_authentication", "Remote Authentication", ["computer_science"], "远程认证"),
                 ("software_defined_radio_sdr", "Software Defined Radio (sdr)", ["computer_science"], "软件定义无线电"),
                 ("spatio_temporal_database", "Spatio-temporal Database", ["computer_science"], "时空数据库"),
                 ("temporal_database", "Temporal Database", ["computer_science"], "时态数据库"),
                 ("text_categorization", "Text Categorization", ["computer_science"], "文本分类"),
             ]
         )
+
+    def test_exact_expansion_batch_2187_to_3400_corrects_remote_and_solution_polysemy(self) -> None:
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": "concept:remote_controller",
+                    "canonical_en": "Remote Controllers",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Remote Controllers"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:remote_monitoring_and_control",
+                    "canonical_en": "Remote Monitoring And Control",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Remote Monitoring And Control"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:remote_monitoring_system",
+                    "canonical_en": "Remote Monitoring System",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Remote Monitoring System"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:solution_design",
+                    "canonical_en": "Solution Design",
+                    "aliases_en": [],
+                    "domains": ["systems_engineering_and_theory"],
+                    "source_refs": [{"source": "cso", "label": "Solution Design"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:cloud_data_security_solution",
+                    "canonical_en": "Cloud Data Security Solutions",
+                    "aliases_en": [],
+                    "domains": ["computer_science", "physical_sciences"],
+                    "source_refs": [{"source": "openalex_topics", "label": "Cloud Data Security Solutions"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:hardware_solution",
+                    "canonical_en": "Hardware Solutions",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Hardware Solutions"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:navigation_solution",
+                    "canonical_en": "Navigation Solution",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Navigation Solution"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:contact_lens_solution",
+                    "canonical_en": "Contact Lens Solutions",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "chemicals_and_drugs"],
+                    "source_refs": [{"source": "mesh", "label": "Contact Lens Solutions"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        self.assertEqual(rows["concept:remote_controller"]["zh_alias_candidates"][0]["alias"], "遥控器")
+        self.assertEqual(rows["concept:remote_monitoring_and_control"]["zh_alias_candidates"][0]["alias"], "远程监测与控制")
+        self.assertEqual(rows["concept:remote_monitoring_system"]["zh_alias_candidates"][0]["alias"], "远程监测系统")
+        self.assertEqual(rows["concept:solution_design"]["zh_alias_candidates"][0]["alias"], "解决方案设计")
+        self.assertEqual(rows["concept:cloud_data_security_solution"]["zh_alias_candidates"][0]["alias"], "云数据安全解决方案")
+        self.assertEqual(rows["concept:hardware_solution"]["zh_alias_candidates"][0]["alias"], "硬件解决方案")
+        self.assertEqual(rows["concept:navigation_solution"]["zh_alias_candidates"][0]["alias"], "导航方案")
+        self.assertEqual(rows["concept:contact_lens_solution"]["zh_alias_candidates"][0]["alias"], "隐形眼镜护理液")
+
+        generated = json.dumps(rows, ensure_ascii=False)
+        self.assertNotIn("遥感控制器", generated)
+        self.assertNotIn("遥感监测与控制", generated)
+        self.assertNotIn("遥感监测系统", generated)
+        self.assertNotIn("溶液设计", generated)
+        self.assertNotIn("云数据安全溶液", generated)
+        self.assertNotIn("硬件溶液", generated)
+        self.assertNotIn("导航溶液", generated)
+        self.assertNotIn("接触晶状体溶液", generated)
 
 
 if __name__ == "__main__":

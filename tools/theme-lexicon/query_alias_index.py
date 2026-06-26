@@ -29,8 +29,15 @@ def _singular_alias_token(token: str) -> str:
 
 def normalize_alias(value: str) -> str:
     text = (value or "").strip().casefold()
-    if any("\u4e00" <= ch <= "\u9fff" for ch in text):
-        return re.sub(r"[\s，。；;：:、（）()\[\]【】<>《》!?！？\-_／/]+", "", text)
+    if any("一" <= ch <= "鿿" for ch in text):
+        text = re.sub(r"(?<=[一-鿿])(?=[A-Za-z0-9])", " ", text)
+        text = re.sub(r"(?<=[A-Za-z0-9])(?=[一-鿿])", " ", text)
+        text = text.replace("∞", " infinity ")
+        text = text.replace("&", " and ")
+        text = re.sub(r"[\-_/]+", " ", text)
+        text = re.sub(r"[^\w\s一-鿿]+", " ", text)
+        return re.sub(r"\s+", " ", text).strip()
+    text = text.replace("∞", " infinity ")
     text = text.replace("&", " and ")
     text = re.sub(r"[\-_/]+", " ", text)
     text = re.sub(r"[^a-z0-9+\s]+", " ", text)

@@ -153,7 +153,7 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-25 zh-exact-expansion-batch-2187-to-3400 后）：
+最新已知状态（2026-06-26 full zh runtime audit + solution cleanup 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
@@ -177,16 +177,16 @@ lexicons/review/
 - package/tool compact manifest byte-identical
 - legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-3400 运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `21b2c615ef7561b4dad5be1983de276db1daf467b467b6b351b3940509e55792`
+  `46485e2b61e0d35b00ed01a1b155d990b20f3c32e8da3c0f4137b9cdd3ee18ad`
 - compact manifest SHA-256:
-  `b90c34679af86e5bfe1607d16cfdadef3819da83ded58fb2ef067c8375dfa85e`
+  `d3558009b7dd7063b4f5ea832f453c1ae33f9cdde6df8fa3fe54ee397e3850fa`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
 - compact index 是 batch-3400 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-3400 更新，不再作为默认等价检查对象。
-- 最近相关测试：`852 passed in 9.15s`。
+- 最近相关测试：`855 passed in 5.51s`。
 
 当前下一步：
 
@@ -200,11 +200,16 @@ lexicons/review/
   `F:\AI playground\TempFiles\zh_review_recommendations_35pct_needs_review_cleanup.json`，
   `F:\AI playground\TempFiles\theme_alias_runtime_full_audit_35pct_final.jsonl`；
 - post-20% 质量复盘和窄 L6 treemap/text fallback 修复已完成；当前主线回到 exact/domain-aware 中文 alias 覆盖扩展；
+- post-35% review cleanup 已完成；已修复 `remote` / `solution` / `software libraries` 多义坏译，`遥感控制器`、`遥感监测与控制`、`遥感监测系统`、`溶液设计` 不再进入 runtime；
+- full zh runtime audit + solution cleanup 已完成；修复 CJK/Latin、`∞`、括号缩写归一化，`H控制` / `H∞控制` 与 `NADPH` / `NAD(P)H` 不再错误折叠；修复 `云数据安全溶液`、`硬件溶液`、`导航溶液`、`接触晶状体溶液`，当前 full-audit triage: accepted/runtime mismatch `0`，old bad alias hits `0`，unresolved major/critical flags `0`；
+- full-audit cleanup 产物：`F:\AI playground\TempFiles\review_decisions.before-full-audit-solution-cleanup.20260626.jsonl`，`F:\AI playground\TempFiles\zh_review_recommendations.full-audit-solution-cleanup-20260626.json`，`F:\AI playground\TempFiles\theme_alias_runtime_full_audit_full_review_solution_cleanup_20260626.jsonl`，`F:\AI playground\TempFiles\theme_alias_full_zh_audit_post_solution_cleanup_20260626.json`，`F:\AI playground\TempFiles\theme_alias_full_zh_audit_post_solution_cleanup_flags_20260626.jsonl`；
+- `优化链路状态路由` 与 `光码分多址` 当前因 acronym/full-form duplicate collision 阻断，不作为 runtime 可命中 alias；`SAW滤波器` 与 `声表面波滤波器` 仍是后续 canonical-target / duplicate review 项，不自动 merge；
+- full-audit triage 已覆盖此前 bounded risk scan：当前 old bad alias hits `0`，unresolved major/critical flags `0`，剩余 `溶液` flags 均为 info-level biomedical solution forms；暂不建议 full manual sweep；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
 - 最新 batch-2187 至 batch-3400 exact/domain-aware milestone 已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_2187_TO_3400_ALIASES`，覆盖 temporal/text/cryptographic/software-defined/spatio-temporal、access/cache/control/fault/formal/remote/security/software/speech/VLSI/WDM 等 exact/domain-aware 技术术语；
-  - 新增 `1` 个分组代表性回归测试，先红灯后转绿；修正 `Temporal Database -> 时态数据库`、`Quality Of Service Routing -> 服务质量路由`、`Remote Authentication -> 远程认证`、`Electric Impedance Tomography -> 电阻抗断层成像` 等坏词序/误译；
+  - 新增 `2` 个分组/污染回归测试，先红灯后转绿；修正 `Temporal Database -> 时态数据库`、`Quality Of Service Routing -> 服务质量路由`、`Remote Authentication -> 远程认证`、`Electric Impedance Tomography -> 电阻抗断层成像`、`Remote Controllers -> 遥控器`、`Remote Monitoring System -> 远程监测系统`、`Solution Design -> 解决方案设计` 等坏词序/误译；
   - grouped L3-L5：fill `records_filled = 26529`，validate `review_decisions = 375856`；
   - preserve-except selection 恢复 `21646` 条 prior review 决策；显式接受 `1253` 条非碰撞 exact/domain-aware recommendation，并 cleanup 接受 `2` 条新 `needs_review`；
   - `839` 条 selected collision/duplicate 输出继续 blocked，不自动 merge；`软件定义无线电`、`二元决策图` 等 collision 输出未进入 runtime；
@@ -212,11 +217,11 @@ lexicons/review/
   - `zh:accept`: `17424`，`zh:blocked`: `9227`，`zh:needs_review`: `0`；
   - accepted conflict groups: `0`；
   - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay package/tool 仍 byte-identical；
-  - compact index SHA-256: `21b2c615ef7561b4dad5be1983de276db1daf467b467b6b351b3940509e55792`；
-  - compact manifest SHA-256: `b90c34679af86e5bfe1607d16cfdadef3819da83ded58fb2ef067c8375dfa85e`；
+  - compact index SHA-256: `46485e2b61e0d35b00ed01a1b155d990b20f3c32e8da3c0f4137b9cdd3ee18ad`；
+  - compact manifest SHA-256: `d3558009b7dd7063b4f5ea832f453c1ae33f9cdde6df8fa3fe54ee397e3850fa`；
   - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
-  - query smoke 已确认 `时态数据库 -> concept:temporal_database`、`密码算法 -> concept:cryptographic_algorithm`、`时空数据库 -> concept:spatio_temporal_database`、`服务质量路由 -> concept:quality_of_service_routing`、`远程认证 -> concept:remote_authentication`、`电阻抗断层成像 -> concept:electric_impedance_tomography`、`声表面波滤波器 -> concept:acoustic_surface_wave_filter`、`文本分类 -> concept:text_categorization` 可命中，`服务路由的质量`、`遥感认证`、`电动阻抗断层成像`、`I J条件` 保持不命中；
-  - 相关测试：`852 passed in 9.15s`。
+  - query smoke 已确认 `时态数据库 -> concept:temporal_database`、`密码算法 -> concept:cryptographic_algorithm`、`时空数据库 -> concept:spatio_temporal_database`、`服务质量路由 -> concept:quality_of_service_routing`、`远程认证 -> concept:remote_authentication`、`电阻抗断层成像 -> concept:electric_impedance_tomography`、`H控制 -> concept:h_control`、`H∞控制 -> concept:h_infinity_control`、`硝酸还原酶(NADPH) -> concept:nitrate_reductase_nadph`、`硝酸还原酶(NAD(P)H) -> concept:nitrate_reductase_nad_p_h`、`遥控器 -> concept:remote_controller`、`远程监测与控制 -> concept:remote_monitoring_and_control`、`远程监测系统 -> concept:remote_monitoring_system`、`解决方案设计 -> concept:solution_design`、`云数据安全解决方案 -> concept:cloud_data_security_solution`、`硬件解决方案 -> concept:hardware_solution`、`导航方案 -> concept:navigation_solution`、`隐形眼镜护理液 -> concept:contact_lens_solution`、`声表面波滤波器 -> concept:acoustic_surface_wave_filter`、`文本分类 -> concept:text_categorization` 可命中，`服务路由的质量`、`遥感认证`、`遥感控制器`、`遥感监测与控制`、`遥感监测系统`、`溶液设计`、`云数据安全溶液`、`硬件溶液`、`导航溶液`、`接触晶状体溶液`、`软件图书馆`、`电动阻抗断层成像`、`I J条件`、`优化链路状态路由`、`光码分多址` 保持不命中；
+  - 相关测试：`855 passed in 5.51s`。
 - batch-3400 后 review：
   - 本 milestone 新增 `1248` 个 runtime zh-covered concepts，覆盖率超过 `35%` 目标；
   - accepted/runtime conflict 继续为 `0`，duplicate/collision 仍不自动 merge；
@@ -351,12 +356,12 @@ lexicons/review/
   - compact index SHA-256: `4dd94629e1dee0db345281e3a02e2df8c9157fa0a792ff2db8135e317c037a60`；
   - compact manifest SHA-256: `534bf36a0c4b77c8d70c7dfe9f4e3e6c5a15fe02cfcb228bf42c32f240ad9a33`；
   - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
-  - query smoke 已确认 `优化链路状态路由 -> concept:olsr`、`开放式无线接入网 -> concept:open_ran` 可命中，`辐射肿瘤科医生` 保持不命中；
+  - query smoke 已确认 `开放式无线接入网 -> concept:open_ran` 可命中，`优化链路状态路由` 因 `concept:olsr` / `concept:optimized_link_state_routing` duplicate collision 保持不命中，`辐射肿瘤科医生` 保持不命中；
   - 相关测试：`803 passed in 5.20s`。
 - batch-740 后 review：
   - 本轮新增 `110` 个 runtime zh-covered concepts，覆盖率增至 `25.08%`，已超过用户设定的 `>25%` 目标；
   - side-effect `5` 条已显式 blocked，后续如需 `放射肿瘤科医生`、`抑瘤素M受体` 等应通过更具体 exact/domain-specific replacement 重开；
-  - post-25% review 初步结论：batch-701-to-740 近期 `247` accept / `10` blocked，compact index load 约 `158.51 ms`，text fallback smoke 约 `6.08 ms`；`优化链路状态路由`、`开放式无线接入网`、`光码分多址` 可命中，`本体构建`、`辐射肿瘤科医生`、`受体抑瘤素M` 保持不命中；
+  - post-25% review 初步结论：batch-701-to-740 近期 `247` accept / `10` blocked，compact index load 约 `158.51 ms`，text fallback smoke 约 `6.08 ms`；`开放式无线接入网` 可命中，`优化链路状态路由`、`光码分多址` 因 duplicate collision 保持不命中，`本体构建`、`辐射肿瘤科医生`、`受体抑瘤素M` 保持不命中；
   - treemap/text fallback 排序按“覆盖论文数 > concept specificity > frequency > 名称长度”，小样本中更宽泛的 `Access Network / 接入网` 可因跨论文支撑排在更具体单篇术语前；这是排序偏好，不是 alias 污染；
   - 建议先停止连续批处理并完成 post-25% 覆盖/质量复盘，再决定是否设置 `>30%` 等新目标；若继续扩展，仍按 exact/domain-aware 小批次推进，不打开低质 mixed fallback、不 blanket accept medium-confidence compositional candidates、不自动 merge collision、不进入新的 L6。
 - 最新 batch-701 至 batch-720 exact/domain-aware 小批次已完成：
@@ -373,7 +378,7 @@ lexicons/review/
   - compact index SHA-256: `b35ae86992dbc023fb07408a177d52b61544b765d1d8d64b887fcdcd74e147f5`；
   - compact manifest SHA-256: `e6317889a9461d8ce4dad580c5b32f4e4b044e677e5022ca276b9f3ec2766fa3`；
   - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
-  - query smoke 已确认 `光码分多址` 可命中 `concept:ocdma`；
+  - query smoke post-review 更正：`光码分多址` 因 `concept:ocdma` / `concept:optical_cdma` duplicate collision 保持不命中；
   - 相关测试：`783 passed in 4.95s`。
 - batch-720 后 review：
   - 本轮新增 `133` 个 runtime zh-covered concepts，覆盖率增至 `24.86%`，仍未达到 `>25%`；
