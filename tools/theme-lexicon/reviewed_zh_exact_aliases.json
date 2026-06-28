@@ -201711,6 +201711,134 @@
       "source": "subagent_domain_translation_post99_safe_patch_round2",
       "reviewed_at": "2026-06-29",
       "reason": "Subagent-approved exact/domain-aware post-99 round2 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:2d_material_and_application",
+      "canonical_en": "2D Materials And Applications",
+      "alias_zh": "二维材料与应用",
+      "source": "subagent_domain_translation_post99_safe_patch_round3",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round3 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:algorithm_design_and_analysi",
+      "canonical_en": "Algorithm Design And Analysis",
+      "alias_zh": "算法设计与分析",
+      "source": "subagent_domain_translation_post99_safe_patch_round3",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round3 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:anomaly_detection_techniqu_and_application",
+      "canonical_en": "Anomaly Detection Techniques And Applications",
+      "alias_zh": "异常检测技术与应用",
+      "source": "subagent_domain_translation_post99_safe_patch_round3",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round3 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:antenna_design_and_analysi",
+      "canonical_en": "Antenna Design And Analysis",
+      "alias_zh": "天线设计与分析",
+      "source": "subagent_domain_translation_post99_safe_patch_round3",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round3 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:antenna_design_and_optimization",
+      "canonical_en": "Antenna Design And Optimization",
+      "alias_zh": "天线设计与优化",
+      "source": "subagent_domain_translation_post99_safe_patch_round3",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round3 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:big_data_technology_and_application",
+      "canonical_en": "Big Data Technologies And Applications",
+      "alias_zh": "大数据技术与应用",
+      "source": "subagent_domain_translation_post99_safe_patch_round3",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round3 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:data_mining_algorithm_and_application",
+      "canonical_en": "Data Mining Algorithms And Applications",
+      "alias_zh": "数据挖掘算法与应用",
+      "source": "subagent_domain_translation_post99_safe_patch_round3",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round3 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:earthquake_detection_and_analysi",
+      "canonical_en": "Earthquake Detection And Analysis",
+      "alias_zh": "地震检测与分析",
+      "source": "subagent_domain_translation_post99_safe_patch_round3",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round3 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:ecg_monitoring_and_analysi",
+      "canonical_en": "ECG Monitoring And Analysis",
+      "alias_zh": "心电监测与分析",
+      "source": "subagent_domain_translation_post99_safe_patch_round3",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round3 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:game_theory_and_application",
+      "canonical_en": "Game Theory And Applications",
+      "alias_zh": "博弈论与应用",
+      "source": "subagent_domain_translation_post99_safe_patch_round3",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round3 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:geophysical_method_and_application",
+      "canonical_en": "Geophysical Methods And Applications",
+      "alias_zh": "地球物理方法与应用",
+      "source": "subagent_domain_translation_post99_safe_patch_round3",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round3 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:fuzzy_system_and_optimization",
+      "canonical_en": "Fuzzy Systems And Optimization",
+      "alias_zh": "模糊系统与优化",
+      "source": "subagent_domain_translation_post99_safe_patch_round3",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round3 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:uav_application_and_optimization",
+      "canonical_en": "UAV Applications And Optimization",
+      "alias_zh": "无人机应用与优化",
+      "source": "subagent_domain_translation_post99_safe_patch_round3",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round3 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:water_quality_monitoring_and_analysi",
+      "canonical_en": "Water Quality Monitoring And Analysis",
+      "alias_zh": "水质监测与分析",
+      "source": "subagent_domain_translation_post99_safe_patch_round3",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round3 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:water_resourc_management_and_optimization",
+      "canonical_en": "Water Resources Management And Optimization",
+      "alias_zh": "水资源管理与优化",
+      "source": "subagent_domain_translation_post99_safe_patch_round3",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round3 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:chemical_synthesi_and_analysi",
+      "canonical_en": "Chemical Synthesis And Analysis",
+      "alias_zh": "化学合成与分析",
+      "source": "subagent_domain_translation_post99_safe_patch_round3",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round3 safe coverage patch."
     }
   ],
   "schema_version": "reviewed_zh_exact_aliases.v1",
