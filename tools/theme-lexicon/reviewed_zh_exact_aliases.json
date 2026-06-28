@@ -201583,6 +201583,46 @@
       "source": "subagent_domain_translation_100pct_completion",
       "reviewed_at": "2026-06-29",
       "reason": "Provided candidate is a faithful Chinese runtime alias for the canonical label."
+    },
+    {
+      "concept_id": "concept:agriculture_and_rural_development_research",
+      "canonical_en": "Agriculture And Rural Development Research",
+      "alias_zh": "农业与农村发展研究",
+      "source": "subagent_domain_translation_post99_safe_patch",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:computer_programming_languag",
+      "canonical_en": "Computer Programming Languages",
+      "alias_zh": "计算机编程语言",
+      "source": "subagent_domain_translation_post99_safe_patch",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:perioperative_nursing",
+      "canonical_en": "Perioperative Nursing",
+      "alias_zh": "围手术期护理",
+      "source": "subagent_domain_translation_post99_safe_patch",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:sodium_channel_agonist",
+      "canonical_en": "Sodium Channel Agonists",
+      "alias_zh": "钠通道激动剂",
+      "source": "subagent_domain_translation_post99_safe_patch",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:voltage_gated_sodium_channel_agonist",
+      "canonical_en": "Voltage-gated Sodium Channel Agonists",
+      "alias_zh": "电压门控钠通道激动剂",
+      "source": "subagent_domain_translation_post99_safe_patch",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 safe coverage patch."
     }
   ],
   "schema_version": "reviewed_zh_exact_aliases.v1",
