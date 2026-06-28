@@ -177,6 +177,109 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
         rows = read_jsonl(self.batch)
         self.assertEqual(rows[0]["zh_alias_candidates"][0]["alias"], "已审生产术语")
 
+    def test_reviewed_zh_exact_aliases_take_priority_over_raw_canonical_exact(self) -> None:
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": "concept:reviewed_priority_term",
+                    "canonical_en": "Raw Canonical Exact Term",
+                    "aliases_en": ["Reviewed Narrow Term"],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "openalex_topics", "label": "Raw Canonical Exact Term"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+            ],
+        )
+
+        module = load_module()
+        original_loader = module._load_reviewed_zh_exact_aliases
+        original_loaded = module._REVIEWED_ZH_EXACT_ALIASES_LOADED
+        original_reviewed_aliases = dict(module._REVIEWED_ZH_EXACT_ALIASES)
+        original_exact_aliases = dict(module.EXACT_ALIASES)
+        original_production_dir = module.PRODUCTION_CANDIDATE_DIR
+        try:
+            module.PRODUCTION_CANDIDATE_DIR = self.candidates
+            module.EXACT_ALIASES = {
+                **original_exact_aliases,
+                "raw canonical exact term": "原始宽术语",
+            }
+            module._load_reviewed_zh_exact_aliases = lambda: {"reviewed narrow term": "已审窄术语"}
+            module._REVIEWED_ZH_EXACT_ALIASES_LOADED = False
+            module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+        finally:
+            module.PRODUCTION_CANDIDATE_DIR = original_production_dir
+            module._load_reviewed_zh_exact_aliases = original_loader
+            module._REVIEWED_ZH_EXACT_ALIASES_LOADED = original_loaded
+            module._REVIEWED_ZH_EXACT_ALIASES = original_reviewed_aliases
+            module.EXACT_ALIASES = original_exact_aliases
+
+        rows = read_jsonl(self.batch)
+        self.assertEqual(rows[0]["zh_alias_candidates"][0]["alias"], "已审窄术语")
+
+    def test_post_review_exact_aliases_take_priority_over_older_reviewed_aliases(self) -> None:
+        reviewed = self.root / "reviewed_zh_exact_aliases.json"
+        reviewed.write_text(
+            json.dumps(
+                {
+                    "aliases": [
+                        {
+                            "concept_id": "concept:reviewed_priority_term",
+                            "canonical_en": "Raw Canonical Exact Term",
+                            "alias_zh": "原始宽术语",
+                            "source": "subagent_domain_translation_70pct",
+                        },
+                        {
+                            "concept_id": "concept:reviewed_priority_term",
+                            "canonical_en": "Reviewed Narrow Term",
+                            "alias_zh": "已审窄术语",
+                            "source": "subagent_post_review_fix_80pct",
+                        },
+                    ]
+                },
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": "concept:reviewed_priority_term",
+                    "canonical_en": "Raw Canonical Exact Term",
+                    "aliases_en": ["Reviewed Narrow Term"],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "openalex_topics", "label": "Raw Canonical Exact Term"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+            ],
+        )
+
+        module = load_module()
+        original_loader = module._load_reviewed_zh_exact_aliases
+        original_loaded = module._REVIEWED_ZH_EXACT_ALIASES_LOADED
+        original_reviewed_aliases = dict(module._REVIEWED_ZH_EXACT_ALIASES)
+        original_exact_aliases = dict(module.EXACT_ALIASES)
+        original_production_dir = module.PRODUCTION_CANDIDATE_DIR
+        try:
+            module.PRODUCTION_CANDIDATE_DIR = self.candidates
+            module._load_reviewed_zh_exact_aliases = lambda: original_loader(reviewed)
+            module._REVIEWED_ZH_EXACT_ALIASES_LOADED = False
+            module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+        finally:
+            module.PRODUCTION_CANDIDATE_DIR = original_production_dir
+            module._load_reviewed_zh_exact_aliases = original_loader
+            module._REVIEWED_ZH_EXACT_ALIASES_LOADED = original_loaded
+            module._REVIEWED_ZH_EXACT_ALIASES = original_reviewed_aliases
+            module.EXACT_ALIASES = original_exact_aliases
+
+        rows = read_jsonl(self.batch)
+        self.assertEqual(rows[0]["zh_alias_candidates"][0]["alias"], "已审窄术语")
+
     def test_reviewed_zh_exact_aliases_do_not_leak_after_production_fill(self) -> None:
         temp_candidates = self.root / "temp_candidates"
         temp_batch = temp_candidates / "zh_alias_candidates.batch-001.jsonl"

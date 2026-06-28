@@ -92,6 +92,16 @@ class QueryAliasIndexTests(unittest.TestCase):
         self.assertEqual(result["alias_key"], "en:network pharmacology")
         self.assertEqual(result["concept"]["concept_id"], "concept:network_pharmacology")
 
+    def test_chinese_alias_normalization_preserves_semantic_ascii_punctuation(self) -> None:
+        module = load_script("query_alias_index", QUERY_SCRIPT_PATH)
+
+        self.assertEqual(module.normalize_alias("C#语言"), "c# 语言")
+        self.assertEqual(module.normalize_alias("c 语言"), "c 语言")
+        self.assertEqual(module.normalize_alias("氯联苯(54%氯)"), "氯联苯 54% 氯")
+        self.assertEqual(module.normalize_alias("氯联苯 54 氯"), "氯联苯 54 氯")
+        self.assertEqual(module.normalize_alias("GM(1,1)灰色模型"), "gm 1,1 灰色模型")
+        self.assertEqual(module.normalize_alias("gm 1 1 灰色模型"), "gm 1 1 灰色模型")
+
     def test_query_concept_id_returns_grouped_normalized_aliases(self) -> None:
         module = load_script("query_alias_index", QUERY_SCRIPT_PATH)
         index_path, _ = self._write_index_and_manifest()

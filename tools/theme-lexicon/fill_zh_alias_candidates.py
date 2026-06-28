@@ -27826,6 +27826,19 @@ REVIEWED_ZH_EXACT_ALIASES_PATH = Path(__file__).with_name("reviewed_zh_exact_ali
 PRODUCTION_CANDIDATE_DIR = Path(__file__).resolve().parents[2] / "lexicons" / "candidates"
 
 
+class ReviewedZhExactAliases(dict[str, str]):
+    def __init__(self) -> None:
+        super().__init__()
+        self.priorities: dict[str, int] = {}
+
+
+def _reviewed_zh_exact_alias_priority(row: dict[str, Any]) -> int:
+    source = str(row.get("source") or "")
+    if source.startswith("subagent_post_review_fix_"):
+        return 0
+    return 10
+
+
 def _load_reviewed_zh_exact_aliases(path: Path = REVIEWED_ZH_EXACT_ALIASES_PATH) -> dict[str, str]:
     if not path.exists():
         return {}
@@ -27833,7 +27846,7 @@ def _load_reviewed_zh_exact_aliases(path: Path = REVIEWED_ZH_EXACT_ALIASES_PATH)
     rows = payload.get("aliases") if isinstance(payload, dict) else payload
     if not isinstance(rows, list):
         raise ValueError(f"{path} must contain a list or an object with an aliases list")
-    aliases: dict[str, str] = {}
+    aliases = ReviewedZhExactAliases()
     for row in rows:
         if not isinstance(row, dict):
             continue
@@ -27841,20 +27854,29 @@ def _load_reviewed_zh_exact_aliases(path: Path = REVIEWED_ZH_EXACT_ALIASES_PATH)
         alias_zh = str(row.get("alias_zh") or row.get("alias") or "").strip()
         if not canonical_en or not alias_zh:
             continue
-        aliases[_key(canonical_en)] = alias_zh
+        key = _key(canonical_en)
+        priority = _reviewed_zh_exact_alias_priority(row)
+        if key not in aliases or priority <= aliases.priorities.get(key, 10):
+            aliases[key] = alias_zh
+            aliases.priorities[key] = priority
     return aliases
 
 
 EXACT_ALIASES = {_key(key): value for key, value in RAW_EXACT_ALIASES.items()}
 _REVIEWED_ZH_EXACT_ALIASES_LOADED = False
 _REVIEWED_ZH_EXACT_ALIASES: dict[str, str] = {}
+_REVIEWED_ZH_EXACT_ALIAS_PRIORITIES: dict[str, int] = {}
 
 
 def _ensure_reviewed_zh_exact_aliases_loaded() -> dict[str, str]:
-    global _REVIEWED_ZH_EXACT_ALIASES_LOADED, _REVIEWED_ZH_EXACT_ALIASES
+    global _REVIEWED_ZH_EXACT_ALIASES_LOADED, _REVIEWED_ZH_EXACT_ALIASES, _REVIEWED_ZH_EXACT_ALIAS_PRIORITIES
     if _REVIEWED_ZH_EXACT_ALIASES_LOADED:
         return _REVIEWED_ZH_EXACT_ALIASES
-    _REVIEWED_ZH_EXACT_ALIASES = _load_reviewed_zh_exact_aliases()
+    loaded = _load_reviewed_zh_exact_aliases()
+    _REVIEWED_ZH_EXACT_ALIASES = dict(loaded)
+    _REVIEWED_ZH_EXACT_ALIAS_PRIORITIES = dict(
+        getattr(loaded, "priorities", {key: 10 for key in loaded})
+    )
     _REVIEWED_ZH_EXACT_ALIASES_LOADED = True
     return _REVIEWED_ZH_EXACT_ALIASES
 
@@ -30096,7 +30118,18 @@ def _fill_row(row: dict[str, Any], *, replace_generated: bool = False) -> tuple[
     max_candidates = int(row.get("max_zh_alias_candidates") or DEFAULT_MAX_CANDIDATES)
     proposals: list[dict[str, str]] = []
     seen_aliases: set[str] = set()
-    for term, is_canonical in _english_terms(row):
+    english_terms = list(_english_terms(row))
+    reviewed_exact_keys = {
+        key for key in _REVIEWED_ZH_EXACT_ALIASES if key in EXACT_ALIASES
+    }
+    if reviewed_exact_keys:
+        english_terms.sort(
+            key=lambda item: (
+                0 if _key(item[0]) in reviewed_exact_keys else 1,
+                _REVIEWED_ZH_EXACT_ALIAS_PRIORITIES.get(_key(item[0]), 10),
+            )
+        )
+    for term, is_canonical in english_terms:
         # Non-canonical English aliases can be narrower/broader than the
         # concept's canonical label. Allow exact glossary hits from aliases, but
         # do not compose new Chinese aliases from non-canonical labels; this
