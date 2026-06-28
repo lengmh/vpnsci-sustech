@@ -201623,6 +201623,94 @@
       "source": "subagent_domain_translation_post99_safe_patch",
       "reviewed_at": "2026-06-29",
       "reason": "Subagent-approved exact/domain-aware post-99 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:digital_printing",
+      "canonical_en": "Digital Printing",
+      "alias_zh": "数字印刷",
+      "source": "subagent_domain_translation_post99_safe_patch_round2",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round2 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:distributed_memory_architecture",
+      "canonical_en": "Distributed Memory Architecture",
+      "alias_zh": "分布式内存架构",
+      "source": "subagent_domain_translation_post99_safe_patch_round2",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round2 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:electric_wiring__2",
+      "canonical_en": "Electric Wiring",
+      "alias_zh": "电气布线",
+      "source": "subagent_domain_translation_post99_safe_patch_round2",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round2 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:engineering_and_material_science_research",
+      "canonical_en": "Engineering And Material Science Research",
+      "alias_zh": "工程与材料科学研究",
+      "source": "subagent_domain_translation_post99_safe_patch_round2",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round2 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:extreme_learning_machine",
+      "canonical_en": "Extreme Learning Machine",
+      "alias_zh": "极限学习机",
+      "source": "subagent_domain_translation_post99_safe_patch_round2",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round2 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:intrusion_prevention",
+      "canonical_en": "Intrusion Prevention",
+      "alias_zh": "入侵防御",
+      "source": "subagent_domain_translation_post99_safe_patch_round2",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round2 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:channel_state_information__2",
+      "canonical_en": "Channel State Information",
+      "alias_zh": "信道状态信息",
+      "source": "subagent_domain_translation_post99_safe_patch_round2",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round2 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:monolithic_microwave_integrated_circuit",
+      "canonical_en": "Monolithic Microwave Integrated Circuits",
+      "alias_zh": "单片微波集成电路",
+      "source": "subagent_domain_translation_post99_safe_patch_round2",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round2 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:body_and_organ_system",
+      "canonical_en": "Body & Organ Systems",
+      "alias_zh": "身体与器官系统",
+      "source": "subagent_domain_translation_post99_safe_patch_round2",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round2 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:tinea",
+      "canonical_en": "Tinea",
+      "alias_zh": "皮肤癣菌病",
+      "source": "subagent_domain_translation_post99_safe_patch_round2",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round2 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:horseshoe_crab",
+      "canonical_en": "Horseshoe Crabs",
+      "alias_zh": "马蹄蟹",
+      "source": "subagent_domain_translation_post99_safe_patch_round2",
+      "reviewed_at": "2026-06-29",
+      "reason": "Subagent-approved exact/domain-aware post-99 round2 safe coverage patch."
     }
   ],
   "schema_version": "reviewed_zh_exact_aliases.v1",
