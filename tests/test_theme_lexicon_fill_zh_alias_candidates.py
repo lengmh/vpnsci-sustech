@@ -2780,6 +2780,96 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
         self.assertNotIn("S相位", generated)
         self.assertNotIn("酸磷酸酶", generated)
 
+    def test_50pct_review_feedback_corrects_exact_standard_terms(self) -> None:
+        concepts = [
+            ("concept:cluster_computing", "Cluster Computing", ["computer_science"], "ieee_taxonomy", "集群计算"),
+            ("concept:computational_electromagnetic__2", "Computational Electromagnetics", ["computer_science"], "ieee_taxonomy", "计算电磁学"),
+            ("concept:computational_linguistic__2", "Computational Linguistics", ["computer_science"], "ieee_taxonomy", "计算语言学"),
+            ("concept:dc_distribution_system", "DC Distribution System", ["computer_science"], "ieee_taxonomy", "直流配电系统"),
+            (
+                "concept:decision_support_system_clinical",
+                "Clinical Decision Support Systems",
+                ["biomedical", "health_care"],
+                "mesh",
+                "临床决策支持系统",
+            ),
+            ("concept:phase_change_memory", "Phase Change Memory", ["computer_science"], "ieee_taxonomy", "相变存储器"),
+            ("concept:q_switched", "Q-switched", ["biomedical", "technology_industry_agriculture"], "mesh", "调Q"),
+            ("concept:sql_injection", "SQL Injection", ["computer_science"], "ieee_taxonomy", "SQL注入"),
+            ("concept:supervised_machine_learning", "Supervised Machine Learning", ["computer_science"], "ieee_taxonomy", "监督机器学习"),
+            ("concept:tomography_optical", "Optical Tomography", ["biomedical", "diagnostic_techniques"], "mesh", "光学断层成像"),
+            ("concept:vision_transformer", "Vision Transformer", ["computer_science"], "ieee_taxonomy", "视觉Transformer"),
+            ("concept:amplitude_shift_keying", "Amplitude Shift Keying", ["communications_technology"], "ieee_taxonomy", "幅移键控"),
+            ("concept:answer_set_programming", "Answer Set Programming", ["computer_science"], "ieee_taxonomy", "答案集编程"),
+            ("concept:approximate_string_matching", "Approximate String Matching", ["computer_science"], "ieee_taxonomy", "近似字符串匹配"),
+            ("concept:asynchronous_transfer_mode", "Asynchronous Transfer Mode", ["communications_technology"], "ieee_taxonomy", "异步传输模式"),
+            ("concept:automated_theorem_proving", "Automated Theorem Proving", ["computer_science"], "ieee_taxonomy", "自动定理证明"),
+            ("concept:bistatic_radar__2", "Bistatic Radar", ["computer_science"], "ieee_taxonomy", "双基地雷达"),
+            ("concept:block_cipher", "Block Cipher", ["computer_science"], "ieee_taxonomy", "分组密码"),
+            ("concept:bounded_model_checking", "Bounded Model Checking", ["computer_science"], "ieee_taxonomy", "有界模型检测"),
+            ("concept:buffer_overflow", "Buffer Overflow", ["computer_science"], "ieee_taxonomy", "缓冲区溢出"),
+            ("concept:certificate_revocation", "Certificate Revocation", ["computer_science"], "ieee_taxonomy", "证书吊销"),
+            ("concept:collocation_method", "Collocation Method", ["mathematics"], "ieee_taxonomy", "配点法"),
+            ("concept:mercury_planet", "Mercury Planet", ["aerospace_and_electronic_systems"], "ieee_taxonomy", "水星"),
+            ("concept:microscopy_electron_scanning", "Microscopy, Electron, Scanning", ["biomedical"], "mesh", "扫描电子显微镜"),
+            ("concept:microscopy_electron_transmission", "Microscopy, Electron, Transmission", ["biomedical"], "mesh", "透射电子显微镜"),
+            ("concept:microscopy_interference", "Interference Microscopy", ["biomedical"], "mesh", "干涉显微镜"),
+            ("concept:intensive_care_unit_pediatric", "Pediatric Intensive Care Units", ["biomedical", "health_care"], "mesh", "儿科重症监护室"),
+            ("concept:liver_cirrhosi_biliary", "Biliary Liver Cirrhosis", ["biomedical", "diseases"], "mesh", "胆汁性肝硬化"),
+            ("concept:vision_low", "Low Vision", ["biomedical", "diseases"], "mesh", "低视力"),
+        ]
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": concept_id,
+                    "canonical_en": canonical_en,
+                    "aliases_en": [],
+                    "domains": domains,
+                    "source_refs": [{"source": source, "label": canonical_en}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+                for concept_id, canonical_en, domains, source, _expected in concepts
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        for concept_id, _canonical_en, _domains, _source, expected in concepts:
+            self.assertEqual(rows[concept_id]["zh_alias_candidates"][0]["alias"], expected)
+
+        generated_aliases = [
+            candidate["alias"]
+            for row in rows.values()
+            for candidate in row["zh_alias_candidates"]
+        ]
+        for bad_alias in (
+            "聚类计算",
+            "计算电磁",
+            "计算语言",
+            "DC分布系统",
+            "决策支持系统临床",
+            "相位变化存储",
+            "Q交换",
+            "SQL注射",
+            "半监督学习",
+            "断层成像光学",
+            "视觉变压器",
+            "配置法",
+            "行星汞元素",
+            "电子扫描显微镜",
+            "电子传输显微镜",
+            "干扰显微镜",
+            "儿科学重症监护室",
+            "胆道肝硬化",
+            "低视觉",
+        ):
+            self.assertNotIn(bad_alias, generated_aliases)
+
     def test_review_feedback_corrects_domain_polysemy_and_mechanical_order(self) -> None:
         write_jsonl(
             self.batch,
