@@ -390,7 +390,10 @@ class ThemeLexiconPollutionGuardTests(unittest.TestCase):
         fill_zh_alias_candidates.fill_zh_alias_candidates(candidate_dir=candidates)
 
         rows = {row["concept_id"]: row for row in read_jsonl(active)}
-        self.assertEqual(rows["concept:covariance_matrix_adaptation"]["zh_alias_candidates"], [])
+        self.assertEqual(
+            rows["concept:covariance_matrix_adaptation"]["zh_alias_candidates"][0]["alias"],
+            "协方差矩阵适应",
+        )
         self.assertEqual(rows["concept:petri_net"]["zh_alias_candidates"][0]["alias"], "Petri网")
 
 

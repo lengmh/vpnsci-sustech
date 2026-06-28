@@ -15584,6 +15584,695 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
         self.assertNotIn("导航溶液", generated)
         self.assertNotIn("接触晶状体溶液", generated)
 
+    def test_exact_expansion_batch_3401_to_3600_adds_technical_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("additive_white_noise", "Additive White Noise", ["signal_processing"], "加性白噪声"),
+                ("attention_mechanism__2", "Attention Mechanism", ["computer_science"], "注意力机制"),
+                ("audio_visual", "Audio-visual", ["computer_science"], "视听"),
+                ("data_visualization_and_analytic", "Data Visualization And Analytics", ["computer_science"], "数据可视化与分析"),
+                ("device_to_device_communication", "Device-to-device Communication", ["communications_technology"], "设备到设备通信"),
+                ("free_space_optical_communication", "Free-space Optical Communication", ["communications_technology"], "自由空间光通信"),
+            ]
+        )
+
+    def test_exact_expansion_batch_3401_to_3600_does_not_accept_bad_machine_shapes(self) -> None:
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": "concept:bus_based",
+                    "canonical_en": "Bus-based",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Bus-based"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:cluster_based",
+                    "canonical_en": "Cluster-based",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Cluster-based"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:communication_channels_information_theory",
+                    "canonical_en": "Communication Channels (information theory)",
+                    "aliases_en": [],
+                    "domains": ["communications_technology"],
+                    "source_refs": [{"source": "cso", "label": "Communication Channels (information theory)"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:artificial_intelligence_in_gam",
+                    "canonical_en": "Artificial Intelligence In Games",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "openalex_topics", "label": "Artificial Intelligence In Games"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        generated = json.dumps(list(read_jsonl(self.batch)), ensure_ascii=False)
+        self.assertNotIn("总线基于", generated)
+        self.assertNotIn("聚类基于", generated)
+        self.assertNotIn("通信信道信息理论", generated)
+        self.assertNotIn("人工智能游戏", generated)
+
+    def test_exact_expansion_batch_3601_to_3800_adds_network_interaction_and_radio_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("human_computer_interface", "Human Computer Interface", ["computer_science"], "人机接口"),
+                ("ip_address", "Ip Address", ["computer_science"], "IP地址"),
+                ("iris_recognition_algorithm", "Iris Recognition Algorithm", ["computer_science"], "虹膜识别算法"),
+                ("optical_sensor__3", "Optical Sensor", ["computer_science"], "光学传感器"),
+                ("qos_routing_protocol", "Qos Routing Protocol", ["computer_science"], "QoS路由协议"),
+                ("radio_resource_management", "Radio Resource Management", ["computer_science"], "无线电资源管理"),
+                ("real_number", "Real Number", ["mathematics"], "实数"),
+                ("semantic_orientation", "Semantic Orientation", ["computer_science"], "语义倾向"),
+            ]
+        )
+
+    def test_exact_expansion_batch_3601_to_3800_corrects_machine_word_order(self) -> None:
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": "concept:human_machine_interaction",
+                    "canonical_en": "Human Machine Interaction",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Human Machine Interaction"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:inverse_method",
+                    "canonical_en": "Inverse Method",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Inverse Method"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:real_time_streaming",
+                    "canonical_en": "Real Time Streaming",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Real Time Streaming"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:quality_of_service",
+                    "canonical_en": "Quality Of Service",
+                    "aliases_en": [],
+                    "domains": ["communications_technology", "computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Quality Of Service"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        self.assertEqual(rows["concept:human_machine_interaction"]["zh_alias_candidates"][0]["alias"], "人机交互")
+        self.assertEqual(rows["concept:inverse_method"]["zh_alias_candidates"][0]["alias"], "反演方法")
+        self.assertEqual(rows["concept:real_time_streaming"]["zh_alias_candidates"][0]["alias"], "实时流媒体")
+        self.assertEqual(rows["concept:quality_of_service"]["zh_alias_candidates"][0]["alias"], "服务质量")
+
+        generated = json.dumps(rows, ensure_ascii=False)
+        self.assertNotIn("人机器交互", generated)
+        self.assertNotIn("逆方法", generated)
+        self.assertNotIn("实时流式传输", generated)
+        self.assertNotIn("质量服务", generated)
+
+    def test_exact_expansion_batch_3801_to_4000_adds_web_visual_and_signal_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("machine_translation__2", "machine translation systems", ["computer_science"], "机器翻译系统"),
+                ("noise_reduction", "Noise Reduction", ["computer_science"], "降噪"),
+                ("process_oriented", "Process-oriented", ["computer_science"], "面向过程"),
+                ("visual_analytic", "Visual Analytics", ["computer_science"], "可视分析"),
+                ("wavelet_domain", "Wavelet Domain", ["computer_science"], "小波域"),
+                ("web_crawler", "Web Crawler", ["computer_science"], "Web爬虫"),
+                ("web_application_security_vulnerability", "Web Application Security Vulnerabilities", ["computer_science"], "Web应用安全漏洞"),
+                ("xml_query", "Xml Queries", ["computer_science"], "XML查询"),
+            ]
+        )
+
+    def test_exact_expansion_batch_3801_to_4000_corrects_bad_machine_translations(self) -> None:
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": "concept:machine_translation__2",
+                    "canonical_en": "machine translation systems",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "cso", "label": "machine translation systems"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:noise_reduction_method",
+                    "canonical_en": "Noise Reduction Methods",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Noise Reduction Methods"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:service_oriented_architecture_and_web_servic",
+                    "canonical_en": "Service-oriented Architecture And Web Services",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "openalex_topics", "label": "Service-oriented Architecture And Web Services"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:wavelet_domain",
+                    "canonical_en": "Wavelet Domain",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Wavelet Domain"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        self.assertEqual(rows["concept:machine_translation__2"]["zh_alias_candidates"][0]["alias"], "机器翻译系统")
+        self.assertEqual(rows["concept:noise_reduction_method"]["zh_alias_candidates"][0]["alias"], "降噪方法")
+        self.assertEqual(
+            rows["concept:service_oriented_architecture_and_web_servic"]["zh_alias_candidates"][0]["alias"],
+            "面向服务架构与Web服务",
+        )
+        self.assertEqual(rows["concept:wavelet_domain"]["zh_alias_candidates"][0]["alias"], "小波域")
+
+        generated = json.dumps(rows, ensure_ascii=False)
+        self.assertNotIn("机器转换系统", generated)
+        self.assertNotIn("噪声降维", generated)
+        self.assertNotIn("服务面向架构", generated)
+        self.assertNotIn("小波领域", generated)
+
+    def test_exact_expansion_batch_4001_to_4600_adds_cs_runtime_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("data_anonymization", "Data Anonymization", ["computer_science"], "数据匿名化"),
+                ("digital_signal_processing", "Digital Signal Processing", ["computer_science"], "数字信号处理"),
+                ("image_registration", "Image Registration", ["computer_science"], "图像配准"),
+                ("information_retrieval__2", "Information Retrieval", ["computer_science"], "信息检索"),
+                ("mobile_ad_hoc_network_manet", "Mobile Ad Hoc Networks (manet)", ["computer_science"], "移动自组织网络MANET"),
+                ("network_function_virtualization", "Network Function Virtualization", ["communications_technology"], "网络功能虚拟化"),
+                ("optical_character_recognition__2", "Optical Character Recognition", ["computer_science"], "光学字符识别"),
+                ("software_defined_networking", "Software Defined Networking", ["communications_technology"], "软件定义网络"),
+                ("virtual_private_network", "Virtual Private Networks", ["communications_technology"], "虚拟专用网络"),
+                ("wireless_sensor_network", "Wireless Sensor Networks", ["computer_science"], "无线传感器网络"),
+            ]
+        )
+
+    def test_exact_expansion_batch_4001_to_4600_corrects_bad_literal_terms(self) -> None:
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": "concept:mobile_ad_hoc_network",
+                    "canonical_en": "Mobile Ad Hoc Networks",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Mobile Ad Hoc Networks"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:network_on_chip",
+                    "canonical_en": "Network On Chip",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Network On Chip"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:signal_to_interference_plus_noise_ratio",
+                    "canonical_en": "Signal To Interference Plus Noise Ratio",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Signal To Interference Plus Noise Ratio"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:web_spam",
+                    "canonical_en": "Web Spam",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Web Spam"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        self.assertEqual(rows["concept:mobile_ad_hoc_network"]["zh_alias_candidates"][0]["alias"], "移动自组织网络")
+        self.assertEqual(rows["concept:network_on_chip"]["zh_alias_candidates"][0]["alias"], "片上网络")
+        self.assertEqual(rows["concept:signal_to_interference_plus_noise_ratio"]["zh_alias_candidates"][0]["alias"], "信干噪比")
+        self.assertEqual(rows["concept:web_spam"]["zh_alias_candidates"][0]["alias"], "Web垃圾信息")
+
+        generated = json.dumps(rows, ensure_ascii=False)
+        self.assertNotIn("移动临时网络", generated)
+        self.assertNotIn("芯片上的网络", generated)
+        self.assertNotIn("信号到干扰加噪声比", generated)
+        self.assertNotIn("Web垃圾邮件", generated)
+
+    def test_exact_expansion_batch_4601_to_5200_adds_biomed_sequence_and_protein_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("rna_long_noncoding", "RNA, Long Noncoding", ["biomedical", "chemicals_and_drugs"], "长链非编码RNA"),
+                ("rna_interference", "RNA Interference", ["biomedical", "phenomena_and_processes"], "RNA干扰"),
+                ("dna_recombinant", "DNA, Recombinant", ["biomedical", "chemicals_and_drugs"], "重组DNA"),
+                ("dna_copy_number_variation__2", "DNA Copy Number Variations", ["biomedical", "phenomena_and_processes"], "DNA拷贝数变异"),
+                ("protein_folding", "Protein Folding", ["biomedical", "phenomena_and_processes"], "蛋白质折叠"),
+                ("protein_kinase_c_alpha", "Protein Kinase C-alpha", ["biomedical", "chemicals_and_drugs"], "蛋白激酶C-α"),
+                ("viral_load", "Viral Load", ["biomedical"], "病毒载量"),
+                ("bacterial_typing_techniqu__2", "Bacterial Typing Techniques", ["biomedical"], "细菌分型技术"),
+            ]
+        )
+
+    def test_exact_expansion_batch_4601_to_5200_corrects_bad_biomed_literals(self) -> None:
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": "concept:rna_long_noncoding",
+                    "canonical_en": "RNA, Long Noncoding",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "chemicals_and_drugs"],
+                    "source_refs": [{"source": "mesh", "label": "RNA, Long Noncoding"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:dna_shuffling",
+                    "canonical_en": "DNA Shuffling",
+                    "aliases_en": [],
+                    "domains": ["biomedical"],
+                    "source_refs": [{"source": "mesh", "label": "DNA Shuffling"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:protein_processing_post_translational",
+                    "canonical_en": "Protein Processing, Post-translational",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "phenomena_and_processes"],
+                    "source_refs": [{"source": "mesh", "label": "Protein Processing, Post-translational"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:viral_plaque_assay",
+                    "canonical_en": "Viral Plaque Assay",
+                    "aliases_en": [],
+                    "domains": ["biomedical"],
+                    "source_refs": [{"source": "mesh", "label": "Viral Plaque Assay"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        self.assertEqual(rows["concept:rna_long_noncoding"]["zh_alias_candidates"][0]["alias"], "长链非编码RNA")
+        self.assertEqual(rows["concept:dna_shuffling"]["zh_alias_candidates"][0]["alias"], "DNA改组")
+        self.assertEqual(rows["concept:protein_processing_post_translational"]["zh_alias_candidates"][0]["alias"], "翻译后蛋白质加工")
+        self.assertEqual(rows["concept:viral_plaque_assay"]["zh_alias_candidates"][0]["alias"], "病毒空斑测定")
+
+        generated = json.dumps(rows, ensure_ascii=False)
+        self.assertNotIn("RNA长非编码", generated)
+        self.assertNotIn("DNA洗牌", generated)
+        self.assertNotIn("后转译蛋白质处理", generated)
+        self.assertNotIn("病毒斑块测定", generated)
+
+    def test_exact_expansion_batch_5201_to_5800_adds_dental_and_tooth_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("dental_abutment", "Dental Abutments", ["biomedical"], "牙科基台"),
+                ("dental_care_for_children", "Dental Care For Children", ["biomedical"], "儿童牙科护理"),
+                ("dental_enamel_hypoplasia", "Dental Enamel Hypoplasia", ["biomedical", "diseases"], "牙釉质发育不全"),
+                ("dental_implantation_endosseou", "Dental Implantation, Endosseous", ["biomedical"], "骨内牙种植"),
+                ("dental_pulp_necrosi", "Dental Pulp Necrosis", ["biomedical", "diseases"], "牙髓坏死"),
+                ("tooth_demineralization", "Tooth Demineralization", ["biomedical", "diseases"], "牙脱矿"),
+                ("tooth_impacted", "Tooth, Impacted", ["biomedical", "diseases"], "阻生牙"),
+                ("tooth_remineralization", "Tooth Remineralization", ["biomedical"], "牙再矿化"),
+            ]
+        )
+
+    def test_exact_expansion_batch_5201_to_5800_corrects_bad_dental_literals(self) -> None:
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": "concept:dental_calculu",
+                    "canonical_en": "Dental Calculus",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "diseases"],
+                    "source_refs": [{"source": "mesh", "label": "Dental Calculus"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:dental_cavity_preparation",
+                    "canonical_en": "Dental Cavity Preparation",
+                    "aliases_en": [],
+                    "domains": ["biomedical"],
+                    "source_refs": [{"source": "mesh", "label": "Dental Cavity Preparation"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:tooth_deciduou",
+                    "canonical_en": "Tooth, Deciduous",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "anatomy"],
+                    "source_refs": [{"source": "mesh", "label": "Tooth, Deciduous"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:tooth_fractur",
+                    "canonical_en": "Tooth Fractures",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "diseases"],
+                    "source_refs": [{"source": "mesh", "label": "Tooth Fractures"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        self.assertEqual(rows["concept:dental_calculu"]["zh_alias_candidates"][0]["alias"], "牙结石")
+        self.assertEqual(rows["concept:dental_cavity_preparation"]["zh_alias_candidates"][0]["alias"], "窝洞预备")
+        self.assertEqual(rows["concept:tooth_deciduou"]["zh_alias_candidates"][0]["alias"], "乳牙")
+        self.assertEqual(rows["concept:tooth_fractur"]["zh_alias_candidates"][0]["alias"], "牙折")
+
+        generated = json.dumps(rows, ensure_ascii=False)
+        self.assertNotIn("牙科微积分", generated)
+        self.assertNotIn("牙腔准备", generated)
+        self.assertNotIn("落叶牙", generated)
+        self.assertNotIn("牙齿骨折", generated)
+
+    def test_exact_expansion_batch_5801_to_6400_adds_receptor_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("receptor_adenosine_a1", "Receptor, Adenosine A1", ["biomedical", "chemicals_and_drugs"], "腺苷A1受体"),
+                ("receptor_adrenergic_alpha_1", "Receptors, Adrenergic, Alpha-1", ["biomedical"], "α1肾上腺素能受体"),
+                ("receptor_cannabinoid_cb1", "Receptor, Cannabinoid, CB1", ["biomedical"], "大麻素CB1受体"),
+                ("receptor_ccr5", "Receptors, CCR5", ["biomedical"], "CCR5受体"),
+                ("receptor_chimeric_antigen", "Receptors, Chimeric Antigen", ["biomedical"], "嵌合抗原受体"),
+                ("receptor_endothelin_a", "Receptor, Endothelin A", ["biomedical"], "内皮素A受体"),
+                ("receptor_epha2", "Receptor, Epha2", ["biomedical"], "EphA2受体"),
+                ("receptor_muscarinic_m3", "Receptor, Muscarinic M3", ["biomedical"], "毒蕈碱M3受体"),
+            ]
+        )
+
+    def test_exact_expansion_batch_5801_to_6400_corrects_bad_receptor_literals(self) -> None:
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": "concept:receptor_adrenergic_beta_2",
+                    "canonical_en": "Receptors, Adrenergic, Beta-2",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "chemicals_and_drugs"],
+                    "source_refs": [{"source": "mesh", "label": "Receptors, Adrenergic, Beta-2"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:receptor_calcitonin_gene_related_peptide",
+                    "canonical_en": "Receptors, Calcitonin Gene-related Peptide",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "chemicals_and_drugs"],
+                    "source_refs": [{"source": "mesh", "label": "Receptors, Calcitonin Gene-related Peptide"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:receptor_cholecystokinin_b",
+                    "canonical_en": "Receptor, Cholecystokinin B",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "chemicals_and_drugs"],
+                    "source_refs": [{"source": "mesh", "label": "Receptor, Cholecystokinin B"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:receptor_notch4",
+                    "canonical_en": "Receptor, Notch4",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "chemicals_and_drugs"],
+                    "source_refs": [{"source": "mesh", "label": "Receptor, Notch4"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        self.assertEqual(rows["concept:receptor_adrenergic_beta_2"]["zh_alias_candidates"][0]["alias"], "β2肾上腺素能受体")
+        self.assertEqual(
+            rows["concept:receptor_calcitonin_gene_related_peptide"]["zh_alias_candidates"][0]["alias"],
+            "降钙素基因相关肽受体",
+        )
+        self.assertEqual(rows["concept:receptor_cholecystokinin_b"]["zh_alias_candidates"][0]["alias"], "胆囊收缩素B受体")
+        self.assertEqual(rows["concept:receptor_notch4"]["zh_alias_candidates"][0]["alias"], "Notch4受体")
+
+        generated = json.dumps(rows, ensure_ascii=False)
+        self.assertNotIn("肾上腺素能贝塔-2受体", generated)
+        self.assertNotIn("降钙素基因相关肽的受体", generated)
+        self.assertNotIn("胆囊收缩激素B受体", generated)
+        self.assertNotIn("缺口4受体", generated)
+
+    def test_exact_expansion_batch_6401_to_7000_adds_receptor_continuation_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("receptor_cxcr4", "Receptors, Cxcr4", ["biomedical"], "CXCR4受体"),
+                ("receptor_dopamine_d2", "Receptors, Dopamine D2", ["biomedical"], "多巴胺D2受体"),
+                ("receptor_gaba_a", "Receptors, Gaba-a", ["biomedical"], "GABA-A受体"),
+                ("receptor_interleukin_6", "Receptors, Interleukin-6", ["biomedical"], "白细胞介素6受体"),
+                ("receptor_kir2dl1", "Receptors, Kir2dl1", ["biomedical"], "KIR2DL1受体"),
+                ("receptor_leptin", "Receptors, Leptin", ["biomedical"], "瘦素受体"),
+                ("receptor_opioid_mu", "Receptors, Opioid, Mu", ["biomedical"], "μ阿片受体"),
+                ("receptor_platelet_derived_growth_factor", "Receptors, Platelet-derived Growth Factor", ["biomedical"], "血小板源性生长因子受体"),
+            ]
+        )
+
+    def test_exact_expansion_batch_6401_to_7000_corrects_bad_receptor_literals(self) -> None:
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": "concept:receptor_death_domain",
+                    "canonical_en": "Receptors, Death Domain",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "chemicals_and_drugs"],
+                    "source_refs": [{"source": "mesh", "label": "Receptors, Death Domain"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:receptor_for_advanced_glycation_end_product",
+                    "canonical_en": "Receptor For Advanced Glycation End Products",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "chemicals_and_drugs"],
+                    "source_refs": [{"source": "mesh", "label": "Receptor For Advanced Glycation End Products"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:receptor_ionotropic_glutamate",
+                    "canonical_en": "Receptors, Ionotropic Glutamate",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "chemicals_and_drugs"],
+                    "source_refs": [{"source": "mesh", "label": "Receptors, Ionotropic Glutamate"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:receptor_parathyroid_hormone",
+                    "canonical_en": "Receptors, Parathyroid Hormone",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "chemicals_and_drugs"],
+                    "source_refs": [{"source": "mesh", "label": "Receptors, Parathyroid Hormone"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        self.assertEqual(rows["concept:receptor_death_domain"]["zh_alias_candidates"][0]["alias"], "死亡结构域受体")
+        self.assertEqual(rows["concept:receptor_for_advanced_glycation_end_product"]["zh_alias_candidates"][0]["alias"], "晚期糖基化终产物受体")
+        self.assertEqual(rows["concept:receptor_ionotropic_glutamate"]["zh_alias_candidates"][0]["alias"], "离子型谷氨酸受体")
+        self.assertEqual(rows["concept:receptor_parathyroid_hormone"]["zh_alias_candidates"][0]["alias"], "甲状旁腺激素受体")
+
+        generated = json.dumps(rows, ensure_ascii=False)
+        self.assertNotIn("死亡域受体", generated)
+        self.assertNotIn("先进糖化终产物受体", generated)
+        self.assertNotIn("离子谷氨酸受体", generated)
+        self.assertNotIn("甲状旁腺荷尔蒙受体", generated)
+
+    def test_domain_aware_exact_patterns_add_life_and_technical_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("bone_morphogenetic_protein_receptor", "Bone Morphogenetic Protein Receptors", ["biomedical"], "骨形态发生蛋白受体"),
+                ("ciliary_neurotrophic_factor_receptor_alpha_subunit", "Ciliary Neurotrophic Factor Receptor Alpha Subunit", ["biomedical"], "睫状神经营养因子受体α亚基"),
+                ("estrogen_receptor_antagonist", "Estrogen Receptor Antagonists", ["biomedical"], "雌激素受体拮抗剂"),
+                ("viral_matrix_protein", "Viral Matrix Proteins", ["biomedical"], "病毒基质蛋白"),
+                ("chirp_signal", "Chirp Signals", ["computer_science"], "线性调频信号"),
+                ("fbg_sensor", "Fbg Sensor", ["computer_science"], "FBG传感器"),
+                ("kalman_filter_algorithm", "Kalman Filter Algorithms", ["computer_science"], "卡尔曼滤波算法"),
+                ("visible_light_communication", "Visible Light Communication", ["communications_technology"], "可见光通信"),
+                ("accuracy_function", "Accuracy Functions", ["computer_science"], "精度函数"),
+                ("advanced_photonic_communication_system", "Advanced Photonic Communication Systems", ["engineering", "physical_sciences"], "高级光子通信系统"),
+                ("advanced_oxidation_water_treatment", "Advanced Oxidation Water Treatment", ["engineering", "physical_sciences"], "高级氧化水处理"),
+                ("graphene_synthesis", "Graphene Synthesis", ["materials_science"], "石墨烯合成"),
+                ("heavy_metal_removal", "Heavy Metal Removal", ["environmental_science"], "重金属去除"),
+                ("affective_computing", "Affective Computing", ["computer_science"], "情感性计算"),
+                ("atomic_force_microscopy", "Atomic Force Microscopy", ["imaging"], "原子力显微镜"),
+                ("breast_feeding", "Breast Feeding", ["biomedical"], "母乳喂养"),
+                ("carbon_fiber", "Carbon Fiber", ["biomedical", "chemicals_and_drugs"], "碳纤维"),
+                ("thyroid_function_test", "Thyroid Function Tests", ["biomedical"], "甲状腺功能测试"),
+                ("intelligent_automotive_solution", "Intelligent Automotive Solution", ["computer_science"], "智能汽车解决方案"),
+                ("inverse_kinematic_solution", "Inverse Kinematic Solutions", ["computer_science"], "逆运动学解"),
+                ("pareto_solution", "Pareto Solutions", ["computer_science"], "帕累托解"),
+                ("solution_method", "Solution Methods", ["computer_science"], "求解方法"),
+            ]
+        )
+
+    def test_domain_aware_exact_patterns_skip_known_bad_shapes(self) -> None:
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": "concept:communication_disorder",
+                    "canonical_en": "Communication Disorders",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "diseases"],
+                    "source_refs": [{"source": "mesh", "label": "Communication Disorders"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:culture_techniqu",
+                    "canonical_en": "Culture Techniques",
+                    "aliases_en": [],
+                    "domains": ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                    "source_refs": [{"source": "mesh", "label": "Culture Techniques"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:solar_energy_system_and_technology",
+                    "canonical_en": "Solar Energy Systems And Technologies",
+                    "aliases_en": [],
+                    "domains": ["engineering", "physical_sciences"],
+                    "source_refs": [{"source": "openalex_topics", "label": "Solar Energy Systems And Technologies"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        self.assertEqual(rows["concept:communication_disorder"]["zh_alias_candidates"][0]["alias"], "沟通障碍")
+        self.assertEqual(rows["concept:culture_techniqu"]["zh_alias_candidates"][0]["alias"], "培养技术")
+        self.assertEqual(rows["concept:solar_energy_system_and_technology"]["zh_alias_candidates"][0]["alias"], "太阳能系统技术")
+        generated = json.dumps(rows, ensure_ascii=False)
+        self.assertNotIn("通信障碍", generated)
+        self.assertNotIn("文化技术", generated)
+        self.assertNotIn("太阳能能源", generated)
+        self.assertNotIn("研究研究", generated)
+        self.assertNotIn("乳腺馈电", generated)
+        self.assertNotIn("碱性情绪", generated)
+        self.assertNotIn("溶液方法", generated)
+
 
 if __name__ == "__main__":
     unittest.main()
