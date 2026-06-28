@@ -75,8 +75,12 @@ lexicons/
 通用：
 
 ```powershell
-uv run pytest -q
+uv run pytest tests -q
 ```
+
+说明：仓库根目录 `uv run pytest -q` 当前会额外收集
+`tools/paper-search-pro/tests` 并触发既有 `tests.*` 导入布局错误；在该
+collection 问题修复前，项目主测试套件以 `uv run pytest tests -q` 为准。
 
 主题 alias pipeline 相关：
 
@@ -156,7 +160,8 @@ lexicons/review/
 最新已知状态（2026-06-28 post-70 review 后）：
 
 - compact runtime `build_status`: `review_complete`
-- 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
+- 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，
+  最新 fill `records_filled = 41434 / records_seen = 54682`；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
 - runtime 中文覆盖：`34343 / 49060 = 70.00%`（exact `70.002%`）
 - runtime zh aliases: `34459`
@@ -186,12 +191,21 @@ lexicons/review/
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
 - compact index 是当前运行时真源；legacy full overlay 未随 batch-007 之后的覆盖扩展更新，不再作为默认等价检查对象。
-- 最近相关测试：`882 passed in 6.56s`。
+- 最近相关测试：post-70 review cleanup 后，focused alias/runtime suite
+  `917 passed in 23.22s`；project suite
+  `1258 passed, 4 subtests passed in 84.90s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
 - post-7000 exact/domain-aware pattern milestone 已完成，runtime 中文覆盖到 `40.49%`；post-40 review cleanup 收口到 `43.18%`；post-40 continuation 已清理并达到 clean `50.01%`；post-50-to-60 子代理审查 milestone 已达到 clean `60.10%`；post-60-to-70 子代理审查 milestone 已达到 clean `70.00%`（exact `70.002%`）；
+- post-70 review cleanup 已完成最终修复：package 与 paper-search-pro
+  runtime 均使用 compact index 一致的 CJK/Latin alias 归一化与中文 alias
+  extraction，并修复 `pH控制` / `AH控制` / `p-H控制` / `p H控制`
+  误命中 `H控制`、`服务质量Q路由` / `服务质量123路由` 被当标点折叠、
+  `μ-阿片受体` / `μ 阿片受体` 漏命中 `μ阿片受体` 的边界；reviewed
+  exact alias 生产 overlay 不再污染同进程临时 candidate dir；`Epidemic Routing`、
+  `Error Floor`、`Run Time Reconfiguration`、`Session Initiation Protocol` 的坏译源项已修正；
 - 后续连续扩展继续采用新的提交节奏：每 `5` 轮 `20-batch` 处理作为一个最终 milestone commit；中间 checkpoint、review 清单和 smoke 产物仅放在 `F:\AI playground\TempFiles`，不再每轮 20-batch 都提交；
 - batch-2187-to-3400 milestone 临时审查产物：
   `F:\AI playground\TempFiles\review_decisions.before-35pct.20260625-012746.jsonl`，

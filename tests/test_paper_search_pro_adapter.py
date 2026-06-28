@@ -492,7 +492,12 @@ class PaperSearchProAdapterTests(unittest.TestCase):
 
             self.assertEqual(treemap["method"], "seed_text_frequency_fallback")
             self.assertIn("靶向放射性核素治疗", theme_names)
-            self.assertIn("硼中子俘获治疗", theme_names)
+            bnct = next(
+                theme for theme in treemap["themes"]
+                if theme.get("concept_id") == "concept:boron_neutron_capture_therapy"
+            )
+            self.assertEqual(bnct["method"], "concept_alias_text_fallback")
+            self.assertEqual(bnct["matched_aliases"], {"zh": ["硼中子俘获治疗"]})
             self.assertNotIn("治疗", theme_names)
             self.assertNotIn("进行", theme_names)
             self.assertNotIn("通过", theme_names)

@@ -86,6 +86,144 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             {"reviewed domain term": "已审领域术语"},
         )
 
+    def test_reviewed_zh_exact_aliases_do_not_leak_into_temp_candidate_dirs(self) -> None:
+        reviewed = self.root / "reviewed_zh_exact_aliases.json"
+        reviewed.write_text(
+            json.dumps(
+                {
+                    "aliases": [
+                        {
+                            "concept_id": "concept:reviewed_isolation_term",
+                            "canonical_en": "Reviewed Isolation Term",
+                            "alias_zh": "已审隔离术语",
+                        }
+                    ]
+                },
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": "concept:reviewed_isolation_term",
+                    "canonical_en": "Reviewed Isolation Term",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "openalex_topics", "label": "Reviewed Isolation Term"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+            ],
+        )
+
+        module = load_module()
+        original_loader = module._load_reviewed_zh_exact_aliases
+        original_loaded = module._REVIEWED_ZH_EXACT_ALIASES_LOADED
+        original_reviewed_aliases = dict(module._REVIEWED_ZH_EXACT_ALIASES)
+        original_aliases = dict(module.EXACT_ALIASES)
+        try:
+            module._load_reviewed_zh_exact_aliases = lambda: original_loader(reviewed)
+            module._REVIEWED_ZH_EXACT_ALIASES_LOADED = False
+            module._ensure_reviewed_zh_exact_aliases_loaded()
+            module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+        finally:
+            module._load_reviewed_zh_exact_aliases = original_loader
+            module._REVIEWED_ZH_EXACT_ALIASES_LOADED = original_loaded
+            module._REVIEWED_ZH_EXACT_ALIASES = original_reviewed_aliases
+            module.EXACT_ALIASES = original_aliases
+
+        rows = read_jsonl(self.batch)
+        self.assertEqual(rows[0]["zh_alias_candidates"], [])
+
+    def test_reviewed_zh_exact_aliases_apply_only_to_production_candidate_dir(self) -> None:
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": "concept:reviewed_production_term",
+                    "canonical_en": "Reviewed Production Term",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "openalex_topics", "label": "Reviewed Production Term"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+            ],
+        )
+
+        module = load_module()
+        original_loader = module._load_reviewed_zh_exact_aliases
+        original_loaded = module._REVIEWED_ZH_EXACT_ALIASES_LOADED
+        original_reviewed_aliases = dict(module._REVIEWED_ZH_EXACT_ALIASES)
+        original_exact_aliases = dict(module.EXACT_ALIASES)
+        original_production_dir = module.PRODUCTION_CANDIDATE_DIR
+        try:
+            module.PRODUCTION_CANDIDATE_DIR = self.candidates
+            module._load_reviewed_zh_exact_aliases = lambda: {"reviewed production term": "已审生产术语"}
+            module._REVIEWED_ZH_EXACT_ALIASES_LOADED = False
+            module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+            self.assertEqual(module.EXACT_ALIASES, original_exact_aliases)
+        finally:
+            module.PRODUCTION_CANDIDATE_DIR = original_production_dir
+            module._load_reviewed_zh_exact_aliases = original_loader
+            module._REVIEWED_ZH_EXACT_ALIASES_LOADED = original_loaded
+            module._REVIEWED_ZH_EXACT_ALIASES = original_reviewed_aliases
+            module.EXACT_ALIASES = original_exact_aliases
+
+        rows = read_jsonl(self.batch)
+        self.assertEqual(rows[0]["zh_alias_candidates"][0]["alias"], "已审生产术语")
+
+    def test_reviewed_zh_exact_aliases_do_not_leak_after_production_fill(self) -> None:
+        temp_candidates = self.root / "temp_candidates"
+        temp_batch = temp_candidates / "zh_alias_candidates.batch-001.jsonl"
+        (temp_candidates / "zh_alias_candidate_manifest.json").parent.mkdir(parents=True, exist_ok=True)
+        (temp_candidates / "zh_alias_candidate_manifest.json").write_text(
+            json.dumps({"batches": [{"output": str(temp_batch)}]}, ensure_ascii=False),
+            encoding="utf-8",
+        )
+        rows = [
+            {
+                "concept_id": "concept:reviewed_sequence_term",
+                "canonical_en": "Reviewed Sequence Term",
+                "aliases_en": [],
+                "domains": ["computer_science"],
+                "source_refs": [{"source": "openalex_topics", "label": "Reviewed Sequence Term"}],
+                "max_zh_alias_candidates": 3,
+                "candidate_generation_status": "pending_host_agent",
+                "zh_alias_candidates": [],
+            }
+        ]
+        write_jsonl(self.batch, rows)
+        write_jsonl(temp_batch, rows)
+
+        module = load_module()
+        original_loader = module._load_reviewed_zh_exact_aliases
+        original_loaded = module._REVIEWED_ZH_EXACT_ALIASES_LOADED
+        original_reviewed_aliases = dict(module._REVIEWED_ZH_EXACT_ALIASES)
+        original_exact_aliases = dict(module.EXACT_ALIASES)
+        original_production_dir = module.PRODUCTION_CANDIDATE_DIR
+        try:
+            module.PRODUCTION_CANDIDATE_DIR = self.candidates
+            module._load_reviewed_zh_exact_aliases = lambda: {"reviewed sequence term": "已审序列术语"}
+            module._REVIEWED_ZH_EXACT_ALIASES_LOADED = False
+            module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+            module.fill_zh_alias_candidates(candidate_dir=temp_candidates)
+        finally:
+            module.PRODUCTION_CANDIDATE_DIR = original_production_dir
+            module._load_reviewed_zh_exact_aliases = original_loader
+            module._REVIEWED_ZH_EXACT_ALIASES_LOADED = original_loaded
+            module._REVIEWED_ZH_EXACT_ALIASES = original_reviewed_aliases
+            module.EXACT_ALIASES = original_exact_aliases
+
+        production_rows = read_jsonl(self.batch)
+        temp_rows = read_jsonl(temp_batch)
+        self.assertEqual(production_rows[0]["zh_alias_candidates"][0]["alias"], "已审序列术语")
+        self.assertEqual(temp_rows[0]["zh_alias_candidates"], [])
+
     def test_fills_high_confidence_source_priority_aliases_without_overwriting_existing(self) -> None:
         write_jsonl(
             self.batch,
@@ -16007,6 +16145,68 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
         self.assertNotIn("噪声降维", generated)
         self.assertNotIn("服务面向架构", generated)
         self.assertNotIn("小波领域", generated)
+
+    def test_exact_expansion_batch_4001_to_7000_corrects_networking_protocol_terms(self) -> None:
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": "concept:epidemic_routing",
+                    "canonical_en": "Epidemic Routing",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Epidemic Routing"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:error_floor",
+                    "canonical_en": "Error Floor",
+                    "aliases_en": [],
+                    "domains": ["communications_technology", "computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Error Floor"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:run_time_reconfiguration",
+                    "canonical_en": "Run Time Reconfiguration",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Run Time Reconfiguration"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:session_initiation_protocol",
+                    "canonical_en": "Session Initiation Protocol",
+                    "aliases_en": [],
+                    "domains": ["computer_science"],
+                    "source_refs": [{"source": "cso", "label": "Session Initiation Protocol"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        self.assertEqual(rows["concept:epidemic_routing"]["zh_alias_candidates"][0]["alias"], "传染病路由")
+        self.assertEqual(rows["concept:error_floor"]["zh_alias_candidates"][0]["alias"], "误码平台")
+        self.assertEqual(rows["concept:run_time_reconfiguration"]["zh_alias_candidates"][0]["alias"], "运行时重配置")
+        self.assertEqual(rows["concept:session_initiation_protocol"]["zh_alias_candidates"][0]["alias"], "会话发起协议")
+
+        generated = json.dumps(rows, ensure_ascii=False)
+        self.assertNotIn("流行路由", generated)
+        self.assertNotIn("错误平台", generated)
+        self.assertNotIn("运行时重构", generated)
+        self.assertNotIn("会话初始协议", generated)
 
     def test_exact_expansion_batch_4001_to_4600_adds_cs_runtime_terms(self) -> None:
         self.assert_exact_alias_cases(
