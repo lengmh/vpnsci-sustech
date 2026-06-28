@@ -153,45 +153,45 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-28 post-60 review 后）：
+最新已知状态（2026-06-28 post-70 review 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`29479 / 49049 = 60.10%`
-- runtime zh aliases: `29595`
+- runtime 中文覆盖：`34343 / 49060 = 70.00%`（exact `70.002%`）
+- runtime zh aliases: `34459`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `29595`
-- `zh:blocked`: `6301`
+- `zh:accept`: `34459`
+- `zh:blocked`: `7180`
 - `zh:needs_review`: `0`
-- `zh:reject`: `57`
+- `zh:reject`: `54`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `49049`
+- runtime concept aliases: `49060`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
 - legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；当前运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `6a0afc8a2cda5094af44deaaff6a388d09543632eee77d0aa88f5d54779ec20e`
+  `0e9d204aaa46f10b00c032c9f6dfb8ad7e075395ff7d63353687c664e6f10db0`
 - compact manifest SHA-256:
-  `4ee27eb2a7c896c32258dfc82e86da8933e988e249032c6255063b581a7504e3`
+  `69b49640d0a9e60a304f9ab59f7aa2f5f97618124a0d68acffb7b4ad546a6464`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
 - compact index 是当前运行时真源；legacy full overlay 未随 batch-007 之后的覆盖扩展更新，不再作为默认等价检查对象。
-- 最近相关测试：`882 passed in 7.04s`。
+- 最近相关测试：`882 passed in 6.56s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- post-7000 exact/domain-aware pattern milestone 已完成，runtime 中文覆盖到 `40.49%`；post-40 review cleanup 收口到 `43.18%`；post-40 continuation 已清理并达到 clean `50.01%`；post-50-to-60 子代理审查 milestone 已达到 clean `60.10%`；
+- post-7000 exact/domain-aware pattern milestone 已完成，runtime 中文覆盖到 `40.49%`；post-40 review cleanup 收口到 `43.18%`；post-40 continuation 已清理并达到 clean `50.01%`；post-50-to-60 子代理审查 milestone 已达到 clean `60.10%`；post-60-to-70 子代理审查 milestone 已达到 clean `70.00%`（exact `70.002%`）；
 - 后续连续扩展继续采用新的提交节奏：每 `5` 轮 `20-batch` 处理作为一个最终 milestone commit；中间 checkpoint、review 清单和 smoke 产物仅放在 `F:\AI playground\TempFiles`，不再每轮 20-batch 都提交；
 - batch-2187-to-3400 milestone 临时审查产物：
   `F:\AI playground\TempFiles\review_decisions.before-35pct.20260625-012746.jsonl`，
@@ -207,6 +207,20 @@ lexicons/review/
 - full-audit triage 已覆盖此前 bounded risk scan：当前 old bad alias hits `0`，unresolved major/critical flags `0`，剩余 `溶液` flags 均为 info-level biomedical solution forms；暂不建议 full manual sweep；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
+- 最新 post-60-to-70 subagent-reviewed milestone 已完成：
+  - 继续使用 `tools/theme-lexicon/reviewed_zh_exact_aliases.json` 作为 versioned reviewed exact/domain-aware 中文别名真源；
+  - 子代理审查 `15` 个 70% chunk/segment 输出，主代理过滤普通英文残留、已覆盖概念、内部 alias 碰撞、坏形态和泛词后形成 `5897` 条 combined explicit recommendation；
+  - 另补充少量主代理逐条 exact biomedical/domain term supplement，用于跨过 `70%` 四舍五入边界；
+  - L3-L5 final：fill `records_filled = 41434`，validate `review_decisions = 390806`，preserve 恢复 `35594` 条 prior review 决策；最终显式接受 `22` 条最后补量 recommendation，剩余 `1` 条 zh needs_review 与 `713` 条 en acronym needs_review 均显式 blocked；
+  - runtime 中文覆盖从 `29479 / 49049 = 60.10%` 增至 `34343 / 49060 = 70.00%`（exact `70.002%`）；
+  - `zh:accept`: `34459`，`zh:blocked`: `7180`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；runtime en/zh alias conflicts: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay 未更新；
+  - compact index SHA-256: `0e9d204aaa46f10b00c032c9f6dfb8ad7e075395ff7d63353687c664e6f10db0`；
+  - compact manifest SHA-256: `69b49640d0a9e60a304f9ab59f7aa2f5f97618124a0d68acffb7b4ad546a6464`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - post-review 产物集中在 `F:\AI playground\TempFiles`，包括 `zh_review_recommendations_70pct_final_combined_20260628.json`、`theme_alias_runtime_full_audit_70pct_final4_20260628.jsonl`、`review_decisions.before-70pct-final4-clean.20260628.jsonl`；
+  - 相关测试：`882 passed in 6.56s`。
 - 最新 post-50-to-60 subagent-reviewed milestone 已完成：
   - 新增 `tools/theme-lexicon/reviewed_zh_exact_aliases.json`，收纳子代理审查后的 exact/domain-aware 中文别名，`fill_zh_alias_candidates.py` 仅在默认生产 candidate dir 下 lazy-load 该文件，避免单元测试临时目录被生产大表污染；
   - 新增 biomedical named-class suffix review-gated 候选生成，并保持 medium 候选仍需显式 review；
