@@ -61,6 +61,31 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
     def tearDown(self) -> None:
         self.tmp.cleanup()
 
+    def test_loads_reviewed_zh_exact_alias_file(self) -> None:
+        reviewed = self.root / "reviewed_zh_exact_aliases.json"
+        reviewed.write_text(
+            json.dumps(
+                {
+                    "aliases": [
+                        {
+                            "concept_id": "concept:test_reviewed_alias",
+                            "canonical_en": "Reviewed Domain Term",
+                            "alias_zh": "已审领域术语",
+                        }
+                    ]
+                },
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+
+        module = load_module()
+
+        self.assertEqual(
+            module._load_reviewed_zh_exact_aliases(reviewed),
+            {"reviewed domain term": "已审领域术语"},
+        )
+
     def test_fills_high_confidence_source_priority_aliases_without_overwriting_existing(self) -> None:
         write_jsonl(
             self.batch,
@@ -2869,6 +2894,45 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
             "低视觉",
         ):
             self.assertNotIn(bad_alias, generated_aliases)
+
+    def test_biomedical_named_class_suffix_candidates_remain_review_gated(self) -> None:
+        concepts = [
+            ("concept:canavan_disease", "Canavan Disease", ["biomedical", "diseases"], "Canavan病"),
+            ("concept:barth_syndrome", "Barth Syndrome", ["biomedical", "diseases"], "Barth综合征"),
+            ("concept:adult_stem_cell", "Adult Stem Cells", ["anatomy", "biomedical"], "成人干细胞"),
+            (
+                "concept:bradykinin_b1_receptor_antagonist",
+                "Bradykinin B1 Receptor Antagonists",
+                ["biomedical", "chemicals_and_drugs"],
+                "缓激肽B1受体拮抗剂",
+            ),
+        ]
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": concept_id,
+                    "canonical_en": canonical_en,
+                    "aliases_en": [],
+                    "domains": domains,
+                    "source_refs": [{"source": "mesh", "label": canonical_en}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                }
+                for concept_id, canonical_en, domains, _expected in concepts
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        for concept_id, _canonical_en, _domains, expected in concepts:
+            candidate = rows[concept_id]["zh_alias_candidates"][0]
+            self.assertEqual(candidate["alias"], expected)
+            self.assertEqual(candidate["confidence"], "medium")
+            self.assertEqual(candidate["source"], "agent_biomedical_named_class_suffix")
 
     def test_review_feedback_corrects_domain_polysemy_and_mechanical_order(self) -> None:
         write_jsonl(
