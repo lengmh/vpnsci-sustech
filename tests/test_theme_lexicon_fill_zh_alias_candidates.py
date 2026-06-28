@@ -2720,6 +2720,46 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
                     "candidate_generation_status": "pending_host_agent",
                     "zh_alias_candidates": [],
                 },
+                {
+                    "concept_id": "concept:s_phase",
+                    "canonical_en": "S Phase",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "phenomena_and_processes"],
+                    "source_refs": [{"source": "mesh", "label": "S Phase"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:s_phase_cell_cycle_checkpoint",
+                    "canonical_en": "S Phase Cell Cycle Checkpoints",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "phenomena_and_processes"],
+                    "source_refs": [{"source": "mesh", "label": "S Phase Cell Cycle Checkpoints"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:s_phase_kinase_associated_protein",
+                    "canonical_en": "S-phase Kinase-associated Proteins",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "chemicals_and_drugs"],
+                    "source_refs": [{"source": "mesh", "label": "S-phase Kinase-associated Proteins"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:tartrate_resistant_acid_phosphatase",
+                    "canonical_en": "Tartrate-resistant Acid Phosphatase",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "chemicals_and_drugs"],
+                    "source_refs": [{"source": "mesh", "label": "Tartrate-resistant Acid Phosphatase"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
             ],
         )
 
@@ -2732,6 +2772,13 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
         self.assertEqual(rows["concept:body_temperature"]["zh_alias_candidates"][0]["alias"], "体温")
         self.assertEqual(rows["concept:stroke_volume"]["zh_alias_candidates"][0]["alias"], "每搏量")
         self.assertEqual(rows["concept:airway_management"]["zh_alias_candidates"][0]["alias"], "气道管理")
+        self.assertEqual(rows["concept:s_phase"]["zh_alias_candidates"][0]["alias"], "S期")
+        self.assertEqual(rows["concept:s_phase_cell_cycle_checkpoint"]["zh_alias_candidates"][0]["alias"], "S期细胞周期检查点")
+        self.assertEqual(rows["concept:s_phase_kinase_associated_protein"]["zh_alias_candidates"][0]["alias"], "S期激酶相关蛋白")
+        self.assertEqual(rows["concept:tartrate_resistant_acid_phosphatase"]["zh_alias_candidates"][0]["alias"], "抗酒石酸酸性磷酸酶")
+        generated = json.dumps(rows, ensure_ascii=False)
+        self.assertNotIn("S相位", generated)
+        self.assertNotIn("酸磷酸酶", generated)
 
     def test_review_feedback_corrects_domain_polysemy_and_mechanical_order(self) -> None:
         write_jsonl(
@@ -16272,6 +16319,198 @@ class FillZhAliasCandidatesTests(unittest.TestCase):
         self.assertNotIn("乳腺馈电", generated)
         self.assertNotIn("碱性情绪", generated)
         self.assertNotIn("溶液方法", generated)
+
+    def test_domain_aware_source_priority_full_components_add_safe_terms(self) -> None:
+        self.assert_exact_alias_cases(
+            [
+                ("active_appearance_model", "Active Appearance Model", ["robotics_and_automation"], "主动外观模型"),
+                ("adaptive_filter", "Adaptive Filters", ["signal_processing"], "自适应滤波器"),
+                ("anomaly_detection", "Anomaly Detection", ["computers_and_information_processing"], "异常检测"),
+                ("autonomous_underwater_vehicle", "Autonomous Underwater Vehicles", ["robotics_and_automation"], "自主水下航行器"),
+                ("fiber_optic_sensor", "Fiber Optic Sensors", ["sensors"], "光纤传感器"),
+                ("graph_neural_network", "Graph Neural Networks", ["computational_and_artificial_intelligence"], "图神经网络"),
+                ("large_language_model", "Large Language Models", ["computational_and_artificial_intelligence"], "大语言模型"),
+                ("random_forest_algorithm", "Random Forest Algorithms", ["computational_and_artificial_intelligence"], "随机森林算法"),
+                ("smart_grid_communication", "Smart Grid Communication", ["communications_technology"], "智能电网通信"),
+                ("wireless_sensor_network", "Wireless Sensor Networks", ["communications_technology"], "无线传感器网络"),
+            ]
+        )
+
+    def test_domain_aware_source_priority_full_components_skip_bad_literal_terms(self) -> None:
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": "concept:academic_failure",
+                    "canonical_en": "Academic Failure",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "health_care"],
+                    "source_refs": [{"source": "mesh", "label": "Academic Failure"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:additive_noise",
+                    "canonical_en": "Additive Noise",
+                    "aliases_en": [],
+                    "domains": ["signal_processing"],
+                    "source_refs": [{"source": "ieee_taxonomy", "label": "Additive Noise"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:advanced_maternal_age",
+                    "canonical_en": "Advanced Maternal Age",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "phenomena_and_processes"],
+                    "source_refs": [{"source": "mesh", "label": "Advanced Maternal Age"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:binary_fluid",
+                    "canonical_en": "Binary Fluids",
+                    "aliases_en": [],
+                    "domains": ["physics"],
+                    "source_refs": [{"source": "physh", "label": "Binary Fluids"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:body_and_organ_system",
+                    "canonical_en": "Body & Organ Systems",
+                    "aliases_en": [],
+                    "domains": ["physics"],
+                    "source_refs": [{"source": "physh", "label": "Body & Organ Systems"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:agricultural_safety_and_regulation",
+                    "canonical_en": "Agricultural Safety And Regulations",
+                    "aliases_en": [],
+                    "domains": ["agricultural_and_biological_sciences", "life_sciences"],
+                    "source_refs": [{"source": "openalex_topics", "label": "Agricultural Safety And Regulations"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        generated = json.dumps(read_jsonl(self.batch), ensure_ascii=False)
+        self.assertNotIn("学术故障", generated)
+        self.assertNotIn("增材噪声", generated)
+        self.assertNotIn("高级母亲年龄", generated)
+        self.assertNotIn("二进制流体", generated)
+        self.assertNotIn("体与器官系统", generated)
+        self.assertNotIn("农业安全与调节", generated)
+
+    def test_domain_aware_full_components_allow_nonpriority_physical_terms(self) -> None:
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": "concept:active_appearance_model",
+                    "canonical_en": "Active Appearance Model",
+                    "aliases_en": [],
+                    "domains": ["robotics_and_automation"],
+                    "source_refs": [{"source": "physh", "label": "Active Appearance Model"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:anomaly_detection",
+                    "canonical_en": "Anomaly Detection",
+                    "aliases_en": [],
+                    "domains": ["computers_and_information_processing"],
+                    "source_refs": [{"source": "arxiv", "label": "Anomaly Detection"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:discrete_mathematic",
+                    "canonical_en": "Discrete Mathematics",
+                    "aliases_en": [],
+                    "domains": ["mathematics"],
+                    "source_refs": [{"source": "arxiv", "label": "Discrete Mathematics"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        self.assertEqual(rows["concept:active_appearance_model"]["zh_alias_candidates"][0]["alias"], "主动外观模型")
+        self.assertEqual(rows["concept:anomaly_detection"]["zh_alias_candidates"][0]["alias"], "异常检测")
+        self.assertEqual(rows["concept:discrete_mathematic"]["zh_alias_candidates"][0]["alias"], "离散数学")
+        for concept_id in rows:
+            candidate = rows[concept_id]["zh_alias_candidates"][0]
+            self.assertEqual(candidate["confidence"], "high")
+            self.assertEqual(candidate["source"], "agent_exact_glossary")
+
+    def test_mesh_inverted_labels_preserve_modifier_order_before_key_normalization(self) -> None:
+        write_jsonl(
+            self.batch,
+            [
+                {
+                    "concept_id": "concept:abnormality_drug_induced",
+                    "canonical_en": "Abnormalities, Drug-induced",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "diseases"],
+                    "source_refs": [{"source": "mesh", "label": "Abnormalities, Drug-induced"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:anemia_neonatal",
+                    "canonical_en": "Anemia, Neonatal",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "diseases"],
+                    "source_refs": [{"source": "mesh", "label": "Anemia, Neonatal"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+                {
+                    "concept_id": "concept:anesthesia_epidural",
+                    "canonical_en": "Anesthesia, Epidural",
+                    "aliases_en": [],
+                    "domains": ["analytical_diagnostic_and_therapeutic_techniques_and_equipment", "biomedical"],
+                    "source_refs": [{"source": "mesh", "label": "Anesthesia, Epidural"}],
+                    "max_zh_alias_candidates": 3,
+                    "candidate_generation_status": "pending_host_agent",
+                    "zh_alias_candidates": [],
+                },
+            ],
+        )
+
+        module = load_module()
+        module.fill_zh_alias_candidates(candidate_dir=self.candidates)
+
+        rows = {row["concept_id"]: row for row in read_jsonl(self.batch)}
+        self.assertEqual(rows["concept:abnormality_drug_induced"]["zh_alias_candidates"][0]["alias"], "药物诱导异常")
+        self.assertEqual(rows["concept:anemia_neonatal"]["zh_alias_candidates"][0]["alias"], "新生儿贫血")
+        self.assertEqual(rows["concept:anesthesia_epidural"]["zh_alias_candidates"][0]["alias"], "硬膜外麻醉")
+        generated = json.dumps(read_jsonl(self.batch), ensure_ascii=False)
+        self.assertNotIn("异常药物诱导", generated)
+        self.assertNotIn("贫血新生儿", generated)
+        self.assertNotIn("麻醉硬膜外", generated)
 
 
 if __name__ == "__main__":

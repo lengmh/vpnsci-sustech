@@ -42,11 +42,18 @@ def apply_zh_review_recommendations(
     output_path: Path | None = None,
     accept_missing: bool = False,
     lang: str = "zh",
+    include_decisions: set[str] | None = None,
 ) -> dict[str, Any]:
     if lang not in {"en", "zh"}:
         raise ValueError(f"Unsupported review language: {lang}")
     if accept_missing and lang != "zh":
         raise ValueError("accept_missing is only supported for zh review")
+    include_decisions = set(include_decisions or {"needs_review"})
+    unsupported_decisions = include_decisions - {"needs_review", "blocked", "accept"}
+    if unsupported_decisions:
+        raise ValueError(f"Unsupported include_decisions: {sorted(unsupported_decisions)}")
+    if accept_missing and include_decisions != {"needs_review"}:
+        raise ValueError("accept_missing cannot be combined with blocked review rows")
     review_decisions_path = Path(review_decisions_path)
     recommendations_path = Path(recommendations_path)
     output_path = Path(output_path or review_decisions_path)
@@ -66,7 +73,7 @@ def apply_zh_review_recommendations(
     applied_at = datetime.now(timezone.utc).date().isoformat()
 
     for row in rows:
-        if row.get("lang") != lang or row.get("decision") != "needs_review":
+        if row.get("lang") != lang or row.get("decision") not in include_decisions:
             counts["unchanged"] += 1
             continue
         recommendation = explicit.get(_key(row, default_lang=lang))
@@ -104,6 +111,7 @@ def apply_zh_review_recommendations(
         "review_decisions": str(output_path.resolve()),
         "recommendations": str(recommendations_path.resolve()),
         "accept_missing": accept_missing,
+        "include_decisions": sorted(include_decisions),
         "lang": lang,
         "written": written,
         **counts,
@@ -121,6 +129,13 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--output", type=Path, default=None)
     parser.add_argument("--lang", choices=("en", "zh"), default="zh", help="Review decision language to update.")
     parser.add_argument(
+        "--include-decision",
+        action="append",
+        choices=("needs_review", "blocked", "accept"),
+        dest="include_decisions",
+        help="Decision state eligible for explicit recommendations. Defaults to needs_review; repeat to include blocked.",
+    )
+    parser.add_argument(
         "--accept-missing",
         action="store_true",
         help="Legacy zh-only mode: accept zh needs_review rows missing from recommendations.",
@@ -136,6 +151,7 @@ def main(argv: list[str] | None = None) -> int:
         output_path=args.output,
         accept_missing=args.accept_missing,
         lang=args.lang,
+        include_decisions=set(args.include_decisions or {"needs_review"}),
     )
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0
