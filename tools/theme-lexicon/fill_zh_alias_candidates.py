@@ -27822,7 +27822,43 @@ def _key_with_mesh_inversion(value: str) -> str:
     return " ".join([*parts[1:], parts[0]])
 
 
+REVIEWED_ZH_EXACT_ALIASES_PATH = Path(__file__).with_name("reviewed_zh_exact_aliases.json")
+PRODUCTION_CANDIDATE_DIR = Path(__file__).resolve().parents[2] / "lexicons" / "candidates"
+
+
+def _load_reviewed_zh_exact_aliases(path: Path = REVIEWED_ZH_EXACT_ALIASES_PATH) -> dict[str, str]:
+    if not path.exists():
+        return {}
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    rows = payload.get("aliases") if isinstance(payload, dict) else payload
+    if not isinstance(rows, list):
+        raise ValueError(f"{path} must contain a list or an object with an aliases list")
+    aliases: dict[str, str] = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        canonical_en = str(row.get("canonical_en") or "").strip()
+        alias_zh = str(row.get("alias_zh") or row.get("alias") or "").strip()
+        if not canonical_en or not alias_zh:
+            continue
+        aliases[_key(canonical_en)] = alias_zh
+    return aliases
+
+
 EXACT_ALIASES = {_key(key): value for key, value in RAW_EXACT_ALIASES.items()}
+_REVIEWED_ZH_EXACT_ALIASES_LOADED = False
+
+
+def _ensure_reviewed_zh_exact_aliases_loaded() -> None:
+    global _REVIEWED_ZH_EXACT_ALIASES_LOADED, EXACT_ALIASES
+    if _REVIEWED_ZH_EXACT_ALIASES_LOADED:
+        return
+    reviewed = _load_reviewed_zh_exact_aliases()
+    if reviewed:
+        EXACT_ALIASES = {**EXACT_ALIASES, **reviewed}
+    _REVIEWED_ZH_EXACT_ALIASES_LOADED = True
+
+
 COMPONENTS = {_key(key): value for key, value in RAW_COMPONENTS.items()}
 PRIORITY_COMPONENTS = {**COMPONENTS, **{_key(key): value for key, value in RAW_PRIORITY_COMPONENTS.items()}}
 SINGLE_COMPONENT_ALIAS_KEYS = {_key(key) for key in RAW_SINGLE_COMPONENT_ALIAS_KEYS}
@@ -29291,6 +29327,157 @@ def _biomedical_numbered_entity_alias(
     return None
 
 
+BIOMEDICAL_NAMED_CLASS_SUFFIXES = (
+    ("receptor antagonists", "受体拮抗剂"),
+    ("receptor antagonist", "受体拮抗剂"),
+    ("receptor agonists", "受体激动剂"),
+    ("receptor agonist", "受体激动剂"),
+    ("stem cells", "干细胞"),
+    ("stem cell", "干细胞"),
+    ("transcription factors", "转录因子"),
+    ("transcription factor", "转录因子"),
+    ("potassium channels", "钾通道"),
+    ("potassium channel", "钾通道"),
+    ("cation channels", "阳离子通道"),
+    ("cation channel", "阳离子通道"),
+    ("surgical procedures", "外科手术"),
+    ("surgical procedure", "外科手术"),
+    ("computed tomography", "计算机断层成像"),
+    ("nerve injuries", "神经损伤"),
+    ("nerve injury", "神经损伤"),
+    ("inhibitors", "抑制剂"),
+    ("inhibitor", "抑制剂"),
+    ("antagonists", "拮抗剂"),
+    ("antagonist", "拮抗剂"),
+    ("agonists", "激动剂"),
+    ("agonist", "激动剂"),
+    ("receptors", "受体"),
+    ("receptor", "受体"),
+    ("proteins", "蛋白"),
+    ("protein", "蛋白"),
+    ("diseases", "病"),
+    ("disease", "病"),
+    ("syndromes", "综合征"),
+    ("syndrome", "综合征"),
+    ("factors", "因子"),
+    ("factor", "因子"),
+    ("cells", "细胞"),
+    ("cell", "细胞"),
+    ("channels", "通道"),
+    ("channel", "通道"),
+    ("ligases", "连接酶"),
+    ("ligase", "连接酶"),
+    ("dehydrogenases", "脱氢酶"),
+    ("dehydrogenase", "脱氢酶"),
+    ("hydroxylases", "羟化酶"),
+    ("hydroxylase", "羟化酶"),
+    ("reductases", "还原酶"),
+    ("reductase", "还原酶"),
+    ("synthases", "合酶"),
+    ("synthase", "合酶"),
+    ("transferases", "转移酶"),
+    ("transferase", "转移酶"),
+    ("transaminases", "转氨酶"),
+    ("transaminase", "转氨酶"),
+)
+
+BIOMEDICAL_NAMED_CLASS_COMPONENTS = {
+    "adult": "成人",
+    "adp": "ADP",
+    "adenosine": "腺苷",
+    "adenylyl": "腺苷酸",
+    "adrenergic": "肾上腺素能",
+    "alanine": "丙氨酸",
+    "androgen": "雄激素",
+    "aniline": "苯胺",
+    "apoptotic": "凋亡",
+    "aromatic": "芳香族",
+    "aryl": "芳基",
+    "aspartate": "天冬氨酸",
+    "bcl": "BCL",
+    "benzopyrene": "苯并芘",
+    "bradykinin": "缓激肽",
+    "calcium": "钙",
+    "carbon": "碳",
+    "cholesterol": "胆固醇",
+    "cholinergic": "胆碱能",
+    "cyclic": "环",
+    "dopamine": "多巴胺",
+    "embryonic": "胚胎",
+    "germline": "生殖系",
+    "hydrocarbon": "烃",
+    "inwardly": "内向",
+    "nucleotide": "核苷酸",
+    "pluripotent": "多能",
+    "purinergic": "嘌呤能",
+    "rectifier": "整流",
+    "rectifying": "整流",
+    "ribosylation": "核糖基化",
+    "totipotent": "全能",
+}
+
+BIOMEDICAL_NAMED_CLASS_BLOCKLIST = {
+    "medical",
+    "clinical",
+    "general",
+    "common",
+    "family",
+    "member",
+    "like",
+    "containing",
+    "repeat",
+    "system",
+    "model",
+}
+
+
+def _biomedical_named_class_suffix_alias(
+    key: str,
+    *,
+    components: dict[str, str],
+    original_tokens: dict[str, str],
+) -> str | None:
+    for suffix_key, suffix_zh in BIOMEDICAL_NAMED_CLASS_SUFFIXES:
+        if key == suffix_key or not key.endswith(f" {suffix_key}"):
+            continue
+        prefix = key[: -(len(suffix_key) + 1)].strip()
+        if not prefix:
+            return None
+        prefix_tokens = prefix.split()
+        if not prefix_tokens or len(prefix_tokens) > 6:
+            return None
+        prefix_parts: list[str] = []
+        ordinary_english = 0
+        named_components = {**components, **BIOMEDICAL_NAMED_CLASS_COMPONENTS}
+        for token in prefix_tokens:
+            if token in {"and", "or", "of", "with", "as", "for", "in", "on", "the"}:
+                return None
+            translated = named_components.get(token)
+            if translated:
+                prefix_parts.append(translated)
+                continue
+            if token in BIOMEDICAL_NAMED_CLASS_BLOCKLIST:
+                return None
+            if len(token) > 18 or re.search(r"\d.*\d.*\d", token):
+                return None
+            original = original_tokens.get(token) or token
+            if re.search(r"\d", original) and re.fullmatch(r"[A-Za-z0-9]+", original):
+                rendered = original.upper()
+            elif original.isupper() and re.fullmatch(r"[A-Za-z0-9]+", original):
+                rendered = original.upper()
+            else:
+                rendered = re.sub(r"\s+", "", original)
+            ordinary_english += _non_acronym_ascii_segment_count(rendered)
+            if ordinary_english >= 3:
+                return None
+            prefix_parts.append(rendered)
+        alias = _join_mixed_alias_parts(prefix_parts, suffix_zh)
+        if not alias or _non_acronym_ascii_segment_count(alias) >= 3:
+            return None
+        return alias
+    return None
+
+
 def _domain_aware_exact_components(domains: Iterable[str], *, source_priority: bool) -> dict[str, str]:
     domain_set = {str(domain) for domain in domains if str(domain or "")}
     components = _components_for_domains(source_priority=source_priority, domains=domain_set)
@@ -29713,6 +29900,14 @@ def _propose_alias(
     numbered_alias = _biomedical_numbered_entity_alias(key, components=components, original_tokens=original_tokens)
     if numbered_alias:
         return numbered_alias, "compositional_glossary", "medium"
+    if biomedical and allow_compositional:
+        named_class_alias = _biomedical_named_class_suffix_alias(
+            key,
+            components=components,
+            original_tokens=original_tokens,
+        )
+        if named_class_alias:
+            return named_class_alias, "biomedical_named_class_suffix", "medium"
     if allow_single_component and key in SINGLE_COMPONENT_ALIAS_KEYS and key in components and len(key.split()) == 1:
         return components[key], "single_component_glossary", "medium"
     if not allow_compositional:
@@ -29787,6 +29982,8 @@ def _candidate(alias: str, term: str, method: str, confidence: str, *, source_pr
         reason = f"{scope} single-term technical glossary candidate"
     elif method == "mixed_class_suffix":
         reason = f"{scope} mixed English-Chinese class suffix candidate"
+    elif method == "biomedical_named_class_suffix":
+        reason = f"{scope} biomedical named entity with Chinese class suffix candidate"
     elif method == "source_label_topic_fallback":
         reason = f"{scope} source-label topic fallback; English label retained for review"
     elif method == "review_gated_mixed_fallback":
@@ -29926,7 +30123,10 @@ def _fill_row(row: dict[str, Any], *, replace_generated: bool = False) -> tuple[
             and _non_acronym_ascii_segment_count(alias) > 1
         ):
             continue
-        if method != "exact_glossary" and _non_acronym_ascii_segment_count(alias) > 0:
+        if (
+            method not in {"exact_glossary", "biomedical_named_class_suffix"}
+            and _non_acronym_ascii_segment_count(alias) > 0
+        ):
             continue
         if _known_bad_zh_alias_shape(alias):
             continue
@@ -29957,6 +30157,8 @@ def _fill_row(row: dict[str, Any], *, replace_generated: bool = False) -> tuple[
 
 def fill_zh_alias_candidates(candidate_dir: Path, *, replace_generated: bool = False) -> dict[str, Any]:
     candidate_dir = Path(candidate_dir)
+    if candidate_dir.resolve() == PRODUCTION_CANDIDATE_DIR.resolve():
+        _ensure_reviewed_zh_exact_aliases_loaded()
     files = _candidate_files(candidate_dir)
     records_seen = 0
     records_filled = 0

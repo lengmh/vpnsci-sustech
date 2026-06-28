@@ -119,6 +119,42 @@ class ThemeLexiconPollutionGuardTests(unittest.TestCase):
         self.assertEqual(by_alias["信道估计"], "needs_review")
         self.assertNotIn("999999", by_alias)
 
+    def test_validate_alias_overlay_keeps_biomedical_suffix_candidates_review_gated(self) -> None:
+        validate_alias_overlay = load_script("validate_alias_overlay")
+        candidates = self.root / "candidates"
+        review = self.root / "review"
+        active = candidates / "zh_alias_candidates.batch-001.jsonl"
+        write_jsonl(
+            active,
+            [
+                {
+                    "concept_id": "concept:bradykinin_b1_receptor_antagonist",
+                    "canonical_en": "Bradykinin B1 Receptor Antagonists",
+                    "aliases_en": [],
+                    "domains": ["biomedical", "chemicals_and_drugs"],
+                    "zh_alias_candidates": [
+                        {
+                            "alias": "缓激肽B1受体拮抗剂",
+                            "confidence": "medium",
+                            "source": "agent_biomedical_named_class_suffix",
+                            "status": "candidate",
+                        }
+                    ],
+                }
+            ],
+        )
+        (candidates / "zh_alias_candidate_manifest.json").write_text(
+            json.dumps({"batches": [{"output": str(active)}]}, ensure_ascii=False),
+            encoding="utf-8",
+        )
+
+        validate_alias_overlay.validate_alias_overlay(candidate_dir=candidates, output_dir=review, repo_root=REPO_ROOT)
+
+        decisions = read_jsonl(review / "review_decisions.jsonl")
+        row = next(item for item in decisions if item["alias"] == "缓激肽B1受体拮抗剂")
+        self.assertEqual(row["decision"], "needs_review")
+        self.assertEqual(row["review_tier"], "needs_review")
+
     def test_materialize_runtime_overlay_uses_only_accepted_aliases_and_no_local_paths(self) -> None:
         materialize_runtime_overlay = load_script("materialize_runtime_overlay")
         concepts = self.root / "merged_en_concept_candidates.jsonl"

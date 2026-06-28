@@ -53,8 +53,11 @@ KNOWN_BAD_ZH_ALIAS_SHAPES = {
     "费用泵",
     "质量疫苗接种",
     "钠水杨酸盐",
-    "酸磷酸酶",
     "高能源休克波",
+}
+
+KNOWN_BAD_ZH_ALIAS_EXACT_SHAPES = {
+    "酸磷酸酶",
 }
 
 
@@ -272,7 +275,7 @@ def _pollution_audit(entries: list[dict[str, Any]]) -> dict[str, int]:
     for entry in entries:
         for alias in (entry.get("aliases") or {}).get("zh") or []:
             text = str(alias)
-            if any(bad in text for bad in KNOWN_BAD_ZH_ALIAS_SHAPES):
+            if text in KNOWN_BAD_ZH_ALIAS_EXACT_SHAPES or any(bad in text for bad in KNOWN_BAD_ZH_ALIAS_SHAPES):
                 known_bad_hits += 1
             if any("\u4e00" <= ch <= "\u9fff" for ch in text) and len(_english_word_tokens(text)) >= 3:
                 english_heavy += 1
