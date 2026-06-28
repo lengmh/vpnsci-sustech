@@ -2,12 +2,12 @@
   "accepted_conflict_groups": 0,
   "aliases": {
     "en": 189471,
-    "zh": 21143
+    "zh": 25423
   },
   "build_status": "review_complete",
-  "concepts": 48947,
-  "concepts_with_zh_alias": 21133,
-  "concepts_with_zh_alias_percent": 43.18,
+  "concepts": 50592,
+  "concepts_with_zh_alias": 25302,
+  "concepts_with_zh_alias_percent": 50.01,
   "pollution_audit": {
     "known_bad_shape_hits": 0,
     "ordinary_english_heavy_zh_aliases": 0
@@ -16,8 +16,8 @@
     "en:accept": 233199,
     "en:blocked": 14798,
     "en:reject": 101116,
-    "zh:accept": 21143,
-    "zh:blocked": 6649,
+    "zh:accept": 25423,
+    "zh:blocked": 3166,
     "zh:reject": 57
   },
   "runtime_alias_conflicts": {
@@ -27,6 +27,6 @@
   "runtime_index_file": "theme_concept_alias_index.json",
   "schema_version": "theme_concept_alias_manifest.v1",
   "sha256": {
-    "index": "af7d955caaaa9dd641807e9aee4350cdbc7697c2b4ec3bc3fd85621ff56a71cc"
+    "index": "11f5168a1210c7312680c14dae734d7f24ce0e39fc2aaac46c7e5cc55e7a7689"
   }
 }
