@@ -153,45 +153,45 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-26 full zh runtime audit + solution cleanup 后）：
+最新已知状态（2026-06-28 post-7000 exact/domain-aware pattern milestone 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`17413 / 48932 = 35.59%`
-- runtime zh aliases: `17424`
+- runtime 中文覆盖：`19828 / 48973 = 40.49%`
+- runtime zh aliases: `19839`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `17424`
-- `zh:blocked`: `9227`
+- `zh:accept`: `19839`
+- `zh:blocked`: `7966`
 - `zh:needs_review`: `0`
-- `zh:reject`: `92`
+- `zh:reject`: `67`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `48932`
+- runtime concept aliases: `48973`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
-- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；batch-3400 运行时以 compact index/manifest 为准）
+- legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；当前运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `46485e2b61e0d35b00ed01a1b155d990b20f3c32e8da3c0f4137b9cdd3ee18ad`
+  `e0b641e848f3a4980c09a0fffc0d4d6d14b978502dca5b23435c22bc75ec7511`
 - compact manifest SHA-256:
-  `d3558009b7dd7063b4f5ea832f453c1ae33f9cdde6df8fa3fe54ee397e3850fa`
+  `9cdbed668246ec2c4acee231cd59fd911c059dc49d9620a58ff8653eccb76a80`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact index 是 batch-3400 当前运行时真源；legacy full overlay 未随 batch-007 至 batch-3400 更新，不再作为默认等价检查对象。
-- 最近相关测试：`855 passed in 5.51s`。
+- compact index 是当前运行时真源；legacy full overlay 未随 batch-007 之后的覆盖扩展更新，不再作为默认等价检查对象。
+- 最近相关测试：`871 passed in 6.32s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- batch-2187 至 batch-3400 已完成，runtime 中文覆盖已到 `35.59%`，已超过用户当前目标 `>35%`；
+- post-7000 exact/domain-aware pattern milestone 已完成，runtime 中文覆盖到 `40.49%`，已超过用户当前 `>40%` 目标；
 - 后续连续扩展继续采用新的提交节奏：每 `5` 轮 `20-batch` 处理作为一个最终 milestone commit；中间 checkpoint、review 清单和 smoke 产物仅放在 `F:\AI playground\TempFiles`，不再每轮 20-batch 都提交；
 - batch-2187-to-3400 milestone 临时审查产物：
   `F:\AI playground\TempFiles\review_decisions.before-35pct.20260625-012746.jsonl`，
@@ -207,6 +207,63 @@ lexicons/review/
 - full-audit triage 已覆盖此前 bounded risk scan：当前 old bad alias hits `0`，unresolved major/critical flags `0`，剩余 `溶液` flags 均为 info-level biomedical solution forms；暂不建议 full manual sweep；
 - host Agent 默认不要再打开完整 `theme_concept_aliases.json` 或 compact index 大文件做状态确认；
 - 需要状态时优先看 manifest/stats/query 工具输出；
+- 最新 post-7000 exact/domain-aware pattern milestone 已完成：
+  - 新增受控 domain-aware exact 生成层：life/physical domain 组件表、短 canonical 全组件 exact helper、physical/function/treatment/signaling 语义覆盖、ASCII 残留 guard 与坏形态 guard；
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_7001_TO_9000_ALIASES` 小型 exact 覆盖，并修正 `energy efficient routing -> 能效路由`；
+  - L3-L5 final：fill `records_filled = 27632`，validate `review_decisions = 376984`，preserve 恢复 `23225` 条 prior review 决策；显式接受 `402 + 177 + 1` 条 needs_review high/exact，并重开 `618 + 465` 条 non-collision high/exact blocked；`713` 条 validator-regenerated English short acronym queue 继续 blocked；
+  - runtime 中文覆盖从 `18258 / 48932 = 37.31%` 增至 `19828 / 48973 = 40.49%`；
+  - `zh:accept`: `19839`，`zh:blocked`: `7966`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；runtime en/zh alias conflicts: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay 未更新；
+  - compact index SHA-256: `e0b641e848f3a4980c09a0fffc0d4d6d14b978502dca5b23435c22bc75ec7511`；
+  - compact manifest SHA-256: `9cdbed668246ec2c4acee231cd59fd911c059dc49d9620a58ff8653eccb76a80`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；additional bad-shape scan hits `0`；
+  - query smoke 已确认 `原子力显微镜`、`高级加密标准`、`高级氧化水处理`、`通信系统信令`、`节能以太网`、`能效路由`、`智能汽车解决方案`、`逆运动学解`、`帕累托解`、`求解方法`、`分数微分方程解`、`人因工程`、`应用数学`、`蓝牙设备`、`CNC机床` 可命中，`肾上腺素能光纤`、`乳腺馈电`、`通信系统信号转导`、`碱性情绪`、`调节柔顺`、`全率`、`能源高效路由`、`智能汽车溶液`、`逆运动学溶液`、`帕累托溶液`、`溶液方法`、`溶液概念`、`溶液精度`、`分数微分方程溶液` 保持不命中；
+  - 相关测试：`871 passed in 6.32s`。
+- post-40% review：
+  - 本 milestone 新增 `1569` 个 runtime zh-covered concepts，主要来自 high/exact review、受控 full-component exact 规则和少量 replacement cleanup；
+  - 不打开低质 mixed fallback、不 blanket accept medium-confidence compositional candidates、不自动 merge collision、不进入新的 L6；
+  - 后续建议先提交 35%-40% 变更，再决定是否继续冲 `45%` 或转入 treemap/text fallback 质量验证。
+- 最新 batch-4001 至 batch-7000 exact/domain-aware 五组 milestone 已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_4001_TO_4600_ALIASES`、`ZH_EXACT_EXPANSION_BATCH_4601_TO_5200_ALIASES`、`ZH_EXACT_EXPANSION_BATCH_5201_TO_5800_ALIASES`、`ZH_EXACT_EXPANSION_BATCH_5801_TO_6400_ALIASES`、`ZH_EXACT_EXPANSION_BATCH_6401_TO_7000_ALIASES`；
+  - 覆盖 data/software/web/signal、RNA/DNA/protein/viral/cell、dental/tooth、receptor/CXCR/dopamine/GABA/interleukin/KIR/opioid 等 exact/domain-aware 术语；
+  - 新增 `10` 个回归测试，确认 `Data Abstraction -> 数据抽象`、`RNA, Long Noncoding -> 长链非编码RNA`、`Dental Calculus -> 牙结石`、`Receptors, CCR5 -> CCR5受体`、`Receptors, Interleukin-6 -> 白细胞介素6受体` 等候选生成，并阻断 `移动临时网络`、`DNA洗牌`、`牙科微积分`、`补体受体三维`、`缺口4受体` 等坏形态；
+  - 五组 L3-L5 后：final fill `records_filled = 27186`，final validate `review_decisions = 376547`，preserve 恢复 `22698` 条 prior review 决策；
+  - 显式接受 `579` 条 exact/domain-aware recommendation，cleanup 接受 `9` 条中文候选，阻断 `5` 条宽泛/坏形态中文候选；`713` 条 validator-regenerated English short acronym queue 继续 blocked；
+  - `digital_forensic / 数字取证` 旧 runtime target 已显式恢复，`digital_investigation / 数字取证` 保持 blocked，不自动 merge duplicate concepts；
+  - runtime 中文覆盖从 `17678 / 48932 = 36.13%` 增至 `18258 / 48932 = 37.31%`；
+  - `zh:accept`: `18270`，`zh:blocked`: `9090`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；runtime en/zh alias conflicts: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay 未更新；
+  - compact index SHA-256: `dc975bb3df0425f8e91070027d55c7ab3dec8d22acc41f1ad8d3036ef63581dd`；
+  - compact manifest SHA-256: `5df995720bae6c3417c5907fc6f43e341d06a6a5153a7c5533304e9700ef8abd`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - query smoke 已确认 `数据抽象`、`分布式哈希表`、`长链非编码RNA`、`重组DNA`、`蛋白质折叠`、`病毒载量`、`牙结石`、`牙髓坏死`、`阻生牙`、`CCR5受体`、`多巴胺D2受体`、`白细胞介素6受体`、`KIR2DL1受体`、`μ阿片受体` 可命中，`移动临时网络`、`DNA洗牌`、`牙科微积分`、`补体受体三维`、`缺口4受体` 保持不命中；
+  - 相关测试：`869 passed in 6.03s`。
+- batch-7000 后 review：
+  - 本 milestone 新增 `580` 个 runtime zh-covered concepts，覆盖率增至 `37.31%`；
+  - 目标 `>40%` 仍需继续，下一段建议继续 high-confidence biomedical exact 族，但避免化学长名和低质 mixed fallback；
+  - 不 blanket accept medium-confidence compositional candidates、不自动 merge collision、不进入新的 L6。
+- 最新 batch-3401 至 batch-4000 exact/domain-aware 推进已完成：
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_3401_TO_3600_ALIASES`，覆盖 adaptive/audio/augmented reality/authentication/background subtraction/backpropagation/client-server/data visualization/device-to-device/electromagnetic/free-space optical 等 A-F 段高置信技术术语；
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_3601_TO_3800_ALIASES`，覆盖 fuzzy/grid/interaction/IP/iris/optical/QoS/radio/regularization/RFID/robot/semantic 等 G-R 段技术术语；
+  - 新增 `ZH_EXACT_EXPANSION_BATCH_3801_TO_4000_ALIASES`，覆盖 machine translation/noise reduction/process-oriented/software/Web/XML/visual/wavelet 等 M-Z 段技术术语；
+  - 新增 `6` 个回归测试，确认 `Audio-visual -> 视听`、`Device-to-device Communication -> 设备到设备通信`、`Human Computer Interface -> 人机接口`、`Real Number -> 实数`、`Machine Translation Systems -> 机器翻译系统`、`Noise Reduction -> 降噪`、`Wavelet Domain -> 小波域`、`Web Crawler -> Web爬虫` 等候选生成，并阻断 `总线基于`、`聚类基于`、`通信信道信息理论`、`机器转换系统`、`噪声降维`、`小波领域` 等坏形态；
+  - batch-3801 final L3-L5：fill `records_filled = 26710`，validate `review_decisions = 376054`；preserve 恢复 `22270` 条 prior review 决策；
+  - 三段合计显式接受 `260` 条本轮 exact/domain-aware recommendation，cleanup 接受 `16` 条新中文候选，阻断 `5` 条宽泛/生硬中文候选；`713` 条 validator-regenerated English short acronym queue 继续 blocked；
+  - runtime 中文覆盖从 `17413 / 48932 = 35.59%` 增至 `17678 / 48932 = 36.13%`；
+  - `zh:accept`: `17691`，`zh:blocked`: `9173`，`zh:needs_review`: `0`；
+  - accepted conflict groups: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；legacy full overlay 未更新；
+  - compact index SHA-256: `181207350c3668b34f04a3a596d242c7f08514d985be3ce8128d83b03b1f846d`；
+  - compact manifest SHA-256: `62cbe54bf7e3b97c0c226bdfd0380fd22ea054555091f4279ba0338b7795ca9e`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - query smoke 已确认 `加性白噪声 -> concept:additive_white_noise`、`视听 -> concept:audio_visual`、`设备到设备通信 -> concept:device_to_device_communication`、`数据可视化与分析 -> concept:data_visualization_and_analytic`、`IP地址 -> concept:ip_address`、`QoS路由协议 -> concept:qos_routing_protocol`、`实数 -> concept:real_number`、`语义倾向 -> concept:semantic_orientation`、`机器翻译系统 -> concept:machine_translation__2`、`Web爬虫 -> concept:web_crawler` 可命中，`通信信道信息理论`、`音频视觉`、`器件到器件通信`、`嵌入式`、`人机器交互`、`逆方法`、`质量服务`、`机器转换系统`、`噪声降维` 保持不命中；
+  - 相关测试：`859 passed in 6.59s`。
+- batch-4000 后 review：
+  - 本轮新增 `265` 个 runtime zh-covered concepts，覆盖率增至 `36.13%`；
+  - 目标 `>40%` 仍需继续，下一段继续 exact/domain-aware curated glossary 与显式 review；
+  - 不打开低质 mixed fallback、不 blanket accept medium-confidence compositional candidates、不自动 merge collision、不进入新的 L6。
 - 最新 batch-2187 至 batch-3400 exact/domain-aware milestone 已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_2187_TO_3400_ALIASES`，覆盖 temporal/text/cryptographic/software-defined/spatio-temporal、access/cache/control/fault/formal/remote/security/software/speech/VLSI/WDM 等 exact/domain-aware 技术术语；
   - 新增 `2` 个分组/污染回归测试，先红灯后转绿；修正 `Temporal Database -> 时态数据库`、`Quality Of Service Routing -> 服务质量路由`、`Remote Authentication -> 远程认证`、`Electric Impedance Tomography -> 电阻抗断层成像`、`Remote Controllers -> 遥控器`、`Remote Monitoring System -> 远程监测系统`、`Solution Design -> 解决方案设计` 等坏词序/误译；
