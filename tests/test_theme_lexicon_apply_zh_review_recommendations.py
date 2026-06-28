@@ -105,6 +105,108 @@ class ApplyZhReviewRecommendationsTests(unittest.TestCase):
         self.assertEqual(summary["accept"], 1)
         self.assertEqual(summary["accept_missing"], True)
 
+    def test_accept_missing_cannot_reopen_blocked_rows(self) -> None:
+        review = self.root / "review_decisions.jsonl"
+        recs = self.root / "recommendations.json"
+        write_jsonl(
+            review,
+            [
+                {"concept_id": "c1", "alias": "声学传感器", "lang": "zh", "decision": "blocked", "review_tier": "review_blocked"},
+            ],
+        )
+        recs.write_text(json.dumps({"recommendations": []}, ensure_ascii=False), encoding="utf-8")
+
+        module = load_module()
+        with self.assertRaises(ValueError):
+            module.apply_zh_review_recommendations(
+                review_decisions_path=review,
+                recommendations_path=recs,
+                accept_missing=True,
+                include_decisions={"needs_review", "blocked"},
+            )
+
+    def test_explicit_include_decisions_can_reopen_blocked_rows(self) -> None:
+        review = self.root / "review_decisions.jsonl"
+        recs = self.root / "recommendations.json"
+        write_jsonl(
+            review,
+            [
+                {"concept_id": "c1", "alias": "声学传感器", "lang": "zh", "decision": "blocked", "review_tier": "review_blocked"},
+                {"concept_id": "c2", "alias": "声学传感器", "lang": "zh", "decision": "blocked", "review_tier": "review_blocked"},
+            ],
+        )
+        recs.write_text(
+            json.dumps(
+                {
+                    "recommendations": [
+                        {
+                            "concept_id": "c1",
+                            "alias": "声学传感器",
+                            "recommendation": "accept",
+                            "reason": "explicit single runtime target; no concept merge",
+                            "merge_duplicate_concepts": False,
+                        }
+                    ]
+                },
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+
+        module = load_module()
+        summary = module.apply_zh_review_recommendations(
+            review_decisions_path=review,
+            recommendations_path=recs,
+            include_decisions={"needs_review", "blocked"},
+        )
+
+        rows = {(row["concept_id"], row["alias"]): row for row in read_jsonl(review)}
+        self.assertEqual(rows[("c1", "声学传感器")]["decision"], "accept")
+        self.assertEqual(rows[("c2", "声学传感器")]["decision"], "blocked")
+        self.assertEqual(summary["accept"], 1)
+        self.assertEqual(summary["include_decisions"], ["blocked", "needs_review"])
+
+    def test_explicit_include_decisions_can_block_accepted_rows(self) -> None:
+        review = self.root / "review_decisions.jsonl"
+        recs = self.root / "recommendations.json"
+        write_jsonl(
+            review,
+            [
+                {"concept_id": "c1", "alias": "二进制流体", "lang": "zh", "decision": "accept", "review_tier": "review_accept"},
+                {"concept_id": "c2", "alias": "安全别名", "lang": "zh", "decision": "accept", "review_tier": "review_accept"},
+            ],
+        )
+        recs.write_text(
+            json.dumps(
+                {
+                    "recommendations": [
+                        {
+                            "concept_id": "c1",
+                            "alias": "二进制流体",
+                            "recommendation": "blocked",
+                            "reason": "bad literal technical translation",
+                            "merge_duplicate_concepts": False,
+                        }
+                    ]
+                },
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+
+        module = load_module()
+        summary = module.apply_zh_review_recommendations(
+            review_decisions_path=review,
+            recommendations_path=recs,
+            include_decisions={"accept"},
+        )
+
+        rows = {(row["concept_id"], row["alias"]): row for row in read_jsonl(review)}
+        self.assertEqual(rows[("c1", "二进制流体")]["decision"], "blocked")
+        self.assertEqual(rows[("c2", "安全别名")]["decision"], "accept")
+        self.assertEqual(summary["blocked"], 1)
+        self.assertEqual(summary["include_decisions"], ["accept"])
+
     def test_can_apply_explicit_english_recommendations_when_lang_is_en(self) -> None:
         review = self.root / "review_decisions.jsonl"
         recs = self.root / "recommendations.json"

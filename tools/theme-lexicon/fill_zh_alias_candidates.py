@@ -1656,6 +1656,7 @@ RAW_EXACT_ALIASES.update(
         "active inductors": "有源电感",
         "adaptive cruise control": "自适应巡航控制",
         "additive gaussian noise": "加性高斯噪声",
+        "additive noise": "加性噪声",
         "additive white gaussian noise": "加性白高斯噪声",
         "additive white gaussian noise channel": "加性白高斯噪声信道",
         "admission control algorithm": "接入控制算法",
@@ -1707,6 +1708,19 @@ RAW_EXACT_ALIASES.update(
         "cluster head node": "簇头节点",
         "cluster head nodes": "簇头节点",
         "acid phosphatase": "酸性磷酸酶",
+        "s phase": "S期",
+        "s phases": "S期",
+        "s phase cell cycle checkpoint": "S期细胞周期检查点",
+        "s phase cell cycle checkpoints": "S期细胞周期检查点",
+        "s phase checkpoint": "S期检查点",
+        "s phase checkpoints": "S期检查点",
+        "s phase kinase associated protein": "S期激酶相关蛋白",
+        "s phase kinase associated proteins": "S期激酶相关蛋白",
+        "s-phase kinase-associated proteins": "S期激酶相关蛋白",
+        "tartrate resistant acid phosphatase": "抗酒石酸酸性磷酸酶",
+        "tartrate-resistant acid phosphatase": "抗酒石酸酸性磷酸酶",
+        "tartrate resistant acid phosphatase type 5": "抗酒石酸酸性磷酸酶5型",
+        "tartrate-resistant acid phosphatase type 5": "抗酒石酸酸性磷酸酶5型",
         "activated protein c resistance": "活化蛋白C抵抗",
         "acute phase reaction": "急性期反应",
         "acute phase protein": "急性期蛋白",
@@ -27090,6 +27104,21 @@ def _key(value: str) -> str:
     return " ".join(tokens)
 
 
+def _key_with_mesh_inversion(value: str) -> str:
+    key = _key(value)
+    cleaned = _clean_text(value).replace("&", " and ")
+    if "," not in cleaned:
+        return key
+    if key in EXACT_ALIASES:
+        return key
+    if re.fullmatch(r"chromosome human pair ([0-9]+|x|y)", key):
+        return key
+    parts = [_key(part) for part in cleaned.split(",") if _key(part)]
+    if len(parts) < 2:
+        return key
+    return " ".join([*parts[1:], parts[0]])
+
+
 EXACT_ALIASES = {_key(key): value for key, value in RAW_EXACT_ALIASES.items()}
 COMPONENTS = {_key(key): value for key, value in RAW_COMPONENTS.items()}
 PRIORITY_COMPONENTS = {**COMPONENTS, **{_key(key): value for key, value in RAW_PRIORITY_COMPONENTS.items()}}
@@ -27973,6 +28002,10 @@ DOMAIN_AWARE_EXACT_BAD_SUBSTRINGS = {
     "电话集",
     "图书馆",
     "网络网络",
+    "学术故障",
+    "学术衰竭",
+    "增材噪声",
+    "先进母亲年龄",
     "文化技术",
     "系统系统",
     "智能汽车溶液",
@@ -27992,6 +28025,32 @@ DOMAIN_AWARE_EXACT_BAD_SUBSTRINGS = {
     "人情绪",
     "人工程",
     "语音的康复",
+}
+
+GLOBAL_BAD_ZH_ALIAS_SUBSTRINGS = {
+    "碱性情绪",
+    "调节柔顺",
+    "能源高效",
+    "全率",
+    "乳腺馈电",
+    "软件图书馆",
+    "通信系统信号转导",
+    "学术故障",
+    "学术衰竭",
+    "增材噪声",
+    "先进母亲年龄",
+    "高级母亲年龄",
+    "智能汽车溶液",
+    "逆运动学溶液",
+    "分数微分方程溶液",
+    "帕累托溶液",
+    "二进制流体",
+    "历史与物理学的哲学",
+    "农业安全与调节",
+    "体与器官系统",
+    "溶液方法",
+    "溶液概念",
+    "溶液精度",
 }
 
 ELECTRICAL_CHARGE_DOMAINS = {
@@ -28618,8 +28677,6 @@ def _domain_aware_exact_full_component_alias(
     source_priority: bool,
     original_tokens: dict[str, str],
 ) -> str | None:
-    if not source_priority:
-        return None
     if "," in term:
         return None
     if "(" in term or ")" in term:
@@ -28630,6 +28687,11 @@ def _domain_aware_exact_full_component_alias(
     if any(token in {"and", "as", "by", "for", "from", "in", "of", "on", "or", "to", "with"} for token in tokens):
         return None
     domain_set = {str(domain) for domain in domains if str(domain or "")}
+    if not source_priority:
+        if not domain_set & DOMAIN_AWARE_EXACT_PHYSICAL_DOMAINS:
+            return None
+        if domain_set & DOMAIN_AWARE_EXACT_LIFE_DOMAINS:
+            return None
     if not domain_set & (DOMAIN_AWARE_EXACT_LIFE_DOMAINS | DOMAIN_AWARE_EXACT_PHYSICAL_DOMAINS):
         return None
     components = _domain_aware_exact_components(domain_set, source_priority=source_priority)
@@ -28902,8 +28964,7 @@ def _propose_alias(
     source_priority: bool = False,
     allow_english_unknown: bool = False,
 ) -> tuple[str, str, str] | None:
-    key = _key(term)
-    key = _uninvert_mesh_label(key)
+    key = _key_with_mesh_inversion(term)
     if not key or key in GENERIC_EN:
         return None
     components = _components_for_domains(source_priority=source_priority, domains=domains)
@@ -29011,6 +29072,10 @@ def _valid_zh_alias(alias: str) -> bool:
     return 2 <= len(text) <= 40
 
 
+def _known_bad_zh_alias_shape(alias: str) -> bool:
+    return any(bad in alias for bad in GLOBAL_BAD_ZH_ALIAS_SUBSTRINGS)
+
+
 def _candidate(alias: str, term: str, method: str, confidence: str, *, source_priority: bool) -> dict[str, str]:
     scope = "source-prioritized" if source_priority else "conservative"
     if method == "exact_glossary":
@@ -29099,7 +29164,7 @@ def _review_gated_mixed_fallback(row: dict[str, Any]) -> dict[str, str] | None:
         if not proposed:
             continue
         alias, _method, _confidence = proposed
-        if not _valid_zh_alias(alias):
+        if not _valid_zh_alias(alias) or _known_bad_zh_alias_shape(alias):
             continue
         if _non_acronym_ascii_segment_count(alias) > 0:
             continue
@@ -29159,6 +29224,8 @@ def _fill_row(row: dict[str, Any], *, replace_generated: bool = False) -> tuple[
         ):
             continue
         if method != "exact_glossary" and _non_acronym_ascii_segment_count(alias) > 0:
+            continue
+        if _known_bad_zh_alias_shape(alias):
             continue
         if not _valid_zh_alias(alias) or alias in seen_aliases:
             continue

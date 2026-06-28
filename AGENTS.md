@@ -153,45 +153,45 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-28 post-7000 exact/domain-aware pattern milestone 后）：
+最新已知状态（2026-06-28 post-40 review cleanup 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，约 25%+；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`19828 / 48973 = 40.49%`
-- runtime zh aliases: `19839`
+- runtime 中文覆盖：`21133 / 48947 = 43.18%`
+- runtime zh aliases: `21143`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `19839`
-- `zh:blocked`: `7966`
+- `zh:accept`: `21143`
+- `zh:blocked`: `6649`
 - `zh:needs_review`: `0`
-- `zh:reject`: `67`
+- `zh:reject`: `57`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `48973`
+- runtime concept aliases: `48947`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
 - legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；当前运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `e0b641e848f3a4980c09a0fffc0d4d6d14b978502dca5b23435c22bc75ec7511`
+  `af7d955caaaa9dd641807e9aee4350cdbc7697c2b4ec3bc3fd85621ff56a71cc`
 - compact manifest SHA-256:
-  `9cdbed668246ec2c4acee231cd59fd911c059dc49d9620a58ff8653eccb76a80`
+  `baae792b2a508950a7db6b0f59452f9829226da3c5f20bd0dd5040d72e7bf150`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
 - compact index 是当前运行时真源；legacy full overlay 未随 batch-007 之后的覆盖扩展更新，不再作为默认等价检查对象。
-- 最近相关测试：`871 passed in 6.32s`。
+- 最近相关测试：`878 passed in 6.98s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- post-7000 exact/domain-aware pattern milestone 已完成，runtime 中文覆盖到 `40.49%`，已超过用户当前 `>40%` 目标；
+- post-7000 exact/domain-aware pattern milestone 已完成，runtime 中文覆盖到 `40.49%`；post-40 review cleanup 收口到 `43.18%`，已超过用户当前 `>40%` 目标；
 - 后续连续扩展继续采用新的提交节奏：每 `5` 轮 `20-batch` 处理作为一个最终 milestone commit；中间 checkpoint、review 清单和 smoke 产物仅放在 `F:\AI playground\TempFiles`，不再每轮 20-batch 都提交；
 - batch-2187-to-3400 milestone 临时审查产物：
   `F:\AI playground\TempFiles\review_decisions.before-35pct.20260625-012746.jsonl`，
@@ -223,7 +223,12 @@ lexicons/review/
 - post-40% review：
   - 本 milestone 新增 `1569` 个 runtime zh-covered concepts，主要来自 high/exact review、受控 full-component exact 规则和少量 replacement cleanup；
   - 不打开低质 mixed fallback、不 blanket accept medium-confidence compositional candidates、不自动 merge collision、不进入新的 L6；
-  - 后续建议先提交 35%-40% 变更，再决定是否继续冲 `45%` 或转入 treemap/text fallback 质量验证。
+  - post-40 canonical collision target review 曾显式选择 canonical high-exact collision target；后续 cleanup deferred 未完成的 50% pending 候选并修复 bad-shape 污染，保持“一 alias 只接受一个 runtime target”，未合并 duplicate/collision concept；
+  - runtime 中文覆盖收口到 `21133 / 48947 = 43.18%`，`zh:accept = 21143`，`zh:blocked = 6649`；
+  - accepted conflict groups: `0`；runtime en/zh alias conflicts: `0`；pollution audit bad-shape hits: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest byte-identical；compact index SHA-256: `af7d955caaaa9dd641807e9aee4350cdbc7697c2b4ec3bc3fd85621ff56a71cc`；
+  - query smoke 已确认 `S期`、`S期细胞周期检查点`、`S期激酶相关蛋白`、`抗酒石酸酸性磷酸酶` 可命中，`S相位`、`S相位细胞周期检查点`、`S相位激酶相关蛋白`、`酸磷酸酶V`、`二进制流体`、`农业安全与调节` 保持不命中；
+  - 后续建议先提交 40%-43.18% 变更，再决定是否继续冲 `45%` 或转入 treemap/text fallback 质量验证。
 - 最新 batch-4001 至 batch-7000 exact/domain-aware 五组 milestone 已完成：
   - 新增 `ZH_EXACT_EXPANSION_BATCH_4001_TO_4600_ALIASES`、`ZH_EXACT_EXPANSION_BATCH_4601_TO_5200_ALIASES`、`ZH_EXACT_EXPANSION_BATCH_5201_TO_5800_ALIASES`、`ZH_EXACT_EXPANSION_BATCH_5801_TO_6400_ALIASES`、`ZH_EXACT_EXPANSION_BATCH_6401_TO_7000_ALIASES`；
   - 覆盖 data/software/web/signal、RNA/DNA/protein/viral/cell、dental/tooth、receptor/CXCR/dopamine/GABA/interleukin/KIR/opioid 等 exact/domain-aware 术语；
