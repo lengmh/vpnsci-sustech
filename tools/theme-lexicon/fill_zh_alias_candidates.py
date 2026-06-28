@@ -26155,7 +26155,7 @@ ZH_EXACT_EXPANSION_BATCH_7001_TO_9000_ALIASES = {
         'entropy coding': '熵编码',
         'entropy rates': '熵率',
         'envelope tracking': '包络跟踪',
-        'epidemic routing': '流行路由',
+        'epidemic routing': '传染病路由',
         'epipolar geometry': '对极几何',
         'epipolar line': '对极线',
         'episodic memory': '情景记忆',
@@ -26170,7 +26170,7 @@ ZH_EXACT_EXPANSION_BATCH_7001_TO_9000_ALIASES = {
         'erasure coding': '擦除编码',
         'ergodic capacity': '遍历容量',
         'error concealment': '错误隐藏',
-        'error floor': '错误平台',
+        'error floor': '误码平台',
         'error vector magnitude': '误差矢量幅度',
         'event calculus': '事件演算',
         'event logs': '事件日志',
@@ -26443,7 +26443,7 @@ ZH_EXACT_EXPANSION_BATCH_7001_TO_9000_ALIASES = {
         'route optimization': '路由优化',
         'rsa algorithms': 'RSA算法',
         'rule induction': '规则归纳',
-        'run time reconfiguration': '运行时重构',
+        'run time reconfiguration': '运行时重配置',
         'run-time verification': '运行时验证',
         'runtime monitoring': '运行时监控',
         'runtime system': '运行时系统',
@@ -26502,7 +26502,7 @@ ZH_EXACT_EXPANSION_BATCH_7001_TO_9000_ALIASES = {
         'service level agreement': '服务级别协议',
         'service orchestration': '服务编排',
         'servo control': '伺服控制',
-        'session initiation protocol': '会话初始协议',
+        'session initiation protocol': '会话发起协议',
         'session key': '会话密钥',
         'shadow removal': '阴影去除',
         'shift invariance': '平移不变性',
@@ -27847,16 +27847,16 @@ def _load_reviewed_zh_exact_aliases(path: Path = REVIEWED_ZH_EXACT_ALIASES_PATH)
 
 EXACT_ALIASES = {_key(key): value for key, value in RAW_EXACT_ALIASES.items()}
 _REVIEWED_ZH_EXACT_ALIASES_LOADED = False
+_REVIEWED_ZH_EXACT_ALIASES: dict[str, str] = {}
 
 
-def _ensure_reviewed_zh_exact_aliases_loaded() -> None:
-    global _REVIEWED_ZH_EXACT_ALIASES_LOADED, EXACT_ALIASES
+def _ensure_reviewed_zh_exact_aliases_loaded() -> dict[str, str]:
+    global _REVIEWED_ZH_EXACT_ALIASES_LOADED, _REVIEWED_ZH_EXACT_ALIASES
     if _REVIEWED_ZH_EXACT_ALIASES_LOADED:
-        return
-    reviewed = _load_reviewed_zh_exact_aliases()
-    if reviewed:
-        EXACT_ALIASES = {**EXACT_ALIASES, **reviewed}
+        return _REVIEWED_ZH_EXACT_ALIASES
+    _REVIEWED_ZH_EXACT_ALIASES = _load_reviewed_zh_exact_aliases()
     _REVIEWED_ZH_EXACT_ALIASES_LOADED = True
+    return _REVIEWED_ZH_EXACT_ALIASES
 
 
 COMPONENTS = {_key(key): value for key, value in RAW_COMPONENTS.items()}
@@ -30156,45 +30156,52 @@ def _fill_row(row: dict[str, Any], *, replace_generated: bool = False) -> tuple[
 
 
 def fill_zh_alias_candidates(candidate_dir: Path, *, replace_generated: bool = False) -> dict[str, Any]:
+    global EXACT_ALIASES
     candidate_dir = Path(candidate_dir)
+    original_exact_aliases = EXACT_ALIASES
     if candidate_dir.resolve() == PRODUCTION_CANDIDATE_DIR.resolve():
-        _ensure_reviewed_zh_exact_aliases_loaded()
-    files = _candidate_files(candidate_dir)
-    records_seen = 0
-    records_filled = 0
-    records_replaced = 0
-    files_changed = 0
-    for path in files:
-        rows = _read_jsonl(path)
-        changed = False
-        for row in rows:
-            records_seen += 1
-            filled, replaced = _fill_row(row, replace_generated=replace_generated)
-            if replaced:
-                records_replaced += 1
-                changed = True
-            if filled:
-                records_filled += 1
-                changed = True
-        if changed:
-            _write_jsonl(path, rows)
-            files_changed += 1
-    summary = {
-        "schema_version": "theme_zh_alias_fill.v1",
-        "generated_at": datetime.now(timezone.utc).isoformat(),
-        "candidate_dir": str(candidate_dir.resolve()),
-        "files_considered": len(files),
-        "files_changed": files_changed,
-        "records_seen": records_seen,
-        "records_filled": records_filled,
-        "records_replaced": records_replaced,
-        "strategy": "review_gated_conservative_glossary",
-        "priority_sources": sorted(PRIORITY_SOURCES),
-    }
-    manifest_path = candidate_dir / "zh_alias_fill_manifest.json"
-    summary["manifest"] = str(manifest_path)
-    manifest_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
-    return summary
+        reviewed = _ensure_reviewed_zh_exact_aliases_loaded()
+        if reviewed:
+            EXACT_ALIASES = {**EXACT_ALIASES, **reviewed}
+    try:
+        files = _candidate_files(candidate_dir)
+        records_seen = 0
+        records_filled = 0
+        records_replaced = 0
+        files_changed = 0
+        for path in files:
+            rows = _read_jsonl(path)
+            changed = False
+            for row in rows:
+                records_seen += 1
+                filled, replaced = _fill_row(row, replace_generated=replace_generated)
+                if replaced:
+                    records_replaced += 1
+                    changed = True
+                if filled:
+                    records_filled += 1
+                    changed = True
+            if changed:
+                _write_jsonl(path, rows)
+                files_changed += 1
+        summary = {
+            "schema_version": "theme_zh_alias_fill.v1",
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "candidate_dir": str(candidate_dir.resolve()),
+            "files_considered": len(files),
+            "files_changed": files_changed,
+            "records_seen": records_seen,
+            "records_filled": records_filled,
+            "records_replaced": records_replaced,
+            "strategy": "review_gated_conservative_glossary",
+            "priority_sources": sorted(PRIORITY_SOURCES),
+        }
+        manifest_path = candidate_dir / "zh_alias_fill_manifest.json"
+        summary["manifest"] = str(manifest_path)
+        manifest_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+        return summary
+    finally:
+        EXACT_ALIASES = original_exact_aliases
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:

@@ -162,8 +162,14 @@ def _singular_alias_token(token: str) -> str:
 def _normalize_concept_alias(value: str) -> str:
     text = (value or "").strip().casefold()
     if any("\u4e00" <= ch <= "\u9fff" for ch in text):
-        text = re.sub(r"[\s，。；;：:、（）()\[\]【】<>《》!?！？\-_／/]+", "", text)
-        return text
+        text = re.sub(r"(?<=[\u4e00-\u9fff])(?=[A-Za-z0-9])", " ", text)
+        text = re.sub(r"(?<=[A-Za-z0-9])(?=[\u4e00-\u9fff])", " ", text)
+        text = text.replace("∞", " infinity ")
+        text = text.replace("&", " and ")
+        text = re.sub(r"[\-_/]+", " ", text)
+        text = re.sub(r"[^\w\s\u4e00-\u9fff]+", " ", text)
+        return re.sub(r"\s+", " ", text).strip()
+    text = text.replace("∞", " infinity ")
     text = text.replace("&", " and ")
     text = re.sub(r"[\-_/]+", " ", text)
     text = re.sub(r"[^a-z0-9+\s]+", " ", text)
@@ -448,14 +454,75 @@ def _build_chinese_concept_alias_terms() -> tuple[str, ...]:
 THEME_CONCEPT_ALIAS_ZH_TERMS = _build_chinese_concept_alias_terms()
 
 
+def _compact_chinese_alias_text(value: str) -> str:
+    compact = re.sub(r"[^\w\u4e00-\u9fff]+", "", (value or "").casefold())
+    return compact.replace("_", "")
+
+
+def _contains_latin_or_digit(value: str) -> bool:
+    return bool(re.search(r"[a-z0-9]", value or ""))
+
+
+def _is_ascii_alnum(value: str) -> bool:
+    return len(value) == 1 and (("a" <= value <= "z") or ("0" <= value <= "9"))
+
+
+def _single_ascii_neighbor_token(text: str, index: int, *, step: int) -> str:
+    if step < 0:
+        cursor = index - 1
+        while cursor >= 0 and text[cursor].isspace():
+            cursor -= 1
+        end = cursor + 1
+        while cursor >= 0 and _is_ascii_alnum(text[cursor]):
+            cursor -= 1
+        return text[cursor + 1:end]
+
+    cursor = index
+    while cursor < len(text) and text[cursor].isspace():
+        cursor += 1
+    start = cursor
+    while cursor < len(text) and _is_ascii_alnum(text[cursor]):
+        cursor += 1
+    return text[start:cursor]
+
+
+def _has_single_ascii_neighbor_token(text: str, start: int, end: int) -> bool:
+    return (
+        len(_single_ascii_neighbor_token(text, start, step=-1)) == 1
+        or len(_single_ascii_neighbor_token(text, end, step=1)) == 1
+    )
+
+
+def _contains_normalized_alias(text: str, alias: str) -> bool:
+    if not alias:
+        return False
+    if _contains_latin_or_digit(alias):
+        for match in re.finditer(re.escape(alias), text):
+            start, end = match.span()
+            if start > 0 and _is_ascii_alnum(text[start - 1]):
+                continue
+            if end < len(text) and _is_ascii_alnum(text[end]):
+                continue
+            if _has_single_ascii_neighbor_token(text, start, end):
+                continue
+            return True
+        return False
+    return alias in text
+
+
 def _chinese_concept_alias_matches(text: str) -> list[str]:
     if not _is_chinese_term(text):
         return []
     normalized_text = _normalize_concept_alias(text)
+    compact_text = _compact_chinese_alias_text(text)
     return [
         term
         for term in THEME_CONCEPT_ALIAS_ZH_TERMS
-        if term in text or term in normalized_text
+        if (
+            term in text
+            or _contains_normalized_alias(normalized_text, term)
+            or (not _contains_latin_or_digit(term) and term in compact_text)
+        )
     ]
 
 
