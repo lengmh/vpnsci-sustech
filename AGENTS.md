@@ -159,7 +159,7 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-29 post-95 new exact proposal round12 后）：
+最新已知状态（2026-06-29 post-95 new exact proposal round13 审查后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，
@@ -200,7 +200,7 @@ lexicons/review/
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- post-7000 exact/domain-aware pattern milestone 已完成，runtime 中文覆盖到 `40.49%`；post-40 review cleanup 收口到 `43.18%`；post-40 continuation 已清理并达到 clean `50.01%`；post-50-to-60 子代理审查 milestone 已达到 clean `60.10%`；post-60-to-70 子代理审查 milestone 已达到 clean `70.00%`（exact `70.002%`）；post-70-to-80 子代理审查 milestone 已达到 clean `80.92%`；post-80-to-90 子代理审查 milestone 已达到 clean `90.07%`；post-90-to-final 子代理审查 milestone 已达到 `99.07%`；post-99 safe patch 已达到 `99.08%`；post-99 round2 safe patch 已达到 `99.10%`；post-99 round3 safe patch 曾达到 `99.13%`；post-99 correctness cleanup 因清理伪 exact / stale source 回落到 clean `95.49%`；post-95 singleton exact review batch 推进到 clean `95.91%`；post-95 singleton exact review round2 推进到 clean `96.01%`；post-95 exact collision review round3 推进到 clean `96.14%`；post-95 exact collision review round4 推进到 clean `96.21%`；post-95 exact collision review round5 推进到 clean `96.33%`；post-95 exact collision review round6 推进到 clean `96.45%`；post-95 exact collision review round7 推进到 clean `96.51%`；post-95 singleton exact review round8 推进到 clean `96.51%`（`48115 / 49853`）；post-95 new exact proposal round9 推进到 clean `96.74%`；post-95 new exact proposal round10 推进到 clean `96.76%`；post-95 new exact proposal round11 推进到 clean `96.80%`；post-95 new exact proposal round12 推进到 clean `96.82%`；
+- post-7000 exact/domain-aware pattern milestone 已完成，runtime 中文覆盖到 `40.49%`；post-40 review cleanup 收口到 `43.18%`；post-40 continuation 已清理并达到 clean `50.01%`；post-50-to-60 子代理审查 milestone 已达到 clean `60.10%`；post-60-to-70 子代理审查 milestone 已达到 clean `70.00%`（exact `70.002%`）；post-70-to-80 子代理审查 milestone 已达到 clean `80.92%`；post-80-to-90 子代理审查 milestone 已达到 clean `90.07%`；post-90-to-final 子代理审查 milestone 已达到 `99.07%`；post-99 safe patch 已达到 `99.08%`；post-99 round2 safe patch 已达到 `99.10%`；post-99 round3 safe patch 曾达到 `99.13%`；post-99 correctness cleanup 因清理伪 exact / stale source 回落到 clean `95.49%`；post-95 singleton exact review batch 推进到 clean `95.91%`；post-95 singleton exact review round2 推进到 clean `96.01%`；post-95 exact collision review round3 推进到 clean `96.14%`；post-95 exact collision review round4 推进到 clean `96.21%`；post-95 exact collision review round5 推进到 clean `96.33%`；post-95 exact collision review round6 推进到 clean `96.45%`；post-95 exact collision review round7 推进到 clean `96.51%`；post-95 singleton exact review round8 推进到 clean `96.51%`（`48115 / 49853`）；post-95 new exact proposal round9 推进到 clean `96.74%`；post-95 new exact proposal round10 推进到 clean `96.76%`；post-95 new exact proposal round11 推进到 clean `96.80%`；post-95 new exact proposal round12 推进到 clean `96.82%`；post-95 new exact proposal round13 未新增 runtime-safe alias，coverage 保持 clean `96.82%`；
 - post-70 review cleanup 已完成最终修复：package 与 paper-search-pro
   runtime 均使用 compact index 一致的 CJK/Latin alias 归一化与中文 alias
   extraction，并修复 `pH控制` / `AH控制` / `p-H控制` / `p H控制`
@@ -518,6 +518,16 @@ lexicons/review/
     collision candidate 不会误命中被跳过 target；
   - 相关测试：focused alias/runtime suite `909 passed in 27.98s`；project suite
     `1267 passed, 4 subtests passed in 98.16s`；
+- post-95 new exact proposal round13 已审查完成：
+  - 跳过此前 post95 已选 `1101` 个概念后，fresh exact/domain-aware
+    pool 只剩 `1` 个候选：`concept:photoacoustic_effect__2`；
+  - 子代理审查结论：`0` accept、`1` reject；候选 alias 已是 collision-blocked
+    duplicate 形态，没有安全 target-specific alias；
+  - 未追加 `tools/theme-lexicon/reviewed_zh_exact_aliases.json`，未运行
+    materialize，runtime 状态保持 round12：`48262 / 49849 = 96.82%`；
+  - 当前 exact-only、no-retarget、no-merge 路线已基本耗尽；继续接近 `100%`
+    需要先制定并实施 canonical duplicate/retarget policy，否则后续大多数标准
+    中文术语仍会被 collision guard 阻断；
 - 后续连续扩展继续采用新的提交节奏：每 `5` 轮 `20-batch` 处理作为一个最终 milestone commit；中间 checkpoint、review 清单和 smoke 产物仅放在 `F:\AI playground\TempFiles`，不再每轮 20-batch 都提交；
 - batch-2187-to-3400 milestone 临时审查产物：
   `F:\AI playground\TempFiles\review_decisions.before-35pct.20260625-012746.jsonl`，
