@@ -181986,6 +181986,958 @@
       "source": "subagent_domain_translation_post99_safe_patch_round3",
       "reviewed_at": "2026-06-29",
       "reason": "Subagent-approved exact/domain-aware post-99 round3 safe coverage patch."
+    },
+    {
+      "concept_id": "concept:16s_rrna",
+      "canonical_en": "16s Rrna",
+      "alias_zh": "16S rRNA基因",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "runtime concept is the gene; this is the standard specific term and avoids plain 16S rRNA collision"
+    },
+    {
+      "concept_id": "concept:acoustic_emission__2",
+      "canonical_en": "Acoustic Emission",
+      "alias_zh": "声发射",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard NDT/acoustics term; cleaner than literal 声学发射"
+    },
+    {
+      "concept_id": "concept:activation_analysi__3",
+      "canonical_en": "Activation Analysis",
+      "alias_zh": "活化分析",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard analytical chemistry term"
+    },
+    {
+      "concept_id": "concept:aluminum_hydroxide",
+      "canonical_en": "Aluminum Hydroxide",
+      "alias_zh": "氢氧化铝",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard chemical name; fixes reversed candidate wording"
+    },
+    {
+      "concept_id": "concept:analog_digital_conversion__2",
+      "canonical_en": "Analog-digital Conversion",
+      "alias_zh": "模数转换",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard electronics term for analog-to-digital conversion"
+    },
+    {
+      "concept_id": "concept:analytical_hierarchy_process",
+      "canonical_en": "Analytical Hierarchy Process",
+      "alias_zh": "层次分析法",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard AHP term and best explicit target in this chunk"
+    },
+    {
+      "concept_id": "concept:antiviru_softwar",
+      "canonical_en": "Antivirus Softwares",
+      "alias_zh": "防病毒软件",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard software category term"
+    },
+    {
+      "concept_id": "concept:architecture_analysi",
+      "canonical_en": "Architecture Analysis",
+      "alias_zh": "软件架构分析",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "English aliases include software architecture analysis; specific natural alias"
+    },
+    {
+      "concept_id": "concept:audio_streaming",
+      "canonical_en": "Audio Streaming",
+      "alias_zh": "音频流传输",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "more exact for streaming than plain 音频流"
+    },
+    {
+      "concept_id": "concept:automatic_test_pattern_generation__4",
+      "canonical_en": "Automatic Test Pattern Generation",
+      "alias_zh": "自动测试图形生成",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard EDA term for ATPG"
+    },
+    {
+      "concept_id": "concept:autonomou_vehicle",
+      "canonical_en": "Autonomous Vehicle",
+      "alias_zh": "自动驾驶车辆",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard self-driving vehicle term and preferred target over duplicate plural item"
+    },
+    {
+      "concept_id": "concept:biometric_identification__2",
+      "canonical_en": "Biometric Identification",
+      "alias_zh": "生物特征识别",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard biometrics term and best target among duplicate-like entries"
+    },
+    {
+      "concept_id": "concept:biped_robot",
+      "canonical_en": "Biped Robot",
+      "alias_zh": "双足机器人",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard robotics term and clearer target than duplicate bipedal item"
+    },
+    {
+      "concept_id": "concept:brain_computer_interface",
+      "canonical_en": "Brain Computer Interface",
+      "alias_zh": "脑机接口",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard BCI term and preferred target over duplicate biomedical entry"
+    },
+    {
+      "concept_id": "concept:brain_signal",
+      "canonical_en": "Brain Signals",
+      "alias_zh": "脑信号",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard neuroengineering term; fixes bad 脑器官信号 candidate"
+    },
+    {
+      "concept_id": "concept:business_process_management__3",
+      "canonical_en": "Business Process Management",
+      "alias_zh": "业务流程管理",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard BPM translation; improves literal 商业过程管理"
+    },
+    {
+      "concept_id": "concept:business_process_re_engineering__2",
+      "canonical_en": "Business Process Re-engineering",
+      "alias_zh": "业务流程再造",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard BPR translation; improves literal 再工程 wording"
+    },
+    {
+      "concept_id": "concept:cache_memory__2",
+      "canonical_en": "Cache Memories",
+      "alias_zh": "高速缓冲存储器",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard computer architecture term for cache memory"
+    },
+    {
+      "concept_id": "concept:carbon_cycle__2",
+      "canonical_en": "Carbon Cycle",
+      "alias_zh": "碳循环",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard Earth-system science term; fixes 碳周期 candidate"
+    },
+    {
+      "concept_id": "concept:cellular_automata__2",
+      "canonical_en": "Cellular Automata",
+      "alias_zh": "元胞自动机",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard Chinese term for cellular automata"
+    },
+    {
+      "concept_id": "concept:chao_synchronization",
+      "canonical_en": "Chaos Synchronization",
+      "alias_zh": "混沌同步",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard nonlinear-systems term and preferred target over duplicate chaotic synchronization"
+    },
+    {
+      "concept_id": "concept:chao_system",
+      "canonical_en": "Chaos Systems",
+      "alias_zh": "混沌系统",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard nonlinear-systems term and preferred target over duplicate chaotic system"
+    },
+    {
+      "concept_id": "concept:chromosom_human_1_3",
+      "canonical_en": "Chromosomes, Human, 1-3",
+      "alias_zh": "人类A组染色体",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard cytogenetic group for human chromosomes 1-3"
+    },
+    {
+      "concept_id": "concept:chromosom_human_19_20",
+      "canonical_en": "Chromosomes, Human, 19-20",
+      "alias_zh": "人类F组染色体",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard cytogenetic group for human chromosomes 19-20"
+    },
+    {
+      "concept_id": "concept:chromosom_human_21_22_and_y",
+      "canonical_en": "Chromosomes, Human, 21-22 And Y",
+      "alias_zh": "人类G组染色体",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard cytogenetic group for human chromosomes 21-22 and Y"
+    },
+    {
+      "concept_id": "concept:chromosom_human_4_5",
+      "canonical_en": "Chromosomes, Human, 4-5",
+      "alias_zh": "人类B组染色体",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard cytogenetic group for human chromosomes 4-5"
+    },
+    {
+      "concept_id": "concept:chromosom_human_6_12_and_x",
+      "canonical_en": "Chromosomes, Human, 6-12 And X",
+      "alias_zh": "人类C组染色体",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard cytogenetic group for human chromosomes 6-12 and X"
+    },
+    {
+      "concept_id": "concept:chromosom_human_pair_13",
+      "canonical_en": "Chromosomes, Human, Pair 13",
+      "alias_zh": "人类13号染色体",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard cytogenetic chromosome name"
+    },
+    {
+      "concept_id": "concept:community_of_practice",
+      "canonical_en": "Communities Of Practice",
+      "alias_zh": "实践共同体",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard term; fixes literal 实践的社区"
+    },
+    {
+      "concept_id": "concept:community_dentistry",
+      "canonical_en": "Community Dentistry",
+      "alias_zh": "社区牙医学",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard dentistry discipline term"
+    },
+    {
+      "concept_id": "concept:computer_graphic__2",
+      "canonical_en": "Computer Graphics",
+      "alias_zh": "计算机图形学",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Computer Graphics 的标准学科译名，比计算机图形更精确。"
+    },
+    {
+      "concept_id": "concept:computer_language",
+      "canonical_en": "Computer Language",
+      "alias_zh": "计算机语言",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Computer Language 的通用标准译名，概念边界清楚。"
+    },
+    {
+      "concept_id": "concept:cone_beam_computed_tomography__2",
+      "canonical_en": "Cone-beam Computed Tomography",
+      "alias_zh": "锥形束计算机断层成像",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Cone-beam CT 的完整中文专业译名，无英文残留。"
+    },
+    {
+      "concept_id": "concept:conformance_checking",
+      "canonical_en": "Conformance Checking",
+      "alias_zh": "符合性检查",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Conformance Checking 的专业译名，较少与一致性检查泛义冲突。"
+    },
+    {
+      "concept_id": "concept:construction_industry__2",
+      "canonical_en": "Construction Industry",
+      "alias_zh": "建筑业",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Construction Industry 的标准行业译名。"
+    },
+    {
+      "concept_id": "concept:consumer_behavior__3",
+      "canonical_en": "Consumer Behavior",
+      "alias_zh": "消费者行为",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Consumer Behavior 的标准心理和营销术语。"
+    },
+    {
+      "concept_id": "concept:controller_area_network__2",
+      "canonical_en": "Controller Area Network",
+      "alias_zh": "控制器局域网",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Controller Area Network 的标准译名。"
+    },
+    {
+      "concept_id": "concept:convergence_ocular__2",
+      "canonical_en": "Convergence, Ocular",
+      "alias_zh": "眼球会聚",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Ocular Convergence 的眼科专业表达。"
+    },
+    {
+      "concept_id": "concept:convolutional_code",
+      "canonical_en": "Convolutional Code",
+      "alias_zh": "卷积码",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Convolutional Code 的标准通信术语，代码为误译。"
+    },
+    {
+      "concept_id": "concept:cooperative_network",
+      "canonical_en": "Cooperative Networks",
+      "alias_zh": "协作网络",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Cooperative Networks 的自然技术译名。"
+    },
+    {
+      "concept_id": "concept:copyright_protection__2",
+      "canonical_en": "Copyright Protection",
+      "alias_zh": "版权保护",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Copyright Protection 的标准法律和信息安全表述。"
+    },
+    {
+      "concept_id": "concept:data_analysi__3",
+      "canonical_en": "Data Analysis",
+      "alias_zh": "数据分析",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Data Analysis 的标准译名。"
+    },
+    {
+      "concept_id": "concept:data_broadcast",
+      "canonical_en": "Data Broadcast",
+      "alias_zh": "数据广播",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Data Broadcast 的标准通信术语。"
+    },
+    {
+      "concept_id": "concept:decision_making_computer_assisted__2",
+      "canonical_en": "Decision Making, Computer-assisted",
+      "alias_zh": "计算机辅助决策",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Computer-assisted Decision Making 的标准译名。"
+    },
+    {
+      "concept_id": "concept:denoising_autoencoder",
+      "canonical_en": "Denoising Autoencoders",
+      "alias_zh": "去噪自编码器",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Denoising Autoencoders 的标准译名。"
+    },
+    {
+      "concept_id": "concept:density_functional_theory__2",
+      "canonical_en": "Density Functional Theory",
+      "alias_zh": "密度泛函理论",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Density Functional Theory 的标准译名。"
+    },
+    {
+      "concept_id": "concept:digital_management",
+      "canonical_en": "Digital Management",
+      "alias_zh": "数字化管理",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Digital Management 的自然标准译名，修正数字管理误译。"
+    },
+    {
+      "concept_id": "concept:dimensionality_reduction__4",
+      "canonical_en": "Dimensionality Reduction",
+      "alias_zh": "维度约简",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Dimensionality Reduction 的正式技术译名，避开 LDA 候选误配。"
+    },
+    {
+      "concept_id": "concept:distributed_parameter_system__2",
+      "canonical_en": "Distributed Parameter System",
+      "alias_zh": "分布参数系统",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Distributed Parameter System 的控制领域标准译名，非分布式参数系统。"
+    },
+    {
+      "concept_id": "concept:domain_name_system",
+      "canonical_en": "Domain Name System",
+      "alias_zh": "域名系统",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Domain Name System 的标准译名。"
+    },
+    {
+      "concept_id": "concept:doping_in_sport__2",
+      "canonical_en": "Doping In Sports",
+      "alias_zh": "体育运动中的兴奋剂使用",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Doping in Sports 的准确中文表达，避免掺杂误译。"
+    },
+    {
+      "concept_id": "concept:electric_power_supply",
+      "canonical_en": "Electric Power Supplies",
+      "alias_zh": "电源",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Electric Power Supply/Power Source 的标准译名。"
+    },
+    {
+      "concept_id": "concept:electric_wiring__2",
+      "canonical_en": "Electric Wiring",
+      "alias_zh": "电气布线",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Electrical Wiring 的标准译名，修正电动布线误译。"
+    },
+    {
+      "concept_id": "concept:electrical_power_distribution",
+      "canonical_en": "Electrical Power Distribution",
+      "alias_zh": "配电",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Electrical Power Distribution 的标准电力术语。"
+    },
+    {
+      "concept_id": "concept:electromagnetic_radiation__2",
+      "canonical_en": "Electromagnetic Radiation",
+      "alias_zh": "电磁辐射",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Electromagnetic Radiation 的标准译名。"
+    },
+    {
+      "concept_id": "concept:electronic_health_record_system__2",
+      "canonical_en": "Electronic Health Record Systems",
+      "alias_zh": "电子健康档案系统",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Electronic Health Record Systems 的标准医疗信息系统译名。"
+    },
+    {
+      "concept_id": "concept:electronic_health_record",
+      "canonical_en": "Electronic Health Records",
+      "alias_zh": "电子健康档案",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Electronic Health Records 的标准译名，较电子健康记录自然。"
+    },
+    {
+      "concept_id": "concept:electronic_nose__3",
+      "canonical_en": "Electronic Nose",
+      "alias_zh": "电子鼻",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Electronic Nose 的标准译名。"
+    },
+    {
+      "concept_id": "concept:electronic_waste__2",
+      "canonical_en": "Electronic Waste",
+      "alias_zh": "电子废弃物",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Electronic Waste 的标准译名。"
+    },
+    {
+      "concept_id": "concept:energy_scavenging",
+      "canonical_en": "Energy Scavenging",
+      "alias_zh": "能量收集",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Energy Scavenging 的标准无线传感/低功耗术语。"
+    },
+    {
+      "concept_id": "concept:environmental_science__2",
+      "canonical_en": "Environmental Science",
+      "alias_zh": "环境科学",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Environmental Science 的标准学科名。"
+    },
+    {
+      "concept_id": "concept:evidence_based_dentistry",
+      "canonical_en": "Evidence-based Dentistry",
+      "alias_zh": "循证牙医学",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Evidence-based Dentistry 的标准医学学科译名。"
+    },
+    {
+      "concept_id": "concept:facial_expression__2",
+      "canonical_en": "Facial Expression",
+      "alias_zh": "面部表情",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Facial Expression 的标准心理和医学译名。"
+    },
+    {
+      "concept_id": "concept:fast_handover",
+      "canonical_en": "Fast Handover",
+      "alias_zh": "快速切换",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Fast Handover 的标准移动通信译名。"
+    },
+    {
+      "concept_id": "concept:fault_localization",
+      "canonical_en": "Fault Localization",
+      "alias_zh": "故障定位",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "Fault Localization 的标准译名。"
+    },
+    {
+      "concept_id": "concept:file_system__2",
+      "canonical_en": "File System",
+      "alias_zh": "文件系统",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard CS term"
+    },
+    {
+      "concept_id": "concept:finite_automata",
+      "canonical_en": "Finite Automata",
+      "alias_zh": "有限自动机",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard automata theory term"
+    },
+    {
+      "concept_id": "concept:flash_memory__2",
+      "canonical_en": "Flash Memory",
+      "alias_zh": "闪存",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard memory technology term"
+    },
+    {
+      "concept_id": "concept:food_industry__2",
+      "canonical_en": "Food Industry",
+      "alias_zh": "食品工业",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard industry term"
+    },
+    {
+      "concept_id": "concept:food_technology__2",
+      "canonical_en": "Food Technology",
+      "alias_zh": "食品科学",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "runtime is Food Sciences; standard discipline term"
+    },
+    {
+      "concept_id": "concept:forensic_dentistry",
+      "canonical_en": "Forensic Dentistry",
+      "alias_zh": "法医牙科学",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "fixes false friend; standard forensic dentistry term"
+    },
+    {
+      "concept_id": "concept:frequency_conversion__2",
+      "canonical_en": "Frequency Conversion",
+      "alias_zh": "频率转换",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard engineering term"
+    },
+    {
+      "concept_id": "concept:fused_imag",
+      "canonical_en": "Fused Images",
+      "alias_zh": "融合图像",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard image fusion result term"
+    },
+    {
+      "concept_id": "concept:gait_recognition_and_analysi",
+      "canonical_en": "Gait Recognition And Analysis",
+      "alias_zh": "步态识别与分析",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "natural exact technical topic"
+    },
+    {
+      "concept_id": "concept:genetic_algorithm__2",
+      "canonical_en": "Genetic Algorithms",
+      "alias_zh": "遗传算法",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard optimization term"
+    },
+    {
+      "concept_id": "concept:genetic_engineering__2",
+      "canonical_en": "Genetic Engineering",
+      "alias_zh": "基因工程",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard Chinese term for genetic engineering"
+    },
+    {
+      "concept_id": "concept:genetic_programming__3",
+      "canonical_en": "Genetic Programming",
+      "alias_zh": "遗传编程",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard evolutionary computation term"
+    },
+    {
+      "concept_id": "concept:genetic_structur",
+      "canonical_en": "Genetic Structures",
+      "alias_zh": "遗传结构",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard genetics term"
+    },
+    {
+      "concept_id": "concept:genome_mitochondrial__2",
+      "canonical_en": "Genome, Mitochondrial",
+      "alias_zh": "线粒体基因组",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard genomics term"
+    },
+    {
+      "concept_id": "concept:geographic_information_system__4",
+      "canonical_en": "Geographic Information System",
+      "alias_zh": "地理信息系统",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard GIS term"
+    },
+    {
+      "concept_id": "concept:geometric_attack",
+      "canonical_en": "Geometric Attacks",
+      "alias_zh": "几何攻击",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard security/watermarking term"
+    },
+    {
+      "concept_id": "concept:geometric_modeling",
+      "canonical_en": "Geometric Modeling",
+      "alias_zh": "几何建模",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard graphics/modeling term"
+    },
+    {
+      "concept_id": "concept:graph_theory_and_application",
+      "canonical_en": "Graph Theory And Applications",
+      "alias_zh": "图论及其应用",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard Chinese topic name"
+    },
+    {
+      "concept_id": "concept:ground_penetrating_radar__3",
+      "canonical_en": "Ground Penetrating Radar",
+      "alias_zh": "探地雷达",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard GPR term"
+    },
+    {
+      "concept_id": "concept:growth_and_development",
+      "canonical_en": "Growth And Development",
+      "alias_zh": "生长发育",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard biomedical term"
+    },
+    {
+      "concept_id": "concept:hamming_distance",
+      "canonical_en": "Hamming Distance",
+      "alias_zh": "汉明距离",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard coding theory term"
+    },
+    {
+      "concept_id": "concept:hamming_weight__2",
+      "canonical_en": "Hamming Weight",
+      "alias_zh": "汉明重量",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard coding theory term"
+    },
+    {
+      "concept_id": "concept:hand_gesture_recognition",
+      "canonical_en": "Hand Gesture Recognition",
+      "alias_zh": "手势识别",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard computer vision term"
+    },
+    {
+      "concept_id": "concept:haptic_interfac__2",
+      "canonical_en": "Haptic Interfaces",
+      "alias_zh": "触觉接口",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard haptics interface term"
+    },
+    {
+      "concept_id": "concept:hardware_acceleration__2",
+      "canonical_en": "Hardware Acceleration",
+      "alias_zh": "硬件加速",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard computing term"
+    },
+    {
+      "concept_id": "concept:heterogeneou_network",
+      "canonical_en": "Heterogeneous Networks",
+      "alias_zh": "异构网络",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard networking term"
+    },
+    {
+      "concept_id": "concept:hidden_markov_model__2",
+      "canonical_en": "Hidden Markov Model",
+      "alias_zh": "隐马尔可夫模型",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard probabilistic model term"
+    },
+    {
+      "concept_id": "concept:hough_transform",
+      "canonical_en": "Hough Transform",
+      "alias_zh": "霍夫变换",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard image processing term"
+    },
+    {
+      "concept_id": "concept:human_computer_interaction__2",
+      "canonical_en": "Human Computer Interaction",
+      "alias_zh": "人机交互",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard HCI term"
+    },
+    {
+      "concept_id": "concept:human_computer_interface",
+      "canonical_en": "Human Computer Interface",
+      "alias_zh": "人机接口",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard interface term"
+    },
+    {
+      "concept_id": "concept:human_face_detection",
+      "canonical_en": "Human Face Detection",
+      "alias_zh": "人脸检测",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard computer vision term"
+    },
+    {
+      "concept_id": "concept:human_factor__2",
+      "canonical_en": "Human Factor",
+      "alias_zh": "人因",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard human factors term"
+    },
+    {
+      "concept_id": "concept:hybrid_automata",
+      "canonical_en": "Hybrid Automata",
+      "alias_zh": "混合自动机",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard hybrid systems term"
+    },
+    {
+      "concept_id": "concept:hybrid_cell__2",
+      "canonical_en": "Hybrid Cells",
+      "alias_zh": "杂交细胞",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "fixes mixed-language candidate; standard cell biology term"
+    },
+    {
+      "concept_id": "concept:identity_based_cryptography",
+      "canonical_en": "Identity Based Cryptography",
+      "alias_zh": "基于身份的密码学",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard cryptography term"
+    },
+    {
+      "concept_id": "concept:identity_theft__3",
+      "canonical_en": "Identity Theft",
+      "alias_zh": "身份盗窃",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard term for identity theft"
+    },
+    {
+      "concept_id": "concept:ieee_802_15_4_standard",
+      "canonical_en": "Ieee 802.15.4 Standards",
+      "alias_zh": "IEEE 802.15.4标准",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard protocol standard name"
+    },
+    {
+      "concept_id": "concept:image_de_noising",
+      "canonical_en": "Image De-noising",
+      "alias_zh": "图像去噪",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard image processing term"
+    },
+    {
+      "concept_id": "concept:image_enhancement__3",
+      "canonical_en": "Image Enhancement",
+      "alias_zh": "图像质量增强",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "more specific standard biomedical imaging alias"
+    },
+    {
+      "concept_id": "concept:image_processing_techniqu_and_application",
+      "canonical_en": "Image Processing Techniques And Applications",
+      "alias_zh": "图像处理技术与应用",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "natural exact technical topic"
+    },
+    {
+      "concept_id": "concept:image_representation__2",
+      "canonical_en": "Image Representation",
+      "alias_zh": "图像表示",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard image analysis term"
+    },
+    {
+      "concept_id": "concept:image_sequence",
+      "canonical_en": "Image Sequence",
+      "alias_zh": "图像序列",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard image/video term"
+    },
+    {
+      "concept_id": "concept:impedance_matching__2",
+      "canonical_en": "Impedance Matching",
+      "alias_zh": "阻抗匹配",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard electronics term"
+    },
+    {
+      "concept_id": "concept:in_situ_hybridization_fluorescence__2",
+      "canonical_en": "In Situ Hybridization, Fluorescence",
+      "alias_zh": "荧光原位杂交",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard FISH term"
+    },
+    {
+      "concept_id": "concept:income_tax__2",
+      "canonical_en": "Income Tax",
+      "alias_zh": "所得税",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "fixes mistranslation; standard tax term"
+    },
+    {
+      "concept_id": "concept:industrial_waste__2",
+      "canonical_en": "Industrial Waste",
+      "alias_zh": "工业废物",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard environmental health term"
+    },
+    {
+      "concept_id": "concept:inertial_navigation__3",
+      "canonical_en": "Inertial Navigation",
+      "alias_zh": "惯性导航",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard navigation term"
+    },
+    {
+      "concept_id": "concept:information_retrieval__2",
+      "canonical_en": "Information Retrieval",
+      "alias_zh": "信息检索",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard IR discipline term"
+    },
+    {
+      "concept_id": "concept:information_science__2",
+      "canonical_en": "Information Science",
+      "alias_zh": "信息科学",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard discipline term"
+    },
+    {
+      "concept_id": "concept:information_theory__2",
+      "canonical_en": "Information Theory",
+      "alias_zh": "信息论",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard theory term; better than 信息理论"
+    },
+    {
+      "concept_id": "concept:inservice_training",
+      "canonical_en": "Inservice Training",
+      "alias_zh": "在职培训",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard training term"
+    },
+    {
+      "concept_id": "concept:intelligent_agent__2",
+      "canonical_en": "Intelligent Agent",
+      "alias_zh": "智能体",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard AI term"
+    },
+    {
+      "concept_id": "concept:interference_channel__2",
+      "canonical_en": "Interference Channel",
+      "alias_zh": "干扰信道",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard information theory term"
+    },
+    {
+      "concept_id": "concept:international_system_of_unit__2",
+      "canonical_en": "International System Of Units",
+      "alias_zh": "国际单位制",
+      "source": "subagent_domain_translation_post95_round9",
+      "reviewed_at": "2026-06-29",
+      "reason": "fixes mistranslation; standard SI term"
     }
   ],
   "schema_version": "reviewed_zh_exact_aliases.v1",
