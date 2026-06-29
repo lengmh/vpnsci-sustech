@@ -182938,6 +182938,156 @@
       "source": "subagent_domain_translation_post95_round9",
       "reviewed_at": "2026-06-29",
       "reason": "fixes mistranslation; standard SI term"
+    },
+    {
+      "concept_id": "concept:dimensionality_reduction_algorithm",
+      "canonical_en": "Dimensionality Reduction Algorithms",
+      "alias_zh": "降维算法",
+      "source": "subagent_domain_translation_post95_round10",
+      "reviewed_at": "2026-06-29",
+      "reason": "标准机器学习术语",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "round10-proposal-007"
+    },
+    {
+      "concept_id": "concept:business_process_modeling_and_analysi",
+      "canonical_en": "Business Process Modeling And Analysis",
+      "alias_zh": "业务流程建模与分析",
+      "source": "subagent_domain_translation_post95_round10",
+      "reviewed_at": "2026-06-29",
+      "reason": "标准BPM术语",
+      "domains": [
+        "business_management_and_accounting",
+        "social_sciences"
+      ],
+      "item_id": "round10-proposal-043"
+    },
+    {
+      "concept_id": "concept:diffusion_tensor_imaging_dti",
+      "canonical_en": "Diffusion Tensor Imaging (dti)",
+      "alias_zh": "弥散张量成像",
+      "source": "subagent_domain_translation_post95_round10",
+      "reviewed_at": "2026-06-29",
+      "reason": "DTI标准医学影像术语",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "round10-proposal-044"
+    },
+    {
+      "concept_id": "concept:electromagnetic_scattering_and_analysi",
+      "canonical_en": "Electromagnetic Scattering And Analysis",
+      "alias_zh": "电磁散射分析",
+      "source": "subagent_domain_translation_post95_round10",
+      "reviewed_at": "2026-06-29",
+      "reason": "标准电磁散射术语",
+      "domains": [
+        "physical_sciences",
+        "physics_and_astronomy"
+      ],
+      "item_id": "round10-proposal-046"
+    },
+    {
+      "concept_id": "concept:ion_surface_interaction_and_analysi",
+      "canonical_en": "Ion-surface Interactions And Analysis",
+      "alias_zh": "离子-表面相互作用分析",
+      "source": "subagent_domain_translation_post95_round10",
+      "reviewed_at": "2026-06-29",
+      "reason": "标准表面物理术语",
+      "domains": [
+        "engineering",
+        "physical_sciences"
+      ],
+      "item_id": "round10-proposal-050"
+    },
+    {
+      "concept_id": "concept:numerical_approximation_and_analysi",
+      "canonical_en": "Numerical Approximation & Analysis",
+      "alias_zh": "数值逼近与分析",
+      "source": "subagent_domain_translation_post95_round10",
+      "reviewed_at": "2026-06-29",
+      "reason": "标准数值分析术语",
+      "domains": [
+        "physics"
+      ],
+      "item_id": "round10-proposal-052"
+    },
+    {
+      "concept_id": "concept:protein_refolding",
+      "canonical_en": "Protein Refolding",
+      "alias_zh": "蛋白质重折叠",
+      "source": "subagent_domain_translation_post95_round10",
+      "reviewed_at": "2026-06-29",
+      "reason": "与复性区分为重折叠",
+      "domains": [
+        "biomedical",
+        "phenomena_and_processes"
+      ],
+      "item_id": "round10-proposal-096"
+    },
+    {
+      "concept_id": "concept:dimensionality_reduction_techniqu",
+      "canonical_en": "Dimensionality Reduction Techniques",
+      "alias_zh": "降维技术",
+      "source": "subagent_domain_translation_post95_round10",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard machine learning term",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "round10-proposal-109"
+    },
+    {
+      "concept_id": "concept:microscopy_atomic_force",
+      "canonical_en": "Microscopy, Atomic Force",
+      "alias_zh": "原子力显微术",
+      "source": "subagent_domain_translation_post95_round10",
+      "reviewed_at": "2026-06-29",
+      "reason": "natural Chinese for microscopy technique",
+      "domains": [
+        "analytical_diagnostic_and_therapeutic_techniques_and_equipment",
+        "biomedical"
+      ],
+      "item_id": "round10-proposal-110"
+    },
+    {
+      "concept_id": "concept:image_enhancement_techniqu",
+      "canonical_en": "Image Enhancement Techniques",
+      "alias_zh": "图像增强技术",
+      "source": "subagent_domain_translation_post95_round10",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard image processing term",
+      "domains": [
+        "computer_science",
+        "physical_sciences"
+      ],
+      "item_id": "round10-proposal-119"
+    },
+    {
+      "concept_id": "concept:speaker_identification_system",
+      "canonical_en": "Speaker Identification Systems",
+      "alias_zh": "说话人辨认系统",
+      "source": "subagent_domain_translation_post95_round10",
+      "reviewed_at": "2026-06-29",
+      "reason": "distinguishes identification from recognition",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "round10-proposal-126"
+    },
+    {
+      "concept_id": "concept:vehicle_to_vehicl",
+      "canonical_en": "Vehicle To Vehicles",
+      "alias_zh": "车对车通信",
+      "source": "subagent_domain_translation_post95_round10",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard V2V term",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "round10-proposal-161"
     }
   ],
   "schema_version": "reviewed_zh_exact_aliases.v1",
