@@ -64,13 +64,12 @@ class ThemeClusteringCompactAliasIndexTests(unittest.TestCase):
 
         alias_index = theme_clustering._load_theme_concept_aliases(
             index_path=index_path,
-            legacy_path=self.root / "missing.json",
         )
 
         self.assertEqual(alias_index["zh:网络药理学"]["concept_id"], "concept:network_pharmacology")
         self.assertEqual(alias_index["en:network pharmacology"]["specificity"], 70)
 
-    def test_falls_back_to_legacy_full_overlay_only_when_index_missing(self) -> None:
+    def test_does_not_fall_back_to_legacy_full_overlay_when_index_missing(self) -> None:
         legacy_path = self.root / "theme_concept_aliases.json"
         legacy_path.write_text(
             json.dumps(
@@ -95,13 +94,14 @@ class ThemeClusteringCompactAliasIndexTests(unittest.TestCase):
             encoding="utf-8",
         )
 
-        alias_index = theme_clustering._load_theme_concept_aliases(
-            index_path=self.root / "missing_index.json",
-            legacy_path=legacy_path,
-        )
+        with self.assertRaisesRegex(FileNotFoundError, "compact alias index is required"):
+            theme_clustering._load_theme_concept_aliases(index_path=self.root / "missing_index.json")
 
-        self.assertEqual(alias_index["en:channel estimation"]["concept_id"], "concept:channel_estimation")
-        self.assertEqual(alias_index["zh:信道估计"]["concept_id"], "concept:channel_estimation")
+        module = load_paper_search_pro_theme_clustering()
+        with self.assertRaisesRegex(FileNotFoundError, "compact alias index is required"):
+            module._load_theme_concept_aliases(index_path=self.root / "missing_index.json")
+
+        self.assertTrue(legacy_path.exists())
 
     def test_runtime_has_no_generated_topic_or_inflated_technology_aliases(self) -> None:
         payload = json.loads((REPO_ROOT / "vpnsci_sustech" / "data" / "theme_concept_alias_index.json").read_text(encoding="utf-8"))

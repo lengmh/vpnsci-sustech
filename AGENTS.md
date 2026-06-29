@@ -159,7 +159,7 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-29 post-99 correctness cleanup 后）：
+最新已知状态（2026-06-29 post-99 runtime fallback review fix 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，
@@ -192,10 +192,10 @@ lexicons/review/
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
-- compact index 是当前运行时真源；legacy full overlay 未随 batch-007 之后的覆盖扩展更新，不再作为默认等价检查对象。
-- 最近相关测试：post-99 correctness cleanup 后，focused alias/runtime suite
-  `907 passed in 26.08s`；project suite
-  `1265 passed, 4 subtests passed in 94.77s`。
+- compact index 是当前运行时真源；legacy full overlay 未随 batch-007 之后的覆盖扩展更新，不再作为默认等价检查对象，也不再作为 runtime fallback 读取。
+- 最近相关测试：post-99 runtime fallback review fix 后，focused alias/runtime suite
+  `907 passed in 27.43s`；project suite
+  `1265 passed, 4 subtests passed in 97.66s`。
 
 当前下一步：
 
@@ -222,6 +222,14 @@ lexicons/review/
     `功耗技术`、`线圈技术`、`声音技术`、`设施管理技术` 均不再命中；
   - runtime 中文覆盖从 post-99 round3 的 `48628 / 49055 = 99.13%` 收口到
     clean `46837 / 49051 = 95.49%`；后续继续推进应从该 clean baseline 出发；
+- post-99 runtime fallback review fix 已完成：
+  - correctness review 未发现 alias 污染或冲突，但指出 `theme_clustering.py`
+    仍会在 compact index 缺失时回退读取 stale legacy full overlay；
+  - package 与 paper-search-pro runtime loader 已改为 compact index 缺失即抛出
+    clear `FileNotFoundError`，不再静默使用 legacy `theme_concept_aliases.json`；
+  - `tests/test_theme_clustering_compact_alias_index.py` 已改为覆盖 “compact
+    缺失不得 fallback legacy” 的负向契约；
+  - 该修复不改变 runtime 覆盖与 manifest SHA，只收紧运行时真源契约；
 - 后续连续扩展继续采用新的提交节奏：每 `5` 轮 `20-batch` 处理作为一个最终 milestone commit；中间 checkpoint、review 清单和 smoke 产物仅放在 `F:\AI playground\TempFiles`，不再每轮 20-batch 都提交；
 - batch-2187-to-3400 milestone 临时审查产物：
   `F:\AI playground\TempFiles\review_decisions.before-35pct.20260625-012746.jsonl`，
