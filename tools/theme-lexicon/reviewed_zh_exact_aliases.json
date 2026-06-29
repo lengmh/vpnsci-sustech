@@ -183313,6 +183313,129 @@
         "organisms"
       ],
       "item_id": "round11-proposal-298"
+    },
+    {
+      "concept_id": "concept:dielectric_elastomer_actuator",
+      "canonical_en": "Dielectric Elastomer Actuators",
+      "alias_zh": "介电弹性体驱动器",
+      "source": "subagent_domain_translation_post95_round12",
+      "reviewed_at": "2026-06-29",
+      "reason": "Standard actuator term.",
+      "domains": [
+        "control_systems"
+      ],
+      "item_id": "round12-proposal-048"
+    },
+    {
+      "concept_id": "concept:disaster_nursing",
+      "canonical_en": "Disaster Nursing",
+      "alias_zh": "灾害护理",
+      "source": "subagent_domain_translation_post95_round12",
+      "reviewed_at": "2026-06-29",
+      "reason": "Standard nursing term.",
+      "domains": [
+        "biomedical",
+        "disciplines_and_occupations"
+      ],
+      "item_id": "round12-proposal-049"
+    },
+    {
+      "concept_id": "concept:mu_mimo",
+      "canonical_en": "Mu-mimo",
+      "alias_zh": "多用户多输入多输出",
+      "source": "subagent_domain_translation_post95_round12",
+      "reviewed_at": "2026-06-29",
+      "reason": "Standard MU-MIMO expansion.",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "round12-proposal-063"
+    },
+    {
+      "concept_id": "concept:power_dissipation",
+      "canonical_en": "Power Dissipation",
+      "alias_zh": "功率耗散",
+      "source": "subagent_domain_translation_post95_round12",
+      "reviewed_at": "2026-06-29",
+      "reason": "Standard circuits term; more exact than blocked 功耗.",
+      "domains": [
+        "circuits_and_systems"
+      ],
+      "item_id": "round12-proposal-067"
+    },
+    {
+      "concept_id": "concept:chlorophyll_a",
+      "canonical_en": "Chlorophyll A",
+      "alias_zh": "叶绿素a",
+      "source": "subagent_domain_translation_post95_round12",
+      "reviewed_at": "2026-06-29",
+      "reason": "Standard chemical/biology term.",
+      "domains": [
+        "biomedical",
+        "chemicals_and_drugs"
+      ],
+      "item_id": "round12-proposal-087"
+    },
+    {
+      "concept_id": "concept:prunu_persica",
+      "canonical_en": "Prunus Persica",
+      "alias_zh": "桃树",
+      "source": "subagent_domain_translation_post95_round12",
+      "reviewed_at": "2026-06-29",
+      "reason": "Natural Chinese organism term; avoids fruit-only ambiguity.",
+      "domains": [
+        "biomedical",
+        "organisms"
+      ],
+      "item_id": "round12-proposal-097"
+    },
+    {
+      "concept_id": "concept:ergonomic_design",
+      "canonical_en": "Ergonomic Design",
+      "alias_zh": "人机工程设计",
+      "source": "subagent_domain_translation_post95_round12",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard human factors design term",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "round12-proposal-106"
+    },
+    {
+      "concept_id": "concept:biomedical_electrod",
+      "canonical_en": "Biomedical Electrodes",
+      "alias_zh": "生物医学电极",
+      "source": "subagent_domain_translation_post95_round12",
+      "reviewed_at": "2026-06-29",
+      "reason": "specific biomedical engineering device term",
+      "domains": [
+        "engineering_in_medicine_and_biology"
+      ],
+      "item_id": "round12-proposal-109"
+    },
+    {
+      "concept_id": "concept:corrosion_inhibitor",
+      "canonical_en": "Corrosion Inhibitors",
+      "alias_zh": "缓蚀剂",
+      "source": "subagent_domain_translation_post95_round12",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard materials and corrosion term",
+      "domains": [
+        "materials_elements_and_compounds"
+      ],
+      "item_id": "round12-proposal-110"
+    },
+    {
+      "concept_id": "concept:fractal_analysi",
+      "canonical_en": "Fractal Analysis",
+      "alias_zh": "分形分析",
+      "source": "subagent_domain_translation_post95_round12",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard physics and mathematics term",
+      "domains": [
+        "physics"
+      ],
+      "item_id": "round12-proposal-126"
     }
   ],
   "schema_version": "reviewed_zh_exact_aliases.v1",
