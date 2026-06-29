@@ -95,8 +95,14 @@ class QueryAliasIndexTests(unittest.TestCase):
     def test_chinese_alias_normalization_preserves_semantic_ascii_punctuation(self) -> None:
         module = load_script("query_alias_index", QUERY_SCRIPT_PATH)
 
+        self.assertEqual(module.normalize_alias("C++语言"), "c++ 语言")
+        self.assertEqual(module.normalize_alias("C语言"), "c 语言")
         self.assertEqual(module.normalize_alias("C#语言"), "c# 语言")
         self.assertEqual(module.normalize_alias("c 语言"), "c 语言")
+        self.assertEqual(module.normalize_alias("H+/K+交换ATP酶"), "h+ k+ 交换 atp 酶")
+        self.assertEqual(module.normalize_alias("H/K交换ATP酶"), "h k 交换 atp 酶")
+        self.assertEqual(module.normalize_alias("琥珀酸半醛脱氢酶(NADP+)"), "琥珀酸半醛脱氢酶 nadp+")
+        self.assertEqual(module.normalize_alias("琥珀酸半醛脱氢酶(NADP)"), "琥珀酸半醛脱氢酶 nadp")
         self.assertEqual(module.normalize_alias("氯联苯(54%氯)"), "氯联苯 54% 氯")
         self.assertEqual(module.normalize_alias("氯联苯 54 氯"), "氯联苯 54 氯")
         self.assertEqual(module.normalize_alias("GM(1,1)灰色模型"), "gm 1,1 灰色模型")

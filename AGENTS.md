@@ -94,6 +94,8 @@ uv run pytest `
   tests/test_theme_lexicon_normalize_sources.py `
   tests/test_theme_lexicon_materialize_runtime_overlay.py `
   tests/test_theme_lexicon_query_alias_index.py `
+  tests/test_theme_lexicon_parenthetical_acronym_normalization.py `
+  tests/test_theme_lexicon_reviewed_source_alignment.py `
   tests/test_theme_clustering_compact_alias_index.py `
   -q
 ```
@@ -157,48 +159,48 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-29 post-99 round3 safe patch review 后）：
+最新已知状态（2026-06-29 post-99 correctness cleanup 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，
-  最新 fill `records_filled = 53082 / records_seen = 54682`；
+  最新 fill `records_filled = 51823 / records_seen = 54682`；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`48628 / 49055 = 99.13%`
-- runtime zh aliases: `48742`
+- runtime 中文覆盖：`46837 / 49051 = 95.49%`
+- runtime zh aliases: `46951`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `48742`
-- `zh:blocked`: `4595`
+- `zh:accept`: `46951`
+- `zh:blocked`: `5104`
 - `zh:needs_review`: `0`
-- `zh:reject`: `17`
+- `zh:reject`: `14`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `49055`
+- runtime concept aliases: `49051`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
 - legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；当前运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `951143f89f435160acea7d2bcae172b4023465d995f24e77145fe4680a536dde`
+  `461dda050ecd0311de10e6f0f409cc328221f9e3e422d55693feaf302d2fbfb3`
 - compact manifest SHA-256:
-  `2cc00d7986e8145eae25e0e847b3b51903217e555d4ba1b9c75b3c0dba36b386`
+  `190f06d6c6907bfd5a357ae8b1962f8ebe8dfabecddb19fd9f67b57327d2ffda`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
 - compact index 是当前运行时真源；legacy full overlay 未随 batch-007 之后的覆盖扩展更新，不再作为默认等价检查对象。
-- 最近相关测试：post-99 round3 safe patch 后，focused alias/runtime suite
-  `903 passed in 22.21s`；project suite
-  `1261 passed, 4 subtests passed in 91.08s`。
+- 最近相关测试：post-99 correctness cleanup 后，focused alias/runtime suite
+  `907 passed in 26.08s`；project suite
+  `1265 passed, 4 subtests passed in 94.77s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- post-7000 exact/domain-aware pattern milestone 已完成，runtime 中文覆盖到 `40.49%`；post-40 review cleanup 收口到 `43.18%`；post-40 continuation 已清理并达到 clean `50.01%`；post-50-to-60 子代理审查 milestone 已达到 clean `60.10%`；post-60-to-70 子代理审查 milestone 已达到 clean `70.00%`（exact `70.002%`）；post-70-to-80 子代理审查 milestone 已达到 clean `80.92%`；post-80-to-90 子代理审查 milestone 已达到 clean `90.07%`；post-90-to-final 子代理审查 milestone 已达到 `99.07%`；post-99 safe patch 已达到 `99.08%`；post-99 round2 safe patch 已达到 `99.10%`；post-99 round3 safe patch 已达到当前安全边界 `99.13%`；
+- post-7000 exact/domain-aware pattern milestone 已完成，runtime 中文覆盖到 `40.49%`；post-40 review cleanup 收口到 `43.18%`；post-40 continuation 已清理并达到 clean `50.01%`；post-50-to-60 子代理审查 milestone 已达到 clean `60.10%`；post-60-to-70 子代理审查 milestone 已达到 clean `70.00%`（exact `70.002%`）；post-70-to-80 子代理审查 milestone 已达到 clean `80.92%`；post-80-to-90 子代理审查 milestone 已达到 clean `90.07%`；post-90-to-final 子代理审查 milestone 已达到 `99.07%`；post-99 safe patch 已达到 `99.08%`；post-99 round2 safe patch 已达到 `99.10%`；post-99 round3 safe patch 曾达到 `99.13%`；post-99 correctness cleanup 因清理伪 exact / stale source 回落到 clean `95.49%`；
 - post-70 review cleanup 已完成最终修复：package 与 paper-search-pro
   runtime 均使用 compact index 一致的 CJK/Latin alias 归一化与中文 alias
   extraction，并修复 `pH控制` / `AH控制` / `p-H控制` / `p H控制`
@@ -206,6 +208,20 @@ lexicons/review/
   `μ-阿片受体` / `μ 阿片受体` 漏命中 `μ阿片受体` 的边界；reviewed
   exact alias 生产 overlay 不再污染同进程临时 candidate dir；`Epidemic Routing`、
   `Error Floor`、`Run Time Reconfiguration`、`Session Initiation Protocol` 的坏译源项已修正；
+- post-99 correctness cleanup 已完成最终修复：
+  - 修复中文/混合 alias normalization 丢弃 `+` 的问题，`C++语言` 不再折叠为
+    `C语言`，`H+/K+交换ATP酶` 不再折叠为 `H/K交换ATP酶`，
+    `NADP+` 不再折叠为 `NADP`；
+  - 清理 active runtime 中非 exact 的生成式 `*主题` alias 和膨胀型
+    `*技术` alias；保留 `LoRa技术`、`NoSQL技术`、`塑化技术` 等标准 named
+    technology/technique 用法；
+  - `reviewed_zh_exact_aliases.json` 已与 compact runtime 对齐，新增
+    `tests/test_theme_lexicon_reviewed_source_alignment.py` 防止 source-only
+    stale rows 回灌；
+  - `算法主题`、`优化方法主题`、`糖尿病研究主题`、`药学词典主题`、`薄膜主题`、
+    `功耗技术`、`线圈技术`、`声音技术`、`设施管理技术` 均不再命中；
+  - runtime 中文覆盖从 post-99 round3 的 `48628 / 49055 = 99.13%` 收口到
+    clean `46837 / 49051 = 95.49%`；后续继续推进应从该 clean baseline 出发；
 - 后续连续扩展继续采用新的提交节奏：每 `5` 轮 `20-batch` 处理作为一个最终 milestone commit；中间 checkpoint、review 清单和 smoke 产物仅放在 `F:\AI playground\TempFiles`，不再每轮 20-batch 都提交；
 - batch-2187-to-3400 milestone 临时审查产物：
   `F:\AI playground\TempFiles\review_decisions.before-35pct.20260625-012746.jsonl`，
