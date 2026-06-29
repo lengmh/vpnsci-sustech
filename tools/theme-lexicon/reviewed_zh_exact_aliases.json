@@ -25242,13 +25242,6 @@
       "reason": "Faithful Chinese bioethics topic label."
     },
     {
-      "alias_zh": "人类第6-12和X染色体",
-      "canonical_en": "Chromosomes, Human, 6-12 And X",
-      "concept_id": "concept:chromosom_human_6_12_and_x",
-      "reviewed_at": "2026-06-28",
-      "source": "subagent_domain_translation_60pct"
-    },
-    {
       "concept_id": "concept:human_behaviour",
       "canonical_en": "Human Behaviour",
       "alias_zh": "人类行为",
