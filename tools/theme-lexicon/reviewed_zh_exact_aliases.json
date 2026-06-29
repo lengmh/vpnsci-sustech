@@ -183088,6 +183088,231 @@
         "computer_science"
       ],
       "item_id": "round10-proposal-161"
+    },
+    {
+      "concept_id": "concept:chromosome_banding_pattern",
+      "canonical_en": "Chromosome Banding Pattern",
+      "alias_zh": "染色体带型",
+      "source": "subagent_domain_translation_post95_round11",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard cytogenetics term",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "round11-proposal-021"
+    },
+    {
+      "concept_id": "concept:pareto_front",
+      "canonical_en": "Pareto Front",
+      "alias_zh": "帕累托前沿",
+      "source": "subagent_domain_translation_post95_round11",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard exact optimization term",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "round11-proposal-098"
+    },
+    {
+      "concept_id": "concept:real_time_videostreaming",
+      "canonical_en": "Real-time Videostreaming",
+      "alias_zh": "实时视频流传输",
+      "source": "subagent_domain_translation_post95_round11",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard networking media term",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "round11-proposal-111"
+    },
+    {
+      "concept_id": "concept:robotic_swarm",
+      "canonical_en": "Robotic Swarms",
+      "alias_zh": "机器人集群",
+      "source": "subagent_domain_translation_post95_round11",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard swarm robotics term",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "round11-proposal-116"
+    },
+    {
+      "concept_id": "concept:diamond_cutting_tool",
+      "canonical_en": "Diamond Cutting Tools",
+      "alias_zh": "金刚石切削工具",
+      "source": "subagent_domain_translation_post95_round11",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard manufacturing tool term",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "round11-proposal-143"
+    },
+    {
+      "concept_id": "concept:fractal_antenna",
+      "canonical_en": "Fractal Antennas",
+      "alias_zh": "分形天线",
+      "source": "subagent_domain_translation_post95_round11",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard antenna term",
+      "domains": [
+        "antennas_and_propagation"
+      ],
+      "item_id": "round11-proposal-146"
+    },
+    {
+      "concept_id": "concept:knee_dislocation",
+      "canonical_en": "Knee Dislocation",
+      "alias_zh": "膝关节脱位",
+      "source": "subagent_domain_translation_post95_round11",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard clinical term",
+      "domains": [
+        "biomedical",
+        "diseases"
+      ],
+      "item_id": "round11-proposal-148"
+    },
+    {
+      "concept_id": "concept:knee_fractur",
+      "canonical_en": "Knee Fractures",
+      "alias_zh": "膝关节骨折",
+      "source": "subagent_domain_translation_post95_round11",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard clinical term",
+      "domains": [
+        "biomedical",
+        "diseases"
+      ],
+      "item_id": "round11-proposal-149"
+    },
+    {
+      "concept_id": "concept:knee_prosthesi",
+      "canonical_en": "Knee Prosthesis",
+      "alias_zh": "膝关节假体",
+      "source": "subagent_domain_translation_post95_round11",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard prosthesis term",
+      "domains": [
+        "analytical_diagnostic_and_therapeutic_techniques_and_equipment",
+        "biomedical"
+      ],
+      "item_id": "round11-proposal-150"
+    },
+    {
+      "concept_id": "concept:education_of_person_with_hearing_disability",
+      "canonical_en": "Education Of Persons With Hearing Disabilities",
+      "alias_zh": "听力障碍者教育",
+      "source": "subagent_domain_translation_post95_round11",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard special education term",
+      "domains": [
+        "anthropology_education_sociology_and_social_phenomena",
+        "biomedical"
+      ],
+      "item_id": "round11-proposal-189"
+    },
+    {
+      "concept_id": "concept:education_of_person_with_intellectual_disability",
+      "canonical_en": "Education Of Persons With Intellectual Disabilities",
+      "alias_zh": "智力障碍者教育",
+      "source": "subagent_domain_translation_post95_round11",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard special education term",
+      "domains": [
+        "biomedical",
+        "psychiatry_and_psychology"
+      ],
+      "item_id": "round11-proposal-190"
+    },
+    {
+      "concept_id": "concept:education_of_person_with_visual_disability",
+      "canonical_en": "Education Of Persons With Visual Disabilities",
+      "alias_zh": "视力障碍者教育",
+      "source": "subagent_domain_translation_post95_round11",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard special education term",
+      "domains": [
+        "anthropology_education_sociology_and_social_phenomena",
+        "biomedical"
+      ],
+      "item_id": "round11-proposal-191"
+    },
+    {
+      "concept_id": "concept:convection_diffusion",
+      "canonical_en": "Convection Diffusion",
+      "alias_zh": "对流扩散",
+      "source": "subagent_domain_translation_post95_round11",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard transport/PDE term",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "round11-proposal-227"
+    },
+    {
+      "concept_id": "concept:corrosion_prevention",
+      "canonical_en": "Corrosion Prevention",
+      "alias_zh": "腐蚀防护",
+      "source": "subagent_domain_translation_post95_round11",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard materials engineering term",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "round11-proposal-228"
+    },
+    {
+      "concept_id": "concept:diamond_search",
+      "canonical_en": "Diamond Search",
+      "alias_zh": "菱形搜索",
+      "source": "subagent_domain_translation_post95_round11",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard image/video search algorithm term",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "round11-proposal-267"
+    },
+    {
+      "concept_id": "concept:anthropology_cultural",
+      "canonical_en": "Anthropology, Cultural",
+      "alias_zh": "文化人类学",
+      "source": "subagent_domain_translation_post95_round11",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard anthropology discipline term",
+      "domains": [
+        "anthropology_education_sociology_and_social_phenomena",
+        "biomedical"
+      ],
+      "item_id": "round11-proposal-290"
+    },
+    {
+      "concept_id": "concept:anthropology_physical",
+      "canonical_en": "Anthropology, Physical",
+      "alias_zh": "体质人类学",
+      "source": "subagent_domain_translation_post95_round11",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard anthropology discipline term",
+      "domains": [
+        "anthropology_education_sociology_and_social_phenomena",
+        "biomedical"
+      ],
+      "item_id": "round11-proposal-291"
+    },
+    {
+      "concept_id": "concept:chenopodium_album",
+      "canonical_en": "Chenopodium Album",
+      "alias_zh": "灰藜",
+      "source": "subagent_domain_translation_post95_round11",
+      "reviewed_at": "2026-06-29",
+      "reason": "standard plant species Chinese name",
+      "domains": [
+        "biomedical",
+        "organisms"
+      ],
+      "item_id": "round11-proposal-298"
     }
   ],
   "schema_version": "reviewed_zh_exact_aliases.v1",
