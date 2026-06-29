@@ -78,12 +78,12 @@ def _singular_alias_token(token: str) -> str:
 def _normalize_alias(value: str) -> str:
     text = _clean_text(value).casefold()
     if any("一" <= ch <= "鿿" for ch in text):
-        text = re.sub(r"(?<=[一-鿿])(?=[A-Za-z0-9#%,])", " ", text)
-        text = re.sub(r"(?<=[A-Za-z0-9#%,])(?=[一-鿿])", " ", text)
+        text = re.sub(r"(?<=[一-鿿])(?=[A-Za-z0-9+#%,])", " ", text)
+        text = re.sub(r"(?<=[A-Za-z0-9+#%,])(?=[一-鿿])", " ", text)
         text = text.replace("∞", " infinity ")
         text = text.replace("&", " and ")
         text = re.sub(r"[\-_/]+", " ", text)
-        text = re.sub(r"[^\w\s一-鿿#%,]+", " ", text)
+        text = re.sub(r"[^\w\s一-鿿+#%,]+", " ", text)
         return re.sub(r"\s+", " ", text).strip()
     text = text.replace("∞", " infinity ")
     text = text.replace("&", " and ")
@@ -98,9 +98,9 @@ def _normalize_review_alias(value: str) -> str:
     text = text.replace("&", " and ")
     text = re.sub(r"[\-_/]+", " ", text)
     if any("\u4e00" <= ch <= "\u9fff" for ch in text):
-        text = re.sub(r"(?<=[\u4e00-\u9fff])(?=[A-Za-z0-9#%,])", " ", text)
-        text = re.sub(r"(?<=[A-Za-z0-9#%,])(?=[\u4e00-\u9fff])", " ", text)
-        text = re.sub(r"[^\w\s\u4e00-\u9fff#%,]+", " ", text)
+        text = re.sub(r"(?<=[\u4e00-\u9fff])(?=[A-Za-z0-9+#%,])", " ", text)
+        text = re.sub(r"(?<=[A-Za-z0-9+#%,])(?=[\u4e00-\u9fff])", " ", text)
+        text = re.sub(r"[^\w\s\u4e00-\u9fff+#%,]+", " ", text)
     else:
         text = re.sub(r"[^a-z0-9+#\s]+", " ", text)
     return re.sub(r"\s+", " ", text).strip()

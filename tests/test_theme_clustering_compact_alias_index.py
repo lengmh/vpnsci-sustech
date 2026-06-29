@@ -4,6 +4,7 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import re
 import tempfile
 import unittest
 
@@ -102,11 +103,41 @@ class ThemeClusteringCompactAliasIndexTests(unittest.TestCase):
         self.assertEqual(alias_index["en:channel estimation"]["concept_id"], "concept:channel_estimation")
         self.assertEqual(alias_index["zh:信道估计"]["concept_id"], "concept:channel_estimation")
 
+    def test_runtime_has_no_generated_topic_or_inflated_technology_aliases(self) -> None:
+        payload = json.loads((REPO_ROOT / "vpnsci_sustech" / "data" / "theme_concept_alias_index.json").read_text(encoding="utf-8"))
+        concepts = payload["concepts"]
+        bad_topic: list[tuple[str, str, str]] = []
+        bad_technology: list[tuple[str, str, str]] = []
+        known_named_technologies = {"lora 技术", "lorawan 技术", "lte advanced 技术", "nosql 技术", "塑化技术"}
+
+        for alias_key, concept_id in payload["aliases"].items():
+            if not alias_key.startswith("zh:"):
+                continue
+            alias = alias_key[3:]
+            canonical_en = str((concepts[str(concept_id)].get("canonical") or {}).get("en") or "")
+            canonical_key = canonical_en.casefold()
+            item = (str(concept_id), canonical_en, alias)
+            if alias.endswith("主题") and not re.search(r"\b(as topic|topics?|subjects?|headings?)\b", canonical_key):
+                bad_topic.append(item)
+            concept_key = f"{concept_id} {canonical_key}"
+            if (
+                alias.endswith("技术")
+                and alias not in known_named_technologies
+                and not re.search(r"(technic|techniq|technolog|technical)", concept_key)
+            ):
+                bad_technology.append(item)
+
+        self.assertEqual(bad_topic[:20], [])
+        self.assertEqual(bad_technology[:20], [])
+
     def test_runtime_alias_keys_match_compact_index_mixed_cjk_latin_normalization(self) -> None:
         cases = {
             "H控制": "zh:h 控制",
             "H∞控制": "zh:h infinity 控制",
             "硝酸还原酶(NADPH)": "zh:硝酸还原酶 nadph",
+            "C++语言": "zh:c++ 语言",
+            "H+/K+交换ATP酶": "zh:h+ k+ 交换 atp 酶",
+            "琥珀酸半醛脱氢酶(NADP+)": "zh:琥珀酸半醛脱氢酶 nadp+",
         }
 
         for alias, expected_key in cases.items():
@@ -119,6 +150,9 @@ class ThemeClusteringCompactAliasIndexTests(unittest.TestCase):
             "H控制": "zh:h 控制",
             "H∞控制": "zh:h infinity 控制",
             "硝酸还原酶(NADPH)": "zh:硝酸还原酶 nadph",
+            "C++语言": "zh:c++ 语言",
+            "H+/K+交换ATP酶": "zh:h+ k+ 交换 atp 酶",
+            "琥珀酸半醛脱氢酶(NADP+)": "zh:琥珀酸半醛脱氢酶 nadp+",
         }
 
         for alias, expected_key in cases.items():
@@ -165,6 +199,27 @@ class ThemeClusteringCompactAliasIndexTests(unittest.TestCase):
             concept_ids = {theme.get("concept_id") for theme in result["themes"]}
 
             self.assertNotIn("concept:h_control", concept_ids)
+
+    def test_runtime_text_fallback_preserves_plus_sign_semantics(self) -> None:
+        bad_cases = [
+            ("C语言", "concept:c"),
+            ("H/K交换ATP酶", "concept:h_k_exchanging_atpase"),
+            ("琥珀酸半醛脱氢酶(NADP)", "concept:succinate_semialdehyde_dehydrogenase_nadp"),
+        ]
+
+        for alias, forbidden_concept_id in bad_cases:
+            papers = [
+                {
+                    "paper_id": str(index),
+                    "title": f"{alias} 研究",
+                    "abstract": f"{alias} 是本文反复出现的关键词，{alias} 不是带加号的主题。",
+                }
+                for index in range(3)
+            ]
+            result = theme_clustering.build_text_themes(papers)
+            concept_ids = {theme.get("concept_id") for theme in result["themes"]}
+
+            self.assertNotIn(forbidden_concept_id, concept_ids)
 
     def test_runtime_text_fallback_does_not_collapse_ascii_inside_chinese_punctuation_match(self) -> None:
         for alias in ("服务质量Q路由", "服务质量123路由"):
@@ -258,6 +313,28 @@ class ThemeClusteringCompactAliasIndexTests(unittest.TestCase):
             concept_ids = {theme.get("concept_id") for theme in result["themes"]}
 
             self.assertNotIn("concept:h_control", concept_ids)
+
+    def test_paper_search_pro_text_fallback_preserves_plus_sign_semantics(self) -> None:
+        module = load_paper_search_pro_theme_clustering()
+        bad_cases = [
+            ("C语言", "concept:c"),
+            ("H/K交换ATP酶", "concept:h_k_exchanging_atpase"),
+            ("琥珀酸半醛脱氢酶(NADP)", "concept:succinate_semialdehyde_dehydrogenase_nadp"),
+        ]
+
+        for alias, forbidden_concept_id in bad_cases:
+            papers = [
+                {
+                    "paper_id": str(index),
+                    "title": f"{alias} 研究",
+                    "abstract": f"{alias} 是本文反复出现的关键词，{alias} 不是带加号的主题。",
+                }
+                for index in range(3)
+            ]
+            result = module.build_text_themes(papers)
+            concept_ids = {theme.get("concept_id") for theme in result["themes"]}
+
+            self.assertNotIn(forbidden_concept_id, concept_ids)
 
     def test_paper_search_pro_text_fallback_does_not_collapse_ascii_inside_chinese_punctuation_match(self) -> None:
         module = load_paper_search_pro_theme_clustering()
