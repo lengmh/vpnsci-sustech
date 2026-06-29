@@ -159,48 +159,48 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-29 post-95 singleton exact review round2 后）：
+最新已知状态（2026-06-29 post-95 exact collision review round3 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，
   最新 fill `records_filled = 51815 / records_seen = 54682`；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`47272 / 49236 = 96.01%`
-- runtime zh aliases: `47386`
+- runtime 中文覆盖：`47483 / 49392 = 96.14%`
+- runtime zh aliases: `47597`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `47386`
-- `zh:blocked`: `4661`
+- `zh:accept`: `47597`
+- `zh:blocked`: `4450`
 - `zh:needs_review`: `0`
 - `zh:reject`: `14`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `49236`
+- runtime concept aliases: `49392`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
 - legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；当前运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `7af4967916c3021d0d389b5177245a0034488bff57a2d088c2ae16c252cd8537`
+  `e605003dcf9e92ba28580ed7b790c93d08856fd8e9c21a0dab31fac205bb8317`
 - compact manifest SHA-256:
-  `f20fe64eaf496c15bd6754f851cdb17106a0b0d75e801172210b9aa65826892e`
+  `c3f93b7ec63725bccff59df9e76c3a31d75f51caaa67ae4feccf1356e8621a10`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
 - compact index 是当前运行时真源；legacy full overlay 未随 batch-007 之后的覆盖扩展更新，不再作为默认等价检查对象，也不再作为 runtime fallback 读取。
-- 最近相关测试：post-95 singleton exact review round2 后，focused
-  alias/runtime suite `909 passed in 27.51s`；project suite
-  `1267 passed, 4 subtests passed in 98.97s`。
+- 最近相关测试：post-95 exact collision review round3 后，focused
+  alias/runtime suite `909 passed in 25.67s`；project suite
+  `1267 passed, 4 subtests passed in 100.84s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
-- post-7000 exact/domain-aware pattern milestone 已完成，runtime 中文覆盖到 `40.49%`；post-40 review cleanup 收口到 `43.18%`；post-40 continuation 已清理并达到 clean `50.01%`；post-50-to-60 子代理审查 milestone 已达到 clean `60.10%`；post-60-to-70 子代理审查 milestone 已达到 clean `70.00%`（exact `70.002%`）；post-70-to-80 子代理审查 milestone 已达到 clean `80.92%`；post-80-to-90 子代理审查 milestone 已达到 clean `90.07%`；post-90-to-final 子代理审查 milestone 已达到 `99.07%`；post-99 safe patch 已达到 `99.08%`；post-99 round2 safe patch 已达到 `99.10%`；post-99 round3 safe patch 曾达到 `99.13%`；post-99 correctness cleanup 因清理伪 exact / stale source 回落到 clean `95.49%`；post-95 singleton exact review batch 推进到 clean `95.91%`；post-95 singleton exact review round2 推进到 clean `96.01%`；
+- post-7000 exact/domain-aware pattern milestone 已完成，runtime 中文覆盖到 `40.49%`；post-40 review cleanup 收口到 `43.18%`；post-40 continuation 已清理并达到 clean `50.01%`；post-50-to-60 子代理审查 milestone 已达到 clean `60.10%`；post-60-to-70 子代理审查 milestone 已达到 clean `70.00%`（exact `70.002%`）；post-70-to-80 子代理审查 milestone 已达到 clean `80.92%`；post-80-to-90 子代理审查 milestone 已达到 clean `90.07%`；post-90-to-final 子代理审查 milestone 已达到 `99.07%`；post-99 safe patch 已达到 `99.08%`；post-99 round2 safe patch 已达到 `99.10%`；post-99 round3 safe patch 曾达到 `99.13%`；post-99 correctness cleanup 因清理伪 exact / stale source 回落到 clean `95.49%`；post-95 singleton exact review batch 推进到 clean `95.91%`；post-95 singleton exact review round2 推进到 clean `96.01%`；post-95 exact collision review round3 推进到 clean `96.14%`；
 - post-70 review cleanup 已完成最终修复：package 与 paper-search-pro
   runtime 均使用 compact index 一致的 CJK/Latin alias 归一化与中文 alias
   extraction，并修复 `pH控制` / `AH控制` / `p-H控制` / `p H控制`
@@ -280,6 +280,33 @@ lexicons/review/
     保持不命中；
   - 相关测试：focused alias/runtime suite `909 passed in 27.51s`；
     project suite `1267 passed, 4 subtests passed in 98.97s`；
+- post-95 exact collision review round3 已完成：
+  - 生成 fresh high/exact pool 后，剩余可审 singleton 仅 `6` 条；转入
+    collision alias group 的显式 target selection，不合并概念；
+  - 选取 `306` 个 review item（`6` singleton + `300` collision group）交给
+    `3` 个子代理审查；子代理合计接受 `213`、拒绝 `93`；
+  - 主代理过滤后保留 `211` 条 explicit accept recommendation，另外阻断
+    `生物技术`、`教育技术` 两条 suffix 形态，避免膨胀型 `*技术` 回灌；
+  - 主要拒绝面：collision target 不可区分、译名生硬、过泛 alias、英文残留；
+    继续不自动 merge duplicate/collision concept；
+  - L3-L5：fill `records_filled = 51815`，validate `review_decisions = 401174`；
+    preserve 恢复 `52037` 条 prior zh 决策；`211` 条 recommendation 全部命中
+    对应 runtime target；
+  - `needs_review = 0`；`713` 条 English short acronym queue 继续 blocked；
+  - runtime 中文覆盖从 `47272 / 49236 = 96.01%` 增至
+    `47483 / 49392 = 96.14%`；
+  - accepted conflict groups: `0`；runtime en/zh alias conflicts: `0`；
+  - package/tool compact index byte-identical；package/tool compact manifest
+    byte-identical；legacy full overlay 未更新；
+  - compact index SHA-256: `e605003dcf9e92ba28580ed7b790c93d08856fd8e9c21a0dab31fac205bb8317`；
+  - compact manifest SHA-256: `c3f93b7ec63725bccff59df9e76c3a31d75f51caaa67ae4feccf1356e8621a10`；
+  - pollution audit: ordinary English-heavy zh aliases `0`，known bad-shape hits `0`；
+  - query smoke 已确认所有 `211` 条 accepted recommendation 可命中各自 target；
+    `可穿戴计算机技术`、`词处理`、`工作环境`、`三维成像`、`访问控制`、
+    `声学设备`、`主动学习`、`生物技术`、`教育技术`、`分布式参数系统`、`燃料细胞`
+    保持不命中；
+  - 相关测试：focused alias/runtime suite `909 passed in 25.67s`；
+    project suite `1267 passed, 4 subtests passed in 100.84s`；
 - 后续连续扩展继续采用新的提交节奏：每 `5` 轮 `20-batch` 处理作为一个最终 milestone commit；中间 checkpoint、review 清单和 smoke 产物仅放在 `F:\AI playground\TempFiles`，不再每轮 20-batch 都提交；
 - batch-2187-to-3400 milestone 临时审查产物：
   `F:\AI playground\TempFiles\review_decisions.before-35pct.20260625-012746.jsonl`，
