@@ -18,6 +18,7 @@ PRESERVED_FIELDS = {
     "decided_at",
     "subagent_recommendation",
 }
+COLLISION_BLOCKED_REASON_PREFIX = "alias collision blocked"
 
 
 def _read_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -37,6 +38,17 @@ def _write_jsonl(path: Path, rows: Iterable[dict[str, Any]]) -> int:
 
 def _key(row: dict[str, Any]) -> tuple[str, str, str]:
     return str(row.get("lang") or ""), str(row.get("concept_id") or ""), str(row.get("alias") or "")
+
+
+def _should_preserve(prior: dict[str, Any], current: dict[str, Any]) -> bool:
+    if current.get("lang") != "zh" or prior.get("decision") not in PRESERVED_DECISIONS:
+        return False
+    if current.get("decision") == "needs_review":
+        return True
+    if current.get("decision") != "blocked":
+        return False
+    reason = str(current.get("reason") or "").lower()
+    return reason.startswith(COLLISION_BLOCKED_REASON_PREFIX)
 
 
 def preserve_zh_review_decisions(
@@ -60,7 +72,7 @@ def preserve_zh_review_decisions(
     preserved = 0
     for row in current_rows:
         prior = prior_by_key.get(_key(row))
-        if not prior or row.get("lang") != "zh" or row.get("decision") != "needs_review":
+        if not prior or not _should_preserve(prior, row):
             continue
         for field in PRESERVED_FIELDS:
             if field in prior:

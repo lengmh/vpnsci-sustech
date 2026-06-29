@@ -77,6 +77,91 @@ class PreserveZhReviewDecisionTests(unittest.TestCase):
         self.assertEqual(rows[("c4", "新词")]["decision"], "needs_review")
         self.assertEqual(summary["preserved"], 3)
 
+    def test_preserves_prior_reviewed_target_when_validator_regenerates_collision_block(self) -> None:
+        prior = self.root / "prior.jsonl"
+        current = self.root / "current.jsonl"
+        write_jsonl(
+            prior,
+            [
+                {
+                    "concept_id": "c1",
+                    "alias": "人工神经网络",
+                    "lang": "zh",
+                    "decision": "accept",
+                    "review_tier": "review_accept",
+                    "reviewer": "subagent-recommended+main-agent-accepted",
+                    "reason": "explicit target selected",
+                }
+            ],
+        )
+        write_jsonl(
+            current,
+            [
+                {
+                    "concept_id": "c1",
+                    "alias": "人工神经网络",
+                    "lang": "zh",
+                    "decision": "blocked",
+                    "review_tier": "review_blocked",
+                    "reviewer": "validator",
+                    "reason": "alias collision blocked until duplicate concept merge or explicit runtime target is resolved",
+                },
+                {
+                    "concept_id": "c2",
+                    "alias": "人工神经网络",
+                    "lang": "zh",
+                    "decision": "blocked",
+                    "review_tier": "review_blocked",
+                    "reviewer": "validator",
+                    "reason": "alias collision blocked until duplicate concept merge or explicit runtime target is resolved",
+                },
+            ],
+        )
+
+        module = load_module()
+        summary = module.preserve_zh_review_decisions(prior_path=prior, current_path=current)
+
+        rows = {(row["concept_id"], row["alias"]): row for row in read_jsonl(current)}
+        self.assertEqual(rows[("c1", "人工神经网络")]["decision"], "accept")
+        self.assertEqual(rows[("c2", "人工神经网络")]["decision"], "blocked")
+        self.assertEqual(summary["preserved"], 1)
+
+    def test_does_not_preserve_prior_accept_over_hard_reject(self) -> None:
+        prior = self.root / "prior.jsonl"
+        current = self.root / "current.jsonl"
+        write_jsonl(
+            prior,
+            [
+                {
+                    "concept_id": "c1",
+                    "alias": "坏形态",
+                    "lang": "zh",
+                    "decision": "accept",
+                    "review_tier": "review_accept",
+                }
+            ],
+        )
+        write_jsonl(
+            current,
+            [
+                {
+                    "concept_id": "c1",
+                    "alias": "坏形态",
+                    "lang": "zh",
+                    "decision": "reject",
+                    "review_tier": "shape_reject",
+                    "reason": "alias shape rejected",
+                }
+            ],
+        )
+
+        module = load_module()
+        summary = module.preserve_zh_review_decisions(prior_path=prior, current_path=current)
+
+        rows = {(row["concept_id"], row["alias"]): row for row in read_jsonl(current)}
+        self.assertEqual(rows[("c1", "坏形态")]["decision"], "reject")
+        self.assertEqual(summary["preserved"], 0)
+
 
 if __name__ == "__main__":
     unittest.main()
