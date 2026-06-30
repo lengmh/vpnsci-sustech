@@ -1,0 +1,2049 @@
+{
+  "decisions": [
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:3g_mobile",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:3g_mobile_communication"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:active_pixel_sensor__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:active_pixel_sensor"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:airborne_radar__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:airborne_radar"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:alpha_particl__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:alpha_particl"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:ambient_intelligence__3",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:ambient_intelligence"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:analytic_hierarchy_process",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:analytical_hierarchy_process"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:antenna_array__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:antenna_array"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:antenna_phased_array",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:phased_array_antenna"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:artificial_intelligence__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:artificial_intelligence"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:attention_mechanism__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:attention_mechanism"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:autonomou_vehicl__4",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:autonomou_vehicle"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:awgn_channel__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:awgn_channel"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:bibliography__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:bibliography"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:bin_packing",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:bin_packing_problem"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:biography__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:biography"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:bipedal_robot",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:biped_robot"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:blind_equalizer__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:blind_equalizer"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:blind_source_separation__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:blind_source_separation"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:brain_wav",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:brain_wave"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:brca1_protein__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:brca1_protein"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:cad",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 post-review target-direction correction; Prefer full-form CAD concept as canonical target instead of acronym-only display label; no concept merge",
+      "reviewer": "main-agent-c4-batch1-post-review",
+      "target_concept_id": "concept:computer_aided_design"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:cbir_system",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:content_based_image_retrieval_system"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:cellular_automata__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 post-review target-direction correction; Prefer standard cellular automata concept/domain as canonical target; move existing zh aliases from noisy duplicate target; no concept merge",
+      "reviewer": "main-agent-c4-batch1-post-review",
+      "target_concept_id": "concept:cellular_automata"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:central_office",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:central_offic"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:channel_allocation",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:channel_assignment"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:channel_estimate",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:channel_estimation"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:channel_model__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:channel_model"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:channel_spacing__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:channel_spacing"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:chaotic_mapping",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:chaotic_map"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:chaotic_synchronization",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:chao_synchronization"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:chaotic_system",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:chao_system"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:chemistry_physical",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:physical_chemistry"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:child_language__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:child_language"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:clinical_trial",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:clinical_trial__2"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:cluster_analysi__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:cluster_analysi"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:cmos_image_sensor__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:cmos_image_sensor"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:cnn",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:convolutional_neural_network"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:cognitive_science__3",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:cognitive_science__2"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:coil__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:coil"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:collaborative_softwar",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:collaborative_software"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:combinatorial_circuit",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:combinational_circuit"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:communicating_sequential_process",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:communicating_sequential_processe"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:communication_channel__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:communication_channel"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:community_of_practice__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:community_of_practice"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:comparative_genomic_hybridization__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:comparative_genomic_hybridization"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:complexity_classe",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:complexity_class"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:compression_algorithm__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:compression_algorithm"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:computational_complexity__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:computational_complexity"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:computed_tomography__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:computed_tomography"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:computer_aided_diagnosi__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:computer_aided_diagnosi"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:computer_languag",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:computer_language"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:concept_drift__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:concept_drift"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:control_system__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:control_system"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:controller_area_network__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 post-review target-direction correction; Prefer control-systems Controller Area Network concept as canonical target; move existing zh alias from duplicate; no concept merge",
+      "reviewer": "main-agent-c4-batch1-post-review",
+      "target_concept_id": "concept:controller_area_network"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:convolutional_neural_network__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:convolutional_neural_network"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:coprocessor",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:co_processor"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:cost_saving__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:cost_saving"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:dark_current__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:dark_current"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:data_broadcasting",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:data_broadcast"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:data_management__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:data_management"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:decision_theory__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:decision_theory"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:delay_tolerant_networking",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:delay_tolerant_network"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:denoising_auto_encoder",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:denoising_autoencoder"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:diagnosi_computer_assisted__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:computer_aided_diagnosi"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:diagnosi_differential",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:differential_diagnosi"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:diffusion_magnetic_resonance_imaging__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch1",
+      "target_concept_id": "concept:diffusion_magnetic_resonance_imaging"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:digital_information__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:digital_information"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:digital_tv",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:digital_television"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:discrete_cosine_transformation",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:discrete_cosine_transform"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:discrete_wavelet_transformation",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:discrete_wavelet_transform"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:echo_canceller__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:echo_canceller"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:echo_sounder__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:echo_sounder"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:electromagnetic_compatibility__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:electromagnetic_compatibility"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:electromagnetic_field__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:electromagnetic_field"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:electromagnetic_interference__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:electromagnetic_interference"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:electromagnetic_pulse__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:electromagnetic_pulse"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:electron__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:electron"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:electronic_health_record_system",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:electronic_health_record_system__2"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:engineering_drawing__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:engineering_drawing"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:facility_management",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:facility_management__2"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:fiber_optic_network",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:optical_fiber_network"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:finite_impulse_response_filter__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:finite_impulse_response_filter"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:flash_memory",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:flash_memory__2"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:flip_flop__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:flip_flop"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:force_sensor__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:force_sensor"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:frequency_measurement__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:frequency_measurement"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:fuzzy_logic__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:fuzzy_logic"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:fuzzy_system__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:fuzzy_system"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:galaxy__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:galaxy"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:game_theory__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:game_theory"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:gated_recurrent_unit__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:gated_recurrent_unit"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:gaussian_channel__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:gaussian_channel"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:gaussian_noise__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:gaussian_noise"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:gear__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:gear"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:grating__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:grating"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:hamming_distanc",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:hamming_distance"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:hemt__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:hemt"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:hierarchical_system",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:hierarchical_system__2"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:hmm_model",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:hidden_markov_model__2"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:hog",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:histogram_of_oriented_gradient"
+    },
+    {
+      "active": false,
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:human_machine_interface",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 post-review rollback: human-machine interface is broader than human-computer interface; not a strict duplicate redirect target",
+      "reviewer": "main-agent-c4-batch4-post-review",
+      "target_concept_id": "concept:human_computer_interface"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:id_based_cryptography",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:identity_based_cryptography"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:infinite_horizon__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:infinite_horizon"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:interview__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:interview"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:kaplan_meier_estimate__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:kaplan_meier_estimate"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:keyboard__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:keyboard"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:knowledge_base__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:knowledge_base"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:large_language_model__3",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:large_language_model"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:large_language_model__4",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:large_language_model"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:laser__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:laser"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:linear_matrix",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:linear_matric"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:linguistic_and_cultural_study__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 post-review direction fix: keep the arts/social-sciences base concept as canonical target and merge the zh-only duplicate into it",
+      "reviewer": "main-agent-c4-batch4-post-review",
+      "target_concept_id": "concept:linguistic_and_cultural_study"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:local_area_network__3",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:local_area_network"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:magnet__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:magnet"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:magnetic_field__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:magnetic_field"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:man_machine_system__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:man_machine_system"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:manipulator__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:manipulator"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:mashup__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:mashup"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:mechanical_energy__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:mechanical_energy"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:mechanical_product__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:mechanical_product"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:mechanical_system__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:mechanical_system"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:meta_heuristic_approach",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:meta_heuristic_method"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:metal__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:metal"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:metamaterial__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:metamaterial"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:meter_reading__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:meter_reading"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:microelectrod__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:microelectrod"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:microplastic__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:microplastic"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:microstrip_antenna__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:microstrip_antenna"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:microwave_imaging__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:microwave_imaging"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:mimo",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:multi_input_multi_output"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:mining_association",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:association_mining"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:ml_detection",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:maximum_likelihood_detection"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:ml_estimator",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:maximum_likelihood_estimator"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:mmic__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:mmic"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:mobile_ad_hoc",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:mobile_ad_hoc_network"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:model_statistical__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:model_statistical"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:monte_carlo_method__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:monte_carlo_method"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:mu_mimo_system",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:multi_user_mimo_system"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:multimode_fiber",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:multimode_optical_fiber"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:multipath_channel__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:multipath_channel"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:multiple_target_tracking",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:multi_target_tracking"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:multistatic_radar__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:multistatic_radar"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:mutual_information__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:mutual_information"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:naive_bayesian_classifier",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:naive_bay_classifier"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:nand_flash_memory",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:nand_flash"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:nanoparticl__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:nanoparticl"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:nanopor__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:nanopor"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:nanostructur__3",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:nanostructur"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:nanotub__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:nanotub"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:nanowir__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:nanowir"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:natural_language_processing__3",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect retained after post-review: natural-language-processing duplicate with accepted zh target; deeper canonical source cleanup deferred to source/build curation",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:natural_language_processing__2"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:network_address_translation__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:network_address_translation"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:network_analyzer__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:network_analyzer"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:network_interface",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:network_interfac"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:networked_control_system__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:networked_control_system"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:neural_radiance_field__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:neural_radiance_field"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:neutron__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:neutron"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:noise_measurement__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:noise_measurement"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:nuclear_energy__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:nuclear_energy"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:nuclear_physic__3",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:nuclear_physic"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:nuclear_weapon__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:nuclear_weapon"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:object_oriented_method__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:object_oriented_method"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:office_automation__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:office_automation"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:on_chip_network",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:network_on_chip"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:online_social_networking",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:on_line_social_network"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:online_social_networking__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 redirect target flattened after batch4 canonical target review; both source variants resolve to on-line social network canonical target; no concept merge",
+      "reviewer": "main-agent-c4-batch4-chain-fix",
+      "target_concept_id": "concept:on_line_social_network"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:online_system__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:online_system"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:operating_band",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:operating_frequency_band"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:operation_research__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:operation_research"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:optical_amplifier__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:optical_amplifier"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:optical_devic__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:optical_devic"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:optical_fiber__3",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:optical_fiber"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:optical_fiber_sensor__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:optical_fiber_sensor"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:optical_filter__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:optical_filter"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:parallel_robot__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:parallel_robot"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:partial_transmit_sequence",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:partial_transmit_sequenc"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:passive_radar__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:passive_radar"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:patch_antenna__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:patch_antenna"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:phase_distortion__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:phase_distortion"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:phase_transition__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:phase_transition"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:phased_array__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:phased_array"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:photoacoustic_effect__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:photoacoustic_effect"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:planet__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:planet"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:plastic__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:plastic"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:plastic_optical_fiber__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:plastic_optical_fiber"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:pneumatic_system__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:pneumatic_system"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:polarimetric_synthetic_aperture_radar__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:polarimetric_synthetic_aperture_radar"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:polyethylene__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:polyethylene"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:polymer__3",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:polymer"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:power_distribution",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:electrical_power_distribution"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:power_distribution_network__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:power_distribution_network"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:principal_component_analysi__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:principal_component_analysi"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:probability__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:probability"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:programmable_logic_device",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:programmable_logic_devic"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:proton__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:proton"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:pump_laser__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:pump_laser"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:quantum_well__3",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:quantum_well"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:radar_cross_section__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:radar_cross_section"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:radar_measurement__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:radar_measurement"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:radio_wav__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:radio_wav"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:random_sequence",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:random_sequenc"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:rate_distortion__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:rate_distortion"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:reinforcement_learning__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:reinforcement_learning"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:renewable_energy__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:renewable_energy"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:requirement_engineering__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:requirement_engineering"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:rf_signal__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:rf_signal"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:rootkit__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:rootkit"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:rough_sets_theory",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch4",
+      "target_concept_id": "concept:rough_set_theory"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:sagnac_interferometer__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:sagnac_interferometer"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:satellite_communication__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:satellite_communication"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:semantic_web__3",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:semantic_web"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:service_robot__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:service_robot"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:signal_processing__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:signal_processing"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:signal_to_noise_ratio__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:signal_to_noise_ratio"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:single_machine",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:single_machin"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:sliding_mode_control__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:sliding_mode_control"
+    },
+    {
+      "category": "high_confidence_base_variant",
+      "concept_id": "concept:smart_grid__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
+      "reviewer": "main-agent-c4-batch2",
+      "target_concept_id": "concept:smart_grid"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:split_ring_resonator__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:split_ring_resonator"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:sram_cell__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:sram_cell"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:system_architecture__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:system_architecture"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:system_integration__3",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:system_integration"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:system_theory__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:system_theory"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:takagi_sugeno_model__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:takagi_sugeno_model"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:threshold_current",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:threshold_current__2"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:transaction_database__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:transaction_database"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:translation__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:translation"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:vehicle_to_grid__2",
+      "decided_at": "2026-06-30",
+      "decision": "redirect",
+      "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
+      "reviewer": "main-agent-c4-batch3",
+      "target_concept_id": "concept:vehicle_to_grid"
+    }
+  ],
+  "schema_version": "theme_concept_curation_decisions.v1"
+}

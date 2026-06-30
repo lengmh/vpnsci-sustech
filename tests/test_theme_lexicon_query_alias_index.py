@@ -120,6 +120,60 @@ class QueryAliasIndexTests(unittest.TestCase):
         self.assertEqual(result["matched"], True)
         self.assertEqual(result["aliases"], {"en": ["network pharmacology"], "zh": ["网络药理学"]})
 
+    def test_query_alias_reports_redirect_source_metadata(self) -> None:
+        module = load_script("query_alias_index", QUERY_SCRIPT_PATH)
+        index_path, _ = self._write_index_and_manifest()
+        index = json.loads(index_path.read_text(encoding="utf-8"))
+        index["aliases"]["en:network pharmacology variant"] = "concept:network_pharmacology"
+        index["curation"] = {
+            "redirects": {"concept:network_pharmacology__2": "concept:network_pharmacology"},
+            "suppressed": [],
+            "display_only": [],
+            "alias_redirect_sources": {
+                "en:network pharmacology variant": {
+                    "source_concept_id": "concept:network_pharmacology__2",
+                    "target_concept_id": "concept:network_pharmacology",
+                }
+            },
+        }
+        index_path.write_text(json.dumps(index, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
+
+        result = module.query_alias_index(
+            index_path=index_path,
+            alias="Network Pharmacology Variant",
+            lang="en",
+        )
+
+        self.assertEqual(result["matched"], True)
+        self.assertEqual(
+            result["redirect"],
+            {
+                "source_concept_id": "concept:network_pharmacology__2",
+                "target_concept_id": "concept:network_pharmacology",
+            },
+        )
+
+    def test_query_redirect_concept_id_reports_canonical_target(self) -> None:
+        module = load_script("query_alias_index", QUERY_SCRIPT_PATH)
+        index_path, _ = self._write_index_and_manifest()
+        index = json.loads(index_path.read_text(encoding="utf-8"))
+        index["curation"] = {
+            "redirects": {"concept:network_pharmacology__2": "concept:network_pharmacology"},
+            "suppressed": [],
+            "display_only": [],
+            "alias_redirect_sources": {},
+        }
+        index_path.write_text(json.dumps(index, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
+
+        result = module.query_alias_index(
+            index_path=index_path,
+            concept_id="concept:network_pharmacology__2",
+        )
+
+        self.assertEqual(result["matched"], False)
+        self.assertEqual(result["redirected_to"], "concept:network_pharmacology")
+        self.assertEqual(result["target_concept"]["concept_id"], "concept:network_pharmacology")
+
     def test_summarize_alias_runtime_prefers_manifest(self) -> None:
         module = load_script("summarize_alias_runtime", SUMMARY_SCRIPT_PATH)
         index_path, manifest_path = self._write_index_and_manifest()

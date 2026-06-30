@@ -86,6 +86,7 @@ collection 问题修复前，项目主测试套件以 `uv run pytest tests -q` �
 
 ```powershell
 uv run pytest `
+  tests/test_theme_lexicon_concept_curation.py `
   tests/test_theme_lexicon_fill_zh_alias_candidates.py `
   tests/test_theme_lexicon_pollution_guards.py `
   tests/test_theme_lexicon_block_accepted_alias_conflicts.py `
@@ -159,13 +160,14 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-06-29 post-95 new exact proposal round13 审查后）：
+最新已知状态（2026-07-01 concept curation C4 overlay 生产接入后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，
   最新 fill `records_filled = 51844 / records_seen = 54682`；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`48262 / 49849 = 96.82%`
+- runtime 中文覆盖：`48262 / 49623 = 97.26%`（curated denominator；
+  raw 覆盖为 `48262 / 49849 = 96.82%`）
 - runtime zh aliases: `48382`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
@@ -179,27 +181,116 @@ lexicons/review/
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `49849`
+- runtime concept aliases: `49623`
+- raw runtime concepts: `49849`
+- curated runtime concepts: `49623`
+- redirected concepts: `226`
+- suppressed concepts: `0`
+- display-only concepts: `0`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
 - legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；当前运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `1daa3b44657a16b87093f0681c5cadd24b115fbc6b1d88f1ae76a4b4f437ba19`
+  `033a3b9b0e38a3b0458dbc2544fd2f04237b3d7ee97e1234c1e25d6ae2001360`
 - compact manifest SHA-256:
-  `4799f06f657fed06b76c4981b718b25cc22a1e835603ca0d16cddf4ead56e57f`
+  `daaee4573b4908f0b44cf2e99b288f4595cddd97624f4d9ec773929c0e99f753`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
 - compact index 是当前运行时真源；legacy full overlay 未随 batch-007 之后的覆盖扩展更新，不再作为默认等价检查对象，也不再作为 runtime fallback 读取。
-- 最近相关测试：post-95 new exact proposal round12 后，focused
-  alias/runtime suite `909 passed in 27.98s`；project suite
-  `1267 passed, 4 subtests passed in 98.16s`。
+- 最近相关测试：C4 overlay 生产接入后，focused alias/runtime suite
+  `919 passed in 28.11s`；project suite
+  `1277 passed, 4 subtests passed in 99.53s`。
+- concept curation C1-C4 已开始并完成首批临时验证：
+  - C1 只读 audit 已完成，输出在 `F:\AI playground\TempFiles`；
+    raw uncovered concepts `1587`，其中 `redirect_candidates = 436`、
+    `needs_decision_candidates = 791`、`singleton_gaps = 279`、
+    `topic_label_candidates = 70`、`suppressed_candidates = 11`；
+  - C2 新增 versioned curation source
+    `tools/theme-lexicon/concept_curation_decisions.json`，当前写入 C4 batch1-4
+    共 `226` 条高置信 active `redirect` decision；
+  - C2 新增 schema/overlay 校验脚本
+    `tools/theme-lexicon/apply_concept_curation.py`；
+  - C2 新增测试 `tests/test_theme_lexicon_concept_curation.py`；
+  - C3 runtime overlay 接入已完成 fixture 验证：
+    `materialize_runtime_overlay.py` 支持可选 `--curation-overlay`，
+    redirect aliases 可归并到 canonical target，suppressed/display-only 不进入
+    runtime concepts/aliases，manifest 可输出 raw/curated coverage；
+    `query_alias_index.py` 可显示 redirect metadata；
+  - C3 manifest `raw_concepts` 语义已修正为“curation 前、已接受 alias
+    可物化的 runtime concepts”，不再使用 build source 总行数；
+  - C4 batch1 post-review 修正 `3` 条 redirect target direction：
+    `cellular_automata__2 -> cellular_automata`、`cad -> computer_aided_design`、
+    `controller_area_network__2 -> controller_area_network`，避免 noisy/acronym
+    target 成为 canonical display；
+  - C3 redirect 物化顺序已修正：canonical target 自身 aliases 优先于
+    redirected source aliases，避免 acronym source 抢占 target canonical；
+  - C4 batch2 新增 `119` 条保守 base-id/source-variant redirect，只取已有
+    base target 的明确 duplicate / 单复数 / 来源变体，跳过 topic-label、
+    broad/noise 和 semantic-neighbor-only candidates；
+  - C4 batch3 新增 `26` 条更严格 exact/base/source-variant redirect，先自动
+    筛出 normalized English label 与 target alias 匹配的 `45` 条，再手工剔除
+    Android/display/化学单体-类别等易歧义项；
+  - C4 batch3 临时 materialize 结果：raw runtime concepts `49849`，
+    curated concepts `49650`，redirected concepts `199`，raw zh coverage
+    `48262 / 49849 = 96.82%`，curated zh coverage
+    `48262 / 49650 = 97.20%`，accepted/runtime alias conflicts `0`，
+    pollution audit `0 / 0`，temp compact index SHA-256
+    `90ddf2a0ed14506a76c0320bb38f4c504916b0485b4e018dfd1d086bf13914ec`；
+  - C4 batch4 初选 `29` 条 exact collision-target redirect，post-review 后保留
+    `27` 条 active redirect；`rna_ribosomal_16s -> 16s_rrna` 因 16S rRNA
+    与 16S rRNA gene 存在 RNA-vs-gene 歧义未写入 active decisions，
+    `human_machine_interface -> human_computer_interface` 因 human-machine
+    interface 比 human-computer interface 更宽泛而置为 inactive；
+    `linguistic_and_cultural_study__2` 已改为 redirect 到
+    `linguistic_and_cultural_study`，保留 arts/social-sciences base target
+    作为 canonical；`online_social_networking__2` 直接压平到
+    `on_line_social_network`，并在 `apply_concept_curation.py` 中新增
+    “redirect target 不得继续 redirect”的校验；
+  - C4 batch4 临时 materialize 结果：raw runtime concepts `49849`，
+    curated concepts `49623`，redirected concepts `226`，raw zh coverage
+    `48262 / 49849 = 96.82%`，curated zh coverage
+    `48262 / 49623 = 97.26%`，accepted/runtime alias conflicts `0`，
+    pollution audit `0 / 0`，temp compact index SHA-256
+    `033a3b9b0e38a3b0458dbc2544fd2f04237b3d7ee97e1234c1e25d6ae2001360`；
+  - C4 batch1-3 集中 redirect review 已完成：
+    `199` 条 redirect 决策精炼审计 `issue_count = 0`；关系分布为
+    `base_target = 96`、`src_label_matches_target = 80`、
+    `zh_collision_target = 21`、`manual_direction_override = 2`；
+    collision-driven 项已单独抽查，未发现需要回滚或改 target 的项；
+    review artifact:
+    `F:\AI playground\TempFiles\concept_curation_c4_redirect_review_audit_refined_20260630.json`；
+  - C4 curation overlay 已接入生产 compact runtime；package/tool compact index
+    与 manifest 均 byte-identical，生产 SHA 为
+    `033a3b9b0e38a3b0458dbc2544fd2f04237b3d7ee97e1234c1e25d6ae2001360` /
+    `daaee4573b4908f0b44cf2e99b288f4595cddd97624f4d9ec773929c0e99f753`。
+- 最近 C4 相关测试：
+  - `uv run pytest tests/test_theme_lexicon_materialize_runtime_overlay.py::MaterializeRuntimeOverlayTests::test_curation_overlay_redirects_aliases_and_excludes_suppressed_concepts -q`:
+    先复现 `raw_concepts` 计数错误 `5 != 4`，修复后 `1 passed in 0.05s`；
+  - `uv run pytest tests/test_theme_lexicon_materialize_runtime_overlay.py::MaterializeRuntimeOverlayTests::test_curation_overlay_keeps_target_own_aliases_before_redirected_source_aliases -q`:
+    先复现 target canonical 被 acronym source 抢占：`ABC != Full Form Term`，
+    修复后 `1 passed in 0.05s`；
+  - `uv run pytest tests/test_theme_lexicon_materialize_runtime_overlay.py tests/test_theme_lexicon_query_alias_index.py tests/test_theme_lexicon_concept_curation.py -q`:
+    `16 passed in 0.13s`；
+  - C4 overlay 生产接入后 focused alias/runtime suite:
+    `919 passed in 28.11s`。
+  - project suite:
+    `1277 passed, 4 subtests passed in 99.53s`。
 
 当前下一步：
 
 - L5.5 紧凑 runtime index / manifest / query 工作面迁移已完成；
+- concept curation 主线已从 post-95 exact-only 覆盖扩展转入基础 concept 清理：
+  C1 audit、C2 schema 校验、C3 runtime overlay 能力均已完成；C4 batch1-4
+  已写入并生产接入 `226` 条高置信 active redirect decision，并通过
+  materialize / query smoke、focused suite 与 project suite 验证；batch1-3
+  集中 review 未发现问题；batch4 post-review 已收口 RNA-vs-gene 歧义、
+  HMI 过宽 redirect、语言与文化研究 target direction 与 redirect-chain
+  压平问题；下一步建议回到 source/build concept 清理，优先处理 canonical
+  源痕迹（例如 `natural_language_processing__2` 仍显示
+  `natural language processing systems`），或在需要时继续小批量 C4 batch5；
 - post-7000 exact/domain-aware pattern milestone 已完成，runtime 中文覆盖到 `40.49%`；post-40 review cleanup 收口到 `43.18%`；post-40 continuation 已清理并达到 clean `50.01%`；post-50-to-60 子代理审查 milestone 已达到 clean `60.10%`；post-60-to-70 子代理审查 milestone 已达到 clean `70.00%`（exact `70.002%`）；post-70-to-80 子代理审查 milestone 已达到 clean `80.92%`；post-80-to-90 子代理审查 milestone 已达到 clean `90.07%`；post-90-to-final 子代理审查 milestone 已达到 `99.07%`；post-99 safe patch 已达到 `99.08%`；post-99 round2 safe patch 已达到 `99.10%`；post-99 round3 safe patch 曾达到 `99.13%`；post-99 correctness cleanup 因清理伪 exact / stale source 回落到 clean `95.49%`；post-95 singleton exact review batch 推进到 clean `95.91%`；post-95 singleton exact review round2 推进到 clean `96.01%`；post-95 exact collision review round3 推进到 clean `96.14%`；post-95 exact collision review round4 推进到 clean `96.21%`；post-95 exact collision review round5 推进到 clean `96.33%`；post-95 exact collision review round6 推进到 clean `96.45%`；post-95 exact collision review round7 推进到 clean `96.51%`；post-95 singleton exact review round8 推进到 clean `96.51%`（`48115 / 49853`）；post-95 new exact proposal round9 推进到 clean `96.74%`；post-95 new exact proposal round10 推进到 clean `96.76%`；post-95 new exact proposal round11 推进到 clean `96.80%`；post-95 new exact proposal round12 推进到 clean `96.82%`；post-95 new exact proposal round13 未新增 runtime-safe alias，coverage 保持 clean `96.82%`；
 - post-70 review cleanup 已完成最终修复：package 与 paper-search-pro
   runtime 均使用 compact index 一致的 CJK/Latin alias 归一化与中文 alias
