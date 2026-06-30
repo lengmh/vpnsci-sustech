@@ -75,6 +75,8 @@ def query_alias_index(
     aliases = payload.get("aliases") or {}
     curation = payload.get("curation") or {}
     redirects = curation.get("redirects") or {}
+    suppressed = set(curation.get("suppressed") or [])
+    display_only = set(curation.get("display_only") or [])
     alias_redirect_sources = curation.get("alias_redirect_sources") or {}
 
     if alias:
@@ -100,12 +102,20 @@ def query_alias_index(
         concept = concepts.get(concept_id)
         redirected_to = redirects.get(concept_id)
         target_concept = concepts.get(str(redirected_to)) if redirected_to else None
+        curation_status = None
+        if concept_id in suppressed:
+            curation_status = "suppressed"
+        elif concept_id in display_only:
+            curation_status = "display_only"
+        elif redirected_to:
+            curation_status = "redirected"
         return {
             "matched": isinstance(concept, dict),
             "mode": "concept_id",
             "index_path": str(Path(index_path)),
             "concept_id": concept_id,
             "concept": concept,
+            "curation_status": curation_status,
             "redirected_to": redirected_to,
             "target_concept": target_concept,
             "aliases": _aliases_for_concept(payload, concept_id),

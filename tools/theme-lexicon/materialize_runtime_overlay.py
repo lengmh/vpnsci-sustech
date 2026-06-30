@@ -217,6 +217,7 @@ def _load_curation_overlay(path: Path | None) -> dict[str, Any]:
             "suppressed": [],
             "display_only": [],
             "canonical": [],
+            "canonical_overrides": {},
             "alias_redirect_sources": {},
         }
     payload = json.loads(Path(path).read_text(encoding="utf-8"))
@@ -230,6 +231,7 @@ def _load_curation_overlay(path: Path | None) -> dict[str, Any]:
         "suppressed": list(payload.get("suppressed") or []),
         "display_only": list(payload.get("display_only") or []),
         "canonical": list(payload.get("canonical") or []),
+        "canonical_overrides": dict(payload.get("canonical_overrides") or {}),
         "alias_redirect_sources": dict(payload.get("alias_redirect_sources") or {}),
     }
 
@@ -266,10 +268,13 @@ def _apply_curation_to_aliases(
                 }
 
     curation_summary = {
+        "canonical": sorted(curation_overlay.get("canonical") or []),
+        "canonical_overrides": dict(sorted((curation_overlay.get("canonical_overrides") or {}).items())),
         "redirects": dict(sorted(redirects.items())),
         "suppressed": sorted(suppressed),
         "display_only": sorted(display_only),
         "alias_redirect_sources": dict(sorted(alias_redirect_sources.items())),
+        "canonical_concepts": len(curation_overlay.get("canonical") or []),
         "redirected_concepts": len(redirects),
         "suppressed_concepts": len(suppressed),
         "display_only_concepts": len(display_only),
@@ -277,14 +282,19 @@ def _apply_curation_to_aliases(
     return curated, curation_summary
 
 
-def _overlay_entry(concept: dict[str, Any], aliases: dict[str, list[str]]) -> dict[str, Any] | None:
+def _overlay_entry(
+    concept: dict[str, Any],
+    aliases: dict[str, list[str]],
+    canonical_override: dict[str, str] | None = None,
+) -> dict[str, Any] | None:
     aliases_en = _unique_text(aliases.get("en") or [])
     aliases_zh = _unique_text(aliases.get("zh") or [])
     if not aliases_en and not aliases_zh:
         return None
 
-    canonical_en = aliases_en[0] if aliases_en else None
-    canonical_zh = aliases_zh[0] if aliases_zh else None
+    canonical_override = canonical_override or {}
+    canonical_en = _clean_text(canonical_override.get("en")) or (aliases_en[0] if aliases_en else None)
+    canonical_zh = _clean_text(canonical_override.get("zh")) or (aliases_zh[0] if aliases_zh else None)
     source_refs = [
         ref
         for ref in (_minimal_source_ref(item) for item in (concept.get("source_refs") or []) if isinstance(item, dict))
@@ -346,11 +356,14 @@ def _build_runtime_index_payload(
         or curation.get("suppressed")
         or curation.get("display_only")
         or curation.get("alias_redirect_sources")
+        or curation.get("canonical_overrides")
     ):
         payload["curation"] = {
             "redirects": dict(sorted((curation.get("redirects") or {}).items())),
             "suppressed": sorted(curation.get("suppressed") or []),
             "display_only": sorted(curation.get("display_only") or []),
+            "canonical": sorted(curation.get("canonical") or []),
+            "canonical_overrides": dict(sorted((curation.get("canonical_overrides") or {}).items())),
             "alias_redirect_sources": dict(sorted((curation.get("alias_redirect_sources") or {}).items())),
         }
     return payload
@@ -360,15 +373,17 @@ def _build_runtime_entries(
     *,
     accepted: dict[str, dict[str, list[str]]],
     concepts: dict[str, dict[str, Any]],
+    canonical_overrides: dict[str, dict[str, str]] | None = None,
 ) -> tuple[list[dict[str, Any]], list[str]]:
     entries: list[dict[str, Any]] = []
     missing_concepts: list[str] = []
+    canonical_overrides = canonical_overrides or {}
     for concept_id, aliases in sorted(accepted.items()):
         concept = concepts.get(concept_id)
         if not concept:
             missing_concepts.append(concept_id)
             continue
-        entry = _overlay_entry(concept, aliases)
+        entry = _overlay_entry(concept, aliases, canonical_overrides.get(concept_id))
         if entry:
             entries.append(entry)
     entries.sort(key=_concept_sort_key)
@@ -430,6 +445,7 @@ def _build_manifest_payload(
                 "raw_concepts": raw_concepts,
                 "curated_concepts": concept_count,
                 "redirected_concepts": int(curation.get("redirected_concepts") or 0),
+                "canonical_concepts": int(curation.get("canonical_concepts") or 0),
                 "suppressed_concepts": int(curation.get("suppressed_concepts") or 0),
                 "display_only_concepts": int(curation.get("display_only_concepts") or 0),
                 "raw_concepts_with_zh_alias": raw_concepts_with_zh_alias,
@@ -487,7 +503,11 @@ def materialize_runtime_overlay(
     curation_overlay = _load_curation_overlay(Path(curation_overlay_path) if curation_overlay_path else None)
     accepted, curation_summary = _apply_curation_to_aliases(accepted, curation_overlay)
 
-    entries, missing_concepts = _build_runtime_entries(accepted=accepted, concepts=concepts)
+    entries, missing_concepts = _build_runtime_entries(
+        accepted=accepted,
+        concepts=concepts,
+        canonical_overrides=curation_summary.get("canonical_overrides") or {},
+    )
     missing_concepts = sorted(set(raw_missing_concepts) | set(missing_concepts))
 
     pending_review = sum(
@@ -555,6 +575,7 @@ def materialize_runtime_overlay(
         "curation": {
             "overlay": str(curation_overlay_path) if curation_overlay_path else None,
             "redirected_concepts": curation_summary["redirected_concepts"],
+            "canonical_concepts": curation_summary["canonical_concepts"],
             "suppressed_concepts": curation_summary["suppressed_concepts"],
             "display_only_concepts": curation_summary["display_only_concepts"],
         },

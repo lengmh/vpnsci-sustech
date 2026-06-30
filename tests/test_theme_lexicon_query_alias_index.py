@@ -174,6 +174,26 @@ class QueryAliasIndexTests(unittest.TestCase):
         self.assertEqual(result["redirected_to"], "concept:network_pharmacology")
         self.assertEqual(result["target_concept"]["concept_id"], "concept:network_pharmacology")
 
+    def test_query_excluded_concept_id_reports_curation_status(self) -> None:
+        module = load_script("query_alias_index", QUERY_SCRIPT_PATH)
+        index_path, _ = self._write_index_and_manifest()
+        index = json.loads(index_path.read_text(encoding="utf-8"))
+        index["curation"] = {
+            "redirects": {},
+            "suppressed": ["concept:too_broad"],
+            "display_only": ["concept:topic_label"],
+            "alias_redirect_sources": {},
+        }
+        index_path.write_text(json.dumps(index, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
+
+        suppressed = module.query_alias_index(index_path=index_path, concept_id="concept:too_broad")
+        display_only = module.query_alias_index(index_path=index_path, concept_id="concept:topic_label")
+
+        self.assertEqual(suppressed["matched"], False)
+        self.assertEqual(suppressed["curation_status"], "suppressed")
+        self.assertEqual(display_only["matched"], False)
+        self.assertEqual(display_only["curation_status"], "display_only")
+
     def test_summarize_alias_runtime_prefers_manifest(self) -> None:
         module = load_script("summarize_alias_runtime", SUMMARY_SCRIPT_PATH)
         index_path, manifest_path = self._write_index_and_manifest()
