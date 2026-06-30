@@ -26,6 +26,9 @@ class ThemeLexiconReviewedSourceAlignmentTests(unittest.TestCase):
         reviewed = json.loads(REVIEWED_SOURCE_PATH.read_text(encoding="utf-8"))["aliases"]
         runtime = json.loads(RUNTIME_INDEX_PATH.read_text(encoding="utf-8"))
         runtime_aliases = runtime["aliases"]
+        curation = runtime.get("curation") or {}
+        redirects = curation.get("redirects") or {}
+        alias_redirect_sources = curation.get("alias_redirect_sources") or {}
         failures: list[tuple[str, str, str, str | None]] = []
 
         for row in reviewed:
@@ -35,7 +38,13 @@ class ThemeLexiconReviewedSourceAlignmentTests(unittest.TestCase):
                 continue
             alias_key = f"zh:{query_alias_index.normalize_alias(alias)}"
             target = runtime_aliases.get(alias_key)
-            if target != concept_id:
+            redirect_source = alias_redirect_sources.get(alias_key) or {}
+            is_curated_redirect = (
+                redirects.get(concept_id) == target
+                and redirect_source.get("source_concept_id") == concept_id
+                and redirect_source.get("target_concept_id") == target
+            )
+            if target != concept_id and not is_curated_redirect:
                 failures.append((concept_id, str(row.get("canonical_en") or ""), alias, target))
 
         self.assertEqual(failures[:50], [])

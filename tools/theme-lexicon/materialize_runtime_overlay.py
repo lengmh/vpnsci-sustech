@@ -209,6 +209,74 @@ def _load_accepted_aliases(path: Path) -> tuple[dict[str, dict[str, list[str]]],
     return accepted, dict(sorted(summary.items())), skipped_conflicts
 
 
+def _load_curation_overlay(path: Path | None) -> dict[str, Any]:
+    if not path:
+        return {
+            "schema_version": "theme_concept_curation_overlay.v1",
+            "redirects": {},
+            "suppressed": [],
+            "display_only": [],
+            "canonical": [],
+            "alias_redirect_sources": {},
+        }
+    payload = json.loads(Path(path).read_text(encoding="utf-8"))
+    schema_version = payload.get("schema_version")
+    if schema_version != "theme_concept_curation_overlay.v1":
+        raise ValueError(f"Unsupported curation overlay schema_version: {schema_version}")
+    return {
+        "schema_version": schema_version,
+        "source": payload.get("source"),
+        "redirects": dict(payload.get("redirects") or {}),
+        "suppressed": list(payload.get("suppressed") or []),
+        "display_only": list(payload.get("display_only") or []),
+        "canonical": list(payload.get("canonical") or []),
+        "alias_redirect_sources": dict(payload.get("alias_redirect_sources") or {}),
+    }
+
+
+def _apply_curation_to_aliases(
+    accepted: dict[str, dict[str, list[str]]],
+    curation_overlay: dict[str, Any],
+) -> tuple[dict[str, dict[str, list[str]]], dict[str, Any]]:
+    redirects: dict[str, str] = dict(curation_overlay.get("redirects") or {})
+    suppressed = set(curation_overlay.get("suppressed") or [])
+    display_only = set(curation_overlay.get("display_only") or [])
+    excluded = suppressed | display_only
+    alias_redirect_sources: dict[str, dict[str, str]] = {}
+
+    curated: dict[str, dict[str, list[str]]] = defaultdict(lambda: {"en": [], "zh": []})
+    for concept_id, aliases_by_lang in accepted.items():
+        if concept_id in excluded or concept_id in redirects:
+            continue
+        for lang in ("en", "zh"):
+            for alias in aliases_by_lang.get(lang) or []:
+                curated[concept_id][lang].append(alias)
+
+    for concept_id, aliases_by_lang in accepted.items():
+        target_id = redirects.get(concept_id)
+        if not target_id or concept_id in excluded or target_id in excluded:
+            continue
+        for lang in ("en", "zh"):
+            for alias in aliases_by_lang.get(lang) or []:
+                curated[target_id][lang].append(alias)
+                alias_key = f"{lang}:{_normalize_alias(alias)}"
+                alias_redirect_sources[alias_key] = {
+                    "source_concept_id": concept_id,
+                    "target_concept_id": target_id,
+                }
+
+    curation_summary = {
+        "redirects": dict(sorted(redirects.items())),
+        "suppressed": sorted(suppressed),
+        "display_only": sorted(display_only),
+        "alias_redirect_sources": dict(sorted(alias_redirect_sources.items())),
+        "redirected_concepts": len(redirects),
+        "suppressed_concepts": len(suppressed),
+        "display_only_concepts": len(display_only),
+    }
+    return curated, curation_summary
+
+
 def _overlay_entry(concept: dict[str, Any], aliases: dict[str, list[str]]) -> dict[str, Any] | None:
     aliases_en = _unique_text(aliases.get("en") or [])
     aliases_zh = _unique_text(aliases.get("zh") or [])
@@ -242,7 +310,12 @@ def _overlay_entry(concept: dict[str, Any], aliases: dict[str, list[str]]) -> di
     }
 
 
-def _build_runtime_index_payload(entries: list[dict[str, Any]], *, build_status: str) -> dict[str, Any]:
+def _build_runtime_index_payload(
+    entries: list[dict[str, Any]],
+    *,
+    build_status: str,
+    curation: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     concepts: dict[str, dict[str, Any]] = {}
     aliases: dict[str, str] = {}
     for entry in entries:
@@ -261,13 +334,45 @@ def _build_runtime_index_payload(entries: list[dict[str, Any]], *, build_status:
                 normalized = _normalize_alias(str(alias))
                 if normalized:
                     aliases.setdefault(f"{lang}:{normalized}", concept_id)
-    return {
+    payload = {
         "schema_version": "theme_concept_alias_index.v1",
         "build_status": build_status,
         "normalization": "theme_concept_alias_normalization.v1",
         "concepts": dict(sorted(concepts.items())),
         "aliases": dict(sorted(aliases.items())),
     }
+    if curation and (
+        curation.get("redirects")
+        or curation.get("suppressed")
+        or curation.get("display_only")
+        or curation.get("alias_redirect_sources")
+    ):
+        payload["curation"] = {
+            "redirects": dict(sorted((curation.get("redirects") or {}).items())),
+            "suppressed": sorted(curation.get("suppressed") or []),
+            "display_only": sorted(curation.get("display_only") or []),
+            "alias_redirect_sources": dict(sorted((curation.get("alias_redirect_sources") or {}).items())),
+        }
+    return payload
+
+
+def _build_runtime_entries(
+    *,
+    accepted: dict[str, dict[str, list[str]]],
+    concepts: dict[str, dict[str, Any]],
+) -> tuple[list[dict[str, Any]], list[str]]:
+    entries: list[dict[str, Any]] = []
+    missing_concepts: list[str] = []
+    for concept_id, aliases in sorted(accepted.items()):
+        concept = concepts.get(concept_id)
+        if not concept:
+            missing_concepts.append(concept_id)
+            continue
+        entry = _overlay_entry(concept, aliases)
+        if entry:
+            entries.append(entry)
+    entries.sort(key=_concept_sort_key)
+    return entries, missing_concepts
 
 
 def _english_word_tokens(value: str) -> list[str]:
@@ -293,6 +398,9 @@ def _pollution_audit(entries: list[dict[str, Any]]) -> dict[str, int]:
 def _build_manifest_payload(
     *,
     entries: list[dict[str, Any]],
+    raw_concepts: int,
+    raw_concepts_with_zh_alias: int,
+    curation: dict[str, Any] | None = None,
     review_summary: dict[str, int],
     skipped_conflicts: list[dict[str, Any]],
     index_sha256: str,
@@ -302,7 +410,7 @@ def _build_manifest_payload(
     zh_count = sum(1 for entry in entries if (entry.get("aliases") or {}).get("zh"))
     en_aliases = sum(len((entry.get("aliases") or {}).get("en") or []) for entry in entries)
     zh_aliases = sum(len((entry.get("aliases") or {}).get("zh") or []) for entry in entries)
-    return {
+    manifest = {
         "schema_version": "theme_concept_alias_manifest.v1",
         "build_status": build_status,
         "runtime_index_file": "theme_concept_alias_index.json",
@@ -316,6 +424,21 @@ def _build_manifest_payload(
         "pollution_audit": _pollution_audit(entries),
         "sha256": {"index": index_sha256},
     }
+    if curation is not None:
+        manifest.update(
+            {
+                "raw_concepts": raw_concepts,
+                "curated_concepts": concept_count,
+                "redirected_concepts": int(curation.get("redirected_concepts") or 0),
+                "suppressed_concepts": int(curation.get("suppressed_concepts") or 0),
+                "display_only_concepts": int(curation.get("display_only_concepts") or 0),
+                "raw_concepts_with_zh_alias": raw_concepts_with_zh_alias,
+                "curated_concepts_with_zh_alias": zh_count,
+                "raw_concepts_with_zh_alias_percent": round((raw_concepts_with_zh_alias / raw_concepts * 100) if raw_concepts else 0.0, 2),
+                "curated_concepts_with_zh_alias_percent": round((zh_count / concept_count * 100) if concept_count else 0.0, 2),
+            }
+        )
+    return manifest
 
 
 def _build_legacy_full_payload(
@@ -343,6 +466,7 @@ def materialize_runtime_overlay(
     legacy_outputs: Iterable[Path] | None = None,
     full_audit_output: Path | None = None,
     outputs: Iterable[Path] | None = None,
+    curation_overlay_path: Path | None = None,
 ) -> dict[str, Any]:
     if outputs is not None:
         legacy_outputs = tuple(legacy_outputs or ()) + tuple(outputs)
@@ -358,18 +482,13 @@ def materialize_runtime_overlay(
 
     concepts = _load_concepts(Path(concepts_path))
     accepted, review_summary, skipped_conflicts = _load_accepted_aliases(Path(review_decisions_path))
+    raw_entries, raw_missing_concepts = _build_runtime_entries(accepted=accepted, concepts=concepts)
+    raw_concepts_with_zh_alias = sum(1 for entry in raw_entries if (entry.get("aliases") or {}).get("zh"))
+    curation_overlay = _load_curation_overlay(Path(curation_overlay_path) if curation_overlay_path else None)
+    accepted, curation_summary = _apply_curation_to_aliases(accepted, curation_overlay)
 
-    entries: list[dict[str, Any]] = []
-    missing_concepts: list[str] = []
-    for concept_id, aliases in sorted(accepted.items()):
-        concept = concepts.get(concept_id)
-        if not concept:
-            missing_concepts.append(concept_id)
-            continue
-        entry = _overlay_entry(concept, aliases)
-        if entry:
-            entries.append(entry)
-    entries.sort(key=_concept_sort_key)
+    entries, missing_concepts = _build_runtime_entries(accepted=accepted, concepts=concepts)
+    missing_concepts = sorted(set(raw_missing_concepts) | set(missing_concepts))
 
     pending_review = sum(
         count
@@ -378,7 +497,7 @@ def materialize_runtime_overlay(
     )
     build_status = "partial_review_pending" if pending_review else "review_complete"
 
-    index_payload = _build_runtime_index_payload(entries, build_status=build_status)
+    index_payload = _build_runtime_index_payload(entries, build_status=build_status, curation=curation_summary)
     index_written: list[str] = []
     index_sha256 = hashlib.sha256(_json_bytes(index_payload)).hexdigest()
     for output in index_outputs:
@@ -389,6 +508,9 @@ def materialize_runtime_overlay(
 
     manifest_payload = _build_manifest_payload(
         entries=entries,
+        raw_concepts=len(raw_entries),
+        raw_concepts_with_zh_alias=raw_concepts_with_zh_alias,
+        curation=curation_summary if curation_overlay_path else None,
         review_summary=review_summary,
         skipped_conflicts=skipped_conflicts,
         index_sha256=index_sha256,
@@ -430,6 +552,12 @@ def materialize_runtime_overlay(
         "legacy_full_outputs": legacy_written,
         "full_audit_output": str(full_audit_output) if full_audit_output else None,
         "runtime_index_sha256": index_sha256,
+        "curation": {
+            "overlay": str(curation_overlay_path) if curation_overlay_path else None,
+            "redirected_concepts": curation_summary["redirected_concepts"],
+            "suppressed_concepts": curation_summary["suppressed_concepts"],
+            "display_only_concepts": curation_summary["display_only_concepts"],
+        },
         "outputs": legacy_written,
     }
 
@@ -449,6 +577,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         help="Deprecated alias for --legacy-output.",
     )
     parser.add_argument("--full-audit-output", type=Path, default=None)
+    parser.add_argument("--curation-overlay", type=Path, default=None)
     return parser.parse_args(argv)
 
 
@@ -461,6 +590,7 @@ def main(argv: list[str] | None = None) -> int:
         manifest_outputs=args.manifest_output or DEFAULT_MANIFEST_OUTPUTS,
         legacy_outputs=tuple(args.legacy_output or ()) + tuple(args.output or ()),
         full_audit_output=args.full_audit_output,
+        curation_overlay_path=args.curation_overlay,
     )
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0

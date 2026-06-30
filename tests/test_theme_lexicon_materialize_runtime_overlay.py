@@ -163,6 +163,160 @@ class MaterializeRuntimeOverlayTests(unittest.TestCase):
         index = json.loads(index_path.read_text(encoding="utf-8"))
         self.assertEqual(index["aliases"]["en:channel estimation"], "concept:alpha_channel")
 
+    def test_curation_overlay_redirects_aliases_and_excludes_suppressed_concepts(self) -> None:
+        module = load_module()
+        concepts = self.root / "merged_en_concept_candidates.jsonl"
+        review = self.root / "review_decisions.jsonl"
+        curation = self.root / "concept_curation_overlay.json"
+        index_path = self.root / "theme_concept_alias_index.json"
+        manifest_path = self.root / "theme_concept_alias_manifest.json"
+        write_jsonl(
+            concepts,
+            [
+                {"concept_id": "concept:accelerometer", "domains": ["sensors"], "parents": [], "specificity": 70},
+                {"concept_id": "concept:accelerometer__2", "domains": ["computer_science"], "parents": [], "specificity": 40},
+                {"concept_id": "concept:abstract__2", "domains": ["publication_characteristics"], "parents": [], "specificity": 5},
+                {
+                    "concept_id": "concept:blockchain_technology_in_education_and_learning",
+                    "domains": ["computer_science"],
+                    "parents": [],
+                    "specificity": 30,
+                },
+                {"concept_id": "concept:source_only_no_runtime_alias", "domains": [], "parents": [], "specificity": 1},
+            ],
+        )
+        write_jsonl(
+            review,
+            [
+                {"concept_id": "concept:accelerometer", "alias": "Accelerometers", "lang": "en", "decision": "accept"},
+                {"concept_id": "concept:accelerometer", "alias": "加速度计", "lang": "zh", "decision": "accept"},
+                {"concept_id": "concept:accelerometer__2", "alias": "Accelerometer", "lang": "en", "decision": "accept"},
+                {"concept_id": "concept:accelerometer__2", "alias": "加速度计传感器", "lang": "zh", "decision": "accept"},
+                {"concept_id": "concept:abstract__2", "alias": "Abstract", "lang": "en", "decision": "accept"},
+                {"concept_id": "concept:abstract__2", "alias": "摘要", "lang": "zh", "decision": "accept"},
+                {
+                    "concept_id": "concept:blockchain_technology_in_education_and_learning",
+                    "alias": "Blockchain Technology In Education And Learning",
+                    "lang": "en",
+                    "decision": "accept",
+                },
+            ],
+        )
+        curation.write_text(
+            json.dumps(
+                {
+                    "schema_version": "theme_concept_curation_overlay.v1",
+                    "redirects": {"concept:accelerometer__2": "concept:accelerometer"},
+                    "suppressed": ["concept:abstract__2"],
+                    "display_only": ["concept:blockchain_technology_in_education_and_learning"],
+                    "canonical": [],
+                    "decisions": [],
+                    "counts": {"redirect": 1, "suppressed": 1, "display_only": 1},
+                },
+                ensure_ascii=False,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+
+        summary = module.materialize_runtime_overlay(
+            concepts_path=concepts,
+            review_decisions_path=review,
+            curation_overlay_path=curation,
+            index_outputs=(index_path,),
+            manifest_outputs=(manifest_path,),
+        )
+
+        self.assertEqual(summary["curation"]["redirected_concepts"], 1)
+        self.assertEqual(summary["curation"]["suppressed_concepts"], 1)
+        index = json.loads(index_path.read_text(encoding="utf-8"))
+        self.assertIn("concept:accelerometer", index["concepts"])
+        self.assertNotIn("concept:accelerometer__2", index["concepts"])
+        self.assertNotIn("concept:abstract__2", index["concepts"])
+        self.assertNotIn("concept:blockchain_technology_in_education_and_learning", index["concepts"])
+        self.assertEqual(index["aliases"]["en:accelerometer"], "concept:accelerometer")
+        self.assertEqual(index["aliases"]["zh:加速度计传感器"], "concept:accelerometer")
+        self.assertNotIn("zh:摘要", index["aliases"])
+        self.assertEqual(
+            index["curation"]["alias_redirect_sources"]["en:accelerometer"],
+            {
+                "source_concept_id": "concept:accelerometer__2",
+                "target_concept_id": "concept:accelerometer",
+            },
+        )
+
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        self.assertEqual(manifest["raw_concepts"], 4)
+        self.assertEqual(manifest["curated_concepts"], 1)
+        self.assertEqual(manifest["redirected_concepts"], 1)
+        self.assertEqual(manifest["suppressed_concepts"], 1)
+        self.assertEqual(manifest["display_only_concepts"], 1)
+        self.assertEqual(manifest["raw_concepts_with_zh_alias"], 3)
+        self.assertEqual(manifest["curated_concepts_with_zh_alias"], 1)
+
+    def test_curation_overlay_keeps_target_own_aliases_before_redirected_source_aliases(self) -> None:
+        module = load_module()
+        concepts = self.root / "merged_en_concept_candidates.jsonl"
+        review = self.root / "review_decisions.jsonl"
+        curation = self.root / "concept_curation_overlay.json"
+        index_path = self.root / "theme_concept_alias_index.json"
+        manifest_path = self.root / "theme_concept_alias_manifest.json"
+        write_jsonl(
+            concepts,
+            [
+                {"concept_id": "concept:acronym", "domains": ["computer_science"], "parents": [], "specificity": 20},
+                {"concept_id": "concept:full_form", "domains": ["information_science"], "parents": [], "specificity": 80},
+            ],
+        )
+        write_jsonl(
+            review,
+            [
+                {"concept_id": "concept:acronym", "alias": "ABC", "lang": "en", "decision": "accept"},
+                {"concept_id": "concept:acronym", "alias": "完整术语", "lang": "zh", "decision": "accept"},
+                {"concept_id": "concept:full_form", "alias": "Full Form Term", "lang": "en", "decision": "accept"},
+                {"concept_id": "concept:full_form", "alias": "Complete Form Term", "lang": "en", "decision": "accept"},
+            ],
+        )
+        curation.write_text(
+            json.dumps(
+                {
+                    "schema_version": "theme_concept_curation_overlay.v1",
+                    "redirects": {"concept:acronym": "concept:full_form"},
+                    "suppressed": [],
+                    "display_only": [],
+                    "canonical": [],
+                    "decisions": [],
+                    "counts": {"redirect": 1},
+                },
+                ensure_ascii=False,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+
+        module.materialize_runtime_overlay(
+            concepts_path=concepts,
+            review_decisions_path=review,
+            curation_overlay_path=curation,
+            index_outputs=(index_path,),
+            manifest_outputs=(manifest_path,),
+        )
+
+        index = json.loads(index_path.read_text(encoding="utf-8"))
+        concept = index["concepts"]["concept:full_form"]
+        self.assertEqual(concept["canonical"]["en"], "Full Form Term")
+        self.assertEqual(concept["canonical"]["zh"], "完整术语")
+        self.assertEqual(index["aliases"]["en:abc"], "concept:full_form")
+        self.assertEqual(
+            index["curation"]["alias_redirect_sources"]["en:abc"],
+            {
+                "source_concept_id": "concept:acronym",
+                "target_concept_id": "concept:full_form",
+            },
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

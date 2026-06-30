@@ -73,6 +73,9 @@ def query_alias_index(
     payload = _load_index(Path(index_path))
     concepts = payload.get("concepts") or {}
     aliases = payload.get("aliases") or {}
+    curation = payload.get("curation") or {}
+    redirects = curation.get("redirects") or {}
+    alias_redirect_sources = curation.get("alias_redirect_sources") or {}
 
     if alias:
         query_lang = (lang or ("zh" if _is_chinese_text(alias) else "en")).strip().lower()
@@ -90,16 +93,21 @@ def query_alias_index(
             "alias_key": alias_key,
             "concept_id": target_id,
             "concept": concept,
+            "redirect": alias_redirect_sources.get(alias_key),
         }
 
     if concept_id:
         concept = concepts.get(concept_id)
+        redirected_to = redirects.get(concept_id)
+        target_concept = concepts.get(str(redirected_to)) if redirected_to else None
         return {
             "matched": isinstance(concept, dict),
             "mode": "concept_id",
             "index_path": str(Path(index_path)),
             "concept_id": concept_id,
             "concept": concept,
+            "redirected_to": redirected_to,
+            "target_concept": target_concept,
             "aliases": _aliases_for_concept(payload, concept_id),
         }
 
