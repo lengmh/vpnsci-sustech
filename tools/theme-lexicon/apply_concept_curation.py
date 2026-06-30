@@ -15,7 +15,7 @@ from typing import Any, Iterable
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_INDEX_PATH = REPO_ROOT / "vpnsci_sustech" / "data" / "theme_concept_alias_index.json"
+DEFAULT_INDEX_PATH = REPO_ROOT / "lexicons" / "builds" / "merged_en_concept_candidates.jsonl"
 DEFAULT_CURRATION_DECISIONS_PATH = REPO_ROOT / "tools" / "theme-lexicon" / "concept_curation_decisions.json"
 DEFAULT_OUTPUT_PATH = REPO_ROOT / "lexicons" / "builds" / "concept_curation_overlay.json"
 
@@ -49,6 +49,18 @@ def _active_decisions(raw_decisions: Iterable[dict[str, Any]]) -> list[dict[str,
 
 
 def _load_concepts(index_path: Path) -> dict[str, dict[str, Any]]:
+    if index_path.suffix == ".jsonl":
+        concepts: dict[str, dict[str, Any]] = {}
+        with index_path.open(encoding="utf-8") as handle:
+            for line in handle:
+                if not line.strip():
+                    continue
+                row = json.loads(line)
+                concept_id = _clean(row.get("concept_id"))
+                if concept_id:
+                    concepts[concept_id] = row
+        return concepts
+
     payload = _read_json(index_path)
     concepts = payload.get("concepts") or {}
     if not isinstance(concepts, dict):
@@ -88,7 +100,24 @@ def _normalize_decision(row: dict[str, Any]) -> dict[str, Any]:
     topic_disposition = _clean(row.get("topic_label_disposition"))
     if topic_disposition:
         normalized["topic_label_disposition"] = topic_disposition
+    canonical_en = _clean(row.get("canonical_en"))
+    if canonical_en:
+        normalized["canonical_en"] = canonical_en
+    canonical_zh = _clean(row.get("canonical_zh"))
+    if canonical_zh:
+        normalized["canonical_zh"] = canonical_zh
     return normalized
+
+
+def _canonical_override(row: dict[str, Any]) -> dict[str, str]:
+    override: dict[str, str] = {}
+    canonical_en = _clean(row.get("canonical_en"))
+    canonical_zh = _clean(row.get("canonical_zh"))
+    if canonical_en:
+        override["en"] = canonical_en
+    if canonical_zh:
+        override["zh"] = canonical_zh
+    return override
 
 
 def apply_concept_curation(
@@ -117,6 +146,7 @@ def apply_concept_curation(
     suppressed: set[str] = set()
     display_only: set[str] = set()
     canonical: set[str] = set()
+    canonical_overrides: dict[str, dict[str, str]] = {}
     counts: Counter[str] = Counter()
 
     for row in active:
@@ -145,7 +175,11 @@ def apply_concept_curation(
         elif decision == "display_only":
             display_only.add(concept_id)
         else:
+            override = _canonical_override(row)
+            if not override:
+                raise ValueError(f"canonical decision requires canonical_en or canonical_zh: {concept_id}")
             canonical.add(concept_id)
+            canonical_overrides[concept_id] = override
 
         normalized_decisions.append(_normalize_decision(row))
         counts[decision] += 1
@@ -163,6 +197,7 @@ def apply_concept_curation(
         "schema_version": OVERLAY_SCHEMA_VERSION,
         "source": str(curation_decisions_path.resolve()),
         "canonical": sorted(canonical),
+        "canonical_overrides": dict(sorted(canonical_overrides.items())),
         "redirects": dict(sorted(redirects.items())),
         "suppressed": sorted(suppressed),
         "display_only": sorted(display_only),

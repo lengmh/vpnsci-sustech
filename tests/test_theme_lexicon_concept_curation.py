@@ -87,11 +87,31 @@ class ConceptCurationTests(unittest.TestCase):
         )
         return curation_path
 
+    def _write_raw_concepts(self, concept_ids: list[str]) -> Path:
+        concepts_path = self.root / "merged_en_concept_candidates.jsonl"
+        concepts_path.write_text(
+            "".join(
+                json.dumps({"concept_id": concept_id, "canonical": {"en": concept_id}}, sort_keys=True) + "\n"
+                for concept_id in concept_ids
+            ),
+            encoding="utf-8",
+        )
+        return concepts_path
+
     def test_validates_and_writes_normalized_curation_overlay(self) -> None:
         module = load_module()
         index_path = self._write_index()
         decisions_path = self._write_decisions(
             [
+                {
+                    "concept_id": "concept:accelerometer",
+                    "decision": "canonical",
+                    "canonical_en": "Accelerometer",
+                    "category": "canonical_source_artifact",
+                    "reason": "prefer concise display label over plural source label",
+                    "reviewer": "main-agent",
+                    "decided_at": "2026-07-01",
+                },
                 {
                     "concept_id": "concept:accelerometer__2",
                     "decision": "redirect",
@@ -128,16 +148,63 @@ class ConceptCurationTests(unittest.TestCase):
             output_path=output_path,
         )
 
-        self.assertEqual(summary["counts"], {"display_only": 1, "redirect": 1, "suppressed": 1})
-        self.assertEqual(summary["active_decisions"], 3)
+        self.assertEqual(summary["counts"], {"canonical": 1, "display_only": 1, "redirect": 1, "suppressed": 1})
+        self.assertEqual(summary["active_decisions"], 4)
         overlay = json.loads(output_path.read_text(encoding="utf-8"))
         self.assertEqual(overlay["schema_version"], "theme_concept_curation_overlay.v1")
+        self.assertEqual(overlay["canonical"], ["concept:accelerometer"])
+        self.assertEqual(overlay["canonical_overrides"], {"concept:accelerometer": {"en": "Accelerometer"}})
         self.assertEqual(
             overlay["redirects"],
             {"concept:accelerometer__2": "concept:accelerometer"},
         )
         self.assertEqual(overlay["suppressed"], ["concept:abstract__2"])
         self.assertEqual(overlay["display_only"], ["concept:blockchain_technology_in_education_and_learning"])
+
+    def test_rejects_canonical_decision_without_display_override(self) -> None:
+        module = load_module()
+        index_path = self._write_index()
+        decisions_path = self._write_decisions(
+            [
+                {
+                    "concept_id": "concept:accelerometer",
+                    "decision": "canonical",
+                    "category": "canonical_source_artifact",
+                    "reason": "missing override",
+                    "reviewer": "main-agent",
+                    "decided_at": "2026-07-01",
+                }
+            ]
+        )
+
+        with self.assertRaisesRegex(ValueError, "canonical decision requires canonical_en or canonical_zh"):
+            module.apply_concept_curation(index_path=index_path, curation_decisions_path=decisions_path)
+
+    def test_can_validate_against_raw_build_concepts_after_redirect_sources_leave_runtime(self) -> None:
+        module = load_module()
+        concepts_path = self._write_raw_concepts(["concept:accelerometer", "concept:accelerometer__2"])
+        decisions_path = self._write_decisions(
+            [
+                {
+                    "concept_id": "concept:accelerometer__2",
+                    "decision": "redirect",
+                    "target_concept_id": "concept:accelerometer",
+                    "category": "plural_or_source_variant",
+                    "reason": "source concept may already be hidden from production compact runtime",
+                    "reviewer": "main-agent",
+                    "decided_at": "2026-07-01",
+                }
+            ]
+        )
+
+        summary = module.apply_concept_curation(
+            index_path=concepts_path,
+            curation_decisions_path=decisions_path,
+            output_path=None,
+        )
+
+        self.assertEqual(summary["active_decisions"], 1)
+        self.assertEqual(summary["counts"], {"redirect": 1})
 
     def test_rejects_unknown_decision(self) -> None:
         module = load_module()

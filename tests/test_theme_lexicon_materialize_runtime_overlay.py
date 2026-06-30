@@ -318,5 +318,66 @@ class MaterializeRuntimeOverlayTests(unittest.TestCase):
         )
 
 
+    def test_curation_overlay_overrides_display_canonical_without_changing_aliases(self) -> None:
+        module = load_module()
+        concepts = self.root / "merged_en_concept_candidates.jsonl"
+        review = self.root / "review_decisions.jsonl"
+        curation = self.root / "concept_curation_overlay.json"
+        index_path = self.root / "theme_concept_alias_index.json"
+        manifest_path = self.root / "theme_concept_alias_manifest.json"
+        write_jsonl(
+            concepts,
+            [
+                {"concept_id": "concept:nlp", "domains": ["computer_science"], "parents": [], "specificity": 90},
+            ],
+        )
+        write_jsonl(
+            review,
+            [
+                {
+                    "concept_id": "concept:nlp",
+                    "alias": "natural language processing systems",
+                    "lang": "en",
+                    "decision": "accept",
+                },
+                {"concept_id": "concept:nlp", "alias": "nlp", "lang": "en", "decision": "accept"},
+                {"concept_id": "concept:nlp", "alias": "自然语言处理", "lang": "zh", "decision": "accept"},
+            ],
+        )
+        curation.write_text(
+            json.dumps(
+                {
+                    "schema_version": "theme_concept_curation_overlay.v1",
+                    "redirects": {},
+                    "suppressed": [],
+                    "display_only": [],
+                    "canonical": ["concept:nlp"],
+                    "canonical_overrides": {"concept:nlp": {"en": "Natural Language Processing"}},
+                    "decisions": [],
+                    "counts": {"canonical": 1},
+                },
+                ensure_ascii=False,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+
+        summary = module.materialize_runtime_overlay(
+            concepts_path=concepts,
+            review_decisions_path=review,
+            curation_overlay_path=curation,
+            index_outputs=(index_path,),
+            manifest_outputs=(manifest_path,),
+        )
+
+        self.assertEqual(summary["curation"]["canonical_concepts"], 1)
+        index = json.loads(index_path.read_text(encoding="utf-8"))
+        self.assertEqual(index["concepts"]["concept:nlp"]["canonical"]["en"], "Natural Language Processing")
+        self.assertEqual(index["aliases"]["en:natural language processing system"], "concept:nlp")
+        self.assertEqual(index["aliases"]["en:nlp"], "concept:nlp")
+        self.assertEqual(index["curation"]["canonical_overrides"], {"concept:nlp": {"en": "Natural Language Processing"}})
+
+
 if __name__ == "__main__":
     unittest.main()

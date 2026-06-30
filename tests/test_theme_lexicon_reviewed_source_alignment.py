@@ -28,6 +28,8 @@ class ThemeLexiconReviewedSourceAlignmentTests(unittest.TestCase):
         runtime_aliases = runtime["aliases"]
         curation = runtime.get("curation") or {}
         redirects = curation.get("redirects") or {}
+        suppressed = set(curation.get("suppressed") or [])
+        display_only = set(curation.get("display_only") or [])
         alias_redirect_sources = curation.get("alias_redirect_sources") or {}
         failures: list[tuple[str, str, str, str | None]] = []
 
@@ -44,7 +46,8 @@ class ThemeLexiconReviewedSourceAlignmentTests(unittest.TestCase):
                 and redirect_source.get("source_concept_id") == concept_id
                 and redirect_source.get("target_concept_id") == target
             )
-            if target != concept_id and not is_curated_redirect:
+            is_curated_exclusion = concept_id in suppressed or concept_id in display_only
+            if target != concept_id and not is_curated_redirect and not is_curated_exclusion:
                 failures.append((concept_id, str(row.get("canonical_en") or ""), alias, target))
 
         self.assertEqual(failures[:50], [])
