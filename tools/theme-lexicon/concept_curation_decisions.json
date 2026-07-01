@@ -361,6 +361,15 @@
       "topic_label_disposition": "display_only"
     },
     {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:artificial_neural_network_ann",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C5 duplicate acronym review: parenthetical acronym source is the same concept as existing full-form base target; merge aliases into target instead of using duplicate display labels",
+      "reviewer": "main-agent-c5-duplicate-acronym-review",
+      "target_concept_id": "concept:artificial_neural_network__2"
+    },
+    {
       "category": "topic_label_phrase",
       "concept_id": "concept:assistive_technology_in_communication_and_mobility",
       "decided_at": "2026-07-01",
@@ -422,6 +431,15 @@
       "reason": "C5 topic-label batch2: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
       "reviewer": "main-agent-c5-topic-label-batch2",
       "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:available_bit_rate_abr",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C5 duplicate acronym review: parenthetical acronym source is the same concept as existing full-form base target; merge aliases into target instead of using duplicate display labels",
+      "reviewer": "main-agent-c5-duplicate-acronym-review",
+      "target_concept_id": "concept:available_bit_rate"
     },
     {
       "category": "high_confidence_duplicate_or_source_variant",
@@ -620,6 +638,15 @@
       "decision": "canonical",
       "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
       "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:business_process_reengineering_bpr",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C5 duplicate acronym review: parenthetical acronym source is the same concept as existing full-form base target; merge aliases into target instead of using duplicate display labels",
+      "reviewer": "main-agent-c5-duplicate-acronym-review",
+      "target_concept_id": "concept:business_process_re_engineering__2"
     },
     {
       "category": "high_confidence_duplicate_or_source_variant",
@@ -1045,6 +1072,15 @@
       "target_concept_id": "concept:concept_drift"
     },
     {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:constant_bit_rate_cbr",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C5 duplicate acronym review: parenthetical acronym source is the same concept as existing full-form base target; merge aliases into target instead of using duplicate display labels",
+      "reviewer": "main-agent-c5-duplicate-acronym-review",
+      "target_concept_id": "concept:constant_bit_rate"
+    },
+    {
       "canonical_en": "Constraint Satisfaction Problems",
       "category": "canonical_source_artifact",
       "concept_id": "concept:constraint_satisfaction_problem_csp",
@@ -1358,6 +1394,15 @@
       "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
       "reviewer": "main-agent-c4-batch2",
       "target_concept_id": "concept:digital_information"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:digital_subscriber_line_dsl",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C5 duplicate acronym review: parenthetical acronym source is the same concept as existing full-form base target; merge aliases into target instead of using duplicate display labels",
+      "reviewer": "main-agent-c5-duplicate-acronym-review",
+      "target_concept_id": "concept:digital_subscriber_line"
     },
     {
       "category": "high_confidence_exact_collision_target",
@@ -1729,6 +1774,15 @@
       "target_concept_id": "concept:finite_impulse_response_filter"
     },
     {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:finite_state_machine_fsm",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C5 duplicate acronym review: parenthetical acronym source is the same concept as existing full-form base target; merge aliases into target instead of using duplicate display labels",
+      "reviewer": "main-agent-c5-duplicate-acronym-review",
+      "target_concept_id": "concept:finite_state_machine"
+    },
+    {
       "category": "high_confidence_exact_source_variant",
       "concept_id": "concept:flash_memory",
       "decided_at": "2026-06-30",
@@ -1763,6 +1817,15 @@
       "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
       "reviewer": "main-agent-c4-batch2",
       "target_concept_id": "concept:force_sensor"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:formal_concept_analysi_fca",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C5 duplicate acronym review: parenthetical acronym source is the same concept as existing full-form base target; merge aliases into target instead of using duplicate display labels",
+      "reviewer": "main-agent-c5-duplicate-acronym-review",
+      "target_concept_id": "concept:formal_concept_analysi"
     },
     {
       "canonical_en": "Formal Verification",
@@ -2142,6 +2205,15 @@
       "decision": "canonical",
       "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
       "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:internet_protocol_ip",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C5 duplicate acronym review: parenthetical acronym source is the same concept as existing full-form base target; merge aliases into target instead of using duplicate display labels",
+      "reviewer": "main-agent-c5-duplicate-acronym-review",
+      "target_concept_id": "concept:internet_protocol"
     },
     {
       "canonical_en": "Intersymbol Interference",
@@ -2765,6 +2837,15 @@
       "target_concept_id": "concept:networked_control_system"
     },
     {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:networked_control_system_ncs",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C5 duplicate acronym review: parenthetical acronym source is the same concept as existing full-form base target; merge aliases into target instead of using duplicate display labels",
+      "reviewer": "main-agent-c5-duplicate-acronym-review",
+      "target_concept_id": "concept:networked_control_system"
+    },
+    {
       "category": "high_confidence_base_variant",
       "concept_id": "concept:neural_radiance_field__2",
       "decided_at": "2026-06-30",
@@ -3278,6 +3359,15 @@
       "target_concept_id": "concept:radio_wav"
     },
     {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:random_early_detection_red",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C5 duplicate acronym review: parenthetical acronym source is the same concept as existing full-form base target; merge aliases into target instead of using duplicate display labels",
+      "reviewer": "main-agent-c5-duplicate-acronym-review",
+      "target_concept_id": "concept:random_early_detection"
+    },
+    {
       "category": "high_confidence_exact_source_variant",
       "concept_id": "concept:random_sequence",
       "decided_at": "2026-06-30",
@@ -3647,6 +3737,15 @@
       "target_concept_id": "concept:translation"
     },
     {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:variable_bit_rate_vbr",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C5 duplicate acronym review: parenthetical acronym source is the same concept as existing full-form base target; merge aliases into target instead of using duplicate display labels",
+      "reviewer": "main-agent-c5-duplicate-acronym-review",
+      "target_concept_id": "concept:variable_bit_rate"
+    },
+    {
       "canonical_en": "Vector Quantization",
       "category": "canonical_source_artifact",
       "concept_id": "concept:vector_quantization__2",
@@ -3672,6 +3771,15 @@
       "decision": "canonical",
       "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
       "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:voice_over_internet_protocol_voip",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C5 duplicate acronym review: parenthetical acronym source is the same concept as existing full-form base target; merge aliases into target instead of using duplicate display labels",
+      "reviewer": "main-agent-c5-duplicate-acronym-review",
+      "target_concept_id": "concept:voice_over_internet_protocol"
     },
     {
       "canonical_en": "Wireless LAN",
