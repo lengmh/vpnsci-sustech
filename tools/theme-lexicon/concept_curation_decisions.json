@@ -5274,6 +5274,78 @@
       "reason": "C6 redirect/source-variant batch4: exact collision-target/source terminology variant with stable target; production switch deferred",
       "reviewer": "main-agent-c6-redirect-batch4",
       "target_concept_id": "concept:web_search__2"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:formal_approach",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch5: exact collision-target/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch5",
+      "target_concept_id": "concept:formal_method"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:information_theory__3",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch5: exact plural/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch5",
+      "target_concept_id": "concept:information_theory__2"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:library_digital",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch5: exact collision-target/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch5",
+      "target_concept_id": "concept:digital_library"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:material_science__2",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch5: exact arXiv/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch5",
+      "target_concept_id": "concept:material_science"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:multimedia",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch5: exact collision-target/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch5",
+      "target_concept_id": "concept:multimedia__2"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:opportunistic_networking",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch5: exact networking/network source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch5",
+      "target_concept_id": "concept:opportunistic_network"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:portfolio_management",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch5: exact plural/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch5",
+      "target_concept_id": "concept:portfolio_management__2"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:translocation_genetic__2",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch5: exact word-order/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch5",
+      "target_concept_id": "concept:translocation_genetic"
     }
   ],
   "schema_version": "theme_concept_curation_decisions.v1"
