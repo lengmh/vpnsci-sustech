@@ -4923,6 +4923,105 @@
       "reason": "C6 redirect/source-variant batch1: explicit terminology variant with same zh collision target and stable English target canonical; production switch deferred",
       "reviewer": "main-agent-c6-redirect-batch1",
       "target_concept_id": "concept:location_awareness"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:electroencephalogram_signal",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch2: explicit terminology or acronym variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch2",
+      "target_concept_id": "concept:electroencephalographic_signal"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:image_identification",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch2: explicit terminology or acronym variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch2",
+      "target_concept_id": "concept:image_recognition"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:mathematical_computing",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch2: explicit terminology or acronym variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch2",
+      "target_concept_id": "concept:mathematic_computing"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:medicinal_plant_study",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch2: explicit terminology or acronym variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch2",
+      "target_concept_id": "concept:medicinal_plant_research"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:multi_party_computation",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch2: explicit terminology or acronym variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch2",
+      "target_concept_id": "concept:multiparty_computation"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:multiple_robot",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch2: explicit terminology or acronym variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch2",
+      "target_concept_id": "concept:multi_robot"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:nurb",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch2: explicit terminology or acronym variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch2",
+      "target_concept_id": "concept:non_uniform_rational_b_splin"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:ocl",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch2: explicit terminology or acronym variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch2",
+      "target_concept_id": "concept:object_constraint_language"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:ode",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch2: explicit terminology or acronym variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch2",
+      "target_concept_id": "concept:ordinary_differential_equation"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:ofdm_system",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch2: explicit terminology or acronym variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch2",
+      "target_concept_id": "concept:orthogonal_frequency_division_multiplexing_system"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:ofdma",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch2: explicit terminology or acronym variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch2",
+      "target_concept_id": "concept:orthogonal_frequency_division_multiple_access"
     }
   ],
   "schema_version": "theme_concept_curation_decisions.v1"
