@@ -5148,6 +5148,132 @@
       "reason": "C6 redirect/source-variant batch3: exact synonym/source terminology variant with stable target; production switch deferred",
       "reviewer": "main-agent-c6-redirect-batch3",
       "target_concept_id": "concept:support_vector_machine"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:electric_industry",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch4: exact collision-target/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch4",
+      "target_concept_id": "concept:power_industry"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:innovative_educational_techniqu",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch4: exact collision-target/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch4",
+      "target_concept_id": "concept:innovative_educational_technology"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:mathematical_physic",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch4: exact arXiv/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch4",
+      "target_concept_id": "concept:mathematical_physic__2"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:mitochondrial_gene",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch4: exact collision-target/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch4",
+      "target_concept_id": "concept:gen_mitochondrial__2"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:nonlinear_optical_material_study",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch4: exact study/research source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch4",
+      "target_concept_id": "concept:nonlinear_optical_material_research"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:nonvolatility",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch4: exact collision-target/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch4",
+      "target_concept_id": "concept:non_volatile"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:nuclear_plant",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch4: exact collision-target/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch4",
+      "target_concept_id": "concept:nuclear_power_plant"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:ocdma",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch4: exact acronym/full-form collision-target variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch4",
+      "target_concept_id": "concept:optical_cdma"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:power_harvesting",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch4: exact synonym/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch4",
+      "target_concept_id": "concept:energy_scavenging"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:probabilistic_distribution",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch4: exact collision-target/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch4",
+      "target_concept_id": "concept:probability_distribution"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:program_understanding",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch4: exact synonym/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch4",
+      "target_concept_id": "concept:program_comprehension"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:ribosome_dna",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch4: exact word-order/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch4",
+      "target_concept_id": "concept:dna_ribosomal"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:video_coder",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch4: exact synonym/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch4",
+      "target_concept_id": "concept:video_encoder"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:web_searching",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch4: exact collision-target/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch4",
+      "target_concept_id": "concept:web_search__2"
     }
   ],
   "schema_version": "theme_concept_curation_decisions.v1"
