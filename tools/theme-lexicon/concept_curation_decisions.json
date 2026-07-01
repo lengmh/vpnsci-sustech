@@ -4725,6 +4725,105 @@
       "reason": "C6 source cleanup batch4: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
       "reviewer": "main-agent-c6-source-cleanup-batch4",
       "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:quantum_mechanic_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch5: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch5",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:radiology_practic_and_education",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch5: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch5",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:random_matric_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch5: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch5",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:scientific_research_methodology_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch5: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch5",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:sensor_system_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch5: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch5",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:simulation_techniqu_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch5: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch5",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:space_technology_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch5: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch5",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:sport_science_and_education",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch5: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch5",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:superconducting_material_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch5: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch5",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:system_engineering_methodology_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch5: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch5",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:veterinary_practice_and_education_study",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch5: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch5",
+      "topic_label_disposition": "display_only"
     }
   ],
   "schema_version": "theme_concept_curation_decisions.v1"
