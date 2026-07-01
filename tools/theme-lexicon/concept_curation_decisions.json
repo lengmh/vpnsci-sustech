@@ -4824,6 +4824,105 @@
       "reason": "C6 source cleanup batch5: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
       "reviewer": "main-agent-c6-source-cleanup-batch5",
       "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:fast_handoff",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch1: explicit terminology variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch1",
+      "target_concept_id": "concept:fast_handover"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:finite_automaton",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch1: explicit terminology variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch1",
+      "target_concept_id": "concept:finite_automata"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:fourier_transformation",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch1: explicit terminology variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch1",
+      "target_concept_id": "concept:fourier_transform"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:geometrical_attack",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch1: explicit terminology variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch1",
+      "target_concept_id": "concept:geometric_attack"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:home_networking",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch1: explicit terminology variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch1",
+      "target_concept_id": "concept:home_network"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:hough_transformation",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch1: explicit terminology variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch1",
+      "target_concept_id": "concept:hough_transform"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:hybrid_automaton",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch1: explicit terminology variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch1",
+      "target_concept_id": "concept:hybrid_automata"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:light_polarization",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch1: explicit terminology variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch1",
+      "target_concept_id": "concept:optical_polarization"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:light_propagation",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch1: explicit terminology variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch1",
+      "target_concept_id": "concept:optical_propagation"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:light_reflection",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch1: explicit terminology variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch1",
+      "target_concept_id": "concept:optical_reflection"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:location_aware",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch1: explicit terminology variant with same zh collision target and stable English target canonical; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch1",
+      "target_concept_id": "concept:location_awareness"
     }
   ],
   "schema_version": "theme_concept_curation_decisions.v1"

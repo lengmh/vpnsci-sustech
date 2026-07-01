@@ -411,6 +411,20 @@ lexicons/review/
     groups `0`、runtime concepts `49452`，common concepts 的 canonical/metadata
     diff 均为 `0`，changed alias targets `0`，临时 compact index SHA 为
     `a99f73d78078dc5fb07707e465213384254ae4bd06e938d9f376e31994f8d033`。
+  - C6 redirect/source-variant batch1 已完成：
+    production switch 继续暂缓；本轮从 redirect/source-variant 候选中选取
+    `12` 条低风险术语变体，review 发现
+    `light_amplifier -> optical_amplifier` 会让 target canonical 从
+    `Optical Amplifier` 漂到 `Light Amplifiers` 后剔除，最终新增 `11`
+    条 active `redirect` decision。C2 overlay counts 为 `canonical=127`、
+    `display_only=158`、`redirect=249`、`suppressed=12`；curated build
+    工作视图输出 concepts `54263`，retired concepts `419`；remapped review
+    decisions 输出 rows `346049`，remapped rows `1263`；TempFiles no-overlay
+    materialize `missing_concepts = 0`、accepted conflict groups `0`、
+    runtime concepts `49441`，common concepts 的 canonical/metadata diff 均为
+    `0`；changed alias targets `11` 且全部为本批 expected redirect source
+    改挂，unexpected changed alias targets `0`；临时 compact index SHA 为
+    `833c73f8c501b1fd42ebe9fd9c85856b72bfb4abc041edf1d41836a41828a67e`。
 - 最近 C4/C5 相关测试：
   - `uv run pytest tests/test_theme_lexicon_materialize_runtime_overlay.py::MaterializeRuntimeOverlayTests::test_curation_overlay_redirects_aliases_and_excludes_suppressed_concepts -q`:
     先复现 `raw_concepts` 计数错误 `5 != 4`，修复后 `1 passed in 0.05s`；
@@ -445,8 +459,12 @@ lexicons/review/
     `25 passed in 0.16s`。
   - C6 source-cleanup batch5 focused alias/runtime suite:
     `927 passed in 51.63s`。
+  - C6 redirect/source-variant batch1 targeted curation/build/remap/materialize/query suite:
+    `25 passed in 0.17s`。
+  - C6 redirect/source-variant batch1 focused alias/runtime suite:
+    `927 passed in 28.11s`。
   - project suite:
-    `1285 passed, 4 subtests passed in 133.01s`。
+    `1285 passed, 4 subtests passed in 98.41s`。
 
 当前下一步：
 
@@ -459,7 +477,7 @@ lexicons/review/
   HMI 过宽 redirect、语言与文化研究 target direction 与 redirect-chain
   压平问题；C5 已接入 `127` 条 canonical display override，并开始 topic-label
   disposition（生产 runtime 当前为 `45` display-only、`12` suppressed；
-  C6 source-cleanup 工作视图当前为 `158` display-only、`12` suppressed）；
+  C6 工作视图当前为 `249` redirect、`158` display-only、`12` suppressed）；
   C6 已新增 build-level curated snapshot helper 与 review decision remap
   helper，并完成 no-overlay materialize 对照；metadata merge policy 已收紧，
   redirect source 只合并 aliases/source_refs，不再污染 target
