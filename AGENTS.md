@@ -386,6 +386,19 @@ lexicons/review/
     `49486`，common concepts 的 canonical/metadata diff 均为 `0`，
     changed alias targets `0`，临时 compact index SHA 为
     `1023f1b1137db22083c0287ab332e176a6c5ddde348631dff6790ea7ee8de6e2`。
+  - C6 source-cleanup batch4 已完成：
+    production switch 继续暂缓；本轮新增 `23` 条 active `display_only`
+    source-cleanup decision，继续处理剩余 high-confidence long-form
+    topic-label，并排除上轮已知 alias target 漂移项与已有 reject 项；不新增
+    alias、不改变生产 compact runtime、不自动 merge collision。C2 overlay
+    counts 为 `canonical=127`、`display_only=147`、`redirect=238`、
+    `suppressed=12`；curated build 工作视图输出 concepts `54285`，
+    retired concepts `397`；remapped review decisions 输出 rows `346071`，
+    dropped excluded rows `469`；TempFiles no-overlay materialize
+    `missing_concepts = 0`、accepted conflict groups `0`、runtime concepts
+    `49463`，common concepts 的 canonical/metadata diff 均为 `0`，
+    changed alias targets `0`，临时 compact index SHA 为
+    `9d5ca1fa5e1eca1df74072d2bd52ff04fd5c42ea88979401329db7af18b693a5`。
 - 最近 C4/C5 相关测试：
   - `uv run pytest tests/test_theme_lexicon_materialize_runtime_overlay.py::MaterializeRuntimeOverlayTests::test_curation_overlay_redirects_aliases_and_excludes_suppressed_concepts -q`:
     先复现 `raw_concepts` 计数错误 `5 != 4`，修复后 `1 passed in 0.05s`；
@@ -412,8 +425,12 @@ lexicons/review/
     `25 passed in 0.29s`。
   - C6 source-cleanup batch3 focused alias/runtime suite:
     `927 passed in 27.60s`。
+  - C6 source-cleanup batch4 targeted curation/build/remap/materialize/query suite:
+    `25 passed in 0.17s`。
+  - C6 source-cleanup batch4 focused alias/runtime suite:
+    `927 passed in 27.07s`。
   - project suite:
-    `1285 passed, 4 subtests passed in 100.34s`。
+    `1285 passed, 4 subtests passed in 97.83s`。
 
 当前下一步：
 
@@ -426,7 +443,7 @@ lexicons/review/
   HMI 过宽 redirect、语言与文化研究 target direction 与 redirect-chain
   压平问题；C5 已接入 `127` 条 canonical display override，并开始 topic-label
   disposition（生产 runtime 当前为 `45` display-only、`12` suppressed；
-  C6 source-cleanup 工作视图当前为 `124` display-only、`12` suppressed）；
+  C6 source-cleanup 工作视图当前为 `147` display-only、`12` suppressed）；
   C6 已新增 build-level curated snapshot helper 与 review decision remap
   helper，并完成 no-overlay materialize 对照；metadata merge policy 已收紧，
   redirect source 只合并 aliases/source_refs，不再污染 target
