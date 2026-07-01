@@ -4,6 +4,10 @@ This is a build-level working-view helper.  It does not replace runtime
 materialization yet: accepted alias review rows may still reference redirected
 source concept IDs, so runtime materialization should keep using the curation
 overlay until the review-decision layer is remapped too.
+
+Redirected source concepts contribute aliases and source references only. Target
+domains, parents, and specificity remain target-owned because specificity is a
+runtime ranking signal and source metadata can be broader or cross-domain.
 """
 
 from __future__ import annotations
@@ -114,9 +118,6 @@ def _merge_source_into_target(source: dict[str, Any], target: dict[str, Any]) ->
     for lang in ("en", "zh"):
         _aliases(target, lang)[:] = _unique_text([*_aliases(target, lang), *_aliases(source, lang)])
     target["source_refs"] = _dedupe_refs([*(target.get("source_refs") or []), *(source.get("source_refs") or [])])
-    target["domains"] = sorted(set(_unique_text([*(target.get("domains") or []), *(source.get("domains") or [])])))
-    target["parents"] = sorted(set(_unique_text([*(target.get("parents") or []), *(source.get("parents") or [])])))
-    target["specificity"] = max(int(target.get("specificity") or 0), int(source.get("specificity") or 0))
 
 
 def _apply_canonical_overrides(concepts: dict[str, dict[str, Any]], overrides: dict[str, dict[str, str]]) -> None:
