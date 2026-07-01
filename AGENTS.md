@@ -492,6 +492,23 @@ lexicons/review/
     alias targets `72` 且全部为 expected redirect source 改挂，unexpected
     changed alias targets `0`；临时 compact index SHA 为
     `d94830bc50e0c3368471ae556bbdf360d8e3cc095e4843ca351fce9d94496d9e`。
+  - C6 redirect/source-variant batch6 已完成：
+    production switch 继续暂缓；batch5 后剩余 redirect candidates 已输出风险
+    审计 `F:\AI playground\TempFiles\concept_curation_c6_redirect_remaining_audit_after_batch5_20260701.json`，
+    其中 remaining `145`，已知 skip/risk 包括 canonical drift、semantic-neighbor、
+    redirect-chain、RNA-vs-gene 等；本轮从剩余项中仅保留 `2` 条 active
+    `redirect` decision：`database__3 -> database__2`、`mammographic ->
+    mammography__3`。初选中的 `fiber_sensor -> optical_fiber_sensor` 会让
+    target canonical 从 `Optical Fiber Sensor` 漂到 `Fiber Sensor`，已剔除。
+    C2 overlay counts 为 `canonical=127`、`display_only=158`、`redirect=298`、
+    `suppressed=12`；curated build 工作视图输出 concepts `54214`，
+    retired concepts `468`；remapped review decisions 输出 rows `346031`，
+    remapped rows `1482`；TempFiles no-overlay materialize
+    `missing_concepts = 0`、accepted conflict groups `0`、runtime concepts
+    `49392`，common concepts 的 canonical/metadata diff 均为 `0`；changed
+    alias targets `74` 且全部为 expected redirect source 改挂，unexpected
+    changed alias targets `0`；临时 compact index SHA 为
+    `2a97c358cd823751bf1cd210087efae1148f3570d66fd143545cfa5ccbafae9c`。
 - 最近 C4/C5 相关测试：
   - `uv run pytest tests/test_theme_lexicon_materialize_runtime_overlay.py::MaterializeRuntimeOverlayTests::test_curation_overlay_redirects_aliases_and_excludes_suppressed_concepts -q`:
     先复现 `raw_concepts` 计数错误 `5 != 4`，修复后 `1 passed in 0.05s`；
@@ -546,8 +563,12 @@ lexicons/review/
     `25 passed in 0.21s`。
   - C6 redirect/source-variant batch5 focused alias/runtime suite:
     `927 passed in 27.89s`。
+  - C6 redirect/source-variant batch6 targeted curation/build/remap/materialize/query suite:
+    `25 passed in 0.19s`。
+  - C6 redirect/source-variant batch6 focused alias/runtime suite:
+    `927 passed in 27.05s`。
   - project suite:
-    `1285 passed, 4 subtests passed in 96.64s`。
+    `1285 passed, 4 subtests passed in 99.42s`。
 
 当前下一步：
 
@@ -560,7 +581,7 @@ lexicons/review/
   HMI 过宽 redirect、语言与文化研究 target direction 与 redirect-chain
   压平问题；C5 已接入 `127` 条 canonical display override，并开始 topic-label
   disposition（生产 runtime 当前为 `45` display-only、`12` suppressed；
-  C6 工作视图当前为 `296` redirect、`158` display-only、`12` suppressed）；
+  C6 工作视图当前为 `298` redirect、`158` display-only、`12` suppressed）；
   C6 已新增 build-level curated snapshot helper 与 review decision remap
   helper，并完成 no-overlay materialize 对照；metadata merge policy 已收紧，
   redirect source 只合并 aliases/source_refs，不再污染 target

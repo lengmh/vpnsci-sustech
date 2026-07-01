@@ -5346,6 +5346,24 @@
       "reason": "C6 redirect/source-variant batch5: exact word-order/source terminology variant with stable target; production switch deferred",
       "reviewer": "main-agent-c6-redirect-batch5",
       "target_concept_id": "concept:translocation_genetic"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:database__3",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch6: exact spelling/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch6",
+      "target_concept_id": "concept:database__2"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:mammographic",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch6: exact adjective/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch6",
+      "target_concept_id": "concept:mammography__3"
     }
   ],
   "schema_version": "theme_concept_curation_decisions.v1"
