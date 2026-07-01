@@ -55,6 +55,24 @@
       "reviewer": "main-agent-c5-canonical-batch2"
     },
     {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:advanc_in_oncology_and_radiotherapy",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch2: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase_broad_or_noise",
+      "concept_id": "concept:advanced_computational_techniqu_in_science_and_engineering",
+      "decided_at": "2026-07-01",
+      "decision": "suppressed",
+      "reason": "C5 topic-label batch2: broad generated advanced/research/application label with low search/treemap precision; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
+      "topic_label_disposition": "suppressed"
+    },
+    {
       "category": "topic_label_phrase_broad_or_noise",
       "concept_id": "concept:advanced_optimization_algorithm_research",
       "decided_at": "2026-07-01",
@@ -70,6 +88,15 @@
       "decision": "suppressed",
       "reason": "C5 topic-label batch1: broad generated research/application label with low search/treemap precision; excluded from compact alias index",
       "reviewer": "main-agent-c5-topic-label-batch1",
+      "topic_label_disposition": "suppressed"
+    },
+    {
+      "category": "topic_label_phrase_broad_or_noise",
+      "concept_id": "concept:advanced_research_in_system_and_signal_processing",
+      "decided_at": "2026-07-01",
+      "decision": "suppressed",
+      "reason": "C5 topic-label batch2: broad generated advanced/research/application label with low search/treemap precision; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
       "topic_label_disposition": "suppressed"
     },
     {
@@ -91,6 +118,33 @@
       "topic_label_disposition": "suppressed"
     },
     {
+      "category": "topic_label_phrase_broad_or_noise",
+      "concept_id": "concept:advanced_theoretical_and_applied_study_in_material_scienc_and_geometry",
+      "decided_at": "2026-07-01",
+      "decision": "suppressed",
+      "reason": "C5 topic-label batch2: broad generated advanced/research/application label with low search/treemap precision; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
+      "topic_label_disposition": "suppressed"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:advancement_in_pll_and_vco_technology",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch2: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:advancement_in_semiconductor_devic_and_circuit_design",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch2: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
       "category": "high_confidence_duplicate_or_source_variant",
       "concept_id": "concept:airborne_radar__2",
       "decided_at": "2026-06-30",
@@ -107,6 +161,15 @@
       "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
       "reviewer": "main-agent-c4-batch1",
       "target_concept_id": "concept:alpha_particl"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:aluminum_toxicity_and_tolerance_in_plant_and_animal",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch2: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
+      "topic_label_disposition": "display_only"
     },
     {
       "category": "high_confidence_base_variant",
@@ -181,6 +244,24 @@
       "topic_label_disposition": "display_only"
     },
     {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:assistive_technology_in_communication_and_mobility",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch2: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:attention_economy_in_education_and_business",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch2: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
       "category": "high_confidence_duplicate_or_source_variant",
       "concept_id": "concept:attention_mechanism__2",
       "decided_at": "2026-06-30",
@@ -215,6 +296,15 @@
       "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
       "reviewer": "main-agent-c4-batch1",
       "target_concept_id": "concept:autonomou_vehicle"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:autophagy_in_disease_and_therapy",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch2: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
+      "topic_label_disposition": "display_only"
     },
     {
       "category": "high_confidence_duplicate_or_source_variant",
@@ -314,6 +404,15 @@
       "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
       "reviewer": "main-agent-c4-batch2",
       "target_concept_id": "concept:blind_equalizer"
+    },
+    {
+      "canonical_en": "Blind Source Separation",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:blind_source_separation",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
     },
     {
       "category": "high_confidence_duplicate_or_source_variant",
@@ -649,6 +748,15 @@
       "target_concept_id": "concept:communicating_sequential_processe"
     },
     {
+      "canonical_en": "Communication Channel",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:communication_channel",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
       "category": "high_confidence_duplicate_or_source_variant",
       "concept_id": "concept:communication_channel__2",
       "decided_at": "2026-06-30",
@@ -656,6 +764,15 @@
       "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
       "reviewer": "main-agent-c4-batch1",
       "target_concept_id": "concept:communication_channel"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:communication_in_education_and_healthcare",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch2: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
+      "topic_label_disposition": "display_only"
     },
     {
       "category": "high_confidence_exact_collision_target",
@@ -712,6 +829,15 @@
       "target_concept_id": "concept:computed_tomography"
     },
     {
+      "canonical_en": "Computer-Aided Diagnosis",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:computer_aided_diagnosi",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
       "category": "high_confidence_duplicate_or_source_variant",
       "concept_id": "concept:computer_aided_diagnosi__2",
       "decided_at": "2026-06-30",
@@ -737,6 +863,24 @@
       "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
       "reviewer": "main-agent-c4-batch1",
       "target_concept_id": "concept:concept_drift"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:consumer_behavior_in_food_and_health",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch2: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "canonical_en": "Continuous Phase Modulation",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:continuou_phase_modulation",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
     },
     {
       "category": "high_confidence_duplicate_or_source_variant",
@@ -791,6 +935,15 @@
       "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
       "reviewer": "main-agent-c4-batch2",
       "target_concept_id": "concept:cost_saving"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:creativity_in_education_and_neuroscience",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch2: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
+      "topic_label_disposition": "display_only"
     },
     {
       "canonical_en": "Cryptographic Hash Function",
@@ -974,6 +1127,15 @@
     },
     {
       "category": "topic_label_phrase_broad_or_noise",
+      "concept_id": "concept:diverse_approach_in_healthcare_and_education_study",
+      "decided_at": "2026-07-01",
+      "decision": "suppressed",
+      "reason": "C5 topic-label batch2: broad generated advanced/research/application label with low search/treemap precision; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
+      "topic_label_disposition": "suppressed"
+    },
+    {
+      "category": "topic_label_phrase_broad_or_noise",
       "concept_id": "concept:diverse_research_and_application",
       "decided_at": "2026-07-01",
       "decision": "suppressed",
@@ -1009,6 +1171,15 @@
       "topic_label_disposition": "display_only"
     },
     {
+      "canonical_en": "Electromagnetic Compatibility",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:electromagnetic_compatibility",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
       "category": "high_confidence_base_variant",
       "concept_id": "concept:electromagnetic_compatibility__2",
       "decided_at": "2026-06-30",
@@ -1025,6 +1196,15 @@
       "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
       "reviewer": "main-agent-c4-batch2",
       "target_concept_id": "concept:electromagnetic_field"
+    },
+    {
+      "canonical_en": "Electromagnetic Interference",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:electromagnetic_interference",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
     },
     {
       "category": "high_confidence_base_variant",
@@ -1406,6 +1586,15 @@
       "reviewer": "main-agent-c5-canonical-batch2"
     },
     {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:hyperglycemia_and_glycemic_control_in_critically_ill_and_hospitalized_patient",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch2: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
       "category": "high_confidence_exact_collision_target",
       "concept_id": "concept:id_based_cryptography",
       "decided_at": "2026-06-30",
@@ -1442,6 +1631,15 @@
       "target_concept_id": "concept:infinite_horizon"
     },
     {
+      "category": "topic_label_phrase_broad_or_noise",
+      "concept_id": "concept:innovation_and_analysi_in_business_and_education",
+      "decided_at": "2026-07-01",
+      "decision": "suppressed",
+      "reason": "C5 topic-label batch2: broad generated advanced/research/application label with low search/treemap precision; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
+      "topic_label_disposition": "suppressed"
+    },
+    {
       "category": "topic_label_phrase",
       "concept_id": "concept:innovation_in_education_and_learning_technology",
       "decided_at": "2026-07-01",
@@ -1451,6 +1649,33 @@
       "topic_label_disposition": "display_only"
     },
     {
+      "category": "topic_label_phrase_broad_or_noise",
+      "concept_id": "concept:innovative_approach_in_technology_and_social_development",
+      "decided_at": "2026-07-01",
+      "decision": "suppressed",
+      "reason": "C5 topic-label batch2: broad generated advanced/research/application label with low search/treemap precision; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
+      "topic_label_disposition": "suppressed"
+    },
+    {
+      "canonical_en": "Internet of Things",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:internet_of_thing",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
+      "canonical_en": "Intersymbol Interference",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:intersymbol_interference__2",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
       "category": "high_confidence_base_variant",
       "concept_id": "concept:interview__2",
       "decided_at": "2026-06-30",
@@ -1458,6 +1683,24 @@
       "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
       "reviewer": "main-agent-c4-batch2",
       "target_concept_id": "concept:interview"
+    },
+    {
+      "canonical_en": "Inverse Synthetic Aperture Radar",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:inverse_synthetic_aperture_radar__2",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
+      "canonical_en": "Iterative Learning Control",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:iterative_learning_control",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
     },
     {
       "category": "high_confidence_exact_source_variant",
@@ -1514,6 +1757,15 @@
       "target_concept_id": "concept:laser"
     },
     {
+      "canonical_en": "Linear Discriminant Analysis",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:linear_discriminant_analysi",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
       "category": "high_confidence_exact_source_variant",
       "concept_id": "concept:linear_matrix",
       "decided_at": "2026-06-30",
@@ -1541,6 +1793,24 @@
       "target_concept_id": "concept:local_area_network"
     },
     {
+      "canonical_en": "Machine Translation",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:machine_translation__2",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
+      "canonical_en": "Machine Vision",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:machine_vision__2",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
       "category": "high_confidence_base_variant",
       "concept_id": "concept:magnet__2",
       "decided_at": "2026-06-30",
@@ -1557,6 +1827,15 @@
       "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
       "reviewer": "main-agent-c4-batch2",
       "target_concept_id": "concept:magnetic_field"
+    },
+    {
+      "canonical_en": "Magnetic Particle Imaging",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:magnetic_particle_imaging__2",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
     },
     {
       "category": "high_confidence_base_variant",
@@ -1793,6 +2072,15 @@
       "target_concept_id": "concept:multipath_channel"
     },
     {
+      "canonical_en": "Multiple Signal Classification",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:multiple_signal_classification__2",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
       "category": "high_confidence_exact_collision_target",
       "concept_id": "concept:multiple_target_tracking",
       "decided_at": "2026-06-30",
@@ -1818,6 +2106,15 @@
       "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
       "reviewer": "main-agent-c4-batch2",
       "target_concept_id": "concept:mutual_information"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:mycotoxin_in_agriculture_and_food",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch2: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
+      "topic_label_disposition": "display_only"
     },
     {
       "category": "high_confidence_exact_collision_target",
@@ -2072,6 +2369,15 @@
       "target_concept_id": "concept:optical_amplifier"
     },
     {
+      "canonical_en": "Optical Character Recognition",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:optical_character_recognition__2",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
       "category": "high_confidence_base_variant",
       "concept_id": "concept:optical_devic__2",
       "decided_at": "2026-06-30",
@@ -2115,6 +2421,15 @@
       "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
       "reviewer": "main-agent-c4-batch2",
       "target_concept_id": "concept:parallel_robot"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:parasitic_infection_in_human_and_animal",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch2: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
+      "topic_label_disposition": "display_only"
     },
     {
       "category": "high_confidence_exact_source_variant",
@@ -2178,6 +2493,15 @@
       "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
       "reviewer": "main-agent-c4-batch2",
       "target_concept_id": "concept:photoacoustic_effect"
+    },
+    {
+      "canonical_en": "Picture Archiving and Communication System",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:picture_archiving_and_communication_system",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
     },
     {
       "category": "high_confidence_base_variant",
@@ -2306,6 +2630,15 @@
       "target_concept_id": "concept:pump_laser"
     },
     {
+      "canonical_en": "Quadrature Amplitude Modulation",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:quadrature_amplitude_modulation",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
       "category": "high_confidence_base_variant",
       "concept_id": "concept:quantum_well__3",
       "decided_at": "2026-06-30",
@@ -2333,6 +2666,15 @@
       "target_concept_id": "concept:radar_measurement"
     },
     {
+      "canonical_en": "Radio Frequency Identification",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:radio_frequency_identification",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
       "category": "high_confidence_base_variant",
       "concept_id": "concept:radio_wav__2",
       "decided_at": "2026-06-30",
@@ -2358,6 +2700,24 @@
       "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
       "reviewer": "main-agent-c4-batch2",
       "target_concept_id": "concept:rate_distortion"
+    },
+    {
+      "canonical_en": "Recurrent Neural Network",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:recurrent_neural_network__2",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
+      "canonical_en": "Reinforcement Learning",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:reinforcement_learning",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
     },
     {
       "category": "high_confidence_base_variant",
@@ -2450,6 +2810,15 @@
       "target_concept_id": "concept:service_robot"
     },
     {
+      "canonical_en": "Short Message Service",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:short_message_service",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
       "category": "high_confidence_base_variant",
       "concept_id": "concept:signal_processing__2",
       "decided_at": "2026-06-30",
@@ -2457,6 +2826,15 @@
       "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
       "reviewer": "main-agent-c4-batch2",
       "target_concept_id": "concept:signal_processing"
+    },
+    {
+      "canonical_en": "Signal-to-Noise Ratio",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:signal_to_noise_ratio",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
     },
     {
       "category": "high_confidence_base_variant",
@@ -2468,6 +2846,15 @@
       "target_concept_id": "concept:signal_to_noise_ratio"
     },
     {
+      "canonical_en": "Simultaneous Localization and Mapping",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:simultaneou_localization_and_mapping__3",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
       "category": "high_confidence_exact_source_variant",
       "concept_id": "concept:single_machine",
       "decided_at": "2026-06-30",
@@ -2475,6 +2862,15 @@
       "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
       "reviewer": "main-agent-c4-batch3",
       "target_concept_id": "concept:single_machin"
+    },
+    {
+      "canonical_en": "Sliding Mode Control",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:sliding_mode_control",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
     },
     {
       "category": "high_confidence_base_variant",
@@ -2495,6 +2891,15 @@
       "target_concept_id": "concept:smart_grid"
     },
     {
+      "canonical_en": "Software as a Service",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:software_as_a_service__2",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
       "category": "high_confidence_exact_source_variant",
       "concept_id": "concept:split_ring_resonator__2",
       "decided_at": "2026-06-30",
@@ -2513,6 +2918,33 @@
       "target_concept_id": "concept:sram_cell"
     },
     {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:superconductivity_in_mgb2_and_alloy",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch2: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "canonical_en": "Support Vector Machine",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:support_vector_machine",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
+      "canonical_en": "Synthetic Aperture Radar",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:synthetic_aperture_radar__2",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
       "category": "high_confidence_exact_source_variant",
       "concept_id": "concept:system_architecture__2",
       "decided_at": "2026-06-30",
@@ -2529,6 +2961,15 @@
       "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
       "reviewer": "main-agent-c4-batch3",
       "target_concept_id": "concept:system_integration"
+    },
+    {
+      "canonical_en": "System-on-Chip",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:system_on_chip__2",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
     },
     {
       "category": "high_confidence_exact_source_variant",
@@ -2576,6 +3017,15 @@
       "target_concept_id": "concept:translation"
     },
     {
+      "canonical_en": "Vector Quantization",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:vector_quantization__2",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
       "category": "high_confidence_exact_source_variant",
       "concept_id": "concept:vehicle_to_grid__2",
       "decided_at": "2026-06-30",
@@ -2583,6 +3033,15 @@
       "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
       "reviewer": "main-agent-c4-batch3",
       "target_concept_id": "concept:vehicle_to_grid"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:wnt_catenin_signaling_in_development_and_cancer",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch2: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch2",
+      "topic_label_disposition": "display_only"
     }
   ],
   "schema_version": "theme_concept_curation_decisions.v1"

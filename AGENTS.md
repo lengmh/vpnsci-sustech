@@ -160,16 +160,16 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-07-01 concept curation C5 cleanup/topic-label batch1 后）：
+最新已知状态（2026-07-01 concept curation C5 cleanup/topic-label batch2 后）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，
   最新 fill `records_filled = 51844 / records_seen = 54682`；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`48254 / 49607 = 97.27%`（curated denominator；
+- runtime 中文覆盖：`48234 / 49586 = 97.27%`（curated denominator；
   raw 覆盖为 `48262 / 49849 = 96.82%`）
-- runtime zh aliases: `48374`
-- runtime en aliases: `189455`
+- runtime zh aliases: `48354`
+- runtime en aliases: `189434`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
@@ -181,29 +181,29 @@ lexicons/review/
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `49607`
+- runtime concept aliases: `49586`
 - raw runtime concepts: `49849`
-- curated runtime concepts: `49607`
+- curated runtime concepts: `49586`
 - redirected concepts: `226`
-- canonical display overrides: `44`
-- suppressed concepts: `6`
-- display-only concepts: `10`
+- canonical display overrides: `74`
+- suppressed concepts: `12`
+- display-only concepts: `25`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
 - legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；当前运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `047eafcb097bd4a1394c894520f5bb7005f0af0e6c15dc2619a157e7b86afcc3`
+  `56b93692156dc3a4b536aff7331d4aa6f9146f9e577d89e8729f360ecb956a1c`
 - compact manifest SHA-256:
-  `8450742a760b667295d14c366e59a32e595c6478220d9c624b1f812d0d4bab57`
+  `ead2fc90a8347dac8fad29ce55784377f210ad8e93096d9b16060d7c487a1dcf`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
 - compact index 是当前运行时真源；legacy full overlay 未随 batch-007 之后的覆盖扩展更新，不再作为默认等价检查对象，也不再作为 runtime fallback 读取。
-- 最近相关测试：C5 cleanup/topic-label batch1 后，focused alias/runtime suite
-  `923 passed in 27.63s`；project suite
-  `1281 passed, 4 subtests passed in 95.52s`。
+- 最近相关测试：C5 cleanup/topic-label batch2 后，focused alias/runtime suite
+  `923 passed in 50.00s`；project suite
+  `1281 passed, 4 subtests passed in 133.01s`。
 - concept curation C1-C4 已开始并完成首批临时验证：
   - C1 只读 audit 已完成，输出在 `F:\AI playground\TempFiles`；
     raw uncovered concepts `1587`，其中 `redirect_candidates = 436`、
@@ -289,6 +289,18 @@ lexicons/review/
     compact index 与 manifest byte-identical，SHA 为
     `047eafcb097bd4a1394c894520f5bb7005f0af0e6c15dc2619a157e7b86afcc3` /
     `8450742a760b667295d14c366e59a32e595c6478220d9c624b1f812d0d4bab57`。
+  - C5 cleanup/topic-label batch2 已完成：
+    新增 `30` 条 high-confidence canonical display override，集中清理
+    CS/通信术语的 acronym parenthetical、lowercase display 与 source suffix
+    源痕迹，例如 `Internet of Things`、`Signal-to-Noise Ratio`、
+    `Software as a Service`、`Support Vector Machine`；新增 `15` 条
+    coherent long-form topic-label `display_only` 与 `6` 条 broad/generated
+    `suppressed` decision；继续不新增 alias、不改变 search alias 匹配、
+    不自动 merge collision；生产 compact runtime 已重新物化，curated
+    coverage 为 `48234 / 49586 = 97.27%`，package/tool compact index 与
+    manifest byte-identical，SHA 为
+    `56b93692156dc3a4b536aff7331d4aa6f9146f9e577d89e8729f360ecb956a1c` /
+    `ead2fc90a8347dac8fad29ce55784377f210ad8e93096d9b16060d7c487a1dcf`。
 - 最近 C4/C5 相关测试：
   - `uv run pytest tests/test_theme_lexicon_materialize_runtime_overlay.py::MaterializeRuntimeOverlayTests::test_curation_overlay_redirects_aliases_and_excludes_suppressed_concepts -q`:
     先复现 `raw_concepts` 计数错误 `5 != 4`，修复后 `1 passed in 0.05s`；
@@ -297,10 +309,12 @@ lexicons/review/
     修复后 `1 passed in 0.05s`；
   - `uv run pytest tests/test_theme_lexicon_materialize_runtime_overlay.py tests/test_theme_lexicon_query_alias_index.py tests/test_theme_lexicon_concept_curation.py -q`:
     `16 passed in 0.13s`；
-  - C5 cleanup/topic-label batch1 后 focused alias/runtime suite:
-    `923 passed in 27.63s`。
+  - C5 cleanup/topic-label batch2 targeted curation/materialize/query suite:
+    `21 passed in 0.14s`。
+  - C5 cleanup/topic-label batch2 后 focused alias/runtime suite:
+    `923 passed in 50.00s`。
   - project suite:
-    `1281 passed, 4 subtests passed in 95.52s`。
+    `1281 passed, 4 subtests passed in 133.01s`。
 
 当前下一步：
 
@@ -311,8 +325,8 @@ lexicons/review/
   materialize / query smoke、focused suite 与 project suite 验证；batch1-3
   集中 review 未发现问题；batch4 post-review 已收口 RNA-vs-gene 歧义、
   HMI 过宽 redirect、语言与文化研究 target direction 与 redirect-chain
-  压平问题；C5 已接入 `44` 条 canonical display override，并开始 topic-label
-  disposition（`10` display-only、`6` suppressed）；下一步建议继续小批量
+  压平问题；C5 已接入 `74` 条 canonical display override，并开始 topic-label
+  disposition（`25` display-only、`12` suppressed）；下一步建议继续小批量
   topic-label/canonical review，或开始把 redirect/canonical/topic-label
   decisions 回灌到 source/build concept 生成规则；
 - post-7000 exact/domain-aware pattern milestone 已完成，runtime 中文覆盖到 `40.49%`；post-40 review cleanup 收口到 `43.18%`；post-40 continuation 已清理并达到 clean `50.01%`；post-50-to-60 子代理审查 milestone 已达到 clean `60.10%`；post-60-to-70 子代理审查 milestone 已达到 clean `70.00%`（exact `70.002%`）；post-70-to-80 子代理审查 milestone 已达到 clean `80.92%`；post-80-to-90 子代理审查 milestone 已达到 clean `90.07%`；post-90-to-final 子代理审查 milestone 已达到 `99.07%`；post-99 safe patch 已达到 `99.08%`；post-99 round2 safe patch 已达到 `99.10%`；post-99 round3 safe patch 曾达到 `99.13%`；post-99 correctness cleanup 因清理伪 exact / stale source 回落到 clean `95.49%`；post-95 singleton exact review batch 推进到 clean `95.91%`；post-95 singleton exact review round2 推进到 clean `96.01%`；post-95 exact collision review round3 推进到 clean `96.14%`；post-95 exact collision review round4 推进到 clean `96.21%`；post-95 exact collision review round5 推进到 clean `96.33%`；post-95 exact collision review round6 推进到 clean `96.45%`；post-95 exact collision review round7 推进到 clean `96.51%`；post-95 singleton exact review round8 推进到 clean `96.51%`（`48115 / 49853`）；post-95 new exact proposal round9 推进到 clean `96.74%`；post-95 new exact proposal round10 推进到 clean `96.76%`；post-95 new exact proposal round11 推进到 clean `96.80%`；post-95 new exact proposal round12 推进到 clean `96.82%`；post-95 new exact proposal round13 未新增 runtime-safe alias，coverage 保持 clean `96.82%`；
