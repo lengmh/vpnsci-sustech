@@ -3807,6 +3807,717 @@
       "reason": "C5 topic-label batch2: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
       "reviewer": "main-agent-c5-topic-label-batch2",
       "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:academic_and_historical_perspectiv_in_psychology",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:advanced_control_and_stabilization_in_aerospace_system",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:botany_and_geology_in_latin_america_and_caribbean",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:conflict_peace_and_violence_in_colombia",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:cybernetic_and_technology_in_society",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:economic_social_and_public_health_issu_in_russia_and_globally",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:education_and_experienc_of_immigrant_and_refuge",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:environmental_and_biological_research_in_conflict_zon",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:ethic_in_business_and_education",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:forest_soil_and_plant_ecology_in_china",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:geological_and_tectonic_study_in_latin_america",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:health_work_and_social_study_in_poland",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:history_and_politic_in_latin_america",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:inclusion_and_disability_in_education_and_sport",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:law_in_society_and_culture",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:legal_and_policy_analysi_in_indonesia",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:methodology_in_health_research_and_practice",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:politic_and_conflict_in_afghanistan_pakistan_and_middle_east",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:politic_and_society_in_latin_america",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:political_and_social_dynamic_in_chile_and_latin_america",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:race_identity_and_education_in_brazil",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:religion_and_society_in_latin_america",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:religion_and_sociopolitical_dynamic_in_nigeria",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:science_technology_and_education_in_latin_america",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:social_and_demographic_issu_in_germany",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:social_and_economic_development_in_india",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:social_issu_and_policy_in_latin_america",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:sustainability_and_innovation_in_business",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:technology_and_human_factor_in_education_and_health",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:technology_in_education_and_healthcare",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch1: coherent long-form topic label useful as source/display metadata but too compositional or context-bound for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:adsorption_and_biosorption_for_pollutant_removal",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:adsorption_diffusion_and_thermodynamic_property_of_material",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:advanced_numerical_method_in_computational_mathematic",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:advanced_physical_and_chemical_molecular_interaction",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:advanced_sensor_and_energy_harvesting_material",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:aging_elder_care_and_social_issu",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:analysi_of_environmental_and_stochastic_processe",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:biological_activity_of_diterpenoid_and_biflavonoid",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:biological_and_pharmacological_study_of_plant",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:cancer_stress_anesthesia_and_immune_response",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:cardiovascular_neuropeptid_and_oxidative_stress_research",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:characterization_and_application_of_magnetic_nanoparticl",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:chemical_and_physical_property_of_material",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:clostridium_difficile_and_clostridium_perfringen_research",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:community_based_tourism_development_and_sustainability",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:data_mining_and_machine_learning_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:diamond_and_carbon_based_material_research",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:diverse_global_economic_and_educational_challeng",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:down_syndrome_and_intellectual_disability_research",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:facial_nerve_paralysi_treatment_and_research",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:fibromyalgia_and_chronic_fatigue_syndrome_research",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:history_of_education_research_in_brazil",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:interdisciplinary_study_technology_society_and_humanity",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:methodology_and_impact_of_social_science_research",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:physical_education_and_sport_gam_research",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch2: coherent long-form research/topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch2",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:advanced_algorithm_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:advanced_computational_techniqu_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:advanced_electron_microscopy_techniqu_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:advanced_machining_and_optimization_techniqu",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:advanced_machining_processe_and_optimization",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:advanced_mri_techniqu_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:advanced_multi_objective_optimization_algorithm",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:advanced_neuroimaging_techniqu_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:advanced_nmr_techniqu_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:aerospace_engineering_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:antimicrobial_agent_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:autopsy_techniqu_and_outcom",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:biopolymer_synthesi_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:botanical_study_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:chemistry_education_and_research",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:child_development_and_education",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:cognitive_science_and_education_research",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:emergency_medicine_education_and_research",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:environmental_sustainability_and_education",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:force_microscopy_techniqu_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:forecasting_techniqu_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:fungal_biology_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:geothermal_energy_system_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:glass_property_and_application",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C6 source cleanup batch3: coherent long-form topic label useful as source/display metadata but too compositional for runtime search alias matching; production switch deferred",
+      "reviewer": "main-agent-c6-source-cleanup-batch3",
+      "topic_label_disposition": "display_only"
     }
   ],
   "schema_version": "theme_concept_curation_decisions.v1"

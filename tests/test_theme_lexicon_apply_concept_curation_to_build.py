@@ -131,9 +131,9 @@ class ApplyConceptCurationToBuildTests(unittest.TestCase):
         self.assertEqual(target["canonical"]["en"], "Available Bit Rate")
         self.assertEqual(target["curation_canonical_override"], {"en": "Available Bit Rate"})
         self.assertEqual(target["aliases"]["en"], ["Available Bit Rate", "Available Bit Rate (ABR)", "ABR"])
-        self.assertEqual(target["domains"], ["communications", "computer_science"])
-        self.assertEqual(target["parents"], ["concept:bit_rate", "concept:networking"])
-        self.assertEqual(target["specificity"], 82)
+        self.assertEqual(target["domains"], ["communications"])
+        self.assertEqual(target["parents"], ["concept:bit_rate"])
+        self.assertEqual(target["specificity"], 60)
         self.assertEqual(
             target["source_refs"],
             [

@@ -203,9 +203,10 @@ lexicons/review/
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
 - compact index 是当前运行时真源；legacy full overlay 未随 batch-007 之后的覆盖扩展更新，不再作为默认等价检查对象，也不再作为 runtime fallback 读取。
-- 最近相关测试：C6 source/build backfill + review remap 后，focused
-  alias/runtime suite `927 passed in 29.00s`；project suite
-  `1285 passed, 4 subtests passed in 96.60s`。
+- 最近相关测试：C6 source-cleanup batch2 metadata policy fix 后，targeted
+  curation/build/remap/materialize/query suite `25 passed in 0.17s`；
+  focused alias/runtime suite `927 passed in 50.70s`；project suite
+  `1285 passed, 4 subtests passed in 139.54s`。
 - concept curation C1-C4 已开始并完成首批临时验证：
   - C1 只读 audit 已完成，输出在 `F:\AI playground\TempFiles`；
     raw uncovered concepts `1587`，其中 `redirect_candidates = 436`、
@@ -345,8 +346,46 @@ lexicons/review/
     deduplicated rows `54765`。使用 curated build snapshot + remapped review
     decisions 做 no-overlay materialize 后，`missing_concepts = 0`，alias map
     与当前生产 compact index byte-equivalent in content，concept key set 相同，
-    canonical diff `0`；仅 `214` 个 target 的 domain/parent/specificity metadata
-    因 source evidence 前移合并而变化。
+    canonical diff `0`。后续 review 发现 source metadata 前移曾导致 `214`
+    个 target 的 domain/parent/specificity metadata diff；已修正为 redirect
+    source 只合并 aliases/source_refs，target domains/parents/specificity
+    保持 target-owned。
+  - C6 source-cleanup batch1 已完成：
+    production switch 明确暂缓；本轮只新增 `30` 条 active `display_only`
+    source-cleanup decision，处理 high-confidence long-form/topic-label 概念，
+    不新增 alias、不改变生产 compact runtime、不自动 merge collision。
+    C2 overlay counts 为 `canonical=127`、`display_only=75`、
+    `redirect=238`、`suppressed=12`；curated build 工作视图输出 concepts
+    `54357`，retired concepts `325`；remapped review decisions 输出 rows
+    `346211`，dropped excluded rows `257`；TempFiles no-overlay materialize
+    `missing_concepts = 0`、accepted conflict groups `0`、runtime concepts
+    `49531`，临时 compact index SHA 为
+    `6f24a1919ec38e649998bc5fd6774713e133471ca4635d479a8a60971a141402`。
+  - C6 source-cleanup batch2 已完成：
+    production switch 继续暂缓；本轮新增 `25` 条 active `display_only`
+    source-cleanup decision，继续处理 high-confidence long-form research /
+    topic-label 概念，避开已知标准、组织名、模型名和术语本体；不新增 alias、
+    不改变生产 compact runtime、不自动 merge collision。C2 overlay counts 为
+    `canonical=127`、`display_only=100`、`redirect=238`、`suppressed=12`；
+    curated build 工作视图输出 concepts `54332`，retired concepts `350`；
+    remapped review decisions 输出 rows `346162`，dropped excluded rows `331`；
+    TempFiles no-overlay materialize `missing_concepts = 0`、accepted conflict
+    groups `0`、runtime concepts `49510`，metadata policy fix 后 common
+    concepts 的 canonical/metadata diff 均为 `0`，临时 compact index SHA 为
+    `17851bd0bfdae82e592890aa849a78e19bc2dc36400ff8c9bd45eef24c4c5d50`。
+  - C6 source-cleanup batch3 已完成：
+    production switch 继续暂缓；本轮先选 `25` 条 topic-label，review 发现
+    `agricultural_economic_and_policy` 会导致英文 alias target 漂移后剔除，
+    最终新增 `24` 条 active `display_only` source-cleanup decision；不新增
+    alias、不改变生产 compact runtime、不自动 merge collision。C2 overlay
+    counts 为 `canonical=127`、`display_only=124`、`redirect=238`、
+    `suppressed=12`；curated build 工作视图输出 concepts `54308`，
+    retired concepts `374`；remapped review decisions 输出 rows `346117`，
+    dropped excluded rows `400`；TempFiles no-overlay materialize
+    `missing_concepts = 0`、accepted conflict groups `0`、runtime concepts
+    `49486`，common concepts 的 canonical/metadata diff 均为 `0`，
+    changed alias targets `0`，临时 compact index SHA 为
+    `1023f1b1137db22083c0287ab332e176a6c5ddde348631dff6790ea7ee8de6e2`。
 - 最近 C4/C5 相关测试：
   - `uv run pytest tests/test_theme_lexicon_materialize_runtime_overlay.py::MaterializeRuntimeOverlayTests::test_curation_overlay_redirects_aliases_and_excludes_suppressed_concepts -q`:
     先复现 `raw_concepts` 计数错误 `5 != 4`，修复后 `1 passed in 0.05s`；
@@ -361,8 +400,20 @@ lexicons/review/
     `25 passed in 0.19s`。
   - C6 source/build backfill + review remap 后 focused alias/runtime suite:
     `927 passed in 29.00s`。
+  - C6 source-cleanup batch1 targeted curation/build/remap/materialize/query suite:
+    `25 passed in 0.18s`。
+  - C6 source-cleanup batch1 focused alias/runtime suite:
+    `927 passed in 28.98s`。
+  - C6 source-cleanup batch2 targeted curation/build/remap/materialize/query suite:
+    `25 passed in 0.17s`。
+  - C6 source-cleanup batch2 focused alias/runtime suite:
+    `927 passed in 50.70s`。
+  - C6 source-cleanup batch3 targeted curation/build/remap/materialize/query suite:
+    `25 passed in 0.29s`。
+  - C6 source-cleanup batch3 focused alias/runtime suite:
+    `927 passed in 27.60s`。
   - project suite:
-    `1285 passed, 4 subtests passed in 96.60s`。
+    `1285 passed, 4 subtests passed in 100.34s`。
 
 当前下一步：
 
@@ -374,10 +425,14 @@ lexicons/review/
   集中 review 未发现问题；batch4 post-review 已收口 RNA-vs-gene 歧义、
   HMI 过宽 redirect、语言与文化研究 target direction 与 redirect-chain
   压平问题；C5 已接入 `127` 条 canonical display override，并开始 topic-label
-  disposition（`45` display-only、`12` suppressed）；C6 已新增 build-level
-  curated snapshot helper 与 review decision remap helper，并完成 no-overlay
-  materialize 等价对照；下一步建议做 production switch 方案评审，决定是否
-  将 runtime 默认输入迁移到 curated build + remapped review working view；
+  disposition（生产 runtime 当前为 `45` display-only、`12` suppressed；
+  C6 source-cleanup 工作视图当前为 `124` display-only、`12` suppressed）；
+  C6 已新增 build-level curated snapshot helper 与 review decision remap
+  helper，并完成 no-overlay materialize 对照；metadata merge policy 已收紧，
+  redirect source 只合并 aliases/source_refs，不再污染 target
+  domains/parents/specificity；production switch 已暂缓，后续继续用 C6
+  helper 清理 source concept quality，若未来要切 runtime 默认输入，应作为
+  单独迁移任务评审；
 - post-7000 exact/domain-aware pattern milestone 已完成，runtime 中文覆盖到 `40.49%`；post-40 review cleanup 收口到 `43.18%`；post-40 continuation 已清理并达到 clean `50.01%`；post-50-to-60 子代理审查 milestone 已达到 clean `60.10%`；post-60-to-70 子代理审查 milestone 已达到 clean `70.00%`（exact `70.002%`）；post-70-to-80 子代理审查 milestone 已达到 clean `80.92%`；post-80-to-90 子代理审查 milestone 已达到 clean `90.07%`；post-90-to-final 子代理审查 milestone 已达到 `99.07%`；post-99 safe patch 已达到 `99.08%`；post-99 round2 safe patch 已达到 `99.10%`；post-99 round3 safe patch 曾达到 `99.13%`；post-99 correctness cleanup 因清理伪 exact / stale source 回落到 clean `95.49%`；post-95 singleton exact review batch 推进到 clean `95.91%`；post-95 singleton exact review round2 推进到 clean `96.01%`；post-95 exact collision review round3 推进到 clean `96.14%`；post-95 exact collision review round4 推进到 clean `96.21%`；post-95 exact collision review round5 推进到 clean `96.33%`；post-95 exact collision review round6 推进到 clean `96.45%`；post-95 exact collision review round7 推进到 clean `96.51%`；post-95 singleton exact review round8 推进到 clean `96.51%`（`48115 / 49853`）；post-95 new exact proposal round9 推进到 clean `96.74%`；post-95 new exact proposal round10 推进到 clean `96.76%`；post-95 new exact proposal round11 推进到 clean `96.80%`；post-95 new exact proposal round12 推进到 clean `96.82%`；post-95 new exact proposal round13 未新增 runtime-safe alias，coverage 保持 clean `96.82%`；
 - post-70 review cleanup 已完成最终修复：package 与 paper-search-pro
   runtime 均使用 compact index 一致的 CJK/Latin alias 归一化与中文 alias
