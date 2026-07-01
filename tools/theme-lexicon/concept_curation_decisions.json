@@ -1,6 +1,24 @@
 {
   "decisions": [
     {
+      "canonical_en": "16S rRNA Gene",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:16s_rrna",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
+      "canonical_en": "3D Imaging",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:3_d_imaging",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
       "category": "high_confidence_exact_collision_target",
       "concept_id": "concept:3g_mobile",
       "decided_at": "2026-06-30",
@@ -8,6 +26,15 @@
       "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
       "reviewer": "main-agent-c4-batch4",
       "target_concept_id": "concept:3g_mobile_communication"
+    },
+    {
+      "canonical_en": "3rd Generation Partnership Project",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:3rd_generation_partnership_project_3gpp",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
     },
     {
       "category": "topic_label_phrase_broad_or_noise",
@@ -44,6 +71,24 @@
       "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
       "reviewer": "main-agent-c4-batch1",
       "target_concept_id": "concept:active_pixel_sensor"
+    },
+    {
+      "canonical_en": "Ad Hoc Network",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:ad_hoc_network",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
+      "canonical_en": "AdaBoost",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:adaboost",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
     },
     {
       "canonical_en": "Adaptive Control",
@@ -145,6 +190,51 @@
       "topic_label_disposition": "display_only"
     },
     {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:advancement_in_solid_oxide_fuel_cell",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch3: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:advancement_in_transdermal_drug_delivery",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch3: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:aerodynamic_and_acoustic_in_jet_flow",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch3: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "canonical_en": "Agentic Artificial Intelligence",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:agentic_ai__2",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:ai_and_multimedia_in_education",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch3: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
       "category": "high_confidence_duplicate_or_source_variant",
       "concept_id": "concept:airborne_radar__2",
       "decided_at": "2026-06-30",
@@ -172,6 +262,15 @@
       "topic_label_disposition": "display_only"
     },
     {
+      "canonical_en": "Ambient Intelligence",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:ambient_intelligence",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
       "category": "high_confidence_base_variant",
       "concept_id": "concept:ambient_intelligence__3",
       "decided_at": "2026-06-30",
@@ -190,6 +289,15 @@
       "target_concept_id": "concept:analytical_hierarchy_process"
     },
     {
+      "canonical_en": "Analytic Hierarchy Process",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:analytic_hierarchy_process_ahp",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
       "canonical_en": "Analytical Hierarchy Process",
       "category": "canonical_source_artifact",
       "concept_id": "concept:analytical_hierarchy_process",
@@ -197,6 +305,15 @@
       "decision": "canonical",
       "reason": "C5 batch1 canonical display cleanup; prefer concise source/build canonical over runtime alias with acronym, plural, or source-specific suffix; aliases unchanged",
       "reviewer": "main-agent-c5-canonical-batch1"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:angiogenesi_and_vegf_in_cancer",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch3: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch3",
+      "topic_label_disposition": "display_only"
     },
     {
       "category": "topic_label_phrase",
@@ -323,6 +440,15 @@
       "decision": "canonical",
       "reason": "C5 batch2 canonical display cleanup; prefer concise source/build canonical over runtime alias with acronym, plural, or source-specific suffix; aliases unchanged",
       "reviewer": "main-agent-c5-canonical-batch2"
+    },
+    {
+      "canonical_en": "Bayesian Networks",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:bayesian_network_bns",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
     },
     {
       "category": "high_confidence_base_variant",
@@ -487,6 +613,15 @@
       "reviewer": "main-agent-c5-canonical-batch1"
     },
     {
+      "canonical_en": "Business Process Modeling",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:business_process_modeling_bpm",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
       "category": "high_confidence_duplicate_or_source_variant",
       "concept_id": "concept:cad",
       "decided_at": "2026-06-30",
@@ -568,6 +703,15 @@
       "target_concept_id": "concept:channel_estimation"
     },
     {
+      "canonical_en": "Channel Impulse Response",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:channel_impulse_response_cir",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
       "category": "high_confidence_duplicate_or_source_variant",
       "concept_id": "concept:channel_model__2",
       "decided_at": "2026-06-30",
@@ -620,6 +764,15 @@
       "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
       "reviewer": "main-agent-c4-batch1",
       "target_concept_id": "concept:chao_system"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:chemical_and_physical_property_in_aqueou_solution",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch3: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch3",
+      "topic_label_disposition": "display_only"
     },
     {
       "category": "high_confidence_duplicate_or_source_variant",
@@ -793,6 +946,15 @@
       "target_concept_id": "concept:comparative_genomic_hybridization"
     },
     {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:complexity_and_algorithm_in_graph",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch3: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
       "category": "high_confidence_duplicate_or_source_variant",
       "concept_id": "concept:complexity_classe",
       "decided_at": "2026-06-30",
@@ -818,6 +980,15 @@
       "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
       "reviewer": "main-agent-c4-batch1",
       "target_concept_id": "concept:computational_complexity"
+    },
+    {
+      "canonical_en": "Compute Unified Device Architecture",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:compute_unified_device_architecture_cuda",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
     },
     {
       "category": "high_confidence_duplicate_or_source_variant",
@@ -856,6 +1027,15 @@
       "target_concept_id": "concept:computer_language"
     },
     {
+      "canonical_en": "Computer Network",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:computer_network",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
       "category": "high_confidence_duplicate_or_source_variant",
       "concept_id": "concept:concept_drift__2",
       "decided_at": "2026-06-30",
@@ -863,6 +1043,24 @@
       "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
       "reviewer": "main-agent-c4-batch1",
       "target_concept_id": "concept:concept_drift"
+    },
+    {
+      "canonical_en": "Constraint Satisfaction Problems",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:constraint_satisfaction_problem_csp",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:consumer_behavior_in_brand_consumption_and_identification",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch3: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch3",
+      "topic_label_disposition": "display_only"
     },
     {
       "category": "topic_label_phrase",
@@ -910,6 +1108,15 @@
       "target_concept_id": "concept:convolutional_neural_network"
     },
     {
+      "canonical_en": "Coordinated Multi Point",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:coordinated_multi_point_comp",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
       "category": "high_confidence_duplicate_or_source_variant",
       "concept_id": "concept:coprocessor",
       "decided_at": "2026-06-30",
@@ -953,6 +1160,24 @@
       "decision": "canonical",
       "reason": "C5 batch2 canonical display cleanup; prefer concise source/build canonical over runtime alias with acronym, plural, or source-specific suffix; aliases unchanged",
       "reviewer": "main-agent-c5-canonical-batch2"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:cultural_and_religiou_practic_in_indonesia",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch3: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:cultural_and_social_study_in_latin_america",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch3: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch3",
+      "topic_label_disposition": "display_only"
     },
     {
       "canonical_en": "Customer Relationship Management",
@@ -1018,6 +1243,15 @@
       "target_concept_id": "concept:decision_theory"
     },
     {
+      "canonical_en": "Deep Reinforcement Learning",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:deep_reinforcement_learning__2",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
       "category": "high_confidence_duplicate_or_source_variant",
       "concept_id": "concept:delay_tolerant_networking",
       "decided_at": "2026-06-30",
@@ -1025,6 +1259,15 @@
       "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
       "reviewer": "main-agent-c4-batch1",
       "target_concept_id": "concept:delay_tolerant_network"
+    },
+    {
+      "canonical_en": "Denial-of-Service Attack",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:denial_of_service_attack",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
     },
     {
       "category": "high_confidence_duplicate_or_source_variant",
@@ -1045,6 +1288,15 @@
       "reviewer": "main-agent-c5-canonical-batch2"
     },
     {
+      "canonical_en": "Design Automation Conference",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:design_automation_conference_dac",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
       "category": "high_confidence_duplicate_or_source_variant",
       "concept_id": "concept:diagnosi_computer_assisted__2",
       "decided_at": "2026-06-30",
@@ -1063,6 +1315,15 @@
       "target_concept_id": "concept:differential_diagnosi"
     },
     {
+      "canonical_en": "Digital Imaging and Communications in Medicine",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:dicom",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
       "category": "high_confidence_duplicate_or_source_variant",
       "concept_id": "concept:diffusion_magnetic_resonance_imaging__2",
       "decided_at": "2026-06-30",
@@ -1070,6 +1331,15 @@
       "reason": "C4 batch1 high-confidence duplicate/source-variant redirect; natural alias already maps to canonical target; no concept merge",
       "reviewer": "main-agent-c4-batch1",
       "target_concept_id": "concept:diffusion_magnetic_resonance_imaging"
+    },
+    {
+      "canonical_en": "Diffusion Tensor Imaging",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:diffusion_tensor_imaging_dti",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
     },
     {
       "canonical_en": "Digital Image Processing",
@@ -1108,6 +1378,15 @@
       "reviewer": "main-agent-c5-canonical-batch2"
     },
     {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:digitalization_and_economic_development_in_agriculture",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch3: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
       "category": "high_confidence_exact_collision_target",
       "concept_id": "concept:discrete_cosine_transformation",
       "decided_at": "2026-06-30",
@@ -1126,6 +1405,15 @@
       "target_concept_id": "concept:discrete_wavelet_transform"
     },
     {
+      "canonical_en": "Distributed Coordination Function",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:distributed_coordination_function_dcf",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
       "category": "topic_label_phrase_broad_or_noise",
       "concept_id": "concept:diverse_approach_in_healthcare_and_education_study",
       "decided_at": "2026-07-01",
@@ -1142,6 +1430,24 @@
       "reason": "C5 topic-label batch1: broad generated research/application label with low search/treemap precision; excluded from compact alias index",
       "reviewer": "main-agent-c5-topic-label-batch1",
       "topic_label_disposition": "suppressed"
+    },
+    {
+      "canonical_en": "Domain Name System",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:domain_name_system",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
+      "canonical_en": "Dynamic Optimization Problem",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:dynamic_optimization_problem_dop",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
     },
     {
       "category": "high_confidence_base_variant",
@@ -1163,12 +1469,39 @@
     },
     {
       "category": "topic_label_phrase",
+      "concept_id": "concept:economic_and_technological_development_in_russia",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch3: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:education_and_social_development_in_ukraine",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch3: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
       "concept_id": "concept:educational_technology_in_learning",
       "decided_at": "2026-07-01",
       "decision": "display_only",
       "reason": "C5 topic-label batch1: coherent cross-topic phrase useful as review metadata but too compositional for runtime search alias matching; excluded from compact alias index",
       "reviewer": "main-agent-c5-topic-label-batch1",
       "topic_label_disposition": "display_only"
+    },
+    {
+      "canonical_en": "Electroencephalography",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:electroencephalography_eeg",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
     },
     {
       "canonical_en": "Electromagnetic Compatibility",
@@ -1270,6 +1603,60 @@
       "reviewer": "main-agent-c5-canonical-batch1"
     },
     {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:environmental_and_cultural_study_in_latin_america_and_beyond",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch3: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "canonical_en": "Ethernet Passive Optical Networks",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:epon__2",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
+      "canonical_en": "Erbium Doped Fiber Amplifiers",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:erbium_doped_fiber_amplifier_edfa",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
+      "canonical_en": "Error Rate",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:error_rate_er",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:ethic_and_bioethic_in_healthcare",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch3: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:ethic_and_legal_issu_in_pediatric_healthcare",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch3: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
       "canonical_en": "Evolutionary Computation",
       "category": "canonical_source_artifact",
       "concept_id": "concept:evolutionary_computation__2",
@@ -1277,6 +1664,15 @@
       "decision": "canonical",
       "reason": "C5 batch2 canonical display cleanup; prefer concise source/build canonical over runtime alias with acronym, plural, or source-specific suffix; aliases unchanged",
       "reviewer": "main-agent-c5-canonical-batch2"
+    },
+    {
+      "canonical_en": "Explainable Artificial Intelligence",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:explainable_artificial_intelligence_xai",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
     },
     {
       "canonical_en": "Extreme Learning Machine",
@@ -1297,6 +1693,15 @@
       "target_concept_id": "concept:facility_management__2"
     },
     {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:family_and_patient_care_in_intensive_care_unit",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch3: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
       "category": "high_confidence_exact_collision_target",
       "concept_id": "concept:fiber_optic_network",
       "decided_at": "2026-06-30",
@@ -1304,6 +1709,15 @@
       "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
       "reviewer": "main-agent-c4-batch4",
       "target_concept_id": "concept:optical_fiber_network"
+    },
+    {
+      "canonical_en": "Field Programmable Logic",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:field_programmable_logic_fpl",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
     },
     {
       "category": "high_confidence_base_variant",
@@ -1331,6 +1745,15 @@
       "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
       "reviewer": "main-agent-c4-batch2",
       "target_concept_id": "concept:flip_flop"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:food_security_and_health_in_diverse_population",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch3: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch3",
+      "topic_label_disposition": "display_only"
     },
     {
       "category": "high_confidence_base_variant",
@@ -1367,6 +1790,15 @@
       "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
       "reviewer": "main-agent-c4-batch2",
       "target_concept_id": "concept:frequency_measurement"
+    },
+    {
+      "canonical_en": "Frequency Selective Surface",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:frequency_selective_surface_fss",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
     },
     {
       "category": "high_confidence_base_variant",
@@ -1459,6 +1891,15 @@
       "reviewer": "main-agent-c5-canonical-batch2"
     },
     {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:genetic_and_phenotypic_trait_in_livestock",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch3: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch3",
+      "topic_label_disposition": "display_only"
+    },
+    {
       "canonical_en": "Genetic Programming",
       "category": "canonical_source_artifact",
       "concept_id": "concept:genetic_programming__3",
@@ -1475,6 +1916,15 @@
       "decision": "canonical",
       "reason": "C5 batch1 canonical display cleanup; prefer concise source/build canonical over runtime alias with acronym, plural, or source-specific suffix; aliases unchanged",
       "reviewer": "main-agent-c5-canonical-batch1"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:geography_and_environmental_study_in_latin_america",
+      "decided_at": "2026-07-01",
+      "decision": "display_only",
+      "reason": "C5 topic-label batch3: coherent long-form cross-topic phrase useful as source/display metadata but too compositional for runtime search alias matching; excluded from compact alias index",
+      "reviewer": "main-agent-c5-topic-label-batch3",
+      "topic_label_disposition": "display_only"
     },
     {
       "category": "high_confidence_base_variant",
@@ -1558,6 +2008,15 @@
       "target_concept_id": "concept:histogram_of_oriented_gradient"
     },
     {
+      "canonical_en": "Hypertext Transfer Protocol",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:http",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
       "active": false,
       "category": "high_confidence_exact_collision_target",
       "concept_id": "concept:human_machine_interface",
@@ -1575,6 +2034,15 @@
       "decision": "canonical",
       "reason": "C5 batch2 canonical display cleanup; prefer concise source/build canonical over runtime alias with acronym, plural, or source-specific suffix; aliases unchanged",
       "reviewer": "main-agent-c5-canonical-batch2"
+    },
+    {
+      "canonical_en": "Human Visual System",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:human_visual_system_hvs",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
     },
     {
       "canonical_en": "Humanoid Robot",
@@ -1631,6 +2099,15 @@
       "target_concept_id": "concept:infinite_horizon"
     },
     {
+      "canonical_en": "Infrastructure as a Service",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:infrastructure_as_a_service_iaas",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
       "category": "topic_label_phrase_broad_or_noise",
       "concept_id": "concept:innovation_and_analysi_in_business_and_education",
       "decided_at": "2026-07-01",
@@ -1685,6 +2162,15 @@
       "target_concept_id": "concept:interview"
     },
     {
+      "canonical_en": "Intrusion Detection Systems",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:intrusion_detection_system_ids",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
       "canonical_en": "Inverse Synthetic Aperture Radar",
       "category": "canonical_source_artifact",
       "concept_id": "concept:inverse_synthetic_aperture_radar__2",
@@ -1692,6 +2178,15 @@
       "decision": "canonical",
       "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
       "reviewer": "main-agent-c5-canonical-batch3"
+    },
+    {
+      "canonical_en": "IP Network",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:ip_network",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
     },
     {
       "canonical_en": "Iterative Learning Control",
@@ -1775,6 +2270,15 @@
       "target_concept_id": "concept:linear_matric"
     },
     {
+      "canonical_en": "Linear Predictive Coding",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:linear_predictive_coding_lpc",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
       "category": "high_confidence_exact_collision_target",
       "concept_id": "concept:linguistic_and_cultural_study__2",
       "decided_at": "2026-06-30",
@@ -1791,6 +2295,15 @@
       "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
       "reviewer": "main-agent-c4-batch2",
       "target_concept_id": "concept:local_area_network"
+    },
+    {
+      "canonical_en": "Machine-to-Machine",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:machine_to_machine_m2m",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
     },
     {
       "canonical_en": "Machine Translation",
@@ -2025,6 +2538,24 @@
       "reason": "C4 batch4 conservative exact collision redirect; unique zh collision target and strong English token/acronym/full-form evidence; semantic-neighbor and class-vs-instance candidates excluded; no concept merge",
       "reviewer": "main-agent-c4-batch4",
       "target_concept_id": "concept:mobile_ad_hoc_network"
+    },
+    {
+      "canonical_en": "Mobile Ad Hoc Network",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:mobile_ad_hoc_network",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
+      "canonical_en": "Mobile Ad Hoc Networks",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:mobile_ad_hoc_network_manet",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
     },
     {
       "category": "high_confidence_base_variant",
@@ -2378,6 +2909,15 @@
       "reviewer": "main-agent-c5-canonical-batch3"
     },
     {
+      "canonical_en": "Optical Coherence Tomography",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:optical_coherence_tomography_oct",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
       "category": "high_confidence_base_variant",
       "concept_id": "concept:optical_devic__2",
       "decided_at": "2026-06-30",
@@ -2412,6 +2952,15 @@
       "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
       "reviewer": "main-agent-c4-batch2",
       "target_concept_id": "concept:optical_filter"
+    },
+    {
+      "canonical_en": "Web Ontology Language",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:owl",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
     },
     {
       "category": "high_confidence_base_variant",
@@ -2459,6 +3008,24 @@
       "target_concept_id": "concept:patch_antenna"
     },
     {
+      "canonical_en": "Peak-to-Average Power Ratio",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:peak_to_average_power_ratio_papr",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
+      "canonical_en": "Personal Digital Assistant",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:personal_digital_assistant",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
       "category": "high_confidence_base_variant",
       "concept_id": "concept:phase_distortion__2",
       "decided_at": "2026-06-30",
@@ -2495,6 +3062,15 @@
       "target_concept_id": "concept:photoacoustic_effect"
     },
     {
+      "canonical_en": "Physical Layer Network Coding",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:physical_layer_network_coding_pnc",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
       "canonical_en": "Picture Archiving and Communication System",
       "category": "canonical_source_artifact",
       "concept_id": "concept:picture_archiving_and_communication_system",
@@ -2529,6 +3105,15 @@
       "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
       "reviewer": "main-agent-c4-batch2",
       "target_concept_id": "concept:plastic_optical_fiber"
+    },
+    {
+      "canonical_en": "Platform as a Service",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:platform_as_a_service_paas",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
     },
     {
       "category": "high_confidence_base_variant",
@@ -2601,6 +3186,15 @@
       "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
       "reviewer": "main-agent-c4-batch2",
       "target_concept_id": "concept:probability"
+    },
+    {
+      "canonical_en": "Product Data Management",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:product_data_management_pdm",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
     },
     {
       "category": "high_confidence_exact_source_variant",
@@ -2700,6 +3294,15 @@
       "reason": "C4 batch2 conservative base-id/source-variant redirect; explicit same-base duplicate or singular/plural/source label variant; no concept merge",
       "reviewer": "main-agent-c4-batch2",
       "target_concept_id": "concept:rate_distortion"
+    },
+    {
+      "canonical_en": "Received Signal Strength Indicator",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:received_signal_strength_indicator",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
     },
     {
       "canonical_en": "Recurrent Neural Network",
@@ -2900,6 +3503,24 @@
       "reviewer": "main-agent-c5-canonical-batch3"
     },
     {
+      "canonical_en": "Software Defined Radio",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:software_defined_radio_sdr",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
+      "canonical_en": "Specific Absorption Rate",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:specific_absorption_rate__2",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
       "category": "high_confidence_exact_source_variant",
       "concept_id": "concept:split_ring_resonator__2",
       "decided_at": "2026-06-30",
@@ -2990,6 +3611,15 @@
       "target_concept_id": "concept:takagi_sugeno_model"
     },
     {
+      "canonical_en": "Third Generation Partnership Project",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:third_generation_partnership_project_3gpp",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
       "category": "high_confidence_exact_source_variant",
       "concept_id": "concept:threshold_current",
       "decided_at": "2026-06-30",
@@ -3033,6 +3663,33 @@
       "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
       "reviewer": "main-agent-c4-batch3",
       "target_concept_id": "concept:vehicle_to_grid"
+    },
+    {
+      "canonical_en": "Vehicular Ad Hoc Networks",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:vehicular_ad_hoc_network_vanet",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
+      "canonical_en": "Wireless LAN",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:wireless_lan",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
+    },
+    {
+      "canonical_en": "Wireless Sensor Network",
+      "category": "canonical_source_artifact",
+      "concept_id": "concept:wireless_sensor_network",
+      "decided_at": "2026-07-01",
+      "decision": "canonical",
+      "reason": "C5 batch4 canonical display cleanup; normalize high-confidence acronym parenthetical and lowercase CS/communication display labels; aliases unchanged",
+      "reviewer": "main-agent-c5-canonical-batch4"
     },
     {
       "category": "topic_label_phrase",
