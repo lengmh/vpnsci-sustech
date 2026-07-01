@@ -5364,6 +5364,102 @@
       "reason": "C6 redirect/source-variant batch6: exact adjective/source terminology variant with stable target; production switch deferred",
       "reviewer": "main-agent-c6-redirect-batch6",
       "target_concept_id": "concept:mammography__3"
+    },
+    {
+      "category": "broad_or_noise",
+      "concept_id": "concept:abas",
+      "decided_at": "2026-07-02",
+      "decision": "suppressed",
+      "reason": "C6 suppressed/noise batch7: source artifact or broad/noise label with low search/treemap value; production switch deferred",
+      "reviewer": "main-agent-c6-suppressed-batch7"
+    },
+    {
+      "category": "broad_or_noise",
+      "concept_id": "concept:abstract__2",
+      "decided_at": "2026-07-02",
+      "decision": "suppressed",
+      "reason": "C6 suppressed/noise batch7: source artifact or broad/noise label with low search/treemap value; production switch deferred",
+      "reviewer": "main-agent-c6-suppressed-batch7"
+    },
+    {
+      "category": "broad_or_noise",
+      "concept_id": "concept:acme",
+      "decided_at": "2026-07-02",
+      "decision": "suppressed",
+      "reason": "C6 suppressed/noise batch7: source artifact or broad/noise label with low search/treemap value; production switch deferred",
+      "reviewer": "main-agent-c6-suppressed-batch7"
+    },
+    {
+      "category": "broad_or_noise",
+      "concept_id": "concept:acmestudio",
+      "decided_at": "2026-07-02",
+      "decision": "suppressed",
+      "reason": "C6 suppressed/noise batch7: source artifact or broad/noise label with low search/treemap value; production switch deferred",
+      "reviewer": "main-agent-c6-suppressed-batch7"
+    },
+    {
+      "category": "broad_or_noise",
+      "concept_id": "concept:alma",
+      "decided_at": "2026-07-02",
+      "decision": "suppressed",
+      "reason": "C6 suppressed/noise batch7: source artifact or broad/noise label with low search/treemap value; production switch deferred",
+      "reviewer": "main-agent-c6-suppressed-batch7"
+    },
+    {
+      "category": "broad_or_noise",
+      "concept_id": "concept:alpsm",
+      "decided_at": "2026-07-02",
+      "decision": "suppressed",
+      "reason": "C6 suppressed/noise batch7: source artifact or broad/noise label with low search/treemap value; production switch deferred",
+      "reviewer": "main-agent-c6-suppressed-batch7"
+    },
+    {
+      "category": "broad_or_noise",
+      "concept_id": "concept:application",
+      "decided_at": "2026-07-02",
+      "decision": "suppressed",
+      "reason": "C6 suppressed/noise batch7: source artifact or broad/noise label with low search/treemap value; production switch deferred",
+      "reviewer": "main-agent-c6-suppressed-batch7"
+    },
+    {
+      "category": "broad_or_noise",
+      "concept_id": "concept:applied_co",
+      "decided_at": "2026-07-02",
+      "decision": "suppressed",
+      "reason": "C6 suppressed/noise batch7: source artifact or broad/noise label with low search/treemap value; production switch deferred",
+      "reviewer": "main-agent-c6-suppressed-batch7"
+    },
+    {
+      "category": "broad_or_noise",
+      "concept_id": "concept:assessment",
+      "decided_at": "2026-07-02",
+      "decision": "suppressed",
+      "reason": "C6 suppressed/noise batch7: source artifact or broad/noise label with low search/treemap value; production switch deferred",
+      "reviewer": "main-agent-c6-suppressed-batch7"
+    },
+    {
+      "category": "broad_or_noise",
+      "concept_id": "concept:beauty",
+      "decided_at": "2026-07-02",
+      "decision": "suppressed",
+      "reason": "C6 suppressed/noise batch7: source artifact or broad/noise label with low search/treemap value; production switch deferred",
+      "reviewer": "main-agent-c6-suppressed-batch7"
+    },
+    {
+      "category": "broad_or_noise",
+      "concept_id": "concept:review",
+      "decided_at": "2026-07-02",
+      "decision": "suppressed",
+      "reason": "C6 suppressed/noise batch7: source artifact or broad/noise label with low search/treemap value; production switch deferred",
+      "reviewer": "main-agent-c6-suppressed-batch7"
+    },
+    {
+      "category": "broad_or_noise",
+      "concept_id": "concept:review__2",
+      "decided_at": "2026-07-02",
+      "decision": "suppressed",
+      "reason": "C6 suppressed/noise batch7: source artifact or broad/noise label with low search/treemap value; production switch deferred",
+      "reviewer": "main-agent-c6-suppressed-batch7"
     }
   ],
   "schema_version": "theme_concept_curation_decisions.v1"
