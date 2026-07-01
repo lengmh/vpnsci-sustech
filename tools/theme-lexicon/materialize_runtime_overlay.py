@@ -292,7 +292,8 @@ def _overlay_entry(
     if not aliases_en and not aliases_zh:
         return None
 
-    canonical_override = canonical_override or {}
+    concept_canonical_override = concept.get("curation_canonical_override") if isinstance(concept.get("curation_canonical_override"), dict) else {}
+    canonical_override = {**concept_canonical_override, **(canonical_override or {})}
     canonical_en = _clean_text(canonical_override.get("en")) or (aliases_en[0] if aliases_en else None)
     canonical_zh = _clean_text(canonical_override.get("zh")) or (aliases_zh[0] if aliases_zh else None)
     source_refs = [

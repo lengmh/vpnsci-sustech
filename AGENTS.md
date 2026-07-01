@@ -87,6 +87,8 @@ collection 问题修复前，项目主测试套件以 `uv run pytest tests -q` �
 ```powershell
 uv run pytest `
   tests/test_theme_lexicon_concept_curation.py `
+  tests/test_theme_lexicon_apply_concept_curation_to_build.py `
+  tests/test_theme_lexicon_remap_review_decisions_for_curation.py `
   tests/test_theme_lexicon_fill_zh_alias_candidates.py `
   tests/test_theme_lexicon_pollution_guards.py `
   tests/test_theme_lexicon_block_accepted_alias_conflicts.py `
@@ -201,9 +203,9 @@ lexicons/review/
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
 - compact index 是当前运行时真源；legacy full overlay 未随 batch-007 之后的覆盖扩展更新，不再作为默认等价检查对象，也不再作为 runtime fallback 读取。
-- 最近相关测试：C5 duplicate acronym redirect review 后，focused
-  alias/runtime suite `923 passed in 26.77s`；project suite
-  `1281 passed, 4 subtests passed in 93.06s`。
+- 最近相关测试：C6 source/build backfill + review remap 后，focused
+  alias/runtime suite `927 passed in 29.00s`；project suite
+  `1285 passed, 4 subtests passed in 96.60s`。
 - concept curation C1-C4 已开始并完成首批临时验证：
   - C1 只读 audit 已完成，输出在 `F:\AI playground\TempFiles`；
     raw uncovered concepts `1587`，其中 `redirect_candidates = 436`、
@@ -325,6 +327,26 @@ lexicons/review/
     byte-identical，SHA 为
     `7202e4246a55a7ac595af8a061059dc946eeff97e65bd4c2dc05351f23feb0ee` /
     `80afdf958641f0123c3a36b26c8a551f4ede6c64f3d08e76ba400a8d30a57657`。
+  - C6 source/build 回灌首步已完成：
+    新增 `tools/theme-lexicon/apply_concept_curation_to_build.py`，可把
+    validated curation overlay 应用到
+    `lexicons/builds/merged_en_concept_candidates.jsonl`，输出 curated build
+    snapshot 与 manifest；redirect source evidence 会并入 target，
+    canonical/display_only/suppressed 会在 build snapshot 层前移体现；当前
+    只输出工作视图，不替换生产 runtime 输入，因为 L4 review decision rows
+    仍引用 redirect source concept，直接 no-overlay materialize 会丢 source
+    aliases。TempFiles 冒烟结果：input concepts `54682`，output concepts
+    `54387`，retired concepts `295`。
+  - C6 review decision remap 已完成：
+    新增 `tools/theme-lexicon/remap_review_decisions_for_curation.py`，可把
+    redirect source review rows 改写到 target，并丢弃 display_only/suppressed
+    source rows；TempFiles remap 结果为 input rows `401203`，output rows
+    `346267`，remapped rows `1230`，dropped excluded rows `171`，
+    deduplicated rows `54765`。使用 curated build snapshot + remapped review
+    decisions 做 no-overlay materialize 后，`missing_concepts = 0`，alias map
+    与当前生产 compact index byte-equivalent in content，concept key set 相同，
+    canonical diff `0`；仅 `214` 个 target 的 domain/parent/specificity metadata
+    因 source evidence 前移合并而变化。
 - 最近 C4/C5 相关测试：
   - `uv run pytest tests/test_theme_lexicon_materialize_runtime_overlay.py::MaterializeRuntimeOverlayTests::test_curation_overlay_redirects_aliases_and_excludes_suppressed_concepts -q`:
     先复现 `raw_concepts` 计数错误 `5 != 4`，修复后 `1 passed in 0.05s`；
@@ -335,12 +357,12 @@ lexicons/review/
     `16 passed in 0.13s`；
   - C5 cleanup/topic-label batch3 targeted curation/materialize/query suite:
     `21 passed in 0.12s`。
-  - C5 duplicate acronym redirect review targeted curation/materialize/query suite:
-    `21 passed in 0.12s`。
-  - C5 duplicate acronym redirect review 后 focused alias/runtime suite:
-    `923 passed in 26.77s`。
+  - C6 source/build backfill + review remap targeted curation/build/remap/materialize/query suite:
+    `25 passed in 0.19s`。
+  - C6 source/build backfill + review remap 后 focused alias/runtime suite:
+    `927 passed in 29.00s`。
   - project suite:
-    `1281 passed, 4 subtests passed in 93.06s`。
+    `1285 passed, 4 subtests passed in 96.60s`。
 
 当前下一步：
 
@@ -352,9 +374,10 @@ lexicons/review/
   集中 review 未发现问题；batch4 post-review 已收口 RNA-vs-gene 歧义、
   HMI 过宽 redirect、语言与文化研究 target direction 与 redirect-chain
   压平问题；C5 已接入 `127` 条 canonical display override，并开始 topic-label
-  disposition（`45` display-only、`12` suppressed）；下一步建议继续小批量
-  topic-label/canonical review，或开始把 `238` 条 redirect、canonical、
-  topic-label decisions 回灌到 source/build concept 生成规则；
+  disposition（`45` display-only、`12` suppressed）；C6 已新增 build-level
+  curated snapshot helper 与 review decision remap helper，并完成 no-overlay
+  materialize 等价对照；下一步建议做 production switch 方案评审，决定是否
+  将 runtime 默认输入迁移到 curated build + remapped review working view；
 - post-7000 exact/domain-aware pattern milestone 已完成，runtime 中文覆盖到 `40.49%`；post-40 review cleanup 收口到 `43.18%`；post-40 continuation 已清理并达到 clean `50.01%`；post-50-to-60 子代理审查 milestone 已达到 clean `60.10%`；post-60-to-70 子代理审查 milestone 已达到 clean `70.00%`（exact `70.002%`）；post-70-to-80 子代理审查 milestone 已达到 clean `80.92%`；post-80-to-90 子代理审查 milestone 已达到 clean `90.07%`；post-90-to-final 子代理审查 milestone 已达到 `99.07%`；post-99 safe patch 已达到 `99.08%`；post-99 round2 safe patch 已达到 `99.10%`；post-99 round3 safe patch 曾达到 `99.13%`；post-99 correctness cleanup 因清理伪 exact / stale source 回落到 clean `95.49%`；post-95 singleton exact review batch 推进到 clean `95.91%`；post-95 singleton exact review round2 推进到 clean `96.01%`；post-95 exact collision review round3 推进到 clean `96.14%`；post-95 exact collision review round4 推进到 clean `96.21%`；post-95 exact collision review round5 推进到 clean `96.33%`；post-95 exact collision review round6 推进到 clean `96.45%`；post-95 exact collision review round7 推进到 clean `96.51%`；post-95 singleton exact review round8 推进到 clean `96.51%`（`48115 / 49853`）；post-95 new exact proposal round9 推进到 clean `96.74%`；post-95 new exact proposal round10 推进到 clean `96.76%`；post-95 new exact proposal round11 推进到 clean `96.80%`；post-95 new exact proposal round12 推进到 clean `96.82%`；post-95 new exact proposal round13 未新增 runtime-safe alias，coverage 保持 clean `96.82%`；
 - post-70 review cleanup 已完成最终修复：package 与 paper-search-pro
   runtime 均使用 compact index 一致的 CJK/Latin alias 归一化与中文 alias
