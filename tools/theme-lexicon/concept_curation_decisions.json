@@ -5022,6 +5022,132 @@
       "reason": "C6 redirect/source-variant batch2: explicit terminology or acronym variant with same zh collision target and stable English target canonical; production switch deferred",
       "reviewer": "main-agent-c6-redirect-batch2",
       "target_concept_id": "concept:orthogonal_frequency_division_multiple_access"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:clustering_analysi",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch3: exact collision-target/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch3",
+      "target_concept_id": "concept:cluster_analysi"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:data_analytic__2",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch3: exact collision-target/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch3",
+      "target_concept_id": "concept:data_analysi__3"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:fusion_image",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch3: exact collision-target/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch3",
+      "target_concept_id": "concept:fused_imag"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:genetic_variation",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch3: exact collision-target/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch3",
+      "target_concept_id": "concept:genetic_variation__2"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:hemorrhaging",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch3: exact collision-target/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch3",
+      "target_concept_id": "concept:hemorrhage"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:micro_electrical_mechanical_system__2",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch3: exact spelling/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch3",
+      "target_concept_id": "concept:micro_electrical_mechanical_system"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:mitogenome",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch3: exact collision-target/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch3",
+      "target_concept_id": "concept:genome_mitochondrial__2"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:nano_electromechanical_system",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch3: exact collision-target/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch3",
+      "target_concept_id": "concept:nanoelectromechanical_system"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:non_fungible_token",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch3: exact collision-target/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch3",
+      "target_concept_id": "concept:nonfungible_token"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:passively_mode_locked",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch3: exact collision-target/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch3",
+      "target_concept_id": "concept:passive_mode_locking"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:pomdp",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch3: exact acronym/full-form collision-target variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch3",
+      "target_concept_id": "concept:partially_observable_markov_decision_process"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:privacy_preservation",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch3: exact collision-target/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch3",
+      "target_concept_id": "concept:privacy_protection"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:rough_sets",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch3: exact plural/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch3",
+      "target_concept_id": "concept:rough_set"
+    },
+    {
+      "category": "high_confidence_duplicate_or_source_variant",
+      "concept_id": "concept:support_vector_machine__2",
+      "decided_at": "2026-07-01",
+      "decision": "redirect",
+      "reason": "C6 redirect/source-variant batch3: exact synonym/source terminology variant with stable target; production switch deferred",
+      "reviewer": "main-agent-c6-redirect-batch3",
+      "target_concept_id": "concept:support_vector_machine"
     }
   ],
   "schema_version": "theme_concept_curation_decisions.v1"
