@@ -14,6 +14,12 @@ from .config import Config
 from .report_recovery import infer_quality_profile, split_missing_and_insufficient_fields
 from .sources.search_cache import SearchSession
 from .sources.search_models import SearchHit, coerce_search_hit
+from .theme_candidate_resolution import (
+    THEME_CANDIDATE_RESOLUTION_REQUEST_FILENAME,
+    THEME_CANDIDATE_RESOLUTION_RESULT_FILENAME,
+    apply_theme_candidate_resolution_result,
+    build_theme_candidate_resolution_request,
+)
 from .theme_clustering import build_keyword_topic_themes, build_text_themes
 from .theme_postprocess import (
     THEME_POSTPROCESS_REQUEST_FILENAME,
@@ -495,6 +501,42 @@ def _load_theme_postprocess_result(materialized_dir: Path) -> dict | None:
     return data if isinstance(data, dict) else None
 
 
+def _load_theme_candidate_resolution_result(materialized_dir: Path) -> dict | None:
+    result_path = materialized_dir / THEME_CANDIDATE_RESOLUTION_RESULT_FILENAME
+    if not result_path.exists():
+        return None
+    data = json.loads(result_path.read_text(encoding="utf-8"))
+    return data if isinstance(data, dict) else None
+
+
+def _apply_theme_candidate_resolution(
+    raw_theme_treemap: dict,
+    papers: list[dict],
+    *,
+    display_query: str = "",
+    language: str = "",
+    materialized_dir: Path | None = None,
+) -> tuple[dict, dict, dict]:
+    request_payload, trace = build_theme_candidate_resolution_request(
+        raw_theme_treemap,
+        papers,
+        display_query=display_query,
+        language=language,
+    )
+    if not request_payload:
+        return raw_theme_treemap, trace, request_payload
+    result_payload = _load_theme_candidate_resolution_result(materialized_dir) if materialized_dir else None
+    if result_payload is None:
+        return raw_theme_treemap, trace, request_payload
+    resolved, applied_trace = apply_theme_candidate_resolution_result(
+        raw_theme_treemap,
+        request_payload,
+        result_payload,
+        model_label="host-agent",
+    )
+    return resolved, applied_trace, request_payload
+
+
 def _apply_theme_postprocess(
     raw_theme_treemap: dict,
     papers: list[dict],
@@ -753,6 +795,8 @@ def _build_chart_data(
     *,
     materialized_dir: Path | None = None,
     report_mode: str = "seed_preview",
+    display_query: str = "",
+    language: str = "",
 ) -> dict:
     years: dict[int, dict[str, int]] = {}
     rcs_counts = [0] * 11
@@ -791,8 +835,16 @@ def _build_chart_data(
     ungated_theme_treemap = _build_theme_treemap(papers, apply_quality_gate=False)
     gated_theme_treemap = _build_theme_treemap(papers, apply_quality_gate=True)
     raw_theme_treemap = ungated_theme_treemap if not gated_theme_treemap.get("themes") else gated_theme_treemap
+    candidate_theme_treemap, theme_candidate_resolution, theme_candidate_resolution_request = _apply_theme_candidate_resolution(
+        raw_theme_treemap,
+        papers,
+        display_query=display_query,
+        language=language,
+        materialized_dir=materialized_dir,
+    )
+    display_theme_treemap = candidate_theme_treemap if theme_candidate_resolution.get("applied") else gated_theme_treemap
     theme_treemap, theme_postprocess, theme_postprocess_request = _apply_theme_postprocess(
-        gated_theme_treemap,
+        display_theme_treemap,
         papers,
         report_mode=report_mode,
         materialized_dir=materialized_dir,
@@ -848,6 +900,8 @@ def _build_chart_data(
         },
         "raw_theme_treemap": raw_theme_treemap,
         "theme_treemap": theme_treemap,
+        "theme_candidate_resolution": theme_candidate_resolution,
+        "theme_candidate_resolution_request": theme_candidate_resolution_request,
         "theme_postprocess": theme_postprocess,
         "theme_postprocess_request": theme_postprocess_request,
     }
@@ -1006,11 +1060,14 @@ def _write_materialized_data(
     papers = [_paper_from_hit(hit, i, pre_resolved_display_query) for i, hit in enumerate(session.hits, 1)]
     if rcs_classification_result is not None:
         papers = _apply_rcs_classification_result(papers, rcs_classification_result)
+    pre_resolved_language = language or _detect_language(pre_resolved_display_query)
     chart_data = _build_chart_data(
         papers,
         session.source_summary,
         materialized_dir=data_dir,
         report_mode=report_mode,
+        display_query=pre_resolved_display_query,
+        language=pre_resolved_language,
     )
     display_resolution = _resolve_report_display_queries(
         session,
@@ -1154,12 +1211,18 @@ def _write_materialized_data(
         "prisma_log": prisma_log,
         "summary": report_summary,
     }
+    theme_candidate_resolution_request = chart_data.get("theme_candidate_resolution_request")
     theme_postprocess_request = chart_data.get("theme_postprocess_request")
     (data_dir / "metadata.json").write_text(json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8")
     (data_dir / "paper_list.json").write_text(json.dumps(papers, ensure_ascii=False, indent=2), encoding="utf-8")
     (data_dir / "chart_data.json").write_text(json.dumps(chart_data, ensure_ascii=False, indent=2), encoding="utf-8")
     (data_dir / "prisma_log.json").write_text(json.dumps(prisma_log, ensure_ascii=False, indent=2), encoding="utf-8")
     (data_dir / "report_data.json").write_text(json.dumps(report_data, ensure_ascii=False, indent=2), encoding="utf-8")
+    if theme_candidate_resolution_request:
+        (data_dir / THEME_CANDIDATE_RESOLUTION_REQUEST_FILENAME).write_text(
+            json.dumps(theme_candidate_resolution_request, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
     if theme_postprocess_request:
         (data_dir / THEME_POSTPROCESS_REQUEST_FILENAME).write_text(
             json.dumps(theme_postprocess_request, ensure_ascii=False, indent=2),
@@ -1203,6 +1266,8 @@ def prepare_report(
         rcs_execution_mode=rcs_execution_mode,
     )
     selected_language = language or _detect_language(display_query or session.query)
+    candidate_request_path = materialized_dir / THEME_CANDIDATE_RESOLUTION_REQUEST_FILENAME
+    candidate_result_path = materialized_dir / THEME_CANDIDATE_RESOLUTION_RESULT_FILENAME
     request_path = materialized_dir / THEME_POSTPROCESS_REQUEST_FILENAME
     result_path = materialized_dir / THEME_POSTPROCESS_RESULT_FILENAME
     rcs_request_path = materialized_dir / RCS_CLASSIFICATION_REQUEST_FILENAME
@@ -1211,6 +1276,9 @@ def prepare_report(
         "session_id": session.session_id,
         "report_path": str(output_dir / "report.html"),
         "materialized_dir": str(materialized_dir),
+        "theme_candidate_resolution_request_path": str(candidate_request_path),
+        "theme_candidate_resolution_result_path": str(candidate_result_path),
+        "theme_candidate_resolution_pending": candidate_request_path.exists() and not candidate_result_path.exists(),
         "theme_postprocess_request_path": str(request_path),
         "theme_postprocess_result_path": str(result_path),
         "theme_postprocess_pending": request_path.exists() and not result_path.exists(),

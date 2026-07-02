@@ -9,6 +9,7 @@ from unittest import mock
 from vpnsci_sustech.config import Config
 from vpnsci_sustech.report_bridge import (
     ReportBridgeConfigError,
+    apply_theme_candidate_resolution_and_render,
     apply_rcs_classification_and_render,
     apply_theme_postprocess_and_render,
     _render_command,
@@ -17,6 +18,7 @@ from vpnsci_sustech.report_bridge import (
     path_to_file_url,
     start_report_from_session,
 )
+from vpnsci_sustech.theme_candidate_resolution import THEME_CANDIDATE_RESOLUTION_REQUEST_FILENAME
 from vpnsci_sustech.sources.search_cache import SearchSession, save_session
 from vpnsci_sustech.sources.search_models import SearchHit
 
@@ -529,6 +531,137 @@ class ReportBridgeTests(unittest.TestCase):
             request_payload = json.loads(Path(job.theme_postprocess_request_path).read_text(encoding="utf-8"))
             self.assertEqual(request_payload["report_mode"], "seed_preview")
             self.assertTrue(request_payload["themes"])
+
+    def test_seed_preview_pending_candidate_resolution_returns_host_agent_handoff(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "paper-search-pro"
+            output_dir = Path(tmp) / "reports"
+            root.mkdir()
+            cfg = Config(
+                cache_dir=tmp,
+                paper_search_pro_root=str(root),
+                paper_search_pro_command="python -m vpnsci_sustech.paper_search_pro_adapter --seed {seed_json} --output-dir {output_dir}",
+                paper_search_pro_output_dir=str(output_dir),
+            )
+            session = SearchSession(
+                session_id="search-theme-candidate-resolution",
+                query="网络攻击检测",
+                filters={},
+                hits=[
+                    SearchHit(title="网络攻击检测综述", doi="10.1/a", abstract="恶意软件和入侵检测研究。"),
+                    SearchHit(title="网络攻击防御系统", doi="10.1/b", abstract="安全流量分析和攻击识别。"),
+                    SearchHit(title="无关论文", doi="10.1/c", abstract="低信号文本。"),
+                ],
+                source_summary={"openalex": 3},
+            )
+            save_session(session, Path(tmp))
+            candidate_match = {
+                "alias_key": "zh:网络攻击",
+                "surface": "网络攻击",
+                "paper_ids": ["doi:10.1/a"],
+                "candidates": [
+                    {
+                        "concept_id": "concept:cyber_attack",
+                        "canonical": {"en": "Cyber Attack", "zh": ""},
+                        "domains": ["computer_science"],
+                        "parents": [],
+                        "specificity": 80,
+                        "risk_tags": ["needs_context"],
+                    }
+                ],
+            }
+
+            with mock.patch("vpnsci_sustech.report_bridge.subprocess.Popen") as popen_mock, mock.patch(
+                "vpnsci_sustech.theme_candidate_resolution._ambiguous_candidate_matches",
+                return_value=[candidate_match],
+            ):
+                job = start_report_from_session(
+                    "search-theme-candidate-resolution",
+                    config=cfg,
+                    mode="seed_preview",
+                    display_query="网络攻击检测",
+                    language="zh",
+                )
+
+            popen_mock.assert_not_called()
+            self.assertEqual(job.status, "theme_candidate_resolution_required")
+            self.assertEqual(job.failures, ["theme_candidate_resolution_pending"])
+            self.assertTrue(job.theme_candidate_resolution_request_path.endswith(THEME_CANDIDATE_RESOLUTION_REQUEST_FILENAME))
+            self.assertTrue(Path(job.theme_candidate_resolution_request_path).exists())
+
+    def test_apply_theme_candidate_resolution_and_render_seed_preview_updates_materialized_treemap(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "paper-search-pro"
+            output_dir = Path(tmp) / "reports"
+            root.mkdir()
+            cfg = Config(
+                cache_dir=tmp,
+                paper_search_pro_root=str(root),
+                paper_search_pro_command="python -m vpnsci_sustech.paper_search_pro_adapter --seed {seed_json} --output-dir {output_dir}",
+                paper_search_pro_output_dir=str(output_dir),
+            )
+            session = SearchSession(
+                session_id="search-theme-candidate-apply",
+                query="网络攻击检测",
+                filters={},
+                hits=[
+                    SearchHit(title="网络攻击检测综述", doi="10.1/a", abstract="恶意软件和入侵检测研究。"),
+                    SearchHit(title="网络攻击防御系统", doi="10.1/b", abstract="安全流量分析和攻击识别。"),
+                    SearchHit(title="无关论文", doi="10.1/c", abstract="低信号文本。"),
+                ],
+                source_summary={"openalex": 3},
+            )
+            save_session(session, Path(tmp))
+            candidate_match = {
+                "alias_key": "zh:网络攻击",
+                "surface": "网络攻击",
+                "paper_ids": ["doi:10.1/a"],
+                "candidates": [
+                    {
+                        "concept_id": "concept:cyber_attack",
+                        "canonical": {"en": "Cyber Attack", "zh": "网络攻击"},
+                        "domains": ["computer_science"],
+                        "parents": [],
+                        "specificity": 80,
+                        "risk_tags": ["needs_context"],
+                    }
+                ],
+            }
+            result_payload = {
+                "schema_version": "theme_candidate_resolution_result.v1",
+                "decisions": [
+                    {
+                        "decision": "resolved",
+                        "alias_key": "zh:网络攻击",
+                        "concept_id": "concept:cyber_attack",
+                        "paper_ids": ["doi:10.1/a"],
+                        "evidence": ["title directly mentions 网络攻击检测"],
+                    }
+                ],
+            }
+
+            with mock.patch(
+                "vpnsci_sustech.theme_candidate_resolution._ambiguous_candidate_matches",
+                return_value=[candidate_match],
+            ), mock.patch(
+                "vpnsci_sustech.report_bridge.render_html_webartifacts",
+                side_effect=lambda materialized_data_dir, output_path, user_query, language, tool_root=None: output_path.write_text("<html>ok</html>", encoding="utf-8"),
+            ):
+                applied = apply_theme_candidate_resolution_and_render(
+                    "search-theme-candidate-apply",
+                    result_payload=result_payload,
+                    config=cfg,
+                    mode="seed_preview",
+                    display_query="网络攻击检测",
+                    language="zh",
+                )
+
+            self.assertEqual(applied.status, "completed")
+            materialized = Path(applied.materialized_dir)
+            chart = json.loads((materialized / "chart_data.json").read_text(encoding="utf-8"))
+            resolved = {theme.get("concept_id"): theme for theme in chart["theme_treemap"]["themes"]}
+            self.assertEqual(resolved["concept:cyber_attack"]["source"], "ambiguous_candidate_resolution")
+            self.assertTrue(Path(applied.theme_candidate_resolution_result_path).exists())
 
     def test_seed_classified_returns_host_agent_rcs_classification_request(self):
         with tempfile.TemporaryDirectory() as tmp:

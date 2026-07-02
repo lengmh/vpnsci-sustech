@@ -296,8 +296,26 @@ use the user-confirmed flow in
 Recommended payload split:
 
 - `chart_data.raw_theme_treemap` → raw deterministic clustering output
-- `chart_data.theme_treemap` → display-facing refined result
+- `chart_data.theme_treemap` → display-facing refined result; may include
+  evidence-backed ambiguous candidates resolved by the Host Agent
+- `chart_data.theme_candidate_resolution` → trace for no-hit / insufficient-hit
+  ambiguous candidate resolution
 - `chart_data.theme_postprocess` → lightweight trace
+
+When deterministic theme signal is no-hit or insufficient-hit, full reports use
+the same C7 candidate resolution contract as seed/recovery:
+
+```text
+full materialization produces raw_theme_treemap
+-> if deterministic signal is insufficient, write theme_candidate_resolution_request.json
+-> host Agent resolves only candidates with direct query/title/abstract/keyword evidence
+-> unresolved candidates remain trace-only
+-> Python applies resolved candidates into theme_treemap
+-> optional label postprocess may normalize/merge labels only
+```
+
+This is official behavior, not gray/shadow mode. It still must not rewrite the
+deterministic compact alias runtime or globally merge concepts.
 
 Recommended Agent request payload:
 

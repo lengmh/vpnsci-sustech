@@ -5460,6 +5460,30 @@
       "decision": "suppressed",
       "reason": "C6 suppressed/noise batch7: source artifact or broad/noise label with low search/treemap value; production switch deferred",
       "reviewer": "main-agent-c6-suppressed-batch7"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:agricultural_economic_and_policy",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C6 topic-label cleanup: broad source/topic label with unresolved alias collision and domain drift; production switch deferred",
+      "reviewer": "main-agent-c6-topic-label-cleanup"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:agricultural_economic_and_policy__2",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C6 topic-label cleanup: paired broad source/topic label variant with unresolved alias collision and domain drift; production switch deferred",
+      "reviewer": "main-agent-c6-topic-label-cleanup"
+    },
+    {
+      "category": "topic_label_phrase",
+      "concept_id": "concept:technology_and_education_system",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C6 topic-label cleanup: broad non-stable source/topic label already rejected as zh alias; production switch deferred",
+      "reviewer": "main-agent-c6-topic-label-cleanup"
     }
   ],
   "schema_version": "theme_concept_curation_decisions.v1"

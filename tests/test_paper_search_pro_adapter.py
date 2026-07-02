@@ -37,6 +37,10 @@ from vpnsci_sustech.paper_search_pro_adapter import (
     _write_materialized_data,
     render_report,
 )
+from vpnsci_sustech.theme_candidate_resolution import (
+    THEME_CANDIDATE_RESOLUTION_REQUEST_FILENAME,
+    THEME_CANDIDATE_RESOLUTION_RESULT_FILENAME,
+)
 from vpnsci_sustech.theme_postprocess import THEME_POSTPROCESS_REQUEST_FILENAME, THEME_POSTPROCESS_RESULT_FILENAME
 from vpnsci_sustech.sources.search_cache import SearchSession
 from vpnsci_sustech.sources.search_models import SearchHit
@@ -1138,6 +1142,133 @@ class PaperSearchProAdapterTests(unittest.TestCase):
             self.assertEqual(chart_data["theme_postprocess"]["model"], "host-agent")
             theme_names = {theme["name"] for theme in chart_data["theme_treemap"]["themes"]}
             self.assertIn("Federated Learning", theme_names)
+
+    def test_seed_preview_writes_candidate_resolution_request_for_low_signal_ambiguous_aliases(self):
+        with WritableTemporaryDirectory() as tmp:
+            session = SearchSession(
+                session_id="search-theme-candidate-resolution",
+                query="网络攻击检测",
+                filters={},
+                hits=[
+                    SearchHit(title="网络攻击检测综述", doi="10.1/a", abstract="恶意软件和入侵检测研究。"),
+                    SearchHit(title="网络攻击防御系统", doi="10.1/b", abstract="安全流量分析和攻击识别。"),
+                    SearchHit(title="无关论文", doi="10.1/c", abstract="低信号文本。"),
+                ],
+                source_summary={"openalex": 3},
+            )
+            candidate_match = {
+                "alias_key": "zh:网络攻击",
+                "surface": "网络攻击",
+                "paper_ids": ["doi:10.1/a"],
+                "candidates": [
+                    {
+                        "concept_id": "concept:cyber_attack",
+                        "canonical": {"en": "Cyber Attack", "zh": ""},
+                        "domains": ["computer_science"],
+                        "parents": [],
+                        "specificity": 80,
+                        "risk_tags": ["needs_context"],
+                    }
+                ],
+            }
+
+            with mock.patch(
+                "vpnsci_sustech.theme_candidate_resolution._ambiguous_candidate_matches",
+                return_value=[candidate_match],
+            ):
+                materialized = _write_materialized_data(
+                    session,
+                    Path(tmp),
+                    display_query="网络攻击检测",
+                    language="zh",
+                )
+
+            chart_data = json.loads((materialized / "chart_data.json").read_text(encoding="utf-8"))
+
+            self.assertTrue((materialized / THEME_CANDIDATE_RESOLUTION_REQUEST_FILENAME).exists())
+            self.assertEqual(chart_data["theme_candidate_resolution"]["attempted"], False)
+            self.assertEqual(chart_data["theme_candidate_resolution"]["reason"], "agent_resolution_not_supplied")
+            self.assertEqual(chart_data["theme_treemap"]["themes"], [])
+            request = json.loads((materialized / THEME_CANDIDATE_RESOLUTION_REQUEST_FILENAME).read_text(encoding="utf-8"))
+            self.assertEqual(request["candidate_aliases"][0]["alias_key"], "zh:网络攻击")
+
+    def test_seed_preview_applies_candidate_resolution_result_when_present(self):
+        with WritableTemporaryDirectory() as tmp:
+            output_dir = Path(tmp)
+            session = SearchSession(
+                session_id="search-theme-candidate-apply",
+                query="网络攻击检测",
+                filters={},
+                hits=[
+                    SearchHit(title="网络攻击检测综述", doi="10.1/a", abstract="恶意软件和入侵检测研究。"),
+                    SearchHit(title="网络攻击防御系统", doi="10.1/b", abstract="安全流量分析和攻击识别。"),
+                    SearchHit(title="无关论文", doi="10.1/c", abstract="低信号文本。"),
+                ],
+                source_summary={"openalex": 3},
+            )
+            candidate_match = {
+                "alias_key": "zh:网络攻击",
+                "surface": "网络攻击",
+                "paper_ids": ["doi:10.1/a"],
+                "candidates": [
+                    {
+                        "concept_id": "concept:cyber_attack",
+                        "canonical": {"en": "Cyber Attack", "zh": "网络攻击"},
+                        "domains": ["computer_science"],
+                        "parents": [],
+                        "specificity": 80,
+                        "risk_tags": ["needs_context"],
+                    }
+                ],
+            }
+            with mock.patch(
+                "vpnsci_sustech.theme_candidate_resolution._ambiguous_candidate_matches",
+                return_value=[candidate_match],
+            ):
+                bootstrap = _write_materialized_data(
+                    session,
+                    output_dir,
+                    display_query="网络攻击检测",
+                    language="zh",
+                )
+            (bootstrap / THEME_CANDIDATE_RESOLUTION_RESULT_FILENAME).write_text(
+                json.dumps(
+                    {
+                        "schema_version": "theme_candidate_resolution_result.v1",
+                        "decisions": [
+                            {
+                                "decision": "resolved",
+                                "alias_key": "zh:网络攻击",
+                                "concept_id": "concept:cyber_attack",
+                                "paper_ids": ["doi:10.1/a"],
+                                "evidence": ["title directly mentions 网络攻击检测"],
+                            }
+                        ],
+                    },
+                    ensure_ascii=False,
+                    indent=2,
+                ),
+                encoding="utf-8",
+            )
+
+            with mock.patch(
+                "vpnsci_sustech.theme_candidate_resolution._ambiguous_candidate_matches",
+                return_value=[candidate_match],
+            ):
+                materialized = _write_materialized_data(
+                    session,
+                    output_dir,
+                    display_query="网络攻击检测",
+                    language="zh",
+                )
+
+            chart_data = json.loads((materialized / "chart_data.json").read_text(encoding="utf-8"))
+            themes = chart_data["theme_treemap"]["themes"]
+
+            self.assertEqual(chart_data["theme_candidate_resolution"]["attempted"], True)
+            self.assertEqual(chart_data["theme_candidate_resolution"]["reason"], "applied")
+            resolved = {theme.get("concept_id"): theme for theme in themes}
+            self.assertEqual(resolved["concept:cyber_attack"]["source"], "ambiguous_candidate_resolution")
 
     def test_download_sidecar_with_formal_query_trace_keeps_standard_like_method_modes(self):
         with WritableTemporaryDirectory() as tmp:

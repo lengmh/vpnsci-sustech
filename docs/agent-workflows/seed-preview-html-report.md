@@ -176,13 +176,17 @@ Seed preview now distinguishes:
 
 - `chart_data.raw_theme_treemap`
 - `chart_data.theme_treemap`
+- `chart_data.theme_candidate_resolution`
 - `chart_data.theme_postprocess`
 
 Required semantics:
 
 1. `raw_theme_treemap` is the renderer-independent raw topic signal.
 2. `theme_treemap` is the display-facing refined layer.
-3. `theme_postprocess` is a lightweight trace object describing whether an Agent-supplied refinement was applied.
+3. `theme_candidate_resolution` is a lightweight trace object describing whether
+   no-hit / insufficient-hit ambiguous candidates were sent to the Host Agent
+   and whether evidence-backed resolved candidates were applied.
+4. `theme_postprocess` is a lightweight trace object describing whether an Agent-supplied refinement was applied.
 
 ### Default execution boundary
 
@@ -197,6 +201,11 @@ That means:
 - If no Agent result is supplied, seed preview must fail open and keep `theme_treemap == raw_theme_treemap`.
 - The Agent must not override `insufficient_text_theme_signal`; lexicon updates
   are a separate user-confirmed maintenance flow.
+- Exception: when `theme_candidate_resolution_request.json` exists, the Host
+  Agent should attempt candidate resolution. Resolved candidates with non-empty
+  evidence are formal `theme_treemap` inputs for this report; unresolved
+  candidates stay trace-only. This does not change deterministic alias runtime
+  coverage.
 
 ### Agent request payload
 

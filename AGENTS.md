@@ -162,7 +162,7 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-07-02 C6 suppressed/noise batch7 no-overlay post-review 后；
+最新已知状态（2026-07-02 C6 topic-label cleanup no-overlay follow-up 后；
 生产 compact runtime 仍保持 C5 duplicate acronym redirect 版本，未切 C6 工作视图）：
 
 - compact runtime `build_status`: `review_complete`
@@ -204,10 +204,10 @@ lexicons/review/
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
 - compact index 是当前运行时真源；legacy full overlay 未随 batch-007 之后的覆盖扩展更新，不再作为默认等价检查对象，也不再作为 runtime fallback 读取。
-- 最近相关测试：C6 suppressed/noise batch7 后，targeted
-  curation/build/remap/materialize/query suite `25 passed in 0.17s`；
-  focused alias/runtime suite `927 passed in 27.65s`；project suite
-  `1285 passed, 4 subtests passed in 95.05s`。
+- 最近相关测试：C6 topic-label cleanup follow-up 后，targeted
+  curation/build/remap/materialize/query suite `25 passed in 0.16s`；
+  focused alias/runtime suite `927 passed in 26.26s`；project suite 最近仍为
+  C6 suppressed/noise batch7 后 `1285 passed, 4 subtests passed in 95.05s`。
 - concept curation C1-C4 已开始并完成首批临时验证：
   - C1 只读 audit 已完成，输出在 `F:\AI playground\TempFiles`；
     raw uncovered concepts `1587`，其中 `redirect_candidates = 436`、
@@ -528,6 +528,21 @@ lexicons/review/
     topic-label candidates 仅为已知 blocked/reject 的 `2` 条；临时 compact
     index SHA 为
     `70dd2e966faff468316b9caaedd2946960680446df73517acb53f5d38e00bcf5`。
+  - C6 topic-label cleanup follow-up 已完成：
+    production switch 继续暂缓；用户确认直接清理剩余 topic-label candidates。
+    本轮新增 `3` 条 active `display_only` decision：
+    `agricultural_economic_and_policy`、`agricultural_economic_and_policy__2`、
+    `technology_and_education_system`。其中 `agricultural_economic_and_policy__2`
+    是清理 base 后浮出的同族 variant。C2 overlay counts 为
+    `canonical=127`、`display_only=161`、`redirect=298`、`suppressed=24`；
+    curated build 工作视图输出 concepts `54199`，retired concepts `483`；
+    remapped review decisions 输出 rows `346007`；TempFiles no-overlay
+    materialize `missing_concepts = 0`、accepted conflict groups `0`、runtime
+    concepts `49377`，中文覆盖 `48162 / 49377 = 97.54%`；remaining audit
+    中 `topic_label_candidates` 已清空，剩余 primary buckets 为
+    `needs_decision_candidates=788`、`redirect_candidates=147`、
+    `singleton_gaps=280`；临时 compact index SHA 为
+    `816a286bd2954529e58fa361d445214ee0cd8b6154c589bb309ef7731b419c24`。
 - 最近 C4/C5 相关测试：
   - `uv run pytest tests/test_theme_lexicon_materialize_runtime_overlay.py::MaterializeRuntimeOverlayTests::test_curation_overlay_redirects_aliases_and_excludes_suppressed_concepts -q`:
     先复现 `raw_concepts` 计数错误 `5 != 4`，修复后 `1 passed in 0.05s`；
@@ -590,6 +605,10 @@ lexicons/review/
     `25 passed in 0.17s`。
   - C6 suppressed/noise batch7 focused alias/runtime suite:
     `927 passed in 27.65s`。
+  - C6 topic-label cleanup follow-up targeted curation/build/remap/materialize/query suite:
+    `25 passed in 0.16s`。
+  - C6 topic-label cleanup follow-up focused alias/runtime suite:
+    `927 passed in 26.26s`。
   - project suite:
     `1285 passed, 4 subtests passed in 95.05s`。
 
@@ -604,13 +623,14 @@ lexicons/review/
   HMI 过宽 redirect、语言与文化研究 target direction 与 redirect-chain
   压平问题；C5 已接入 `127` 条 canonical display override，并开始 topic-label
   disposition（生产 runtime 当前为 `45` display-only、`12` suppressed；
-  C6 工作视图当前为 `298` redirect、`158` display-only、`24` suppressed）；
+  C6 工作视图当前为 `298` redirect、`161` display-only、`24` suppressed）；
   C6 已新增 build-level curated snapshot helper 与 review decision remap
   helper，并完成 no-overlay materialize 对照；metadata merge policy 已收紧，
   redirect source 只合并 aliases/source_refs，不再污染 target
-  domains/parents/specificity；suppressed/noise bucket 已清空，剩余 redirect
-  candidates 主要为 blocked/needs-policy 或高风险项；production switch 已暂缓，
-  后续若未来要切 runtime 默认输入，应作为单独迁移任务评审；
+  domains/parents/specificity；suppressed/noise 与 topic-label bucket 已清空，
+  剩余 redirect candidates 主要为 blocked/needs-policy 或高风险项；
+  production switch 已暂缓，后续若未来要切 runtime 默认输入，应作为单独
+  迁移任务评审；
 - post-7000 exact/domain-aware pattern milestone 已完成，runtime 中文覆盖到 `40.49%`；post-40 review cleanup 收口到 `43.18%`；post-40 continuation 已清理并达到 clean `50.01%`；post-50-to-60 子代理审查 milestone 已达到 clean `60.10%`；post-60-to-70 子代理审查 milestone 已达到 clean `70.00%`（exact `70.002%`）；post-70-to-80 子代理审查 milestone 已达到 clean `80.92%`；post-80-to-90 子代理审查 milestone 已达到 clean `90.07%`；post-90-to-final 子代理审查 milestone 已达到 `99.07%`；post-99 safe patch 已达到 `99.08%`；post-99 round2 safe patch 已达到 `99.10%`；post-99 round3 safe patch 曾达到 `99.13%`；post-99 correctness cleanup 因清理伪 exact / stale source 回落到 clean `95.49%`；post-95 singleton exact review batch 推进到 clean `95.91%`；post-95 singleton exact review round2 推进到 clean `96.01%`；post-95 exact collision review round3 推进到 clean `96.14%`；post-95 exact collision review round4 推进到 clean `96.21%`；post-95 exact collision review round5 推进到 clean `96.33%`；post-95 exact collision review round6 推进到 clean `96.45%`；post-95 exact collision review round7 推进到 clean `96.51%`；post-95 singleton exact review round8 推进到 clean `96.51%`（`48115 / 49853`）；post-95 new exact proposal round9 推进到 clean `96.74%`；post-95 new exact proposal round10 推进到 clean `96.76%`；post-95 new exact proposal round11 推进到 clean `96.80%`；post-95 new exact proposal round12 推进到 clean `96.82%`；post-95 new exact proposal round13 未新增 runtime-safe alias，coverage 保持 clean `96.82%`；
 - post-70 review cleanup 已完成最终修复：package 与 paper-search-pro
   runtime 均使用 compact index 一致的 CJK/Latin alias 归一化与中文 alias
@@ -2417,6 +2437,23 @@ uv run python tools/theme-lexicon/materialize_runtime_overlay.py `
 - HTML 报告模块要遵守“模块原位显示”：缺数据展示占位，不整块消失。
 - `raw_theme_treemap` 与 `theme_treemap` 允许不同，但只能因 deterministic
   display quality gate 置空/过滤，不能隐藏 Agent 侧重聚类或重命名。
+- C7 起主题覆盖分两层：strict `deterministic_covered` 仍只看 compact runtime
+  accepted alias；`candidate_resolvable_covered` 表示概念进入
+  `theme_concept_ambiguous_alias_candidates.json`，在具体报告中可由 Host Agent
+  基于 query / title / abstract / keywords 消歧。两者合称 effective coverage，
+  但交付说明必须分开报，不得把候选可达说成 runtime accepted。
+- `theme_candidate_resolution_request.json` 只在默认 treemap no-hit /
+  insufficient-hit 时生成；Host Agent 有直接证据才返回 `resolved`，没有证据
+  必须 `unresolved`。resolved candidates 是本次报告正式 `theme_treemap`
+  输入，但不反写 deterministic alias runtime。
+- 2026-07-02 C7 已完成首版正式接入：ambiguous candidate layer 为
+  `658` candidate aliases / `617` candidate-resolvable concepts
+  (`en=335`, `zh=323`)；package/tool candidate index SHA-256 均为
+  `2110f636018013c771515ec49a97c26ccb119a410be53a540837d089fbe21275`，
+  manifest SHA-256 均为
+  `cffae55a2774f8fc1964649f24892dc3fb5d6024bbfa042167bcb1cb425d9636`。
+  C7 没有改写 deterministic compact alias index/manifest；最新全量测试
+  `uv run pytest tests -q` 为 `1297 passed, 4 subtests passed in 102.39s`。
 
 ## 8. CNKI / 浏览器 / 外部服务安全边界
 
