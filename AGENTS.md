@@ -162,7 +162,7 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-07-02 C8 singleton exact round4/5 后；
+最新已知状态（2026-07-02 C8 redirect tail closeout 后；
 生产 compact runtime 只接入 reviewed exact singleton alias，C8 curation overlay
 仍仅作为 TempFiles work view，未切 production curation）：
 
@@ -186,13 +186,13 @@ lexicons/review/
 - runtime zh alias conflicts: `0`
 - runtime concept aliases: `49849`
 - C8 curated work-view（TempFiles-only）：
-  - concepts: `49311`
-  - deterministic covered: `48211 / 49311 = 97.77%`
+  - concepts: `49302`
+  - deterministic covered: `48211 / 49302 = 97.79%`
   - C7 candidate-resolvable concepts: `620`
-  - effective covered: `48831 / 49311 = 99.03%`
-  - effective tail: `480`
-  - active curation decisions: `673`
-    (`redirect=364`, `display_only=161`, `suppressed=24`, `canonical=124`)
+  - effective covered: `48831 / 49302 = 99.04%`
+  - effective tail: `471`
+  - active curation decisions: `682`
+    (`redirect=373`, `display_only=161`, `suppressed=24`, `canonical=124`)
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
 - legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；当前运行时以 compact index/manifest 为准）
@@ -206,9 +206,9 @@ lexicons/review/
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
 - compact index 是当前运行时真源；legacy full overlay 未随 batch-007 之后的覆盖扩展更新，不再作为默认等价检查对象，也不再作为 runtime fallback 读取。
-- 最近相关测试：C8 singleton exact round4/5 后，focused alias/runtime suite
-  `911 passed in 29.14s`；project suite
-  `1297 passed, 4 subtests passed in 102.49s`。
+- 最近相关测试：C8 redirect candidate batch5 后，focused alias/runtime suite
+  `911 passed in 27.18s`；project suite 最近一次为 C8 singleton exact
+  round4/5 后 `1297 passed, 4 subtests passed in 102.49s`。
 - concept curation C1-C4 已开始并完成首批临时验证：
   - C1 只读 audit 已完成，输出在 `F:\AI playground\TempFiles`；
     raw uncovered concepts `1587`，其中 `redirect_candidates = 436`、
@@ -2561,6 +2561,58 @@ uv run python tools/theme-lexicon/materialize_runtime_overlay.py `
   `F:\AI playground\TempFiles\c8_singleton_exact_selected_round5_precheck_20260702.json`
   和
   `F:\AI playground\TempFiles\theme_alias_effective_tail_audit_c8_singleton_round5_effective_tail_20260702.json`。
+- C8 redirect candidate batch4 已完成：从 effective tail 的 `46` 个
+  `redirect_candidates` 中只接收 `8` 条 exact/domain-aware source cleanup
+  redirect：`biometric_recognition -> biometric_identification__2`、
+  `face_identification -> face_recognition`、`low_power -> low_power_consumption`、
+  `mathematic__2 -> mathematic`、`on_line_setting -> online_environment`、
+  `speed_control -> velocity_control`、`speed_measurement -> velocity_measurement`、
+  `wideband_antenna -> broadband_antenna`。化学单复数/类别-实例、HMI/HCI
+  宽窄漂移、data mesh/grid、software validation/verification、voice/sound
+  recognition 等不作 redirect；`fiber_sensor -> optical_fiber_sensor` 暂缓。
+  C8 curated work-view active curation decisions 更新为 `681`
+  (`redirect=372`, `display_only=161`, `suppressed=24`, `canonical=124`)；
+  TempFiles-only materialize 后 concepts `49303`，deterministic covered
+  `48211 / 49303 = 97.79%`，candidate-resolvable concepts `620`，
+  effective coverage `48831 / 49303 = 99.04%`，effective tail `472`
+  (`needs_decision_candidates=370`, `redirect_candidates=38`,
+  `singleton_gaps=64`)。生产 compact runtime 未接入 C8 curation overlay。
+  临时产物包括
+  `F:\AI playground\TempFiles\theme_alias_redirect_candidate_review_c8_batch4_20260702.json`
+  和
+  `F:\AI playground\TempFiles\theme_alias_effective_tail_audit_c8_redirect_batch4_effective_tail_20260702.json`。
+  Fresh validation: `apply_concept_curation.py` 通过；TempFiles-only
+  `materialize_runtime_overlay.py` 通过；focused alias/runtime suite
+  `911 passed in 26.60s`；`git diff --check` 仅 CRLF 提示。
+- C8 redirect candidate batch5 已完成：从 batch4 后剩余 `38` 个
+  `redirect_candidates` 中只新增 `fiber_sensor -> optical_fiber_sensor`；
+  理由是 source row 通过 exact 中文 alias `光纤传感器` 与 sensors 语境下的
+  optical fiber sensor target 碰撞。其余 chemical singular/plural 或
+  class-vs-instance、semantic-neighbor、domain-drift candidates 继续暂缓。
+  C8 curated work-view active curation decisions 更新为 `682`
+  (`redirect=373`, `display_only=161`, `suppressed=24`, `canonical=124`)；
+  TempFiles-only materialize 后 concepts `49302`，deterministic covered
+  `48211 / 49302 = 97.79%`，candidate-resolvable concepts `620`，
+  effective coverage `48831 / 49302 = 99.04%`，effective tail `471`
+  (`needs_decision_candidates=370`, `redirect_candidates=37`,
+  `singleton_gaps=64`)。生产 compact runtime 未接入 C8 curation overlay。
+  临时产物包括
+  `F:\AI playground\TempFiles\theme_alias_redirect_candidate_review_c8_batch5_20260702.json`
+  和
+  `F:\AI playground\TempFiles\theme_alias_effective_tail_audit_c8_redirect_batch5_effective_tail_20260702.json`。
+  Fresh validation: `apply_concept_curation.py` 通过；TempFiles-only
+  `materialize_runtime_overlay.py` 通过；focused alias/runtime suite
+  `911 passed in 27.18s`；`git diff --check` 仅 CRLF 提示。
+- C8 redirect tail closeout 已完成：batch5 后剩余 `37` 个
+  `redirect_candidates` 全部审查并转入 deferred evidence queue，未新增
+  active redirect。closeout 分布为
+  `deferred_chemical_class_or_instance=13`、
+  `deferred_semantic_neighbor=11`、`deferred_domain_drift=6`、
+  `deferred_broader_narrower=5`、`deferred_bad_collision_target=2`。
+  结论：这些候选目前缺少 strict duplicate/source-variant 证据，不应为了
+  清零 redirect tail 而污染 canonical target；后续如有领域证据、命中证据或
+  source metadata diff，可从 deferred queue 回收。归档产物：
+  `F:\AI playground\TempFiles\theme_alias_redirect_tail_closeout_c8_20260702.json`。
 
 ## 8. CNKI / 浏览器 / 外部服务安全边界
 
