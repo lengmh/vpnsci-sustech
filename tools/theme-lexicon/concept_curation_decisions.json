@@ -6132,6 +6132,841 @@
       "reason": "C8 redirect candidate review batch5: fiber sensor source row collides through exact Chinese alias 光纤传感器 with optical fiber sensor in sensors context; production switch deferred",
       "reviewer": "main-agent-c8-redirect-batch5",
       "target_concept_id": "concept:optical_fiber_sensor"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:accident__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:accident"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:accreditation__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:accreditation"
+    },
+    {
+      "category": "broad_or_noise",
+      "concept_id": "concept:adam",
+      "decided_at": "2026-07-02",
+      "decision": "suppressed",
+      "reason": "C8 needs-decision first100 cleanup: Adams is a noisy source/person-like label in computer-science context, not a stable theme concept.; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:adder__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:adder"
+    },
+    {
+      "category": "broad_or_noise",
+      "concept_id": "concept:advanced_mathematical_identity",
+      "decided_at": "2026-07-02",
+      "decision": "suppressed",
+      "reason": "C8 needs-decision first100 cleanup: Advanced Mathematical Identities was already rejected as an OpenAlex-style topic label/noise.; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:aerosol__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:aerosol"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:agrochemical__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:agrochemical"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:airport__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:airport"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:anemia__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:anemia"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:aneurysm__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:aneurysm"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:angiocardiography__3",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:angiocardiography"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:angiography__3",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:angiography"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:angioplasty__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:angioplasty"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:animal__3",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:animal"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:aquaculture__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:aquaculture"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:artificial_limb__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:artificial_limb"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:atrophy__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:atrophy"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:autoencoder__3",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:autoencoder"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:automation__3",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:automation"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:autopsy__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:autopsy"
+    },
+    {
+      "category": "metadata_or_display_only",
+      "concept_id": "concept:bibliography",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision first100 cleanup: Bibliographies is publication/communication metadata, useful as display/source metadata but not runtime alias.; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:biofilm__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:biofilm"
+    },
+    {
+      "category": "metadata_or_display_only",
+      "concept_id": "concept:biography",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision first100 cleanup: Biographies is publication/communication metadata, useful as display/source metadata but not runtime alias.; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:biometric__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:biometric"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:biopolymer__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:biopolymer"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:bioreactor__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:bioreactor"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:birefringence__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:birefringence"
+    },
+    {
+      "category": "metadata_or_display_only",
+      "concept_id": "concept:body_and_organ_system",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision first100 cleanup: Body & Organ Systems is a broad source grouping label; keep as display/source metadata only.; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:bolometer__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:bolometer"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:botany__3",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:botany"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:bragg_grating__4",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:bragg_grating"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:bronchoscopy__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:bronchoscopy"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:calibration__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:calibration"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:capital_financing__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:capital_financing"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:cataract__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:cataract"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:catheter__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:catheter"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:catheterization__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:catheterization"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:centromere__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:centromere"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:ceramic__3",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:ceramic"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:certification__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:certification"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:chromosome_aberration__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:chromosome_aberration"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:circadian_rhythm__3",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:circadian_rhythm"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:cochlear_implant__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:cochlear_implant"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:cognition__3",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:cognition"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:colloid__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:colloid"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:colonoscopy__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:colonoscopy"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:color__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:color"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:commerce__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:commerce"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:conserved_sequence__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:conserved_sequence"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:corrosion__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:corrosion"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:cryotherapy__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:cryotherapy"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:crystallography__3",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:crystallography"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:cybernetic__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:cybernetic"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:cyclotron__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:cyclotron"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:cytogenetic__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:cytogenetic"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:dairy_product__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:dairy_product"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:denitrification__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:denitrification"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:deoxyribonuclease_type_ii_site_specific__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:deoxyribonuclease_type_ii_site_specific"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:developing_country__3",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:developing_country"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:diamond__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision first100 source cleanup: strict base/source singular-plural or source wording variant; no alias accepted while production curation overlay is deferred",
+      "reviewer": "main-agent-c8-needs-decision-first100",
+      "target_concept_id": "concept:diamond"
+    },
+    {
+      "canonical_en": "Pharmacy Dictionaries",
+      "category": "metadata_or_display_only",
+      "concept_id": "concept:dictionary_pharmaceutic_as_topic",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision remaining closeout: Pharmacy Dictionaries is publication/reference metadata, not a deterministic runtime theme alias target.",
+      "reviewer": "main-agent-c8-needs-closeout"
+    },
+    {
+      "canonical_en": "Diverse Academic Research Themes",
+      "category": "topic_label_phrase_broad_or_noise",
+      "concept_id": "concept:diverse_academic_research_them",
+      "decided_at": "2026-07-02",
+      "decision": "suppressed",
+      "reason": "C8 needs-decision remaining closeout: Diverse Academic Research Themes is a broad generated source/topic label with low search/treemap precision.",
+      "reviewer": "main-agent-c8-needs-closeout"
+    },
+    {
+      "canonical_en": "Documentations",
+      "category": "metadata_or_display_only",
+      "concept_id": "concept:documentation__2",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision remaining closeout: Documentations is publication/source metadata and too broad for deterministic runtime aliasing.",
+      "reviewer": "main-agent-c8-needs-closeout"
+    },
+    {
+      "canonical_en": "Environmental DNA In Biodiversity Studies",
+      "category": "compositional_topic_or_display",
+      "concept_id": "concept:environmental_dna_in_biodiversity_study",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision remaining closeout: Environmental DNA in Biodiversity Studies is a coherent but compositional source topic; keep for display/source context, not runtime alias.",
+      "reviewer": "main-agent-c8-needs-closeout"
+    },
+    {
+      "canonical_en": "Management And Optimization Techniques",
+      "category": "compositional_topic_or_display",
+      "concept_id": "concept:management_and_optimization_techniqu",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision remaining closeout: Management And Optimization Techniques is a broad compositional topic phrase already rejected as an exact zh alias.",
+      "reviewer": "main-agent-c8-needs-closeout"
+    },
+    {
+      "canonical_en": "Motion Picture",
+      "category": "metadata_or_display_only",
+      "concept_id": "concept:motion_pictur__2",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision remaining closeout: Motion Picture is source/publication/media metadata in this biomedical source context; prior generated zh topic alias was blocked.",
+      "reviewer": "main-agent-c8-needs-closeout"
+    },
+    {
+      "canonical_en": "Museum",
+      "category": "metadata_or_display_only",
+      "concept_id": "concept:museum__2",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision remaining closeout: Museum is institution/source metadata in this source context and not a stable runtime theme alias target.",
+      "reviewer": "main-agent-c8-needs-closeout"
+    },
+    {
+      "canonical_en": "Technology And Data Analysis",
+      "category": "compositional_topic_or_display",
+      "concept_id": "concept:technology_and_data_analysi",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision remaining closeout: Technology And Data Analysis is a broad compositional source topic already rejected as an exact zh alias.",
+      "reviewer": "main-agent-c8-needs-closeout"
+    },
+    {
+      "canonical_en": "Technology And Security Systems",
+      "category": "compositional_topic_or_display",
+      "concept_id": "concept:technology_and_security_system",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision remaining closeout: Technology And Security Systems is a broad compositional source topic already rejected as an exact zh alias.",
+      "reviewer": "main-agent-c8-needs-closeout"
+    },
+    {
+      "category": "compositional_topic_or_display",
+      "concept_id": "concept:airway_management_and_intubation_techniqu",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision display cleanup round1: coherent medical topic phrase but compositional and context-bound; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-display-round1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "metadata_or_display_only",
+      "concept_id": "concept:asian__2",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision display cleanup round1: Asians named-group source metadata, not a deterministic search alias concept; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-display-round1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "compositional_topic_or_display",
+      "concept_id": "concept:atmospheric_aerosol_and_cloud",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision display cleanup round1: coherent environmental topic phrase but compositional; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-display-round1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "compositional_topic_or_display",
+      "concept_id": "concept:atmospheric_chemistry_and_aerosol",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision display cleanup round1: coherent atmospheric chemistry topic phrase but compositional; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-display-round1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "metadata_or_display_only",
+      "concept_id": "concept:autobiography__2",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision display cleanup round1: Autobiography publication-characteristic source metadata; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-display-round1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:byzantine_failur",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision technical round1 source cleanup: Byzantine failures is a source plural/wording variant of Byzantine fault; exact zh collision target already exists; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-technical-round1",
+      "target_concept_id": "concept:byzantine_fault"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:cluster_validity_indic",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision technical round1 source cleanup: Cluster validity indices is plural/source variant of cluster validity index; exact zh collision target already exists; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-technical-round1",
+      "target_concept_id": "concept:cluster_validity_index"
+    },
+    {
+      "category": "compositional_topic_or_display",
+      "concept_id": "concept:crystallography_and_molecular_interaction",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision display cleanup round1: coherent chemistry topic phrase but compositional; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-display-round1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "metadata_or_display_only",
+      "concept_id": "concept:dictionary__2",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision display cleanup round1: Dictionary publication-characteristic source metadata; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-display-round1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "compositional_topic_or_display",
+      "concept_id": "concept:electrostatic_and_colloid_interaction",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision display cleanup round1: coherent chemistry topic phrase but compositional; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-display-round1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "metadata_or_display_only",
+      "concept_id": "concept:encyclopedia__2",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision display cleanup round1: Encyclopedia publication-characteristic source metadata; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-display-round1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "compositional_topic_or_display",
+      "concept_id": "concept:fractal_and_dna_sequence_analysi",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision display cleanup round1: coherent cross-domain topic phrase but compositional; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-display-round1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "metadata_or_display_only",
+      "concept_id": "concept:history__2",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision display cleanup round1: Histories qualifier/source metadata, too broad for runtime alias matching; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-display-round1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:integer_linear_program",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision technical round1 source cleanup: Integer linear programs source row aligns with integer linear programming target; exact zh collision target already exists; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-technical-round1",
+      "target_concept_id": "concept:integer_linear_programming"
+    },
+    {
+      "category": "metadata_or_display_only",
+      "concept_id": "concept:librarian__2",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision display cleanup round1: Librarian named-group/source metadata, not a deterministic theme alias concept; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-display-round1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "high_confidence_acronym_full_form_duplicate",
+      "concept_id": "concept:monolithic_microwave_integrated_circuit",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision technical round1 source cleanup: Monolithic microwave integrated circuits is full form of MMIC/MMICs target; exact zh collision target already exists; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-technical-round1",
+      "target_concept_id": "concept:mmic"
+    },
+    {
+      "category": "compositional_topic_or_display",
+      "concept_id": "concept:psychological_treatment_and_assessment",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision display cleanup round1: coherent psychology topic phrase but compositional; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-display-round1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "high_confidence_acronym_full_form_duplicate",
+      "concept_id": "concept:redundant_array_of_independent_disk",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision technical round1 source cleanup: Redundant array of independent disks is full form of RAID target; exact zh collision target already exists; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-technical-round1",
+      "target_concept_id": "concept:raid"
+    },
+    {
+      "category": "metadata_or_display_only",
+      "concept_id": "concept:statistic__2",
+      "decided_at": "2026-07-02",
+      "decision": "display_only",
+      "reason": "C8 needs-decision display cleanup round1: Statistic publication-characteristic source metadata, too broad for runtime alias matching; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-display-round1",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:three_axis_accelerometer",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision technical round1 source cleanup: Three axis accelerometers is spelling/source variant of 3-axis accelerometer; exact zh collision target already exists; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-technical-round1",
+      "target_concept_id": "concept:3_axis_accelerometer"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:transmitting_antenna__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision technical round1 source cleanup: Transmitting antenna is wording/source variant of transmit antenna; exact zh collision target already exists; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-technical-round1",
+      "target_concept_id": "concept:transmit_antenna"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:ultra_wide_band_antenna",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision technical round1 source cleanup: Ultra wide-band antennas is spelling/source variant of ultra-wideband antenna; exact zh collision target already exists; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-technical-round1",
+      "target_concept_id": "concept:ultra_wideband_antenna"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:variational_autoencoder",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision technical round1 source cleanup: Variational autoencoders is spacing/source variant of variational auto encoders; exact zh collision target already exists; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-technical-round1",
+      "target_concept_id": "concept:variational_auto_encoder"
+    },
+    {
+      "category": "high_confidence_acronym_full_form_duplicate",
+      "concept_id": "concept:vertical_cavity_surface_emitting_laser__3",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 needs-decision technical round1 source cleanup: Vertical cavity surface emitting laser is full form of VCSEL target; exact zh collision target already exists; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-technical-round1",
+      "target_concept_id": "concept:vcsel"
     }
   ],
   "schema_version": "theme_concept_curation_decisions.v1"

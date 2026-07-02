@@ -162,7 +162,7 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-07-02 C8 redirect tail closeout 后；
+最新已知状态（2026-07-02 C8 needs-decision technical round1 后；
 生产 compact runtime 只接入 reviewed exact singleton alias，C8 curation overlay
 仍仅作为 TempFiles work view，未切 production curation）：
 
@@ -186,13 +186,13 @@ lexicons/review/
 - runtime zh alias conflicts: `0`
 - runtime concept aliases: `49849`
 - C8 curated work-view（TempFiles-only）：
-  - concepts: `49302`
-  - deterministic covered: `48211 / 49302 = 97.79%`
+  - concepts: `49278`
+  - deterministic covered: `48211 / 49278 = 97.83%`
   - C7 candidate-resolvable concepts: `620`
-  - effective covered: `48831 / 49302 = 99.04%`
-  - effective tail: `471`
-  - active curation decisions: `682`
-    (`redirect=373`, `display_only=161`, `suppressed=24`, `canonical=124`)
+  - effective covered: `48831 / 49278 = 99.09%`
+  - effective tail: `447`
+  - active curation decisions: `706`
+    (`redirect=383`, `display_only=175`, `suppressed=24`, `canonical=124`)
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
 - legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；当前运行时以 compact index/manifest 为准）
@@ -206,8 +206,8 @@ lexicons/review/
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
 - compact index 是当前运行时真源；legacy full overlay 未随 batch-007 之后的覆盖扩展更新，不再作为默认等价检查对象，也不再作为 runtime fallback 读取。
-- 最近相关测试：C8 redirect candidate batch5 后，focused alias/runtime suite
-  `911 passed in 27.18s`；project suite 最近一次为 C8 singleton exact
+- 最近相关测试：C8 needs-decision display cleanup round1 后，focused alias/runtime suite
+  `911 passed in 30.23s`；project suite 最近一次为 C8 singleton exact
   round4/5 后 `1297 passed, 4 subtests passed in 102.49s`。
 - concept curation C1-C4 已开始并完成首批临时验证：
   - C1 只读 audit 已完成，输出在 `F:\AI playground\TempFiles`；
@@ -2613,6 +2613,97 @@ uv run python tools/theme-lexicon/materialize_runtime_overlay.py `
   清零 redirect tail 而污染 canonical target；后续如有领域证据、命中证据或
   source metadata diff，可从 deferred queue 回收。归档产物：
   `F:\AI playground\TempFiles\theme_alias_redirect_tail_closeout_c8_20260702.json`。
+- C8 needs-decision technical round1 已完成：从 `technical_source_variant_exact_alias_review`
+  的 `41` 条中做 strict precheck。最初挑出的 `18` 条中文 exact alias 在
+  fill/validate 后全部与 base/source-variant concept 发生碰撞，因此未保留到
+  `reviewed_zh_exact_aliases.json`，production exact alias 净增 `0`，避免
+  source-only row。改为写入 `10` 条高置信 source cleanup redirect：
+  `byzantine_failur -> byzantine_fault`、
+  `cluster_validity_indic -> cluster_validity_index`、
+  `integer_linear_program -> integer_linear_programming`、
+  `monolithic_microwave_integrated_circuit -> mmic`、
+  `redundant_array_of_independent_disk -> raid`、
+  `three_axis_accelerometer -> 3_axis_accelerometer`、
+  `transmitting_antenna__2 -> transmit_antenna`、
+  `ultra_wide_band_antenna -> ultra_wideband_antenna`、
+  `variational_autoencoder -> variational_auto_encoder`、
+  `vertical_cavity_surface_emitting_laser__3 -> vcsel`。英文 short acronym
+  queue 已重新显式 blocked，production compact runtime 保持
+  `build_status=review_complete`，SHA 回到
+  `8f10c9b352302216215109d1bd6c0345602aa9bb08d64a8e88de81be0ab0490f`。
+  C8 curated work-view active curation decisions 更新为 `692`
+  (`redirect=383`, `display_only=161`, `suppressed=24`, `canonical=124`)；
+  TempFiles-only materialize 后 concepts `49292`，deterministic covered
+  `48211 / 49292 = 97.81%`，candidate-resolvable concepts `620`，
+  effective coverage `48831 / 49292 = 99.06%`，effective tail `461`
+  (`needs_decision_candidates=360`, `redirect_candidates=37`,
+  `singleton_gaps=64`)。结果归档：
+  `F:\AI playground\TempFiles\theme_alias_needs_decision_technical_round1_result_20260702.json`。
+- C8 needs-decision display cleanup round1 已完成：从
+  `metadata_or_display_only_review` / `compositional_topic_or_display_review`
+  小桶中写入 `14` 条 active `display_only` decision；`enzym/Enzymes`
+  因仍是有效 biomedical/chemical concept 未清理。本轮不写 runtime alias、不切
+  production curation overlay。C8 curated work-view active decisions 更新为
+  `706` (`redirect=383`, `display_only=175`, `suppressed=24`,
+  `canonical=124`)；TempFiles-only materialize 后 concepts `49278`，
+  deterministic covered `48211 / 49278 = 97.83%`，candidate-resolvable
+  concepts `620`，effective coverage `48831 / 49278 = 99.09%`，
+  effective tail `447` (`needs_decision_candidates=346`,
+  `redirect_candidates=37`, `singleton_gaps=64`)。临时产物：
+  `F:\AI playground\TempFiles\theme_alias_needs_decision_display_round1_20260702.json`
+  和
+  `F:\AI playground\TempFiles\theme_alias_effective_tail_audit_c8_needs_display_round1_effective_tail_20260702.json`。
+- C8 needs-decision first100 review 已完成：从 display cleanup round1 后
+  `346` 个 `needs_decision_candidates` 中处理前 `100` 个；写入 `60` 条
+  active curation decision，其中 `55` 条 strict base/source-variant redirect、
+  `3` 条 display_only（`bibliography`、`biography`、`body_and_organ_system`）
+  和 `2` 条 suppressed（`adam`、`advanced_mathematical_identity`）；其余
+  `40` 条暂缓（`19` 条 acronym/short label 需上下文，`21` 条仍缺 exact
+  或 domain evidence）。本轮仍不切 production curation overlay。生产 compact
+  runtime 保持 `48311 / 49849 = 96.91%`，zh aliases `48431`，accepted
+  conflict groups `0`，runtime en/zh alias conflicts `0/0`，pollution audit
+  `0/0`；package/tool compact index 与 manifest 均 byte-identical。C8
+  curated work-view active decisions 更新为 `766`
+  (`redirect=438`, `display_only=178`, `suppressed=26`, `canonical=124`)；
+  TempFiles-only materialize 后 concepts `49273`，deterministic covered
+  `48211 / 49273 = 97.84%`，candidate-resolvable concepts `620`，
+  effective coverage `48831 / 49273 = 99.10%`，effective tail `442`
+  (`needs_decision_candidates=318`, `redirect_candidates=37`,
+  `singleton_gaps=87`)。临时产物：
+  `F:\AI playground\TempFiles\theme_alias_needs_decision_first100_review_c8_20260702.json`
+  和
+  `F:\AI playground\TempFiles\theme_alias_effective_tail_audit_c8_needs_first100_effective_tail_20260702.json`。
+  Fresh validation: `apply_concept_curation.py` 通过；TempFiles-only
+  `materialize_runtime_overlay.py` 通过；focused alias/runtime suite
+  `919 passed in 27.33s`。
+- C8 needs-decision remaining closeout 已完成：对 first100 后剩余 `318`
+  个 needs-decision item 全量给出 disposition；只新增 `9` 条 active source
+  cleanup decision，其中 `8` 条 display_only
+  (`dictionary_pharmaceutic_as_topic`、`documentation__2`、
+  `environmental_dna_in_biodiversity_study`、
+  `management_and_optimization_techniqu`、`motion_pictur__2`、`museum__2`、
+  `technology_and_data_analysi`、`technology_and_security_system`) 和 `1`
+  条 suppressed (`diverse_academic_research_them`)。其余 `309` 条不强行
+  runtime 处理：`233` 条进入 exact/domain-aware zh alias 或 source metadata
+  evidence 队列，`76` 条进入 acronym/full-form context 队列；这不是未审
+  漏项，而是按“不批量机翻、不自动 merge collision、不打开低质 fallback”
+  收口后的 deferred 队列。本轮仍不切 production curation overlay。生产
+  compact runtime 保持 `48311 / 49849 = 96.91%`，zh aliases `48431`，
+  accepted conflict groups `0`，runtime en/zh alias conflicts `0/0`，
+  pollution audit `0/0`；package/tool compact index 与 manifest 均
+  byte-identical。C8 curated work-view active decisions 更新为 `775`
+  (`redirect=438`, `display_only=186`, `suppressed=27`, `canonical=124`)；
+  TempFiles-only materialize 后 concepts `49264`，deterministic covered
+  `48211 / 49264 = 97.86%`，candidate-resolvable concepts `620`，
+  effective coverage `48831 / 49264 = 99.12%`，effective tail `433`
+  (`needs_decision_candidates=309`, `redirect_candidates=37`,
+  `singleton_gaps=87`)。临时产物：
+  `F:\AI playground\TempFiles\theme_alias_needs_decision_remaining_closeout_c8_20260702.json`
+  和
+  `F:\AI playground\TempFiles\theme_alias_effective_tail_audit_c8_needs_closeout_effective_tail_20260702.json`。
+  Fresh validation: `apply_concept_curation.py` 通过；TempFiles-only
+  `materialize_runtime_overlay.py` 通过；focused alias/runtime suite
+  `919 passed in 28.53s`。
 
 ## 8. CNKI / 浏览器 / 外部服务安全边界
 
