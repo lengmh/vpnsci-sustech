@@ -6051,6 +6051,87 @@
       "reason": "C8 tail cleanup batch3: robotics/robot source variant already collides with covered canonical target; production switch deferred",
       "reviewer": "main-agent-c8-tail-batch3",
       "target_concept_id": "concept:underwater_robot"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:biometric_recognition",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 redirect candidate review batch4: biometric recognition and biometric identification share exact Chinese technical term in the same CS domain; production switch deferred",
+      "reviewer": "main-agent-c8-redirect-batch4",
+      "target_concept_id": "concept:biometric_identification__2"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:face_identification",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 redirect candidate review batch4: face identification is an exact source synonym of face recognition in the same recognition domain; production switch deferred",
+      "reviewer": "main-agent-c8-redirect-batch4",
+      "target_concept_id": "concept:face_recognition"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:low_power",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 redirect candidate review batch4: low power is a source shorthand for low power consumption in CS/electronics context; production switch deferred",
+      "reviewer": "main-agent-c8-redirect-batch4",
+      "target_concept_id": "concept:low_power_consumption"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:mathematic__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 redirect candidate review batch4: base-id duplicate for mathematics; target keeps established canonical/runtime alias; production switch deferred",
+      "reviewer": "main-agent-c8-redirect-batch4",
+      "target_concept_id": "concept:mathematic"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:on_line_setting",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 redirect candidate review batch4: online setting is a source wording variant of online environment in CS context; production switch deferred",
+      "reviewer": "main-agent-c8-redirect-batch4",
+      "target_concept_id": "concept:online_environment"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:speed_control",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 redirect candidate review batch4: speed/velocity control are accepted wording variants for the same control concept in this source layer; production switch deferred",
+      "reviewer": "main-agent-c8-redirect-batch4",
+      "target_concept_id": "concept:velocity_control"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:speed_measurement",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 redirect candidate review batch4: speed/velocity measurement are accepted wording variants for the same instrumentation concept in this source layer; production switch deferred",
+      "reviewer": "main-agent-c8-redirect-batch4",
+      "target_concept_id": "concept:velocity_measurement"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:wideband_antenna",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 redirect candidate review batch4: wideband/broadband antenna are source wording variants in antenna domain; production switch deferred",
+      "reviewer": "main-agent-c8-redirect-batch4",
+      "target_concept_id": "concept:broadband_antenna"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:fiber_sensor",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 redirect candidate review batch5: fiber sensor source row collides through exact Chinese alias 光纤传感器 with optical fiber sensor in sensors context; production switch deferred",
+      "reviewer": "main-agent-c8-redirect-batch5",
+      "target_concept_id": "concept:optical_fiber_sensor"
     }
   ],
   "schema_version": "theme_concept_curation_decisions.v1"
