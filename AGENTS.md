@@ -162,52 +162,53 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-07-02 C6 topic-label cleanup no-overlay follow-up 后；
-生产 compact runtime 仍保持 C5 duplicate acronym redirect 版本，未切 C6 工作视图）：
+最新已知状态（2026-07-02 C8 singleton exact round4/5 后；
+生产 compact runtime 只接入 reviewed exact singleton alias，C8 curation overlay
+仍仅作为 TempFiles work view，未切 production curation）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，
-  最新 fill `records_filled = 51844 / records_seen = 54682`；
+  最新 fill `records_filled = 51916 / records_seen = 54682`；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`48203 / 49554 = 97.27%`（curated denominator；
-  raw 覆盖为 `48262 / 49849 = 96.82%`）
-- runtime zh aliases: `48334`
-- runtime en aliases: `189414`
+- runtime 中文覆盖：`48311 / 49849 = 96.91%`
+- runtime zh aliases: `48431`
+- runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `48382`
-- `zh:blocked`: `3695`
+- `zh:accept`: `48431`
+- `zh:blocked`: `3720`
 - `zh:needs_review`: `0`
 - `zh:reject`: `13`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `49554`
-- raw runtime concepts: `49849`
-- curated runtime concepts: `49554`
-- redirected concepts: `238`
-- canonical display overrides: `127`
-- suppressed concepts: `12`
-- display-only concepts: `45`
+- runtime concept aliases: `49849`
+- C8 curated work-view（TempFiles-only）：
+  - concepts: `49311`
+  - deterministic covered: `48211 / 49311 = 97.77%`
+  - C7 candidate-resolvable concepts: `620`
+  - effective covered: `48831 / 49311 = 99.03%`
+  - effective tail: `480`
+  - active curation decisions: `673`
+    (`redirect=364`, `display_only=161`, `suppressed=24`, `canonical=124`)
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
 - legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；当前运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `7202e4246a55a7ac595af8a061059dc946eeff97e65bd4c2dc05351f23feb0ee`
+  `8f10c9b352302216215109d1bd6c0345602aa9bb08d64a8e88de81be0ab0490f`
 - compact manifest SHA-256:
-  `80afdf958641f0123c3a36b26c8a551f4ede6c64f3d08e76ba400a8d30a57657`
+  `adc4e76f6c02080aac84c5751907653aea2f10b3cb63b3f0100c50f2a9201961`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
 - compact index 是当前运行时真源；legacy full overlay 未随 batch-007 之后的覆盖扩展更新，不再作为默认等价检查对象，也不再作为 runtime fallback 读取。
-- 最近相关测试：C6 topic-label cleanup follow-up 后，targeted
-  curation/build/remap/materialize/query suite `25 passed in 0.16s`；
-  focused alias/runtime suite `927 passed in 26.26s`；project suite 最近仍为
-  C6 suppressed/noise batch7 后 `1285 passed, 4 subtests passed in 95.05s`。
+- 最近相关测试：C8 singleton exact round4/5 后，focused alias/runtime suite
+  `911 passed in 29.14s`；project suite
+  `1297 passed, 4 subtests passed in 102.49s`。
 - concept curation C1-C4 已开始并完成首批临时验证：
   - C1 只读 audit 已完成，输出在 `F:\AI playground\TempFiles`；
     raw uncovered concepts `1587`，其中 `redirect_candidates = 436`、
@@ -2454,6 +2455,112 @@ uv run python tools/theme-lexicon/materialize_runtime_overlay.py `
   `cffae55a2774f8fc1964649f24892dc3fb5d6024bbfa042167bcb1cb425d9636`。
   C7 没有改写 deterministic compact alias index/manifest；最新全量测试
   `uv run pytest tests -q` 为 `1297 passed, 4 subtests passed in 102.39s`。
+- 2026-07-02 C8 已开始 effective-tail source cleanup；按“production switch
+  暂缓”约定，当前只更新 `concept_curation_decisions.json` 和 TempFiles
+  work view，不切 production compact runtime。fresh work view 初始
+  effective tail 为 `599`；C8 batch1/batch2 新增/升级 `39` 条高置信
+  redirect source-cleanup decision。C8 batch3 再新增 `27` 条 full-form /
+  spelling / word-order / acronym-source redirect，并压平 `hemt__2` 与
+  `micro_electrical_mechanical_system__2` 两处既有 redirect chain。batch3
+  临时 work view 为 `49311` concepts、deterministic covered `48162`、C7
+  candidate-resolvable `616`、effective coverage `98.92%`、tail `533`。
+  临时产物在 `F:\AI playground\TempFiles`，核心 index 为
+  `theme_concept_alias_index_c8_tail_batch3_20260702.json`，SHA-256
+  `47561fe89c9bc01d1d60f7c34eb86fb129f2a5ad566606fa8c2ee51f7ea21963`。
+  batch3 后剩余 `46` 个 redirect-tail 已复核，主要是 class-vs-instance、
+  semantic-neighbor 或 domain-drift，暂不硬转 redirect。batch3 阶段未追加
+  `reviewed_zh_exact_aliases.json`，避免 production runtime 未切换时破坏
+  reviewed-source/runtime alignment；也未 blanket accept collision alias。
+  review 中发现的少量 target 旧 alias 偏宽问题已记录为单独 alias-quality
+  audit 队列，暂不阻塞 C8 effective-tail 主线。
+- C8 singleton exact round1 已完成：从 `116` 个 singleton gaps 中初筛
+  exact 中文名，跳过 `8` 个已有中文 alias target collision 和 `5` 个过宽
+  一字实体；试跑 `33` 条 reviewed source 后，保留实际进入 runtime 的
+  `13` 条，移除 `20` 条 source-only row，保持 reviewed-source/runtime
+  alignment。生产 compact runtime 只接入这 `13` 条 exact singleton alias，
+  未接入 C8 curation overlay；production switch 仍暂缓。生产 runtime
+  `build_status=review_complete`，中文覆盖 `48275 / 49849 = 96.84%`，
+  zh aliases `48395`，accepted conflict groups `0`，runtime en/zh alias
+  conflicts `0/0`，pollution audit `0/0`；package/tool compact index 与
+  manifest 均 byte-identical。C8 curated work-view effective coverage 更新为
+  `48792 / 49311 = 98.95%`，effective tail `519`
+  (`needs_decision_candidates=370`, `redirect_candidates=46`,
+  `singleton_gaps=103`)。compact index SHA-256:
+  `9b33aa5a7eddea2c33ee2b41338ae7b16ee75283c0399fc8e4b46b523cf350f4`；
+  compact manifest SHA-256:
+  `257563f45426d3f8aac9603a94b0c0fd9004c141bf69bb33a7f3229cd96e9ff0`。
+  Fresh tests: focused alias/runtime suite `911 passed in 29.26s`；project
+  suite `1297 passed, 4 subtests passed in 106.13s`。
+- C8 singleton exact round2 已完成：在 round1 剩余 singleton gaps 中继续
+  只取预检查通过的 exact/domain-aware 中文名，选中 `12` 条并跳过 `7` 条
+  production/work-view collision 或 canonical mismatch 项；`12` 条全部进入
+  production compact runtime，无 source-only row 需要清理。生产 runtime 仍未
+  接入 C8 curation overlay；production switch 继续暂缓。生产 runtime
+  `build_status=review_complete`，中文覆盖 `48287 / 49849 = 96.87%`，
+  zh aliases `48407`，accepted conflict groups `0`，runtime en/zh alias
+  conflicts `0/0`，pollution audit `0/0`；package/tool compact index 与
+  manifest 均 byte-identical。C8 curated work-view effective coverage 更新为
+  `48803 / 49311 = 98.97%`，effective tail `508`
+  (`needs_decision_candidates=371`, `redirect_candidates=46`,
+  `singleton_gaps=91`)；C7 candidate-resolvable concepts 为 `616`。compact
+  index SHA-256:
+  `6134793f2c3470d745f9b00284cf0b827e2d1f31864171d1588142cf43de1299`；
+  compact manifest SHA-256:
+  `9345568ba09d7b9cd6a9d505d54f3c7bf1e2ebdf67a0b79d9f540ea73c350bc3`。
+  Fresh tests: focused alias/runtime suite `911 passed in 25.67s`；project
+  suite `1297 passed, 4 subtests passed in 102.54s`。Round2 临时产物包括
+  `F:\AI playground\TempFiles\c8_singleton_exact_selected_round2_precheck_20260702.json`
+  和
+  `F:\AI playground\TempFiles\theme_alias_effective_tail_audit_c8_singleton_round2_effective_tail_20260702.json`。
+- C8 singleton exact round3 已完成：先 review 当前 diff，未发现 blocker；
+  改动范围、curation overlay 校验、reviewed-source alignment、runtime
+  byte-identical 均正常。round3 初筛 `18` 个 singleton exact 候选，因
+  production/work-view collision 跳过 `13` 个，保留 `5` 条：
+  `瘘管`、`疝气`、`线性预测编码`、`咽部`、`胃部`。L3-L5 中新增的
+  `疝气修复与管理`、`胃部肿瘤` 两条未审 compositional side-effect 已显式
+  blocked，未进入 runtime。`5` 条 round3 source row 全部可按中文 alias
+  命中目标 concept；生产 compact runtime 仍未接入 C8 curation overlay。
+  生产 runtime `build_status=review_complete`，中文覆盖
+  `48290 / 49849 = 96.87%`，zh aliases `48410`，accepted conflict groups
+  `0`，runtime en/zh alias conflicts `0/0`，pollution audit `0/0`；
+  package/tool compact index 与 manifest 均 byte-identical。C8 curated
+  work-view effective coverage 更新为 `48808 / 49311 = 98.98%`，effective
+  tail `503` (`needs_decision_candidates=371`, `redirect_candidates=46`,
+  `singleton_gaps=86`)；C7 candidate-resolvable concepts 为 `618`。compact
+  index SHA-256:
+  `e0e1c23674ae4db85f9a82e324d8cf399471eb23e4d8769305c3d9974ec08d7e`；
+  compact manifest SHA-256:
+  `f7b93f08ca327bd530c4a004199b6ce59d02183888af20a85af6c402f8316f26`。
+  Fresh tests: focused alias/runtime suite `911 passed in 26.96s`；project
+  suite `1297 passed, 4 subtests passed in 111.99s`。Round3 临时产物包括
+  `F:\AI playground\TempFiles\c8_singleton_exact_selected_round3_precheck_20260702.json`
+  和
+  `F:\AI playground\TempFiles\theme_alias_effective_tail_audit_c8_singleton_round3_effective_tail_20260702.json`。
+- C8 singleton exact round4/5 已完成：按用户确认连续做两轮，但每轮仍单独
+  fresh 预检查和 L3-L5。round4 从 `13` 个 singleton exact 候选中选中
+  `11` 条，跳过 `2` 条已有 production target collision；round5 从 `13` 个
+  候选中选中 `12` 条，跳过 `1` 条已有 production target collision。两轮
+  合计新增 `23` 条 reviewed exact source row，全部可按中文 alias 命中
+  production target；production compact runtime 仍未接入 C8 curation overlay。
+  round5 中新增的 `乳房病变与癌瘤`、`茶叶域转录因子` 两条未审
+  compositional side-effect 已显式 blocked，未进入 runtime。生产 runtime
+  `build_status=review_complete`，中文覆盖 `48311 / 49849 = 96.91%`，
+  zh aliases `48431`，accepted conflict groups `0`，runtime en/zh alias
+  conflicts `0/0`，pollution audit `0/0`；package/tool compact index 与
+  manifest 均 byte-identical。C8 curated work-view effective coverage 更新为
+  `48831 / 49311 = 99.03%`，effective tail `480`
+  (`needs_decision_candidates=370`, `redirect_candidates=46`,
+  `singleton_gaps=64`)；C7 candidate-resolvable concepts 为 `620`。compact
+  index SHA-256:
+  `8f10c9b352302216215109d1bd6c0345602aa9bb08d64a8e88de81be0ab0490f`；
+  compact manifest SHA-256:
+  `adc4e76f6c02080aac84c5751907653aea2f10b3cb63b3f0100c50f2a9201961`。
+  Fresh tests: focused alias/runtime suite `911 passed in 29.14s`；project
+  suite `1297 passed, 4 subtests passed in 102.49s`。Round4/5 临时产物包括
+  `F:\AI playground\TempFiles\c8_singleton_exact_selected_round4_precheck_20260702.json`、
+  `F:\AI playground\TempFiles\c8_singleton_exact_selected_round5_precheck_20260702.json`
+  和
+  `F:\AI playground\TempFiles\theme_alias_effective_tail_audit_c8_singleton_round5_effective_tail_20260702.json`。
 
 ## 8. CNKI / 浏览器 / 外部服务安全边界
 

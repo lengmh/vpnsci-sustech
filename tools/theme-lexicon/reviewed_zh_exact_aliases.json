@@ -183436,9 +183436,679 @@
         "physics"
       ],
       "item_id": "round12-proposal-126"
+    },
+    {
+      "concept_id": "concept:cathode_ray_tube",
+      "canonical_en": "Cathode Ray Tube",
+      "alias_zh": "阴极射线管",
+      "source": "main_agent_c8_singleton_exact_round1",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard device term; selected from C8 singleton effective-tail, no production/work-view alias collision",
+      "domains": [
+        "analytical_diagnostic_and_therapeutic_techniques_and_equipment",
+        "biomedical"
+      ],
+      "item_id": "c8-singleton-round1-006"
+    },
+    {
+      "concept_id": "concept:chalcogenide",
+      "canonical_en": "Chalcogenide",
+      "alias_zh": "硫属化物",
+      "source": "main_agent_c8_singleton_exact_round1",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard materials term; selected from C8 singleton effective-tail, no production/work-view alias collision",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "c8-singleton-round1-007"
+    },
+    {
+      "concept_id": "concept:channel_spacing",
+      "canonical_en": "Channel Spacing",
+      "alias_zh": "信道间隔",
+      "source": "main_agent_c8_singleton_exact_round1",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard communications term; selected from C8 singleton effective-tail, no production/work-view alias collision",
+      "domains": [
+        "information_theory"
+      ],
+      "item_id": "c8-singleton-round1-008"
+    },
+    {
+      "concept_id": "concept:dark_current",
+      "canonical_en": "Dark Current",
+      "alias_zh": "暗电流",
+      "source": "main_agent_c8_singleton_exact_round1",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard instrumentation term; selected from C8 singleton effective-tail, no production/work-view alias collision",
+      "domains": [
+        "instrumentation_and_measurement"
+      ],
+      "item_id": "c8-singleton-round1-010"
+    },
+    {
+      "concept_id": "concept:datura_stramonium",
+      "canonical_en": "Datura Stramonium",
+      "alias_zh": "曼陀罗",
+      "source": "main_agent_c8_singleton_exact_round1",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard organism species/common term; selected from C8 singleton effective-tail, no production/work-view alias collision",
+      "domains": [
+        "biomedical",
+        "organisms"
+      ],
+      "item_id": "c8-singleton-round1-011"
+    },
+    {
+      "concept_id": "concept:proportional_hazard_model",
+      "canonical_en": "Proportional Hazard Model",
+      "alias_zh": "比例风险模型",
+      "source": "main_agent_c8_singleton_exact_round1",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard statistics/biomed term; selected from C8 singleton effective-tail, no production/work-view alias collision",
+      "domains": [
+        "analytical_diagnostic_and_therapeutic_techniques_and_equipment",
+        "biomedical"
+      ],
+      "item_id": "c8-singleton-round1-023"
+    },
+    {
+      "concept_id": "concept:received_signal_strength_indication",
+      "canonical_en": "Received Signal Strength Indication",
+      "alias_zh": "接收信号强度指示",
+      "source": "main_agent_c8_singleton_exact_round1",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard communications term; selected from C8 singleton effective-tail, no production/work-view alias collision",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "c8-singleton-round1-025"
+    },
+    {
+      "concept_id": "concept:received_signal_strength_indicator",
+      "canonical_en": "Received Signal Strength Indicator",
+      "alias_zh": "接收信号强度指示器",
+      "source": "main_agent_c8_singleton_exact_round1",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard communications term; selected from C8 singleton effective-tail, no production/work-view alias collision",
+      "domains": [
+        "communications_technology",
+        "computer_science"
+      ],
+      "item_id": "c8-singleton-round1-026"
+    },
+    {
+      "concept_id": "concept:soldering",
+      "canonical_en": "Soldering",
+      "alias_zh": "焊接",
+      "source": "main_agent_c8_singleton_exact_round1",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard manufacturing term; selected from C8 singleton effective-tail, no production/work-view alias collision",
+      "domains": [
+        "industry_applications"
+      ],
+      "item_id": "c8-singleton-round1-027"
+    },
+    {
+      "concept_id": "concept:turbo_code",
+      "canonical_en": "Turbo Code",
+      "alias_zh": "Turbo码",
+      "source": "main_agent_c8_singleton_exact_round1",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard coding term; selected from C8 singleton effective-tail, no production/work-view alias collision",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "c8-singleton-round1-030"
+    },
+    {
+      "concept_id": "concept:turing_machine",
+      "canonical_en": "Turing Machine",
+      "alias_zh": "图灵机",
+      "source": "main_agent_c8_singleton_exact_round1",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard CS term; selected from C8 singleton effective-tail, no production/work-view alias collision",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "c8-singleton-round1-031"
+    },
+    {
+      "concept_id": "concept:watermarking",
+      "canonical_en": "Watermarking",
+      "alias_zh": "水印",
+      "source": "main_agent_c8_singleton_exact_round1",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard signal/media term; selected from C8 singleton effective-tail, no production/work-view alias collision",
+      "domains": [
+        "industry_applications"
+      ],
+      "item_id": "c8-singleton-round1-032"
+    },
+    {
+      "concept_id": "concept:whispering_gallery_mode",
+      "canonical_en": "Whispering Gallery Mode",
+      "alias_zh": "回音壁模式",
+      "source": "main_agent_c8_singleton_exact_round1",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard photonics term; selected from C8 singleton effective-tail, no production/work-view alias collision",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "c8-singleton-round1-033"
+    },
+    {
+      "concept_id": "concept:aquatic_ecosystem_and_biodiversity",
+      "canonical_en": "Aquatic Ecosystems And Biodiversity",
+      "alias_zh": "水生生态系统与生物多样性",
+      "source": "main_agent_c8_singleton_exact_round2",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard environmental science phrase; selected from C8 singleton effective-tail round2, prechecked for term match and alias collision",
+      "domains": [
+        "environmental_science",
+        "physical_sciences"
+      ],
+      "item_id": "c8-singleton-round2-001"
+    },
+    {
+      "concept_id": "concept:ataxia_telangiectasia_mutated",
+      "canonical_en": "Ataxia-telangiectasia Mutated",
+      "alias_zh": "共济失调毛细血管扩张症突变蛋白",
+      "source": "main_agent_c8_singleton_exact_round2",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard ATM protein/gene expansion; selected from C8 singleton effective-tail round2, prechecked for term match and alias collision",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "c8-singleton-round2-002"
+    },
+    {
+      "concept_id": "concept:biofeedback_psychology",
+      "canonical_en": "Psychology Biofeedback",
+      "alias_zh": "心理生物反馈",
+      "source": "main_agent_c8_singleton_exact_round2",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard psychology/therapy term; selected from C8 singleton effective-tail round2, prechecked for term match and alias collision",
+      "domains": [
+        "analytical_diagnostic_and_therapeutic_techniques_and_equipment",
+        "biomedical"
+      ],
+      "item_id": "c8-singleton-round2-003"
+    },
+    {
+      "concept_id": "concept:circadian_rhythm_and_melatonin",
+      "canonical_en": "Circadian Rhythm And Melatonin",
+      "alias_zh": "昼夜节律与褪黑素",
+      "source": "main_agent_c8_singleton_exact_round2",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard neuroscience phrase; selected from C8 singleton effective-tail round2, prechecked for term match and alias collision",
+      "domains": [
+        "life_sciences",
+        "neuroscience"
+      ],
+      "item_id": "c8-singleton-round2-004"
+    },
+    {
+      "concept_id": "concept:cost_saving",
+      "canonical_en": "costs saving",
+      "alias_zh": "成本节约",
+      "source": "main_agent_c8_singleton_exact_round2",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard economics/engineering phrase; selected from C8 singleton effective-tail round2, prechecked for term match and alias collision",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "c8-singleton-round2-005"
+    },
+    {
+      "concept_id": "concept:crystallography_and_radiation_phenomena",
+      "canonical_en": "Crystallography And Radiation Phenomena",
+      "alias_zh": "晶体学与辐射现象",
+      "source": "main_agent_c8_singleton_exact_round2",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard physics phrase; selected from C8 singleton effective-tail round2, prechecked for term match and alias collision",
+      "domains": [
+        "physical_sciences",
+        "physics_and_astronomy"
+      ],
+      "item_id": "c8-singleton-round2-006"
+    },
+    {
+      "concept_id": "concept:disaster_management_and_resilience",
+      "canonical_en": "Disaster Management And Resilience",
+      "alias_zh": "灾害管理与韧性",
+      "source": "main_agent_c8_singleton_exact_round2",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard social-science phrase; selected from C8 singleton effective-tail round2, prechecked for term match and alias collision",
+      "domains": [
+        "social_sciences"
+      ],
+      "item_id": "c8-singleton-round2-007"
+    },
+    {
+      "concept_id": "concept:image_categorization",
+      "canonical_en": "Image Categorization",
+      "alias_zh": "图像分类",
+      "source": "main_agent_c8_singleton_exact_round2",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard image processing term; selected from C8 singleton effective-tail round2, prechecked for term match and alias collision",
+      "domains": [
+        "computers_and_information_processing"
+      ],
+      "item_id": "c8-singleton-round2-008"
+    },
+    {
+      "concept_id": "concept:infinite_horizon",
+      "canonical_en": "Infinite Horizon",
+      "alias_zh": "无限时域",
+      "source": "main_agent_c8_singleton_exact_round2",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard control theory term; selected from C8 singleton effective-tail round2, prechecked for term match and alias collision",
+      "domains": [
+        "control_systems"
+      ],
+      "item_id": "c8-singleton-round2-009"
+    },
+    {
+      "concept_id": "concept:probability",
+      "canonical_en": "math.PR",
+      "alias_zh": "概率论",
+      "source": "main_agent_c8_singleton_exact_round2",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard arXiv math.PR field term; selected from C8 singleton effective-tail round2, prechecked for term match and alias collision",
+      "domains": [
+        "computer_science",
+        "mathematics"
+      ],
+      "item_id": "c8-singleton-round2-010"
+    },
+    {
+      "concept_id": "concept:quantitative_trait_heritable",
+      "canonical_en": "Heritable Quantitative Trait",
+      "alias_zh": "遗传性数量性状",
+      "source": "main_agent_c8_singleton_exact_round2",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard genetics phrase; selected from C8 singleton effective-tail round2, prechecked for term match and alias collision",
+      "domains": [
+        "biomedical",
+        "phenomena_and_processes"
+      ],
+      "item_id": "c8-singleton-round2-011"
+    },
+    {
+      "concept_id": "concept:ubicomp",
+      "canonical_en": "Ubicomp",
+      "alias_zh": "普适计算",
+      "source": "main_agent_c8_singleton_exact_round2",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard ubiquitous computing abbreviation; selected from C8 singleton effective-tail round2, prechecked for term match and alias collision",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "c8-singleton-round2-012"
+    },
+    {
+      "concept_id": "concept:fistula",
+      "canonical_en": "Fistula",
+      "alias_zh": "瘘管",
+      "source": "main_agent_c8_singleton_exact_round3",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard disease/anatomy term; selected from C8 singleton effective-tail round3, prechecked for term match and alias collision",
+      "domains": [
+        "biomedical",
+        "diseases"
+      ],
+      "item_id": "c8-singleton-round3-001"
+    },
+    {
+      "concept_id": "concept:hernia",
+      "canonical_en": "Hernia",
+      "alias_zh": "疝气",
+      "source": "main_agent_c8_singleton_exact_round3",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard disease term; selected from C8 singleton effective-tail round3, prechecked for term match and alias collision",
+      "domains": [
+        "biomedical",
+        "diseases"
+      ],
+      "item_id": "c8-singleton-round3-002"
+    },
+    {
+      "concept_id": "concept:linear_predictive_coding_lpc",
+      "canonical_en": "Linear Predictive Coding (lpc)",
+      "alias_zh": "线性预测编码",
+      "source": "main_agent_c8_singleton_exact_round3",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard signal processing term; selected from C8 singleton effective-tail round3, prechecked for term match and alias collision",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "c8-singleton-round3-003"
+    },
+    {
+      "concept_id": "concept:pharynx",
+      "canonical_en": "Pharynx",
+      "alias_zh": "咽部",
+      "source": "main_agent_c8_singleton_exact_round3",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard anatomy term; selected from C8 singleton effective-tail round3, prechecked for term match and alias collision",
+      "domains": [
+        "anatomy",
+        "biomedical"
+      ],
+      "item_id": "c8-singleton-round3-004"
+    },
+    {
+      "concept_id": "concept:stomach",
+      "canonical_en": "Stomach",
+      "alias_zh": "胃部",
+      "source": "main_agent_c8_singleton_exact_round3",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard anatomy term; selected from C8 singleton effective-tail round3, prechecked for term match and alias collision",
+      "domains": [
+        "anatomy",
+        "biomedical"
+      ],
+      "item_id": "c8-singleton-round3-005"
+    },
+    {
+      "concept_id": "concept:ear",
+      "canonical_en": "Ear",
+      "alias_zh": "耳部",
+      "source": "main_agent_c8_singleton_exact_round4",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard anatomy term; selected from C8 singleton effective-tail round4, prechecked for term match and alias collision",
+      "domains": [
+        "anatomy",
+        "biomedical"
+      ],
+      "item_id": "c8-singleton-round4-001"
+    },
+    {
+      "concept_id": "concept:eye",
+      "canonical_en": "Eye",
+      "alias_zh": "眼部",
+      "source": "main_agent_c8_singleton_exact_round4",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard anatomy term; selected from C8 singleton effective-tail round4, prechecked for term match and alias collision",
+      "domains": [
+        "anatomy",
+        "biomedical"
+      ],
+      "item_id": "c8-singleton-round4-002"
+    },
+    {
+      "concept_id": "concept:palate",
+      "canonical_en": "Palate",
+      "alias_zh": "腭部",
+      "source": "main_agent_c8_singleton_exact_round4",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard anatomy term; selected from C8 singleton effective-tail round4, prechecked for term match and alias collision",
+      "domains": [
+        "anatomy",
+        "biomedical"
+      ],
+      "item_id": "c8-singleton-round4-003"
+    },
+    {
+      "concept_id": "concept:tongue",
+      "canonical_en": "Tongue",
+      "alias_zh": "舌部",
+      "source": "main_agent_c8_singleton_exact_round4",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard anatomy term; selected from C8 singleton effective-tail round4, prechecked for term match and alias collision",
+      "domains": [
+        "anatomy",
+        "biomedical"
+      ],
+      "item_id": "c8-singleton-round4-004"
+    },
+    {
+      "concept_id": "concept:coal",
+      "canonical_en": "Coal",
+      "alias_zh": "煤炭",
+      "source": "main_agent_c8_singleton_exact_round4",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard chemicals/materials term; selected from C8 singleton effective-tail round4, prechecked for term match and alias collision",
+      "domains": [
+        "biomedical",
+        "chemicals_and_drugs"
+      ],
+      "item_id": "c8-singleton-round4-005"
+    },
+    {
+      "concept_id": "concept:rain",
+      "canonical_en": "Rain",
+      "alias_zh": "降雨",
+      "source": "main_agent_c8_singleton_exact_round4",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard environmental phenomenon term; selected from C8 singleton effective-tail round4, prechecked for term match and alias collision",
+      "domains": [
+        "biomedical",
+        "phenomena_and_processes"
+      ],
+      "item_id": "c8-singleton-round4-006"
+    },
+    {
+      "concept_id": "concept:rootkit",
+      "canonical_en": "Rootkit",
+      "alias_zh": "根套件",
+      "source": "main_agent_c8_singleton_exact_round4",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard computer security term; selected from C8 singleton effective-tail round4, prechecked for term match and alias collision",
+      "domains": [
+        "computers_and_information_processing"
+      ],
+      "item_id": "c8-singleton-round4-007"
+    },
+    {
+      "concept_id": "concept:wakefulness",
+      "canonical_en": "Wakefulness",
+      "alias_zh": "觉醒状态",
+      "source": "main_agent_c8_singleton_exact_round4",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard psychiatry/psychology term; selected from C8 singleton effective-tail round4, prechecked for term match and alias collision",
+      "domains": [
+        "biomedical",
+        "psychiatry_and_psychology"
+      ],
+      "item_id": "c8-singleton-round4-008"
+    },
+    {
+      "concept_id": "concept:arousal",
+      "canonical_en": "Arousal",
+      "alias_zh": "唤醒",
+      "source": "main_agent_c8_singleton_exact_round4",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard psychiatry/psychology term; selected from C8 singleton effective-tail round4, prechecked for term match and alias collision",
+      "domains": [
+        "biomedical",
+        "psychiatry_and_psychology"
+      ],
+      "item_id": "c8-singleton-round4-009"
+    },
+    {
+      "concept_id": "concept:geese",
+      "canonical_en": "Geese",
+      "alias_zh": "鹅类",
+      "source": "main_agent_c8_singleton_exact_round4",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard organism group term; selected from C8 singleton effective-tail round4, prechecked for term match and alias collision",
+      "domains": [
+        "biomedical",
+        "organisms"
+      ],
+      "item_id": "c8-singleton-round4-010"
+    },
+    {
+      "concept_id": "concept:swine",
+      "canonical_en": "Swine",
+      "alias_zh": "猪类",
+      "source": "main_agent_c8_singleton_exact_round4",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard organism group term; selected from C8 singleton effective-tail round4, prechecked for term match and alias collision",
+      "domains": [
+        "biomedical",
+        "organisms"
+      ],
+      "item_id": "c8-singleton-round4-011"
+    },
+    {
+      "concept_id": "concept:ammonia",
+      "canonical_en": "Ammonia",
+      "alias_zh": "氨气",
+      "source": "main_agent_c8_singleton_exact_round5",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard chemicals term with valid two-character Chinese form; selected from C8 singleton effective-tail round5, prechecked for term match and alias collision",
+      "domains": [
+        "biomedical",
+        "chemicals_and_drugs"
+      ],
+      "item_id": "c8-singleton-round5-001"
+    },
+    {
+      "concept_id": "concept:carbuncle",
+      "canonical_en": "Carbuncle",
+      "alias_zh": "痈肿",
+      "source": "main_agent_c8_singleton_exact_round5",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard disease term; selected from C8 singleton effective-tail round5, prechecked for term match and alias collision",
+      "domains": [
+        "biomedical",
+        "diseases"
+      ],
+      "item_id": "c8-singleton-round5-002"
+    },
+    {
+      "concept_id": "concept:carcinoma",
+      "canonical_en": "Carcinoma",
+      "alias_zh": "癌瘤",
+      "source": "main_agent_c8_singleton_exact_round5",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard disease term; selected from C8 singleton effective-tail round5, prechecked for term match and alias collision",
+      "domains": [
+        "biomedical",
+        "diseases"
+      ],
+      "item_id": "c8-singleton-round5-003"
+    },
+    {
+      "concept_id": "concept:cattle",
+      "canonical_en": "Cattle",
+      "alias_zh": "牛类",
+      "source": "main_agent_c8_singleton_exact_round5",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard organism group term; selected from C8 singleton effective-tail round5, prechecked for term match and alias collision",
+      "domains": [
+        "biomedical",
+        "organisms"
+      ],
+      "item_id": "c8-singleton-round5-004"
+    },
+    {
+      "concept_id": "concept:deer",
+      "canonical_en": "Deer",
+      "alias_zh": "鹿类",
+      "source": "main_agent_c8_singleton_exact_round5",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard organism group term; selected from C8 singleton effective-tail round5, prechecked for term match and alias collision",
+      "domains": [
+        "biomedical",
+        "organisms"
+      ],
+      "item_id": "c8-singleton-round5-005"
+    },
+    {
+      "concept_id": "concept:dicom",
+      "canonical_en": "DICOM",
+      "alias_zh": "医学数字成像和通信",
+      "source": "main_agent_c8_singleton_exact_round5",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard DICOM Chinese expansion; selected from C8 singleton effective-tail round5, prechecked for term match and alias collision",
+      "domains": [
+        "communications_technology",
+        "computer_science"
+      ],
+      "item_id": "c8-singleton-round5-006"
+    },
+    {
+      "concept_id": "concept:ieee_802_15_4",
+      "canonical_en": "Ieee 802.15.4",
+      "alias_zh": "IEEE 802.15.4协议",
+      "source": "main_agent_c8_singleton_exact_round5",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard communications protocol term; selected from C8 singleton effective-tail round5, prechecked for term match and alias collision",
+      "domains": [
+        "computer_science"
+      ],
+      "item_id": "c8-singleton-round5-007"
+    },
+    {
+      "concept_id": "concept:love",
+      "canonical_en": "Love",
+      "alias_zh": "爱情",
+      "source": "main_agent_c8_singleton_exact_round5",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard psychology/social concept term; selected from C8 singleton effective-tail round5, prechecked for term match and alias collision",
+      "domains": [
+        "biomedical",
+        "psychiatry_and_psychology"
+      ],
+      "item_id": "c8-singleton-round5-008"
+    },
+    {
+      "concept_id": "concept:pupa",
+      "canonical_en": "Pupa",
+      "alias_zh": "蛹期",
+      "source": "main_agent_c8_singleton_exact_round5",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard organism life-stage term; selected from C8 singleton effective-tail round5, prechecked for term match and alias collision",
+      "domains": [
+        "biomedical",
+        "organisms"
+      ],
+      "item_id": "c8-singleton-round5-009"
+    },
+    {
+      "concept_id": "concept:tea",
+      "canonical_en": "Tea",
+      "alias_zh": "茶叶",
+      "source": "main_agent_c8_singleton_exact_round5",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard chemicals/drugs source term; selected from C8 singleton effective-tail round5, prechecked for term match and alias collision",
+      "domains": [
+        "biomedical",
+        "chemicals_and_drugs"
+      ],
+      "item_id": "c8-singleton-round5-010"
+    },
+    {
+      "concept_id": "concept:translation",
+      "canonical_en": "Translation",
+      "alias_zh": "翻译",
+      "source": "main_agent_c8_singleton_exact_round5",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard education term; selected from C8 singleton effective-tail round5, prechecked for term match and alias collision",
+      "domains": [
+        "education"
+      ],
+      "item_id": "c8-singleton-round5-011"
+    },
+    {
+      "concept_id": "concept:tritium",
+      "canonical_en": "Tritium",
+      "alias_zh": "氚核素",
+      "source": "main_agent_c8_singleton_exact_round5",
+      "reviewed_at": "2026-07-02",
+      "reason": "standard isotope term with valid two-character-plus Chinese form; selected from C8 singleton effective-tail round5, prechecked for term match and alias collision",
+      "domains": [
+        "biomedical",
+        "chemicals_and_drugs"
+      ],
+      "item_id": "c8-singleton-round5-012"
     }
   ],
   "schema_version": "reviewed_zh_exact_aliases.v1",
   "source": "subagent_domain_translation_60pct_chunks_01_to_09_plus_prior_exact_plus_70pct_plus_80pct",
-  "updated_at": "2026-06-29"
+  "updated_at": "2026-07-02"
 }
