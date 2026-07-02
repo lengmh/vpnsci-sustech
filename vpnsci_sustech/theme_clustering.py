@@ -91,6 +91,9 @@ THEME_STOPWORDS_EN = {
 THEME_LEXICON_EN_PATH = Path(__file__).resolve().parent / "data" / "theme_lexicon.en.json"
 THEME_LEXICON_ZH_PATH = Path(__file__).resolve().parent / "data" / "theme_lexicon.zh.json"
 THEME_CONCEPT_ALIAS_INDEX_PATH = Path(__file__).resolve().parent / "data" / "theme_concept_alias_index.json"
+THEME_AMBIGUOUS_ALIAS_CANDIDATES_PATH = (
+    Path(__file__).resolve().parent / "data" / "theme_concept_ambiguous_alias_candidates.json"
+)
 
 
 
@@ -193,7 +196,27 @@ def _load_theme_concept_aliases(
     return alias_index
 
 
+def _load_theme_ambiguous_alias_candidates(
+    *,
+    index_path: Path = THEME_AMBIGUOUS_ALIAS_CANDIDATES_PATH,
+) -> dict[str, list[dict[str, Any]]]:
+    index_path = Path(index_path)
+    if not index_path.exists():
+        return {}
+    payload = json.loads(index_path.read_text(encoding="utf-8"))
+    candidates = payload.get("candidates") or {}
+    candidate_index: dict[str, list[dict[str, Any]]] = {}
+    for alias_key, records in candidates.items():
+        if not isinstance(records, list):
+            continue
+        normalized_records = [dict(record) for record in records if isinstance(record, dict)]
+        if normalized_records:
+            candidate_index[str(alias_key)] = normalized_records
+    return candidate_index
+
+
 THEME_CONCEPT_ALIAS_INDEX = _load_theme_concept_aliases()
+THEME_AMBIGUOUS_ALIAS_CANDIDATES = _load_theme_ambiguous_alias_candidates()
 
 
 def display_theme_name(term: str) -> str:
@@ -433,6 +456,28 @@ def _build_chinese_concept_alias_terms() -> tuple[str, ...]:
 THEME_CONCEPT_ALIAS_ZH_TERMS = _build_chinese_concept_alias_terms()
 
 
+def _candidate_surface_from_alias_key(alias_key: str) -> str:
+    return str(alias_key).split(":", 1)[1] if ":" in str(alias_key) else str(alias_key)
+
+
+def _build_ambiguous_alias_terms(
+    candidate_layer: dict[str, list[dict[str, Any]]] | None = None,
+) -> tuple[tuple[str, str], ...]:
+    layer = candidate_layer if candidate_layer is not None else THEME_AMBIGUOUS_ALIAS_CANDIDATES
+    terms: list[tuple[str, str]] = []
+    for alias_key, candidates in layer.items():
+        if not candidates:
+            continue
+        surface = _candidate_surface_from_alias_key(alias_key)
+        if not surface:
+            continue
+        terms.append((str(alias_key), surface))
+    return tuple(sorted(terms, key=lambda item: (-len(item[1]), item[0])))
+
+
+THEME_AMBIGUOUS_ALIAS_TERMS = _build_ambiguous_alias_terms()
+
+
 def _compact_chinese_alias_text(value: str) -> str:
     compact = re.sub(r"[^\w\u4e00-\u9fff]+", "", (value or "").casefold())
     return compact.replace("_", "")
@@ -503,6 +548,58 @@ def _chinese_concept_alias_matches(text: str) -> list[str]:
             or (not _contains_latin_or_digit(term) and term in compact_text)
         )
     ]
+
+
+def _ambiguous_alias_key_matches_text(alias_key: str, surface: str, text: str) -> bool:
+    if not surface:
+        return False
+    if alias_key.startswith("zh:"):
+        if not _is_chinese_term(text):
+            return False
+        normalized_text = _normalize_concept_alias(text)
+        compact_text = _compact_chinese_alias_text(text)
+        return (
+            surface in text
+            or _contains_normalized_alias(normalized_text, surface)
+            or (not _contains_latin_or_digit(surface) and surface in compact_text)
+        )
+    normalized_text = _normalize_concept_alias(text)
+    return _contains_normalized_alias(normalized_text, surface)
+
+
+def _ambiguous_candidate_matches(
+    paper: dict[str, Any],
+    *,
+    paper_id: str | None = None,
+    candidate_layer: dict[str, list[dict[str, Any]]] | None = None,
+    deterministic_alias_index: dict[str, dict[str, Any]] | None = None,
+) -> list[dict[str, Any]]:
+    layer = candidate_layer if candidate_layer is not None else THEME_AMBIGUOUS_ALIAS_CANDIDATES
+    deterministic = deterministic_alias_index if deterministic_alias_index is not None else THEME_CONCEPT_ALIAS_INDEX
+    if not layer:
+        return []
+    text = _paper_text(paper)
+    if not text:
+        return []
+    resolved_paper_id = str(paper_id or paper.get("paper_id") or paper.get("id") or "")
+    matches: list[dict[str, Any]] = []
+    for alias_key, surface in _build_ambiguous_alias_terms(layer):
+        if alias_key in deterministic:
+            continue
+        if not _ambiguous_alias_key_matches_text(alias_key, surface, text):
+            continue
+        candidates = [dict(candidate) for candidate in layer.get(alias_key) or [] if isinstance(candidate, dict)]
+        if not candidates:
+            continue
+        matches.append(
+            {
+                "alias_key": alias_key,
+                "surface": surface,
+                "paper_ids": [resolved_paper_id] if resolved_paper_id else [],
+                "candidates": candidates,
+            }
+        )
+    return matches
 
 
 def _theme_term_candidates(paper: dict[str, Any]) -> list[str]:

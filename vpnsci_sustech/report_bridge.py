@@ -13,6 +13,12 @@ from urllib.parse import quote
 from .config import Config
 from . import report_tools
 from .paper_search_pro_adapter import prepare_report
+from .theme_candidate_resolution import (
+    THEME_CANDIDATE_RESOLUTION_REQUEST_FILENAME,
+    THEME_CANDIDATE_RESOLUTION_RESULT_FILENAME,
+    apply_theme_candidate_resolution_result,
+    build_theme_candidate_resolution_request,
+)
 from .theme_postprocess import (
     THEME_POSTPROCESS_REQUEST_FILENAME,
     THEME_POSTPROCESS_RESULT_FILENAME,
@@ -53,6 +59,8 @@ class ReportResult:
     handoff_path: str = ""
     status: str = "completed"
     materialized_dir: str = ""
+    theme_candidate_resolution_request_path: str = ""
+    theme_candidate_resolution_result_path: str = ""
     theme_postprocess_request_path: str = ""
     theme_postprocess_result_path: str = ""
     rcs_classification_request_path: str = ""
@@ -75,6 +83,8 @@ class ReportJob:
     report_mode: str = "seed_preview"
     handoff_path: str = ""
     materialized_dir: str = ""
+    theme_candidate_resolution_request_path: str = ""
+    theme_candidate_resolution_result_path: str = ""
     theme_postprocess_request_path: str = ""
     theme_postprocess_result_path: str = ""
     rcs_classification_request_path: str = ""
@@ -501,6 +511,132 @@ def _prepare_existing_full_materialized_theme_postprocess(
     }
 
 
+def _prepare_existing_full_materialized_theme_candidate_resolution(
+    *,
+    session_out_dir: Path,
+    display_query: str = "",
+    language: str = "",
+) -> dict | None:
+    materialized_dir = session_out_dir / "materialized"
+    chart_path = materialized_dir / "chart_data.json"
+    paper_path = materialized_dir / "paper_list.json"
+    metadata_path = materialized_dir / "metadata.json"
+    report_data_path = materialized_dir / "report_data.json"
+    if not chart_path.exists() or not paper_path.exists():
+        return None
+
+    chart_data = _read_json_if_exists(chart_path)
+    papers = _read_json_if_exists(paper_path)
+    metadata = _read_json_if_exists(metadata_path) or {}
+    if not isinstance(chart_data, dict) or not isinstance(papers, list):
+        return None
+
+    resolved_query = display_query or str(metadata.get("display_query") or metadata.get("query") or "")
+    resolved_language = language or str(metadata.get("language") or "") or _detect_language_from_text(resolved_query)
+    raw_theme_treemap = chart_data.get("raw_theme_treemap") or chart_data.get("theme_treemap")
+    request_payload, trace = build_theme_candidate_resolution_request(
+        raw_theme_treemap,
+        papers,
+        display_query=resolved_query,
+        language=resolved_language,
+    )
+    if not request_payload:
+        return None
+
+    request_path = materialized_dir / THEME_CANDIDATE_RESOLUTION_REQUEST_FILENAME
+    result_path = materialized_dir / THEME_CANDIDATE_RESOLUTION_RESULT_FILENAME
+    _write_json(request_path, request_payload)
+
+    chart_data["theme_candidate_resolution_request"] = request_payload
+    if result_path.exists():
+        result_payload = _read_json_if_exists(result_path)
+        if isinstance(result_payload, dict):
+            refined, trace = apply_theme_candidate_resolution_result(
+                raw_theme_treemap,
+                request_payload,
+                result_payload,
+                model_label="host-agent",
+            )
+            chart_data["theme_treemap"] = refined
+    chart_data["theme_candidate_resolution"] = trace
+    _write_json(chart_path, chart_data)
+
+    report_data = _read_json_if_exists(report_data_path)
+    if isinstance(report_data, dict):
+        report_data["chart_data"] = chart_data
+        _write_json(report_data_path, report_data)
+
+    return {
+        "report_path": str(session_out_dir / "report.html"),
+        "materialized_dir": str(materialized_dir),
+        "theme_candidate_resolution_request_path": str(request_path),
+        "theme_candidate_resolution_result_path": str(result_path),
+        "theme_candidate_resolution_pending": not result_path.exists(),
+        "user_query": resolved_query,
+        "language": resolved_language,
+    }
+
+
+def _apply_theme_candidate_resolution_to_existing_materialized(
+    *,
+    session_out_dir: Path,
+    result_payload: dict,
+    display_query: str = "",
+    language: str = "",
+    tool_root: Path,
+    open_report: bool = False,
+) -> dict:
+    prepared = _prepare_existing_full_materialized_theme_candidate_resolution(
+        session_out_dir=session_out_dir,
+        display_query=display_query,
+        language=language,
+    )
+    if not prepared:
+        raise ReportBridgeConfigError("Theme candidate resolution apply requires an existing materialized report with candidate request.")
+
+    materialized_dir = Path(prepared["materialized_dir"])
+    chart_path = materialized_dir / "chart_data.json"
+    report_data_path = materialized_dir / "report_data.json"
+    chart_data = _read_json_if_exists(chart_path)
+    report_data = _read_json_if_exists(report_data_path)
+    if not isinstance(chart_data, dict):
+        raise ReportBridgeExecutionError("chart_data.json is missing or invalid.")
+
+    raw_theme_treemap = chart_data.get("raw_theme_treemap") or chart_data.get("theme_treemap")
+    request_payload = chart_data.get("theme_candidate_resolution_request")
+    refined, trace = apply_theme_candidate_resolution_result(
+        raw_theme_treemap,
+        request_payload,
+        result_payload,
+        model_label="host-agent",
+    )
+    result_path = Path(prepared["theme_candidate_resolution_result_path"])
+    _write_json(result_path, result_payload)
+
+    chart_data["theme_treemap"] = refined
+    chart_data["theme_candidate_resolution"] = trace
+    _write_json(chart_path, chart_data)
+
+    if isinstance(report_data, dict):
+        report_data["chart_data"] = chart_data
+        _write_json(report_data_path, report_data)
+
+    report_path = Path(prepared["report_path"])
+    render_html_webartifacts(
+        materialized_data_dir=materialized_dir,
+        output_path=report_path,
+        user_query=str(prepared["user_query"]),
+        language=str(prepared["language"]),
+        tool_root=tool_root,
+    )
+    if open_report:
+        import webbrowser
+        webbrowser.open(report_path.resolve().as_uri())
+
+    prepared["status"] = "completed"
+    return prepared
+
+
 def _apply_theme_postprocess_to_existing_materialized(
     *,
     session_out_dir: Path,
@@ -608,6 +744,26 @@ def generate_report_from_session(
                 user_query=str(prepared["user_query"]),
                 language=str(prepared["language"]),
             )
+        if prepared.get("theme_candidate_resolution_pending"):
+            return ReportResult(
+                report_path=str(Path(prepared["report_path"])),
+                file_url=path_to_file_url(prepared["report_path"]),
+                seed_session_id=session.session_id,
+                expanded_sources=list(session.source_summary.keys()),
+                deduped_paper_count=len(session.hits),
+                failures=["theme_candidate_resolution_pending"],
+                report_mode=normalized_mode,
+                status="theme_candidate_resolution_required",
+                materialized_dir=str(prepared["materialized_dir"]),
+                theme_candidate_resolution_request_path=str(prepared["theme_candidate_resolution_request_path"]),
+                theme_candidate_resolution_result_path=str(prepared["theme_candidate_resolution_result_path"]),
+                theme_postprocess_request_path=str(prepared["theme_postprocess_request_path"]),
+                theme_postprocess_result_path=str(prepared["theme_postprocess_result_path"]),
+                rcs_classification_request_path=str(prepared["rcs_classification_request_path"]),
+                rcs_classification_result_path=str(prepared["rcs_classification_result_path"]),
+                user_query=str(prepared["user_query"]),
+                language=str(prepared["language"]),
+            )
         if prepared.get("theme_postprocess_pending"):
             return ReportResult(
                 report_path=str(Path(prepared["report_path"])),
@@ -619,6 +775,8 @@ def generate_report_from_session(
                 report_mode=normalized_mode,
                 status="theme_postprocess_required",
                 materialized_dir=str(prepared["materialized_dir"]),
+                theme_candidate_resolution_request_path=str(prepared.get("theme_candidate_resolution_request_path", "")),
+                theme_candidate_resolution_result_path=str(prepared.get("theme_candidate_resolution_result_path", "")),
                 theme_postprocess_request_path=str(prepared["theme_postprocess_request_path"]),
                 theme_postprocess_result_path=str(prepared["theme_postprocess_result_path"]),
                 rcs_classification_request_path=str(prepared["rcs_classification_request_path"]),
@@ -702,6 +860,28 @@ def start_report_from_session(
         mode=normalized_mode,
     )
     if normalized_mode == "full" and _is_builtin_adapter_command(command):
+        prepared_candidate = _prepare_existing_full_materialized_theme_candidate_resolution(
+            session_out_dir=session_out_dir,
+            display_query=display_query,
+            language=language,
+        )
+        if prepared_candidate and prepared_candidate.get("theme_candidate_resolution_pending"):
+            return ReportJob(
+                report_path=str(Path(prepared_candidate["report_path"])),
+                file_url=path_to_file_url(prepared_candidate["report_path"]),
+                seed_session_id=session.session_id,
+                status="theme_candidate_resolution_required",
+                log_path="",
+                expanded_sources=list(session.source_summary.keys()),
+                deduped_paper_count=len(session.hits),
+                failures=["theme_candidate_resolution_pending"],
+                report_mode="full",
+                materialized_dir=str(prepared_candidate["materialized_dir"]),
+                theme_candidate_resolution_request_path=str(prepared_candidate["theme_candidate_resolution_request_path"]),
+                theme_candidate_resolution_result_path=str(prepared_candidate["theme_candidate_resolution_result_path"]),
+                user_query=str(prepared_candidate["user_query"]),
+                language=str(prepared_candidate["language"]),
+            )
         prepared_full = _prepare_existing_full_materialized_theme_postprocess(
             session_out_dir=session_out_dir,
             display_query=display_query,
@@ -719,6 +899,8 @@ def start_report_from_session(
                 failures=["theme_postprocess_pending"],
                 report_mode="full",
                 materialized_dir=str(prepared_full["materialized_dir"]),
+                theme_candidate_resolution_request_path=str(prepared_candidate.get("theme_candidate_resolution_request_path", "") if prepared_candidate else ""),
+                theme_candidate_resolution_result_path=str(prepared_candidate.get("theme_candidate_resolution_result_path", "") if prepared_candidate else ""),
                 theme_postprocess_request_path=str(prepared_full["theme_postprocess_request_path"]),
                 theme_postprocess_result_path=str(prepared_full["theme_postprocess_result_path"]),
                 user_query=str(prepared_full["user_query"]),
@@ -770,6 +952,27 @@ def start_report_from_session(
                 user_query=str(prepared["user_query"]),
                 language=str(prepared["language"]),
             )
+        if prepared.get("theme_candidate_resolution_pending"):
+            return ReportJob(
+                report_path=str(Path(prepared["report_path"])),
+                file_url=path_to_file_url(prepared["report_path"]),
+                seed_session_id=session.session_id,
+                status="theme_candidate_resolution_required",
+                log_path="",
+                expanded_sources=list(session.source_summary.keys()),
+                deduped_paper_count=len(session.hits),
+                failures=["theme_candidate_resolution_pending"],
+                report_mode=normalized_mode,
+                materialized_dir=str(prepared["materialized_dir"]),
+                theme_candidate_resolution_request_path=str(prepared["theme_candidate_resolution_request_path"]),
+                theme_candidate_resolution_result_path=str(prepared["theme_candidate_resolution_result_path"]),
+                theme_postprocess_request_path=str(prepared.get("theme_postprocess_request_path", "")),
+                theme_postprocess_result_path=str(prepared.get("theme_postprocess_result_path", "")),
+                rcs_classification_request_path=str(prepared.get("rcs_classification_request_path", "")),
+                rcs_classification_result_path=str(prepared.get("rcs_classification_result_path", "")),
+                user_query=str(prepared["user_query"]),
+                language=str(prepared["language"]),
+            )
         if prepared.get("theme_postprocess_pending"):
             return ReportJob(
                 report_path=str(Path(prepared["report_path"])),
@@ -782,6 +985,8 @@ def start_report_from_session(
                 failures=["theme_postprocess_pending"],
                 report_mode=normalized_mode,
                 materialized_dir=str(prepared["materialized_dir"]),
+                theme_candidate_resolution_request_path=str(prepared.get("theme_candidate_resolution_request_path", "")),
+                theme_candidate_resolution_result_path=str(prepared.get("theme_candidate_resolution_result_path", "")),
                 theme_postprocess_request_path=str(prepared["theme_postprocess_request_path"]),
                 theme_postprocess_result_path=str(prepared["theme_postprocess_result_path"]),
                 rcs_classification_request_path=str(prepared.get("rcs_classification_request_path", "")),
@@ -1015,6 +1220,97 @@ def apply_theme_postprocess_and_render(
         materialized_dir=str(prepared["materialized_dir"]),
         theme_postprocess_request_path=str(prepared["theme_postprocess_request_path"]),
         theme_postprocess_result_path=str(prepared["theme_postprocess_result_path"]),
+        user_query=str(prepared["user_query"]),
+        language=str(prepared["language"]),
+    )
+
+
+def apply_theme_candidate_resolution_and_render(
+    search_session_id: str,
+    *,
+    result_payload: dict,
+    config: Config | None = None,
+    mode: str = "seed_preview",
+    display_query: str = "",
+    language: str = "",
+    open_report: bool = False,
+) -> ReportResult:
+    """Persist one host-Agent ambiguous-candidate result and render the final report."""
+
+    normalized_mode = normalize_report_mode(mode)
+    persist_autoconfig = config is None
+    config = config or Config.load()
+    if not config.paper_search_pro_root or not config.paper_search_pro_command:
+        config = report_tools.ensure_report_tool_configured(config, force=False, persist=persist_autoconfig)
+    root, command_template, out_dir = _validate_config(config)
+    session = load_session(search_session_id, Path(config.cache_dir))
+    session_out_dir = _session_output_dir(out_dir, session.session_id)
+    session_out_dir.mkdir(parents=True, exist_ok=True)
+    seed_path = _write_seed_package(session, session_out_dir)
+    command = _render_command(
+        command_template,
+        seed_json=seed_path,
+        output_dir=session_out_dir,
+        session_id=session.session_id,
+        mode=normalized_mode,
+    )
+    if not _is_builtin_adapter_command(command):
+        raise ReportBridgeConfigError("Theme candidate resolution apply requires the built-in vpnsci adapter command.")
+
+    if normalized_mode == "full":
+        prepared = _apply_theme_candidate_resolution_to_existing_materialized(
+            session_out_dir=session_out_dir,
+            result_payload=result_payload,
+            display_query=display_query,
+            language=language,
+            tool_root=root,
+            open_report=open_report,
+        )
+        report_path = Path(prepared["report_path"])
+    else:
+        prepared = _prepare_builtin_adapter_report(
+            seed_path=seed_path,
+            session_out_dir=session_out_dir,
+            display_query=display_query,
+            language=language,
+            report_mode=normalized_mode,
+        )
+        result_path = Path(prepared["theme_candidate_resolution_result_path"])
+        _write_json(result_path, result_payload)
+        prepared = _prepare_builtin_adapter_report(
+            seed_path=seed_path,
+            session_out_dir=session_out_dir,
+            display_query=display_query,
+            language=language,
+            report_mode=normalized_mode,
+        )
+        report_path = Path(prepared["report_path"])
+        render_html_webartifacts(
+            materialized_data_dir=Path(prepared["materialized_dir"]),
+            output_path=report_path,
+            user_query=str(prepared["user_query"]),
+            language=str(prepared["language"]),
+            tool_root=root,
+        )
+        if open_report:
+            import webbrowser
+            webbrowser.open(report_path.resolve().as_uri())
+
+    return ReportResult(
+        report_path=str(report_path),
+        file_url=path_to_file_url(report_path),
+        seed_session_id=session.session_id,
+        summary="",
+        expanded_sources=list(session.source_summary.keys()),
+        deduped_paper_count=len(session.hits),
+        failures=[],
+        report_mode=normalized_mode,
+        status="completed",
+        materialized_dir=str(prepared["materialized_dir"]),
+        theme_candidate_resolution_request_path=str(prepared["theme_candidate_resolution_request_path"]),
+        theme_candidate_resolution_result_path=str(prepared["theme_candidate_resolution_result_path"]),
+        theme_postprocess_request_path=str(prepared.get("theme_postprocess_request_path", "")),
+        theme_postprocess_result_path=str(prepared.get("theme_postprocess_result_path", "")),
         user_query=str(prepared["user_query"]),
         language=str(prepared["language"]),
     )

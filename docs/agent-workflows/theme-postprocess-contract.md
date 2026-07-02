@@ -16,6 +16,11 @@ This contract is shared across:
 - `full`
 - `recovery`
 
+For ambiguous concept coverage, the same report families also share
+`theme_candidate_resolution_request.json` / `theme_candidate_resolution_result.json`.
+That step runs before label postprocess and only when deterministic treemap
+signal is missing or insufficient.
+
 ---
 
 ## Default execution boundary
@@ -43,13 +48,57 @@ The renderer-facing payload keeps three layers:
 
 - `chart_data.raw_theme_treemap`
 - `chart_data.theme_treemap`
+- `chart_data.theme_candidate_resolution`
 - `chart_data.theme_postprocess`
 
 Semantics:
 
 - `raw_theme_treemap`: raw deterministic theme signal
-- `theme_treemap`: refined display layer
+- `theme_treemap`: refined display layer; may include evidence-backed
+  host-resolved ambiguous candidates
+- `theme_candidate_resolution`: trace of whether ambiguous candidates were
+  requested/applied
 - `theme_postprocess`: trace of whether an Agent refinement was applied
+
+---
+
+## Ambiguous Candidate Resolution
+
+This is a formal treemap input path, not a shadow audit path.
+
+Trigger it only when deterministic `raw_theme_treemap` / `theme_treemap` has
+no hit or insufficient hit. Do not call it when deterministic themes are already
+good enough.
+
+Request artifact:
+
+```text
+theme_candidate_resolution_request.json
+```
+
+Result artifact:
+
+```text
+theme_candidate_resolution_result.json
+```
+
+Host Agent rules:
+
+- resolve only with direct evidence from display query, title, abstract, or keywords;
+- return `unresolved` when evidence is weak or missing;
+- never rewrite deterministic alias runtime;
+- never globally merge concepts;
+- resolved candidates enter only this report's `theme_treemap`.
+
+Resolved result items must include:
+
+- `decision = "resolved"`
+- `alias_key`
+- `concept_id` from the request candidate list
+- `paper_ids` subset of the request paper ids for that alias
+- non-empty `evidence`
+
+Unresolved or invalid items remain trace-only and do not enter the main treemap.
 
 ---
 
@@ -186,6 +235,9 @@ Recommended “no result supplied yet” reason:
 
 ```text
 raw_theme_treemap generated
+-> if no-hit / insufficient-hit: build ambiguous candidate resolution request
+-> Agent resolves candidates with evidence, or returns unresolved
+-> Python applies resolved candidates into theme_treemap
 -> build normalized request payload
 -> Agent performs one conservative label cleanup pass
 -> validate result payload
