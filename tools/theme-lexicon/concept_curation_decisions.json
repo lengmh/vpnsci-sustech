@@ -1630,13 +1630,13 @@
       "target_concept_id": "concept:engineering_drawing"
     },
     {
-      "canonical_en": "Ensemble Learning",
-      "category": "canonical_source_artifact",
+      "category": "high_confidence_base_source_variant",
       "concept_id": "concept:ensemble_learning__2",
-      "decided_at": "2026-07-01",
-      "decision": "canonical",
-      "reason": "C5 batch2 canonical display cleanup; prefer concise source/build canonical over runtime alias with acronym, plural, or source-specific suffix; aliases unchanged",
-      "reviewer": "main-agent-c5-canonical-batch2"
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: prior canonical-only cleanup is now upgraded to base-id/source-variant redirect with exact zh collision to covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch1",
+      "target_concept_id": "concept:ensemble_learning"
     },
     {
       "canonical_en": "Enterprise Resource Planning",
@@ -1702,13 +1702,13 @@
       "topic_label_disposition": "display_only"
     },
     {
-      "canonical_en": "Evolutionary Computation",
-      "category": "canonical_source_artifact",
+      "category": "high_confidence_base_source_variant",
       "concept_id": "concept:evolutionary_computation__2",
-      "decided_at": "2026-07-01",
-      "decision": "canonical",
-      "reason": "C5 batch2 canonical display cleanup; prefer concise source/build canonical over runtime alias with acronym, plural, or source-specific suffix; aliases unchanged",
-      "reviewer": "main-agent-c5-canonical-batch2"
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: prior canonical-only cleanup is now upgraded to base-id/source-variant redirect with exact zh collision to covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch1",
+      "target_concept_id": "concept:evolutionary_computation"
     },
     {
       "canonical_en": "Explainable Artificial Intelligence",
@@ -2023,7 +2023,7 @@
       "decision": "redirect",
       "reason": "C4 batch3 conservative exact/source-variant redirect; normalized English label matches canonical target alias or explicit base-id variant; ambiguous semantic-neighbor candidates excluded; no concept merge",
       "reviewer": "main-agent-c4-batch3",
-      "target_concept_id": "concept:hemt"
+      "target_concept_id": "concept:high_electron_mobility_transistor"
     },
     {
       "canonical_en": "Heterogeneous Networks",
@@ -3674,13 +3674,13 @@
       "target_concept_id": "concept:system_integration"
     },
     {
-      "canonical_en": "System-on-Chip",
-      "category": "canonical_source_artifact",
+      "category": "high_confidence_base_source_variant",
       "concept_id": "concept:system_on_chip__2",
-      "decided_at": "2026-07-01",
-      "decision": "canonical",
-      "reason": "C5 batch3 canonical display cleanup; normalize high-confidence acronym/lowercase/source-suffix display labels; aliases unchanged",
-      "reviewer": "main-agent-c5-canonical-batch3"
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: prior canonical-only cleanup is now upgraded to base-id/source-variant redirect with exact zh collision to covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch1",
+      "target_concept_id": "concept:system_on_chip"
     },
     {
       "category": "high_confidence_exact_source_variant",
@@ -5075,7 +5075,7 @@
       "decision": "redirect",
       "reason": "C6 redirect/source-variant batch3: exact spelling/source terminology variant with stable target; production switch deferred",
       "reviewer": "main-agent-c6-redirect-batch3",
-      "target_concept_id": "concept:micro_electrical_mechanical_system"
+      "target_concept_id": "concept:microelectromechanical_system"
     },
     {
       "category": "high_confidence_duplicate_or_source_variant",
@@ -5484,6 +5484,573 @@
       "decision": "display_only",
       "reason": "C6 topic-label cleanup: broad non-stable source/topic label already rejected as zh alias; production switch deferred",
       "reviewer": "main-agent-c6-topic-label-cleanup"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:dynamic_programming__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: base-id/source-variant duplicate with exact zh collision to covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch1",
+      "target_concept_id": "concept:dynamic_programming"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:ensemble_learning__3",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: base-id/source-variant duplicate with exact zh collision to covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch1",
+      "target_concept_id": "concept:ensemble_learning"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:fading_channel__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: base-id/source-variant duplicate with exact zh collision to covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch1",
+      "target_concept_id": "concept:fading_channel"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:federated_learning__3",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: base-id/source-variant duplicate with exact zh collision to covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch1",
+      "target_concept_id": "concept:federated_learning"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:flowmeter__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: base-id/source-variant duplicate with exact zh collision to covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch1",
+      "target_concept_id": "concept:flowmeter"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:knowledge_discovery__3",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: base-id/source-variant duplicate with exact zh collision to covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch1",
+      "target_concept_id": "concept:knowledge_discovery"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:lacquer__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: base-id/source-variant duplicate with exact zh collision to covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch1",
+      "target_concept_id": "concept:lacquer"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:prediction_algorithm__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: base-id/source-variant duplicate with exact zh collision to covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch1",
+      "target_concept_id": "concept:prediction_algorithm"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:reproductive_isolation__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: base-id/source-variant duplicate with exact zh collision to covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch1",
+      "target_concept_id": "concept:reproductive_isolation"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:sex_chromosom__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: base-id/source-variant duplicate with exact zh collision to covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch1",
+      "target_concept_id": "concept:sex_chromosom"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:spatial_learning__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: base-id/source-variant duplicate with exact zh collision to covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch1",
+      "target_concept_id": "concept:spatial_learning"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:spectral_efficiency__3",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: base-id/source-variant duplicate with exact zh collision to covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch1",
+      "target_concept_id": "concept:spectral_efficiency"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:statistical_distribution__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: base-id/source-variant duplicate with exact zh collision to covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch1",
+      "target_concept_id": "concept:statistical_distribution"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:temperature_sensor__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: base-id/source-variant duplicate with exact zh collision to covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch1",
+      "target_concept_id": "concept:temperature_sensor"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:time_varying_channel__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: base-id/source-variant duplicate with exact zh collision to covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch1",
+      "target_concept_id": "concept:time_varying_channel"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:depth_of_cut",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: exact source variant already collides with covered canonical target; semantic-neighbor cases excluded; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:cutting_depth"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:digraph",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: exact source variant already collides with covered canonical target; semantic-neighbor cases excluded; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:directed_graph"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:ds_cdma",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: acronym source variant already collides with covered full-form canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:direct_sequence_code_division_multiple_access"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:edfa",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: acronym source variant already collides with covered full-form canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:erbium_doped_fiber_amplifier"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:evolutionary_stable_strategy",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: exact spelling/inflection source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:evolutionarily_stable_strategy"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:fibre_bragg_grating",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: exact spelling source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:fiber_bragg_grating"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:fluorescence_in_situ_hybridization",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: exact word-order source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:in_situ_hybridization_fluorescence__2"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:hand_off_delay",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: exact handoff latency source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:handoff_latency"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:infra_red_sensor",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: exact spelling source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:infrared_sensor"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:interference_elimination",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: exact interference-cancellation source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:interference_cancellation__2"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:mc_cdma",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: acronym source variant already collides with covered full-form canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:multicarrier_code_division_multiple_access"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:probability_of_false_alarm",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: exact word-order source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:false_alarm_probability"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:terahertz_time_domain_spectroscopy",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: exact THz-TDS source variant already collides with covered acronym canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:thz_tds"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:time_division_synchronou_code_division_multiple_access",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: exact TD-SCDMA full-form source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:td_scdma"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:tobacco_use_cessation",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: exact smoking/tobacco cessation source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:smoking_cessation"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:topological_optimization",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: exact topology/topological optimization source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:topology_optimization"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:touch_perception",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: exact haptic/touch perception source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:haptic_perception"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:treatment_refusal",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: exact refusal-to-treat source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:refusal_to_treat"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:two_way_relaying",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: exact relaying/relay source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:two_way_relay"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:ureteral_calculi",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: exact ureteral calculi source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:ureterolithiasi"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:vertical_handoff",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup: exact handoff/handover source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch2",
+      "target_concept_id": "concept:vertical_handover"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:hardware_accelerated",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: adjective/source-label variant already collides with covered hardware acceleration target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:hardware_acceleration__2"
+    },
+    {
+      "category": "high_confidence_acronym_full_form_duplicate",
+      "concept_id": "concept:hemt",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: acronym source label already collides with covered full-form canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:high_electron_mobility_transistor"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:information_technology__3",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:information_technology__2"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:light_amplifier",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: exact light/optical terminology variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:optical_amplifier"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:light_modulation",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: exact light/optical terminology variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:optical_modulation"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:linear_code",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: stem/source spelling variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:linear_cod"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:logic_gate",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: stem/source spelling variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:logic_gat"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:logical_design",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: logical/logic source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:logic_design"
+    },
+    {
+      "category": "high_confidence_acronym_full_form_duplicate",
+      "concept_id": "concept:m_learning",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: acronym/source shorthand already collides with covered mobile learning target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:mobile_learning__2"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:metro_network",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: metro/metropolitan area network source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:metropolitan_area_network"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:micro_electrical_mechanical_system",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: spelling source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:microelectromechanical_system"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:microphone",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: stem/source spelling variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:microphon"
+    },
+    {
+      "category": "high_confidence_acronym_full_form_duplicate",
+      "concept_id": "concept:mlst",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: acronym source label already collides with covered sequence typing target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:multilocu_sequence_typing"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:multi_thread",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: exact multi-thread/multithreading source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:multithreading"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:multi_threaded",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: adjective source variant already collides with covered multithreading target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:multithreading"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:oceanography__3",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:oceanography__2"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:optical_buffer",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: optical buffer/buffering source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:optical_buffering"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:optical_sensor__3",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:optical_sensor__2"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:petroleum_pollution",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: petroleum/oil pollution source synonym already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:oil_pollution"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:polyethylen",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: stem/source spelling variant already collides with covered polyethylene target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:polyethylene"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:postal_service",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: stem/source spelling variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:postal_servic"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:ribonucleoprotein_small_nuclear",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: exact word-order source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:small_nuclear_ribonucleoprotein"
+    },
+    {
+      "category": "high_confidence_base_source_variant",
+      "concept_id": "concept:robot_control__3",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:robot_control__2"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:security_of_data",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: exact word-order source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:data_security__2"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:smart_home",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: stem/source spelling variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:smart_hom"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:sound_recording__2",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: sound/audio recording source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:audio_recording"
+    },
+    {
+      "category": "high_confidence_exact_collision_target",
+      "concept_id": "concept:underwater_robotic",
+      "decided_at": "2026-07-02",
+      "decision": "redirect",
+      "reason": "C8 tail cleanup batch3: robotics/robot source variant already collides with covered canonical target; production switch deferred",
+      "reviewer": "main-agent-c8-tail-batch3",
+      "target_concept_id": "concept:underwater_robot"
     }
   ],
   "schema_version": "theme_concept_curation_decisions.v1"
