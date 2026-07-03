@@ -162,7 +162,7 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-07-03 C8 redirect-tail source cleanup 后；
+最新已知状态（2026-07-03 C8 needs-context tail cleanup 后；
 生产 compact runtime 只接入 reviewed exact singleton alias，C8 curation overlay
 仍仅作为 TempFiles work view，未切 production curation）：
 
@@ -186,15 +186,15 @@ lexicons/review/
 - runtime zh alias conflicts: `0`
 - runtime concept aliases: `49878`
 - C8 curated work-view（TempFiles-only）：
-  - concepts: `49260`
-  - deterministic covered: `48415 / 49260 = 98.28%`
+  - concepts: `49231`
+  - deterministic covered: `48415 / 49231 = 98.34%`
   - C7 candidate-resolvable concepts: `622`
-  - effective covered: `49037 / 49260 = 99.55%`
-  - effective tail: `223`
-  - tail buckets: `needs_decision_candidates=115`,
+  - effective covered: `49037 / 49231 = 99.61%`
+  - effective tail: `194`
+  - tail buckets: `needs_decision_candidates=86`,
     `redirect_candidates=35`, `singleton_gaps=73`
-  - active curation decisions: `779`
-    (`redirect=442`, `display_only=186`, `suppressed=27`, `canonical=124`)
+  - active curation decisions: `808`
+    (`redirect=471`, `display_only=186`, `suppressed=27`, `canonical=124`)
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
 - legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；当前运行时以 compact index/manifest 为准）
@@ -208,9 +208,9 @@ lexicons/review/
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
 - compact index 是当前运行时真源；legacy full overlay 未随 batch-007 之后的覆盖扩展更新，不再作为默认等价检查对象，也不再作为 runtime fallback 读取。
-- 最近相关测试：C8 redirect-tail source cleanup 后，focused alias/runtime
-  suite `935 passed in 29.71s`；project suite
-  `1297 passed, 4 subtests passed in 106.76s`。
+- 最近相关测试：C8 needs-context tail cleanup 后，focused alias/runtime
+  suite `935 passed in 31.91s`；project suite
+  `1297 passed, 4 subtests passed in 147.90s`。
 - concept curation C1-C4 已开始并完成首批临时验证：
   - C1 只读 audit 已完成，输出在 `F:\AI playground\TempFiles`；
     raw uncovered concepts `1587`，其中 `redirect_candidates = 436`、
@@ -2824,6 +2824,38 @@ uv run python tools/theme-lexicon/materialize_runtime_overlay.py `
   `935 passed in 29.71s`；project suite
   `1297 passed, 4 subtests passed in 106.76s`；`git diff --check` exit `0`
   （仅保留 Git CRLF 工作区提示）。
+- C8 needs-context tail cleanup 已完成：从 redirect-tail 后 effective tail 的
+  `115` 条 `needs_decision_candidates` 中审查 acronym/source-variant 队列，
+  最终只写入 `29` 条高置信 redirect，包括 AHP/ANN/ATPG/BSS/CFO/CNC/CSI/
+  DFE/DTC/DWDM/EHR/FBG/FIR/ICT/IPv6/LMIS/LTE/MCDM/MIB/PCF/PIV/PSK/MIR/
+  self-organized systems/SNA/TDR/videoconferencing/WAN/computer worm 等
+  明确 acronym 或 source variant。`GPS`、`PLL`、`遗传易位` 等初筛 exact
+  alias 被 validation 暴露为 collision family，已撤回 reviewed source，不留
+  source-only stale row；剩余 `86` 条继续 deferred，等待 host-agent context
+  或更强 source evidence。生产 compact runtime 不变，保持
+  `48515 / 49878 = 97.27%`，zh aliases `48635`，accepted conflict groups
+  `0`，runtime en/zh alias conflicts `0/0`，pollution audit `0/0`；package/tool
+  compact index 与 manifest 均 byte-identical。L3-L5 fresh run：fill
+  `records_filled = 52351 / 54682`，validate `review_decisions = 401719`，
+  preserve `52584`，English short acronym queue `713` 重新 blocked，
+  materialize `build_status = review_complete`。C8 curated work-view active
+  decisions 更新为 `808` (`redirect=471`, `display_only=186`,
+  `suppressed=27`, `canonical=124`)；TempFiles-only materialize 后 concepts
+  `49231`，deterministic covered `48415 / 49231 = 98.34%`，
+  candidate-resolvable concepts `622`，effective coverage
+  `49037 / 49231 = 99.61%`，effective tail `194`
+  (`needs_decision_candidates=86`, `redirect_candidates=35`,
+  `singleton_gaps=73`)。临时产物：
+  `F:\AI playground\TempFiles\c8_needs_context_tail_review_20260703.json`、
+  `F:\AI playground\TempFiles\concept_curation_overlay_c8_needs_context_tail_20260703.json`、
+  `F:\AI playground\TempFiles\theme_concept_alias_index_c8_needs_context_tail_workview_20260703.json`、
+  `F:\AI playground\TempFiles\theme_concept_ambiguous_alias_candidates_c8_needs_context_tail_20260703.json`
+  和
+  `F:\AI playground\TempFiles\theme_alias_effective_tail_audit_c8_needs_context_tail_effective_tail_20260703.json`。
+  Fresh validation: `apply_concept_curation.py` 通过；TempFiles-only
+  `materialize_runtime_overlay.py` 通过；focused alias/runtime suite
+  `935 passed in 31.91s`；project suite
+  `1297 passed, 4 subtests passed in 147.90s`。
 
 ## 8. CNKI / 浏览器 / 外部服务安全边界
 
