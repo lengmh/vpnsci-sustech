@@ -162,53 +162,55 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-07-02 C8 needs-decision technical round1 后；
+最新已知状态（2026-07-03 C8 redirect-tail source cleanup 后；
 生产 compact runtime 只接入 reviewed exact singleton alias，C8 curation overlay
 仍仅作为 TempFiles work view，未切 production curation）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，
-  最新 fill `records_filled = 51916 / records_seen = 54682`；
+  最新 fill `records_filled = 52351 / records_seen = 54682`；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`48311 / 49849 = 96.91%`
-- runtime zh aliases: `48431`
+- runtime 中文覆盖：`48515 / 49878 = 97.27%`
+- runtime zh aliases: `48635`
 - runtime en aliases: `189471`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
-- `zh:accept`: `48431`
-- `zh:blocked`: `3720`
+- `zh:accept`: `48635`
+- `zh:blocked`: `3958`
 - `zh:needs_review`: `0`
 - `zh:reject`: `13`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `49849`
+- runtime concept aliases: `49878`
 - C8 curated work-view（TempFiles-only）：
-  - concepts: `49278`
-  - deterministic covered: `48211 / 49278 = 97.83%`
-  - C7 candidate-resolvable concepts: `620`
-  - effective covered: `48831 / 49278 = 99.09%`
-  - effective tail: `447`
-  - active curation decisions: `706`
-    (`redirect=383`, `display_only=175`, `suppressed=24`, `canonical=124`)
+  - concepts: `49260`
+  - deterministic covered: `48415 / 49260 = 98.28%`
+  - C7 candidate-resolvable concepts: `622`
+  - effective covered: `49037 / 49260 = 99.55%`
+  - effective tail: `223`
+  - tail buckets: `needs_decision_candidates=115`,
+    `redirect_candidates=35`, `singleton_gaps=73`
+  - active curation decisions: `779`
+    (`redirect=442`, `display_only=186`, `suppressed=27`, `canonical=124`)
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
 - legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；当前运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `8f10c9b352302216215109d1bd6c0345602aa9bb08d64a8e88de81be0ab0490f`
+  `703a1310ad6f40c16dc56da956ea6d39d769ede9b69a07e3b3be3f74bafa6fbc`
 - compact manifest SHA-256:
-  `adc4e76f6c02080aac84c5751907653aea2f10b3cb63b3f0100c50f2a9201961`
+  `7a0ac240f7cfd854bfe15a3a91853111d66e77fba923fa464394431ce189fad0`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
 - compact index 是当前运行时真源；legacy full overlay 未随 batch-007 之后的覆盖扩展更新，不再作为默认等价检查对象，也不再作为 runtime fallback 读取。
-- 最近相关测试：C8 needs-decision display cleanup round1 后，focused alias/runtime suite
-  `911 passed in 30.23s`；project suite 最近一次为 C8 singleton exact
-  round4/5 后 `1297 passed, 4 subtests passed in 102.49s`。
+- 最近相关测试：C8 redirect-tail source cleanup 后，focused alias/runtime
+  suite `935 passed in 29.71s`；project suite
+  `1297 passed, 4 subtests passed in 106.76s`。
 - concept curation C1-C4 已开始并完成首批临时验证：
   - C1 只读 audit 已完成，输出在 `F:\AI playground\TempFiles`；
     raw uncovered concepts `1587`，其中 `redirect_candidates = 436`、
@@ -2704,6 +2706,124 @@ uv run python tools/theme-lexicon/materialize_runtime_overlay.py `
   Fresh validation: `apply_concept_curation.py` 通过；TempFiles-only
   `materialize_runtime_overlay.py` 通过；focused alias/runtime suite
   `919 passed in 28.53s`。
+- C8 exact/domain-aware first50 review 已完成：从 remaining closeout 的
+  `233` 条 deferred exact/domain-aware queue 中逐条审查前 `50` 条；
+  接受 `40` 条 exact/domain-aware 中文 alias，defer `10` 条（collision
+  target 已有更合适归属、过泛或需上下文）。接受项写入
+  `tools/theme-lexicon/reviewed_zh_exact_aliases.json`，source 为
+  `main_agent_c8_exact_review_first50`；未打开 low-quality mixed fallback，
+  未 blanket accept medium compositional candidates，未自动 merge collision。
+  L3-L5 后生产 compact runtime 更新为 `48351 / 49876 = 96.94%`，
+  zh aliases `48471`，accepted conflict groups `0`，runtime en/zh alias
+  conflicts `0/0`，pollution audit `0/0`；package/tool compact index 与
+  manifest 均 byte-identical，compact index SHA-256
+  `3d9f998cdaf240e7f19827e691432d217cef20d2ac06fc5382dc85ebe01bc1e2`，
+  compact manifest SHA-256
+  `5345c451bf54439db567637a7699cc1052dbee8107adce7b815696fa638cc51e`。
+  C8 curated work-view active decisions 保持 `775`
+  (`redirect=438`, `display_only=186`, `suppressed=27`, `canonical=124`)；
+  TempFiles-only materialize 后 concepts `49264`，deterministic covered
+  `48251 / 49264 = 97.94%`，candidate-resolvable concepts `620`，
+  effective coverage `48871 / 49264 = 99.20%`，effective tail `393`
+  (`needs_decision_candidates=269`, `redirect_candidates=37`,
+  `singleton_gaps=87`)；needs-decision tail 中 `193` 条为 exact/domain-aware
+  unresolved（其中 `183` 条尚未逐条审查，`10` 条 first50 已 defer），`76`
+  条为 acronym/full-form context queue。临时产物：
+  `F:\AI playground\TempFiles\c8_exact_alias_review_first50_20260702.json`
+  和
+  `F:\AI playground\TempFiles\theme_alias_effective_tail_audit_c8_exact_first50_effective_tail_20260702.json`。
+  Fresh validation: focused alias/runtime suite `919 passed in 28.79s`；
+  `git diff --check` exit `0`（仅保留 Git CRLF 工作区提示）；accepted
+  alias 命中校验 `40/40`。
+- C8 exact/domain-aware remaining183 review 已完成：继续审查 first50 后剩余
+  `183` 条 exact/domain-aware queue；最终接受 `153` 条，defer `30`
+  条。中途发现 `7` 条初始 accepted alias 被 runtime shape/target policy
+  挡住，已将 `熵/痣/钢/蜡` 改为更安全的 `熵值/母斑/钢材/蜡类`，并将
+  `会议/轴/超导` 改为 deferred，避免 source-only stale row。接受项写入
+  `tools/theme-lexicon/reviewed_zh_exact_aliases.json`，source 为
+  `main_agent_c8_exact_review_remaining183`；未打开 low-quality mixed
+  fallback，未 blanket accept medium compositional candidates，未自动
+  merge collision。L3-L5 后生产 compact runtime 更新为
+  `48501 / 49878 = 97.24%`，zh aliases `48621`，accepted conflict
+  groups `0`，runtime en/zh alias conflicts `0/0`，pollution audit `0/0`；
+  package/tool compact index 与 manifest 均 byte-identical，compact index
+  SHA-256
+  `2b2542f0615cc64ef1c1115dcfbf46d4f57c0e50898e1fa2a19f87b07532eeb1`，
+  compact manifest SHA-256
+  `d601b21ec141e600a5cbb614e4116e71ae7066f9c3bfca3afcd7afd3bc9845ba`。
+  C8 curated work-view active decisions 保持 `775`
+  (`redirect=438`, `display_only=186`, `suppressed=27`, `canonical=124`)；
+  TempFiles-only materialize 后 concepts `49264`，deterministic covered
+  `48401 / 49264 = 98.25%`，candidate-resolvable concepts `622`，
+  effective coverage `49023 / 49264 = 99.51%`，effective tail `241`
+  (`needs_decision_candidates=115`, `redirect_candidates=39`,
+  `singleton_gaps=87`)。临时产物：
+  `F:\AI playground\TempFiles\c8_exact_alias_review_remaining183_20260703.json`
+  和
+  `F:\AI playground\TempFiles\theme_alias_effective_tail_audit_c8_exact_remaining183_effective_tail_20260703.json`。
+  Fresh validation: accepted alias 命中校验 `153/153`；focused alias/runtime
+  suite `919 passed in 29.53s`；`git diff --check` exit `0`（仅保留 Git
+  CRLF 工作区提示）。
+- C8 singleton remaining87 review 已完成：从 `99.51%` work-view tail 中的
+  `87` 条 `singleton_gaps` 逐条审查；初筛接受 `42` 条、defer `45` 条，
+  但完整 L4 validation 发现 `25` 条会被 alias-collision guard 阻断、
+  `2` 条一字化学名未形成 review row，focused suite 又拦下 `电磁发射技术`
+  的膨胀型 `*技术` 形态；最终只保留 `14` 条 production-safe reviewed exact
+  alias，`73` 条记为 deferred。未打开 low-quality mixed fallback，未
+  blanket accept medium compositional candidates，未自动 merge collision；
+  被 collision/shape/test guard 拦下的 row 已从
+  `tools/theme-lexicon/reviewed_zh_exact_aliases.json` 移除，避免 source-only
+  stale row。L3-L5 后生产 compact runtime 更新为
+  `48515 / 49878 = 97.27%`，zh aliases `48635`，accepted conflict groups
+  `0`，runtime en/zh alias conflicts `0/0`，pollution audit `0/0`；
+  package/tool compact index 与 manifest 均 byte-identical，compact index
+  SHA-256
+  `703a1310ad6f40c16dc56da956ea6d39d769ede9b69a07e3b3be3f74bafa6fbc`，
+  compact manifest SHA-256
+  `7a0ac240f7cfd854bfe15a3a91853111d66e77fba923fa464394431ce189fad0`。
+  C8 curated work-view active decisions 保持 `775`
+  (`redirect=438`, `display_only=186`, `suppressed=27`, `canonical=124`)；
+  TempFiles-only materialize 后 concepts `49264`，deterministic covered
+  `48415 / 49264 = 98.28%`，candidate-resolvable concepts `622`，
+  effective coverage `49037 / 49264 = 99.54%`，effective tail `227`
+  (`needs_decision_candidates=115`, `redirect_candidates=39`,
+  `singleton_gaps=73`)。临时产物：
+  `F:\AI playground\TempFiles\c8_singleton_exact_review_remaining87_20260703.json`
+  和
+  `F:\AI playground\TempFiles\theme_alias_effective_tail_audit_c8_singleton_remaining87_effective_tail_20260703.json`。
+  Fresh validation: accepted alias 命中校验 `14/14`；focused alias/runtime
+  suite `931 passed in 31.58s`；project suite
+  `1297 passed, 4 subtests passed in 106.27s`；`git diff --check` exit `0`
+  （仅保留 Git CRLF 工作区提示）。
+- C8 redirect-tail source cleanup 已完成：从 singleton remaining87 后
+  effective tail 的 `39` 条 `redirect_candidates` 中逐条审查，只写入 `4`
+  条高置信 source-variant redirect：
+  `electromagnetic__2 -> electromagnetic`、`sound__2 -> sound`、
+  `superconductivity__4 -> superconductivity__3`、
+  `vision_disparity__2 -> vision_disparity`。其余 `35` 条继续 deferred，
+  主要原因是语义邻近、父子概念、class-vs-instance、领域漂移或 collision
+  target 证据不足；仍不自动 merge collision，不切 production curation
+  overlay。生产 compact runtime 不变，保持 `48515 / 49878 = 97.27%`，
+  zh aliases `48635`，accepted conflict groups `0`，runtime en/zh alias
+  conflicts `0/0`，pollution audit `0/0`；package/tool compact index 与
+  manifest 均 byte-identical。C8 curated work-view active decisions 更新为
+  `779` (`redirect=442`, `display_only=186`, `suppressed=27`,
+  `canonical=124`)；TempFiles-only materialize 后 concepts `49260`，
+  deterministic covered `48415 / 49260 = 98.28%`，
+  candidate-resolvable concepts `622`，effective coverage
+  `49037 / 49260 = 99.55%`，effective tail `223`
+  (`needs_decision_candidates=115`, `redirect_candidates=35`,
+  `singleton_gaps=73`)。临时产物：
+  `F:\AI playground\TempFiles\concept_curation_overlay_c8_redirect_tail_20260703.json`、
+  `F:\AI playground\TempFiles\theme_concept_alias_index_c8_redirect_tail_workview_20260703.json`、
+  `F:\AI playground\TempFiles\theme_concept_ambiguous_alias_candidates_c8_redirect_tail_20260703.json`
+  和
+  `F:\AI playground\TempFiles\theme_alias_effective_tail_audit_c8_redirect_tail_effective_tail_20260703.json`。
+  Fresh validation: `apply_concept_curation.py` 通过；TempFiles-only
+  `materialize_runtime_overlay.py` 通过；focused alias/runtime suite
+  `935 passed in 29.71s`；project suite
+  `1297 passed, 4 subtests passed in 106.76s`；`git diff --check` exit `0`
+  （仅保留 Git CRLF 工作区提示）。
 
 ## 8. CNKI / 浏览器 / 外部服务安全边界
 
