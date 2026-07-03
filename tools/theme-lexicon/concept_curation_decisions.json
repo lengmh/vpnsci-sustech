@@ -7003,6 +7003,267 @@
       "reason": "C8 redirect tail cleanup: MeSH Vision Disparity is exact source variant of CSO vision disparity; exact zh collision target already exists; production switch deferred",
       "reviewer": "main-agent-c8-redirect-tail",
       "target_concept_id": "concept:vision_disparity"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:ann",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: ANN is the standard acronym for Artificial Neural Network in the computer-science taxonomy; target has accepted exact zh alias.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:artificial_neural_network__2"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:ahp_analytic_hierarchy_process",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: AHP label explicitly expands to analytic/analytical hierarchy process; computer-science target already carries exact zh alias.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:analytical_hierarchy_process"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:atpg",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: ATPG is the standard acronym for automatic test pattern generation; target already carries exact zh alias.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:automatic_test_pattern_generation__4"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:bss",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: BSS is the standard acronym for blind source separation; redirect to existing canonical signal-processing target.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:blind_source_separation"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:cfo",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: CFO is explicitly present in carrier-frequency-offset target aliases; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:carrier_frequency_offset"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:cnc",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: CNC is the standard acronym for computer numerical control; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:computer_numerical_control"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:csi",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: CSI is explicitly present in channel-state-information target aliases; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:channel_state_information__2"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:dfe",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: DFE maps to decision feedback equalizer in communications; exact target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:decision_feedback_equalizer__2"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:dtc",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: DTC is explicitly present in direct-torque-control target aliases; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:direct_torque_control"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:dwdm",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: DWDM is dense wavelength division multiplexing; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:dense_wavelength_division_multiplexing"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:ehr",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: EHR is the standard acronym for electronic health record; exact target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:electronic_health_record"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:fbg",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: FBG is explicitly present in fiber-Bragg-grating target aliases; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:fiber_bragg_grating"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:fir__3",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: FIR in computer-science/signal context maps to finite impulse response; exact target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:finite_impulse_response"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:ict",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: ICT is explicitly present in information-and-communication-technology target aliases; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:information_and_communication_technology"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:ipv6",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: IPv6 is the standard acronym for Internet Protocol Version 6; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:internet_protocol_version_6"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:lmis",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: LMIs is the plural/acronym source form of linear matrix inequalities; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:linear_matrix_inequality"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:lte",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: LTE is explicitly present in long-term-evolution target aliases; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:long_term_evolution"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:mcdm",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: MCDM is the standard acronym for multi-criteria decision making; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:multi_criteria_decision_making"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:mib",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: MIB is the standard acronym for management information base in networking; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:management_information_base"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:pcf",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: PCF maps to photonic crystal fiber in the optics taxonomy; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:photonic_crystal_fiber"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:piv",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: PIV is explicitly present in particle-image-velocimetry target aliases; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:particle_image_velocimetry"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:psk",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: PSK is phase-shift keying in communications; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:phase_shift_keying"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:retrieval_mir",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: MIR parenthetical disambiguates retrieval as music information retrieval; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:music_information_retrieval__2"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:self_organized_system",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: Self-organized systems is a source/plural variant of self-organizing systems; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:self_organizing_system"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:sna",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: SNA is social network analysis in this topic queue; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:social_network_analysi__2"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:tdr",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: TDR is explicitly present in time-domain-reflectometry target aliases; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:time_domain_reflectometry"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:videoconferencing",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: Videoconferencings is a plural/source variant of video conferencing; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:video_conferencing"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:wan",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: WAN is the standard acronym for wide area network; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:wide_area_network"
+    },
+    {
+      "category": "high_confidence_acronym_or_source_variant",
+      "concept_id": "concept:worm",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-context tail cleanup: Worms in computer-science taxonomy maps to computer worm; exact zh target exists.",
+      "reviewer": "main-agent-c8-needs-context-tail",
+      "target_concept_id": "concept:computer_worm__2"
     }
   ],
   "schema_version": "theme_concept_curation_decisions.v1"
