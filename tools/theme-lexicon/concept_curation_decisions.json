@@ -7264,6 +7264,141 @@
       "reason": "C8 needs-context tail cleanup: Worms in computer-science taxonomy maps to computer worm; exact zh target exists.",
       "reviewer": "main-agent-c8-needs-context-tail",
       "target_concept_id": "concept:computer_worm__2"
+    },
+    {
+      "category": "high_confidence_plural_or_source_variant",
+      "concept_id": "concept:algorithm__2",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-decision 86 strict pass: suffix/base duplicate; MeSH Algorithms source variant redirects to the existing Algorithms base concept without accepting a broad Chinese alias; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-86-strict-pass",
+      "target_concept_id": "concept:algorithm"
+    },
+    {
+      "category": "high_confidence_plural_or_source_variant",
+      "concept_id": "concept:atmosphere__3",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-decision 86 strict pass: suffix/base duplicate; MeSH Atmosphere source variant redirects to the existing Atmosphere base concept; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-86-strict-pass",
+      "target_concept_id": "concept:atmosphere"
+    },
+    {
+      "category": "high_confidence_plural_or_source_variant",
+      "concept_id": "concept:budget__2",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-decision 86 strict pass: suffix/base duplicate; MeSH Budgets source variant redirects to the existing Budgets base concept without accepting a broad Chinese alias; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-86-strict-pass",
+      "target_concept_id": "concept:budget"
+    },
+    {
+      "category": "high_confidence_source_label_variant",
+      "concept_id": "concept:directional_pattern_antenna",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-decision 86 strict pass: CSO directional patterns (antenna) is an antenna-pattern source label variant; exact zh target already exists; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-86-strict-pass",
+      "target_concept_id": "concept:antenna_pattern"
+    },
+    {
+      "category": "high_confidence_plural_or_source_variant",
+      "concept_id": "concept:engineering__2",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-decision 86 strict pass: suffix/base duplicate; MeSH Engineering source variant redirects to the existing Engineering base concept; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-86-strict-pass",
+      "target_concept_id": "concept:engineering"
+    },
+    {
+      "category": "high_confidence_plural_or_source_variant",
+      "concept_id": "concept:feedback__3",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-decision 86 strict pass: suffix/base duplicate; MeSH Feedback source variant redirects to the existing Feedback base concept; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-86-strict-pass",
+      "target_concept_id": "concept:feedback"
+    },
+    {
+      "category": "high_confidence_plural_or_source_variant",
+      "concept_id": "concept:government__2",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-decision 86 strict pass: suffix/base duplicate; MeSH Government source variant redirects to the existing Government base concept without accepting a broad Chinese alias; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-86-strict-pass",
+      "target_concept_id": "concept:government"
+    },
+    {
+      "category": "high_confidence_plural_or_source_variant",
+      "concept_id": "concept:industry__2",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-decision 86 strict pass: suffix/base duplicate; MeSH Industry source variant redirects to the existing Industries base concept; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-86-strict-pass",
+      "target_concept_id": "concept:industry"
+    },
+    {
+      "category": "high_confidence_plural_or_source_variant",
+      "concept_id": "concept:maintenance__2",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-decision 86 strict pass: suffix/base duplicate; MeSH Maintenance source variant redirects to the existing Maintenance base concept; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-86-strict-pass",
+      "target_concept_id": "concept:maintenance"
+    },
+    {
+      "category": "high_confidence_plural_or_source_variant",
+      "concept_id": "concept:memetic__3",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-decision 86 strict pass: suffix/base duplicate; CSO Memetic source variant redirects to the existing Memetics base concept; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-86-strict-pass",
+      "target_concept_id": "concept:memetic"
+    },
+    {
+      "category": "high_confidence_plural_or_source_variant",
+      "concept_id": "concept:radio__2",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-decision 86 strict pass: suffix/base duplicate; MeSH Radio source variant redirects to the existing Radio base concept; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-86-strict-pass",
+      "target_concept_id": "concept:radio"
+    },
+    {
+      "category": "high_confidence_plural_or_source_variant",
+      "concept_id": "concept:safety__3",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-decision 86 strict pass: suffix/base duplicate; MeSH Safety source variant redirects to the existing Safety base concept without accepting a broad Chinese alias; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-86-strict-pass",
+      "target_concept_id": "concept:safety"
+    },
+    {
+      "category": "high_confidence_plural_or_source_variant",
+      "concept_id": "concept:semantic__3",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-decision 86 strict pass: suffix/base duplicate; MeSH Semantics source variant redirects to the existing Semantics base concept; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-86-strict-pass",
+      "target_concept_id": "concept:semantic"
+    },
+    {
+      "category": "high_confidence_plural_or_source_variant",
+      "concept_id": "concept:sport__2",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-decision 86 strict pass: suffix/base duplicate; MeSH Sports source variant redirects to the existing Sports base concept; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-86-strict-pass",
+      "target_concept_id": "concept:sport"
+    },
+    {
+      "category": "high_confidence_plural_or_source_variant",
+      "concept_id": "concept:vocabulary__3",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 needs-decision 86 strict pass: suffix/base duplicate; MeSH Vocabulary source variant redirects to the existing Vocabulary base concept; production switch deferred",
+      "reviewer": "main-agent-c8-needs-decision-86-strict-pass",
+      "target_concept_id": "concept:vocabulary"
     }
   ],
   "schema_version": "theme_concept_curation_decisions.v1"
