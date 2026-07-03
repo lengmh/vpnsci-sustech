@@ -6967,6 +6967,42 @@
       "reason": "C8 needs-decision technical round1 source cleanup: Vertical cavity surface emitting laser is full form of VCSEL target; exact zh collision target already exists; production switch deferred",
       "reviewer": "main-agent-c8-needs-decision-technical-round1",
       "target_concept_id": "concept:vcsel"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:electromagnetic__2",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 redirect tail cleanup: CSO Electromagnetic is exact source variant of IEEE Electromagnetics; exact zh collision target already exists; production switch deferred",
+      "reviewer": "main-agent-c8-redirect-tail",
+      "target_concept_id": "concept:electromagnetic"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:sound__2",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 redirect tail cleanup: arXiv cs.SD Sound is exact source-category variant of Sound; production switch deferred",
+      "reviewer": "main-agent-c8-redirect-tail",
+      "target_concept_id": "concept:sound"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:superconductivity__4",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 redirect tail cleanup: arXiv cond-mat.supr-con Superconductivity is exact source-category variant of Superconductivity; exact zh collision target already exists; production switch deferred",
+      "reviewer": "main-agent-c8-redirect-tail",
+      "target_concept_id": "concept:superconductivity__3"
+    },
+    {
+      "category": "high_confidence_exact_source_variant",
+      "concept_id": "concept:vision_disparity__2",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8 redirect tail cleanup: MeSH Vision Disparity is exact source variant of CSO vision disparity; exact zh collision target already exists; production switch deferred",
+      "reviewer": "main-agent-c8-redirect-tail",
+      "target_concept_id": "concept:vision_disparity"
     }
   ],
   "schema_version": "theme_concept_curation_decisions.v1"

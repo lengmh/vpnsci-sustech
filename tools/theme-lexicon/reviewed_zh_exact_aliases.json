@@ -184106,9 +184106,1679 @@
         "chemicals_and_drugs"
       ],
       "item_id": "c8-singleton-round5-012"
+    },
+    {
+      "concept_id": "concept:acrylamid",
+      "canonical_en": "Acrylamides",
+      "alias_zh": "丙烯酰胺类",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:alternative_splicing",
+      "canonical_en": "Alternative Splicings",
+      "alias_zh": "可变剪接",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:amphetamin",
+      "canonical_en": "Amphetamines",
+      "alias_zh": "苯丙胺类",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:anemia",
+      "canonical_en": "Anemias",
+      "alias_zh": "贫血",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:aneurysm",
+      "canonical_en": "Aneurysms",
+      "alias_zh": "动脉瘤",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:angiocardiography",
+      "canonical_en": "Angiocardiographies",
+      "alias_zh": "心血管造影",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:angiography",
+      "canonical_en": "Angiographies",
+      "alias_zh": "血管造影",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:angioplasty",
+      "canonical_en": "Angioplasties",
+      "alias_zh": "血管成形术",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:aphasia_wernicke__2",
+      "canonical_en": "Wernicke Dysphasia",
+      "alias_zh": "韦尼克失语症",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:aquaculture",
+      "canonical_en": "Aquacultures",
+      "alias_zh": "水产养殖",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:artificial_limb",
+      "canonical_en": "Artificial Limbs",
+      "alias_zh": "人工肢体",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:atrophy",
+      "canonical_en": "Atrophies",
+      "alias_zh": "萎缩",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:automation",
+      "canonical_en": "Automations",
+      "alias_zh": "自动化",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:autopsy",
+      "canonical_en": "Autopsies",
+      "alias_zh": "尸检",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:biolistic",
+      "canonical_en": "Biolistics",
+      "alias_zh": "基因枪法",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:bionic",
+      "canonical_en": "Bionics",
+      "alias_zh": "仿生学",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:birefringence",
+      "canonical_en": "Birefringences",
+      "alias_zh": "双折射",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:blind_equalizer",
+      "canonical_en": "Blind Equalizers",
+      "alias_zh": "盲均衡器",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:botany",
+      "canonical_en": "Botanies",
+      "alias_zh": "植物学",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:botnet",
+      "canonical_en": "botnets",
+      "alias_zh": "僵尸网络",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:bronchoscopy",
+      "canonical_en": "Bronchoscopies",
+      "alias_zh": "支气管镜检查",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:calibration",
+      "canonical_en": "Calibrations",
+      "alias_zh": "校准",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:capital_financing",
+      "canonical_en": "Capital Financings",
+      "alias_zh": "资本融资",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:catheterization",
+      "canonical_en": "Catheterizations",
+      "alias_zh": "导管插入术",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:central_offic",
+      "canonical_en": "Central Offices",
+      "alias_zh": "中心局",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:centromere",
+      "canonical_en": "Centromeres",
+      "alias_zh": "着丝粒",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:certification",
+      "canonical_en": "Certifications",
+      "alias_zh": "认证",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:chalcon",
+      "canonical_en": "Chalcones",
+      "alias_zh": "查尔酮类",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:chromosome_banding",
+      "canonical_en": "Chromosome Bandings",
+      "alias_zh": "染色体显带",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:chromosome_breakage",
+      "canonical_en": "Chromosome Breakages",
+      "alias_zh": "染色体断裂",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:circadian_rhythm",
+      "canonical_en": "Circadian Rhythms",
+      "alias_zh": "昼夜节律",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:cochlear_implant",
+      "canonical_en": "Cochlear Implants",
+      "alias_zh": "人工耳蜗",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:cognition",
+      "canonical_en": "Cognitions",
+      "alias_zh": "认知",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:coil",
+      "canonical_en": "Coils",
+      "alias_zh": "线圈",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:colonoscopy",
+      "canonical_en": "Colonoscopies",
+      "alias_zh": "结肠镜检查",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:conserved_sequence",
+      "canonical_en": "Conserved Sequences",
+      "alias_zh": "保守序列",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:corrosion",
+      "canonical_en": "Corrosions",
+      "alias_zh": "腐蚀",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:cryotherapy",
+      "canonical_en": "Cryotherapies",
+      "alias_zh": "冷冻疗法",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:crystallography",
+      "canonical_en": "Crystallographies",
+      "alias_zh": "晶体学",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:denitrification",
+      "canonical_en": "Denitrifications",
+      "alias_zh": "反硝化",
+      "source": "main_agent_c8_exact_review_first50",
+      "reviewed_at": "2026-07-02",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup first50 review."
+    },
+    {
+      "concept_id": "concept:deoxyribonuclease_type_ii_site_specific",
+      "canonical_en": "Type II Site Specific Deoxyribonucleases",
+      "alias_zh": "II型位点特异性脱氧核糖核酸酶",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:diamond",
+      "canonical_en": "Diamonds",
+      "alias_zh": "金刚石",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:dipole_antenna__2",
+      "canonical_en": "Dipole Antenna",
+      "alias_zh": "偶极天线",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:directional_antenna__2",
+      "canonical_en": "Directional Antenna",
+      "alias_zh": "定向天线",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:disruptive_technology__2",
+      "canonical_en": "Disruptive Technology",
+      "alias_zh": "颠覆性技术",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:dream",
+      "canonical_en": "Dreams",
+      "alias_zh": "梦境",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:dyslexia__2",
+      "canonical_en": "Dyslexias",
+      "alias_zh": "阅读障碍",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:eagl",
+      "canonical_en": "Eagles",
+      "alias_zh": "鹰类",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:earthquak__3",
+      "canonical_en": "Earthquake",
+      "alias_zh": "地震",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:echo_canceller",
+      "canonical_en": "Echo Cancellers",
+      "alias_zh": "回声消除器",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:echo_sounder",
+      "canonical_en": "Echo Sounders",
+      "alias_zh": "回声测深仪",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:ecology__2",
+      "canonical_en": "Ecologies",
+      "alias_zh": "生态学",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:education_graduate__2",
+      "canonical_en": "Graduate Education",
+      "alias_zh": "研究生教育",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:elastomer__2",
+      "canonical_en": "Elastomer",
+      "alias_zh": "弹性体",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:electro_optic_devic",
+      "canonical_en": "Electro-optic Devices",
+      "alias_zh": "电光设备",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:electrochemistry__2",
+      "canonical_en": "Electrochemistries",
+      "alias_zh": "电化学",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:electrod__2",
+      "canonical_en": "Electrode",
+      "alias_zh": "电极",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:electromyography__2",
+      "canonical_en": "Electromyographies",
+      "alias_zh": "肌电图",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:electrosurgery__2",
+      "canonical_en": "Electrosurgeries",
+      "alias_zh": "电外科手术",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:elementary_particl__2",
+      "canonical_en": "Elementary Particle",
+      "alias_zh": "基本粒子",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:embryonic_development",
+      "canonical_en": "Embryonic Developments",
+      "alias_zh": "胚胎发育",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:emulsion__2",
+      "canonical_en": "Emulsion",
+      "alias_zh": "乳剂",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:endoscop__2",
+      "canonical_en": "Endoscope",
+      "alias_zh": "内窥镜",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:engineering_drawing",
+      "canonical_en": "Engineering Drawings",
+      "alias_zh": "工程图",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:entropy__2",
+      "canonical_en": "Entropies",
+      "alias_zh": "熵值",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:enzym",
+      "canonical_en": "Enzymes",
+      "alias_zh": "酶类",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:epoxy_resin__2",
+      "canonical_en": "Epoxy Resin",
+      "alias_zh": "环氧树脂",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:ergotamin",
+      "canonical_en": "Ergotamines",
+      "alias_zh": "麦角胺类",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:estuary__4",
+      "canonical_en": "Estuary",
+      "alias_zh": "河口",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:ethanolamin",
+      "canonical_en": "Ethanolamines",
+      "alias_zh": "乙醇胺类",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:eutrophication__2",
+      "canonical_en": "Eutrophications",
+      "alias_zh": "富营养化",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:excipient",
+      "canonical_en": "Excipients",
+      "alias_zh": "赋形剂",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:explosion__3",
+      "canonical_en": "Explosion",
+      "alias_zh": "爆炸",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:fiber_optic_technology__2",
+      "canonical_en": "Fiber Optic Technologies",
+      "alias_zh": "光纤技术",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:financing_government__2",
+      "canonical_en": "Government Financing",
+      "alias_zh": "政府融资",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:fir__4",
+      "canonical_en": "Fire",
+      "alias_zh": "火灾",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:flip_flop",
+      "canonical_en": "Flip-flops",
+      "alias_zh": "触发器",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:forest__4",
+      "canonical_en": "Forest",
+      "alias_zh": "森林",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:fractal__2",
+      "canonical_en": "Fractal",
+      "alias_zh": "分形",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:fulleren__2",
+      "canonical_en": "Fullerene",
+      "alias_zh": "富勒烯",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:gold_alloy__2",
+      "canonical_en": "Gold Alloy",
+      "alias_zh": "金合金",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:gross_domestic_product__2",
+      "canonical_en": "Gross Domestic Product",
+      "alias_zh": "国内生产总值",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:guanidin",
+      "canonical_en": "Guanidines",
+      "alias_zh": "胍类",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:heterochromatin__2",
+      "canonical_en": "Heterochromatins",
+      "alias_zh": "异染色质",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:hydrodynamic__3",
+      "canonical_en": "Hydrodynamic",
+      "alias_zh": "水动力学",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:incidence",
+      "canonical_en": "Incidences",
+      "alias_zh": "发生率",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:intellectual_property__2",
+      "canonical_en": "Intellectual Properties",
+      "alias_zh": "知识产权",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:interferometry__3",
+      "canonical_en": "Interferometries",
+      "alias_zh": "干涉测量",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:internship_nonmedical__2",
+      "canonical_en": "Nonmedical Internship",
+      "alias_zh": "非医学实习",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:interview",
+      "canonical_en": "Interviews",
+      "alias_zh": "访谈",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:intestin",
+      "canonical_en": "Intestines",
+      "alias_zh": "肠道",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:intubation__2",
+      "canonical_en": "Intubations",
+      "alias_zh": "插管",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:keyboard",
+      "canonical_en": "Keyboards",
+      "alias_zh": "键盘",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:kinetic",
+      "canonical_en": "Kinetics",
+      "alias_zh": "动力学",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:laboratory__3",
+      "canonical_en": "Laboratory",
+      "alias_zh": "实验室",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:lak__3",
+      "canonical_en": "Lake",
+      "alias_zh": "湖泊",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:linguistic__3",
+      "canonical_en": "Linguistic",
+      "alias_zh": "语言学",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:lion",
+      "canonical_en": "Lions",
+      "alias_zh": "狮子",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:mashup",
+      "canonical_en": "Mashups",
+      "alias_zh": "混搭应用",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:meson__2",
+      "canonical_en": "Meson",
+      "alias_zh": "介子",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:nevu",
+      "canonical_en": "Nevus",
+      "alias_zh": "母斑",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:noise__2",
+      "canonical_en": "Noises",
+      "alias_zh": "噪声",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:noma__2",
+      "canonical_en": "Nomas",
+      "alias_zh": "走马疳",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:paint__2",
+      "canonical_en": "Paint",
+      "alias_zh": "涂料",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:permafrost__3",
+      "canonical_en": "Permafrosts",
+      "alias_zh": "永久冻土",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:permeability__2",
+      "canonical_en": "Permeabilities",
+      "alias_zh": "渗透性",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:personal_protective_equipment__3",
+      "canonical_en": "Personal Protective Equipments",
+      "alias_zh": "个人防护装备",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:phonocardiography__3",
+      "canonical_en": "Phonocardiographies",
+      "alias_zh": "心音图",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:phonon__2",
+      "canonical_en": "Phonon",
+      "alias_zh": "声子",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:photochemistry__2",
+      "canonical_en": "Photochemistries",
+      "alias_zh": "光化学",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:photogrammetry__2",
+      "canonical_en": "Photogrammetries",
+      "alias_zh": "摄影测量",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:photography__2",
+      "canonical_en": "Photographies",
+      "alias_zh": "摄影",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:photometry__3",
+      "canonical_en": "Photometries",
+      "alias_zh": "光度测定",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:photomicrography__2",
+      "canonical_en": "Photomicrographies",
+      "alias_zh": "显微摄影",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:photoplethysmography__2",
+      "canonical_en": "Photoplethysmographies",
+      "alias_zh": "光电容积描记",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:phototherapy__2",
+      "canonical_en": "Phototherapies",
+      "alias_zh": "光疗",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:plethysmography__3",
+      "canonical_en": "Plethysmographies",
+      "alias_zh": "容积描记",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:privatization__2",
+      "canonical_en": "Privatizations",
+      "alias_zh": "私有化",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:prospective_payment_system__2",
+      "canonical_en": "Prospective Payment Systems",
+      "alias_zh": "预付费制度",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:psychoacoustic__2",
+      "canonical_en": "Psychoacoustic",
+      "alias_zh": "心理声学",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:psycholinguistic__2",
+      "canonical_en": "Psycholinguistic",
+      "alias_zh": "心理语言学",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:psychophysic__3",
+      "canonical_en": "Psychophysic",
+      "alias_zh": "心理物理学",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:radiation_dosage__3",
+      "canonical_en": "Radiation Dosages",
+      "alias_zh": "辐射剂量",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:radioactive_waste__2",
+      "canonical_en": "Radioactive Wastes",
+      "alias_zh": "放射性废物",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:radiotherapy_setup_error__2",
+      "canonical_en": "Radiotherapy Setup Error",
+      "alias_zh": "放疗摆位误差",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:rainforest__2",
+      "canonical_en": "Rainforest",
+      "alias_zh": "雨林",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:rayleigh_channel__2",
+      "canonical_en": "Rayleigh Channel",
+      "alias_zh": "瑞利信道",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:reflector_antenna__2",
+      "canonical_en": "Reflector Antenna",
+      "alias_zh": "反射器天线",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:regulon__2",
+      "canonical_en": "Regulons",
+      "alias_zh": "调节子",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:reimbursement_mechanism__2",
+      "canonical_en": "Reimbursement Mechanism",
+      "alias_zh": "报销机制",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:reproducibility_of_result__2",
+      "canonical_en": "Reproducibility Of Result",
+      "alias_zh": "结果可重复性",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:reverberation_chamber__2",
+      "canonical_en": "Reverberation Chamber",
+      "alias_zh": "混响室",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:river__3",
+      "canonical_en": "River",
+      "alias_zh": "河流",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:rna_ribosomal_5_8s__2",
+      "canonical_en": "5.8S RRNA",
+      "alias_zh": "5.8S核糖体RNA",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:rna_splicing",
+      "canonical_en": "RNA Splicings",
+      "alias_zh": "RNA剪接",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:robot__2",
+      "canonical_en": "Robot",
+      "alias_zh": "机器人",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:s_box__2",
+      "canonical_en": "s-boxes",
+      "alias_zh": "S盒",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:sagnac_interferometer",
+      "canonical_en": "Sagnac Interferometers",
+      "alias_zh": "萨尼亚克干涉仪",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:scholarly_communication__2",
+      "canonical_en": "Scholarly Communications",
+      "alias_zh": "学术交流",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:sign_language__2",
+      "canonical_en": "Sign Languages",
+      "alias_zh": "手语",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:slot_antenna__2",
+      "canonical_en": "Slot Antenna",
+      "alias_zh": "缝隙天线",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:snak",
+      "canonical_en": "Snakes",
+      "alias_zh": "蛇类",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:spic",
+      "canonical_en": "Spices",
+      "alias_zh": "香料",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:spirometry__3",
+      "canonical_en": "Spirometries",
+      "alias_zh": "肺量测定",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:steel__2",
+      "canonical_en": "Steels",
+      "alias_zh": "钢材",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:stereolithography__3",
+      "canonical_en": "Stereolithographies",
+      "alias_zh": "立体光刻",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:stethoscop",
+      "canonical_en": "Stethoscopes",
+      "alias_zh": "听诊器",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:stock_market__2",
+      "canonical_en": "Stock Market",
+      "alias_zh": "股票市场",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:styren",
+      "canonical_en": "Styrenes",
+      "alias_zh": "苯乙烯类",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:sugar__2",
+      "canonical_en": "Sugars",
+      "alias_zh": "糖类",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:sulfanilamid",
+      "canonical_en": "Sulfanilamides",
+      "alias_zh": "磺胺类",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:sulfathiazol",
+      "canonical_en": "Sulfathiazoles",
+      "alias_zh": "磺胺噻唑类",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:sulfur_compound__2",
+      "canonical_en": "Sulfur Compound",
+      "alias_zh": "硫化合物",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:superconductivity__3",
+      "canonical_en": "Superconductivities",
+      "alias_zh": "超导性",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:supercontinuum_generation__2",
+      "canonical_en": "supercontinuum generations",
+      "alias_zh": "超连续谱产生",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:surface_tension__2",
+      "canonical_en": "Surface Tensions",
+      "alias_zh": "表面张力",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:suspension__2",
+      "canonical_en": "Suspension",
+      "alias_zh": "混悬剂",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:synchrotron__2",
+      "canonical_en": "Synchrotron",
+      "alias_zh": "同步加速器",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:systolic_array__2",
+      "canonical_en": "Systolic Array",
+      "alias_zh": "脉动阵列",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:telecommunication__2",
+      "canonical_en": "Telecommunication",
+      "alias_zh": "电信",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:telemetry__3",
+      "canonical_en": "Telemetries",
+      "alias_zh": "遥测",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:telephone",
+      "canonical_en": "Telephones",
+      "alias_zh": "电话",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:temperature__2",
+      "canonical_en": "Temperatures",
+      "alias_zh": "温度",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:tetracyclin",
+      "canonical_en": "Tetracyclines",
+      "alias_zh": "四环素类",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:textil__2",
+      "canonical_en": "Textile",
+      "alias_zh": "纺织品",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:thermodynamic__2",
+      "canonical_en": "Thermodynamic",
+      "alias_zh": "热力学",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:thermometer__2",
+      "canonical_en": "Thermometer",
+      "alias_zh": "温度计",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:tiger",
+      "canonical_en": "Tigers",
+      "alias_zh": "老虎",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:tomography__2",
+      "canonical_en": "Tomographies",
+      "alias_zh": "断层成像",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:torque__2",
+      "canonical_en": "Torques",
+      "alias_zh": "扭矩",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:transaction_database",
+      "canonical_en": "Transaction Databases",
+      "alias_zh": "事务数据库",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:transcranial_magnetic_stimulation__2",
+      "canonical_en": "Transcranial Magnetic Stimulations",
+      "alias_zh": "经颅磁刺激",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:transducer__2",
+      "canonical_en": "Transducer",
+      "alias_zh": "换能器",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:transfection__2",
+      "canonical_en": "Transfections",
+      "alias_zh": "转染",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:trisomy__2",
+      "canonical_en": "Trisomies",
+      "alias_zh": "三体性",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:tsunami__3",
+      "canonical_en": "Tsunamis",
+      "alias_zh": "海啸",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:tundra__2",
+      "canonical_en": "Tundras",
+      "alias_zh": "苔原",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:unified_medical_language_system",
+      "canonical_en": "unified medical language systems",
+      "alias_zh": "统一医学语言系统",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:vaccin__2",
+      "canonical_en": "Vaccine",
+      "alias_zh": "疫苗",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:verbal_behavior__2",
+      "canonical_en": "Verbal Behaviors",
+      "alias_zh": "言语行为",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:verbal_learning__2",
+      "canonical_en": "Verbal Learnings",
+      "alias_zh": "言语学习",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:vibration__2",
+      "canonical_en": "Vibration",
+      "alias_zh": "振动",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:viscosity__3",
+      "canonical_en": "Viscosities",
+      "alias_zh": "黏度",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:volatile_organic_compound__2",
+      "canonical_en": "Volatile Organic Compound",
+      "alias_zh": "挥发性有机化合物",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:wastewater__2",
+      "canonical_en": "Wastewaters",
+      "alias_zh": "废水",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:waxe",
+      "canonical_en": "Waxes",
+      "alias_zh": "蜡类",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:weapon__2",
+      "canonical_en": "Weapon",
+      "alias_zh": "武器",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:weapon_of_mass_destruction__2",
+      "canonical_en": "Mass Destruction Weapon",
+      "alias_zh": "大规模杀伤性武器",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:wetland__4",
+      "canonical_en": "Wetland",
+      "alias_zh": "湿地",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:whal",
+      "canonical_en": "Whales",
+      "alias_zh": "鲸类",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:wheelchair__2",
+      "canonical_en": "Wheelchair",
+      "alias_zh": "轮椅",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:x_ray_intensifying_screen__2",
+      "canonical_en": "X-Ray Intensifying Screen",
+      "alias_zh": "X射线增感屏",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:xanthin",
+      "canonical_en": "Xanthines",
+      "alias_zh": "黄嘌呤类",
+      "source": "main_agent_c8_exact_review_remaining183",
+      "reviewed_at": "2026-07-03",
+      "reason": "Exact/domain-aware Chinese alias accepted for C8 post-cleanup remaining183 review."
+    },
+    {
+      "concept_id": "concept:advertising",
+      "canonical_en": "Advertising",
+      "alias_zh": "广告活动",
+      "source": "main_agent_c8_singleton_exact_remaining87",
+      "reviewed_at": "2026-07-03",
+      "reason": "Accepted from C8 singleton effective-tail review; no production alias collision. activity term distinct from advertisement alias collision",
+      "item_id": "c8-singleton-remaining87-003"
+    },
+    {
+      "concept_id": "concept:ankle",
+      "canonical_en": "Ankle",
+      "alias_zh": "踝部",
+      "source": "main_agent_c8_singleton_exact_remaining87",
+      "reviewed_at": "2026-07-03",
+      "reason": "Accepted from C8 singleton effective-tail review; no production alias collision. anatomy region term distinct from ankle joint collision",
+      "item_id": "c8-singleton-remaining87-008"
+    },
+    {
+      "concept_id": "concept:datura",
+      "canonical_en": "Datura",
+      "alias_zh": "曼陀罗属植物",
+      "source": "main_agent_c8_singleton_exact_remaining87",
+      "reviewed_at": "2026-07-03",
+      "reason": "Accepted from C8 singleton effective-tail review; no production alias collision. organism genus term distinct from species alias collision",
+      "item_id": "c8-singleton-remaining87-025"
+    },
+    {
+      "concept_id": "concept:elbow",
+      "canonical_en": "Elbow",
+      "alias_zh": "肘部",
+      "source": "main_agent_c8_singleton_exact_remaining87",
+      "reviewed_at": "2026-07-03",
+      "reason": "Accepted from C8 singleton effective-tail review; no production alias collision. anatomy region term distinct from elbow joint collision",
+      "item_id": "c8-singleton-remaining87-029"
+    },
+    {
+      "concept_id": "concept:enthalpy",
+      "canonical_en": "Enthalpy",
+      "alias_zh": "焓值",
+      "source": "main_agent_c8_singleton_exact_remaining87",
+      "reviewed_at": "2026-07-03",
+      "reason": "Accepted from C8 singleton effective-tail review; no production alias collision. standard thermodynamics term",
+      "item_id": "c8-singleton-remaining87-031"
+    },
+    {
+      "concept_id": "concept:infant_newborn",
+      "canonical_en": "Newborn Infant",
+      "alias_zh": "初生婴儿",
+      "source": "main_agent_c8_singleton_exact_remaining87",
+      "reviewed_at": "2026-07-03",
+      "reason": "Accepted from C8 singleton effective-tail review; no production alias collision. standard newborn infant term distinct from neonatal alias collision",
+      "item_id": "c8-singleton-remaining87-033"
+    },
+    {
+      "concept_id": "concept:knee",
+      "canonical_en": "Knee",
+      "alias_zh": "膝部",
+      "source": "main_agent_c8_singleton_exact_remaining87",
+      "reviewed_at": "2026-07-03",
+      "reason": "Accepted from C8 singleton effective-tail review; no production alias collision. anatomy region term distinct from knee joint collision",
+      "item_id": "c8-singleton-remaining87-034"
+    },
+    {
+      "concept_id": "concept:pulmonary_arterial_hypertension",
+      "canonical_en": "Pulmonary Arterial Hypertension",
+      "alias_zh": "肺动脉性高血压",
+      "source": "main_agent_c8_singleton_exact_remaining87",
+      "reviewed_at": "2026-07-03",
+      "reason": "Accepted from C8 singleton effective-tail review; no production alias collision. standard disease term distinct from broader pulmonary hypertension alias",
+      "item_id": "c8-singleton-remaining87-036"
+    },
+    {
+      "concept_id": "concept:raccoon_dogs",
+      "canonical_en": "Raccoon Dogs",
+      "alias_zh": "貉犬",
+      "source": "main_agent_c8_singleton_exact_remaining87",
+      "reviewed_at": "2026-07-03",
+      "reason": "Accepted from C8 singleton effective-tail review; no production alias collision. standard organism term",
+      "item_id": "c8-singleton-remaining87-037"
+    },
+    {
+      "concept_id": "concept:sadness",
+      "canonical_en": "Sadness",
+      "alias_zh": "悲伤情绪",
+      "source": "main_agent_c8_singleton_exact_remaining87",
+      "reviewed_at": "2026-07-03",
+      "reason": "Accepted from C8 singleton effective-tail review; no production alias collision. psychology term distinct from grief alias collision",
+      "item_id": "c8-singleton-remaining87-038"
+    },
+    {
+      "concept_id": "concept:smoke",
+      "canonical_en": "Smoke",
+      "alias_zh": "烟气",
+      "source": "main_agent_c8_singleton_exact_remaining87",
+      "reviewed_at": "2026-07-03",
+      "reason": "Accepted from C8 singleton effective-tail review; no production alias collision. substance term distinct from smog alias collision",
+      "item_id": "c8-singleton-remaining87-039"
+    },
+    {
+      "concept_id": "concept:terminal_care",
+      "canonical_en": "Terminal Care",
+      "alias_zh": "终末期护理",
+      "source": "main_agent_c8_singleton_exact_remaining87",
+      "reviewed_at": "2026-07-03",
+      "reason": "Accepted from C8 singleton effective-tail review; no production alias collision. care term distinct from hospice care alias collision",
+      "item_id": "c8-singleton-remaining87-040"
+    },
+    {
+      "concept_id": "concept:thermography",
+      "canonical_en": "Thermography",
+      "alias_zh": "热成像法",
+      "source": "main_agent_c8_singleton_exact_remaining87",
+      "reviewed_at": "2026-07-03",
+      "reason": "Accepted from C8 singleton effective-tail review; no production alias collision. standard diagnostic/imaging technique term",
+      "item_id": "c8-singleton-remaining87-041"
+    },
+    {
+      "concept_id": "concept:touch",
+      "canonical_en": "Touch",
+      "alias_zh": "触摸",
+      "source": "main_agent_c8_singleton_exact_remaining87",
+      "reviewed_at": "2026-07-03",
+      "reason": "Accepted from C8 singleton effective-tail review; no production alias collision. standard sensory/action term distinct from haptic alias collision",
+      "item_id": "c8-singleton-remaining87-042"
     }
   ],
   "schema_version": "reviewed_zh_exact_aliases.v1",
   "source": "subagent_domain_translation_60pct_chunks_01_to_09_plus_prior_exact_plus_70pct_plus_80pct",
-  "updated_at": "2026-07-02"
+  "updated_at": "2026-07-03"
 }
