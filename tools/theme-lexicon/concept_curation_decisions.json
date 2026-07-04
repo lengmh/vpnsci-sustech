@@ -7399,6 +7399,330 @@
       "reason": "C8 needs-decision 86 strict pass: suffix/base duplicate; MeSH Vocabulary source variant redirects to the existing Vocabulary base concept; production switch deferred",
       "reviewer": "main-agent-c8-needs-decision-86-strict-pass",
       "target_concept_id": "concept:vocabulary"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:acrylamid",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Acrylamides is treated as a source plural/class variant of Acrylamide for treemap/search alias consolidation; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:acrylamide"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:amphetamin",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Amphetamines is treated as a source plural/class variant of Amphetamine for treemap/search alias consolidation; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:amphetamine"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:chalcon",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Chalcones is treated as a source plural/class variant of Chalcone for treemap/search alias consolidation; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:chalcone"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:collaboration_network",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Collaboration Network shares the reviewed Chinese alias with Cooperative Networks and is close enough for curated treemap consolidation; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:cooperative_network"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:cyber_attack",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Cyber Attack and Network Attack share the reviewed Chinese alias in the same computer-science security scope; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:network_attack"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:data_enhancement",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Data Enhancement is consolidated with the existing Data Augmentation target for the reviewed alias 数据增强; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:data_augmentation__2"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:eit",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: EIT is resolved to the existing Electric Impedance Tomography concept via the established Chinese full-form alias; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:electric_impedance_tomography"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:electromagnetism",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Electromagnetism is consolidated with the existing Electromagnetic concept carrying the reviewed alias 电磁学; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:electromagnetic"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:ergotamin",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Ergotamines is treated as a source plural/class variant of Ergotamine for treemap/search alias consolidation; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:ergotamine"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:ethanolamin",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Ethanolamines is treated as a source plural/class variant of Ethanolamine for treemap/search alias consolidation; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:ethanolamine"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:gaussian",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Gaussians is consolidated with the existing Gaussian Distribution target for the reviewed alias 高斯分布; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:gaussian_distribution"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:guanidin",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Guanidines is treated as a source plural/class variant of Guanidine for treemap/search alias consolidation; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:guanidine"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:insar",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: InSAR is resolved to the existing Interferometric Synthetic Aperture Radar concept via the established Chinese full-form alias; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:interferometric_synthetic_aperture_radar"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:locomotion_control",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Locomotion Control is consolidated with Motion Control for the reviewed alias 运动控制; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:motion_control"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:logistic__2",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Logistic source variant is consolidated with the existing logistics target carrying the reviewed alias 物流; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:logistic"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:machine_design",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Machine Design is consolidated with Mechanical Design for the reviewed alias 机械设计; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:mechanical_design"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:methylmethacrylat",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Methylmethacrylates is treated as a source plural/class variant of Methylmethacrylate for treemap/search alias consolidation; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:methylmethacrylate"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:object_classification",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Object Classification is consolidated with Target Classification for the reviewed alias 目标分类; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:target_classification"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:optically_pumped",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Optically Pumped is consolidated with Optical Pumping via the established Chinese alias 光泵浦; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:optical_pumping"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:piperazin",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Piperazines is treated as a source plural/class variant of Piperazine for treemap/search alias consolidation; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:piperazine"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:styren",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Styrenes is treated as a source plural/class variant of Styrene for treemap/search alias consolidation; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:styrene"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:sulfanilamid",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Sulfanilamides is treated as a source plural/class variant of Sulfanilamide for treemap/search alias consolidation; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:sulfanilamide"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:sulfathiazol",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Sulfathiazoles is treated as a source plural/class variant of Sulfathiazole for treemap/search alias consolidation; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:sulfathiazole"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:tetracyclin",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Tetracyclines is treated as a source plural/class variant of Tetracycline for treemap/search alias consolidation; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:tetracycline"
+    },
+    {
+      "category": "c8_tail_exact_collision_redirect",
+      "concept_id": "concept:xanthin",
+      "decided_at": "2026-07-03",
+      "decision": "redirect",
+      "reason": "C8.24 tail cleanup: Xanthines is treated as a source plural/class variant of Xanthine for treemap/search alias consolidation; production curation switch remains deferred",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "target_concept_id": "concept:xanthine"
+    },
+    {
+      "category": "c8_tail_broad_or_malformed_source",
+      "concept_id": "concept:carrier_co",
+      "decided_at": "2026-07-03",
+      "decision": "suppressed",
+      "reason": "C8.24 source cleanup: Carrier (co) is too ambiguous/malformed for deterministic alias runtime and should not count against curated coverage",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "topic_label_disposition": "suppressed"
+    },
+    {
+      "category": "c8_tail_broad_or_malformed_source",
+      "concept_id": "concept:drawing",
+      "decided_at": "2026-07-03",
+      "decision": "display_only",
+      "reason": "C8.24 source cleanup: Drawing is a broad publication/display label, not a safe deterministic search alias concept",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "c8_tail_broad_or_malformed_source",
+      "concept_id": "concept:endemic",
+      "decided_at": "2026-07-03",
+      "decision": "suppressed",
+      "reason": "C8.24 source cleanup: Endemic appears as a contextless adjective/source artifact in the CS tail and is too broad for deterministic alias runtime",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "topic_label_disposition": "suppressed"
+    },
+    {
+      "category": "c8_tail_broad_or_malformed_source",
+      "concept_id": "concept:index",
+      "decided_at": "2026-07-03",
+      "decision": "display_only",
+      "reason": "C8.24 source cleanup: Index is a broad publication/display label, not a safe deterministic search alias concept",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "c8_tail_broad_or_malformed_source",
+      "concept_id": "concept:mobile",
+      "decided_at": "2026-07-03",
+      "decision": "display_only",
+      "reason": "C8.24 source cleanup: Mobile is a broad adjective/display label, not a standalone deterministic alias concept",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "c8_tail_broad_or_malformed_source",
+      "concept_id": "concept:nextgen",
+      "decided_at": "2026-07-03",
+      "decision": "suppressed",
+      "reason": "C8.24 source cleanup: Nextgen is a broad marketing/source label without stable independent alias value",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "topic_label_disposition": "suppressed"
+    },
+    {
+      "category": "c8_tail_broad_or_malformed_source",
+      "concept_id": "concept:optical",
+      "decided_at": "2026-07-03",
+      "decision": "suppressed",
+      "reason": "C8.24 source cleanup: Optical- is a malformed dangling label and should not count against curated coverage",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "topic_label_disposition": "suppressed"
+    },
+    {
+      "category": "c8_tail_broad_or_malformed_source",
+      "concept_id": "concept:overall",
+      "decided_at": "2026-07-03",
+      "decision": "display_only",
+      "reason": "C8.24 source cleanup: Overall is a broad publication/display label, not a safe deterministic search alias concept",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "c8_tail_broad_or_malformed_source",
+      "concept_id": "concept:psychology_computing",
+      "decided_at": "2026-07-03",
+      "decision": "suppressed",
+      "reason": "C8.24 source cleanup: Psychology Computing is an unstable generated phrase and prior zh alias was rejected as non-standard",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "topic_label_disposition": "suppressed"
+    },
+    {
+      "category": "c8_tail_broad_or_malformed_source",
+      "concept_id": "concept:scientific_research_and_technology",
+      "decided_at": "2026-07-03",
+      "decision": "suppressed",
+      "reason": "C8.24 source cleanup: Scientific Research And Technology is a broad topic-label phrase and prior zh alias was rejected as too generic",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "topic_label_disposition": "suppressed"
+    },
+    {
+      "category": "c8_tail_broad_or_malformed_source",
+      "concept_id": "concept:water",
+      "decided_at": "2026-07-03",
+      "decision": "display_only",
+      "reason": "C8.24 source cleanup: Water is a valid but overly broad standalone term for deterministic alias runtime; keep out of alias matching",
+      "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
+      "topic_label_disposition": "display_only"
     }
   ],
   "schema_version": "theme_concept_curation_decisions.v1"

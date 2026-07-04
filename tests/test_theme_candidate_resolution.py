@@ -55,6 +55,12 @@ class ThemeCandidateResolutionTests(unittest.TestCase):
                         "candidate_type": "collision_alias",
                         "risk_tags": ["semantic_neighbor", "needs_context"],
                         "reason": "blocked collision candidate; requires paper context",
+                        "source_concept_id": "concept:cyber_attack_source",
+                        "target_hint": "security",
+                        "resolution_group": "network_attack_security",
+                        "requires_context": True,
+                        "allow_deterministic_shadow": True,
+                        "evidence_aliases": [{"lang": "zh", "alias": "网络攻击"}],
                     }
                 ],
             }
@@ -100,6 +106,12 @@ class ThemeCandidateResolutionTests(unittest.TestCase):
         self.assertEqual(alias["alias_key"], "zh:网络攻击")
         self.assertEqual(alias["paper_ids"], ["p1", "p2"])
         self.assertEqual(alias["candidates"][0]["risk_tags"], ["semantic_neighbor", "needs_context"])
+        self.assertEqual(alias["candidates"][0]["source_concept_id"], "concept:cyber_attack_source")
+        self.assertEqual(alias["candidates"][0]["target_hint"], "security")
+        self.assertEqual(alias["candidates"][0]["resolution_group"], "network_attack_security")
+        self.assertTrue(alias["candidates"][0]["requires_context"])
+        self.assertTrue(alias["candidates"][0]["allow_deterministic_shadow"])
+        self.assertEqual(alias["candidates"][0]["evidence_aliases"], [{"lang": "zh", "alias": "网络攻击"}])
         self.assertEqual(trace["reason"], "agent_resolution_not_supplied")
 
     def test_apply_result_requires_evidence_and_request_candidate_membership(self) -> None:

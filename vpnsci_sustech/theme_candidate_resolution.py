@@ -278,7 +278,7 @@ def _surface_from_alias_key(alias_key: str) -> str:
 
 
 def _candidate_request_payload(candidate: Mapping[str, Any]) -> dict[str, Any]:
-    return {
+    payload = {
         "concept_id": str(candidate.get("concept_id") or ""),
         "canonical": dict(candidate.get("canonical") or {}),
         "domains": [str(value) for value in candidate.get("domains") or []],
@@ -288,6 +288,22 @@ def _candidate_request_payload(candidate: Mapping[str, Any]) -> dict[str, Any]:
         "risk_tags": [str(value) for value in candidate.get("risk_tags") or []],
         "reason": str(candidate.get("reason") or "blocked candidate; requires paper context"),
     }
+    for key in ("source_concept_id", "target_hint", "resolution_group"):
+        value = candidate.get(key)
+        if value:
+            payload[key] = value
+    if "requires_context" in candidate:
+        payload["requires_context"] = bool(candidate.get("requires_context"))
+    if "allow_deterministic_shadow" in candidate:
+        payload["allow_deterministic_shadow"] = bool(candidate.get("allow_deterministic_shadow"))
+    evidence_aliases = [
+        {"lang": str(item.get("lang") or ""), "alias": str(item.get("alias") or "")}
+        for item in candidate.get("evidence_aliases") or []
+        if isinstance(item, Mapping) and item.get("alias")
+    ]
+    if evidence_aliases:
+        payload["evidence_aliases"] = evidence_aliases
+    return payload
 
 
 def _request_index(request: Mapping[str, Any]) -> dict[str, dict[str, Any]]:

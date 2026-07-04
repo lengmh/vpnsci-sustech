@@ -84,6 +84,48 @@ class ThemeClusteringAmbiguousAliasCandidateTests(unittest.TestCase):
         self.assertEqual(matches[0]["paper_ids"], ["p1"])
         self.assertEqual(len(matches[0]["candidates"]), 2)
 
+    def test_explicit_context_seed_can_shadow_deterministic_alias_in_low_signal_resolution(self) -> None:
+        deterministic = {
+            "en:agc": {
+                "concept_id": "concept:agc",
+                "canonical": {"en": "Agc", "zh": ""},
+                "specificity": 40,
+            }
+        }
+        candidate_layer = {
+            "en:agc": [
+                {
+                    "concept_id": "concept:automatic_gain_control",
+                    "canonical": {"en": "Automatic Gain Control", "zh": "自动增益控制"},
+                    "domains": ["computer_science"],
+                    "parents": [],
+                    "specificity": 82,
+                    "candidate_type": "explicit_context_alternative",
+                    "risk_tags": ["explicit_context_seed", "needs_context"],
+                    "evidence_aliases": [{"lang": "en", "alias": "AGC"}],
+                    "source_concept_id": "concept:agc",
+                    "resolution_group": "agc",
+                    "requires_context": True,
+                    "allow_deterministic_shadow": True,
+                }
+            ]
+        }
+        paper = {
+            "paper_id": "p1",
+            "title": "AGC loop design for radio receivers",
+            "abstract": "The automatic gain control loop stabilizes receiver amplitude.",
+        }
+
+        matches = theme_clustering._ambiguous_candidate_matches(
+            paper,
+            paper_id="p1",
+            candidate_layer=candidate_layer,
+            deterministic_alias_index=deterministic,
+        )
+
+        self.assertEqual([match["alias_key"] for match in matches], ["en:agc"])
+        self.assertEqual(matches[0]["candidates"][0]["concept_id"], "concept:automatic_gain_control")
+
     def test_loads_candidate_index_from_compact_json_shape(self) -> None:
         path = Path(r"F:\AI playground\TempFiles\theme_ambiguous_alias_fixture.json")
         path.write_text(

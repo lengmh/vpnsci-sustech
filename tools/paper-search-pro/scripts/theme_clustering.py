@@ -589,11 +589,11 @@ def _ambiguous_candidate_matches(
     resolved_paper_id = str(paper_id or paper.get("paper_id") or paper.get("id") or "")
     matches: list[dict[str, Any]] = []
     for alias_key, surface in _build_ambiguous_alias_terms(layer):
-        if alias_key in deterministic:
+        candidates = [dict(candidate) for candidate in layer.get(alias_key) or [] if isinstance(candidate, dict)]
+        if alias_key in deterministic and not any(candidate.get("allow_deterministic_shadow") for candidate in candidates):
             continue
         if not _ambiguous_alias_key_matches_text(alias_key, surface, text):
             continue
-        candidates = [dict(candidate) for candidate in layer.get(alias_key) or [] if isinstance(candidate, dict)]
         if not candidates:
             continue
         matches.append(

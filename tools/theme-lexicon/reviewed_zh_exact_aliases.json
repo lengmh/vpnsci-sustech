@@ -186432,6 +186432,54 @@
       "reason": "C8 effective-tail independent exact/domain-aware Chinese alias review; explicit target selected; no automatic concept merge",
       "reviewed_at": "2026-07-03",
       "source": "main_agent_c8_tail_independent_exact_alias"
+    },
+    {
+      "alias_zh": "数据检测",
+      "canonical_en": "Data Detection",
+      "concept_id": "concept:data_detection",
+      "reason": "C8.24 tail cleanup: exact/domain-aware Chinese alias accepted after user review; prior naturalness reject overridden",
+      "reviewed_at": "2026-07-03",
+      "source": "main_agent_c8_tail_singleton_exact_alias"
+    },
+    {
+      "alias_zh": "图书馆管理",
+      "canonical_en": "Library Administration",
+      "concept_id": "concept:library_administration",
+      "reason": "C8.24 tail cleanup: exact/domain-aware Chinese alias accepted after user review; prior biomedical-administration caution overridden for this concept",
+      "reviewed_at": "2026-07-03",
+      "source": "main_agent_c8_tail_singleton_exact_alias"
+    },
+    {
+      "alias_zh": "护理管理研究",
+      "canonical_en": "Nursing Administration Research",
+      "concept_id": "concept:nursing_administration_research",
+      "reason": "C8.24 tail cleanup: exact/domain-aware Chinese alias accepted after user review; prior biomedical-administration caution overridden for this concept",
+      "reviewed_at": "2026-07-03",
+      "source": "main_agent_c8_tail_singleton_exact_alias"
+    },
+    {
+      "alias_zh": "公共卫生管理",
+      "canonical_en": "Public Health Administration",
+      "concept_id": "concept:public_health_administration",
+      "reason": "C8.24 tail cleanup: exact/domain-aware Chinese alias accepted after user review; prior biomedical-administration caution overridden for this concept",
+      "reviewed_at": "2026-07-03",
+      "source": "main_agent_c8_tail_singleton_exact_alias"
+    },
+    {
+      "alias_zh": "能耗降低",
+      "canonical_en": "Reducing Energy Consumption",
+      "concept_id": "concept:reducing_energy_consumption",
+      "reason": "C8.24 tail cleanup: exact/domain-aware Chinese alias accepted; wording avoids existing 降低能耗 runtime alias collision",
+      "reviewed_at": "2026-07-03",
+      "source": "main_agent_c8_tail_singleton_exact_alias"
+    },
+    {
+      "alias_zh": "迁移机器学习",
+      "canonical_en": "Transfer Machine Learning",
+      "concept_id": "concept:transfer_machine_learning",
+      "reason": "C8.24 tail cleanup: exact/domain-aware Chinese alias accepted after user review",
+      "reviewed_at": "2026-07-03",
+      "source": "main_agent_c8_tail_singleton_exact_alias"
     }
   ],
   "schema_version": "reviewed_zh_exact_aliases.v1",
