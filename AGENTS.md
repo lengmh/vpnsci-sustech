@@ -162,7 +162,7 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-07-04 C8.25 explicit contextual candidate seeds 后；
+最新已知状态（2026-07-04 C8.26 contextual acronym display cleanup 后；
 生产 compact runtime 只接入 reviewed exact singleton alias，C8 curation overlay
 仍仅作为 TempFiles work view，未切 production curation）：
 
@@ -198,8 +198,14 @@ lexicons/review/
   - candidate-resolvable concepts: `711`
   - source counts: `audit_blocked_row = 748`,
     `explicit_context_seed = 103`
+  - C8.26 已清理 explicit context seed 中 `Agc` / `Cam` / `Hmi`
+    等 acronym source display，candidate 数量与 coverage 不变
   - package/tool ambiguous candidate index byte-identical
   - package/tool ambiguous manifest byte-identical
+  - ambiguous candidate index SHA-256:
+    `e035670e7fe464d21fda3f7a93ddcb8091ddf6e0a256ccdcfeffb5419521c12c`
+  - ambiguous manifest SHA-256:
+    `68922126d085b53c36be271924b4a4060051aa812f99798aba4dc855331f265c`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
 - legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；当前运行时以 compact index/manifest 为准）
@@ -213,10 +219,11 @@ lexicons/review/
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
 - compact index 是当前运行时真源；legacy full overlay 未随 batch-007 之后的覆盖扩展更新，不再作为默认等价检查对象，也不再作为 runtime fallback 读取。
-- 最近相关测试：C8.25 seed implementation micro-suite
-  `10 passed in 2.16s`；focused alias/runtime suite
-  `937 passed in 30.67s`；project suite
-  `1299 passed, 4 subtests passed in 107.78s`。
+- 最近相关测试：C8.26 acronym display cleanup micro-suite
+  `10 passed in 2.17s`；focused alias/runtime suite
+  `933 passed in 29.79s`；project suite
+  `1299 passed, 4 subtests passed in 115.93s`；`summarize_alias_runtime.py`
+  仍为 runtime zh coverage `48596 / 49913 = 97.36%`，冲突与污染审计为 `0`。
 - concept curation C1-C4 已开始并完成首批临时验证：
   - C1 只读 audit 已完成，输出在 `F:\AI playground\TempFiles`；
     raw uncovered concepts `1587`，其中 `redirect_candidates = 436`、
@@ -2973,6 +2980,25 @@ uv run python tools/theme-lexicon/materialize_runtime_overlay.py `
   `1299 passed, 4 subtests passed in 107.78s`；`summarize_alias_runtime.py`
   通过，runtime zh coverage 保持 `48596 / 49913 = 97.36%`，冲突与污染审计
   均为 `0`。
+- C8.26 contextual acronym display cleanup 已完成：`build_ambiguous_alias_candidates.py`
+  允许 explicit context seed 的 `canonical_en` / `canonical_zh` 覆盖 compact
+  source canonical display，只影响 ambiguous candidate layer，不改变 deterministic
+  runtime alias；`tools/theme-lexicon/contextual_alias_resolution_seeds.json` 中
+  `Agc`、`Cam`、`Cbam`、`Dsp`、`Gps`、`Hmi` 等 acronym display 已改为全大写
+  `AGC`、`CAM`、`CBAM`、`DSP`、`GPS`、`HMI`。正式 ambiguous candidate layer
+  数量不变：candidate aliases `759`，candidate-resolvable concepts `711`，
+  source counts `audit_blocked_row=748`、`explicit_context_seed=103`；package/tool
+  ambiguous candidate index 与 manifest 均 byte-identical。ambiguous candidate
+  index SHA-256:
+  `e035670e7fe464d21fda3f7a93ddcb8091ddf6e0a256ccdcfeffb5419521c12c`；
+  manifest SHA-256:
+  `68922126d085b53c36be271924b4a4060051aa812f99798aba4dc855331f265c`。
+  C8 work-view effective tail 保持 `0`，deterministic runtime zh coverage 保持
+  `48596 / 49913 = 97.36%`，accepted/runtime alias conflicts `0`，pollution
+  audit `0 / 0`。验证：先新增回归并确认失败
+  `Automatic Gain Control != AGC`，修复后 micro-suite
+  `10 passed in 2.17s`；focused alias/runtime suite `933 passed in 29.79s`；
+  project suite `1299 passed, 4 subtests passed in 115.93s`。
 
 ## 8. CNKI / 浏览器 / 外部服务安全边界
 

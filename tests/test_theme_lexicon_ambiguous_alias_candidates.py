@@ -205,6 +205,7 @@ class AmbiguousAliasCandidateBuilderTests(unittest.TestCase):
                             "alias": "AGC",
                             "target_concept_id": "concept:automatic_gain_control",
                             "source_concept_id": "concept:agc",
+                            "canonical_en": "AGC",
                             "resolution_group": "agc",
                             "candidate_type": "explicit_context_alternative",
                             "risk_tags": ["acronym_or_short_label"],
@@ -259,6 +260,7 @@ class AmbiguousAliasCandidateBuilderTests(unittest.TestCase):
         payload = json.loads(output.read_text(encoding="utf-8"))
         seeded = payload["candidates"]["en:agc"][0]
         self.assertEqual(seeded["concept_id"], "concept:automatic_gain_control")
+        self.assertEqual(seeded["canonical"]["en"], "AGC")
         self.assertEqual(seeded["source_concept_id"], "concept:agc")
         self.assertEqual(seeded["resolution_group"], "agc")
         self.assertTrue(seeded["requires_context"])

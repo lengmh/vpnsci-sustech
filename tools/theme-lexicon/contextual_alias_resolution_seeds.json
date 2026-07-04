@@ -25,11 +25,11 @@
       "alias": "AGC",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Agc",
+      "canonical_en": "AGC",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'AGC' to Agc only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'AGC' to AGC only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "agc",
       "risk_tags": [
@@ -44,11 +44,11 @@
       "alias": "CAM",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Cam",
+      "canonical_en": "CAM",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'CAM' to Cam only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'CAM' to CAM only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "cam",
       "risk_tags": [
@@ -63,11 +63,11 @@
       "alias": "CBAM",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Cbam",
+      "canonical_en": "CBAM",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'CBAM' to Cbam only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'CBAM' to CBAM only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "cbam",
       "risk_tags": [
@@ -82,11 +82,11 @@
       "alias": "CMA",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Cma",
+      "canonical_en": "CMA",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'CMA' to Cma only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'CMA' to CMA only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "cma",
       "risk_tags": [
@@ -141,11 +141,11 @@
       "alias": "COMP",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Comp",
+      "canonical_en": "COMP",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'COMP' to Comp only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'COMP' to COMP only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "comp",
       "risk_tags": [
@@ -180,11 +180,11 @@
       "alias": "CPASA",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Cpasa",
+      "canonical_en": "CPASA",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'CPASA' to Cpasa only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'CPASA' to CPASA only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "cpasa",
       "risk_tags": [
@@ -199,11 +199,11 @@
       "alias": "CPM",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Cpm",
+      "canonical_en": "CPM",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'CPM' to Cpm only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'CPM' to CPM only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "cpm",
       "risk_tags": [
@@ -218,11 +218,11 @@
       "alias": "CPW",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Cpw",
+      "canonical_en": "CPW",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'CPW' to Cpw only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'CPW' to CPW only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "cpw",
       "risk_tags": [
@@ -237,11 +237,11 @@
       "alias": "CRT",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Crt",
+      "canonical_en": "CRT",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'CRT' to Crt only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'CRT' to CRT only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "crt",
       "risk_tags": [
@@ -275,11 +275,11 @@
       "alias": "DAS",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Das",
+      "canonical_en": "DAS",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'DAS' to Das only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'DAS' to DAS only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "das",
       "risk_tags": [
@@ -294,11 +294,11 @@
       "alias": "DBA",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Dba",
+      "canonical_en": "DBA",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'DBA' to Dba only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'DBA' to DBA only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "dba",
       "risk_tags": [
@@ -391,11 +391,11 @@
       "alias": "DPA",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Dpa",
+      "canonical_en": "DPA",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'DPA' to Dpa only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'DPA' to DPA only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "dpa",
       "risk_tags": [
@@ -410,11 +410,11 @@
       "alias": "DSA",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Dsa",
+      "canonical_en": "DSA",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'DSA' to Dsa only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'DSA' to DSA only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "dsa",
       "risk_tags": [
@@ -429,11 +429,11 @@
       "alias": "DSP",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Dsp",
+      "canonical_en": "DSP",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'DSP' to Dsp only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'DSP' to DSP only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "dsp",
       "risk_tags": [
@@ -467,11 +467,11 @@
       "alias": "EBAE",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Ebae",
+      "canonical_en": "EBAE",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'EBAE' to Ebae only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'EBAE' to EBAE only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "ebae",
       "risk_tags": [
@@ -486,11 +486,11 @@
       "alias": "ECC",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Ecc",
+      "canonical_en": "ECC",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'ECC' to Ecc only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'ECC' to ECC only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "ecc",
       "risk_tags": [
@@ -505,11 +505,11 @@
       "alias": "ESPRIT",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Esprit",
+      "canonical_en": "ESPRIT",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'ESPRIT' to Esprit only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'ESPRIT' to ESPRIT only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "esprit",
       "risk_tags": [
@@ -524,11 +524,11 @@
       "alias": "ESS",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Ess",
+      "canonical_en": "ESS",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'ESS' to Ess only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'ESS' to ESS only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "ess",
       "risk_tags": [
@@ -543,11 +543,11 @@
       "alias": "FAAM",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Faam",
+      "canonical_en": "FAAM",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'FAAM' to Faam only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'FAAM' to FAAM only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "faam",
       "risk_tags": [
@@ -562,11 +562,11 @@
       "alias": "FMS",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Fms",
+      "canonical_en": "FMS",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'FMS' to Fms only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'FMS' to FMS only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "fms",
       "risk_tags": [
@@ -581,11 +581,11 @@
       "alias": "FPA",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Fpa",
+      "canonical_en": "FPA",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'FPA' to Fpa only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'FPA' to FPA only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "fpa",
       "risk_tags": [
@@ -657,12 +657,12 @@
       "alias": "GPS",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Gps",
+      "canonical_en": "GPS",
       "domains": [
         "computer_science",
         "physics"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'GPS' to Gps only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'GPS' to GPS only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "gps",
       "risk_tags": [
@@ -677,11 +677,11 @@
       "alias": "HBT",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Hbt",
+      "canonical_en": "HBT",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'HBT' to Hbt only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'HBT' to HBT only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "hbt",
       "risk_tags": [
@@ -696,11 +696,11 @@
       "alias": "HCA",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Hca",
+      "canonical_en": "HCA",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'HCA' to Hca only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'HCA' to HCA only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "hca",
       "risk_tags": [
@@ -715,11 +715,11 @@
       "alias": "HFO",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Hfo",
+      "canonical_en": "HFO",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'HFO' to Hfo only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'HFO' to HFO only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "hfo",
       "risk_tags": [
@@ -792,11 +792,11 @@
       "alias": "IAR",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Iar",
+      "canonical_en": "IAR",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'IAR' to Iar only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'IAR' to IAR only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "iar",
       "risk_tags": [
@@ -811,11 +811,11 @@
       "alias": "IRFPA",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Irfpa",
+      "canonical_en": "IRFPA",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'IRFPA' to Irfpa only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'IRFPA' to IRFPA only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "irfpa",
       "risk_tags": [
@@ -830,11 +830,11 @@
       "alias": "LAAAM",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Laaam",
+      "canonical_en": "LAAAM",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'LAAAM' to Laaam only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'LAAAM' to LAAAM only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "laaam",
       "risk_tags": [
@@ -849,11 +849,11 @@
       "alias": "LISCA",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Lisca",
+      "canonical_en": "LISCA",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'LISCA' to Lisca only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'LISCA' to LISCA only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "lisca",
       "risk_tags": [
@@ -868,11 +868,11 @@
       "alias": "MAI",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Mai",
+      "canonical_en": "MAI",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'MAI' to Mai only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'MAI' to MAI only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "mai",
       "risk_tags": [
@@ -887,11 +887,11 @@
       "alias": "MCT",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Mct",
+      "canonical_en": "MCT",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'MCT' to Mct only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'MCT' to MCT only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "mct",
       "risk_tags": [
@@ -963,11 +963,11 @@
       "alias": "NEMO",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Nemo",
+      "canonical_en": "NEMO",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'NEMO' to Nemo only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'NEMO' to NEMO only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "nemo",
       "risk_tags": [
@@ -1020,11 +1020,11 @@
       "alias": "PBL",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Pbl",
+      "canonical_en": "PBL",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'PBL' to Pbl only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'PBL' to PBL only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "pbl",
       "risk_tags": [
@@ -1039,11 +1039,11 @@
       "alias": "PLE",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Ple",
+      "canonical_en": "PLE",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'PLE' to Ple only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'PLE' to PLE only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "ple",
       "risk_tags": [
@@ -1058,11 +1058,11 @@
       "alias": "PLL",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Pll",
+      "canonical_en": "PLL",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'PLL' to Pll only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'PLL' to PLL only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "pll",
       "risk_tags": [
@@ -1077,11 +1077,11 @@
       "alias": "PMD",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Pmd",
+      "canonical_en": "PMD",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'PMD' to Pmd only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'PMD' to PMD only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "pmd",
       "risk_tags": [
@@ -1096,11 +1096,11 @@
       "alias": "PTS",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Pts",
+      "canonical_en": "PTS",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'PTS' to Pts only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'PTS' to PTS only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "pts",
       "risk_tags": [
@@ -1115,11 +1115,11 @@
       "alias": "QAW",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Qaw",
+      "canonical_en": "QAW",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'QAW' to Qaw only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'QAW' to QAW only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "qaw",
       "risk_tags": [
@@ -1154,11 +1154,11 @@
       "alias": "RCS",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Rcs",
+      "canonical_en": "RCS",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'RCS' to Rcs only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'RCS' to RCS only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "rcs",
       "risk_tags": [
@@ -1173,11 +1173,11 @@
       "alias": "SALUTA",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Saluta",
+      "canonical_en": "SALUTA",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'SALUTA' to Saluta only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'SALUTA' to SALUTA only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "saluta",
       "risk_tags": [
@@ -1192,11 +1192,11 @@
       "alias": "SBAR",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Sbar",
+      "canonical_en": "SBAR",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'SBAR' to Sbar only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'SBAR' to SBAR only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "sbar",
       "risk_tags": [
@@ -1211,11 +1211,11 @@
       "alias": "SDM",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Sdm",
+      "canonical_en": "SDM",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'SDM' to Sdm only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'SDM' to SDM only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "sdm",
       "risk_tags": [
@@ -1270,11 +1270,11 @@
       "alias": "TES",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Tes",
+      "canonical_en": "TES",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'TES' to Tes only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'TES' to TES only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "tes",
       "risk_tags": [
@@ -1328,11 +1328,11 @@
       "alias": "WIMEDIA",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Wimedia",
+      "canonical_en": "WIMEDIA",
       "domains": [
         "computer_science"
       ],
-      "reason": "C8.25 explicit context seed: resolve 'WIMEDIA' to Wimedia only when query/paper context supports this target.",
+      "reason": "C8.25 explicit context seed: resolve 'WIMEDIA' to WIMEDIA only when query/paper context supports this target.",
       "requires_context": true,
       "resolution_group": "wimedia",
       "risk_tags": [
@@ -1445,7 +1445,7 @@
       "alias": "人机界面",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "Hmi",
+      "canonical_en": "HMI",
       "canonical_zh": "人机界面",
       "domains": [
         "computer_science"

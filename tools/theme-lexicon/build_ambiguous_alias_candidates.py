@@ -201,6 +201,22 @@ def _concept_metadata(concept_id: str, item: dict[str, Any], compact_concepts: d
     }
 
 
+def _override_seed_canonical(metadata: dict[str, Any], seed: dict[str, Any]) -> dict[str, Any]:
+    canonical_en = str(seed.get("canonical_en") or "").strip()
+    canonical_zh = str(seed.get("canonical_zh") or "").strip()
+    if not canonical_en and not canonical_zh:
+        return metadata
+
+    updated = dict(metadata)
+    canonical = dict(updated.get("canonical") or {})
+    if canonical_en:
+        canonical["en"] = canonical_en
+    if canonical_zh:
+        canonical["zh"] = canonical_zh
+    updated["canonical"] = canonical
+    return updated
+
+
 def _candidate_record(
     *,
     concept_id: str,
@@ -271,7 +287,10 @@ def _context_seed_records(
         source_concept_id = str(seed.get("source_concept_id") or target_concept_id)
         if target_concept_id in excluded_concepts or source_concept_id in excluded_concepts:
             continue
-        metadata = _concept_metadata(target_concept_id, seed, compact_concepts)
+        metadata = _override_seed_canonical(
+            _concept_metadata(target_concept_id, seed, compact_concepts),
+            seed,
+        )
         risk_tags = {str(value) for value in seed.get("risk_tags") or [] if value}
         risk_tags.update({"explicit_context_seed", "needs_context"})
         record = {
