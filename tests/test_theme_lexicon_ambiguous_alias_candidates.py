@@ -192,6 +192,80 @@ class AmbiguousAliasCandidateBuilderTests(unittest.TestCase):
         self.assertEqual(written_manifest["coverage"]["candidate_resolvable_concepts"], 2)
         self.assertEqual(written_manifest["risk_tag_counts"]["needs_context"], 2)
 
+    def test_explicit_context_seeds_target_canonical_concepts_without_accepting_aliases(self) -> None:
+        module = load_module()
+        audit, review, alias_index, curation = self._write_inputs()
+        context_seeds = self.root / "contextual_alias_resolution_seeds.json"
+        context_seeds.write_text(
+            json.dumps(
+                {
+                    "schema_version": "theme_concept_contextual_alias_seeds.v1",
+                    "seeds": [
+                        {
+                            "alias": "AGC",
+                            "target_concept_id": "concept:automatic_gain_control",
+                            "source_concept_id": "concept:agc",
+                            "resolution_group": "agc",
+                            "candidate_type": "explicit_context_alternative",
+                            "risk_tags": ["acronym_or_short_label"],
+                            "reason": "AGC is only safe when paper context supports automatic gain control.",
+                        },
+                        {
+                            "alias": "Paper Set",
+                            "target_concept_id": "concept:paper_set",
+                            "source_concept_id": "concept:paper_set",
+                            "resolution_group": "paper_set",
+                            "reason": "excluded display-only concepts must not re-enter candidate runtime.",
+                        }
+                    ],
+                },
+                ensure_ascii=False,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+        alias_payload = json.loads(alias_index.read_text(encoding="utf-8"))
+        alias_payload["concepts"]["concept:automatic_gain_control"] = {
+            "concept_id": "concept:automatic_gain_control",
+            "canonical": {"en": "Automatic Gain Control", "zh": "自动增益控制"},
+            "domains": ["computer_science"],
+            "parents": [],
+            "specificity": 82,
+        }
+        alias_payload["concepts"]["concept:agc"] = {
+            "concept_id": "concept:agc",
+            "canonical": {"en": "Agc", "zh": ""},
+            "domains": ["computer_science"],
+            "parents": [],
+            "specificity": 40,
+        }
+        alias_payload["aliases"]["en:agc"] = "concept:agc"
+        alias_index.write_text(json.dumps(alias_payload, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
+        output = self.root / "theme_concept_ambiguous_alias_candidates.json"
+        manifest = self.root / "theme_concept_ambiguous_alias_manifest.json"
+
+        summary = module.build_ambiguous_alias_candidates(
+            audit_path=audit,
+            review_decisions_path=review,
+            alias_index_path=alias_index,
+            curation_decisions_path=curation,
+            context_seeds_path=context_seeds,
+            output_path=output,
+            manifest_path=manifest,
+        )
+
+        self.assertEqual(summary["candidate_source_counts"]["explicit_context_seed"], 1)
+        payload = json.loads(output.read_text(encoding="utf-8"))
+        seeded = payload["candidates"]["en:agc"][0]
+        self.assertEqual(seeded["concept_id"], "concept:automatic_gain_control")
+        self.assertEqual(seeded["source_concept_id"], "concept:agc")
+        self.assertEqual(seeded["resolution_group"], "agc")
+        self.assertTrue(seeded["requires_context"])
+        self.assertTrue(seeded["allow_deterministic_shadow"])
+        self.assertIn("needs_context", seeded["risk_tags"])
+        self.assertIn("explicit_context_seed", seeded["risk_tags"])
+
 
 if __name__ == "__main__":
     unittest.main()

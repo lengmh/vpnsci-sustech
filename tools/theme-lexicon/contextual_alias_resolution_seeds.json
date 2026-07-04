@@ -1,0 +1,1996 @@
+{
+  "policy": "Explicit context seeds are not accepted deterministic aliases. They are only offered to the Host Agent when default treemap matching has no hit or insufficient hit. allow_deterministic_shadow is limited to this low-signal candidate-resolution path.",
+  "schema_version": "theme_concept_contextual_alias_seeds.v1",
+  "seeds": [
+    {
+      "alias": "Accreditation",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Accreditations",
+      "domains": [
+        "education"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Accreditation' to Accreditations only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "accreditation_certification",
+      "risk_tags": [
+        "needs_context",
+        "source_variant"
+      ],
+      "source_concept_id": "concept:accreditation",
+      "specificity": 31,
+      "target_concept_id": "concept:accreditation"
+    },
+    {
+      "alias": "AGC",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Agc",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'AGC' to Agc only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "agc",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:agc",
+      "specificity": 26,
+      "target_concept_id": "concept:agc"
+    },
+    {
+      "alias": "CAM",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Cam",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'CAM' to Cam only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "cam",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:cam",
+      "specificity": 26,
+      "target_concept_id": "concept:cam"
+    },
+    {
+      "alias": "CBAM",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Cbam",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'CBAM' to Cbam only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "cbam",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:cbam",
+      "specificity": 27,
+      "target_concept_id": "concept:cbam"
+    },
+    {
+      "alias": "CMA",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Cma",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'CMA' to Cma only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "cma",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:cma",
+      "specificity": 26,
+      "target_concept_id": "concept:cma"
+    },
+    {
+      "alias": "Community Health Network",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Community Network",
+      "domains": [
+        "anthropology_education_sociology_and_social_phenomena",
+        "biomedical"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Community Health Network' to Community Network only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "community_network",
+      "risk_tags": [
+        "needs_context",
+        "source_variant"
+      ],
+      "source_concept_id": "concept:community_network__2",
+      "specificity": 63,
+      "target_concept_id": "concept:community_network__2"
+    },
+    {
+      "alias": "Community Network",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Community Network",
+      "domains": [
+        "anthropology_education_sociology_and_social_phenomena",
+        "biomedical"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Community Network' to Community Network only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "community_network",
+      "risk_tags": [
+        "needs_context",
+        "source_variant"
+      ],
+      "source_concept_id": "concept:community_network__2",
+      "specificity": 63,
+      "target_concept_id": "concept:community_network__2"
+    },
+    {
+      "alias": "COMP",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Comp",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'COMP' to Comp only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "comp",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:comp",
+      "specificity": 27,
+      "target_concept_id": "concept:comp"
+    },
+    {
+      "alias": "Consensus Development Conference NIH",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "NIH Consensus Development Conference",
+      "domains": [
+        "biomedical",
+        "publication_characteristics"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Consensus Development Conference NIH' to NIH Consensus Development Conference only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "nih_consensus_development_conference",
+      "risk_tags": [
+        "needs_context",
+        "publication_type"
+      ],
+      "source_concept_id": "concept:consensu_development_conference_nih",
+      "specificity": 100,
+      "target_concept_id": "concept:consensu_development_conference_nih"
+    },
+    {
+      "alias": "CPASA",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Cpasa",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'CPASA' to Cpasa only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "cpasa",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:cpasa",
+      "specificity": 28,
+      "target_concept_id": "concept:cpasa"
+    },
+    {
+      "alias": "CPM",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Cpm",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'CPM' to Cpm only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "cpm",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:cpm",
+      "specificity": 26,
+      "target_concept_id": "concept:cpm"
+    },
+    {
+      "alias": "CPW",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Cpw",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'CPW' to Cpw only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "cpw",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:cpw",
+      "specificity": 26,
+      "target_concept_id": "concept:cpw"
+    },
+    {
+      "alias": "CRT",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Crt",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'CRT' to Crt only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "crt",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:crt",
+      "specificity": 26,
+      "target_concept_id": "concept:crt"
+    },
+    {
+      "alias": "Cryptology",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Cryptology",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Cryptology' to Cryptology only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "cryptology_cryptography",
+      "risk_tags": [
+        "needs_context",
+        "semantic_neighbor"
+      ],
+      "source_concept_id": "concept:cryptology",
+      "specificity": 33,
+      "target_concept_id": "concept:cryptology"
+    },
+    {
+      "alias": "DAS",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Das",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'DAS' to Das only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "das",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:das",
+      "specificity": 26,
+      "target_concept_id": "concept:das"
+    },
+    {
+      "alias": "DBA",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Dba",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'DBA' to Dba only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "dba",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:dba",
+      "specificity": 26,
+      "target_concept_id": "concept:dba"
+    },
+    {
+      "alias": "Dempster",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Dempster",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Dempster' to Dempster only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "dempster",
+      "risk_tags": [
+        "name_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:dempster",
+      "specificity": 31,
+      "target_concept_id": "concept:dempster"
+    },
+    {
+      "alias": "Diabetes",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Diabetes",
+      "domains": [
+        "engineering_in_medicine_and_biology"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Diabetes' to Diabetes only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "diabetes_diabetes_mellitus",
+      "risk_tags": [
+        "needs_context",
+        "source_variant"
+      ],
+      "source_concept_id": "concept:diabet",
+      "specificity": 24,
+      "target_concept_id": "concept:diabet"
+    },
+    {
+      "alias": "Dog",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Dogs",
+      "domains": [
+        "biomedical",
+        "organisms"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Dog' to Dogs only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "dogs",
+      "risk_tags": [
+        "needs_context",
+        "source_variant"
+      ],
+      "source_concept_id": "concept:dogs",
+      "specificity": 27,
+      "target_concept_id": "concept:dogs"
+    },
+    {
+      "alias": "Dogs",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Dogs",
+      "domains": [
+        "biomedical",
+        "organisms"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Dogs' to Dogs only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "dogs",
+      "risk_tags": [
+        "needs_context",
+        "source_variant"
+      ],
+      "source_concept_id": "concept:dogs",
+      "specificity": 27,
+      "target_concept_id": "concept:dogs"
+    },
+    {
+      "alias": "DPA",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Dpa",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'DPA' to Dpa only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "dpa",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:dpa",
+      "specificity": 26,
+      "target_concept_id": "concept:dpa"
+    },
+    {
+      "alias": "DSA",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Dsa",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'DSA' to Dsa only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "dsa",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:dsa",
+      "specificity": 26,
+      "target_concept_id": "concept:dsa"
+    },
+    {
+      "alias": "DSP",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Dsp",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'DSP' to Dsp only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "dsp",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:dsp",
+      "specificity": 26,
+      "target_concept_id": "concept:dsp"
+    },
+    {
+      "alias": "Dynamic",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Dynamics",
+      "domains": [
+        "science_general"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Dynamic' to Dynamics only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "dynamics_kinetics",
+      "risk_tags": [
+        "needs_context",
+        "source_variant"
+      ],
+      "source_concept_id": "concept:dynamic",
+      "specificity": 25,
+      "target_concept_id": "concept:dynamic"
+    },
+    {
+      "alias": "EBAE",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Ebae",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'EBAE' to Ebae only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "ebae",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:ebae",
+      "specificity": 27,
+      "target_concept_id": "concept:ebae"
+    },
+    {
+      "alias": "ECC",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Ecc",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'ECC' to Ecc only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "ecc",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:ecc",
+      "specificity": 26,
+      "target_concept_id": "concept:ecc"
+    },
+    {
+      "alias": "ESPRIT",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Esprit",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'ESPRIT' to Esprit only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "esprit",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:esprit",
+      "specificity": 29,
+      "target_concept_id": "concept:esprit"
+    },
+    {
+      "alias": "ESS",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Ess",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'ESS' to Ess only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "ess",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:ess",
+      "specificity": 26,
+      "target_concept_id": "concept:ess"
+    },
+    {
+      "alias": "FAAM",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Faam",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'FAAM' to Faam only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "faam",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:faam",
+      "specificity": 27,
+      "target_concept_id": "concept:faam"
+    },
+    {
+      "alias": "FMS",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Fms",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'FMS' to Fms only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "fms",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:fms",
+      "specificity": 26,
+      "target_concept_id": "concept:fms"
+    },
+    {
+      "alias": "FPA",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Fpa",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'FPA' to Fpa only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "fpa",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:fpa",
+      "specificity": 26,
+      "target_concept_id": "concept:fpa"
+    },
+    {
+      "alias": "Gene Assignment",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Gene Assignment",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Gene Assignment' to Gene Assignment only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "gene_assignment_location",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:gene_assignment",
+      "specificity": 56,
+      "target_concept_id": "concept:gene_assignment"
+    },
+    {
+      "alias": "Genetic Translocation",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "translocation (genetics)",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Genetic Translocation' to translocation (genetics) only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "genetic_translocation",
+      "risk_tags": [
+        "needs_context",
+        "source_variant"
+      ],
+      "source_concept_id": "concept:translocation_genetic",
+      "specificity": 62,
+      "target_concept_id": "concept:translocation_genetic"
+    },
+    {
+      "alias": "Goal Model",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Goal Models",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Goal Model' to Goal Models only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "goal_target_model",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:goal_model",
+      "specificity": 51,
+      "target_concept_id": "concept:goal_model"
+    },
+    {
+      "alias": "GPS",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Gps",
+      "domains": [
+        "computer_science",
+        "physics"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'GPS' to Gps only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "gps",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:gps",
+      "specificity": 31,
+      "target_concept_id": "concept:gps"
+    },
+    {
+      "alias": "HBT",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Hbt",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'HBT' to Hbt only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "hbt",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:hbt",
+      "specificity": 26,
+      "target_concept_id": "concept:hbt"
+    },
+    {
+      "alias": "HCA",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Hca",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'HCA' to Hca only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "hca",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:hca",
+      "specificity": 26,
+      "target_concept_id": "concept:hca"
+    },
+    {
+      "alias": "HFO",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Hfo",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'HFO' to Hfo only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "hfo",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:hfo",
+      "specificity": 26,
+      "target_concept_id": "concept:hfo"
+    },
+    {
+      "alias": "Hospital Patient Relation",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Hospital-patient Relations",
+      "domains": [
+        "biomedical",
+        "health_care"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Hospital Patient Relation' to Hospital-patient Relations only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "hospital_patient_physician_patient_relation",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:hospital_patient_relation",
+      "specificity": 89,
+      "target_concept_id": "concept:hospital_patient_relation"
+    },
+    {
+      "alias": "Human Machine Interaction",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Human Machine Interaction",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Human Machine Interaction' to Human Machine Interaction only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "human_machine_human_computer_interaction",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:human_machine_interaction",
+      "specificity": 89,
+      "target_concept_id": "concept:human_machine_interaction"
+    },
+    {
+      "alias": "Human Machine Interface",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Human Machine Interface",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Human Machine Interface' to Human Machine Interface only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "human_machine_human_computer_interface",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:human_machine_interface",
+      "specificity": 87,
+      "target_concept_id": "concept:human_machine_interface"
+    },
+    {
+      "alias": "IAR",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Iar",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'IAR' to Iar only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "iar",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:iar",
+      "specificity": 26,
+      "target_concept_id": "concept:iar"
+    },
+    {
+      "alias": "IRFPA",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Irfpa",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'IRFPA' to Irfpa only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "irfpa",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:irfpa",
+      "specificity": 28,
+      "target_concept_id": "concept:irfpa"
+    },
+    {
+      "alias": "LAAAM",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Laaam",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'LAAAM' to Laaam only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "laaam",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:laaam",
+      "specificity": 28,
+      "target_concept_id": "concept:laaam"
+    },
+    {
+      "alias": "LISCA",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Lisca",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'LISCA' to Lisca only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "lisca",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:lisca",
+      "specificity": 28,
+      "target_concept_id": "concept:lisca"
+    },
+    {
+      "alias": "MAI",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Mai",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'MAI' to Mai only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "mai",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:mai",
+      "specificity": 26,
+      "target_concept_id": "concept:mai"
+    },
+    {
+      "alias": "MCT",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Mct",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'MCT' to Mct only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "mct",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:mct",
+      "specificity": 26,
+      "target_concept_id": "concept:mct"
+    },
+    {
+      "alias": "Memetic",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Memetic",
+      "domains": [
+        "engineering_in_medicine_and_biology"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Memetic' to Memetic only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "memetic",
+      "risk_tags": [
+        "name_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:memetic",
+      "specificity": 25,
+      "target_concept_id": "concept:memetic"
+    },
+    {
+      "alias": "Mesoscopic System",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Nanophysics",
+      "domains": [
+        "physics"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Mesoscopic System' to Nanophysics only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "nanophysics",
+      "risk_tags": [
+        "needs_context",
+        "source_variant"
+      ],
+      "source_concept_id": "concept:nanostructur__2",
+      "specificity": 30,
+      "target_concept_id": "concept:nanostructur__2"
+    },
+    {
+      "alias": "Nanophysics",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Nanophysics",
+      "domains": [
+        "physics"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Nanophysics' to Nanophysics only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "nanophysics",
+      "risk_tags": [
+        "needs_context",
+        "source_variant"
+      ],
+      "source_concept_id": "concept:nanostructur__2",
+      "specificity": 30,
+      "target_concept_id": "concept:nanostructur__2"
+    },
+    {
+      "alias": "NEMO",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Nemo",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'NEMO' to Nemo only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "nemo",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:nemo",
+      "specificity": 27,
+      "target_concept_id": "concept:nemo"
+    },
+    {
+      "alias": "Newtonian",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Newtonians",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Newtonian' to Newtonians only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "newtonian",
+      "risk_tags": [
+        "needs_context",
+        "source_variant"
+      ],
+      "source_concept_id": "concept:newtonian",
+      "specificity": 32,
+      "target_concept_id": "concept:newtonian"
+    },
+    {
+      "alias": "Nielsen",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Nielsen",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Nielsen' to Nielsen only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "nielsen",
+      "risk_tags": [
+        "name_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:nielsen",
+      "specificity": 30,
+      "target_concept_id": "concept:nielsen"
+    },
+    {
+      "alias": "PBL",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Pbl",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'PBL' to Pbl only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "pbl",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:pbl",
+      "specificity": 26,
+      "target_concept_id": "concept:pbl"
+    },
+    {
+      "alias": "PLE",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Ple",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'PLE' to Ple only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "ple",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:ple",
+      "specificity": 26,
+      "target_concept_id": "concept:ple"
+    },
+    {
+      "alias": "PLL",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Pll",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'PLL' to Pll only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "pll",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:pll",
+      "specificity": 26,
+      "target_concept_id": "concept:pll"
+    },
+    {
+      "alias": "PMD",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Pmd",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'PMD' to Pmd only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "pmd",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:pmd",
+      "specificity": 26,
+      "target_concept_id": "concept:pmd"
+    },
+    {
+      "alias": "PTS",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Pts",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'PTS' to Pts only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "pts",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:pts",
+      "specificity": 26,
+      "target_concept_id": "concept:pts"
+    },
+    {
+      "alias": "QAW",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Qaw",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'QAW' to Qaw only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "qaw",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:qaw",
+      "specificity": 26,
+      "target_concept_id": "concept:qaw"
+    },
+    {
+      "alias": "Rappaport",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Rappaport",
+      "domains": [
+        "biomedical",
+        "organisms"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Rappaport' to Rappaport only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "rappaport",
+      "risk_tags": [
+        "name_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:rappaport",
+      "specificity": 32,
+      "target_concept_id": "concept:rappaport"
+    },
+    {
+      "alias": "RCS",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Rcs",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'RCS' to Rcs only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "rcs",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:rcs",
+      "specificity": 26,
+      "target_concept_id": "concept:rcs"
+    },
+    {
+      "alias": "SALUTA",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Saluta",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'SALUTA' to Saluta only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "saluta",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:saluta",
+      "specificity": 29,
+      "target_concept_id": "concept:saluta"
+    },
+    {
+      "alias": "SBAR",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Sbar",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'SBAR' to Sbar only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "sbar",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:sbar",
+      "specificity": 27,
+      "target_concept_id": "concept:sbar"
+    },
+    {
+      "alias": "SDM",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Sdm",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'SDM' to Sdm only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "sdm",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:sdm",
+      "specificity": 26,
+      "target_concept_id": "concept:sdm"
+    },
+    {
+      "alias": "Sexuality",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Sexuality",
+      "domains": [
+        "biomedical",
+        "psychiatry_and_psychology"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Sexuality' to Sexuality only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "sexuality",
+      "risk_tags": [
+        "broad_requires_context",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:sexuality",
+      "specificity": 32,
+      "target_concept_id": "concept:sexuality"
+    },
+    {
+      "alias": "Software Validation",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Software Validation",
+      "domains": [
+        "biomedical",
+        "information_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Software Validation' to Software Validation only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "software_validation_verification",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:software_validation",
+      "specificity": 60,
+      "target_concept_id": "concept:software_validation"
+    },
+    {
+      "alias": "TES",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Tes",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'TES' to Tes only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "tes",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:tes",
+      "specificity": 26,
+      "target_concept_id": "concept:tes"
+    },
+    {
+      "alias": "Translocation Genetic",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "translocation (genetics)",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Translocation Genetic' to translocation (genetics) only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "genetic_translocation",
+      "risk_tags": [
+        "needs_context",
+        "source_variant"
+      ],
+      "source_concept_id": "concept:translocation_genetic",
+      "specificity": 62,
+      "target_concept_id": "concept:translocation_genetic"
+    },
+    {
+      "alias": "Voice Recognition",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Voice Recognition",
+      "domains": [
+        "biomedical",
+        "psychiatry_and_psychology"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Voice Recognition' to Voice Recognition only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "voice_sound_recognition",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:voice_recognition",
+      "specificity": 63,
+      "target_concept_id": "concept:voice_recognition"
+    },
+    {
+      "alias": "WIMEDIA",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Wimedia",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'WIMEDIA' to Wimedia only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "wimedia",
+      "risk_tags": [
+        "acronym_or_short_label",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:wimedia",
+      "specificity": 30,
+      "target_concept_id": "concept:wimedia"
+    },
+    {
+      "alias": "Wind",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Wind",
+      "domains": [
+        "biomedical",
+        "phenomena_and_processes"
+      ],
+      "reason": "C8.25 explicit context seed: resolve 'Wind' to Wind only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "wind",
+      "risk_tags": [
+        "broad_requires_context",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:wind",
+      "specificity": 27,
+      "target_concept_id": "concept:wind"
+    },
+    {
+      "alias": "人机交互",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "cs.HC",
+      "canonical_zh": "人机交互",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context group: Human-machine interaction and human-computer interaction overlap but are not always the same scope.",
+      "requires_context": true,
+      "resolution_group": "human_machine_human_computer_interaction",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:human_computer_interaction__2",
+      "specificity": 90,
+      "target_concept_id": "concept:human_computer_interaction__2"
+    },
+    {
+      "alias": "人机交互",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Human Machine Interaction",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context group: Human-machine interaction and human-computer interaction overlap but are not always the same scope.",
+      "requires_context": true,
+      "resolution_group": "human_machine_human_computer_interaction",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:human_machine_interaction",
+      "specificity": 89,
+      "target_concept_id": "concept:human_machine_interaction"
+    },
+    {
+      "alias": "人机接口",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Human Computer Interface",
+      "canonical_zh": "人机接口",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context group: Human-machine interface and human-computer interface require context.",
+      "requires_context": true,
+      "resolution_group": "human_machine_human_computer_interface",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:human_computer_interface",
+      "specificity": 88,
+      "target_concept_id": "concept:human_computer_interface"
+    },
+    {
+      "alias": "人机接口",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Human Machine Interface",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context group: Human-machine interface and human-computer interface require context.",
+      "requires_context": true,
+      "resolution_group": "human_machine_human_computer_interface",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:human_machine_interface",
+      "specificity": 87,
+      "target_concept_id": "concept:human_machine_interface"
+    },
+    {
+      "alias": "人机界面",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Hmi",
+      "canonical_zh": "人机界面",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context group: HMI can be a short label or full human-machine interface concept.",
+      "requires_context": true,
+      "resolution_group": "hmi_interface",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:hmi",
+      "specificity": 26,
+      "target_concept_id": "concept:hmi"
+    },
+    {
+      "alias": "人机界面",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Human Machine Interface",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context group: HMI can be a short label or full human-machine interface concept.",
+      "requires_context": true,
+      "resolution_group": "hmi_interface",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:human_machine_interface",
+      "specificity": 87,
+      "target_concept_id": "concept:human_machine_interface"
+    },
+    {
+      "alias": "动力学",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Dynamics",
+      "domains": [
+        "science_general"
+      ],
+      "reason": "C8.25 explicit context group: Dynamics/Kinetics require disciplinary context.",
+      "requires_context": true,
+      "resolution_group": "dynamics_kinetics",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:dynamic",
+      "specificity": 25,
+      "target_concept_id": "concept:dynamic"
+    },
+    {
+      "alias": "动力学",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Kinetics",
+      "canonical_zh": "动力学",
+      "domains": [
+        "biomedical",
+        "phenomena_and_processes"
+      ],
+      "reason": "C8.25 explicit context group: Dynamics/Kinetics require disciplinary context.",
+      "requires_context": true,
+      "resolution_group": "dynamics_kinetics",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:kinetic",
+      "specificity": 30,
+      "target_concept_id": "concept:kinetic"
+    },
+    {
+      "alias": "医患关系",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Hospital-patient Relations",
+      "domains": [
+        "biomedical",
+        "health_care"
+      ],
+      "reason": "C8.25 explicit context group: Hospital-patient and physician-patient relation should be chosen from paper context.",
+      "requires_context": true,
+      "resolution_group": "hospital_patient_physician_patient_relation",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:hospital_patient_relation",
+      "specificity": 89,
+      "target_concept_id": "concept:hospital_patient_relation"
+    },
+    {
+      "alias": "医患关系",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Physician-patient Relations",
+      "canonical_zh": "医患关系",
+      "domains": [
+        "biomedical",
+        "psychiatry_and_psychology"
+      ],
+      "reason": "C8.25 explicit context group: Hospital-patient and physician-patient relation should be chosen from paper context.",
+      "requires_context": true,
+      "resolution_group": "hospital_patient_physician_patient_relation",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:physician_patient_relation",
+      "specificity": 90,
+      "target_concept_id": "concept:physician_patient_relation"
+    },
+    {
+      "alias": "基因定位",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Gene Assignment",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context group: Gene Assignment and Gene Location share a Chinese surface but should be resolved by context.",
+      "requires_context": true,
+      "resolution_group": "gene_assignment_location",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:gene_assignment",
+      "specificity": 56,
+      "target_concept_id": "concept:gene_assignment"
+    },
+    {
+      "alias": "基因定位",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Gene Location",
+      "canonical_zh": "基因定位",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context group: Gene Assignment and Gene Location share a Chinese surface but should be resolved by context.",
+      "requires_context": true,
+      "resolution_group": "gene_assignment_location",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:gene_location",
+      "specificity": 54,
+      "target_concept_id": "concept:gene_location"
+    },
+    {
+      "alias": "声音识别",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_zh": "声音识别",
+      "domains": [
+        "signal_processing"
+      ],
+      "reason": "C8.25 explicit context group: Voice recognition and sound recognition should be separated by context.",
+      "requires_context": true,
+      "resolution_group": "voice_sound_recognition",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:sound_recognition__2",
+      "specificity": 53,
+      "target_concept_id": "concept:sound_recognition__2"
+    },
+    {
+      "alias": "声音识别",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Voice Recognition",
+      "domains": [
+        "biomedical",
+        "psychiatry_and_psychology"
+      ],
+      "reason": "C8.25 explicit context group: Voice recognition and sound recognition should be separated by context.",
+      "requires_context": true,
+      "resolution_group": "voice_sound_recognition",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:voice_recognition",
+      "specificity": 63,
+      "target_concept_id": "concept:voice_recognition"
+    },
+    {
+      "alias": "安卓",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Androids",
+      "domains": [
+        "robotics_and_automation"
+      ],
+      "reason": "C8.25 explicit context group: Android may mean a robot/android or the Android operating system.",
+      "requires_context": true,
+      "resolution_group": "android_robot_os",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:android",
+      "specificity": 25,
+      "target_concept_id": "concept:android"
+    },
+    {
+      "alias": "安卓",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Android",
+      "canonical_zh": "安卓",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context group: Android may mean a robot/android or the Android operating system.",
+      "requires_context": true,
+      "resolution_group": "android_robot_os",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:android__2",
+      "specificity": 35,
+      "target_concept_id": "concept:android__2"
+    },
+    {
+      "alias": "密码学",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_zh": "密码学",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context group: Cryptology and cryptography are closely related but not globally merged here.",
+      "requires_context": true,
+      "resolution_group": "cryptology_cryptography",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:cryptography__2",
+      "specificity": 35,
+      "target_concept_id": "concept:cryptography__2"
+    },
+    {
+      "alias": "密码学",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Cryptology",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context group: Cryptology and cryptography are closely related but not globally merged here.",
+      "requires_context": true,
+      "resolution_group": "cryptology_cryptography",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:cryptology",
+      "specificity": 33,
+      "target_concept_id": "concept:cryptology"
+    },
+    {
+      "alias": "数据网格",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Data Grid",
+      "canonical_zh": "数据网格",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context group: Data Mesh and Data Grid share a Chinese surface in some sources but are different data architecture concepts.",
+      "requires_context": true,
+      "resolution_group": "data_mesh_grid",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:data_grid",
+      "specificity": 50,
+      "target_concept_id": "concept:data_grid"
+    },
+    {
+      "alias": "数据网格",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Data Mesh",
+      "domains": [
+        "professional_communication"
+      ],
+      "reason": "C8.25 explicit context group: Data Mesh and Data Grid share a Chinese surface in some sources but are different data architecture concepts.",
+      "requires_context": true,
+      "resolution_group": "data_mesh_grid",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:data_mesh",
+      "specificity": 45,
+      "target_concept_id": "concept:data_mesh"
+    },
+    {
+      "alias": "犬类",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Dogs",
+      "domains": [
+        "biomedical",
+        "organisms"
+      ],
+      "reason": "C8.25 explicit context seed: resolve '犬类' to Dogs only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "dogs",
+      "risk_tags": [
+        "context_exact_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:dogs",
+      "specificity": 27,
+      "target_concept_id": "concept:dogs"
+    },
+    {
+      "alias": "目标模型",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Goal Models",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context group: Goal model and target model are not globally interchangeable.",
+      "requires_context": true,
+      "resolution_group": "goal_target_model",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:goal_model",
+      "specificity": 51,
+      "target_concept_id": "concept:goal_model"
+    },
+    {
+      "alias": "目标模型",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Target Model",
+      "canonical_zh": "目标模型",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context group: Goal model and target model are not globally interchangeable.",
+      "requires_context": true,
+      "resolution_group": "goal_target_model",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:target_model",
+      "specificity": 53,
+      "target_concept_id": "concept:target_model"
+    },
+    {
+      "alias": "纳米物理学",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Nanophysics",
+      "domains": [
+        "physics"
+      ],
+      "reason": "C8.25 explicit context seed: resolve '纳米物理学' to Nanophysics only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "nanophysics",
+      "risk_tags": [
+        "context_exact_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:nanostructur__2",
+      "specificity": 30,
+      "target_concept_id": "concept:nanostructur__2"
+    },
+    {
+      "alias": "网络社区",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Community Network",
+      "domains": [
+        "anthropology_education_sociology_and_social_phenomena",
+        "biomedical"
+      ],
+      "reason": "C8.25 explicit context group: Community network/community health network should not be forced into Network Communities without context.",
+      "requires_context": true,
+      "resolution_group": "community_network",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:community_network__2",
+      "specificity": 63,
+      "target_concept_id": "concept:community_network__2"
+    },
+    {
+      "alias": "网络社区",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Network Communities",
+      "canonical_zh": "网络社区",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context group: Community network/community health network should not be forced into Network Communities without context.",
+      "requires_context": true,
+      "resolution_group": "community_network",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:network_community",
+      "specificity": 58,
+      "target_concept_id": "concept:network_community"
+    },
+    {
+      "alias": "认证",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Accreditations",
+      "domains": [
+        "education"
+      ],
+      "reason": "C8.25 explicit context group: Accreditation and certification share a broad Chinese surface; resolve only with direct context.",
+      "requires_context": true,
+      "resolution_group": "accreditation_certification",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:accreditation",
+      "specificity": 31,
+      "target_concept_id": "concept:accreditation"
+    },
+    {
+      "alias": "认证",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Certifications",
+      "canonical_zh": "认证",
+      "domains": [
+        "education"
+      ],
+      "reason": "C8.25 explicit context group: Accreditation and certification share a broad Chinese surface; resolve only with direct context.",
+      "requires_context": true,
+      "resolution_group": "accreditation_certification",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:certification",
+      "specificity": 31,
+      "target_concept_id": "concept:certification"
+    },
+    {
+      "alias": "语音识别",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Voice Recognition",
+      "domains": [
+        "biomedical",
+        "psychiatry_and_psychology"
+      ],
+      "reason": "C8.25 explicit context seed: resolve '语音识别' to Voice Recognition only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "voice_sound_recognition",
+      "risk_tags": [
+        "context_exact_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:voice_recognition",
+      "specificity": 63,
+      "target_concept_id": "concept:voice_recognition"
+    },
+    {
+      "alias": "软件确认",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Software Validation",
+      "domains": [
+        "biomedical",
+        "information_science"
+      ],
+      "reason": "C8.25 explicit context seed: resolve '软件确认' to Software Validation only when query/paper context supports this target.",
+      "requires_context": true,
+      "resolution_group": "software_validation_verification",
+      "risk_tags": [
+        "context_exact_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:software_validation",
+      "specificity": 60,
+      "target_concept_id": "concept:software_validation"
+    },
+    {
+      "alias": "软件验证",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_en": "Software Validation",
+      "domains": [
+        "biomedical",
+        "information_science"
+      ],
+      "reason": "C8.25 explicit context group: Software validation and software verification are distinct in software engineering; resolve by context.",
+      "requires_context": true,
+      "resolution_group": "software_validation_verification",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:software_validation",
+      "specificity": 60,
+      "target_concept_id": "concept:software_validation"
+    },
+    {
+      "alias": "软件验证",
+      "allow_deterministic_shadow": true,
+      "candidate_type": "explicit_context_alternative",
+      "canonical_zh": "软件验证",
+      "domains": [
+        "computer_science"
+      ],
+      "reason": "C8.25 explicit context group: Software validation and software verification are distinct in software engineering; resolve by context.",
+      "requires_context": true,
+      "resolution_group": "software_validation_verification",
+      "risk_tags": [
+        "collision_alias",
+        "needs_context"
+      ],
+      "source_concept_id": "concept:software_verification",
+      "specificity": 62,
+      "target_concept_id": "concept:software_verification"
+    }
+  ],
+  "updated_at": "2026-07-04"
+}

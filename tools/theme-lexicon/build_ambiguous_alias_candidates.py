@@ -17,6 +17,7 @@ from vpnsci_sustech.theme_clustering import (
 
 SCHEMA_VERSION = "theme_concept_ambiguous_alias_candidates.v1"
 MANIFEST_SCHEMA_VERSION = "theme_concept_ambiguous_alias_manifest.v1"
+CONTEXT_SEED_SCHEMA_VERSION = "theme_concept_contextual_alias_seeds.v1"
 BUILD_STATUS = "review_complete"
 NORMALIZATION = "theme_concept_alias_normalization.v1"
 ALLOWED_AUDIT_BUCKETS = {
@@ -217,6 +218,7 @@ def _candidate_record(
         "parents": metadata["parents"],
         "specificity": metadata["specificity"],
         "candidate_type": _candidate_type(item),
+        "candidate_source": "audit_blocked_row",
         "risk_tags": _risk_tags(item, row),
         "evidence_aliases": [{"lang": lang, "alias": alias}],
         "source_concept_id": concept_id,
@@ -225,12 +227,83 @@ def _candidate_record(
     }
 
 
+def _seed_alias_key(seed: dict[str, Any]) -> str:
+    alias = str(seed.get("alias") or "").strip()
+    if not alias:
+        return ""
+    lang = str(seed.get("lang") or "").strip().lower()
+    alias_key = _concept_alias_key(alias)
+    if lang in {"en", "zh"}:
+        return f"{lang}:{alias_key.split(':', 1)[1]}"
+    return alias_key
+
+
+def _context_seed_records(
+    *,
+    context_seeds_path: Path | None,
+    compact_concepts: dict[str, Any],
+    deterministic_aliases: set[str],
+    excluded_concepts: set[str],
+) -> list[tuple[str, dict[str, Any]]]:
+    if not context_seeds_path or not Path(context_seeds_path).exists():
+        return []
+    payload = _read_json(Path(context_seeds_path))
+    if str(payload.get("schema_version") or "") not in {"", CONTEXT_SEED_SCHEMA_VERSION}:
+        raise ValueError(f"unsupported context seed schema: {payload.get('schema_version')}")
+
+    records: list[tuple[str, dict[str, Any]]] = []
+    for seed in payload.get("seeds") or []:
+        if not isinstance(seed, dict):
+            continue
+        alias = str(seed.get("alias") or "").strip()
+        alias_key = _seed_alias_key(seed)
+        allow_deterministic_shadow = bool(seed.get("allow_deterministic_shadow", True))
+        if not alias or not alias_key:
+            continue
+        if alias_key in deterministic_aliases and not allow_deterministic_shadow:
+            continue
+        lang = alias_key.split(":", 1)[0] if ":" in alias_key else ""
+        if not _alias_allowed(lang, alias):
+            continue
+        target_concept_id = str(seed.get("target_concept_id") or seed.get("concept_id") or "").strip()
+        if not target_concept_id:
+            continue
+        source_concept_id = str(seed.get("source_concept_id") or target_concept_id)
+        if target_concept_id in excluded_concepts or source_concept_id in excluded_concepts:
+            continue
+        metadata = _concept_metadata(target_concept_id, seed, compact_concepts)
+        risk_tags = {str(value) for value in seed.get("risk_tags") or [] if value}
+        risk_tags.update({"explicit_context_seed", "needs_context"})
+        record = {
+            "concept_id": target_concept_id,
+            "canonical": metadata["canonical"],
+            "domains": metadata["domains"],
+            "parents": metadata["parents"],
+            "specificity": metadata["specificity"],
+            "candidate_type": str(seed.get("candidate_type") or "explicit_context_alternative"),
+            "candidate_source": "explicit_context_seed",
+            "risk_tags": sorted(risk_tags),
+            "evidence_aliases": [{"lang": lang, "alias": alias}],
+            "source_concept_id": source_concept_id,
+            "target_hint": seed.get("target_hint"),
+            "reason": str(seed.get("reason") or "explicit context seed requires host-agent evidence"),
+            "requires_context": bool(seed.get("requires_context", True)),
+            "allow_deterministic_shadow": allow_deterministic_shadow,
+        }
+        resolution_group = str(seed.get("resolution_group") or "").strip()
+        if resolution_group:
+            record["resolution_group"] = resolution_group
+        records.append((alias_key, record))
+    return records
+
+
 def build_ambiguous_alias_candidates(
     *,
     audit_path: Path,
     review_decisions_path: Path | None,
     alias_index_path: Path,
     curation_decisions_path: Path | None = None,
+    context_seeds_path: Path | None = None,
     output_path: Path,
     manifest_path: Path | None = None,
     tool_output_path: Path | None = None,
@@ -269,6 +342,14 @@ def build_ambiguous_alias_candidates(
                 )
             )
 
+    for alias_key, record in _context_seed_records(
+        context_seeds_path=context_seeds_path,
+        compact_concepts=compact_concepts,
+        deterministic_aliases=deterministic_aliases,
+        excluded_concepts=excluded,
+    ):
+        candidates[alias_key].append(record)
+
     normalized_candidates: dict[str, list[dict[str, Any]]] = {}
     for alias_key, records in sorted(candidates.items()):
         deduped: dict[str, dict[str, Any]] = {}
@@ -298,6 +379,11 @@ def build_ambiguous_alias_candidates(
         for candidate in records
         for tag in candidate.get("risk_tags") or []
     )
+    source_counts = Counter(
+        str(candidate.get("candidate_source") or "audit_blocked_row")
+        for records in normalized_candidates.values()
+        for candidate in records
+    )
     payload = {
         "schema_version": SCHEMA_VERSION,
         "build_status": BUILD_STATUS,
@@ -311,6 +397,7 @@ def build_ambiguous_alias_candidates(
         "candidate_aliases_by_lang": dict(sorted(lang_counts.items())),
         "candidate_concepts": len(concept_ids),
         "candidate_resolvable_concepts": len(concept_ids),
+        "candidate_source_counts": dict(sorted(source_counts.items())),
         "risk_tag_counts": dict(sorted(risk_counts.items())),
         "coverage": {
             "definition": "deterministic_covered + candidate_resolvable_covered; deterministic runtime coverage is unchanged",
@@ -337,6 +424,7 @@ def main() -> int:
     parser.add_argument("--review-decisions", type=Path)
     parser.add_argument("--alias-index", required=True, type=Path)
     parser.add_argument("--curation-decisions", type=Path)
+    parser.add_argument("--context-seeds", type=Path)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--manifest", type=Path)
     parser.add_argument("--tool-output", type=Path)
@@ -347,6 +435,7 @@ def main() -> int:
         review_decisions_path=args.review_decisions,
         alias_index_path=args.alias_index,
         curation_decisions_path=args.curation_decisions,
+        context_seeds_path=args.context_seeds,
         output_path=args.output,
         manifest_path=args.manifest,
         tool_output_path=args.tool_output,

@@ -89,6 +89,9 @@ Host Agent rules:
 - never rewrite deterministic alias runtime;
 - never globally merge concepts;
 - resolved candidates enter only this report's `theme_treemap`.
+- explicit context seeds may include `allow_deterministic_shadow = true`; that only
+  means low-signal candidate resolution can reconsider an otherwise deterministic
+  surface, not that the alias becomes globally ambiguous.
 
 Resolved result items must include:
 
@@ -99,6 +102,12 @@ Resolved result items must include:
 - non-empty `evidence`
 
 Unresolved or invalid items remain trace-only and do not enter the main treemap.
+
+Candidate entries may include `source_concept_id`, `target_hint`,
+`resolution_group`, `requires_context`, `allow_deterministic_shadow`, and
+`evidence_aliases`. The Host Agent must choose a `concept_id` from the request
+candidate list, normally the `target_concept_id` already materialized as
+`concept_id`, rather than inventing a new concept or globally merging sources.
 
 ---
 
