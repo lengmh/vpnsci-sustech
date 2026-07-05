@@ -318,6 +318,55 @@ class MaterializeRuntimeOverlayTests(unittest.TestCase):
         )
 
 
+    def test_curation_overlay_drops_redirect_metadata_when_target_has_no_runtime_entry(self) -> None:
+        module = load_module()
+        concepts = self.root / "merged_en_concept_candidates.jsonl"
+        review = self.root / "review_decisions.jsonl"
+        curation = self.root / "concept_curation_overlay.json"
+        index_path = self.root / "theme_concept_alias_index.json"
+        manifest_path = self.root / "theme_concept_alias_manifest.json"
+        write_jsonl(
+            concepts,
+            [
+                {"concept_id": "concept:unused_source", "domains": [], "parents": [], "specificity": 1},
+                {"concept_id": "concept:unused_target", "domains": [], "parents": [], "specificity": 2},
+            ],
+        )
+        write_jsonl(review, [])
+        curation.write_text(
+            json.dumps(
+                {
+                    "schema_version": "theme_concept_curation_overlay.v1",
+                    "redirects": {"concept:unused_source": "concept:unused_target"},
+                    "suppressed": [],
+                    "display_only": [],
+                    "canonical": [],
+                    "decisions": [],
+                    "counts": {"redirect": 1},
+                },
+                ensure_ascii=False,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+
+        summary = module.materialize_runtime_overlay(
+            concepts_path=concepts,
+            review_decisions_path=review,
+            curation_overlay_path=curation,
+            index_outputs=(index_path,),
+            manifest_outputs=(manifest_path,),
+        )
+
+        index = json.loads(index_path.read_text(encoding="utf-8"))
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        self.assertEqual(index["concepts"], {})
+        self.assertNotIn("concept:unused_source", (index.get("curation") or {}).get("redirects") or {})
+        self.assertEqual(summary["curation"]["redirected_concepts"], 0)
+        self.assertEqual(manifest["redirected_concepts"], 0)
+
+
     def test_curation_overlay_overrides_display_canonical_without_changing_aliases(self) -> None:
         module = load_module()
         concepts = self.root / "merged_en_concept_candidates.jsonl"

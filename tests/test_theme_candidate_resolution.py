@@ -176,6 +176,41 @@ class ThemeCandidateResolutionTests(unittest.TestCase):
         self.assertEqual(theme["matched_aliases"], {"zh": ["网络攻击"]})
         self.assertEqual(theme["method"], "agent_resolved_ambiguous_alias")
 
+    def test_apply_result_rejects_unsupported_schema_version(self) -> None:
+        with mock.patch(
+            "vpnsci_sustech.theme_candidate_resolution._ambiguous_candidate_matches",
+            side_effect=self._matches,
+        ):
+            request, _ = theme_candidate_resolution.build_theme_candidate_resolution_request(
+                self._low_signal_raw(),
+                self._papers(),
+                display_query="网络攻击检测",
+                language="zh",
+            )
+        result = {
+            "schema_version": "theme_candidate_resolution_result.v0",
+            "decisions": [
+                {
+                    "decision": "resolved",
+                    "alias_key": "zh:网络攻击",
+                    "concept_id": "concept:cyber_attack",
+                    "paper_ids": ["p1"],
+                    "evidence": ["title directly discusses 网络攻击"],
+                }
+            ],
+        }
+
+        refined, trace = theme_candidate_resolution.apply_theme_candidate_resolution_result(
+            self._low_signal_raw(),
+            request,
+            result,
+        )
+
+        self.assertEqual(refined["themes"], [])
+        self.assertEqual(trace["attempted"], True)
+        self.assertEqual(trace["applied"], False)
+        self.assertEqual(trace["reason"], "invalid_result")
+
 
 if __name__ == "__main__":
     unittest.main()
