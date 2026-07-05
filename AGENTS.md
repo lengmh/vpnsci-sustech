@@ -100,6 +100,9 @@ uv run pytest `
   tests/test_theme_lexicon_parenthetical_acronym_normalization.py `
   tests/test_theme_lexicon_reviewed_source_alignment.py `
   tests/test_theme_clustering_compact_alias_index.py `
+  tests/test_theme_lexicon_ambiguous_alias_candidates.py `
+  tests/test_theme_clustering_ambiguous_alias_candidates.py `
+  tests/test_theme_candidate_resolution.py `
   -q
 ```
 
@@ -162,68 +165,68 @@ lexicons/candidates/
 lexicons/review/
 ```
 
-最新已知状态（2026-07-04 C8.26 contextual acronym display cleanup 后；
-生产 compact runtime 只接入 reviewed exact singleton alias，C8 curation overlay
-仍仅作为 TempFiles work view，未切 production curation）：
+最新已知状态（2026-07-05 C8 production switch 后；生产 compact runtime
+已接入 C8 curation overlay，legacy full overlay 仍不作为运行时真源）：
 
 - compact runtime `build_status`: `review_complete`
 - 中文候选覆盖：当前仍以 `lexicons/candidates` 生成清单为准，
   最新 fill `records_filled = 52495 / records_seen = 54682`；
   runtime 覆盖是最终可用覆盖，中文覆盖仍未完成
-- runtime 中文覆盖：`48596 / 49913 = 97.36%`
-- runtime zh aliases: `48716`
-- runtime en aliases: `189471`
+- runtime 中文覆盖：`48411 / 49107 = 98.58%`
+- runtime zh aliases: `48542`
+- runtime en aliases: `188964`
 - `en:accept`: `233199`
 - `en:blocked`: `14798`
 - `en:needs_review`: `0`
 - `en:reject`: `101116`
 - `zh:accept`: `48716`
-- `zh:blocked`: `4026`
+- `zh:blocked`: `4028`
 - `zh:needs_review`: `0`
-- `zh:reject`: `9`
+- `zh:reject`: `10`
 - accepted/runtime alias conflicts: `0`
 - runtime en alias conflicts: `0`
 - runtime zh alias conflicts: `0`
-- runtime concept aliases: `49913`
-- C8 curated work-view（TempFiles-only）：
-  - concepts: `49193`
-  - deterministic covered: `48496 / 49193 = 98.58%`
-  - candidate-resolvable concepts: `711`
-  - effective covered: `49193 / 49193 = 100.00%`
+- runtime concept aliases: `49107`
+- C8 curation overlay（production compact runtime）：
+  - raw concepts: `49913`
+  - curated concepts: `49107`
+  - deterministic covered: `48411 / 49107 = 98.58%`
+  - candidate-resolvable concepts: `710`
+  - effective covered: `49107 / 49107 = 100.00%`
   - effective tail: `0`
-  - active curation decisions: `859`
-    (`redirect=511`, `display_only=191`, `suppressed=33`, `canonical=124`)
+  - active curation decisions: `950`
+    (`redirect=512`, `display_only=271`, `suppressed=38`, `canonical=129`)
+  - runtime redirect metadata: `510` materialized redirects
 - ambiguous candidate layer:
-  - candidate aliases: `759`
-  - candidate-resolvable concepts: `711`
-  - source counts: `audit_blocked_row = 748`,
+  - candidate aliases: `758`
+  - candidate-resolvable concepts: `710`
+  - source counts: `audit_blocked_row = 747`,
     `explicit_context_seed = 103`
   - C8.26 已清理 explicit context seed 中 `Agc` / `Cam` / `Hmi`
     等 acronym source display，candidate 数量与 coverage 不变
   - package/tool ambiguous candidate index byte-identical
   - package/tool ambiguous manifest byte-identical
   - ambiguous candidate index SHA-256:
-    `e035670e7fe464d21fda3f7a93ddcb8091ddf6e0a256ccdcfeffb5419521c12c`
+    `f46ea14b8701f7bac086bee8a5d65f2dd758edf1c24aa1d66a451d28c2b0c985`
   - ambiguous manifest SHA-256:
-    `68922126d085b53c36be271924b4a4060051aa812f99798aba4dc855331f265c`
+    `225f45086e572d1041ed6b3dda1cbc51bfa703898a34ae910a6e4b2de7b40cfb`
 - package/tool compact index byte-identical
 - package/tool compact manifest byte-identical
 - legacy full overlay package/tool 文件仍 byte-identical（batch-006 回滚保留，不默认读取；当前运行时以 compact index/manifest 为准）
 - compact index SHA-256:
-  `4d171ee148842343bdd01d16035b7394c2e68684c0bd684fef19697ac0c59f36`
+  `ccd4864c6889fc05cfeac0b373dd1cc8a3596dba3f8074021bf23b099b7383bc`
 - compact manifest SHA-256:
-  `740cc5a6b6619652212db6d211474570b5ce86c6ea708e02ea491bab80870314`
+  `a9e66c543a2afe014de62b27514130581060e625c3c4cd098315a6fae99dec4f`
 - legacy full overlay SHA-256:
   `a6b8d726383f78e919a6273dab727d7647a9495801a0873a75cd4c0ffde9a85b`
 - pollution audit：
   - ordinary English-heavy zh aliases: `0`
   - known bad-shape hits: `0`
 - compact index 是当前运行时真源；legacy full overlay 未随 batch-007 之后的覆盖扩展更新，不再作为默认等价检查对象，也不再作为 runtime fallback 读取。
-- 最近相关测试：C8.26 acronym display cleanup micro-suite
-  `10 passed in 2.17s`；focused alias/runtime suite
-  `933 passed in 29.79s`；project suite
-  `1299 passed, 4 subtests passed in 115.93s`；`summarize_alias_runtime.py`
-  仍为 runtime zh coverage `48596 / 49913 = 97.36%`，冲突与污染审计为 `0`。
+- 最近相关测试：production switch focused alias/runtime + report handoff suite
+  `949 passed in 36.82s`；project suite
+  `1307 passed, 4 subtests passed in 110.00s`；`summarize_alias_runtime.py`
+  为 runtime zh coverage `48411 / 49107 = 98.58%`，冲突与污染审计为 `0`。
 - concept curation C1-C4 已开始并完成首批临时验证：
   - C1 只读 audit 已完成，输出在 `F:\AI playground\TempFiles`；
     raw uncovered concepts `1587`，其中 `redirect_candidates = 436`、
@@ -643,10 +646,10 @@ lexicons/review/
   C6 已新增 build-level curated snapshot helper 与 review decision remap
   helper，并完成 no-overlay materialize 对照；metadata merge policy 已收紧，
   redirect source 只合并 aliases/source_refs，不再污染 target
-  domains/parents/specificity；suppressed/noise 与 topic-label bucket 已清空，
-  剩余 redirect candidates 主要为 blocked/needs-policy 或高风险项；
-  production switch 已暂缓，后续若未来要切 runtime 默认输入，应作为单独
-  迁移任务评审；
+  domains/parents/specificity；suppressed/noise 与 topic-label bucket 已清空。
+  C8 production switch 已执行：生产 compact runtime 使用 curation overlay 后
+  concepts `49107`，中文覆盖 `48411 / 49107 = 98.58%`；候选可达层保持
+  `710` concepts，effective tail 为 `0`；
 - post-7000 exact/domain-aware pattern milestone 已完成，runtime 中文覆盖到 `40.49%`；post-40 review cleanup 收口到 `43.18%`；post-40 continuation 已清理并达到 clean `50.01%`；post-50-to-60 子代理审查 milestone 已达到 clean `60.10%`；post-60-to-70 子代理审查 milestone 已达到 clean `70.00%`（exact `70.002%`）；post-70-to-80 子代理审查 milestone 已达到 clean `80.92%`；post-80-to-90 子代理审查 milestone 已达到 clean `90.07%`；post-90-to-final 子代理审查 milestone 已达到 `99.07%`；post-99 safe patch 已达到 `99.08%`；post-99 round2 safe patch 已达到 `99.10%`；post-99 round3 safe patch 曾达到 `99.13%`；post-99 correctness cleanup 因清理伪 exact / stale source 回落到 clean `95.49%`；post-95 singleton exact review batch 推进到 clean `95.91%`；post-95 singleton exact review round2 推进到 clean `96.01%`；post-95 exact collision review round3 推进到 clean `96.14%`；post-95 exact collision review round4 推进到 clean `96.21%`；post-95 exact collision review round5 推进到 clean `96.33%`；post-95 exact collision review round6 推进到 clean `96.45%`；post-95 exact collision review round7 推进到 clean `96.51%`；post-95 singleton exact review round8 推进到 clean `96.51%`（`48115 / 49853`）；post-95 new exact proposal round9 推进到 clean `96.74%`；post-95 new exact proposal round10 推进到 clean `96.76%`；post-95 new exact proposal round11 推进到 clean `96.80%`；post-95 new exact proposal round12 推进到 clean `96.82%`；post-95 new exact proposal round13 未新增 runtime-safe alias，coverage 保持 clean `96.82%`；
 - post-70 review cleanup 已完成最终修复：package 与 paper-search-pro
   runtime 均使用 compact index 一致的 CJK/Latin alias 归一化与中文 alias
@@ -2999,6 +3002,32 @@ uv run python tools/theme-lexicon/materialize_runtime_overlay.py `
   `Automatic Gain Control != AGC`，修复后 micro-suite
   `10 passed in 2.17s`；focused alias/runtime suite `933 passed in 29.79s`；
   project suite `1299 passed, 4 subtests passed in 115.93s`。
+- C8.27 host-agent resolution hardening 已完成：`theme_candidate_resolution.py`
+  现在要求 host-agent result schema 必须为
+  `theme_candidate_resolution_result.v1`，否则返回 `invalid_result` 且不应用；
+  ambiguous candidate asset snapshot 已锁定 `758` aliases、`710` concepts、
+  `850` records，并要求 candidate target 均存在于当前 runtime concepts。
+- C8.28 production switch 已完成：在 review 确认无 Critical blocker 后，
+  先补 runtime loader hard check（compact alias index / ambiguous candidate
+  layer 均校验 `schema_version`、`normalization`、`build_status`），并同步
+  paper-search-pro tool copy 的中文 alias 冗余过滤行为；随后用当前
+  `concept_curation_decisions.json` 生成 curation overlay 并物化到 package/tool
+  compact runtime。生产 manifest 现在包含 raw/curated 口径：
+  raw concepts `49913`，curated concepts `49107`，runtime redirected `510`
+  （active redirect decisions `512` 中 `2` 条无 runtime target，已从 runtime
+  redirect metadata 过滤），
+  display_only `271`，suppressed `38`，canonical `129`；runtime zh coverage
+  `48411 / 49107 = 98.58%`，accepted/runtime conflicts `0`，pollution audit
+  `0 / 0`。ambiguous candidate assets 已基于新 production runtime 重建：
+  aliases `758`，concepts `710`，records `850`，package/tool byte-identical。
+  临时产物：
+  `F:\AI playground\TempFiles\concept_curation_overlay_production_switch_fix_20260705.json`
+  和
+  `F:\AI playground\TempFiles\theme_alias_runtime_full_audit_production_switch_fix_20260705.jsonl`。
+  验证：focused alias/runtime + report handoff suite
+  `949 passed in 36.82s`；project suite
+  `1307 passed, 4 subtests passed in 110.00s`；`git diff --check` exit `0`
+  （仅 JSON CRLF 提示）。
 
 ## 8. CNKI / 浏览器 / 外部服务安全边界
 

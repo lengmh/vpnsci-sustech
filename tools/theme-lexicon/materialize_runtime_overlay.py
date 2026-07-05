@@ -267,15 +267,26 @@ def _apply_curation_to_aliases(
                     "target_concept_id": target_id,
                 }
 
+    materialized_concepts = {
+        concept_id
+        for concept_id, aliases_by_lang in curated.items()
+        if aliases_by_lang.get("en") or aliases_by_lang.get("zh")
+    }
+    runtime_redirects = {
+        source_id: target_id
+        for source_id, target_id in redirects.items()
+        if target_id in materialized_concepts
+    }
+
     curation_summary = {
         "canonical": sorted(curation_overlay.get("canonical") or []),
         "canonical_overrides": dict(sorted((curation_overlay.get("canonical_overrides") or {}).items())),
-        "redirects": dict(sorted(redirects.items())),
+        "redirects": dict(sorted(runtime_redirects.items())),
         "suppressed": sorted(suppressed),
         "display_only": sorted(display_only),
         "alias_redirect_sources": dict(sorted(alias_redirect_sources.items())),
         "canonical_concepts": len(curation_overlay.get("canonical") or []),
-        "redirected_concepts": len(redirects),
+        "redirected_concepts": len(runtime_redirects),
         "suppressed_concepts": len(suppressed),
         "display_only_concepts": len(display_only),
     }

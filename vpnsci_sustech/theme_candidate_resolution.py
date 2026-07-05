@@ -145,6 +145,8 @@ def apply_theme_candidate_resolution_result(
         return raw, _trace(attempted=False, applied=False, reason="request_not_available")
     if not isinstance(result, Mapping):
         return raw, _trace(attempted=False, applied=False, reason="agent_resolution_not_supplied")
+    if str(result.get("schema_version") or "") != RESULT_SCHEMA_VERSION:
+        return raw, _trace(attempted=True, applied=False, reason="invalid_result", model=model_label)
     decisions = result.get("decisions")
     if not isinstance(decisions, list):
         return raw, _trace(attempted=True, applied=False, reason="invalid_result", model=model_label)

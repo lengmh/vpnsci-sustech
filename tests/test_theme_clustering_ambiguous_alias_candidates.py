@@ -150,6 +150,67 @@ class ThemeClusteringAmbiguousAliasCandidateTests(unittest.TestCase):
         self.assertIn("zh:网络攻击", loaded)
         self.assertEqual(loaded["zh:网络攻击"][0]["concept_id"], "concept:cyber_attack")
 
+    def test_rejects_unsupported_candidate_index_schema_or_status(self) -> None:
+        path = Path(r"F:\AI playground\TempFiles\theme_ambiguous_alias_bad_fixture.json")
+        base_payload = {
+            "schema_version": "theme_concept_ambiguous_alias_candidates.v1",
+            "build_status": "review_complete",
+            "normalization": "theme_concept_alias_normalization.v1",
+            "candidates": {},
+        }
+        try:
+            for field, value, pattern in (
+                (
+                    "schema_version",
+                    "theme_concept_ambiguous_alias_candidates.v0",
+                    "Unsupported ambiguous alias candidate schema_version",
+                ),
+                (
+                    "normalization",
+                    "theme_concept_alias_normalization.v0",
+                    "Unsupported ambiguous alias candidate normalization",
+                ),
+                ("build_status", "partial_review_pending", "Ambiguous alias candidate index is not review_complete"),
+            ):
+                payload = dict(base_payload)
+                payload[field] = value
+                path.write_text(json.dumps(payload, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
+                with self.assertRaisesRegex(ValueError, pattern):
+                    theme_clustering._load_theme_ambiguous_alias_candidates(index_path=path)
+        finally:
+            path.unlink(missing_ok=True)
+
+    def test_paper_search_pro_rejects_unsupported_candidate_index_schema_or_status(self) -> None:
+        module = load_paper_search_pro_theme_clustering()
+        path = Path(r"F:\AI playground\TempFiles\tool_theme_ambiguous_alias_bad_fixture.json")
+        base_payload = {
+            "schema_version": "theme_concept_ambiguous_alias_candidates.v1",
+            "build_status": "review_complete",
+            "normalization": "theme_concept_alias_normalization.v1",
+            "candidates": {},
+        }
+        try:
+            for field, value, pattern in (
+                (
+                    "schema_version",
+                    "theme_concept_ambiguous_alias_candidates.v0",
+                    "Unsupported ambiguous alias candidate schema_version",
+                ),
+                (
+                    "normalization",
+                    "theme_concept_alias_normalization.v0",
+                    "Unsupported ambiguous alias candidate normalization",
+                ),
+                ("build_status", "partial_review_pending", "Ambiguous alias candidate index is not review_complete"),
+            ):
+                payload = dict(base_payload)
+                payload[field] = value
+                path.write_text(json.dumps(payload, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
+                with self.assertRaisesRegex(ValueError, pattern):
+                    module._load_theme_ambiguous_alias_candidates(index_path=path)
+        finally:
+            path.unlink(missing_ok=True)
+
     def test_paper_search_pro_runtime_loads_missing_candidate_index_as_empty_layer(self) -> None:
         module = load_paper_search_pro_theme_clustering()
         missing = Path(r"F:\AI playground\TempFiles\missing_tool_theme_ambiguous_alias_candidates.json")

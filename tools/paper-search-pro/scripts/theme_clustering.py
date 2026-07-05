@@ -99,6 +99,10 @@ THEME_CONCEPT_ALIAS_INDEX_PATH = Path(__file__).resolve().parent.parent / "asset
 THEME_AMBIGUOUS_ALIAS_CANDIDATES_PATH = (
     Path(__file__).resolve().parent.parent / "assets" / "theme_concept_ambiguous_alias_candidates.json"
 )
+THEME_CONCEPT_ALIAS_INDEX_SCHEMA_VERSION = "theme_concept_alias_index.v1"
+THEME_AMBIGUOUS_ALIAS_CANDIDATES_SCHEMA_VERSION = "theme_concept_ambiguous_alias_candidates.v1"
+THEME_CONCEPT_ALIAS_NORMALIZATION = "theme_concept_alias_normalization.v1"
+THEME_RUNTIME_BUILD_STATUS = "review_complete"
 
 
 
@@ -191,6 +195,15 @@ def _load_theme_concept_aliases(
     if not index_path.exists():
         raise FileNotFoundError(f"theme concept compact alias index is required: {index_path}")
     payload = json.loads(index_path.read_text(encoding="utf-8"))
+    schema_version = str(payload.get("schema_version") or "")
+    if schema_version != THEME_CONCEPT_ALIAS_INDEX_SCHEMA_VERSION:
+        raise ValueError(f"Unsupported theme concept alias index schema_version: {schema_version}")
+    normalization = str(payload.get("normalization") or "")
+    if normalization != THEME_CONCEPT_ALIAS_NORMALIZATION:
+        raise ValueError(f"Unsupported theme concept alias normalization: {normalization}")
+    build_status = str(payload.get("build_status") or "")
+    if build_status != THEME_RUNTIME_BUILD_STATUS:
+        raise ValueError(f"Theme concept alias index is not review_complete: {build_status}")
     concepts = payload.get("concepts") or {}
     aliases = payload.get("aliases") or {}
     alias_index: dict[str, dict[str, Any]] = {}
@@ -209,6 +222,15 @@ def _load_theme_ambiguous_alias_candidates(
     if not index_path.exists():
         return {}
     payload = json.loads(index_path.read_text(encoding="utf-8"))
+    schema_version = str(payload.get("schema_version") or "")
+    if schema_version != THEME_AMBIGUOUS_ALIAS_CANDIDATES_SCHEMA_VERSION:
+        raise ValueError(f"Unsupported ambiguous alias candidate schema_version: {schema_version}")
+    normalization = str(payload.get("normalization") or "")
+    if normalization != THEME_CONCEPT_ALIAS_NORMALIZATION:
+        raise ValueError(f"Unsupported ambiguous alias candidate normalization: {normalization}")
+    build_status = str(payload.get("build_status") or "")
+    if build_status != THEME_RUNTIME_BUILD_STATUS:
+        raise ValueError(f"Ambiguous alias candidate index is not review_complete: {build_status}")
     candidates = payload.get("candidates") or {}
     candidate_index: dict[str, list[dict[str, Any]]] = {}
     for alias_key, records in candidates.items():
@@ -720,6 +742,25 @@ def _is_redundant_theme_term(
     return False
 
 
+def _is_redundant_with_selected_concept_alias(
+    term: str,
+    paper_ids: tuple[str, ...],
+    selected_concepts: list[tuple[str, tuple[str, ...]]],
+    concept_matched_aliases: dict[str, dict[str, set[str]]],
+) -> bool:
+    term_papers = set(paper_ids)
+    for concept_id, concept_paper_ids in selected_concepts:
+        if not term_papers.issubset(set(concept_paper_ids)):
+            continue
+        for aliases in concept_matched_aliases[concept_id].values():
+            for alias in aliases:
+                if not alias or term == alias:
+                    continue
+                if _is_chinese_term(term) and _is_chinese_term(alias) and term in alias:
+                    return True
+    return False
+
+
 def _is_specific_theme_term(term: str) -> bool:
     if _is_noisy_theme_term(term):
         return False
@@ -874,6 +915,17 @@ def build_text_themes(
     )
 
     selected_concepts = concept_candidates[:max_themes]
+    if selected_concepts:
+        candidate_terms = [
+            (term, paper_ids)
+            for term, paper_ids in candidate_terms
+            if not _is_redundant_with_selected_concept_alias(
+                term,
+                paper_ids,
+                selected_concepts,
+                concept_matched_aliases,
+            )
+        ]
     remaining_slots = max(0, max_themes - len(selected_concepts))
     selected_terms, raw_status = _select_text_theme_candidates(
         candidate_terms,

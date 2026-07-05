@@ -69,6 +69,49 @@ class ThemeClusteringCompactAliasIndexTests(unittest.TestCase):
         self.assertEqual(alias_index["zh:网络药理学"]["concept_id"], "concept:network_pharmacology")
         self.assertEqual(alias_index["en:network pharmacology"]["specificity"], 70)
 
+    def test_rejects_unsupported_compact_alias_index_schema_or_status(self) -> None:
+        index_path = self.root / "theme_concept_alias_index.json"
+        base_payload = {
+            "schema_version": "theme_concept_alias_index.v1",
+            "build_status": "review_complete",
+            "normalization": "theme_concept_alias_normalization.v1",
+            "concepts": {},
+            "aliases": {},
+        }
+
+        for field, value, pattern in (
+            ("schema_version", "theme_concept_alias_index.v0", "Unsupported theme concept alias index schema_version"),
+            ("normalization", "theme_concept_alias_normalization.v0", "Unsupported theme concept alias normalization"),
+            ("build_status", "partial_review_pending", "Theme concept alias index is not review_complete"),
+        ):
+            payload = dict(base_payload)
+            payload[field] = value
+            index_path.write_text(json.dumps(payload, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, pattern):
+                theme_clustering._load_theme_concept_aliases(index_path=index_path)
+
+    def test_paper_search_pro_rejects_unsupported_compact_alias_index_schema_or_status(self) -> None:
+        module = load_paper_search_pro_theme_clustering()
+        index_path = self.root / "theme_concept_alias_index.json"
+        base_payload = {
+            "schema_version": "theme_concept_alias_index.v1",
+            "build_status": "review_complete",
+            "normalization": "theme_concept_alias_normalization.v1",
+            "concepts": {},
+            "aliases": {},
+        }
+
+        for field, value, pattern in (
+            ("schema_version", "theme_concept_alias_index.v0", "Unsupported theme concept alias index schema_version"),
+            ("normalization", "theme_concept_alias_normalization.v0", "Unsupported theme concept alias normalization"),
+            ("build_status", "partial_review_pending", "Theme concept alias index is not review_complete"),
+        ):
+            payload = dict(base_payload)
+            payload[field] = value
+            index_path.write_text(json.dumps(payload, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, pattern):
+                module._load_theme_concept_aliases(index_path=index_path)
+
     def test_does_not_fall_back_to_legacy_full_overlay_when_index_missing(self) -> None:
         legacy_path = self.root / "theme_concept_aliases.json"
         legacy_path.write_text(
@@ -297,6 +340,22 @@ class ThemeClusteringCompactAliasIndexTests(unittest.TestCase):
 
             self.assertIn(expected_concept_id, themes)
             self.assertIn(expected_matched_alias, themes[expected_concept_id]["matched_aliases"]["zh"])
+
+    def test_paper_search_pro_text_fallback_matches_package_redundancy_filter(self) -> None:
+        module = load_paper_search_pro_theme_clustering()
+        papers = [
+            {
+                "paper_id": str(index),
+                "title": "无线传感器网络研究",
+                "abstract": "无线传感器网络用于环境监测。",
+            }
+            for index in range(3)
+        ]
+
+        package_names = [theme["name"] for theme in theme_clustering.build_text_themes(papers)["themes"]]
+        tool_names = [theme["name"] for theme in module.build_text_themes(papers)["themes"]]
+
+        self.assertEqual(tool_names, package_names)
 
     def test_paper_search_pro_text_fallback_does_not_match_mixed_alias_inside_longer_latin_token(self) -> None:
         module = load_paper_search_pro_theme_clustering()

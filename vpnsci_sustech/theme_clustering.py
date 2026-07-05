@@ -94,6 +94,10 @@ THEME_CONCEPT_ALIAS_INDEX_PATH = Path(__file__).resolve().parent / "data" / "the
 THEME_AMBIGUOUS_ALIAS_CANDIDATES_PATH = (
     Path(__file__).resolve().parent / "data" / "theme_concept_ambiguous_alias_candidates.json"
 )
+THEME_CONCEPT_ALIAS_INDEX_SCHEMA_VERSION = "theme_concept_alias_index.v1"
+THEME_AMBIGUOUS_ALIAS_CANDIDATES_SCHEMA_VERSION = "theme_concept_ambiguous_alias_candidates.v1"
+THEME_CONCEPT_ALIAS_NORMALIZATION = "theme_concept_alias_normalization.v1"
+THEME_RUNTIME_BUILD_STATUS = "review_complete"
 
 
 
@@ -186,6 +190,15 @@ def _load_theme_concept_aliases(
     if not index_path.exists():
         raise FileNotFoundError(f"theme concept compact alias index is required: {index_path}")
     payload = json.loads(index_path.read_text(encoding="utf-8"))
+    schema_version = str(payload.get("schema_version") or "")
+    if schema_version != THEME_CONCEPT_ALIAS_INDEX_SCHEMA_VERSION:
+        raise ValueError(f"Unsupported theme concept alias index schema_version: {schema_version}")
+    normalization = str(payload.get("normalization") or "")
+    if normalization != THEME_CONCEPT_ALIAS_NORMALIZATION:
+        raise ValueError(f"Unsupported theme concept alias normalization: {normalization}")
+    build_status = str(payload.get("build_status") or "")
+    if build_status != THEME_RUNTIME_BUILD_STATUS:
+        raise ValueError(f"Theme concept alias index is not review_complete: {build_status}")
     concepts = payload.get("concepts") or {}
     aliases = payload.get("aliases") or {}
     alias_index: dict[str, dict[str, Any]] = {}
@@ -204,6 +217,15 @@ def _load_theme_ambiguous_alias_candidates(
     if not index_path.exists():
         return {}
     payload = json.loads(index_path.read_text(encoding="utf-8"))
+    schema_version = str(payload.get("schema_version") or "")
+    if schema_version != THEME_AMBIGUOUS_ALIAS_CANDIDATES_SCHEMA_VERSION:
+        raise ValueError(f"Unsupported ambiguous alias candidate schema_version: {schema_version}")
+    normalization = str(payload.get("normalization") or "")
+    if normalization != THEME_CONCEPT_ALIAS_NORMALIZATION:
+        raise ValueError(f"Unsupported ambiguous alias candidate normalization: {normalization}")
+    build_status = str(payload.get("build_status") or "")
+    if build_status != THEME_RUNTIME_BUILD_STATUS:
+        raise ValueError(f"Ambiguous alias candidate index is not review_complete: {build_status}")
     candidates = payload.get("candidates") or {}
     candidate_index: dict[str, list[dict[str, Any]]] = {}
     for alias_key, records in candidates.items():

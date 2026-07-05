@@ -13,6 +13,9 @@ from tests.temp_helpers import select_temp_parent
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT_PATH = REPO_ROOT / "tools" / "theme-lexicon" / "build_ambiguous_alias_candidates.py"
 TEMP_ROOT = Path(os.environ.get("VPNSCI_TEST_TMP", r"F:\AI playground\TempFiles"))
+AMBIGUOUS_CANDIDATES_PATH = REPO_ROOT / "vpnsci_sustech" / "data" / "theme_concept_ambiguous_alias_candidates.json"
+AMBIGUOUS_MANIFEST_PATH = REPO_ROOT / "vpnsci_sustech" / "data" / "theme_concept_ambiguous_alias_manifest.json"
+RUNTIME_ALIAS_INDEX_PATH = REPO_ROOT / "vpnsci_sustech" / "data" / "theme_concept_alias_index.json"
 
 
 def load_module():
@@ -321,6 +324,28 @@ class AmbiguousAliasCandidateBuilderTests(unittest.TestCase):
         self.assertIn("needs_context", seeded["risk_tags"])
         self.assertIn("explicit_context_seed", seeded["risk_tags"])
         self.assertEqual(payload["candidates"]["en:hmi"][0]["canonical"]["en"], "HMI")
+
+
+class AmbiguousAliasCandidateAssetTests(unittest.TestCase):
+    def test_runtime_candidate_asset_keeps_c8_snapshot_and_core_context_fields(self) -> None:
+        payload = json.loads(AMBIGUOUS_CANDIDATES_PATH.read_text(encoding="utf-8"))
+        manifest = json.loads(AMBIGUOUS_MANIFEST_PATH.read_text(encoding="utf-8"))
+        runtime = json.loads(RUNTIME_ALIAS_INDEX_PATH.read_text(encoding="utf-8"))
+        records = [
+            candidate
+            for candidates in (payload.get("candidates") or {}).values()
+            for candidate in candidates
+        ]
+        concept_ids = {str(candidate.get("concept_id") or "") for candidate in records}
+        runtime_concept_ids = set(runtime.get("concepts") or {})
+
+        self.assertEqual(manifest["candidate_aliases"], 758)
+        self.assertEqual(manifest["candidate_concepts"], 710)
+        self.assertEqual(len(records), 850)
+        self.assertEqual(len(concept_ids), 710)
+        self.assertEqual(concept_ids - runtime_concept_ids, set())
+        self.assertTrue(all(candidate.get("source_concept_id") for candidate in records))
+        self.assertTrue(all(candidate.get("evidence_aliases") for candidate in records))
 
 
 if __name__ == "__main__":
