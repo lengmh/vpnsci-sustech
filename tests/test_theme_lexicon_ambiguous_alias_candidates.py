@@ -125,6 +125,20 @@ class AmbiguousAliasCandidateBuilderTests(unittest.TestCase):
                             "domains": ["computer_science"],
                             "parents": [],
                             "specificity": 90,
+                        },
+                        "concept:cyber_attack": {
+                            "concept_id": "concept:cyber_attack",
+                            "canonical": {"en": "Cyber Attack", "zh": ""},
+                            "domains": ["computer_science"],
+                            "parents": [],
+                            "specificity": 70,
+                        },
+                        "concept:network_attack": {
+                            "concept_id": "concept:network_attack",
+                            "canonical": {"en": "Network Attack", "zh": ""},
+                            "domains": ["computer_science"],
+                            "parents": [],
+                            "specificity": 65,
                         }
                     },
                     "aliases": {"zh:确定目标": "concept:accepted"},
@@ -147,6 +161,15 @@ class AmbiguousAliasCandidateBuilderTests(unittest.TestCase):
                             "decided_at": "2026-07-02",
                             "reviewer": "test",
                             "reason": "topic label only",
+                        },
+                        {
+                            "concept_id": "concept:network_attack",
+                            "decision": "canonical",
+                            "category": "candidate_display_override",
+                            "canonical_en": "Network Intrusion",
+                            "decided_at": "2026-07-04",
+                            "reviewer": "test",
+                            "reason": "candidate display should use curation canonical override",
                         }
                     ]
                 },
@@ -184,6 +207,7 @@ class AmbiguousAliasCandidateBuilderTests(unittest.TestCase):
             [candidate["concept_id"] for candidate in payload["candidates"]["zh:网络攻击"]],
             ["concept:cyber_attack", "concept:network_attack"],
         )
+        self.assertEqual(payload["candidates"]["zh:网络攻击"][1]["canonical"]["en"], "Network Intrusion")
         self.assertTrue(
             all("needs_context" in candidate["risk_tags"] for candidate in payload["candidates"]["zh:网络攻击"])
         )
@@ -217,6 +241,14 @@ class AmbiguousAliasCandidateBuilderTests(unittest.TestCase):
                             "source_concept_id": "concept:paper_set",
                             "resolution_group": "paper_set",
                             "reason": "excluded display-only concepts must not re-enter candidate runtime.",
+                        },
+                        {
+                            "alias": "HMI",
+                            "target_concept_id": "concept:hmi",
+                            "source_concept_id": "concept:hmi",
+                            "canonical_en": "stale hmi",
+                            "resolution_group": "hmi",
+                            "reason": "curation canonical should override stale seed display.",
                         }
                     ],
                 },
@@ -241,8 +273,29 @@ class AmbiguousAliasCandidateBuilderTests(unittest.TestCase):
             "parents": [],
             "specificity": 40,
         }
+        alias_payload["concepts"]["concept:hmi"] = {
+            "concept_id": "concept:hmi",
+            "canonical": {"en": "Hmi", "zh": ""},
+            "domains": ["computer_science"],
+            "parents": [],
+            "specificity": 40,
+        }
         alias_payload["aliases"]["en:agc"] = "concept:agc"
+        alias_payload["aliases"]["en:hmi"] = "concept:hmi"
         alias_index.write_text(json.dumps(alias_payload, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
+        curation_payload = json.loads(curation.read_text(encoding="utf-8"))
+        curation_payload["decisions"].append(
+            {
+                "concept_id": "concept:hmi",
+                "decision": "canonical",
+                "category": "candidate_display_override",
+                "canonical_en": "HMI",
+                "decided_at": "2026-07-04",
+                "reviewer": "test",
+                "reason": "curation override is more authoritative than seed display",
+            }
+        )
+        curation.write_text(json.dumps(curation_payload, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
         output = self.root / "theme_concept_ambiguous_alias_candidates.json"
         manifest = self.root / "theme_concept_ambiguous_alias_manifest.json"
 
@@ -256,7 +309,7 @@ class AmbiguousAliasCandidateBuilderTests(unittest.TestCase):
             manifest_path=manifest,
         )
 
-        self.assertEqual(summary["candidate_source_counts"]["explicit_context_seed"], 1)
+        self.assertEqual(summary["candidate_source_counts"]["explicit_context_seed"], 2)
         payload = json.loads(output.read_text(encoding="utf-8"))
         seeded = payload["candidates"]["en:agc"][0]
         self.assertEqual(seeded["concept_id"], "concept:automatic_gain_control")
@@ -267,6 +320,7 @@ class AmbiguousAliasCandidateBuilderTests(unittest.TestCase):
         self.assertTrue(seeded["allow_deterministic_shadow"])
         self.assertIn("needs_context", seeded["risk_tags"])
         self.assertIn("explicit_context_seed", seeded["risk_tags"])
+        self.assertEqual(payload["candidates"]["en:hmi"][0]["canonical"]["en"], "HMI")
 
 
 if __name__ == "__main__":

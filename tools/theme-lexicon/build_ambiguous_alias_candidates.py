@@ -53,21 +53,40 @@ def _write_json(path: Path, payload: dict[str, Any]) -> None:
     )
 
 
-def _active_excluded_concepts(curation_decisions_path: Path | None) -> set[str]:
+def _active_curation_metadata(
+    curation_decisions_path: Path | None,
+) -> tuple[set[str], dict[str, dict[str, str]], set[str]]:
     if not curation_decisions_path or not Path(curation_decisions_path).exists():
-        return set()
+        return set(), {}, set()
     payload = _read_json(Path(curation_decisions_path))
     excluded: set[str] = set()
+    canonical_overrides: dict[str, dict[str, str]] = {}
+    redirect_targets: set[str] = set()
     for decision in payload.get("decisions") or []:
         if not isinstance(decision, dict):
             continue
         if decision.get("active") is False:
             continue
+        concept_id = str(decision.get("concept_id") or "")
+        if not concept_id:
+            continue
         if str(decision.get("decision") or "") in EXCLUDED_DECISIONS:
-            concept_id = str(decision.get("concept_id") or "")
-            if concept_id:
-                excluded.add(concept_id)
-    return excluded
+            excluded.add(concept_id)
+        if str(decision.get("decision") or "") == "redirect":
+            target_concept_id = str(decision.get("target_concept_id") or "").strip()
+            if target_concept_id:
+                redirect_targets.add(target_concept_id)
+        if str(decision.get("decision") or "") == "canonical":
+            override: dict[str, str] = {}
+            canonical_en = str(decision.get("canonical_en") or "").strip()
+            canonical_zh = str(decision.get("canonical_zh") or "").strip()
+            if canonical_en:
+                override["en"] = canonical_en
+            if canonical_zh:
+                override["zh"] = canonical_zh
+            if override:
+                canonical_overrides[concept_id] = override
+    return excluded, canonical_overrides, redirect_targets
 
 
 def _audit_item_map(audit_path: Path) -> dict[str, dict[str, Any]]:
@@ -201,9 +220,9 @@ def _concept_metadata(concept_id: str, item: dict[str, Any], compact_concepts: d
     }
 
 
-def _override_seed_canonical(metadata: dict[str, Any], seed: dict[str, Any]) -> dict[str, Any]:
-    canonical_en = str(seed.get("canonical_en") or "").strip()
-    canonical_zh = str(seed.get("canonical_zh") or "").strip()
+def _override_canonical(metadata: dict[str, Any], override: dict[str, Any]) -> dict[str, Any]:
+    canonical_en = str(override.get("canonical_en") or override.get("en") or "").strip()
+    canonical_zh = str(override.get("canonical_zh") or override.get("zh") or "").strip()
     if not canonical_en and not canonical_zh:
         return metadata
 
@@ -223,8 +242,12 @@ def _candidate_record(
     item: dict[str, Any],
     row: dict[str, Any],
     compact_concepts: dict[str, Any],
+    canonical_overrides: dict[str, dict[str, str]] | None = None,
 ) -> dict[str, Any]:
-    metadata = _concept_metadata(concept_id, item, compact_concepts)
+    metadata = _override_canonical(
+        _concept_metadata(concept_id, item, compact_concepts),
+        (canonical_overrides or {}).get(concept_id) or {},
+    )
     lang = str(row.get("lang") or "zh")
     alias = str(row.get("alias") or "")
     return {
@@ -260,6 +283,8 @@ def _context_seed_records(
     compact_concepts: dict[str, Any],
     deterministic_aliases: set[str],
     excluded_concepts: set[str],
+    canonical_overrides: dict[str, dict[str, str]],
+    curated_redirect_targets: set[str],
 ) -> list[tuple[str, dict[str, Any]]]:
     if not context_seeds_path or not Path(context_seeds_path).exists():
         return []
@@ -284,12 +309,17 @@ def _context_seed_records(
         target_concept_id = str(seed.get("target_concept_id") or seed.get("concept_id") or "").strip()
         if not target_concept_id:
             continue
+        if target_concept_id not in compact_concepts and target_concept_id not in curated_redirect_targets:
+            continue
         source_concept_id = str(seed.get("source_concept_id") or target_concept_id)
         if target_concept_id in excluded_concepts or source_concept_id in excluded_concepts:
             continue
-        metadata = _override_seed_canonical(
-            _concept_metadata(target_concept_id, seed, compact_concepts),
-            seed,
+        metadata = _override_canonical(
+            _override_canonical(
+                _concept_metadata(target_concept_id, seed, compact_concepts),
+                seed,
+            ),
+            canonical_overrides.get(target_concept_id) or {},
         )
         risk_tags = {str(value) for value in seed.get("risk_tags") or [] if value}
         risk_tags.update({"explicit_context_seed", "needs_context"})
@@ -331,7 +361,7 @@ def build_ambiguous_alias_candidates(
     audit_items = _audit_item_map(Path(audit_path))
     review_rows = _read_jsonl(review_decisions_path)
     rejected = _review_rejects(review_rows)
-    excluded = _active_excluded_concepts(curation_decisions_path)
+    excluded, canonical_overrides, curated_redirect_targets = _active_curation_metadata(curation_decisions_path)
     alias_payload = _read_json(Path(alias_index_path))
     deterministic_aliases = {str(key) for key in (alias_payload.get("aliases") or {})}
     compact_concepts = {
@@ -343,6 +373,8 @@ def build_ambiguous_alias_candidates(
     candidates: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for concept_id, item in audit_items.items():
         if not _allowed_audit_item(item, excluded):
+            continue
+        if concept_id not in compact_concepts and concept_id not in curated_redirect_targets:
             continue
         for row in _blocked_rows_for_audit_item(item, review_rows):
             alias = str(row.get("alias") or "").strip()
@@ -358,6 +390,7 @@ def build_ambiguous_alias_candidates(
                     item=item,
                     row=row,
                     compact_concepts=compact_concepts,
+                    canonical_overrides=canonical_overrides,
                 )
             )
 
@@ -366,6 +399,8 @@ def build_ambiguous_alias_candidates(
         compact_concepts=compact_concepts,
         deterministic_aliases=deterministic_aliases,
         excluded_concepts=excluded,
+        canonical_overrides=canonical_overrides,
+        curated_redirect_targets=curated_redirect_targets,
     ):
         candidates[alias_key].append(record)
 

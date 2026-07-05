@@ -1367,7 +1367,7 @@
       "alias": "人机交互",
       "allow_deterministic_shadow": true,
       "candidate_type": "explicit_context_alternative",
-      "canonical_en": "cs.HC",
+      "canonical_en": "Human Computer Interaction",
       "canonical_zh": "人机交互",
       "domains": [
         "computer_science"

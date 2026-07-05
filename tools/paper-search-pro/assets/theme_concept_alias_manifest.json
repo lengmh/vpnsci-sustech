@@ -17,8 +17,8 @@
     "en:blocked": 14798,
     "en:reject": 101116,
     "zh:accept": 48716,
-    "zh:blocked": 4026,
-    "zh:reject": 9
+    "zh:blocked": 4028,
+    "zh:reject": 10
   },
   "runtime_alias_conflicts": {
     "en": 0,
@@ -27,6 +27,6 @@
   "runtime_index_file": "theme_concept_alias_index.json",
   "schema_version": "theme_concept_alias_manifest.v1",
   "sha256": {
-    "index": "4d171ee148842343bdd01d16035b7394c2e68684c0bd684fef19697ac0c59f36"
+    "index": "5dc700fe7ca00bf896166a7c65e7f1d3b84d343593794c5689520e674423c465"
   }
 }

@@ -25671,11 +25671,11 @@
     },
     {
       "alias_zh": "代理移动IPv6",
-      "canonical_en": "Pmipv6",
-      "concept_id": "concept:pmipv6",
-      "reason": "standard exact/domain-aware Chinese alias is clear; proposed form is more exact than absent or unsuitable candidates",
-      "reviewed_at": "2026-06-29",
-      "source": "subagent_domain_translation_100pct_round2"
+      "canonical_en": "Proxy Mobile IPv6",
+      "concept_id": "concept:proxy_mobile_ipv6",
+      "reason": "C8.27 full zh review: standard exact/domain-aware Chinese alias after resolving PMIPv6 as acronym/source variant.",
+      "reviewed_at": "2026-07-04",
+      "source": "main_agent_c8_full_zh_review"
     },
     {
       "alias_zh": "代码",

@@ -7723,6 +7723,825 @@
       "reason": "C8.24 source cleanup: Water is a valid but overly broad standalone term for deterministic alias runtime; keep out of alias matching",
       "reviewer": "main-agent-c8-tail-exact-redirect-and-source-cleanup",
       "topic_label_disposition": "display_only"
+    },
+    {
+      "category": "c8_full_zh_review_generated_topic_label",
+      "concept_id": "concept:diverse_academia_and_research_topic",
+      "decided_at": "2026-07-04",
+      "decision": "suppressed",
+      "reason": "C8.27 full zh review: generated broad research-topic phrase is not a stable independent theme alias target",
+      "reviewer": "main-agent-c8-full-zh-review",
+      "topic_label_disposition": "suppressed"
+    },
+    {
+      "category": "c8_full_zh_review_generated_topic_label",
+      "concept_id": "concept:diverse_scientific_research_topic",
+      "decided_at": "2026-07-04",
+      "decision": "suppressed",
+      "reason": "C8.27 full zh review: generated broad research-topic phrase is not a stable independent theme alias target",
+      "reviewer": "main-agent-c8-full-zh-review",
+      "topic_label_disposition": "suppressed"
+    },
+    {
+      "category": "c8_full_zh_review_generated_topic_label",
+      "concept_id": "concept:diverse_topic_in_contemporary_research",
+      "decided_at": "2026-07-04",
+      "decision": "suppressed",
+      "reason": "C8.27 full zh review: generated broad research-topic phrase is not a stable independent theme alias target",
+      "reviewer": "main-agent-c8-full-zh-review",
+      "topic_label_disposition": "suppressed"
+    },
+    {
+      "category": "c8_full_zh_review_generated_topic_label",
+      "concept_id": "concept:varied_academic_research_topic",
+      "decided_at": "2026-07-04",
+      "decision": "suppressed",
+      "reason": "C8.27 full zh review: generated broad research-topic phrase is not a stable independent theme alias target",
+      "reviewer": "main-agent-c8-full-zh-review",
+      "topic_label_disposition": "suppressed"
+    },
+    {
+      "category": "c8_full_zh_review_generated_topic_label",
+      "concept_id": "concept:variou_chemistry_research_topic",
+      "decided_at": "2026-07-04",
+      "decision": "suppressed",
+      "reason": "C8.27 full zh review: generated broad research-topic phrase is not a stable independent theme alias target",
+      "reviewer": "main-agent-c8-full-zh-review",
+      "topic_label_disposition": "suppressed"
+    },
+    {
+      "canonical_en": "Human Computer Interaction",
+      "category": "c8_full_zh_review_candidate_display",
+      "concept_id": "concept:human_computer_interaction__2",
+      "decided_at": "2026-07-04",
+      "decision": "canonical",
+      "reason": "C8.27 full zh review: replace source code label cs.HC with readable candidate display",
+      "reviewer": "main-agent-c8-full-zh-review"
+    },
+    {
+      "canonical_en": "HMI",
+      "category": "c8_full_zh_review_candidate_display",
+      "concept_id": "concept:hmi",
+      "decided_at": "2026-07-04",
+      "decision": "canonical",
+      "reason": "C8.27 full zh review: uppercase acronym display for HMI",
+      "reviewer": "main-agent-c8-full-zh-review"
+    },
+    {
+      "canonical_en": "OCR",
+      "category": "c8_full_zh_review_candidate_display",
+      "concept_id": "concept:ocr",
+      "decided_at": "2026-07-04",
+      "decision": "canonical",
+      "reason": "C8.27 full zh review: uppercase acronym display for OCR",
+      "reviewer": "main-agent-c8-full-zh-review"
+    },
+    {
+      "canonical_en": "GWAS",
+      "category": "c8_full_zh_review_candidate_display",
+      "concept_id": "concept:gwas",
+      "decided_at": "2026-07-04",
+      "decision": "canonical",
+      "reason": "C8.27 full zh review: uppercase acronym display for GWAS",
+      "reviewer": "main-agent-c8-full-zh-review"
+    },
+    {
+      "canonical_en": "Proxy Mobile IPv6",
+      "category": "c8_full_zh_review_candidate_display",
+      "concept_id": "concept:proxy_mobile_ipv6",
+      "decided_at": "2026-07-04",
+      "decision": "canonical",
+      "reason": "C8.27 full zh review: correct IPv6 casing for Proxy Mobile IPv6 candidate display",
+      "reviewer": "main-agent-c8-full-zh-review"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:abbreviation_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:academic_dissertation_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:adaptive_clinical_trial_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:advanced_topic_in_algebra",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:annual_report_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:aphorism_and_proverb_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:atlase_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:autobiography_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:bibliography_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:biography_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:book_review_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:bookplat_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:broadsid_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:calendar_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:caricatur_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:cartoon_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:case_report_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:catalog_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:catalog_commercial_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:catalog_drug_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:catalog_union_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:chronology_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:clinical_study_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:clinical_trial_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:clinical_trial_protocol_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:clinical_trial_veterinary_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:collection_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:comic_book_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:congresse_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:controlled_clinical_trial_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:cookbook_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:database_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:dataset_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:diary_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:dictionary_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:directory_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:dispensatory_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:duplicate_publication_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:equivalence_trial_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:evaluation_study_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:exhibition_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:fictional_work_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:form_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:formulary_homeopathic_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:formulary_hospital_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:government_publication_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:graphic_novel_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:herbal_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:incunabula_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:interview_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:legislation_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:manual_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:manuscript_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:maps_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:mental_health_research_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:multicenter_study_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:observational_study_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:personal_narrativ_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:pharmacopoeia_homeopathic_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:pictorial_work_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:poetry_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:portrait_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:postcard_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:poster_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:practice_guidelin_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:pragmatic_clinical_trial_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:predatory_journal_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:preprint_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:public_service_announcement_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:review_literature_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:scientific_and_engineering_research_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:scoping_review_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:statistic_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:study_guid_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:terminology_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:textbook_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:validation_study_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:web_archiv_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:webcast_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_topic_label_display_only",
+        "concept_id": "concept:wit_and_humor_as_topic",
+        "decided_at": "2026-07-04",
+        "decision": "display_only",
+        "reason": "C8.27 full zh review round2: source topic-label phrase is display metadata, not a safe deterministic search alias concept",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "topic_label_disposition": "display_only"
+    },
+{
+        "category": "c8_full_zh_review_acronym_redirect",
+        "concept_id": "concept:pmipv6",
+        "decided_at": "2026-07-04",
+        "decision": "redirect",
+        "reason": "C8.27 full zh review: PMIPv6 is the acronym/source variant of Proxy Mobile IPv6; keep the expanded concept as canonical target",
+        "reviewer": "main-agent-c8-full-zh-review",
+        "target_concept_id": "concept:proxy_mobile_ipv6"
     }
   ],
   "schema_version": "theme_concept_curation_decisions.v1"
