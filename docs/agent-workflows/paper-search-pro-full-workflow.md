@@ -510,7 +510,7 @@ Do not also print a separate bare `file://...` line. Some hosts display bare loc
 | Full workflow handoff package | `vpnsci-sustech` MCP |
 | Codex `multi_agent_v1` SubAgents | Codex conversation layer |
 | Full upstream `paper-search-pro` orchestration | Capable Agent / Codex session |
-| Seed-only HTML preview | `vpnsci_sustech.paper_search_pro_adapter` |
+| Seed-only HTML preview | `vpnsci_sustech.light_report_bridge` |
 
 ## Non-Goals
 

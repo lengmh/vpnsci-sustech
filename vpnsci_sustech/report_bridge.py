@@ -12,7 +12,7 @@ from urllib.parse import quote
 
 from .config import Config
 from . import report_tools
-from .paper_search_pro_adapter import prepare_report
+from .light_report_bridge import prepare_report
 from .theme_candidate_resolution import (
     THEME_CANDIDATE_RESOLUTION_REQUEST_FILENAME,
     THEME_CANDIDATE_RESOLUTION_RESULT_FILENAME,
@@ -356,7 +356,9 @@ def _normalize_background_command(command: list[str]) -> list[str]:
 def _is_builtin_adapter_command(command: list[str]) -> bool:
     return any(
         part == "vpnsci_sustech.paper_search_pro_adapter"
+        or part == "vpnsci_sustech.light_report_bridge"
         or part.replace("\\", "/").endswith("vpnsci_sustech/paper_search_pro_adapter.py")
+        or part.replace("\\", "/").endswith("vpnsci_sustech/light_report_bridge.py")
         for part in command
     )
 

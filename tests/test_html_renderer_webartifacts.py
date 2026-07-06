@@ -15,6 +15,7 @@ if str(PSP_ROOT) not in sys.path:
 
 from scripts.html_renderer_webartifacts import PREBUILT_BUNDLE, _build_report_data, render_html_webartifacts
 from scripts.data_materialization import _build_theme_chart_payload, _build_themes
+from scripts.discovery_curve import build_discovery_curve_payload
 from scripts.theme_postprocess import THEME_POSTPROCESS_REQUEST_FILENAME, THEME_POSTPROCESS_RESULT_FILENAME
 from scripts.types import UnifiedPaperEntity
 
@@ -42,6 +43,24 @@ class WritableTemporaryDirectory:
 
 
 class HtmlRendererWebartifactsCompatTests(unittest.TestCase):
+    def test_discovery_curve_compacts_zero_yield_stages_before_fit(self):
+        payload = build_discovery_curve_payload(
+            [
+                {"papers_evaluated": 2, "highly_relevant_count": 2},
+                {"papers_evaluated": 2, "highly_relevant_count": 2},
+                {"papers_evaluated": 5, "highly_relevant_count": 5},
+                {"papers_evaluated": 8, "highly_relevant_count": 6},
+            ],
+            scope="seed_set",
+        )
+
+        self.assertEqual(payload["mode"], "enabled")
+        self.assertEqual(payload["status"], "ok")
+        self.assertEqual(
+            [(point["papers_screened"], point["found"]) for point in payload["points"]],
+            [(2, 2), (5, 5), (8, 6)],
+        )
+
     def test_render_html_webartifacts_adds_compat_fields_for_full_like_payload(self):
         metadata = {
             "search_id": "serial-full-workflow-kernel-medical-therapy",
@@ -130,7 +149,7 @@ class HtmlRendererWebartifactsCompatTests(unittest.TestCase):
             },
             "discovery_curve": {
                 "points": [{"n": 2, "y": 2}],
-                "tau": 80.0,
+                "tau": 24.3,
                 "coverage_estimate": 0.465,
                 "ci_low": 0.385,
                 "ci_high": 0.545,
@@ -531,6 +550,9 @@ class HtmlRendererWebartifactsCompatTests(unittest.TestCase):
         self.assertEqual(metadata["closely_related_count"], 1)
         self.assertEqual(chart_data["relevance_score"]["n"], 1)
         self.assertEqual(chart_data["relevance_score"]["bins"][6]["count"], 1)
+        self.assertEqual(chart_data["discovery_curve"]["mode"], "disabled")
+        self.assertIsNone(chart_data["discovery_curve"]["tau"])
+        self.assertIsNone(chart_data["discovery_curve"]["coverage_estimate"])
 
     def test_full_materialization_marks_parser_fallback_rcs_invalid_and_excludes_stats(self):
         from scripts.data_materialization import materialize

@@ -26,6 +26,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+from .discovery_curve import build_discovery_curve_payload
 from .theme_clustering import build_keyword_topic_themes, build_text_themes
 from .theme_postprocess import (
     THEME_POSTPROCESS_REQUEST_FILENAME,
@@ -264,75 +265,9 @@ def _build_rcs_distribution(papers: List[UnifiedPaperEntity]) -> Dict[str, Any]:
 def _build_discovery_curve(
     snapshots: List[Dict], papers: List[UnifiedPaperEntity]
 ) -> Dict[str, Any]:
-    """Cumulative discovery vs evaluated. Snapshot schema (best-effort) supports:
-    {n_evaluated, n_highly_relevant} per round.
+    """Cumulative discovery vs evaluated, using strict staged evidence only."""
 
-    Falls back to a synthesized single-point series if snapshots are empty.
-    """
-    points: List[Dict[str, Any]] = []
-    for snap in snapshots:
-        if not isinstance(snap, dict):
-            continue
-        n = snap.get("n_evaluated") or snap.get("papers_evaluated") or 0
-        y = snap.get("n_highly_relevant") or snap.get("highly_relevant_count") or 0
-        points.append({"n": int(n), "y": int(y)})
-    if not points and papers:
-        highly = sum(
-            1
-            for p in papers
-            for rcs in [_rcs_value_if_valid(p)]
-            if rcs is not None and rcs >= 7
-        )
-        points = [{"n": 0, "y": 0}, {"n": len(papers), "y": highly}]
-
-    tau = _fit_tau(points)
-    last = points[-1] if points else {"n": 0, "y": 0}
-    if tau and tau > 0 and last["n"] > 0:
-        # f(n) = total * (1 - exp(-n/tau)); solve total from last point.
-        denom = 1.0 - math.exp(-last["n"] / tau)
-        total = last["y"] / denom if denom > 1e-9 else last["y"]
-        coverage = last["y"] / total if total > 0 else 0.0
-    else:
-        total = last["y"]
-        coverage = 1.0 if total > 0 else 0.0
-    coverage = max(0.0, min(1.0, coverage))
-    # rough symmetric 95% band on coverage
-    band = 0.08 if last["n"] >= 50 else 0.15
-    ci_low = max(0.0, coverage - band)
-    ci_high = min(1.0, coverage + band)
-    summary = (
-        f"Estimated to have found about {last['y']} relevant papers, "
-        f"approximately {coverage*100:.0f}% of the relevant set "
-        f"(95% CI: {ci_low*100:.0f}-{ci_high*100:.0f}%)."
-    )
-    return {
-        "points": points,
-        "tau": round(tau, 2) if tau else None,
-        "coverage_estimate": round(coverage, 3),
-        "ci_low": round(ci_low, 3),
-        "ci_high": round(ci_high, 3),
-        "estimated_total_relevant": round(total, 1) if total else None,
-        "summary": summary,
-    }
-
-
-def _fit_tau(points: List[Dict[str, Any]]) -> Optional[float]:
-    """Estimate tau using the last two points: f(n)=total*(1-exp(-n/tau)).
-
-    Without scipy in the runtime, we approximate by assuming the last point is
-    near saturation; a heuristic floor at tau=20, ceiling at 500.
-    """
-    if len(points) < 2:
-        return 80.0  # Undermind default
-    p0, p1 = points[-2], points[-1]
-    if p1["n"] <= p0["n"]:
-        return 80.0
-    marginal = (p1["y"] - p0["y"]) / max(1, (p1["n"] - p0["n"]))
-    # Higher marginal rate -> smaller tau (faster saturation).
-    if marginal <= 0:
-        return 200.0
-    tau_est = max(20.0, min(500.0, 1.0 / max(marginal, 1e-3) * 5))
-    return tau_est
+    return build_discovery_curve_payload(snapshots, scope="full_workflow")
 
 
 def _build_citation_network(

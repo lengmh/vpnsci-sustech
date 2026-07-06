@@ -19,17 +19,15 @@ Seed preview is intentionally different from full `paper-search-pro`:
 This workflow runs when report generation uses `mode="seed_preview"` or the default seed adapter:
 
 ```text
-vpnsci_sustech.paper_search_pro_adapter
+vpnsci_sustech.light_report_bridge
 ```
 
 Current repository entrypoint truth:
 
-- `vpnsci_sustech.paper_search_pro_adapter` is still the implemented light
-  report bridge module.
-- The intended future name is `vpnsci_sustech.light_report_bridge`.
-- After that rename lands, new defaults and docs should point at
-  `light_report_bridge`; the old `paper_search_pro_adapter` name should remain
-  only as an import/CLI compatibility shim.
+- `vpnsci_sustech.light_report_bridge` is the implemented light report bridge
+  module.
+- `vpnsci_sustech.paper_search_pro_adapter` remains only as an import/CLI
+  compatibility shim for older saved commands.
 
 ## Required Outputs
 
