@@ -22,9 +22,132 @@ from __future__ import annotations
 
 import math
 from datetime import datetime
-from typing import Dict, List, Tuple
+from typing import Any, Dict, List, Tuple
 
 from .types import UnifiedPaperEntity
+
+
+def disabled_curve_payload(
+    *,
+    status: str = "insufficient_trace",
+    reason: str = "Insufficient staged provenance for discovery curve.",
+    scope: str = "unknown",
+    points: List[Dict[str, int]] | None = None,
+) -> Dict[str, Any]:
+    """Return the renderer contract for an explicitly disabled curve."""
+
+    return {
+        "mode": "disabled",
+        "status": status,
+        "reason": reason,
+        "scope": scope,
+        "points": points or [],
+        "tau": None,
+        "coverage_estimate": None,
+        "ci_low": None,
+        "ci_high": None,
+        "estimated_total_relevant": None,
+        "summary": "",
+    }
+
+
+def _snapshot_point(snapshot: Dict[str, Any]) -> Dict[str, int] | None:
+    n = snapshot.get("n_evaluated")
+    if n is None:
+        n = snapshot.get("papers_evaluated")
+    y = snapshot.get("n_highly_relevant")
+    if y is None:
+        y = snapshot.get("highly_relevant_count")
+    try:
+        n_int = int(n)
+        y_int = int(y)
+    except (TypeError, ValueError):
+        return None
+    if n_int < 0 or y_int < 0:
+        return None
+    return {
+        "n": n_int,
+        "y": y_int,
+        "papers_screened": n_int,
+        "found": y_int,
+    }
+
+
+def build_discovery_curve_payload(
+    snapshots: List[Dict[str, Any]] | None,
+    *,
+    scope: str = "full_workflow",
+    min_points: int = 3,
+) -> Dict[str, Any]:
+    """Build strict discovery curve payload from real cumulative snapshots.
+
+    No synthetic two-point fallback is allowed here. Without enough monotonic
+    staged evidence and a successful exponential fit, the payload is disabled.
+    """
+
+    points: List[Dict[str, int]] = []
+    for snapshot in snapshots or []:
+        if not isinstance(snapshot, dict):
+            continue
+        point = _snapshot_point(snapshot)
+        if point is not None:
+            points.append(point)
+
+    compact_points: List[Dict[str, int]] = []
+    for point in points:
+        if compact_points and point["n"] == compact_points[-1]["n"] and point["y"] == compact_points[-1]["y"]:
+            continue
+        compact_points.append(point)
+    points = compact_points
+
+    if len(points) < min_points:
+        return disabled_curve_payload(
+            status="insufficient_trace",
+            reason="Insufficient staged provenance for discovery curve.",
+            scope=scope,
+            points=points,
+        )
+
+    for prev, curr in zip(points[:-1], points[1:]):
+        if curr["n"] <= prev["n"] or curr["y"] < prev["y"]:
+            return disabled_curve_payload(
+                status="invalid_trace",
+                reason="Discovery curve snapshots are not monotonic cumulative evidence.",
+                scope=scope,
+                points=points,
+            )
+
+    evaluated = [point["n"] for point in points]
+    highly_relevant = [point["y"] for point in points]
+    n_total, lambda_est = fit_exponential(evaluated, highly_relevant)
+    if lambda_est <= 0.0 or highly_relevant[-1] <= 0:
+        return disabled_curve_payload(
+            status="fit_failed",
+            reason="Discovery curve fit requires decaying high-relevance discovery rates.",
+            scope=scope,
+            points=points,
+        )
+
+    coverage, ci_low, ci_high = compute_coverage(highly_relevant[-1], n_total)
+    tau = 1.0 / lambda_est
+    summary = (
+        f"Estimated to have found about {highly_relevant[-1]} relevant papers, "
+        f"approximately {coverage*100:.0f}% of the relevant set "
+        f"(95% CI: {ci_low*100:.0f}-{ci_high*100:.0f}%)."
+    )
+    return {
+        "mode": "enabled",
+        "status": "ok",
+        "reason": "",
+        "scope": scope,
+        "points": points,
+        "tau": round(tau, 2),
+        "coverage_estimate": round(coverage, 3),
+        "ci_low": round(ci_low, 3),
+        "ci_high": round(ci_high, 3),
+        "estimated_total_relevant": round(n_total, 1),
+        "summary": summary,
+    }
 
 
 # --------------------------------------------------------------------------- #

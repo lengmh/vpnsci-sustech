@@ -18,7 +18,7 @@ def _write_runtime(root: Path) -> None:
 class ReportToolsTests(unittest.TestCase):
     def test_default_report_command_uses_vpnsci_adapter(self):
         command = report_tools.default_report_command()
-        self.assertIn("vpnsci_sustech.paper_search_pro_adapter", command)
+        self.assertIn("vpnsci_sustech.light_report_bridge", command)
         self.assertIn("{seed_json}", command)
         self.assertIn("{output_dir}", command)
         self.assertEqual(command, report_tools.default_seed_preview_command())

@@ -96,7 +96,7 @@ class ReportBridgeTests(unittest.TestCase):
             root, command_template, out_dir = _validate_config(cfg)
 
             self.assertEqual(root, root_dir)
-            self.assertIn("vpnsci_sustech.paper_search_pro_adapter", command_template)
+            self.assertIn("vpnsci_sustech.light_report_bridge", command_template)
             self.assertIn("{seed_json}", command_template)
             self.assertIn("{output_dir}", command_template)
             self.assertEqual(cfg.paper_search_pro_command, "")

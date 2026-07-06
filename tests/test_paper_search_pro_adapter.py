@@ -31,7 +31,7 @@ sources_pkg = types.ModuleType("vpnsci_sustech.sources")
 sources_pkg.__path__ = [str(Path(__file__).resolve().parents[1] / "vpnsci_sustech" / "sources")]
 sys.modules.setdefault("vpnsci_sustech.sources", sources_pkg)
 
-from vpnsci_sustech.paper_search_pro_adapter import (
+from vpnsci_sustech.light_report_bridge import (
     _load_seed,
     _reconcile_quality_profile_with_chart_signals,
     _write_materialized_data,
@@ -279,7 +279,7 @@ class PaperSearchProAdapterTests(unittest.TestCase):
             self.assertEqual(metadata["user_query"], "红外线测量")
             self.assertEqual(metadata["display_query"], "红外线测量")
             self.assertEqual(metadata["seed_session_query"], "infrared thermography body temperature")
-            self.assertEqual(metadata["coverage_label"], "seed preview estimate")
+            self.assertEqual(metadata["coverage_label"], "")
             self.assertEqual(metadata["query_display"]["primary"], "红外线测量")
             self.assertIn(
                 {"type": "translated_keywords", "query": "infrared thermometry"},
@@ -306,14 +306,15 @@ class PaperSearchProAdapterTests(unittest.TestCase):
             self.assertEqual(metadata["papers_in_kg"], 8)
             self.assertIn("coverage_estimate", metadata)
             self.assertIn("coverage_ci", metadata)
+            self.assertIsNone(metadata["coverage_estimate"])
+            self.assertEqual(metadata["coverage_ci"], [None, None])
             self.assertIn("discovery_curve", chart_data)
             self.assertIn("publication_year", chart_data)
             self.assertIn("relevance_score", chart_data)
-            self.assertEqual(
-                chart_data["discovery_curve"]["points"][-1],
-                {"papers_screened": 8, "found": 0},
-            )
-            self.assertIn("summary", chart_data["discovery_curve"])
+            self.assertEqual(chart_data["discovery_curve"]["mode"], "disabled")
+            self.assertIsNone(chart_data["discovery_curve"]["tau"])
+            self.assertIsNone(chart_data["discovery_curve"]["coverage_estimate"])
+            self.assertNotEqual(chart_data["discovery_curve"].get("tau"), 80.0)
             self.assertEqual(papers[0]["rcs"], 5)
             self.assertEqual(papers[0]["discovery_path"], "query: 红外线测量")
 
@@ -360,6 +361,65 @@ class PaperSearchProAdapterTests(unittest.TestCase):
             self.assertEqual(chart_data["relevance_score"]["bins"], [])
             self.assertIsNone(chart_data["relevance_score"]["mean"])
             self.assertEqual(chart_data["relevance_score"]["n"], 0)
+
+    def test_seed_classified_with_staged_provenance_builds_discovery_curve(self):
+        with WritableTemporaryDirectory() as tmp:
+            variants = [
+                {"query": "query alpha", "variant_type": "original"},
+                {"query": "query beta", "variant_type": "expanded"},
+                {"query": "query gamma", "variant_type": "expanded"},
+            ]
+            hits = [
+                SearchHit(title=f"Paper {index}", doi=f"10.1/{index}", year=2020 + index, citation_count=index)
+                for index in range(1, 9)
+            ]
+            for hit in hits[:2]:
+                hit.query_variant = "query alpha"
+                hit.query_variant_type = "original"
+                hit.query_variants = ["original:query alpha"]
+            for hit in hits[2:5]:
+                hit.query_variant = "query beta"
+                hit.query_variant_type = "expanded"
+                hit.query_variants = ["expanded:query beta"]
+            for hit in hits[5:]:
+                hit.query_variant = "query gamma"
+                hit.query_variant_type = "expanded"
+                hit.query_variants = ["expanded:query gamma"]
+            session = SearchSession(
+                session_id="search-staged-rcs",
+                query="query alpha",
+                filters={"query_variants": variants},
+                origin={"engine": "openalex", "kind": "source_execution"},
+                hits=hits,
+                source_summary={"openalex": 8},
+            )
+            rcs_values = [8, 9, 8, 9, 8, 8, 5, 4]
+
+            materialized = _write_materialized_data(
+                session,
+                Path(tmp),
+                display_query="query alpha",
+                language="en",
+                report_mode="seed_classified",
+                rcs_classification_result=[
+                    {"paper_id": f"10.1/{index}", "rcs": rcs, "reasoning": "classified"}
+                    for index, rcs in enumerate(rcs_values, 1)
+                ],
+                rcs_execution_mode="main_agent_serial",
+            )
+
+            chart_data = json.loads((materialized / "chart_data.json").read_text(encoding="utf-8"))
+            curve = chart_data["discovery_curve"]
+            self.assertEqual(curve["mode"], "enabled")
+            self.assertEqual(curve["status"], "ok")
+            self.assertEqual(curve["scope"], "seed_set")
+            self.assertEqual(
+                [(point["papers_screened"], point["found"]) for point in curve["points"]],
+                [(2, 2), (5, 5), (8, 6)],
+            )
+            self.assertIsNotNone(curve["tau"])
+            self.assertNotEqual(curve["tau"], 80.0)
+            self.assertIsNotNone(curve["coverage_estimate"])
 
     def test_parse_failed_uncertain_rcs_result_is_invalid_and_excluded_from_stats(self):
         with WritableTemporaryDirectory() as tmp:
@@ -1300,8 +1360,10 @@ class PaperSearchProAdapterTests(unittest.TestCase):
             chart_data = json.loads((materialized / "chart_data.json").read_text(encoding="utf-8"))
             self.assertEqual(metadata["quality_profile"]["audit_level"], "full")
             self.assertEqual(metadata["quality_profile"]["query_strip_mode"], "actual_queries")
-            self.assertEqual(metadata["quality_profile"]["discovery_curve_mode"], "enabled")
-            self.assertEqual(chart_data["discovery_curve"]["mode"], "enabled")
+            self.assertEqual(metadata["quality_profile"]["discovery_curve_mode"], "disabled")
+            self.assertEqual(chart_data["discovery_curve"]["mode"], "disabled")
+            self.assertEqual(chart_data["discovery_curve"]["status"], "no_valid_rcs")
+            self.assertIsNone(chart_data["discovery_curve"]["tau"])
 
     def test_render_report_can_open_report_after_rendering(self):
         with WritableTemporaryDirectory() as tmp:
@@ -1319,12 +1381,12 @@ class PaperSearchProAdapterTests(unittest.TestCase):
             seed.write_text(json.dumps(asdict(session), ensure_ascii=False), encoding="utf-8")
 
             with mock.patch(
-                "vpnsci_sustech.paper_search_pro_adapter.render_html_webartifacts",
+                "vpnsci_sustech.light_report_bridge.render_html_webartifacts",
                 side_effect=lambda materialized_data_dir, output_path, **kwargs: output_path.write_text(
                     "<html></html>", encoding="utf-8"
                 )
                 or output_path,
-            ), mock.patch("vpnsci_sustech.paper_search_pro_adapter.webbrowser.open") as open_mock:
+            ), mock.patch("vpnsci_sustech.light_report_bridge.webbrowser.open") as open_mock:
                 report = render_report(seed, output_dir, display_query="红外线测量", language="zh", open_report=True)
 
             self.assertEqual(report, output_dir / "report.html")

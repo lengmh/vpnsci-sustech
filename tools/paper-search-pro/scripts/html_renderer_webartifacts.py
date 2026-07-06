@@ -191,7 +191,7 @@ def _apply_payload_compat(
     """Backfill renderer-facing compatibility fields for full/recovery payloads.
 
     `seed_preview` already emits a richer contract from
-    `vpnsci_sustech.paper_search_pro_adapter`. Full/recovery flows may only
+    `vpnsci_sustech.light_report_bridge`. Full/recovery flows may only
     carry the lean upstream materialization shape. This shim fills the
     renderer-facing gaps while preserving any stronger upstream truth.
     """

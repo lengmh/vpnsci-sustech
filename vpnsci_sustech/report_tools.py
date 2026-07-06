@@ -96,7 +96,7 @@ def _quote_command_part(value: str) -> str:
 
 def default_seed_preview_command() -> str:
     executable = _quote_command_part(sys.executable)
-    return f"{executable} -m vpnsci_sustech.paper_search_pro_adapter --seed {{seed_json}} --output-dir {{output_dir}}"
+    return f"{executable} -m vpnsci_sustech.light_report_bridge --seed {{seed_json}} --output-dir {{output_dir}}"
 
 
 def default_report_command() -> str:
