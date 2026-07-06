@@ -357,6 +357,15 @@ class ReportBridgeTests(unittest.TestCase):
             self.assertTrue(contract["requires_staged_snapshots"])
             self.assertTrue(contract["requires_valid_rcs_for_curve"])
             self.assertTrue(contract["stop_reason_must_use_tier_budget"])
+            self.assertEqual(
+                contract["metadata_fields"],
+                {
+                    "report_mode": "full",
+                    "workflow_kind": "full_workflow",
+                    "execution_mode": "main_agent_serial",
+                    "execution_fallback_reason": "subagents_unavailable_user_chose_serial",
+                },
+            )
             runbook = context["automation"]["serial_fallback_runbook"]
             self.assertEqual(runbook["execution"], "main_agent_serial")
             self.assertIn("serial source expansion / retrieval", runbook["summary"])
@@ -379,6 +388,18 @@ class ReportBridgeTests(unittest.TestCase):
             self.assertEqual(retrieval_step["helper"], "scripts.openalex_helper")
             self.assertIn("raw/*.json", retrieval_step["output"])
             self.assertTrue(retrieval_step["snapshot_required"])
+            self.assertEqual(
+                runbook["execution_log_fields"],
+                [
+                    "execution_mode",
+                    "execution_fallback_reason",
+                    "tier_budget",
+                    "stop_reason",
+                    "completed_batches",
+                    "retrieval_snapshots",
+                    "classification_snapshots",
+                ],
+            )
             self.assertEqual(context["failure_reporting"]["report_channel"], "current_conversation")
             self.assertIn("subagent_spawn_failed", context["failure_reporting"]["failure_codes"])
             self.assertIn("subagent_timeout", context["failure_reporting"]["failure_codes"])
