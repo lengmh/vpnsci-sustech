@@ -13,6 +13,7 @@ from vpnsci_sustech.report_bridge import (
     apply_rcs_classification_and_render,
     apply_theme_postprocess_and_render,
     _render_command,
+    _validate_config,
     generate_report_from_session,
     normalize_report_mode,
     path_to_file_url,
@@ -81,6 +82,39 @@ class ReportBridgeTests(unittest.TestCase):
             ):
                 with self.assertRaises(ReportBridgeConfigError):
                     generate_report_from_session("search-test", config=cfg)
+
+    def test_validate_config_allows_empty_command_and_uses_runtime_default(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root_dir = Path(tmp) / "paper-search-pro"
+            root_dir.mkdir()
+            cfg = Config(
+                cache_dir=tmp,
+                paper_search_pro_root=str(root_dir),
+                paper_search_pro_command="",
+            )
+
+            root, command_template, out_dir = _validate_config(cfg)
+
+            self.assertEqual(root, root_dir)
+            self.assertIn("vpnsci_sustech.paper_search_pro_adapter", command_template)
+            self.assertIn("{seed_json}", command_template)
+            self.assertIn("{output_dir}", command_template)
+            self.assertEqual(cfg.paper_search_pro_command, "")
+            self.assertEqual(out_dir, Path(tmp) / "search" / "reports")
+
+    def test_validate_config_preserves_explicit_command_override(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root_dir = Path(tmp) / "paper-search-pro"
+            root_dir.mkdir()
+            cfg = Config(
+                cache_dir=tmp,
+                paper_search_pro_root=str(root_dir),
+                paper_search_pro_command="python external_runner.py --seed {seed_json}",
+            )
+
+            _, command_template, _ = _validate_config(cfg)
+
+            self.assertEqual(command_template, "python external_runner.py --seed {seed_json}")
 
     def test_empty_bridge_config_autoconfigures_bundled_tool(self):
         with tempfile.TemporaryDirectory() as tmp:

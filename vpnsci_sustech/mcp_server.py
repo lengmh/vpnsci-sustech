@@ -884,7 +884,7 @@ async def generate_search_report(
         return (
             "⚠️ 报告桥接尚未配置。\n\n"
             f"原因：{e}\n"
-            "标准检索结果不受影响。请先配置 paper_search_pro_root 和 paper_search_pro_command。"
+            "标准检索结果不受影响。请先运行 `vpnsci-sustech report-tools install` 安装并配置 bundled runtime；若手动配置，至少需要 paper_search_pro_root，paper_search_pro_command 可留空使用运行时默认值。"
         )
     except report_bridge.ReportBridgeError as e:
         return (

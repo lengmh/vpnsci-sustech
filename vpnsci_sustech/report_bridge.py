@@ -113,14 +113,13 @@ def _output_dir(config: Config) -> Path:
 def _validate_config(config: Config) -> tuple[Path, str, Path]:
     if not config.paper_search_pro_root:
         raise ReportBridgeConfigError("paper_search_pro_root is not configured")
-    if not config.paper_search_pro_command:
-        raise ReportBridgeConfigError("paper_search_pro_command is not configured")
     root = Path(config.paper_search_pro_root)
     if not root.exists():
         raise ReportBridgeConfigError(f"paper_search_pro_root does not exist: {root}")
     out_dir = _output_dir(config)
     out_dir.mkdir(parents=True, exist_ok=True)
-    return root, config.paper_search_pro_command, out_dir
+    command_template = config.paper_search_pro_command or report_tools.default_report_command()
+    return root, command_template, out_dir
 
 
 def _write_seed_package(session, out_dir: Path) -> Path:
@@ -706,7 +705,7 @@ def generate_report_from_session(
     normalized_mode = normalize_report_mode(mode)
     persist_autoconfig = config is None
     config = config or Config.load()
-    if not config.paper_search_pro_root or not config.paper_search_pro_command:
+    if not config.paper_search_pro_root:
         config = report_tools.ensure_report_tool_configured(config, force=False, persist=persist_autoconfig)
     root, command_template, out_dir = _validate_config(config)
     session = load_session(search_session_id, Path(config.cache_dir))
@@ -845,7 +844,7 @@ def start_report_from_session(
     normalized_mode = normalize_report_mode(mode)
     persist_autoconfig = config is None
     config = config or Config.load()
-    if not config.paper_search_pro_root or not config.paper_search_pro_command:
+    if not config.paper_search_pro_root:
         config = report_tools.ensure_report_tool_configured(config, force=False, persist=persist_autoconfig)
     root, command_template, out_dir = _validate_config(config)
     session = load_session(search_session_id, Path(config.cache_dir))
@@ -1051,7 +1050,7 @@ def apply_rcs_classification_and_render(
 
     persist_autoconfig = config is None
     config = config or Config.load()
-    if not config.paper_search_pro_root or not config.paper_search_pro_command:
+    if not config.paper_search_pro_root:
         config = report_tools.ensure_report_tool_configured(config, force=False, persist=persist_autoconfig)
     root, command_template, out_dir = _validate_config(config)
     session = load_session(search_session_id, Path(config.cache_dir))
@@ -1128,7 +1127,7 @@ def apply_theme_postprocess_and_render(
 
     persist_autoconfig = config is None
     config = config or Config.load()
-    if not config.paper_search_pro_root or not config.paper_search_pro_command:
+    if not config.paper_search_pro_root:
         config = report_tools.ensure_report_tool_configured(config, force=False, persist=persist_autoconfig)
     root, command_template, out_dir = _validate_config(config)
     session = load_session(search_session_id, Path(config.cache_dir))
@@ -1240,7 +1239,7 @@ def apply_theme_candidate_resolution_and_render(
     normalized_mode = normalize_report_mode(mode)
     persist_autoconfig = config is None
     config = config or Config.load()
-    if not config.paper_search_pro_root or not config.paper_search_pro_command:
+    if not config.paper_search_pro_root:
         config = report_tools.ensure_report_tool_configured(config, force=False, persist=persist_autoconfig)
     root, command_template, out_dir = _validate_config(config)
     session = load_session(search_session_id, Path(config.cache_dir))

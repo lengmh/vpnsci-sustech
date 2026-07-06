@@ -1,0 +1,12 @@
+include tools/paper-search-pro.UPSTREAM.md
+graft tools/paper-search-pro
+prune tools/paper-search-pro/.git
+prune tools/paper-search-pro/assets/webartifacts_app/paper-report/node_modules
+prune tools/paper-search-pro/paper-search-results
+prune tools/paper-search-pro/.cache
+recursive-exclude tools/paper-search-pro __pycache__
+recursive-exclude tools/paper-search-pro *.pyc*
+recursive-exclude tools/paper-search-pro *.pyo*
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude .pytest_cache

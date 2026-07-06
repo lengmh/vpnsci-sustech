@@ -28,7 +28,7 @@ vpnsci-sustech-mcp = "vpnsci_sustech.mcp_server:main"
 include = ["vpnsci_sustech*"]
 
 [tool.setuptools.package-data]
-vpnsci_sustech = ["data/*.json"]
+vpnsci_sustech = ["data/*.json", "_bundled/paper-search-pro/**/*"]
 
 [dependency-groups]
 dev = [
