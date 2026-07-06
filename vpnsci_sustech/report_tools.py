@@ -5,8 +5,29 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 import shutil
+import sys
 
 from .config import Config, DEFAULT_BASE_DIR
+
+PACKAGED_BUNDLED = "packaged_bundled"
+REPO_TOOLS_FALLBACK = "repo_tools_fallback"
+
+REQUIRED_TOOL_SENTINELS = (
+    "SKILL.md",
+    "README.md",
+    "LICENSE.txt",
+    "NOTICE.md",
+    "THIRD_PARTY.md",
+    "assets/webartifacts_app/paper-report/bundle.html",
+    "scripts/html_renderer_webartifacts.py",
+    "scripts/data_materialization.py",
+)
+
+
+@dataclass(frozen=True)
+class ReportToolRuntime:
+    root: Path
+    source: str
 
 
 @dataclass
@@ -19,18 +40,63 @@ class ReportToolInstallResult:
     credentials_path: str
     openalex_configured: bool
     semantic_scholar_configured: bool
+    resource_source: str
+
+
+def packaged_tool_root() -> Path:
+    return Path(__file__).resolve().parent / "_bundled" / "paper-search-pro"
+
+
+def repo_checkout_tool_root() -> Path | None:
+    module_root = Path(__file__).resolve().parent.parent
+    if not (module_root / "pyproject.toml").is_file():
+        return None
+    if not (module_root / "vpnsci_sustech").is_dir():
+        return None
+    return module_root / "tools" / "paper-search-pro"
+
+
+def _missing_sentinels(root: Path) -> list[str]:
+    return [relative for relative in REQUIRED_TOOL_SENTINELS if not (root / relative).is_file()]
+
+
+def _is_valid_tool_root(root: Path) -> bool:
+    return root.is_dir() and not _missing_sentinels(root)
+
+
+def resolve_bundled_tool_root() -> ReportToolRuntime:
+    packaged = packaged_tool_root()
+    if _is_valid_tool_root(packaged):
+        return ReportToolRuntime(packaged, PACKAGED_BUNDLED)
+
+    repo = repo_checkout_tool_root()
+    if repo and _is_valid_tool_root(repo):
+        return ReportToolRuntime(repo, REPO_TOOLS_FALLBACK)
+
+    checked = [packaged]
+    if repo:
+        checked.append(repo)
+    details = "; ".join(f"{root}: missing {', '.join(_missing_sentinels(root)) or 'directory'}" for root in checked)
+    raise FileNotFoundError(f"Bundled paper-search-pro snapshot not found or incomplete ({details})")
 
 
 def bundled_tool_root() -> Path:
-    return Path(__file__).resolve().parent.parent / "tools" / "paper-search-pro"
+    return resolve_bundled_tool_root().root
 
 
 def local_tool_root(config: Config | None = None) -> Path:
     return DEFAULT_BASE_DIR / "tools" / "paper-search-pro"
 
 
+def _quote_command_part(value: str) -> str:
+    if not value or any(ch.isspace() for ch in value):
+        return '"' + value.replace('"', '\\"') + '"'
+    return value
+
+
 def default_seed_preview_command() -> str:
-    return "python -m vpnsci_sustech.paper_search_pro_adapter --seed {seed_json} --output-dir {output_dir}"
+    executable = _quote_command_part(sys.executable)
+    return f"{executable} -m vpnsci_sustech.paper_search_pro_adapter --seed {{seed_json}} --output-dir {{output_dir}}"
 
 
 def default_report_command() -> str:
@@ -107,14 +173,14 @@ def configure_paper_search_pro_credentials(config: Config | None = None) -> Path
 
 def install_report_tool(config: Config | None = None, force: bool = False) -> ReportToolInstallResult:
     config = config or Config.load()
-    src = bundled_tool_root()
+    runtime = resolve_bundled_tool_root()
     dst = local_tool_root(config)
-    installed = _copy_tree(src, dst, force=force)
+    installed = _copy_tree(runtime.root, dst, force=force)
     credentials_path = configure_paper_search_pro_credentials(config)
     output_dir = _report_output_dir(config)
     output_dir.mkdir(parents=True, exist_ok=True)
     return ReportToolInstallResult(
-        bundled_root=str(src),
+        bundled_root=str(runtime.root),
         local_root=str(dst),
         output_dir=str(output_dir),
         command=default_report_command(),
@@ -122,7 +188,26 @@ def install_report_tool(config: Config | None = None, force: bool = False) -> Re
         credentials_path=str(credentials_path),
         openalex_configured=bool(config.openalex_api_key),
         semantic_scholar_configured=bool(config.semantic_scholar_api_key),
+        resource_source=runtime.source,
     )
+
+
+def configure_report_tool(
+    config: Config | None = None,
+    force: bool = False,
+    *,
+    persist: bool = True,
+) -> tuple[Config, ReportToolInstallResult]:
+    """Install bundled runtime and write the bundled report bridge config."""
+
+    config = config or Config.load()
+    result = install_report_tool(config, force=force)
+    config.paper_search_pro_root = result.local_root
+    config.paper_search_pro_command = ""
+    config.paper_search_pro_output_dir = result.output_dir
+    if persist:
+        config.save()
+    return config, result
 
 
 def ensure_report_tool_configured(
@@ -131,13 +216,7 @@ def ensure_report_tool_configured(
     *,
     persist: bool = True,
 ) -> Config:
-    """Install local runtime copy and persist report bridge defaults."""
+    """Install local runtime copy and persist bundled report bridge defaults."""
 
-    config = config or Config.load()
-    result = install_report_tool(config, force=force)
-    config.paper_search_pro_root = result.local_root
-    config.paper_search_pro_command = result.command
-    config.paper_search_pro_output_dir = result.output_dir
-    if persist:
-        config.save()
-    return config
+    configured, _ = configure_report_tool(config, force=force, persist=persist)
+    return configured

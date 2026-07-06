@@ -543,13 +543,13 @@ def install_report_tools(
     force: bool = typer.Option(False, "--force", help="Replace existing local paper-search-pro runtime copy."),
 ):
     """Install bundled paper-search-pro snapshot into the user-local runtime directory."""
-    cfg = report_tools.ensure_report_tool_configured(Config.load(), force=force)
-    result = report_tools.install_report_tool(cfg, force=False)
+    _, result = report_tools.configure_report_tool(Config.load(), force=force)
     console.print("[green]paper-search-pro report tool configured.[/green]")
+    console.print(f"Resource source:  {result.resource_source}")
     console.print(f"Bundled snapshot: {result.bundled_root}")
     console.print(f"Local runtime:    {result.local_root}")
     console.print(f"Report output:    {result.output_dir}")
-    console.print(f"Command:          {result.command}")
+    console.print("Command:          (runtime default)")
     console.print(f"OpenAlex key:     {'SET' if result.openalex_configured else 'EMPTY'}")
     console.print(f"S2 key:           {'SET' if result.semantic_scholar_configured else 'EMPTY'}")
 
@@ -704,9 +704,11 @@ def config_cmd(
         console.print(f"[green]paper-search-pro output dir set to: {set_paper_search_pro_output_dir}[/green]")
 
     if install_report_tools_flag:
-        cfg = report_tools.ensure_report_tool_configured(cfg, force=False)
+        cfg, result = report_tools.configure_report_tool(cfg, force=False)
         changed = False
         console.print("[green]paper-search-pro report tool installed and configured.[/green]")
+        console.print(f"Resource source: {result.resource_source}")
+        console.print(f"Local runtime:   {result.local_root}")
 
     if set_flaresolverr:
         cfg.flaresolverr_url = set_flaresolverr.rstrip("/")

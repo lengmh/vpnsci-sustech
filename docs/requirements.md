@@ -27,19 +27,18 @@ example:
 uvx --from git+https://github.com/lengmh/vpnsci-sustech.git vpnsci-sustech-mcp
 ```
 
-Current repository truth: the package metadata still only includes
-`vpnsci_sustech/data/*.json`; there is no packaged
-`vpnsci_sustech/_bundled/paper-search-pro` runtime and no `MANIFEST.in` staging
-the repo `tools/paper-search-pro` snapshot into wheels.
+Package builds stage the maintained `tools/paper-search-pro` snapshot into
+`vpnsci_sustech/_bundled/paper-search-pro` and include it in wheels. Source
+distributions include the maintained snapshot through `MANIFEST.in`, so a Git
+URL `uvx` build can produce the same packaged bundled runtime.
 
 Therefore:
 
 - Git URL `uvx` can be used as an MCP entrypoint path;
-- `report-tools install` is only install-safe when the runtime resources are
-  actually available, such as in a source checkout or a package build that
-  includes the bundled snapshot;
-- a local source checkout fallback must not be treated as proof that the Git URL
-  `uvx` install path is fully report-runtime safe.
+- `vpnsci-sustech report-tools install --force` is expected to install from
+  `packaged_bundled` in a real Git URL `uvx` install;
+- `repo_tools_fallback` is allowed only for deterministic source-checkout
+  development and must not be treated as a passing user-mode `uvx` smoke.
 
 ## Full `paper-search-pro` workflow
 

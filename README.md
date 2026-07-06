@@ -169,9 +169,9 @@ vpnsci-sustech report-tools install
 vpnsci-sustech config-cmd --install-report-tools
 ```
 
-安装后会自动配置报告工具位置、生成命令和报告输出目录。默认命令用于 `seed_preview` 快速 HTML 预览；`mode="full"` 会按完整调研流程继续执行，或在当前 Agent 环境不满足时给出明确选择。
+安装后会自动配置报告工具位置和报告输出目录；报告命令保持运行时默认值，避免把 `uvx` 缓存解释器的临时绝对路径写进配置。默认命令用于 `seed_preview` 快速 HTML 预览；`mode="full"` 会按完整调研流程继续执行，或在当前 Agent 环境不满足时给出明确选择。
 
-当前仓库边界：Git URL `uvx` 路径可以启动 MCP 入口；但报告前端运行时仍依赖源码仓 `tools/paper-search-pro` 或本地已准备好的 bundled runtime。若 `report-tools install` 在安装态找不到 bundled 资源，应视为配置/打包能力缺口，不要把 `seed_preview` 或 `seed_classified` 说成 `full` 报告。
+Git URL `uvx` 安装态会优先使用包内 staged 的 `vpnsci_sustech/_bundled/paper-search-pro` runtime。源码 checkout 开发态才允许确定性 fallback 到仓库内 `tools/paper-search-pro`；真实用户态 smoke 若出现 `repo_tools_fallback`，应视为打包错误。
 
 如果你改的是源码仓里的报告前端（`tools/paper-search-pro/assets/webartifacts_app/paper-report/src/**`），推荐用下面的 repo 维护脚本刷新构建产物和本地 bundled runtime：
 
