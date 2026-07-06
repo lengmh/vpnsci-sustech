@@ -314,6 +314,23 @@ class ThemeClusteringCompactAliasIndexTests(unittest.TestCase):
             self.assertIn("concept:receptor_opioid_mu", themes)
             self.assertIn("μ阿片受体", themes["concept:receptor_opioid_mu"]["matched_aliases"]["zh"])
 
+    def test_runtime_text_fallback_drops_chinese_result_reporting_fragments(self) -> None:
+        papers = [
+            {
+                "paper_id": str(index),
+                "title": "红外线测量研究",
+                "abstract": "结果表明红外线测量方法具有较好效果。",
+            }
+            for index in range(5)
+        ]
+
+        result = theme_clustering.build_text_themes(papers)
+        names = [str(theme.get("name") or "") for theme in result["themes"]]
+
+        self.assertTrue(names)
+        self.assertFalse([name for name in names if "表明" in name])
+        self.assertNotIn("果表明", names)
+
     def test_paper_search_pro_text_fallback_extracts_mixed_cjk_latin_compact_aliases(self) -> None:
         module = load_paper_search_pro_theme_clustering()
         cases = [
@@ -447,6 +464,24 @@ class ThemeClusteringCompactAliasIndexTests(unittest.TestCase):
 
             self.assertIn("concept:receptor_opioid_mu", themes)
             self.assertIn("μ阿片受体", themes["concept:receptor_opioid_mu"]["matched_aliases"]["zh"])
+
+    def test_paper_search_pro_text_fallback_drops_chinese_result_reporting_fragments(self) -> None:
+        module = load_paper_search_pro_theme_clustering()
+        papers = [
+            {
+                "paper_id": str(index),
+                "title": "红外线测量研究",
+                "abstract": "结果表明红外线测量方法具有较好效果。",
+            }
+            for index in range(5)
+        ]
+
+        result = module.build_text_themes(papers)
+        names = [str(theme.get("name") or "") for theme in result["themes"]]
+
+        self.assertTrue(names)
+        self.assertFalse([name for name in names if "表明" in name])
+        self.assertNotIn("果表明", names)
 
 
 if __name__ == "__main__":

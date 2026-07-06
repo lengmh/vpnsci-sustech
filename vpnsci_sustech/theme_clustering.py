@@ -150,6 +150,17 @@ CHINESE_BOUNDARY_CHARS = set("，。；;：:、（）()[]【】<>《》!?！？\
 CHINESE_LINKER_TOKENS = tuple(THEME_LEXICON_ZH["connector_terms"])
 CHINESE_FRAGMENT_PREFIXES = tuple(THEME_LEXICON_ZH["fragment_prefixes"])
 CHINESE_EMBEDDED_SUFFIX_CONNECTORS = tuple(THEME_LEXICON_ZH["embedded_suffix_connectors"])
+CHINESE_DISCOURSE_MARKERS = (
+    "结果表明",
+    "实验表明",
+    "研究表明",
+    "数据表明",
+    "结果显示",
+    "实验显示",
+    "研究显示",
+    "数据显示",
+    "结果说明",
+)
 LOW_SIGNAL_STATUS = "insufficient_text_theme_signal"
 RAW_LOW_SIGNAL_STATUS = "low_signal_candidates"
 
@@ -344,6 +355,22 @@ def _is_chinese_char(ch: str) -> bool:
     return "\u4e00" <= ch <= "\u9fff"
 
 
+def _strip_chinese_discourse_markers(text: str) -> str:
+    cleaned = text
+    for marker in CHINESE_DISCOURSE_MARKERS:
+        cleaned = cleaned.replace(marker, "，")
+    return cleaned
+
+
+def _is_chinese_discourse_fragment(term: str) -> bool:
+    candidate = (term or "").strip()
+    if not candidate:
+        return False
+    if "表明" in candidate:
+        return True
+    return any(candidate.startswith(marker) for marker in CHINESE_DISCOURSE_MARKERS)
+
+
 def _trim_chinese_phrase(raw: str) -> str:
     phrase = (raw or "").strip()
     changed = True
@@ -395,8 +422,9 @@ def _chinese_domain_phrases(text: str) -> list[str]:
 
 def _chinese_term_candidates(text: str) -> list[str]:
     candidates: list[str] = []
-    candidates.extend(_chinese_domain_phrases(text))
-    for segment in CHINESE_SEGMENT_RE.findall(text):
+    cleaned_text = _strip_chinese_discourse_markers(text)
+    candidates.extend(_chinese_domain_phrases(cleaned_text))
+    for segment in CHINESE_SEGMENT_RE.findall(cleaned_text):
         if segment in THEME_STOPWORDS_ZH:
             continue
         # Full short segments are often publication-grade phrases; raw 2-char
@@ -437,6 +465,8 @@ def _is_valid_chinese_theme_candidate(term: str) -> bool:
     if not candidate:
         return False
     if candidate in THEME_STOPWORDS_ZH:
+        return False
+    if _is_chinese_discourse_fragment(candidate):
         return False
     for stopword in THEME_STOPWORDS_ZH:
         if candidate.startswith(stopword) and len(candidate) - len(stopword) <= 1:

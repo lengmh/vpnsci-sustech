@@ -433,7 +433,7 @@ export function MethodsTab({ data, onSelectPaper }: MethodsTabProps) {
           <Card style={{ padding: "20px 24px", borderRadius: 12, boxShadow: "none" }}>
             <TopicsTreemap
               data={c.theme_treemap}
-              height={320}
+              height={420}
               onSelect={(paperId) => {
                 if (!onSelectPaper) return
                 const p = data.papers.find(
