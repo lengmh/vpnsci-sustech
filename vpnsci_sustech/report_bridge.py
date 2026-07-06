@@ -11,6 +11,7 @@ import sys
 from urllib.parse import quote
 
 from .config import Config
+from .full_workflow_budget import resolve_full_tier_budget
 from . import report_tools
 from .light_report_bridge import prepare_report
 from .theme_candidate_resolution import (
@@ -175,6 +176,119 @@ def _cnki_field_status(session) -> dict:
     }
 
 
+def _serial_fallback_contract() -> dict:
+    return {
+        "execution_mode": "main_agent_serial",
+        "requires_explicit_user_choice": True,
+        "workflow_scope": "full_workflow",
+        "seed_only": False,
+        "requires_staged_snapshots": True,
+        "requires_valid_rcs_for_curve": True,
+        "stop_reason_must_use_tier_budget": True,
+    }
+
+
+def _serial_fallback_runbook() -> dict:
+    materialization_command = (
+        "uv run python -m scripts.data_materialization "
+        "--kg kg_classified.json "
+        '--query "<user query>" '
+        "--tier standard "
+        '--search-id "<search_id>" '
+        "--snapshots discovery_curve_snapshots.json "
+        "--query-plan query_plan.json "
+        "--rcs-execution-mode main_agent_serial "
+        "--output materialized/report_data.json"
+    )
+    return {
+        "execution": "main_agent_serial",
+        "summary": (
+            "Reuse the parallel full workflow, but run serial source expansion / retrieval, "
+            "KG merge, RCS batches, materialization, and render in the main Agent."
+        ),
+        "paths": {
+            "seed": "full-workflow-handoff/seed.json",
+            "query_context": "full-workflow-handoff/query_plan_context.json",
+            "raw_results": "paper-search-results/<search_id>/raw/*.json",
+            "retrieval_snapshots": "paper-search-results/<search_id>/retrieval_snapshots.jsonl",
+            "kg": "paper-search-results/<search_id>/kg.json",
+            "classification_results": "paper-search-results/<search_id>/classifications/batch_NNN_result.json",
+            "kg_classified": "paper-search-results/<search_id>/kg_classified.json",
+            "execution_log": "paper-search-results/<search_id>/execution_log.json",
+            "materialized_report_data": "paper-search-results/<search_id>/materialized/report_data.json",
+            "report_html": "paper-search-results/<search_id>/report.html",
+        },
+        "steps": [
+            {
+                "phase": "query_planning",
+                "helper": "references/query_planner.md",
+                "execution": "main_agent_serial",
+                "input": ["seed.json", "query_plan_context.json"],
+                "output": ["query_plan.json"],
+            },
+            {
+                "phase": "retrieval",
+                "helper": "scripts.openalex_helper",
+                "execution": "main_agent_serial",
+                "input": ["query_plan.json"],
+                "output": ["raw/*.json"],
+                "snapshot_required": True,
+            },
+            {
+                "phase": "dedup_kg",
+                "helper": "scripts.federated_kg_resolver",
+                "execution": "main_agent_serial",
+                "input": ["raw/*.json"],
+                "output": ["kg.json"],
+            },
+            {
+                "phase": "rcs_classification",
+                "helper": "references/rcs_rubric.md + scripts.rcs_parser",
+                "execution": "main_agent_serial",
+                "input": ["kg.json", "classifications/batch_NNN_result.json"],
+                "output": ["kg_classified.json"],
+                "snapshot_required": True,
+            },
+            {
+                "phase": "execution_log",
+                "helper": "scripts.prisma_s_logger",
+                "execution": "main_agent_serial",
+                "input": ["kg_classified.json", "discovery_curve_snapshots.json"],
+                "output": ["execution_log.json"],
+            },
+            {
+                "phase": "materialization",
+                "helper": "scripts.data_materialization",
+                "execution": "main_agent_serial",
+                "input": ["kg_classified.json", "query_plan.json", "discovery_curve_snapshots.json"],
+                "output": ["materialized/report_data.json"],
+            },
+            {
+                "phase": "render",
+                "helper": "scripts.html_renderer_webartifacts",
+                "execution": "main_agent_serial",
+                "input": ["materialized/report_data.json"],
+                "output": ["report.html"],
+            },
+        ],
+        "retrieval_snapshot_schema": {
+            "stage": "retrieval",
+            "source": "openalex",
+            "query": "actual query string",
+            "papers_evaluated": 0,
+            "new_unique": 0,
+            "high_rcs_count": None,
+            "provenance": "main_agent_serial",
+        },
+        "materialization_command": materialization_command,
+        "render_command": (
+            "uv run python -m scripts.html_renderer_webartifacts "
+            "--materialized-dir materialized "
+            "--output report.html"
+        ),
+    }
+
+
 def create_full_workflow_handoff(
     session,
     output_dir: Path,
@@ -185,6 +299,10 @@ def create_full_workflow_handoff(
 ) -> Path:
     """Create a handoff package for the upstream Agent/Skill workflow."""
 
+    full_tier = "standard"
+    full_tier_budget = resolve_full_tier_budget(full_tier)
+    serial_fallback_contract = _serial_fallback_contract()
+    serial_fallback_runbook = _serial_fallback_runbook()
     handoff_dir = output_dir / "full-workflow-handoff"
     handoff_dir.mkdir(parents=True, exist_ok=True)
     seed_path = handoff_dir / "seed.json"
@@ -200,6 +318,9 @@ def create_full_workflow_handoff(
         "cnki_fields": _cnki_field_status(session),
         "source_summary": session.source_summary,
         "tool_root": str(tool_root) if tool_root else "",
+        "full_tier": full_tier,
+        "full_tier_budget": full_tier_budget,
+        "budget_source": "tools/paper-search-pro/references/tier_decision.md",
         "required_workflow": [
             "OpenAlex / Semantic Scholar / CrossRef / PubMed / arXiv expansion",
             "query planning / source routing / synonym expansion",
@@ -226,8 +347,8 @@ def create_full_workflow_handoff(
                 },
                 {
                     "id": "main_agent_serial",
-                    "label": "Continue full workflow with main Agent serial classification",
-                    "tradeoff": "Closer to full workflow but slower and more context-intensive; disclose that SubAgents were not used.",
+                    "label": "Continue full workflow with main Agent serial full-workflow execution",
+                    "tradeoff": "Same full workflow scope with serial source expansion/retrieval and RCS batches; slower and more context-intensive.",
                 },
                 {
                     "id": "stop",
@@ -237,6 +358,8 @@ def create_full_workflow_handoff(
             ],
             "fallback_prompt_required": True,
             "handoff_status": "ready_for_codex_full_workflow",
+            "serial_fallback_contract": serial_fallback_contract,
+            "serial_fallback_runbook": serial_fallback_runbook,
         },
         "failure_reporting": {
             "report_channel": "current_conversation",
@@ -264,6 +387,7 @@ def create_full_workflow_handoff(
             f"- Seed Session Query: {session.query}",
             f"- Seed Count: {len(session.hits)}",
             f"- Requested Mode: {mode}",
+            f"- Default Full Tier Budget: {full_tier_budget} papers ({full_tier})",
             f"- Local paper-search-pro root: {tool_root or ''}",
             f"- Seed JSON: `{seed_path}`",
             f"- Query Context: `{handoff_dir / 'query_plan_context.json'}`",
@@ -275,12 +399,22 @@ def create_full_workflow_handoff(
             "- Wait tool: `multi_agent_v1.wait_agent`.",
             "- If SubAgents cannot start, time out, or return invalid output, report in the current conversation.",
             "- Failure codes: `subagent_spawn_failed`, `subagent_timeout`, `subagent_result_invalid`, `full_workflow_step_failed`.",
-            "- Fallback: do not silently run seed_preview, seed_classified, or serial classification.",
+            "- Fallback: do not silently run seed_preview, seed_classified, or main-Agent serial full-workflow execution.",
             "- If SubAgents are unavailable, ask the user to choose one option:",
             "  1. run `seed_preview` HTML report (fast, not full workflow, no formal RCS);",
             "  2. run `seed_classified` seed-only RCS report (not full workflow);",
-            "  3. continue with main-Agent serial classification (same full scope, slower; disclose no SubAgents were used);",
+            "  3. continue with main-Agent serial full-workflow execution (same full scope, slower; disclose no SubAgents were used);",
             "  4. stop and retry when SubAgents are available.",
+            "",
+            "## main-Agent serial fallback runbook",
+            "",
+            "- Reuse the same full workflow; only the Agent orchestration becomes serial.",
+            "- Run source expansion / multi-query retrieval by strategy/source in the main Agent.",
+            "- Merge raw source outputs with `scripts.federated_kg_resolver` into `kg.json`.",
+            "- Classify RCS batches serially in the main Agent, then merge with `scripts.rcs_parser` into `kg_classified.json`.",
+            "- Materialize with `scripts.data_materialization --rcs-execution-mode main_agent_serial --output materialized/report_data.json`.",
+            "- Render with `scripts.html_renderer_webartifacts --materialized-dir materialized --output report.html`.",
+            "- If staged provenance or valid RCS is missing, keep discovery curve disabled/dash; do not fabricate a curve.",
             "",
             "Run the upstream paper-search-pro Skill workflow with this seed package to perform full professional research.",
             "Required upstream capabilities: five-source expansion, query planning, source routing, SubAgent relevance grading, RCS/PRISMA/export generation.",
