@@ -185,6 +185,12 @@ def _serial_fallback_contract() -> dict:
         "requires_staged_snapshots": True,
         "requires_valid_rcs_for_curve": True,
         "stop_reason_must_use_tier_budget": True,
+        "metadata_fields": {
+            "report_mode": "full",
+            "workflow_kind": "full_workflow",
+            "execution_mode": "main_agent_serial",
+            "execution_fallback_reason": "subagents_unavailable_user_chose_serial",
+        },
     }
 
 
@@ -280,6 +286,15 @@ def _serial_fallback_runbook() -> dict:
             "high_rcs_count": None,
             "provenance": "main_agent_serial",
         },
+        "execution_log_fields": [
+            "execution_mode",
+            "execution_fallback_reason",
+            "tier_budget",
+            "stop_reason",
+            "completed_batches",
+            "retrieval_snapshots",
+            "classification_snapshots",
+        ],
         "materialization_command": materialization_command,
         "render_command": (
             "uv run python -m scripts.html_renderer_webartifacts "

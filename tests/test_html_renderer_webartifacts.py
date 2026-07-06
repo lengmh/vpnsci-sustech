@@ -74,7 +74,8 @@ class HtmlRendererWebartifactsCompatTests(unittest.TestCase):
             "coverage_ci": [0.385, 0.545],
             "generated_at": "2026-06-05T10:54:03.828207",
             "skill_version": "paper-search-pro/2.0",
-            "stop_reason": "main-Agent serial classification after explicit user choice; no SubAgents available.",
+            "execution_fallback_reason": "subagents_unavailable_user_chose_serial",
+            "stop_reason": "budget_max_papers (180)",
             "user_query": "核物理治疗方法",
             "display_query": "核物理治疗方法",
             "query_display": {
