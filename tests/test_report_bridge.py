@@ -322,10 +322,15 @@ class ReportBridgeTests(unittest.TestCase):
             self.assertIn("search-test", instructions)
             self.assertIn("multi_agent_v1.spawn_agent", instructions)
             self.assertIn("subagent_spawn_failed", instructions)
-            self.assertIn("main-Agent serial classification", instructions)
+            self.assertIn("main-Agent serial full-workflow execution", instructions)
             self.assertIn("run `seed_preview` HTML report", instructions)
             context = json.loads(
                 (Path(job.handoff_path).parent / "query_plan_context.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual(context["full_tier_budget"], 180)
+            self.assertEqual(
+                context["budget_source"],
+                "tools/paper-search-pro/references/tier_decision.md",
             )
             self.assertEqual(context["automation"]["runner"], "codex-session")
             self.assertTrue(context["automation"]["requires_multi_agent"])
@@ -340,6 +345,40 @@ class ReportBridgeTests(unittest.TestCase):
                 context["automation"]["subagent_failure_policy"],
                 "ask_user_before_degraded_execution",
             )
+            serial_option = next(
+                item for item in context["automation"]["fallback_options"] if item["id"] == "main_agent_serial"
+            )
+            self.assertIn("serial full-workflow execution", serial_option["label"])
+            contract = context["automation"]["serial_fallback_contract"]
+            self.assertEqual(contract["execution_mode"], "main_agent_serial")
+            self.assertTrue(contract["requires_explicit_user_choice"])
+            self.assertEqual(contract["workflow_scope"], "full_workflow")
+            self.assertFalse(contract["seed_only"])
+            self.assertTrue(contract["requires_staged_snapshots"])
+            self.assertTrue(contract["requires_valid_rcs_for_curve"])
+            self.assertTrue(contract["stop_reason_must_use_tier_budget"])
+            runbook = context["automation"]["serial_fallback_runbook"]
+            self.assertEqual(runbook["execution"], "main_agent_serial")
+            self.assertIn("serial source expansion / retrieval", runbook["summary"])
+            self.assertIn("main_agent_serial", runbook["materialization_command"])
+            self.assertIn("materialized/report_data.json", runbook["materialization_command"])
+            self.assertIn("html_renderer_webartifacts", runbook["render_command"])
+            self.assertEqual(
+                [step["phase"] for step in runbook["steps"]],
+                [
+                    "query_planning",
+                    "retrieval",
+                    "dedup_kg",
+                    "rcs_classification",
+                    "execution_log",
+                    "materialization",
+                    "render",
+                ],
+            )
+            retrieval_step = runbook["steps"][1]
+            self.assertEqual(retrieval_step["helper"], "scripts.openalex_helper")
+            self.assertIn("raw/*.json", retrieval_step["output"])
+            self.assertTrue(retrieval_step["snapshot_required"])
             self.assertEqual(context["failure_reporting"]["report_channel"], "current_conversation")
             self.assertIn("subagent_spawn_failed", context["failure_reporting"]["failure_codes"])
             self.assertIn("subagent_timeout", context["failure_reporting"]["failure_codes"])
