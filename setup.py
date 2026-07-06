@@ -20,20 +20,28 @@ class build_py(_build_py):
         if dst.exists():
             shutil.rmtree(dst)
         dst.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copytree(
-            src,
-            dst,
-            ignore=shutil.ignore_patterns(
-                ".git",
-                "__pycache__",
-                "*.pyc",
-                "*.pyo",
-                ".pytest_cache",
-                "node_modules",
-                "paper-search-results",
-                ".cache",
-            ),
+        shutil.copytree(src, dst, ignore=self._ignore_paper_search_pro_files(src))
+
+    def _ignore_paper_search_pro_files(self, src_root: Path):
+        base_ignore = shutil.ignore_patterns(
+            ".git",
+            "__pycache__",
+            "*.pyc",
+            "*.pyo",
+            ".pytest_cache",
+            "node_modules",
+            "paper-search-results",
+            ".cache",
         )
+        frontend_root = src_root / "assets" / "webartifacts_app" / "paper-report"
+
+        def ignore(directory, names):
+            ignored = set(base_ignore(directory, names))
+            if Path(directory).resolve() == frontend_root.resolve():
+                ignored.add("src")
+            return ignored
+
+        return ignore
 
 
 setup(cmdclass={"build_py": build_py})
