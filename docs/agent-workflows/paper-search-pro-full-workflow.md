@@ -70,7 +70,7 @@ Therefore, a host without SubAgent support is not an MCP failure. It is an Agent
 
 | Missing / unavailable item | Affected step | Required handling | Allowed user-confirmed path |
 |---|---|---|---|
-| SubAgent / multi-agent tool unavailable | STEP 6 relevance classification | Ask the user before continuing | User chooses `seed_preview`, `seed_classified`, main-Agent serial classification, or stop/retry |
+| SubAgent / multi-agent tool unavailable | Agent-orchestrated full workflow steps | Ask the user before continuing | User chooses `seed_preview`, `seed_classified`, main-Agent serial full-workflow execution, or stop/retry |
 | SubAgent capacity lower than expected | STEP 6 relevance classification | Reduce `max_active_subagents`, dispatch in smaller waves, record wave size | Continue parallel with smaller waves |
 | SubAgent spawn timeout / invalid output | STEP 6 relevance classification | Report failure code and failed batch; retry only when safe | Ask user before serial fallback, seed preview, or seed-classified |
 | Full `paper-search-pro` Python dependency missing | Helper script that imports it | Report package and failed command | Install after user approval, skip optional enrichment when tier allows, or stop |
@@ -88,7 +88,7 @@ SubAgent/multi-agent execution is unavailable in this host.
 Choose one:
 1. Run seed_preview HTML report now — fastest, not full paper-search-pro; no formal RCS.
 2. Run seed_classified seed-only RCS report — still not full paper-search-pro; classifies only the saved Search Session papers and performs no source expansion.
-3. Continue with main-Agent serial classification — same full workflow scope, slower; final report will disclose no SubAgents were used.
+3. Continue with main-Agent serial full-workflow execution — same full workflow scope, slower; final report will disclose no SubAgents were used.
 4. Stop and retry later when SubAgents are available.
 ```
 
@@ -101,7 +101,7 @@ described as a degraded full report; it is a seed-only classified alternative.
 Current repository truth: there is no standalone
 `vpnsci_sustech.serial_full_report_runner` or Python-side serial-full runner.
 
-If the user explicitly chooses main-Agent serial classification, the Agent must
+If the user explicitly chooses main-Agent serial full-workflow execution, the Agent must
 continue the same full workflow scope from the handoff artifacts in the
 conversation/session layer:
 
@@ -119,6 +119,12 @@ This path is an execution-mode fallback for the full workflow, not a new report
 mode and not a seed-only report. The final artifacts and response must record
 the fallback reason, `rcs_execution_mode="main_agent_serial"`, completed
 batches, budget/stop reason, and any missing full-workflow steps.
+
+The serial fallback reuses the same upstream full workflow. The difference is
+that serial source expansion / retrieval and RCS classification batches are
+run by the main Agent in order instead of being delegated to concurrent
+SubAgents. Do not treat the saved Search Session seed results as the final
+result set.
 
 ## Text Encoding Policy
 
@@ -458,18 +464,18 @@ clearly:
 
 1. **Run `seed_preview` HTML report** — fast; uses the existing Search Session only; no full source expansion, full PRISMA-S audit, or formal RCS.
 2. **Run `seed_classified` seed-only RCS report** — uses the existing Search Session only and asks the host Agent to classify that seed set; no source expansion or full PRISMA-S audit.
-3. **Continue with main-Agent serial classification** — same full workflow scope, but slower and more context-intensive; must disclose that SubAgents were not used.
+3. **Continue with main-Agent serial full-workflow execution** — same full workflow scope, but slower and more context-intensive; must disclose that SubAgents were not used.
 4. **Stop and retry later when SubAgents are available** — preserves upstream parallel workflow semantics.
 
-Only run seed preview, seed-classified, or serial classification after the user
+Only run seed preview, seed-classified, or serial full-workflow execution after the user
 explicitly chooses that option. If the user chooses seed-classified, label it as
-seed-only. If the user chooses serial classification, record the degraded
+seed-only. If the user chooses serial full-workflow execution, record the degraded
 execution mode in workflow notes, PRISMA/disclosure notes, and final response.
 
 ## Failure Policy
 
 The Agent must not silently switch to `mode="seed_preview"`,
-`mode="seed_classified"`, or main-Agent serial classification.
+`mode="seed_classified"`, or main-Agent serial full-workflow execution.
 
 If full workflow cannot continue, report the failure in the current conversation with:
 
