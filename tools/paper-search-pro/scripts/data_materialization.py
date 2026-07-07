@@ -105,6 +105,9 @@ def materialize(
     started_at: Optional[str] = None,
     kg_source_path: Optional[Path] = None,
     rcs_execution_mode: str = "subagent_parallel",
+    workflow_kind: str = "full_workflow",
+    execution_mode: Optional[str] = None,
+    execution_fallback_reason: str = "",
 ) -> Dict[str, Path]:
     """Write chart_data / paper_list / metadata / prisma_log + report_data.
 
@@ -130,6 +133,10 @@ def materialize(
             normal full workflow uses ``subagent_parallel``; explicit serial
             fallback should pass ``main_agent_serial`` so the report can
             disclose it.
+        workflow_kind: high-level workflow contract written to metadata.
+        execution_mode: Agent orchestration mode; defaults to
+            ``rcs_execution_mode`` for backward-compatible callers.
+        execution_fallback_reason: optional reason for fallback execution mode.
     """
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -171,6 +178,9 @@ def materialize(
         stop_reason=stop_reason,
         query_plan=query_plan,
         rcs_execution_mode=rcs_execution_mode,
+        workflow_kind=workflow_kind,
+        execution_mode=execution_mode,
+        execution_fallback_reason=execution_fallback_reason,
     )
 
     from .prisma_s_logger import build_prisma_s_log  # lazy; sibling module
@@ -578,6 +588,9 @@ def _build_metadata(
     stop_reason: Optional[str],
     query_plan: Optional[List[Dict]] = None,
     rcs_execution_mode: str = "subagent_parallel",
+    workflow_kind: str = "full_workflow",
+    execution_mode: Optional[str] = None,
+    execution_fallback_reason: str = "",
 ) -> Dict[str, Any]:
     valid_rcs_values = [
         rcs
@@ -603,6 +616,10 @@ def _build_metadata(
         "search_id": search_id,
         "query": user_query,
         "tier": tier,
+        "report_mode": "full",
+        "workflow_kind": workflow_kind or "full_workflow",
+        "execution_mode": execution_mode or rcs_execution_mode,
+        "execution_fallback_reason": execution_fallback_reason or "",
         "wall_clock_total_s": wall_clock,
         "papers_evaluated": len(classified),
         "papers_in_kg": len(kg),
@@ -757,6 +774,11 @@ if __name__ == "__main__":
         ),
     )
     parser.add_argument(
+        "--stop-reason",
+        default=None,
+        help="Final stop reason written to metadata.",
+    )
+    parser.add_argument(
         "--rcs-execution-mode",
         choices=sorted(VALID_RCS_EXECUTION_MODES),
         default="subagent_parallel",
@@ -764,6 +786,21 @@ if __name__ == "__main__":
             "How formal RCS classification was executed. Use main_agent_serial "
             "only after explicit serial fallback."
         ),
+    )
+    parser.add_argument(
+        "--workflow-kind",
+        default="full_workflow",
+        help="Workflow kind written to metadata.",
+    )
+    parser.add_argument(
+        "--execution-mode",
+        default=None,
+        help="Agent orchestration mode written to metadata.",
+    )
+    parser.add_argument(
+        "--execution-fallback-reason",
+        default="",
+        help="Fallback reason written to metadata.",
     )
     parser.add_argument(
         "--output",
@@ -816,11 +853,15 @@ if __name__ == "__main__":
         discovery_curve_snapshots=snapshots,
         wall_clock_seconds=args.wall_clock_seconds,
         started_at=args.started_at,
+        stop_reason=args.stop_reason,
         # P0-7 graceful fallback: when neither --wall-clock-seconds nor
         # --started-at is passed, fall back to kg.json mtime so metadata
         # carries a non-zero (approximate) wall_clock.
         kg_source_path=args.kg,
         rcs_execution_mode=args.rcs_execution_mode,
+        workflow_kind=args.workflow_kind,
+        execution_mode=args.execution_mode,
+        execution_fallback_reason=args.execution_fallback_reason,
     )
     # If --output names a file other than report_data.json, point it there.
     if args.output.name != "report_data.json":

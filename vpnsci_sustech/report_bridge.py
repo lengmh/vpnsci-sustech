@@ -196,18 +196,29 @@ def _serial_fallback_contract() -> dict:
 
 def _serial_fallback_runbook() -> dict:
     materialization_command = (
+        "$env:PYTHONPATH='tools/paper-search-pro'; "
+        '$SEARCH_DIR="paper-search-results/<search_id>"; '
         "uv run python -m scripts.data_materialization "
-        "--kg kg_classified.json "
+        "--kg $SEARCH_DIR/kg_classified.json "
         '--query "<user query>" '
         "--tier standard "
         '--search-id "<search_id>" '
-        "--snapshots discovery_curve_snapshots.json "
-        "--query-plan query_plan.json "
+        "--snapshots $SEARCH_DIR/discovery_curve_snapshots.json "
+        "--query-plan $SEARCH_DIR/query_plan.json "
         "--rcs-execution-mode main_agent_serial "
-        "--output materialized/report_data.json"
+        "--workflow-kind full_workflow "
+        "--execution-mode main_agent_serial "
+        "--execution-fallback-reason subagents_unavailable_user_chose_serial "
+        '--stop-reason "budget_max_papers (180)" '
+        "--output $SEARCH_DIR/materialized/report_data.json"
     )
     return {
         "execution": "main_agent_serial",
+        "command_context": {
+            "run_from": "repository_root",
+            "pythonpath": "tools/paper-search-pro",
+            "search_dir": "paper-search-results/<search_id>",
+        },
         "summary": (
             "Reuse the parallel full workflow, but run serial source expansion / retrieval, "
             "KG merge, RCS batches, materialization, and render in the main Agent."
@@ -257,10 +268,11 @@ def _serial_fallback_runbook() -> dict:
             },
             {
                 "phase": "execution_log",
-                "helper": "scripts.prisma_s_logger",
+                "helper": "main_agent_json_writer",
                 "execution": "main_agent_serial",
                 "input": ["kg_classified.json", "discovery_curve_snapshots.json"],
                 "output": ["execution_log.json"],
+                "note": "Main Agent writes these contract fields directly; prisma_s_logger remains the PRISMA helper.",
             },
             {
                 "phase": "materialization",
@@ -297,9 +309,11 @@ def _serial_fallback_runbook() -> dict:
         ],
         "materialization_command": materialization_command,
         "render_command": (
+            "$env:PYTHONPATH='tools/paper-search-pro'; "
+            '$SEARCH_DIR="paper-search-results/<search_id>"; '
             "uv run python -m scripts.html_renderer_webartifacts "
-            "--materialized-dir materialized "
-            "--output report.html"
+            "--materialized-dir $SEARCH_DIR/materialized "
+            "--output $SEARCH_DIR/report.html"
         ),
     }
 
@@ -424,11 +438,13 @@ def create_full_workflow_handoff(
             "## main-Agent serial fallback runbook",
             "",
             "- Reuse the same full workflow; only the Agent orchestration becomes serial.",
+            "- Run commands from the repository root; set `$env:PYTHONPATH='tools/paper-search-pro'` and write outputs under `$SEARCH_DIR`.",
             "- Run source expansion / multi-query retrieval by strategy/source in the main Agent.",
             "- Merge raw source outputs with `scripts.federated_kg_resolver` into `kg.json`.",
             "- Classify RCS batches serially in the main Agent, then merge with `scripts.rcs_parser` into `kg_classified.json`.",
-            "- Materialize with `scripts.data_materialization --rcs-execution-mode main_agent_serial --output materialized/report_data.json`.",
-            "- Render with `scripts.html_renderer_webartifacts --materialized-dir materialized --output report.html`.",
+            "- Write `execution_log.json` with `execution_mode`, `execution_fallback_reason`, `tier_budget`, `stop_reason`, completed batches, and real retrieval/classification snapshots.",
+            f"- Materialize with `{serial_fallback_runbook['materialization_command']}`.",
+            f"- Render with `{serial_fallback_runbook['render_command']}`.",
             "- If staged provenance or valid RCS is missing, keep discovery curve disabled/dash; do not fabricate a curve.",
             "",
             "Run the upstream paper-search-pro Skill workflow with this seed package to perform full professional research.",
