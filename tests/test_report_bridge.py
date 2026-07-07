@@ -323,6 +323,10 @@ class ReportBridgeTests(unittest.TestCase):
             self.assertIn("multi_agent_v1.spawn_agent", instructions)
             self.assertIn("subagent_spawn_failed", instructions)
             self.assertIn("main-Agent serial full-workflow execution", instructions)
+            self.assertIn("$env:PYTHONPATH='tools/paper-search-pro'", instructions)
+            self.assertIn("$SEARCH_DIR", instructions)
+            self.assertIn('budget_max_papers (180)', instructions)
+            self.assertIn("subagents_unavailable_user_chose_serial", instructions)
             self.assertIn("run `seed_preview` HTML report", instructions)
             context = json.loads(
                 (Path(job.handoff_path).parent / "query_plan_context.json").read_text(encoding="utf-8")
@@ -368,9 +372,25 @@ class ReportBridgeTests(unittest.TestCase):
             )
             runbook = context["automation"]["serial_fallback_runbook"]
             self.assertEqual(runbook["execution"], "main_agent_serial")
+            self.assertEqual(
+                runbook["command_context"],
+                {
+                    "run_from": "repository_root",
+                    "pythonpath": "tools/paper-search-pro",
+                    "search_dir": "paper-search-results/<search_id>",
+                },
+            )
             self.assertIn("serial source expansion / retrieval", runbook["summary"])
+            self.assertIn("$env:PYTHONPATH='tools/paper-search-pro'", runbook["materialization_command"])
+            self.assertIn("$SEARCH_DIR/kg_classified.json", runbook["materialization_command"])
+            self.assertIn("$SEARCH_DIR/query_plan.json", runbook["materialization_command"])
+            self.assertIn("$SEARCH_DIR/materialized/report_data.json", runbook["materialization_command"])
+            self.assertIn('--stop-reason "budget_max_papers (180)"', runbook["materialization_command"])
             self.assertIn("main_agent_serial", runbook["materialization_command"])
-            self.assertIn("materialized/report_data.json", runbook["materialization_command"])
+            self.assertIn("subagents_unavailable_user_chose_serial", runbook["materialization_command"])
+            self.assertIn("$env:PYTHONPATH='tools/paper-search-pro'", runbook["render_command"])
+            self.assertIn("$SEARCH_DIR/materialized", runbook["render_command"])
+            self.assertIn("$SEARCH_DIR/report.html", runbook["render_command"])
             self.assertIn("html_renderer_webartifacts", runbook["render_command"])
             self.assertEqual(
                 [step["phase"] for step in runbook["steps"]],
@@ -388,6 +408,10 @@ class ReportBridgeTests(unittest.TestCase):
             self.assertEqual(retrieval_step["helper"], "scripts.openalex_helper")
             self.assertIn("raw/*.json", retrieval_step["output"])
             self.assertTrue(retrieval_step["snapshot_required"])
+            execution_log_step = runbook["steps"][4]
+            self.assertEqual(execution_log_step["phase"], "execution_log")
+            self.assertEqual(execution_log_step["helper"], "main_agent_json_writer")
+            self.assertEqual(execution_log_step["output"], ["execution_log.json"])
             self.assertEqual(
                 runbook["execution_log_fields"],
                 [

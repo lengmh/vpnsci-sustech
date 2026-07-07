@@ -1,6 +1,7 @@
 import json
 import os
 import re
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -43,6 +44,23 @@ class WritableTemporaryDirectory:
 
 
 class HtmlRendererWebartifactsCompatTests(unittest.TestCase):
+    def test_data_materialization_cli_exposes_serial_fallback_metadata_flags(self):
+        env = dict(os.environ)
+        env["PYTHONPATH"] = str(PSP_ROOT)
+        completed = subprocess.run(
+            [sys.executable, "-m", "scripts.data_materialization", "--help"],
+            cwd=str(ROOT),
+            env=env,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+
+        self.assertIn("--stop-reason", completed.stdout)
+        self.assertIn("--workflow-kind", completed.stdout)
+        self.assertIn("--execution-mode", completed.stdout)
+        self.assertIn("--execution-fallback-reason", completed.stdout)
+
     def test_discovery_curve_compacts_zero_yield_stages_before_fit(self):
         payload = build_discovery_curve_payload(
             [
@@ -585,6 +603,10 @@ class HtmlRendererWebartifactsCompatTests(unittest.TestCase):
                 output_dir,
                 user_query="graph neural network",
                 rcs_execution_mode="main_agent_serial",
+                workflow_kind="full_workflow",
+                execution_mode="main_agent_serial",
+                execution_fallback_reason="subagents_unavailable_user_chose_serial",
+                stop_reason="budget_max_papers (180)",
             )
 
             papers = json.loads((output_dir / "paper_list.json").read_text(encoding="utf-8"))
@@ -598,6 +620,14 @@ class HtmlRendererWebartifactsCompatTests(unittest.TestCase):
         self.assertEqual(by_id["10.1/b"]["rcs_source"], "parser_fallback")
         self.assertEqual(by_id["10.1/b"]["rcs_flag"], "parse_failed_uncertain")
         self.assertEqual(metadata["rcs_execution_mode"], "main_agent_serial")
+        self.assertEqual(metadata["report_mode"], "full")
+        self.assertEqual(metadata["workflow_kind"], "full_workflow")
+        self.assertEqual(metadata["execution_mode"], "main_agent_serial")
+        self.assertEqual(
+            metadata["execution_fallback_reason"],
+            "subagents_unavailable_user_chose_serial",
+        )
+        self.assertEqual(metadata["stop_reason"], "budget_max_papers (180)")
         self.assertEqual(metadata["rcs_scope"], "full_workflow")
         self.assertEqual(metadata["rcs_valid_count"], 1)
         self.assertEqual(metadata["rcs_total_count"], 2)
