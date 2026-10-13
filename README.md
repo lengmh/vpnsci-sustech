@@ -3,30 +3,23 @@
 </p>
 
 <p align="center">
-  <strong>natural language in · papers / PDFs / reports out</strong>
+  <strong>From a research question to the papers behind it.</strong><br />
+  Search academic literature, retrieve available full texts, and assemble research reports through MCP.
 </p>
 
 <p align="center">
-  学术论文全文获取工具，支持 100+ 中国高校。<br>
-  通过 MCP 协议接入 AI Agent，用自然语言搜索论文、获取全文并生成报告。
-</p>
-
-<p align="center">
-  <a href="https://github.com/lengmh/vpnsci-sustech"><img alt="version" src="https://img.shields.io/badge/version-0.1.0-1ca3ec"></a>
-  <a href="https://github.com/lengmh/vpnsci-sustech/stargazers"><img alt="stars" src="https://img.shields.io/github/stars/lengmh/vpnsci-sustech?style=flat&label=stars"></a>
-  <a href="https://github.com/lengmh/vpnsci-sustech/commits/main"><img alt="last commit" src="https://img.shields.io/github/last-commit/lengmh/vpnsci-sustech?label=last%20commit"></a>
-  <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-7cb342"></a>
-  <a href="https://www.python.org/downloads/"><img alt="python" src="https://img.shields.io/badge/python-%3E%3D3.10-f39c12"></a>
-  <a href="https://modelcontextprotocol.io/"><img alt="mcp" src="https://img.shields.io/badge/MCP-stdio-f39c12"></a>
+  <a href="pyproject.toml"><img alt="version" src="https://img.shields.io/badge/version-0.1.0-0ea5e9?style=flat-square"></a>
+  <a href="https://github.com/lengmh/vpnsci-sustech/stargazers"><img alt="stars" src="https://img.shields.io/github/stars/lengmh/vpnsci-sustech?style=flat-square&amp;label=stars"></a>
+  <a href="LICENSE"><img alt="license: MIT" src="https://img.shields.io/badge/license-MIT-7cb342?style=flat-square"></a>
+  <a href="https://github.com/lengmh/vpnsci-sustech/commits/main"><img alt="last commit" src="https://img.shields.io/github/last-commit/lengmh/vpnsci-sustech?style=flat-square&amp;label=last%20commit"></a>
 </p>
 
 <p align="center">
   <a href="#使用方式">Quick Start</a> ·
   <a href="#搜索模式">Search</a> ·
   <a href="#paper-search-pro-报告桥接配置">Reports</a> ·
-  <a href="#sustech--carsi-特殊支持">SUSTech</a> ·
-  <a href="#当前站点支持说明">Backends</a> ·
-  <a href="https://github.com/lengmh/vpnsci-sustech/releases">Releases</a>
+  <a href="docs/README.md">Docs</a> ·
+  <a href="docs/releases/README.md">Release Notes</a>
 </p>
 
 ## 获取原理
