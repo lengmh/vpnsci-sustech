@@ -73,7 +73,7 @@ python -m unittest discover -s tests -v
 - 归档：cnki/基于光学芯片的中性原子量子计算系统 - 陈梁.caj。
 - 验证：12899642 bytes，SHA256 `cb3a4d4bc400850ceec85486843346b3c7b9dd9c1cb4744c6ace1239a5f42625`，文件头 `KDH 2.00 Copyright`，`text_extracted=false`。
 - 说明：CAJ 原文保存成功；当前默认不解析 CAJ 全文，不内置转换器。
-- 文件后续已由用户整理到 `%USERPROFILE%\.vpnsci-sustech\papers\cnki`；仓库内不再保留 `cnki/` 下载目录。
+- 文件后续已由用户整理到 `%USERPROFILE%\.vpnsci-sustech\papers\cnki`（使用环境变量表示用户目录，历史归档位置已脱敏）；仓库内不再保留 `cnki/` 下载目录。
 
 ## 待真实 smoke 验证项
 
