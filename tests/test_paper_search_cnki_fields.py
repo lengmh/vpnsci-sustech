@@ -28,7 +28,7 @@ class PaperSearchCnkiFieldsTests(unittest.TestCase):
                         dbname="中国学术期刊网络出版总库",
                         source_url="https://kns.cnki.net/kcms2/article/abstract?filename=ABC123",
                         download_format="caj",
-                        local_file="F:/AI playground/TempFiles/钙钛矿太阳能电池稳定性研究 - 张三.caj",
+                        local_file="C:/Example workspace/TempFiles/钙钛矿太阳能电池稳定性研究 - 张三.caj",
                         result_type="journal",
                         keywords=["钙钛矿", "太阳能电池"],
                         affiliations=["南方科技大学"],
@@ -47,7 +47,7 @@ class PaperSearchCnkiFieldsTests(unittest.TestCase):
             self.assertEqual(papers[0]["cnki_id"], "ABC123")
             self.assertEqual(papers[0]["source_url"], "https://kns.cnki.net/kcms2/article/abstract?filename=ABC123")
             self.assertEqual(papers[0]["download_format"], "caj")
-            self.assertEqual(papers[0]["local_file"], "F:/AI playground/TempFiles/钙钛矿太阳能电池稳定性研究 - 张三.caj")
+            self.assertEqual(papers[0]["local_file"], "C:/Example workspace/TempFiles/钙钛矿太阳能电池稳定性研究 - 张三.caj")
             self.assertEqual(papers[0]["result_type"], "journal")
             self.assertEqual(papers[0]["id"], "cnki:ABC123")
             self.assertEqual(papers[0]["doi"], "10.1234/example")

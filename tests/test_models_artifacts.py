@@ -10,7 +10,7 @@ class PaperArtifactModelTests(unittest.TestCase):
             title="CNKI Paper",
             artifacts=[
                 Artifact(
-                    path="F:/AI playground/TempFiles/CNKI Paper.caj",
+                    path="C:/Example workspace/TempFiles/CNKI Paper.caj",
                     format="caj",
                     kind="source_file",
                     source_url="https://kns.cnki.net/kcms2/article/abstract?v=x",

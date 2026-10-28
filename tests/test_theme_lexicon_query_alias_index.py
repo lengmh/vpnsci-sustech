@@ -13,7 +13,7 @@ from tests.temp_helpers import select_temp_parent
 REPO_ROOT = Path(__file__).resolve().parents[1]
 QUERY_SCRIPT_PATH = REPO_ROOT / "tools" / "theme-lexicon" / "query_alias_index.py"
 SUMMARY_SCRIPT_PATH = REPO_ROOT / "tools" / "theme-lexicon" / "summarize_alias_runtime.py"
-TEMP_ROOT = Path(os.environ.get("VPNSCI_TEST_TMP", r"F:\AI playground\TempFiles"))
+TEMP_ROOT = Path(os.environ.get("VPNSCI_TEST_TMP", tempfile.gettempdir()))
 
 
 def load_script(name: str, path: Path):

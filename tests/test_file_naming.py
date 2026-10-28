@@ -2,6 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from tests.temp_helpers import get_temp_parent
 from vpnsci_sustech.models import Paper
 
 
@@ -90,7 +91,7 @@ class FileNamingTests(unittest.TestCase):
     def test_reserve_unique_path_does_not_overwrite_existing_file(self):
         from vpnsci_sustech.file_naming import reserve_unique_path
 
-        temp_root = Path("F:/AI playground/TempFiles")
+        temp_root = get_temp_parent()
         temp_root.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(dir=temp_root) as tmp:
             base = Path(tmp)

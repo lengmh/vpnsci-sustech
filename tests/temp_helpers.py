@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
+import tempfile
 import uuid
 
 
@@ -23,3 +24,10 @@ def select_temp_parent(primary: Path, *fallbacks: Path) -> Path:
         if usable is not None:
             return usable
     raise RuntimeError("No writable temporary parent is available for tests")
+
+
+def get_temp_parent() -> Path:
+    system_temp = Path(tempfile.gettempdir())
+    override = os.environ.get("VPNSCI_TEST_TMP") or os.environ.get("VPN_SCI_TEST_TMP")
+    primary = Path(override) if override else system_temp
+    return select_temp_parent(primary, system_temp)

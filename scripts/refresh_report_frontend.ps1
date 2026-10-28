@@ -1,3 +1,9 @@
+[CmdletBinding()]
+param(
+    [ValidateNotNullOrEmpty()]
+    [string]$TempRoot = [System.IO.Path]::GetTempPath()
+)
+
 $ErrorActionPreference = 'Stop'
 $PSStyle.OutputRendering = 'PlainText'
 
@@ -6,6 +12,9 @@ Refresh vpnsci-sustech report frontend artifacts.
 
 Repo-maintainer only. This is a source-repo maintenance helper, not a product
 CLI feature and not an MCP tool.
+
+Temporary inline files use the system temporary directory unless -TempRoot is
+explicitly supplied. Each invocation removes only its own inline file.
 
 What it refreshes:
 1. React/TS frontend build output under:
@@ -28,8 +37,9 @@ After this script:
 
 $RepoRoot = Split-Path -Parent $PSScriptRoot
 $FrontendRoot = Join-Path $RepoRoot 'tools\paper-search-pro\assets\webartifacts_app\paper-report'
-$TempRoot = 'F:\AI playground\TempFiles'
-$TempIndex = Join-Path $TempRoot 'paper-report-inline-index.html'
+$TempRoot = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($TempRoot)
+$TempIndex = Join-Path $TempRoot ("paper-report-inline-{0}.html" -f [guid]::NewGuid().ToString('N'))
+$TempIndexCreated = $false
 $BundlePath = Join-Path $FrontendRoot 'bundle.html'
 $InlineCmd = Join-Path $FrontendRoot 'node_modules\.bin\html-inline.cmd'
 
@@ -59,6 +69,9 @@ try {
     Write-Host '[2/4] Re-inline dist/index.html into bundle.html'
     $content = Get-Content 'dist\index.html' -Raw -Encoding utf8
     $content = $content -replace '/assets/', './assets/'
+    $tempStream = [System.IO.File]::Open($TempIndex, [System.IO.FileMode]::CreateNew)
+    $TempIndexCreated = $true
+    $tempStream.Dispose()
     Set-Content -LiteralPath $TempIndex -Value $content -Encoding utf8
     & $InlineCmd -i $TempIndex -o 'bundle.html' -b 'dist'
 
@@ -68,6 +81,9 @@ try {
 }
 finally {
     Pop-Location
+    if ($TempIndexCreated) {
+        Remove-Item -LiteralPath $TempIndex -ErrorAction Stop
+    }
 }
 
 Write-Host '[3/4] Refresh local bundled runtime copy'

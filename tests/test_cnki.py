@@ -7,6 +7,7 @@ from unittest import mock
 
 import pymupdf
 
+from tests.temp_helpers import get_temp_parent
 from vpnsci_sustech.config import Config
 from vpnsci_sustech.models import Paper
 from vpnsci_sustech.sources import cnki
@@ -48,7 +49,7 @@ class CNKIProbeTests(unittest.TestCase):
                 )
 
     def test_search_fixture_parses_to_search_session(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             session = cnki.search_cnki_from_html_file(
                 "钙钛矿",
                 FIXTURE_DIR / "search_results.html",
@@ -331,7 +332,7 @@ class CNKIProbeTests(unittest.TestCase):
         </table>
         """
 
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             session = cnki.search_cnki_from_html(
                 "钙钛矿",
                 html,
@@ -358,7 +359,7 @@ class CNKIProbeTests(unittest.TestCase):
         </table>
         """
 
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             html_file = Path(tmp) / "search.html"
             html_file.write_text(html, encoding="utf-8")
 
@@ -376,7 +377,7 @@ class CNKIProbeTests(unittest.TestCase):
     def test_search_cnki_from_html_returns_blocked_session_for_login_page(self):
         html = "<html><body>统一身份认证 用户登录</body></html>"
 
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             session = cnki.search_cnki_from_html(
                 "钙钛矿",
                 html,
@@ -387,7 +388,7 @@ class CNKIProbeTests(unittest.TestCase):
             self.assertEqual(session.errors[0].code, "manual_login_required")
 
     def test_wait_for_cnki_download_accepts_caj_and_ignores_partial_files(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             download_dir = Path(tmp)
             (download_dir / "paper.caj.crdownload").write_bytes(b"partial")
             self.assertIsNone(cnki.wait_for_cnki_download(download_dir, timeout=0))
@@ -404,7 +405,7 @@ class CNKIProbeTests(unittest.TestCase):
             self.assertEqual(result.content, b"caj-content")
 
     def test_wait_for_cnki_download_returns_new_complete_file_when_old_file_exists(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             download_dir = Path(tmp)
             old_pdf = download_dir / "old.pdf"
             old_pdf.write_bytes(b"%PDF-old")
@@ -421,7 +422,7 @@ class CNKIProbeTests(unittest.TestCase):
             self.assertEqual(result.content, b"%PDF-new")
 
     def test_wait_for_cnki_download_returns_changed_file_when_same_name_changes(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             download_dir = Path(tmp)
             pdf = download_dir / "same-name.pdf"
             pdf.write_bytes(b"%PDF-old")
@@ -439,7 +440,7 @@ class CNKIProbeTests(unittest.TestCase):
             self.assertEqual(result.content, b"%PDF-new-content")
 
     def test_save_cnki_downloaded_artifact_uses_filename_policy_and_marks_non_pdf_unextracted(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = Config(output_dir=tmp, cache_dir=tmp, paper_filename_policy="title_author")
             paper = Paper(title="钙钛矿太阳能电池稳定性研究", authors=["张三"], source="cnki")
             setattr(paper, "cnki_id", "ABC123")
@@ -461,7 +462,7 @@ class CNKIProbeTests(unittest.TestCase):
             self.assertEqual(len(paper.artifacts), 1)
 
     def test_save_cnki_downloaded_artifact_allows_explicit_filename_policy_override(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = Config(output_dir=tmp, cache_dir=tmp, paper_filename_policy="identifier")
             paper = Paper(title="钙钛矿太阳能电池稳定性研究", authors=["张三"], source="cnki")
             setattr(paper, "cnki_id", "ABC123")
@@ -482,7 +483,7 @@ class CNKIProbeTests(unittest.TestCase):
             self.assertNotEqual(Path(artifact.path).name, "ABC123.caj")
 
     def test_caj_conversion_is_disabled_by_default(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = Config(output_dir=tmp, cache_dir=tmp, paper_filename_policy="title_author")
             paper = Paper(title="CNKI Source", authors=["Li"], source="cnki")
             downloaded = cnki.DownloadedArtifact(
@@ -499,7 +500,7 @@ class CNKIProbeTests(unittest.TestCase):
             self.assertEqual(paper.pdf_path, "")
 
     def test_caj_conversion_success_adds_converted_pdf_artifact(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = Config(
                 output_dir=tmp,
                 cache_dir=tmp,
@@ -537,7 +538,7 @@ class CNKIProbeTests(unittest.TestCase):
             run_mock.assert_called_once()
 
     def test_caj_conversion_failure_keeps_original_artifact_success(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = Config(
                 output_dir=tmp,
                 cache_dir=tmp,
@@ -561,7 +562,7 @@ class CNKIProbeTests(unittest.TestCase):
             self.assertEqual(paper.pdf_path, "")
 
     def test_caj_conversion_missing_placeholder_keeps_original_artifact_success(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = Config(
                 output_dir=tmp,
                 cache_dir=tmp,
@@ -585,7 +586,7 @@ class CNKIProbeTests(unittest.TestCase):
             self.assertEqual(paper.pdf_path, "")
 
     def test_save_cnki_downloaded_pdf_sets_pdf_path_and_extracted_flag(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = Config(output_dir=tmp, cache_dir=tmp, paper_filename_policy="title_author")
             pdf_path = Path(tmp) / "source.pdf"
             doc = pymupdf.open()
@@ -608,7 +609,7 @@ class CNKIProbeTests(unittest.TestCase):
             self.assertTrue(artifact.text_extracted)
 
     def test_save_cnki_downloaded_invalid_pdf_marks_unextracted(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = Config(output_dir=tmp, cache_dir=tmp, paper_filename_policy="title_author")
             paper = Paper(title="CNKI PDF", authors=["Zhang"], source="cnki")
             downloaded = cnki.DownloadedArtifact(
@@ -624,7 +625,7 @@ class CNKIProbeTests(unittest.TestCase):
             self.assertIn("未能提取全文", artifact.note)
 
     def test_save_cnki_downloaded_pdf_extracts_full_text(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = Config(output_dir=tmp, cache_dir=tmp, paper_filename_policy="title_author")
             pdf_path = Path(tmp) / "source.pdf"
             doc = pymupdf.open()
@@ -646,7 +647,7 @@ class CNKIProbeTests(unittest.TestCase):
             self.assertIn("CNKI PDF extracted text", paper.full_text)
 
     def test_cnki_client_download_from_existing_file_does_not_use_network(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = Config(output_dir=str(Path(tmp) / "out"), cache_dir=tmp, paper_filename_policy="title_author")
             source = Path(tmp) / "download.cajx"
             source.write_bytes(b"cajx-content")
@@ -664,7 +665,7 @@ class CNKIProbeTests(unittest.TestCase):
             self.assertFalse(artifact.text_extracted)
 
     def test_cnki_client_live_download_requires_confirmation(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = Config(output_dir=str(Path(tmp) / "out"), cache_dir=tmp)
             client = cnki.CNKIClient(cfg)
             factory = mock.Mock(side_effect=AssertionError("browser should not launch"))
@@ -694,7 +695,7 @@ class CNKIProbeTests(unittest.TestCase):
             def quit(self):
                 self.closed = True
 
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = Config(output_dir=str(Path(tmp) / "out"), cache_dir=tmp)
             client = cnki.CNKIClient(cfg)
             driver = FakeDriver()
@@ -756,7 +757,7 @@ class CNKIProbeTests(unittest.TestCase):
             def quit(self):
                 self.closed = True
 
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             output_dir = Path(tmp) / "out"
             download_dir = Path(tmp) / "downloads"
             cfg = Config(output_dir=str(output_dir), cache_dir=tmp, paper_filename_policy="title_author")
@@ -839,7 +840,7 @@ class CNKIProbeTests(unittest.TestCase):
             def quit(self):
                 self.closed = True
 
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             download_dir = Path(tmp) / "downloads"
             cfg = Config(output_dir=str(Path(tmp) / "out"), cache_dir=tmp, paper_filename_policy="title_author")
             driver = FakeDriver(download_dir)
@@ -906,7 +907,7 @@ class CNKIProbeTests(unittest.TestCase):
             def quit(self):
                 self.closed = True
 
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             download_dir = Path(tmp) / "downloads"
             cfg = Config(output_dir=str(Path(tmp) / "out"), cache_dir=tmp, paper_filename_policy="title_author")
             driver = FakeDriver()
@@ -927,7 +928,7 @@ class CNKIProbeTests(unittest.TestCase):
             self.assertTrue(driver.closed)
 
     def test_cnki_batch_download_throttles_cools_and_persists_state(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = Config(output_dir=str(Path(tmp) / "out"), cache_dir=tmp, paper_filename_policy="title_author")
             client = cnki.CNKIClient(cfg)
             sleeps: list[float] = []
@@ -975,7 +976,7 @@ class CNKIProbeTests(unittest.TestCase):
             self.assertIn("Paper 1", result.state_path.read_text(encoding="utf-8"))
 
     def test_cnki_batch_download_stops_after_failure_and_resume_skips_finished_entries(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = Config(output_dir=str(Path(tmp) / "out"), cache_dir=tmp, paper_filename_policy="title_author")
             client = cnki.CNKIClient(cfg)
             items = [
@@ -1037,7 +1038,7 @@ class CNKIProbeTests(unittest.TestCase):
             self.assertEqual([entry.status for entry in resumed.entries], ["succeeded", "failed", "succeeded"])
 
     def test_cnki_batch_download_writes_recovery_sidecar(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = Config(output_dir=str(Path(tmp) / "out"), cache_dir=tmp, paper_filename_policy="title_author")
             client = cnki.CNKIClient(cfg)
 
@@ -1074,7 +1075,7 @@ class CNKIProbeTests(unittest.TestCase):
             self.assertEqual(data["report_recovery_capability"], "degraded")
 
     def test_cnki_batch_sidecar_backfills_hit_key_and_cnki_identifiers_from_detail_url(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = Config(output_dir=str(Path(tmp) / "out"), cache_dir=tmp, paper_filename_policy="title_author")
             client = cnki.CNKIClient(cfg)
 
@@ -1108,7 +1109,7 @@ class CNKIProbeTests(unittest.TestCase):
             self.assertEqual(data["items"][0]["dbname"], "CJFDLAST2024")
 
     def test_cnki_batch_download_with_formal_provenance_writes_standard_sidecar(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = Config(output_dir=str(Path(tmp) / "out"), cache_dir=tmp, paper_filename_policy="title_author")
             client = cnki.CNKIClient(cfg)
 
@@ -1149,7 +1150,7 @@ class CNKIProbeTests(unittest.TestCase):
             self.assertEqual(data["derived_session_id"], "search-derived")
 
     def test_search_cnki_marks_gated_request_instead_of_source_execution(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = Config(cache_dir=tmp)
 
             session = cnki.search_cnki("钙钛矿", config=cfg)
@@ -1217,7 +1218,7 @@ class CNKIProbeTests(unittest.TestCase):
             def quit(self):
                 self.closed = True
 
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             download_dir = Path(tmp) / "downloads"
             cfg = Config(output_dir=str(Path(tmp) / "out"), cache_dir=tmp, paper_filename_policy="title_author")
             driver = FakeDriver(download_dir)
@@ -1302,7 +1303,7 @@ class CNKIProbeTests(unittest.TestCase):
             def quit(self):
                 self.closed = True
 
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             download_dir = Path(tmp) / "downloads"
             cfg = Config(output_dir=str(Path(tmp) / "out"), cache_dir=tmp, paper_filename_policy="title_author")
             driver = FakeDriver(download_dir)
@@ -1346,7 +1347,7 @@ class CNKIProbeTests(unittest.TestCase):
             def quit(self):
                 pass
 
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             download_dir = Path(tmp) / "downloads"
             cfg = Config(output_dir=str(Path(tmp) / "out"), cache_dir=tmp)
             driver = FakeDriver(download_dir)
@@ -1421,7 +1422,7 @@ class CNKIProbeTests(unittest.TestCase):
             def quit(self):
                 pass
 
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = Config(output_dir=str(Path(tmp) / "out"), cache_dir=tmp, paper_filename_policy="title_author")
             driver = FakeDriver()
             client = cnki.CNKIClient(cfg)
