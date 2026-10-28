@@ -202,6 +202,13 @@ The ambiguous candidate files must have:
 
 Unsupported schema/status is also a hard error.
 
+Host-Agent results must use `theme_candidate_resolution_result.v1`; invalid
+results are not applied. Requests retain `source_concept_id`, `target_hint`,
+`resolution_group`, `requires_context`, `allow_deterministic_shadow`, and
+`evidence_aliases` so resolution remains auditable. Only explicit context seeds
+may request deterministic shadowing in the low-signal path; ordinary
+audit-derived candidates keep the normal deterministic precedence.
+
 External taxonomies such as IEEE Taxonomy, CSO, PhySH, MSC2020, arXiv
 categories, or MeSH/UMLS may be used as references for canonical labels or
 Agent-suggested maintenance, but they should not replace the accepted alias
@@ -280,3 +287,68 @@ Before claiming a lexicon update is complete:
 - targeted tests pass with `uv run pytest ...`;
 - if HTML was regenerated through MCP/local runtime, the runtime copy was refreshed
   or the user was told to restart/reload the MCP session.
+
+## Curation and rebuild constraints
+
+Versioned maintenance inputs include:
+
+- `tools/theme-lexicon/reviewed_zh_exact_aliases.json`;
+- `tools/theme-lexicon/concept_curation_decisions.json`;
+- `tools/theme-lexicon/contextual_alias_resolution_seeds.json`.
+
+Context seeds are candidate evidence, not accepted aliases. Curation redirects
+must name an explicit canonical target and must not form redirect chains.
+Canonical overrides change display only; `display_only` and `suppressed`
+concepts must not return through aliases or context seeds. Do not force
+acronym-only, broader/narrower, class/instance, domain-drift, or semantic-neighbor
+pairs into redirects. Preserve deferred decisions until stronger evidence exists.
+
+The offline stages parse sources, build concepts, generate candidates, validate,
+and review before materialization. Runtime must not read local `lexicons/`
+source/build/candidate/review directories. Before rebuilding:
+
+1. Copy the current `lexicons/review/review_decisions.jsonl` to a writable backup
+   outside the repository. Local source caches and reviews are not bundled inputs.
+2. Generate candidates with `fill_zh_alias_candidates.py --replace-generated`,
+   validate with `validate_alias_overlay.py`, and restore prior decisions with
+   `preserve_zh_review_decisions.py --prior <backup> --current <review-decisions>`.
+3. Match recommendations by `(lang, concept_id, alias)`. Legacy recommendations
+   without `lang` use the explicit `--lang`. English short acronyms require
+   explicit recommendations/allowlists; do not blanket accept missing rows.
+4. Run `block_accepted_alias_conflicts.py` before materialization. Keep unresolved
+   collisions blocked; do not auto-merge concepts.
+5. Validate the current curation decisions with `apply_concept_curation.py` and
+   supply its overlay through `materialize_runtime_overlay.py --curation-overlay`.
+   Use explicit temporary `--index-output` and `--manifest-output` paths to review
+   the result before updating both tracked runtime copies. Do not silently drop
+   the production curation overlay during a rebuild.
+6. Rebuild the ambiguous candidate layer against the resulting runtime, then run
+   the review checklist above. Reviewed exact-source rows must reach their
+   intended runtime targets; remove or defer rows blocked by shape/target guards.
+
+Review-time collision normalization and runtime normalization are distinct.
+English singular normalization / Chinese punctuation removal may collide only
+at runtime; preserve the existing materialized-order first-target mapping rather
+than treating these compatibility cases as accepted review conflicts. The
+compact loader must preserve the corresponding legacy mapping behavior, while
+the retained legacy overlay itself may be older than production.
+
+Non-canonical English aliases only use exact glossary hits; compositional
+generation is limited to canonical labels. Keep external-identifier, ordinary
+English-residue, redundant-translation, and domain-drift guards. Translation
+evidence must respect domain/source/path context rather than accepting a
+dictionary match alone.
+
+## Production baseline and remaining limits
+
+The current manifests describe a curated production runtime, rather than the
+earlier temporary work views: 49,913 raw concepts, 49,107 curated concepts, and
+48,411 concepts with accepted Chinese aliases (98.58%). The separate candidate
+layer reaches 710 further concepts through 758 candidate aliases. Counts and
+hashes should be re-read from the tracked manifests when continuing maintenance.
+
+Deterministic coverage and candidate-resolvable coverage must be reported
+separately. Effective coverage includes candidates needing report-local evidence;
+it does not mean all concepts have deterministic Chinese aliases or that every
+report can resolve them. The historical zero-tail work-view result is not a
+license to accept unresolved aliases, merge concepts, or bypass quality gates.
