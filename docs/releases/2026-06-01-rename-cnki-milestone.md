@@ -43,40 +43,29 @@
 
 ## 第三方参考与许可证
 
-- 参考了计划中记录的公开工具生态和流程边界，包括 `cookjohn/cnki-skills`、`h-lu/cnki-mcp`、`caj2pdf/caj2pdf`。
+- 公开工具生态与流程边界参考包括 `cookjohn/cnki-skills`、`h-lu/cnki-mcp`、`caj2pdf/caj2pdf`。
 - 本阶段未复制、vendor 或运行第三方 CNKI 项目代码。
 - CAJ 转 PDF 未内置；后续如接外部 converter，需要用户显式配置。
 
 ## 验证
 
 ```bash
-python -m unittest tests.test_cnki tests.test_cli_cnki tests.test_mcp_server tests.test_models_artifacts tests.test_file_naming tests.test_fetcher_phase2 tests.test_search_models -v
-python -m unittest tests.test_paper_search_cnki_fields tests.test_paper_search_pro_adapter -v
-python -m unittest tests.test_cnki tests.test_cli_cnki tests.test_mcp_server tests.test_site_policy tests.test_backend_routing -v
-python -m compileall vpnsci_sustech tests
-python -m unittest discover -s tests -v
+uv run pytest tests/test_cnki.py tests/test_cli_cnki.py tests/test_mcp_server.py tests/test_models_artifacts.py tests/test_file_naming.py tests/test_fetcher_phase2.py tests/test_search_models.py -q
+uv run pytest tests/test_paper_search_cnki_fields.py tests/test_paper_search_pro_adapter.py tests/test_site_policy.py tests/test_backend_routing.py -q
+uv run python -m compileall -q vpnsci_sustech tests
+uv run pytest tests -q
 ```
 
-## 2026-06-01 CNKI PDF live smoke follow-up
+## 真实 smoke 的结论与复现方法
 
-- 使用关键词 量子计算 冷原子 完成真实 PDF 链路验证。
-- 样本：基于光学芯片的中性原子量子计算系统 / 陈梁。
-- 归档：cnki/基于光学芯片的中性原子量子计算系统 - 陈梁_4d0d873d.pdf。
-- 验证：127 页，13520400 bytes，SHA256 `b917d24b0e550c22bdc0be037bf98f0d79bdc02ee716dca17455482e4f7be3b8`，正文文本可提取并包含 陈梁、冷原子、量子计算。
-- 修复：下载等待逻辑可识别同名文件覆盖/更新；点击逻辑增加滚动和 JS click fallback。
+- 本阶段曾完成真实 PDF 和 CAJ 单文件下载验证。PDF 正文可提取；CAJ 仅确认原文件保存成功，`text_extracted=false`，未验证 CAJ 全文解析或转换。
+- 真实访问曾触发验证码并超时，后续重试成功不等于已验证「人工完成验证码后工具自动续传」。下述待验证项继续保留。
+- 下载等待逻辑已支持识别同名文件覆盖/更新；下载点击支持滚动和 JS click fallback。这些处理不绕过站点验证。
 
-## 2026-06-01 CNKI CAJ live smoke follow-up
-
-- 用户确认后补充真实 CAJ 下载 smoke。
-- 样本：基于光学芯片的中性原子量子计算系统 / 陈梁。
-- 第一次 CAJ 触发 `bar.cnki.net` 拼图校验并超时；用户关闭校验页后重试成功。
-- 归档：cnki/基于光学芯片的中性原子量子计算系统 - 陈梁.caj。
-- 验证：12899642 bytes，SHA256 `cb3a4d4bc400850ceec85486843346b3c7b9dd9c1cb4744c6ace1239a5f42625`，文件头 `KDH 2.00 Copyright`，`text_extracted=false`。
-- 说明：CAJ 原文保存成功；当前默认不解析 CAJ 全文，不内置转换器。
-- 文件后续已由用户整理到 `%USERPROFILE%\.vpnsci-sustech\papers\cnki`（使用环境变量表示用户目录，历史归档位置已脱敏）；仓库内不再保留 `cnki/` 下载目录。
+复现真实 smoke 前取得单次访问授权，使用有合法访问权限的样本和仓库外输出目录。记录实际版本、页面状态、下载结果、文件格式、大小、SHA-256 和文本提取状态；证据留在本地，不提交个人 query、样本题名/作者、下载文件名或本机路径。PDF 检查可打开性与文本提取，CAJ 检查原文件与 `text_extracted` 标记；验证码超时、人工重试与工具自动续传分别记录。
 
 ## 待真实 smoke 验证项
 
-- 计划 A：验证码等待与人工完成后自动 resume 已有 fake-driver/单元测试覆盖，但尚未单独做一次“点击下载后触发 `bar.cnki.net` 验证页、用户人工完成、工具自动继续归档”的真实 CNKI smoke。
-- 计划 B：`cnki-batch-download` / `download_cnki_batch_artifacts` 的节流、冷却、连续失败停止与 `--resume` 已有单元测试覆盖，但尚未做真实小批量 CNKI 下载 smoke。
-- 以上 smoke 仍需用户再次显式授权；执行时应限制小样本，建议 2 篇以内，输出目录仍使用 `%USERPROFILE%\.vpnsci-sustech\papers\cnki` 或用户指定目录。
+- 验证码等待与人工完成后自动 resume 已有 fake-driver/单元测试覆盖，但尚未单独做一次「点击下载后触发 `bar.cnki.net` 验证页、用户人工完成、工具自动继续归档」的真实 CNKI smoke。
+- `cnki-batch-download` / `download_cnki_batch_artifacts` 的节流、冷却、连续失败停止与 `--resume` 已有单元测试覆盖，但尚未做真实小批量 CNKI 下载 smoke。
+- 以上 smoke 需要独立的显式授权；限制小样本，建议 2 篇以内，输出到仓库外的指定目录。历史单文件成功与单元测试不能替代这些验收。
