@@ -6,6 +6,7 @@ import unittest
 from unittest import mock
 from types import SimpleNamespace
 
+from tests.temp_helpers import get_temp_parent
 from vpnsci_sustech import mcp_server
 from vpnsci_sustech.sources import cnki
 from vpnsci_sustech.sources.semantic_scholar import SemanticScholarRateLimitError
@@ -97,12 +98,12 @@ class MCPServerTests(unittest.TestCase):
             source_summary={"openalex": 1},
         )
         fake_job = mcp_server.report_bridge.ReportJob(
-            report_path="F:/AI playground/TempFiles/report.html",
+            report_path="C:/Example workspace/TempFiles/report.html",
             seed_session_id="search-pro",
             status="started",
             report_mode="seed_preview",
             pid=12345,
-            log_path="F:/AI playground/TempFiles/report.log",
+            log_path="C:/Example workspace/TempFiles/report.log",
             expanded_sources=["openalex"],
             deduped_paper_count=1,
         )
@@ -266,13 +267,13 @@ class MCPServerTests(unittest.TestCase):
 
     def test_generate_search_report_starts_background_job(self):
         fake = mcp_server.report_bridge.ReportJob(
-            report_path="F:/AI playground/TempFiles/report.html",
-            file_url="file:///F:/AI%20playground/TempFiles/report.html",
+            report_path="C:/Example workspace/TempFiles/report.html",
+            file_url="file:///C:/Example%20workspace/TempFiles/report.html",
             seed_session_id="search-test",
             status="started",
             report_mode="seed_preview",
             pid=12345,
-            log_path="F:/AI playground/TempFiles/report.log",
+            log_path="C:/Example workspace/TempFiles/report.log",
             expanded_sources=["openalex"],
             deduped_paper_count=12,
         )
@@ -292,7 +293,7 @@ class MCPServerTests(unittest.TestCase):
         self.assertIn("Report Mode: `seed_preview`", result)
         self.assertIn("not the full paper-search-pro workflow", result)
         self.assertIn("[打开 HTML 报告]", result)
-        self.assertIn("file:///F:/AI%20playground/TempFiles/report.html", result)
+        self.assertIn("file:///C:/Example%20workspace/TempFiles/report.html", result)
         self.assertIn("report.html", result)
         self.assertIn("report.log", result)
         self.assertIn("search-test", result)
@@ -310,7 +311,7 @@ class MCPServerTests(unittest.TestCase):
             seed_session_id="search-test",
             status="handoff_required",
             report_mode="full",
-            handoff_path="F:/AI playground/TempFiles/handoff/instructions.md",
+            handoff_path="C:/Example workspace/TempFiles/handoff/instructions.md",
             expanded_sources=["openalex"],
             deduped_paper_count=12,
         )
@@ -340,9 +341,9 @@ class MCPServerTests(unittest.TestCase):
             seed_session_id="search-theme",
             status="theme_postprocess_required",
             report_mode="seed_preview",
-            materialized_dir="F:/AI playground/TempFiles/materialized",
-            theme_postprocess_request_path="F:/AI playground/TempFiles/materialized/theme_postprocess_request.json",
-            theme_postprocess_result_path="F:/AI playground/TempFiles/materialized/theme_postprocess_result.json",
+            materialized_dir="C:/Example workspace/TempFiles/materialized",
+            theme_postprocess_request_path="C:/Example workspace/TempFiles/materialized/theme_postprocess_request.json",
+            theme_postprocess_result_path="C:/Example workspace/TempFiles/materialized/theme_postprocess_result.json",
             user_query="联邦学习 医院",
             language="zh",
             deduped_paper_count=12,
@@ -370,9 +371,9 @@ class MCPServerTests(unittest.TestCase):
             seed_session_id="search-rcs",
             status="rcs_classification_required",
             report_mode="seed_classified",
-            materialized_dir="F:/AI playground/TempFiles/materialized",
-            rcs_classification_request_path="F:/AI playground/TempFiles/materialized/rcs_classification_request.json",
-            rcs_classification_result_path="F:/AI playground/TempFiles/materialized/rcs_classification_result.json",
+            materialized_dir="C:/Example workspace/TempFiles/materialized",
+            rcs_classification_request_path="C:/Example workspace/TempFiles/materialized/rcs_classification_request.json",
+            rcs_classification_result_path="C:/Example workspace/TempFiles/materialized/rcs_classification_result.json",
             user_query="graph neural network",
             language="en",
             deduped_paper_count=12,
@@ -401,9 +402,9 @@ class MCPServerTests(unittest.TestCase):
             seed_session_id="search-theme",
             status="theme_postprocess_required",
             report_mode="seed_preview",
-            materialized_dir="F:/AI playground/TempFiles/materialized",
-            theme_postprocess_request_path="F:/AI playground/TempFiles/materialized/theme_postprocess_request.json",
-            theme_postprocess_result_path="F:/AI playground/TempFiles/materialized/theme_postprocess_result.json",
+            materialized_dir="C:/Example workspace/TempFiles/materialized",
+            theme_postprocess_request_path="C:/Example workspace/TempFiles/materialized/theme_postprocess_request.json",
+            theme_postprocess_result_path="C:/Example workspace/TempFiles/materialized/theme_postprocess_result.json",
             user_query="联邦学习 医院",
             language="zh",
             deduped_paper_count=12,
@@ -443,9 +444,9 @@ class MCPServerTests(unittest.TestCase):
             seed_session_id="search-rcs",
             status="rcs_classification_required",
             report_mode="seed_classified",
-            materialized_dir="F:/AI playground/TempFiles/materialized",
-            rcs_classification_request_path="F:/AI playground/TempFiles/materialized/rcs_classification_request.json",
-            rcs_classification_result_path="F:/AI playground/TempFiles/materialized/rcs_classification_result.json",
+            materialized_dir="C:/Example workspace/TempFiles/materialized",
+            rcs_classification_request_path="C:/Example workspace/TempFiles/materialized/rcs_classification_request.json",
+            rcs_classification_result_path="C:/Example workspace/TempFiles/materialized/rcs_classification_result.json",
             user_query="graph neural network",
             language="en",
             deduped_paper_count=12,
@@ -480,14 +481,14 @@ class MCPServerTests(unittest.TestCase):
 
     def test_apply_theme_postprocess_result_returns_rendered_report_message(self):
         fake = mcp_server.report_bridge.ReportResult(
-            report_path="F:/AI playground/TempFiles/report.html",
-            file_url="file:///F:/AI%20playground/TempFiles/report.html",
+            report_path="C:/Example workspace/TempFiles/report.html",
+            file_url="file:///C:/Example%20workspace/TempFiles/report.html",
             seed_session_id="search-theme",
             report_mode="seed_preview",
             status="completed",
-            materialized_dir="F:/AI playground/TempFiles/materialized",
-            theme_postprocess_request_path="F:/AI playground/TempFiles/materialized/theme_postprocess_request.json",
-            theme_postprocess_result_path="F:/AI playground/TempFiles/materialized/theme_postprocess_result.json",
+            materialized_dir="C:/Example workspace/TempFiles/materialized",
+            theme_postprocess_request_path="C:/Example workspace/TempFiles/materialized/theme_postprocess_request.json",
+            theme_postprocess_result_path="C:/Example workspace/TempFiles/materialized/theme_postprocess_result.json",
         )
         with mock.patch.object(mcp_server.report_bridge, "apply_theme_postprocess_and_render", return_value=fake):
             result = asyncio.run(
@@ -507,14 +508,14 @@ class MCPServerTests(unittest.TestCase):
 
     def test_apply_rcs_classification_result_returns_rendered_report_message(self):
         fake = mcp_server.report_bridge.ReportResult(
-            report_path="F:/AI playground/TempFiles/report.html",
-            file_url="file:///F:/AI%20playground/TempFiles/report.html",
+            report_path="C:/Example workspace/TempFiles/report.html",
+            file_url="file:///C:/Example%20workspace/TempFiles/report.html",
             seed_session_id="search-rcs",
             report_mode="seed_classified",
             status="completed",
-            materialized_dir="F:/AI playground/TempFiles/materialized",
-            rcs_classification_request_path="F:/AI playground/TempFiles/materialized/rcs_classification_request.json",
-            rcs_classification_result_path="F:/AI playground/TempFiles/materialized/rcs_classification_result.json",
+            materialized_dir="C:/Example workspace/TempFiles/materialized",
+            rcs_classification_request_path="C:/Example workspace/TempFiles/materialized/rcs_classification_request.json",
+            rcs_classification_result_path="C:/Example workspace/TempFiles/materialized/rcs_classification_result.json",
         )
         with mock.patch.object(mcp_server.report_bridge, "apply_rcs_classification_and_render", return_value=fake):
             result = asyncio.run(
@@ -543,9 +544,9 @@ class MCPServerTests(unittest.TestCase):
             seed_session_id="search-full-theme",
             status="theme_postprocess_required",
             report_mode="full",
-            materialized_dir="F:/AI playground/TempFiles/materialized",
-            theme_postprocess_request_path="F:/AI playground/TempFiles/materialized/theme_postprocess_request.json",
-            theme_postprocess_result_path="F:/AI playground/TempFiles/materialized/theme_postprocess_result.json",
+            materialized_dir="C:/Example workspace/TempFiles/materialized",
+            theme_postprocess_request_path="C:/Example workspace/TempFiles/materialized/theme_postprocess_request.json",
+            theme_postprocess_result_path="C:/Example workspace/TempFiles/materialized/theme_postprocess_result.json",
             user_query="核物理治疗方法",
             language="zh",
             deduped_paper_count=50,
@@ -572,9 +573,9 @@ class MCPServerTests(unittest.TestCase):
             seed_session_id="search-full-theme",
             status="theme_postprocess_required",
             report_mode="full",
-            materialized_dir="F:/AI playground/TempFiles/materialized",
-            theme_postprocess_request_path="F:/AI playground/TempFiles/materialized/theme_postprocess_request.json",
-            theme_postprocess_result_path="F:/AI playground/TempFiles/materialized/theme_postprocess_result.json",
+            materialized_dir="C:/Example workspace/TempFiles/materialized",
+            theme_postprocess_request_path="C:/Example workspace/TempFiles/materialized/theme_postprocess_request.json",
+            theme_postprocess_result_path="C:/Example workspace/TempFiles/materialized/theme_postprocess_result.json",
             user_query="核物理治疗方法",
             language="zh",
             deduped_paper_count=50,
@@ -608,13 +609,13 @@ class MCPServerTests(unittest.TestCase):
 
     def test_generate_search_report_accepts_query_title_alias_and_infers_chinese(self):
         fake = mcp_server.report_bridge.ReportJob(
-            report_path="F:/AI playground/TempFiles/report.html",
-            file_url="file:///F:/AI%20playground/TempFiles/report.html",
+            report_path="C:/Example workspace/TempFiles/report.html",
+            file_url="file:///C:/Example%20workspace/TempFiles/report.html",
             seed_session_id="search-test",
             status="started",
             report_mode="seed_preview",
             pid=12345,
-            log_path="F:/AI playground/TempFiles/report.log",
+            log_path="C:/Example workspace/TempFiles/report.log",
             expanded_sources=["openalex"],
             deduped_paper_count=12,
         )
@@ -873,7 +874,7 @@ class MCPServerTests(unittest.TestCase):
         self.assertEqual(fake_fetcher.fetch.call_args.kwargs["filename_policy"], "")
 
     def test_download_cnki_artifact_materializes_local_file_without_network(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             source = Path(tmp) / "source.caj"
             source.write_bytes(b"caj-content")
             config = SimpleNamespace(
@@ -901,7 +902,7 @@ class MCPServerTests(unittest.TestCase):
             self.assertIn("钙钛矿太阳能电池稳定性研究 - 张三.caj", result)
 
     def test_download_cnki_artifact_accepts_filename_policy_override(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             source = Path(tmp) / "source.caj"
             source.write_bytes(b"caj-content")
             config = SimpleNamespace(
@@ -1056,7 +1057,7 @@ class MCPServerTests(unittest.TestCase):
                                 "title": "知网论文",
                                 "source": "cnki",
                                 "source_url": "https://kns.cnki.net/kcms2/article/abstract?filename=ABC123",
-                                "local_file": "F:/AI playground/TempFiles/知网论文.caj",
+                                "local_file": "C:/Example workspace/TempFiles/知网论文.caj",
                                 "download_format": "caj",
                                 "result_type": "downloaded_caj",
                             }
@@ -1067,13 +1068,13 @@ class MCPServerTests(unittest.TestCase):
                 encoding="utf-8",
             )
             fake = mcp_server.report_bridge.ReportJob(
-                report_path="F:/AI playground/TempFiles/report.html",
-                file_url="file:///F:/AI%20playground/TempFiles/report.html",
+                report_path="C:/Example workspace/TempFiles/report.html",
+                file_url="file:///C:/Example%20workspace/TempFiles/report.html",
                 seed_session_id="search-restored",
                 status="started",
                 report_mode="seed_preview",
                 pid=12345,
-                log_path="F:/AI playground/TempFiles/report.log",
+                log_path="C:/Example workspace/TempFiles/report.log",
                 expanded_sources=["cnki"],
                 deduped_paper_count=1,
             )
@@ -1156,13 +1157,13 @@ class MCPServerTests(unittest.TestCase):
                 encoding="utf-8",
             )
             fake = mcp_server.report_bridge.ReportJob(
-                report_path="F:/AI playground/TempFiles/report.html",
-                file_url="file:///F:/AI%20playground/TempFiles/report.html",
+                report_path="C:/Example workspace/TempFiles/report.html",
+                file_url="file:///C:/Example%20workspace/TempFiles/report.html",
                 seed_session_id="search-restored",
                 status="started",
                 report_mode="seed_preview",
                 pid=12345,
-                log_path="F:/AI playground/TempFiles/report.log",
+                log_path="C:/Example workspace/TempFiles/report.log",
                 expanded_sources=["cnki"],
                 deduped_paper_count=1,
             )
@@ -1240,7 +1241,7 @@ class MCPServerTests(unittest.TestCase):
           </tr>
         </table>
         """
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             with mock.patch.object(mcp_server.Config, "load", return_value=SimpleNamespace(cache_dir=tmp)):
                 result = asyncio.run(
                     mcp_server.search_cnki_from_html(

@@ -1,14 +1,21 @@
 from __future__ import annotations
 
 import json
+import tempfile
 from pathlib import Path
 import unittest
 
+from tests.temp_helpers import get_temp_parent
 from tests.test_theme_clustering_compact_alias_index import load_paper_search_pro_theme_clustering
 from vpnsci_sustech import theme_clustering
 
 
 class ThemeClusteringAmbiguousAliasCandidateTests(unittest.TestCase):
+    def setUp(self) -> None:
+        tmp = tempfile.TemporaryDirectory(dir=get_temp_parent())
+        self.addCleanup(tmp.cleanup)
+        self.root = Path(tmp.name)
+
     def _candidate_layer(self) -> dict[str, list[dict]]:
         return {
             "zh:网络攻击": [
@@ -54,7 +61,7 @@ class ThemeClusteringAmbiguousAliasCandidateTests(unittest.TestCase):
         }
 
     def test_missing_candidate_index_loads_as_empty_layer(self) -> None:
-        missing = Path(r"F:\AI playground\TempFiles\missing_theme_ambiguous_alias_candidates.json")
+        missing = self.root / "missing_theme_ambiguous_alias_candidates.json"
 
         self.assertEqual(theme_clustering._load_theme_ambiguous_alias_candidates(index_path=missing), {})
 
@@ -127,7 +134,7 @@ class ThemeClusteringAmbiguousAliasCandidateTests(unittest.TestCase):
         self.assertEqual(matches[0]["candidates"][0]["concept_id"], "concept:automatic_gain_control")
 
     def test_loads_candidate_index_from_compact_json_shape(self) -> None:
-        path = Path(r"F:\AI playground\TempFiles\theme_ambiguous_alias_fixture.json")
+        path = self.root / "theme_ambiguous_alias_fixture.json"
         path.write_text(
             json.dumps(
                 {
@@ -151,7 +158,7 @@ class ThemeClusteringAmbiguousAliasCandidateTests(unittest.TestCase):
         self.assertEqual(loaded["zh:网络攻击"][0]["concept_id"], "concept:cyber_attack")
 
     def test_rejects_unsupported_candidate_index_schema_or_status(self) -> None:
-        path = Path(r"F:\AI playground\TempFiles\theme_ambiguous_alias_bad_fixture.json")
+        path = self.root / "theme_ambiguous_alias_bad_fixture.json"
         base_payload = {
             "schema_version": "theme_concept_ambiguous_alias_candidates.v1",
             "build_status": "review_complete",
@@ -182,7 +189,7 @@ class ThemeClusteringAmbiguousAliasCandidateTests(unittest.TestCase):
 
     def test_paper_search_pro_rejects_unsupported_candidate_index_schema_or_status(self) -> None:
         module = load_paper_search_pro_theme_clustering()
-        path = Path(r"F:\AI playground\TempFiles\tool_theme_ambiguous_alias_bad_fixture.json")
+        path = self.root / "tool_theme_ambiguous_alias_bad_fixture.json"
         base_payload = {
             "schema_version": "theme_concept_ambiguous_alias_candidates.v1",
             "build_status": "review_complete",
@@ -213,7 +220,7 @@ class ThemeClusteringAmbiguousAliasCandidateTests(unittest.TestCase):
 
     def test_paper_search_pro_runtime_loads_missing_candidate_index_as_empty_layer(self) -> None:
         module = load_paper_search_pro_theme_clustering()
-        missing = Path(r"F:\AI playground\TempFiles\missing_tool_theme_ambiguous_alias_candidates.json")
+        missing = self.root / "missing_tool_theme_ambiguous_alias_candidates.json"
 
         self.assertEqual(module._load_theme_ambiguous_alias_candidates(index_path=missing), {})
 

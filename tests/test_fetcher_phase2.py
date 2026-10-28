@@ -5,6 +5,7 @@ import unittest
 from pathlib import Path
 from unittest import mock
 
+from tests.temp_helpers import get_temp_parent
 from vpnsci_sustech.fetcher import PaperFetcher
 from vpnsci_sustech.models import Paper
 from vpnsci_sustech.sources.search_models import SearchHit
@@ -15,11 +16,6 @@ class _Cfg:
     webvpn_base_url = ""
     carsi_enabled = True
     carsi_idp_name = "Southern University of Science and Technology"
-    output_dir = "F:/AI playground/TempFiles"
-    cache_dir = "F:/AI playground/TempFiles"
-    cookie_path = "F:/AI playground/TempFiles/cookies.json"
-    chrome_profile_dir = "F:/AI playground/TempFiles/chrome-profile"
-    carsi_cookie_dir = "F:/AI playground/TempFiles/carsi-cookies"
     request_delay_min = 2.0
     request_delay_max = 5.0
     email = ""
@@ -33,13 +29,25 @@ class _Cfg:
     paper_filename_max_length = 180
     paper_filename_collision = "hash"
 
+    def __init__(self, root: Path):
+        self.output_dir = str(root / "papers")
+        self.cache_dir = str(root / "cache")
+        self.cookie_path = str(root / "cookies.json")
+        self.chrome_profile_dir = str(root / "chrome-profile")
+        self.carsi_cookie_dir = str(root / "carsi-cookies")
+
     def ensure_dirs(self):
         return None
 
 
 class FetcherPhase2Tests(unittest.TestCase):
+    def setUp(self):
+        tmp = tempfile.TemporaryDirectory(dir=get_temp_parent())
+        self.addCleanup(tmp.cleanup)
+        self.root = Path(tmp.name)
+
     def test_fetch_from_search_hit_uses_doi_for_non_cnki_hit(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
         expected = Paper(doi="10.1234/example", title="Known", source="open_access", full_text="body" * 300)
         fetcher.fetch = mock.Mock(return_value=expected)
         hit = SearchHit(title="Known", doi="10.1234/example", hit_key="doi:10.1234/example", source="openalex")
@@ -55,8 +63,8 @@ class FetcherPhase2Tests(unittest.TestCase):
         )
 
     def test_fetch_from_search_hit_uses_cnki_materialization_for_local_file(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
-            fetcher = PaperFetcher(_Cfg())
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
+            fetcher = PaperFetcher(_Cfg(self.root))
             source = Path(tmp) / "paper.caj"
             source.write_bytes(b"caj-content")
             fake_artifact = mock.Mock(path=str(source), format="caj", text_extracted=False, note="")
@@ -78,8 +86,8 @@ class FetcherPhase2Tests(unittest.TestCase):
             materialize_mock.assert_called_once()
 
     def test_fetch_from_search_hit_can_continue_cnki_live_download_from_source_url(self):
-        fetcher = PaperFetcher(_Cfg())
-        fake_artifact = mock.Mock(path="F:/AI playground/TempFiles/paper.pdf", format="pdf", text_extracted=True, note="")
+        fetcher = PaperFetcher(_Cfg(self.root))
+        fake_artifact = mock.Mock(path="C:/Example workspace/TempFiles/paper.pdf", format="pdf", text_extracted=True, note="")
         hit = SearchHit(
             title="知网论文",
             authors=["张三"],
@@ -98,7 +106,7 @@ class FetcherPhase2Tests(unittest.TestCase):
         download_mock.assert_called_once()
 
     def test_fetch_rejects_cnki_url_in_main_kernel(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
 
         result = fetcher.fetch("https://kns.cnki.net/kcms2/article/abstract?filename=ABC123", use_cache=False)
 
@@ -107,8 +115,8 @@ class FetcherPhase2Tests(unittest.TestCase):
         self.assertEqual(result.full_text, "")
 
     def test_save_artifact_title_author_policy_uses_metadata_filename(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
-            cfg = _Cfg()
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
+            cfg = _Cfg(self.root)
             cfg.output_dir = tmp
             cfg.paper_filename_policy = "title_author"
             fetcher = PaperFetcher(cfg)
@@ -125,8 +133,8 @@ class FetcherPhase2Tests(unittest.TestCase):
             self.assertEqual(Path(path).read_bytes(), b"%PDF-1.4")
 
     def test_save_artifact_records_artifact_metadata(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
-            cfg = _Cfg()
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
+            cfg = _Cfg(self.root)
             cfg.output_dir = tmp
             fetcher = PaperFetcher(cfg)
             paper = Paper(doi="10.1038/nphys1509", title="Known Paper")
@@ -146,8 +154,8 @@ class FetcherPhase2Tests(unittest.TestCase):
             self.assertTrue(paper.artifacts[0].text_extracted)
 
     def test_save_artifact_identifier_policy_preserves_overwrite_compatibility(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
-            cfg = _Cfg()
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
+            cfg = _Cfg(self.root)
             cfg.output_dir = tmp
             cfg.paper_filename_policy = "identifier"
             fetcher = PaperFetcher(cfg)
@@ -161,8 +169,8 @@ class FetcherPhase2Tests(unittest.TestCase):
             self.assertEqual(Path(second).read_bytes(), b"new")
 
     def test_direct_html_followed_pdf_uses_title_author_policy_when_requested(self):
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
-            cfg = _Cfg()
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
+            cfg = _Cfg(self.root)
             cfg.output_dir = tmp
             cfg.paper_filename_policy = "title_author"
             fetcher = PaperFetcher(cfg)
@@ -196,7 +204,7 @@ class FetcherPhase2Tests(unittest.TestCase):
             self.assertEqual(Path(result.pdf_path).name, "Support-vector networks - Cortes.pdf")
 
     def test_fetch_applies_explicit_filename_policy_override(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
         expected = Paper(
             doi="10.1007/BF00994018",
             title="Support-vector networks",
@@ -218,14 +226,14 @@ class FetcherPhase2Tests(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_browser_capture_gate_supports_sciencedirect_springer_wiley(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
         self.assertTrue(fetcher._should_try_browser_capture("https://www.sciencedirect.com/science/article/pii/S123"))
         self.assertTrue(fetcher._should_try_browser_capture("https://link.springer.com/article/10.1007/BF00994018"))
         self.assertTrue(fetcher._should_try_browser_capture("https://onlinelibrary.wiley.com/doi/10.1111/j.2517-6161.1996.tb02080.x"))
         self.assertFalse(fetcher._should_try_browser_capture("https://arxiv.org/abs/1706.03762"))
 
     def test_carsi_pdf_falls_back_to_browser_for_supported_sites(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
         paper = Paper(doi="10.1007/BF00994018", url="https://link.springer.com/article/10.1007/BF00994018")
 
         class _Resp:
@@ -249,19 +257,19 @@ class FetcherPhase2Tests(unittest.TestCase):
         self.assertTrue(result.full_text.startswith("%PDF") or len(result.full_text) >= 0)
 
     def test_pdf_capture_response_filter_is_not_ieee_specific(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
         self.assertTrue(fetcher._is_browser_pdf_response("https://pdf.sciencedirectassets.com/123.pdf", "application/pdf"))
         self.assertTrue(fetcher._is_browser_pdf_response("https://link.springer.com/content/pdf/10.1007/BF00994018.pdf", "application/pdf"))
         self.assertTrue(fetcher._is_browser_pdf_response("https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/anie.201410454", "application/pdf"))
         self.assertFalse(fetcher._is_browser_pdf_response("https://example.com/article", "text/html"))
 
     def test_pdf_capture_response_requires_real_pdf_mime_or_body(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
         self.assertFalse(fetcher._is_browser_pdf_response("https://www.sciencedirect.com/science/article/pii/S0169433221006001/pdfft", "text/html"))
         self.assertFalse(fetcher._is_browser_pdf_response("https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/anie.201410454", "text/html"))
 
     def test_fetch_prefers_browser_pdf_path_for_sciencedirect_before_carsi(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
         expected = Paper(
             doi="10.1016/example",
             title="SD Paper",
@@ -278,7 +286,7 @@ class FetcherPhase2Tests(unittest.TestCase):
         self.assertEqual(result.source, "browser")
 
     def test_fetch_prefers_browser_pdf_path_for_wiley_before_carsi(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
         expected = Paper(
             doi="10.1002/anie.201410454",
             title="Wiley Paper",
@@ -295,7 +303,7 @@ class FetcherPhase2Tests(unittest.TestCase):
         self.assertEqual(result.source, "browser")
 
     def test_fetch_prefers_browser_pdf_path_for_sciencedirect_url_before_carsi(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
         expected = Paper(
             doi="",
             title="SD URL Paper",
@@ -311,7 +319,7 @@ class FetcherPhase2Tests(unittest.TestCase):
         self.assertEqual(result.source, "browser")
 
     def test_fetch_prefers_direct_path_for_springer_before_proxy_auth(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
         expected = Paper(
             doi="10.1007/BF00994018",
             title="Support-vector networks",
@@ -329,7 +337,7 @@ class FetcherPhase2Tests(unittest.TestCase):
         self.assertEqual(result.source, "direct")
 
     def test_direct_html_can_follow_pdf_link_and_save_pdf(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
         paper = Paper(doi="10.1007/BF00994018", url="https://link.springer.com/article/10.1007/BF00994018")
 
         class _Resp:
@@ -361,7 +369,7 @@ class FetcherPhase2Tests(unittest.TestCase):
         self.assertGreater(len(result.full_text), len("html text"))
 
     def test_browser_pdf_download_uses_shared_chrome_session_manager(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
 
         class _Driver:
             def __init__(self):
@@ -409,7 +417,7 @@ class FetcherPhase2Tests(unittest.TestCase):
 
         fake_driver = _Driver()
         fake_manager = mock.Mock()
-        fake_manager.prepare_profile.return_value = Path(_Cfg.cache_dir) / "chrome-debug-profile"
+        fake_manager.prepare_profile.return_value = Path(fetcher.config.cache_dir) / "chrome-debug-profile"
         fake_manager.launch_browser.return_value = fake_driver
 
         with mock.patch("vpnsci_sustech.fetcher.ChromeDebugSessionManager", create=True, return_value=fake_manager) as manager_cls, \
@@ -428,11 +436,11 @@ class FetcherPhase2Tests(unittest.TestCase):
                 "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/anie.201410454",
             ],
         )
-        manager_cls.assert_called_once_with(base_dir=Path(_Cfg.cache_dir), profile_root_name="chrome-profile")
+        manager_cls.assert_called_once_with(base_dir=Path(fetcher.config.cache_dir), profile_root_name="chrome-profile")
         fake_manager.launch_browser.assert_called_once()
 
     def test_browser_pdf_download_applies_phase2_site_rate_limit(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
 
         class _Driver:
             def execute_cdp_cmd(self, method, params):
@@ -484,7 +492,7 @@ class FetcherPhase2Tests(unittest.TestCase):
         self.assertEqual(site_wait.call_args_list, [mock.call("sciencedirect"), mock.call("sciencedirect")])
 
     def test_browser_pdf_download_prefers_page_discovered_wiley_pdf_link(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
 
         class _Element:
             def __init__(self, href=None, src=None, data=None):
@@ -562,7 +570,7 @@ class FetcherPhase2Tests(unittest.TestCase):
         )
 
     def test_browser_pdf_download_prefers_sciencedirect_view_pdf_link_with_query(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
 
         class _Element:
             def __init__(self, href=None, src=None, data=None):
@@ -639,7 +647,7 @@ class FetcherPhase2Tests(unittest.TestCase):
         )
 
     def test_browser_direct_can_fallback_to_sciencedirect_article_html(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
         paper = Paper(
             doi="10.1016/j.jesit.2016.10.007",
             url="https://www.sciencedirect.com/science/article/pii/S2314717216300873",
@@ -684,7 +692,7 @@ class FetcherPhase2Tests(unittest.TestCase):
         self.assertIn("filtering antenna design", result.full_text.lower())
 
     def test_browser_article_html_can_print_sciencedirect_page_to_pdf(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
         paper = Paper(
             doi="10.1016/j.jesit.2016.10.007",
             url="https://www.sciencedirect.com/science/article/pii/S2314717216300873",
@@ -724,7 +732,7 @@ class FetcherPhase2Tests(unittest.TestCase):
         self.assertEqual(result.source, "browser+printed_pdf")
 
     def test_browser_article_html_skips_printed_pdf_when_page_is_challenge_like(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
         paper = Paper(
             doi="10.1016/j.jesit.2016.10.007",
             url="https://www.sciencedirect.com/science/article/pii/S2314717216300873",
@@ -764,7 +772,7 @@ class FetcherPhase2Tests(unittest.TestCase):
         save_artifact_mock.assert_not_called()
 
     def test_browser_article_html_generates_local_pdf_when_print_unavailable(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
         paper = Paper(
             doi="10.1016/j.jesit.2016.10.007",
             url="https://www.sciencedirect.com/science/article/pii/S2314717216300873",
@@ -806,7 +814,7 @@ class FetcherPhase2Tests(unittest.TestCase):
         save_artifact_mock.assert_called_once()
 
     def test_fetch_can_return_sciencedirect_browser_article_html_before_auth_paths(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
         expected = Paper(
             doi="10.1016/j.jesit.2016.10.007",
             title="Filtering antenna with radiation and filtering functions for wireless applications",
@@ -824,7 +832,7 @@ class FetcherPhase2Tests(unittest.TestCase):
         self.assertGreater(len(result.full_text), 1000)
 
     def test_resolve_doi_canonicalizes_elsevier_linkinghub_url(self):
-        fetcher = PaperFetcher(_Cfg())
+        fetcher = PaperFetcher(_Cfg(self.root))
 
         class _Resp:
             status_code = 200

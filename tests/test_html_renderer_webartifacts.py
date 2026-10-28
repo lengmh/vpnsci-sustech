@@ -34,7 +34,7 @@ except Exception:
 
 class WritableTemporaryDirectory:
     def __enter__(self):
-        self._base = Path(os.environ.get("VPN_SCI_TEST_TMP", "F:/AI playground/TempFiles"))
+        self._base = Path(os.environ.get("VPN_SCI_TEST_TMP", tempfile.gettempdir()))
         self._base.mkdir(parents=True, exist_ok=True)
         self._tmp = tempfile.TemporaryDirectory(dir=self._base)
         return self._tmp.__enter__()

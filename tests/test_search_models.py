@@ -111,7 +111,7 @@ class SearchModelsTests(unittest.TestCase):
             hit_key="cnki:ABC123",
             source_url="https://kns.cnki.net/kcms2/article/abstract?filename=ABC123",
             download_format="caj",
-            local_file="F:/AI playground/TempFiles/source.caj",
+            local_file="C:/Example workspace/TempFiles/source.caj",
             result_type="journal",
             dbcode="CJFD",
             dbname="中国学术期刊网络出版总库",
@@ -124,7 +124,7 @@ class SearchModelsTests(unittest.TestCase):
         self.assertEqual(merged.hit_key, "cnki:ABC123")
         self.assertEqual(merged.source_url, "https://kns.cnki.net/kcms2/article/abstract?filename=ABC123")
         self.assertEqual(merged.download_format, "caj")
-        self.assertEqual(merged.local_file, "F:/AI playground/TempFiles/source.caj")
+        self.assertEqual(merged.local_file, "C:/Example workspace/TempFiles/source.caj")
         self.assertEqual(merged.result_type, "journal")
         self.assertEqual(merged.dbcode, "CJFD")
         self.assertEqual(merged.dbname, "中国学术期刊网络出版总库")
@@ -147,7 +147,7 @@ class SearchModelsTests(unittest.TestCase):
             cnki_id="ABC123",
             source_url="https://kns.cnki.net/kcms2/article/abstract?v=x",
             download_format="caj",
-            local_file="F:/AI playground/TempFiles/知网论文.caj",
+            local_file="C:/Example workspace/TempFiles/知网论文.caj",
             result_type="学位论文",
         )
 

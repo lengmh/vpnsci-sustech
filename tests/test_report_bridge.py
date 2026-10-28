@@ -41,8 +41,8 @@ class ReportBridgeTests(unittest.TestCase):
         self.assertEqual(normalize_report_mode("seed-classified"), "seed_classified")
 
     def test_render_command_supports_paths_with_spaces_and_optional_quotes(self):
-        seed = Path(r"F:\AI playground\TempFiles\seed.json")
-        out = Path(r"F:\AI playground\TempFiles\reports")
+        seed = Path(r"C:\Example workspace\TempFiles\seed.json")
+        out = Path(r"C:\Example workspace\TempFiles\reports")
 
         unquoted = _render_command(
             "python fake_runner.py --seed {seed_json} --output {output_dir} --mode {mode}",
@@ -451,7 +451,7 @@ class ReportBridgeTests(unittest.TestCase):
                         cnki_id="ABC123",
                         source_url="https://kns.cnki.net/kcms2/article/abstract?filename=ABC123",
                         download_format="caj",
-                        local_file="F:/AI playground/TempFiles/source.caj",
+                        local_file="C:/Example workspace/TempFiles/source.caj",
                         result_type="journal",
                         source="cnki",
                         backend="cnki",

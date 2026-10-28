@@ -6,6 +6,7 @@ import json
 
 from typer.testing import CliRunner
 
+from tests.temp_helpers import get_temp_parent
 from vpnsci_sustech import cli
 from vpnsci_sustech.models import Paper
 from vpnsci_sustech.sources import cnki
@@ -15,7 +16,7 @@ from vpnsci_sustech.sources.search_cache import load_session
 class CnkiCliTests(unittest.TestCase):
     def test_cnki_download_materializes_local_file_without_network(self):
         runner = CliRunner()
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             source = Path(tmp) / "source.cajx"
             source.write_bytes(b"cajx-content")
             config = cli.Config(
@@ -47,7 +48,7 @@ class CnkiCliTests(unittest.TestCase):
 
     def test_cnki_download_filename_policy_overrides_config(self):
         runner = CliRunner()
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             source = Path(tmp) / "source.caj"
             source.write_bytes(b"caj-content")
             config = cli.Config(
@@ -113,7 +114,7 @@ class CnkiCliTests(unittest.TestCase):
 
     def test_cnki_download_live_warns_that_manual_captcha_may_be_required(self):
         runner = CliRunner()
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             config = cli.Config(output_dir=str(Path(tmp) / "out"), cache_dir=tmp)
             fake_artifact = mock.Mock(
                 path="out/paper.pdf",
@@ -142,7 +143,7 @@ class CnkiCliTests(unittest.TestCase):
 
     def test_cnki_batch_download_uses_throttle_and_resume_state(self):
         runner = CliRunner()
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             input_file = Path(tmp) / "cnki-batch.jsonl"
             input_file.write_text(
                 "\n".join(
@@ -202,7 +203,7 @@ class CnkiCliTests(unittest.TestCase):
 
     def test_report_recover_from_sidecar_restores_session_and_starts_report(self):
         runner = CliRunner()
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cache_dir = Path(tmp)
             sidecar_dir = cache_dir / "download-workflows"
             sidecar_dir.mkdir(parents=True, exist_ok=True)
@@ -222,7 +223,7 @@ class CnkiCliTests(unittest.TestCase):
                                 "authors": ["张三"],
                                 "source": "cnki",
                                 "source_url": "https://kns.cnki.net/kcms2/article/abstract?filename=ABC123",
-                                "local_file": "F:/AI playground/TempFiles/知网论文.caj",
+                                "local_file": "C:/Example workspace/TempFiles/知网论文.caj",
                                 "download_format": "caj",
                                 "result_type": "downloaded_caj",
                             }
@@ -236,7 +237,7 @@ class CnkiCliTests(unittest.TestCase):
             fake_job = mock.Mock(
                 status="started",
                 seed_session_id="search-restored",
-                report_path="F:/AI playground/TempFiles/report.html",
+                report_path="C:/Example workspace/TempFiles/report.html",
                 deduped_paper_count=1,
             )
 
@@ -250,7 +251,7 @@ class CnkiCliTests(unittest.TestCase):
 
     def test_report_recover_can_use_explicit_legacy_report_json(self):
         runner = CliRunner()
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             materialized = Path(tmp) / "materialized"
             materialized.mkdir(parents=True, exist_ok=True)
             report_json = materialized / "report_data.json"
@@ -286,7 +287,7 @@ class CnkiCliTests(unittest.TestCase):
             fake_job = mock.Mock(
                 status="started",
                 seed_session_id="search-restored",
-                report_path="F:/AI playground/TempFiles/report.html",
+                report_path="C:/Example workspace/TempFiles/report.html",
                 deduped_paper_count=1,
             )
 
@@ -311,7 +312,7 @@ class CnkiCliTests(unittest.TestCase):
 
     def test_report_seed_classified_status_tells_user_rcs_classification_is_required(self):
         runner = CliRunner()
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             config = cli.Config(cache_dir=tmp)
             fake_job = mock.Mock(
                 status="rcs_classification_required",
@@ -335,7 +336,7 @@ class CnkiCliTests(unittest.TestCase):
 
     def test_search_backend_cnki_saves_gated_session_without_network(self):
         runner = CliRunner()
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             config = cli.Config(cache_dir=tmp)
             with mock.patch.object(cli.Config, "load", return_value=config):
                 result = runner.invoke(cli.app, ["search", "钙钛矿", "--backend", "cnki"])
@@ -355,8 +356,13 @@ class CnkiCliTests(unittest.TestCase):
 
     def test_fetch_hit_can_continue_from_cnki_session_hit(self):
         runner = CliRunner()
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
-            config = cli.Config(cache_dir=tmp)
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
+            config = cli.Config(
+                cache_dir=tmp, output_dir=str(Path(tmp) / "papers"),
+                cookie_path=str(Path(tmp) / "cookies.json"),
+                chrome_profile_dir=str(Path(tmp) / "chrome-profile"),
+                carsi_cookie_dir=str(Path(tmp) / "carsi-cookies"),
+            )
             session = load_session(
                 cnki.search_cnki_from_html(
                     "钙钛矿",
@@ -420,7 +426,7 @@ class CnkiCliTests(unittest.TestCase):
 
     def test_cnki_detail_parses_html_file_without_network(self):
         runner = CliRunner()
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             html_file = Path(tmp) / "detail.html"
             html_file.write_text(
                 """
@@ -459,7 +465,7 @@ class CnkiCliTests(unittest.TestCase):
 
     def test_cnki_search_html_parses_file_without_network(self):
         runner = CliRunner()
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             html_file = Path(tmp) / "search.html"
             html_file.write_text(
                 """

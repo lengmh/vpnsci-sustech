@@ -1,0 +1,29 @@
+name: Portable paths
+on:
+  pull_request:
+    paths:
+      - 'tests/**'
+      - 'scripts/refresh_report_frontend.ps1'
+      - 'tools/theme-lexicon/audit_remaining_concepts_for_curation.py'
+      - '.github/workflows/portable-paths.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install existing project tooling and locked dependencies
+        run: |
+          python -m pip install uv==0.12.23
+          uv sync --frozen --group dev
+      - name: PowerShell temporary-file ownership regression
+        shell: pwsh
+        run: ./tests/test_refresh_report_frontend.ps1
+      - name: Main project suite (including unchanged Edge DOM tests)
+        run: uv run --frozen pytest tests -q -o faulthandler_timeout=30
