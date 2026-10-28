@@ -5,6 +5,7 @@ from unittest import mock
 import json
 
 from typer.testing import CliRunner
+from rich.console import Console
 
 from tests.temp_helpers import get_temp_parent
 from vpnsci_sustech import cli
@@ -14,6 +15,12 @@ from vpnsci_sustech.sources.search_cache import load_session
 
 
 class CnkiCliTests(unittest.TestCase):
+    def setUp(self):
+        # These checks cover CLI content, not wrapping at a host terminal's width.
+        patcher = mock.patch.object(cli, "console", Console(width=240))
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
     def test_cnki_download_materializes_local_file_without_network(self):
         runner = CliRunner()
         with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:

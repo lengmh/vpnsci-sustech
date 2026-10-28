@@ -5,8 +5,8 @@
 
 本项目继续继承全局 Codex/Claude 安全规则，尤其是：
 
-- 临时文件、测试中间产物、一次性脚本输出放到
-  `F:\AI playground\TempFiles`。
+- 临时文件、测试中间产物、一次性脚本输出使用当前环境的系统临时目录，
+  或调用方显式指定的可写目录；保留测试环境变量覆盖，仅清理自己创建的临时文件。
 - Python / pytest / 脚本执行优先用当前项目环境：
   `uv run python ...`、`uv run pytest ...`。
 - 不要裸跑 `python` / `pytest`，除非已确认指向当前 `.venv`。
@@ -3045,7 +3045,7 @@ uv run python tools/theme-lexicon/materialize_runtime_overlay.py `
 - 涉及哪些关键文件。
 - 跑了哪些验证，给出命令和结果。
 - 当前风险 / 未完成项 / 下一步。
-- 若产生临时文件，说明它们在 `F:\AI playground\TempFiles`，可按需清理。
+- 若产生临时文件，说明实际目录及保留/清理状态；不要把一次性路径或私人流水写入公开文档。
 
 注意：
 
