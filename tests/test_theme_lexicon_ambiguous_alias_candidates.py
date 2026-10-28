@@ -12,7 +12,7 @@ from tests.temp_helpers import select_temp_parent
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT_PATH = REPO_ROOT / "tools" / "theme-lexicon" / "build_ambiguous_alias_candidates.py"
-TEMP_ROOT = Path(os.environ.get("VPNSCI_TEST_TMP", r"F:\AI playground\TempFiles"))
+TEMP_ROOT = Path(os.environ.get("VPNSCI_TEST_TMP", tempfile.gettempdir()))
 AMBIGUOUS_CANDIDATES_PATH = REPO_ROOT / "vpnsci_sustech" / "data" / "theme_concept_ambiguous_alias_candidates.json"
 AMBIGUOUS_MANIFEST_PATH = REPO_ROOT / "vpnsci_sustech" / "data" / "theme_concept_ambiguous_alias_manifest.json"
 RUNTIME_ALIAS_INDEX_PATH = REPO_ROOT / "vpnsci_sustech" / "data" / "theme_concept_alias_index.json"

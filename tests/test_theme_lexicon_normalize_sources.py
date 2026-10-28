@@ -13,7 +13,7 @@ from tests.temp_helpers import select_temp_parent
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT_PATH = REPO_ROOT / "tools" / "theme-lexicon" / "normalize_sources.py"
-TEMP_ROOT = Path(os.environ.get("VPNSCI_TEST_TMP", r"F:\AI playground\TempFiles"))
+TEMP_ROOT = Path(os.environ.get("VPNSCI_TEST_TMP", tempfile.gettempdir()))
 
 
 def load_module():

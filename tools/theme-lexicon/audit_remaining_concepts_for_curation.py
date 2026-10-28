@@ -13,6 +13,7 @@ from datetime import date
 import json
 from pathlib import Path
 import re
+import tempfile
 from typing import Any
 
 from query_alias_index import normalize_alias
@@ -21,7 +22,7 @@ from query_alias_index import normalize_alias
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_INDEX_PATH = REPO_ROOT / "vpnsci_sustech" / "data" / "theme_concept_alias_index.json"
 DEFAULT_REVIEW_DECISIONS_PATH = REPO_ROOT / "lexicons" / "review" / "review_decisions.jsonl"
-DEFAULT_OUTPUT_DIR = Path("F:/AI playground/TempFiles")
+DEFAULT_OUTPUT_DIR = Path(tempfile.gettempdir()) / "vpnsci-sustech" / "curation-audit"
 
 COLLISION_REASON_PREFIX = "alias collision blocked"
 
@@ -394,7 +395,10 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--index-path", type=Path, default=DEFAULT_INDEX_PATH)
     parser.add_argument("--review-decisions", type=Path, default=DEFAULT_REVIEW_DECISIONS_PATH)
-    parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
+    parser.add_argument(
+        "--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR,
+        help="Directory for audit outputs (default: %(default)s)",
+    )
     parser.add_argument("--stamp", default=date.today().strftime("%Y%m%d"))
     return parser.parse_args(argv)
 

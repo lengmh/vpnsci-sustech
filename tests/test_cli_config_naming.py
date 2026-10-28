@@ -5,13 +5,14 @@ from unittest import mock
 
 from typer.testing import CliRunner
 
+from tests.temp_helpers import get_temp_parent
 from vpnsci_sustech import cli
 
 
 class CliConfigNamingTests(unittest.TestCase):
     def test_config_cmd_sets_filename_length_and_collision(self):
         runner = CliRunner()
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = cli.Config(cache_dir=tmp)
 
             with mock.patch.object(cli.Config, "load", return_value=cfg), \
@@ -34,7 +35,7 @@ class CliConfigNamingTests(unittest.TestCase):
 
     def test_config_cmd_rejects_invalid_filename_collision(self):
         runner = CliRunner()
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = cli.Config(cache_dir=tmp)
 
             with mock.patch.object(cli.Config, "load", return_value=cfg), \
@@ -55,7 +56,7 @@ class CliConfigNamingTests(unittest.TestCase):
 
     def test_config_cmd_rejects_invalid_filename_policy(self):
         runner = CliRunner()
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = cli.Config(cache_dir=tmp)
 
             with mock.patch.object(cli.Config, "load", return_value=cfg), \
@@ -79,7 +80,7 @@ class CliConfigNamingTests(unittest.TestCase):
 
     def test_config_cmd_rejects_non_positive_filename_max_length(self):
         runner = CliRunner()
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = cli.Config(cache_dir=tmp)
 
             with mock.patch.object(cli.Config, "load", return_value=cfg), \
@@ -113,7 +114,7 @@ class CliConfigNamingTests(unittest.TestCase):
 
     def test_report_tools_install_uses_configure_helper_and_prints_runtime_default(self):
         runner = CliRunner()
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = cli.Config(cache_dir=tmp)
             result_obj = self._report_tool_result(tmp)
 
@@ -130,7 +131,7 @@ class CliConfigNamingTests(unittest.TestCase):
 
     def test_config_cmd_install_report_tools_uses_same_configure_helper(self):
         runner = CliRunner()
-        with tempfile.TemporaryDirectory(dir=Path("F:/AI playground/TempFiles")) as tmp:
+        with tempfile.TemporaryDirectory(dir=get_temp_parent()) as tmp:
             cfg = cli.Config(cache_dir=tmp)
             result_obj = self._report_tool_result(tmp)
 

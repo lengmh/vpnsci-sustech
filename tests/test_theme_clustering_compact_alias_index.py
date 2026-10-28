@@ -13,7 +13,7 @@ from vpnsci_sustech import theme_clustering
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-TEMP_ROOT = Path(os.environ.get("VPNSCI_TEST_TMP", r"F:\AI playground\TempFiles"))
+TEMP_ROOT = Path(os.environ.get("VPNSCI_TEST_TMP", tempfile.gettempdir()))
 PAPER_SEARCH_PRO_THEME_CLUSTERING = REPO_ROOT / "tools" / "paper-search-pro" / "scripts" / "theme_clustering.py"
 
 

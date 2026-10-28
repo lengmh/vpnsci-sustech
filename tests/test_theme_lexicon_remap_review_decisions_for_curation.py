@@ -14,7 +14,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 REMAP_SCRIPT_PATH = REPO_ROOT / "tools" / "theme-lexicon" / "remap_review_decisions_for_curation.py"
 BUILD_SCRIPT_PATH = REPO_ROOT / "tools" / "theme-lexicon" / "apply_concept_curation_to_build.py"
 MATERIALIZE_SCRIPT_PATH = REPO_ROOT / "tools" / "theme-lexicon" / "materialize_runtime_overlay.py"
-TEMP_ROOT = Path(os.environ.get("VPNSCI_TEST_TMP", r"F:\AI playground\TempFiles"))
+TEMP_ROOT = Path(os.environ.get("VPNSCI_TEST_TMP", tempfile.gettempdir()))
 
 
 def load_script(name: str, path: Path):

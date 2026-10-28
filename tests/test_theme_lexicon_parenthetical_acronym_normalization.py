@@ -16,7 +16,7 @@ VALIDATE_SCRIPT_PATH = REPO_ROOT / "tools" / "theme-lexicon" / "validate_alias_o
 BLOCK_SCRIPT_PATH = REPO_ROOT / "tools" / "theme-lexicon" / "block_accepted_alias_conflicts.py"
 APPLY_SCRIPT_PATH = REPO_ROOT / "tools" / "theme-lexicon" / "apply_zh_review_recommendations.py"
 QUERY_SCRIPT_PATH = REPO_ROOT / "tools" / "theme-lexicon" / "query_alias_index.py"
-TEMP_ROOT = Path(os.environ.get("VPNSCI_TEST_TMP", r"F:\AI playground\TempFiles"))
+TEMP_ROOT = Path(os.environ.get("VPNSCI_TEST_TMP", tempfile.gettempdir()))
 
 
 def load_script(name: str, path: Path):

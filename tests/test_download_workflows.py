@@ -42,7 +42,7 @@ class DownloadWorkflowTests(unittest.TestCase):
                         authors=["张三"],
                         source="cnki",
                         source_url="https://kns.cnki.net/kcms2/article/abstract?filename=ABC123",
-                        local_file="F:/AI playground/TempFiles/知网论文.caj",
+                        local_file="C:/Example workspace/TempFiles/知网论文.caj",
                         download_format="caj",
                         result_type="downloaded_pdf",
                     )
