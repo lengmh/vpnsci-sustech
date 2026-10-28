@@ -344,8 +344,11 @@ dictionary match alone.
 The current manifests describe a curated production runtime, rather than the
 earlier temporary work views: 49,913 raw concepts, 49,107 curated concepts, and
 48,411 concepts with accepted Chinese aliases (98.58%). The separate candidate
-layer reaches 710 further concepts through 758 candidate aliases. Counts and
-hashes should be re-read from the tracked manifests when continuing maintenance.
+layer contains 710 target concepts through 758 candidate aliases. Of these
+targets, 14 already have deterministic Chinese aliases, leaving 696 additional
+concepts and a union of 49,107 concepts. Re-read counts and hashes from the
+tracked assets when continuing maintenance, and use a set union when calculating
+effective coverage so overlapping targets are counted once.
 
 Deterministic coverage and candidate-resolvable coverage must be reported
 separately. Effective coverage includes candidates needing report-local evidence;
