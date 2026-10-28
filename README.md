@@ -204,9 +204,9 @@ pwsh -File scripts/refresh_report_frontend.ps1
 
 ```bash
 vpnsci-sustech config-cmd \
-  --paper-search-pro-root "F:\AI playground\paper-search-pro" \
+  --paper-search-pro-root "/path/to/paper-search-pro" \
   --paper-search-pro-command "python -m paper_search_pro --seed {seed_json} --output {output_dir}" \
-  --paper-search-pro-output-dir "F:\AI playground\TempFiles\paper-search-reports"
+  --paper-search-pro-output-dir "/path/to/paper-search-reports"
 ```
 
 命令模板可使用：

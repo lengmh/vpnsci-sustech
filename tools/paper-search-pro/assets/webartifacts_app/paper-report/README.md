@@ -46,7 +46,7 @@ If you need the explicit manual chain instead of the shortcut script:
 cd tools/paper-search-pro/assets/webartifacts_app/paper-report
 npm run build
 
-$tmp = 'F:\AI playground\TempFiles\paper-report-inline-index.html'
+$tmp = Join-Path ([System.IO.Path]::GetTempPath()) 'paper-report-inline-index.html'
 ((Get-Content 'dist/index.html' -Raw -Encoding utf8) -replace '/assets/', './assets/') |
   Set-Content -LiteralPath $tmp -Encoding utf8
 .\node_modules\.bin\html-inline.cmd -i $tmp -o 'bundle.html' -b 'dist'
